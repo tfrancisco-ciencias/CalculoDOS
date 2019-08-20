@@ -78,13 +78,34 @@ li a:hover {
       <p> Cada ejercicio de la práctica debe estar acompañado de dos archivos:  .m y .txt  </p>
       <p> El archivo .m es el que se edita en MATLAB. El archivo .txt se obtiene al compilar el archivo .m </p>
 
-<h4>Notas: </h4>
-<p> Las primeras dos líneas del archivo .m son </p>
+      <h4>Notas: </h4>
+      <p> Las primeras dos líneas del archivo .m son: </p>
 
-      <div>
- <p>delete g000x00.txt; diary g000x00.txt </p>
-  <p>clear; clc; close all; echo on</p>
-  </div>
+        <div>
+          <p>delete g000x00.txt; diary g000x00.txt </p>
+          <p>clear; clc; close all; echo on</p>
+        </div>
+
+      <p> donde: </p>
+
+        <ul>
+          <li> delete: borra el contenido del archivo g000x00.txt </li>
+          <li> diary g000x00.txt:  hace que se escriba una copia de las instruciones del archivo .m en el .txt </li>
+          <li> clear: borra todas la variables en la memoria </li>
+          <li> clc: limpia la pantalla del editor </li>
+          <li> close all: cierra todas la figuras que esten abiertas </li>
+          <li> echo on: empieza a transcribir la sesión que se escribe en el .m al archivo .txt </li>
+        </ul>
+
+      <p > La última línea del archivo .m es: </p>
+
+        <ul>
+          <li> echo off: diary off (que detiene la transcripción de la sesión al archivo .m )</li>
+        </ul>
+
+
+        <p> Su trabajo (la solución de los ejercicios) va entre las dos primeras lineas y la última linea. </p>
+        <p> Se usa % para hacer comentarios. </p>
 
 <h3> Prácticas para periodo del 1er examen </h3>
 
