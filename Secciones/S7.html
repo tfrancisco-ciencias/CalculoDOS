@@ -1,0 +1,86 @@
+
+
+
+
+
+\section*{M\'as propiedades de la integral}
+
+
+\item Sea $f:[a,b]\to \mathbb{R}$ una funci\'on continua. Prueba que
+$$
+\left| \int_a^b f(x)dx \right|  \leq \int_a^b |f(x)|dx
+$$
+
+Hint: $-|f|\leq f \leq |f|$.
+
+Nota: el mismo resultado se vale si s\'olo se pide que las funcion sea integrable.
+
+
+	
+
+
+\item Si $f:[a,b] \to \mathbb{R}$ es una funci\'on continua, $f\geq 0$, tal que 
+$$
+\int_a^b f(x)dx = \max_{x\in [a,b]} 
+\{ f(x)\} (b-a)
+$$
+entonces $f$ es constante.
+
+
+
+\item\label{Ejer:DesigualdadJensen} Una funci\'on $\varphi:[a,b]\to \mathbb{R}$ se  llama convexa (o c\'oncava hacia arriba) si
+$$
+\varphi(tx_1+(1-t)x_2)\leq t \varphi(x_1)+(1-t)\varphi(x_2)
+$$
+para $x_1,x_2 \in [a.b]$ y $t\in [0,1]$.
+
+\begin{enumerate}
+
+\item Si $x_1,\dots, x_n \in [a,b]$ y $t_i\geq 0$ para $i=1,\dots, n$ satisfacen $\sum_{i=1}^n t_i=1$, entonces
+$\sum_{i=1}^n t_ix_i$ pertenece a $[a,b]$.
+
+
+\item Prueba que si $\varphi:[a,b]\to \mathbb{R}$ es convexa entonces
+$$
+\varphi\left( \sum_{i=1}^n t_i x_i \right) \leq \sum_{i=1}^n t_i \varphi(x_i)
+$$
+para $x_1,\dots, x_n \in [a,b]$ y $t_i\geq 0$ con $\sum_{i=1}^n t_i=1$.
+
+\item Prueba que si $\varphi:\mathbb{R} \to \mathbb{R}$ es una funci\'on convexa y $s:[0,1]\to \mathbb{R}$
+es una funci\'on escalonada entonces
+$$
+\varphi\left( \int_0^1 s(x)dx \right) \leq \int_0^1 \varphi \circ s(x)dx 
+$$
+
+\item  Prueba que si $\varphi:\mathbb{R} \to \mathbb{R}$ es una funci\'on convexa y continua en todo $\mathbb{R}$ y $f:[0,1]\to \mathbb{R}$ es una funci\'on continua entonces
+$$
+\varphi\left( \int_0^1 f (x)dx \right) \leq \int_0^1 \varphi \circ f(x)dx 
+$$
+
+Sugerencia: usa el inciso anterior y el ejercicio \ref{Ejer:IntegrabilidadFuncionesContinuas}.
+\end{enumerate}
+
+
+\item Para $0<b<1,$ encuentre la integral de
+$$
+\int_0^b \frac{1-x^{n+1}}{1-x}dx
+$$ 
+
+
+Sugerencia: usar
+$$
+\sum_{j=1}^n x^j=\frac{1-x^{n+1}}{1-x}
+$$
+
+
+
+
+
+
+\item\label{Ejer:CambioVariableReduccionIntervaloUnitario} Este ejercicio muestra que en la teor\'ia de integraci\'on en intervalos cerrados y acotados es suficiente estudiar funciones definidas en $[0,1]$.
+
+Sea $f:[a,b]\to \mathbb{R}$ integrable. Entonces
+$$
+\int_a^bf(x)dx=(b-a)\int_0^1 f(a+(b-a)t)dt
+$$
+

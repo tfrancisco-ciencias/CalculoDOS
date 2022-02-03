@@ -1,0 +1,717 @@
+
+
+
+
+\section*{Series}
+
+
+Recordemos que  una sucesi\'on de n\'umeros reales, $(a_n)_{n=0}^\infty$, se llama  sumable  si el siguiente l\'imite existe
+$$
+\lim_{N\to \infty} \sum_{n=1}^N a_n
+$$
+existe.
+
+Tambi\'en se dice que  la serie $\sum_{n=0}^\infty a_n$ converge y se define
+$$
+\sum_{n=0}^\infty a_n:= \lim_{N\to \infty} \sum_{n=1}^N a_n.
+$$
+
+En caso contrario decimos que la serie diverge. 
+
+Dada una sucesi\'on $(a_k)_{k\geq 0}$, una suma de la forma
+$$
+s_n=\sum_{k=0}^n a_k
+$$
+se llama una suma parcial. 
+
+
+\item\label{Ejer:ConvergenciaCeroSeriesConvergentes} Sea $(a_n)_{n=1}^\infty$ una sucesi\'on sumable. 
+
+\begin{enumerate}
+\item Demuestra que 
+$$
+\lim_{n\to \infty} a_n=0.
+$$
+Sugerencia: sea $L=\sum_{n=1}^\infty a_n$. Primero usa el ejercicio \ref{Ejer:ConvergenciaSerieRecorridaDerecha} para probar
+$$L=\lim_{N\to \infty}\sum_{n=1}^N a_n=\lim_{N\to \infty} \sum_{n=1}^{N+1}a_{n} $$
+y despu\'es toma la diferencia de estos dos l\'imites.
+
+
+\end{enumerate}
+
+
+
+
+\item\label{Ejer:SerieArmonicaDiverge} Sea $P=\{a_0 <\cdots a_m\}$ cuaquier partici\'on del intervalo $[1,x]$, donde $x>1$.
+\begin{enumerate}
+	\item Usando funciones escalonadas se pueden probar las siguientes  desigualdades
+	$$
+	\sum_{k=1}^n \frac{a_k-a_{k-1}}{a_k}< L(x)< \sum_{k=1}^n \frac{a_k-a_{k-1}}{a_{k-1}}
+	$$
+	\item Tomar una partici\'on adecuada para demostrar que, para todo natural $n\geq 2$:
+	$$
+	\sum_{k=2}^n \frac{1}{k}< L(n) < \sum_{k=1}^{n-1} \frac{1}{k}
+	$$
+	\item Concluir que la serie arm\'onica diverge a infinito, es decir:
+	$$
+	\lim_{n\to \infty} \sum_{k=1}^n \frac{1}{k}=\infty
+	$$
+	
+	\item La serie arm\'onica es un ejemplo de una sucesi\'on que satisfaga $\lim_{n\to \infty}a_n=0$ pero que la serie $\sum_{n=1}^\infty a_n$ sea divergente.
+
+\end{enumerate}
+
+
+\item Demuestra que la  sucesi\'on  $(a_k)_{k\geq 0}$, con $a_k=\frac{3k^3+12k^2-5k+10}{2k^3-8k^2-9k+20}$, no es sumable.  Sugerencia: usa \ref{Ejer:ConvergenciaCeroSeriesConvergentes}.
+
+\item\label{Ejer:SerieGeometrica} Una serie se llama geom\'etrica si es de la forma $\sum_{k=1}^n r^k$, donde $r\in \mathbb{R}$ es un n\'umero fijo. Este ejercicio trata sobre la convergencia de series geom\'etricas.
+
+Sea $r\in \mathbb{R}$ un real distinto de cero. Define 
+$$
+s_n=\sum_{k=1}^n r^k.
+$$
+
+\begin{enumerate}
+
+\item Demuestra que $rs_n-s_n=r^{n+1}-1$.
+\item Demuestra que si $r\ne 1$, $s_n=\frac{r^{n+1}-1}{r-1}$.
+\item Demuestra que si $|r|<1$ entonces:
+$$
+\sum_{k=0}^\infty r^k=\frac{1}{1-r}.
+$$
+\item Demuestra que si $|r|\geq 1$, la serie $\sum_{k=1}^n r^k$ diverge.
+
+\end{enumerate}
+
+
+\item Si $\sum_{k=0}^\infty a_k$ y $\sum_{k=0}^\infty b_k$ convergen y $\alpha\in \mathbb{R}$ es un escalar fijo, demuestra que la serie 
+$\sum_{k=0}^\infty (\alpha a_k+b_k)$ converge y 
+$$
+\sum_{k=0}^\infty (\alpha a_k+b_k)=\alpha\left( \sum_{k=0}^\infty a_k \right)+ \sum_{k=0}^\infty b_k.
+$$
+
+\item Si $\sum_{k=0}^\infty a_k$ y $\sum_{k=0}^\infty b_k$ convergen y $a_k \leq b_k$ para toda $k$ demuestra que:
+$$
+\sum_{k=0}^\infty a_k \leq \sum_{k=0}^\infty b_k.
+$$
+
+
+\item Sea $M\geq 1$ cualquier entero.  Demuestra que la serie $\sum_{k=0}^\infty a_k$ converge  si y s\'olo si $\sum_{k=M}^\infty a_k$ converge. Es m\'as, prueba que:
+ 
+ $$
+ \sum_{k=0}^\infty a_k = \sum_{k=0}^{M-1} a_k + \sum_{k=M} ^\infty a_k.
+ $$
+
+\begin{definicion}
+Una serie $\sum_{k=0}^\infty a_k$ se llama telesc\'opica si, existe una secesi\'on $(b_k)_{k\geq 0}$ tal que
+$a_k=b_k-b_{k+1}$, $k=0,1,2,\dots$.
+\end{definicion}
+
+
+\item\label{Ejer:SeriesTelescopicas} Este ejercicio da una condici\'on para la convergencia de series telesc\'opicas.
+
+Sean $(a_k)_{k\geq 0}, (b_k)_{k\geq 0}$ dos sucesiones tales que
+$$
+a_k=b_k-b_{k+1}
+$$
+Demuestra que la  serie $\sum_{k=0}^\infty a_k$ converge si y s\'olo si  la sucesi\'on $(b_k)_{k\geq 0}$ converge. Adem\'as:
+$$
+\sum_{k=0}^\infty a_k = b_1-L,
+$$
+donde $L=\lim_k b_k$.
+
+\item Demuestra que la serie $\sum_{k=1}^\infty \frac{1}{k^2+k}$ converge. Sugerencia: ver la serie como una serie telesc\'opica.
+
+\item\label{Ejer:TeoConvergenciaMonoSeries} Demuestra el siguiente teorema.
+
+\begin{teorema}[Teorema de la convergencia mon\'otona para series]
+Para una sucesi\'on $(a_k)_{k=0}^\infty $ donde $a_k \geq 0$  para toda $k$, se tiene que
+la serie  $\sum_{k=0}^\infty a_k $ converge si y s\'olo si el conjunto de sumas parciales $\{s_n \}_{n=0}^\infty$ esta acotado superior mente.
+
+Es m\'as, en tal caso
+$$
+\sum_{k=0}^\infty a_k= \sup \{ s_n: n=0,1,2,\dots.  \}
+$$
+\end{teorema}
+
+
+\item Demuestra que si  $a_k \geq 0$ para toda $k$ y $\sum_{k=0}^\infty a_k$ converge entonces la serie
+$\sum_{k=0}^\infty \sqrt{a_ka_{k+1}}$ converge y 
+$$
+\sum_{k=0}^\infty \sqrt{a_ka_{k+1}} \leq \sum_{k=0}^\infty a_k.
+$$
+
+
+\item Cada una de las series que siguen, es una serie telesc\'opica, geom\'etrica, o alguna cuyas sumas parciales se simplifican. En cada caso demostrar la convergencia de la serie y que la suma es la indicada.
+\begin{enumerate}
+\item $\sum_{k=1}^\infty \frac{1}{(2k-1)(2k+1)}=\frac{1}{2}$
+\item  $\sum_{k=1}^\infty \frac{2}{3^{k-1}}=3$
+\item $\sum_{k=2}^\infty \frac{1}{k^2-1}=\frac{3}{4}$
+\item $\sum_{k=1}^\infty \frac{2^k+3^k}{6^k}=\frac{3}{2}$
+\item $\sum_{k=1}^\infty \frac{\sqrt{k+1}-\sqrt{k}}{\sqrt{k^2+k}}=1$
+\item $\sum_{k=1}^\infty \frac{(-1)^{k-1}(2k+1)}{k(k+1)}=1$
+\item $\sum_{k=2}^\infty \frac{\log[(1+1/k)^k(1+k)]}{(\log(k^k))[\log(1+k)^{k+1}]}=\log_2(\sqrt{e})$
+\end{enumerate}
+Nota: $\log$ denota el logaritmo natural y $\log_2$ denota logaritmo base 2.
+
+\item Sabiendo que $\sum_{n=0}^\infty \frac{x^n}{n!}=e^x$, calcular las siguientes series, suponiendo que se pueden operar con series infinitas como si fueran sumas finitas.
+
+\begin{enumerate}
+\item $\sum_{n=2}^\infty \frac{n-1}{n!}$
+\item $\sum_{n=2}^\infty \frac{n+1}{n!}$
+\item $\sum_{n=2}^\infty \frac{(n-1)(n+1)}{n!}$
+\end{enumerate}
+
+
+
+
+\subsection*{Criterios de convergencia por comparaci\'on}
+
+
+\item\label{Ejer:CriterioComparacionDirecta} Criterio de comparaci\'on directa. 
+
+Si dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ satisfacen
+$$
+0 \leq a_k \leq b_k
+$$
+para toda $k$ entonces demuestra:
+\begin{enumerate}
+\item Si $\sum_{k=0}a_k$ diverge entonces $\sum_{k=0}^\infty b_k$ diverge.
+\item Si $\sum_{k=0}b_k$ converge entonces $\sum_{k=0}^\infty b_k$ converge. En este caso
+$$
+\sum_{k=0}^\infty  a_k \leq  \sum_{k=0}^\infty b_k
+$$
+\end{enumerate}
+
+\item Sea $m$ un natural fijo.  Demuestra que la serie
+$$
+\sum_{n=1}^\infty \frac{1}{\sqrt[m]{n}}
+$$
+diverge. Sugerencia: compararla con la arm\'onica.
+
+
+\item Demuestra que la serie 
+$$
+\sum_{k=0}^\infty \sqrt{\frac{k+5}{k^2+k+1}}
+$$
+es divergente. Sugerencia: comaparla con la arm\'onica.
+
+
+\item Supon que las dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ satisfacen $0\leq a_k$, $0< b_k$ para toda $k$ y que el siguiente l\'imite existe y es positivo
+$$
+\lim_{k\to \infty} \frac{a_k}{b_k} =L > 0.
+$$
+Dada $\alpha \in (0,1)$,  demuestra que  exsite una $M$  (que depende de $\alpha$) tal que, para toda $k>M$
+$$
+(1-\alpha )L  b_k \leq  a_k  \leq  (1+\alpha) L b_k
+$$
+
+Sugerencia: aplica la definici\'on de l\'imite usando $\varepsilon$,  al l\'imite $\lim_{k \to \infty } \frac{a_k}{b_k}=L$, con
+$\varepsilon=\alpha L$.
+
+\item\label{Ejer:CriterioComparacion} Criterio de comparaci\'on.
+
+Supon que dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ satisfacen $0\leq a_k$, $0< b_k$ para toda $k$ y que el siguiente l\'imite existe y es positivo
+$$
+\lim_{k\to \infty} \frac{a_k}{b_k} >0
+$$
+Demuestra:  $\sum_{k=0}^\infty a_k $ converge si y s\'olo si $\sum_{k=0}^\infty b_k$ converge.
+
+\item Demuestra que la serie
+$$
+\sum_{k=1}^\infty \frac{1}{k^2}
+$$
+es convergente.
+
+Sugerencia: aplica el criterio de comparaci\'on con la serie dada y la serie $b_k=\frac{1}{k^2+k}$.
+
+Nota: la serie $\sum_{k=1}^\infty \frac{1}{k^2}$ es interesante, usando series de Fourier se puede probar que
+$$
+\sum_{k=1}^\infty \frac{1}{k^2}=\frac{\pi^2}{6}.
+$$
+
+\item\label{Ejer:CriterioComparacion2}  Este ejercicio es una mejora al ejercicio \ref{Ejer:CriterioComparacion}.
+
+Sean dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ que satisfacen $0\leq a_k$, $0< b_k$ para toda $k$ y tal que el siguiente l\'imite existe 
+$$
+\lim_{k\to \infty} \frac{a_k}{b_k} .
+$$
+Demuestra:
+\begin{enumerate}
+\item Si $\sum_{k=0}a_k$ diverge entonces $\sum_{k=0}^\infty b_k$ diverge.
+\item Si $\sum_{k=0}b_k$ converge entonces $\sum_{k=0}^\infty b_k$ converge. 
+\end{enumerate}
+
+
+\item Demuestra que la serie $\sum_{k=1}^\infty \sen(1/k)$ diverge.
+
+Sugerencia: aplica el ejercicio \ref{Ejer:CriterioComparacion2} a la serie dada y la serie arm\'onica.
+
+
+\item Decir si cada una de las siguientes series, converge o diverge, justificando la respuesta.
+
+\begin{enumerate}
+\item $\sum_{n=1}^\infty \frac{n}{(4n-3)(4n-1)}$
+\item $\sum_{n=1}^\infty \frac{n+1}{2^n}$
+\item $\sum_{n=1}^\infty \frac{|\sen(nx)|}{n^2}$
+\item $\sum_{n=1}^\infty \frac{n!}{(n+2)!}$
+\item $\sum_{n=1}^\infty \frac{1}{\sqrt{n(n+1)}}$
+\item $\sum_{n=2}^\infty \frac{1}{(\log(n))^s}$, $s>0$ fijo.
+\item $\sum_{n=1}^\infty \frac{1}{12000n+1}$
+\item $\sum_{n=1}^\infty \int_0^{1/n}\frac{\sqrt{x}}{1+x^2}dx$
+\end{enumerate}
+
+
+\subsection*{Criterio de la integral}
+
+
+\item Demuestra:
+
+\begin{teorema}[Criterio de la integral]
+Sea $f:[1,\infty) \to \mathbb{R}$ una funci\'on mon\'onota decreciente, positiva. Para todo $n=1,2,\dots$ tomar
+$$
+s_n=\sum_{k=1}^n f(n), \quad t_n=\int_1^n f(x)dx
+$$ 
+Entonces o ambas suceciones  convergen o ambas sucesiones  divergen.
+
+\end{teorema}
+
+Sugerencia: usa sumas de Riemann para $f$.
+
+
+\item Fija $p\in (0,\infty)$. Una serie $p$ es una serie de la forma:
+$$
+\sum_{n=1}^\infty \frac{1}{n^p}.
+$$
+Demuestra que una serie $p$ converge converge si y s\'olo si $p>1$.
+
+Sugerencia: tomar $f(x)=\frac{1}{x^p}$, la cual el mon\'onota decreciente y positiva en $[1,\infty)$.
+
+
+\item Sea $f:[1,\infty) \to \mathbb{R}$ una funci\'on, no negativa y mon\'otona creciente. 
+
+
+\begin{enumerate} 
+
+\item Porbar que
+$$
+\sum_{k=1}^{n-1} f(k) \leq \int_1^n f(x)dx \leq \sum_{k=2}^n f(k)
+$$
+
+Sugerencia: tomar sumas de Riemann inferiores y superiores en el intervalo $[0,n]$.
+
+
+\item Tomar $f(x)=\log(x)$ (logaritmo natural) en el inciso anterior para deducir
+$$
+en^n e^{-n}< n! < e n^{n+1}e^{-n}.
+$$
+
+
+\item Usando el inciso anterior demuetra:
+$$
+\left( \frac{n}{e} \right)^n e< n! < e^2  \left( \frac{n}{e} \right)^{n+1}
+$$
+que da una estimaci\'on para $n!$.
+
+\item Demuestra:
+$$
+\lim_{n\to \infty} \frac{(n!)^{1/n}}{n} = \frac{1}{e}.
+$$
+lo que da la estimaci\'on $n! \approx (n/e)^n$.
+\end{enumerate}
+
+\subsection*{Criterio de la ra\'iz }
+
+
+\begin{teorema}
+Sea $(a_n)_{n\geq 0}$ una sucesi\'on con $a_n \geq 0$ para toda $n$. Supongamos que el siguiente l\'imite exsite
+$$
+R:=\lim_{n\to \infty} a_n^{1/n}
+$$
+Entonces
+\begin{enumerate}
+\item Si $R<1$ la sucesi\'on $(a_n)_{n\geq 0}$ es sumable.
+\item Si $R>1$ la sucesi\'on $(a_n)_{n\geq 0}$ NO es sumable.
+\end{enumerate}
+\end{teorema}
+
+Durante todo el ejercicio suponemos que el l\'imite $R=\lim_{n\to \infty}a_n^{1/n}$ existe.  
+
+\begin{enumerate}
+\item Fija $\varepsilon>0$. Demuestra que existe $N\in \mathbb{N}$ tal que, para todo $n\geq N$:
+$$
+R-\varepsilon < a_n^{1/n} < R+\varepsilon
+$$
+
+\item Si $R<1$, demuestra que dada $r\in (R,1)$, existe $N\in \mathbb{R}$ tal que, para toda $n \geq N$:
+$$
+a_n \leq r^n.
+$$
+
+Concluye, usando el ejercicio \ref{Ejer:CriterioComparacionDirecta} (comparaci\'on) y el ejercicio \ref{Ejer:SerieGeometrica}, que
+la serie $\sum_{n=1}^\infty a_n$ converge.
+
+Sugerencia: en el inciso anterior toma $\varepsilon=r-R$.
+
+\item Si $R>1$, demuestra que existe $N\in \mathbb{N}$ tal que, para toda  $n\geq N$:
+$$
+1\leq a_n.
+$$
+Concluye, usando el ejercicio \ref{Ejer:ConvergenciaCeroSeriesConvergentes}, que la serie $\sum_{n=1}^\infty a_n$ es divergente.
+
+Sugerencia: usa el primer inciso con $\varepsilon=R-1$.
+\end{enumerate}
+
+\item Da un ejemplo de  sucesiones $(a_n)_{n\geq 1}$, tales que:
+\begin{enumerate}
+\item $R=\lim_{n\to \infty}a_n^{1/n}$ existe, $R=1$ y la serie $\sum_{n=1}^\infty a_n$ converge. Sugerencia: usa una serie $p$.
+\item $R=\lim_{n\to \infty}a_n^{1/n}$ existe, $R=1$ y la serie $\sum_{n=1}^\infty a_n$ diverge. Sugerencia: usa una serie constante.
+\end{enumerate}
+
+Este ejercicio dice que el criterio de la ra\'iz no se aplica cuando $\lim_{n\to \infty}a_n^{1/n}=1$.
+
+\item Demuestra que las siguientes series convergen:
+\begin{enumerate}
+\item $\sum_{n=1}^\infty \frac{1}{\log(n)^{1/n}}$.
+
+\item $\sum_{n=1}^\infty (\frac{1}{n(n+1)})^{n^2}$.
+\end{enumerate}.
+
+
+\subsection*{Criterio de la raz\'on}
+
+\item Este ejercicio demuestra el criterio de la raz\'on.
+
+\begin{teorema}[Criterio de la raz\'on]
+Sea $(a_n)_{n\geq 0}$ una sucesi\'on con $a_n >0$ para toda $n$. Supongamos que el siguiente l\'imite exsite
+$$
+L:=\lim_{n} \frac{a_{n+1}}{a_n}
+$$
+
+Entonces
+\begin{enumerate}
+\item Si $L<1$ la serie converge.
+\item Si $L>1$ la serie diverge.
+\end{enumerate}
+\end{teorema}
+
+Durante este ejercicio suponemos que $L:=\lim_{n} \frac{a_{n+1}}{a_n}$ existe.
+
+\begin{enumerate}
+\item Demuestra que existe  $N\in \mathbb{R}$ tal que, para toda $n \geq N$:
+$$
+L- \varepsilon < a_{n+1}/a_n < L+\varepsilon
+$$
+
+\item Si $L>1$ demuestra que existe $N\in \mathbb{N}$ tal que, para todo $n \geq N$:
+$$
+a_n < a_{n+1}
+$$ 
+
+Concluye, usando el ejercicio \ref{Ejer:ConvergenciaCeroSeriesConvergentes}, que la serie $\sum_{n=1}^\infty a_n$ diverge.
+
+Sugerencia: toma $\varepsilon=L-1$ en el primer inciso.
+
+\item SI $L<1$, demuestra que dado $r\in (L,1)$, existe $N\in \mathbb{N}$ tal que, para toda $n\geq N$:
+$$
+a_{n+1} \leq r a_n
+$$
+
+Sugerencia: toma $\varepsilon=r-L$ en el primer inciso.
+
+\item Usando el inciso anterior demuestra que $a_{N+m} \leq a_N r^m$, para toda $m\geq 1$.  Concluye, usando el ejercicio \ref{Ejer:CriterioComparacionDirecta} (comparaci\'on) y el ejercicio \ref{Ejer:SerieGeometrica}, que la serie $\sum_{n=1}^\infty a_n$ converge.
+\end{enumerate}
+
+
+\item Da un ejemplo de  sucesiones $(a_n)_{n\geq 1}$, tales que:
+\begin{enumerate}
+\item $L=\lim_{n\to \infty}a_{n+1}/a_n$ existe, $L=1$ y la serie $\sum_{n=1}^\infty a_n$ converge. Sugerencia: usa una serie $p$.
+\item $L=\lim_{n\to \infty}a_{n+1}/a_n$ existe, $L=1$ y la serie $\sum_{n=1}^\infty a_n$ diverge. Sugerencia: usa una serie constante.
+\end{enumerate}
+
+Este ejercicio dice que el criterio de la raz\'on no se aplica cuando $\lim_{n\to \infty}a_{n+1}/a_n=1$.
+
+
+\item Demuestra que las series son convergentes.
+\begin{enumerate}
+\item Sea $x\in \mathbb{R}$ fijo y arbitrario; $\sum_{n=0}^\infty \frac{x^n}{n!}$. 
+
+Nota: usando series de Taylor sabemos que el valor de la serie
+es $e^x$, pero s\'olo aplicando el criterio de la raz\'on no tenemos el valor ex\'acto de la serie. 
+\item $\sum_{n=1}^\infty \frac{n!}{n^n}$. 
+\end{enumerate}
+
+
+\subsection*{Criterio de la serie alternante de Leibniz}
+
+\begin{definicion}
+Una serie se llama altermante si tiene la forma
+$$
+\sum_{n=1}^\infty (-1)^{n-1}a_n
+$$
+donde  $a_n>0$ para toda $n$.
+
+\end{definicion}
+
+
+\item\label{Ejer:SerieAlternanteReglaLeibniz} Este ejercicio demuestra la regla de Leibniz para series alternantes.
+
+\begin{teorema}[Regla de Leibniz]
+
+Sea $(a_n)_{n\geq 1}$ una sucesi\'on tal que: $a_n >0$ para toda n; es mon\'otona decreciente $a_n> a_{n+1}$; y 
+$\lim_n a_n=0$. Entoonces la serie $\sum_{n=1}^\infty (-1)^{n-1}a_n$ converge. Adem\'as, para toda $n\in \mathbb{N}$:
+$$
+0< (-1)^n(S-s_n)<a_n, 
+$$
+donde $S=\sum_{n=1}^\infty (-1)^{n-1} a_n, s_n=\sum_{k=1}^n (-1)^{k-1}a_k$.
+\end{teorema}
+
+
+\begin{enumerate}
+\item Considerar la  sucesi\'on $(s_{2n})_{n=1}^\infty$. Demuestra que \'esta serie es mon\'otona creciente.
+
+Sugerencia: calcula $s_{2n+2}-s_{2n}$.
+
+\item Considera la sucesi\'on  $(s_{2n-1})_{n=1}^\infty$. Demuestra que \'esta serie es mon\'otona decreciente.
+
+
+Sugerencia: calcula $s_{2(n+1)-1}-s_{2n-1}$.
+
+\item Demuestra que $s_{2n-1}-s_{2n}>0$, para toda $n$.
+
+\item Demuestra que, para toda $n \geq 3$, $s_2 < s_n <s_1$. 
+
+Sugerencia: usa el ejercicio anterior.
+
+\item Demuestra que los l\'imites
+$$
+S'=\lim_{n\to \infty}s_{2n-1}, \quad S''=\lim_{n\to \infty}s_{2n}
+$$
+existen.  
+
+Sugerencia: usa el Teorema de la convergencia mon\'otona para series
+(ejercicio \ref{Ejer:TeoConvergenciaMonoSeries}).
+
+\item  Demuestra que $S=S''$. Define $S=S'=S''$.
+
+Sugerencia: demuestra $s_{2n}-s_{2n-1}=a_{2n}$.
+
+
+\item Finalmente, usa el ejercicio para concluir que $\lim_{n\to \infty}s_n=S$.
+
+\item Demuestra que $s_{2n} < S < s_{2n-1}$, para toda $n$.
+
+Sugerencia: para $s_{2n}< S$ usa que  $S=S''$ y para $S<s_{2n-1}$ usa que $S=S'$.
+
+\item Demuestra que $S-s_{2n} \leq a_{2n+1}$, $s_{2n-1}-S\leq a_{2n}$.
+
+\item Concluye, de los dos incisos anteriores, que $0< (-1)^n(S-s_n)<a_n$.
+
+
+\end{enumerate}
+
+
+\item\label{Ejer:NumeroDeEuler} Este ejercicio demuestra el siguiente resultado:
+
+El siguiente l\'imite existe
+$$
+\lim_{n\to \infty} \left( \sum_{k=1}^n \frac{1}{k}- \log(n) \right).
+$$
+
+Dicho l\'imite se conoce como el n\'umero de Euler al cual vamos a denotar por $C$.
+
+Considerar la sucesi\'on $(a_n)_{n\geq 1}$ donde
+$$
+a_{2n-1}=\frac{1}{n}, \quad a_{2n}=\int_{n}^{n+1} \frac{dx}{x}, n=1,2,\cdots
+$$
+
+
+\begin{enumerate}
+\item Demuestra que $a_{2(n+1)-1}\leq a_{2n} \leq a_{2n}$.
+\item Demuestra que $\lim_n a_n=0$.
+\item Usa la regla de Leibniz para demostrar que la serie $\sum_{n=1}^\infty (-1)^{n-1}a_{n}$ converge. Define
+$C:=\sum_{n=1}^\infty (-1)^{n-1}a_{n}$.
+
+\item Define $s_n:=\sum_{k=1}^n (-1)^{k-1}a_k$. Demuestra que
+$$
+s_{2n-1}=\left( \sum_{k=1}^n \frac{1}{k} \right)- \log(n).
+$$
+
+Concluye que 
+$$
+C=\lim_{n\to \infty} \left( \sum_{k=1}^n \frac{1}{k}- \log(n) \right).
+$$
+\end{enumerate}
+
+
+\item Como una aplicaci\'on del n\'umero de Euler (\ref{Ejer:NumeroDeEuler}) vamos a demostrar la siguiente identidad: 
+
+$$
+\log(2)=\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}.
+$$
+
+\begin{enumerate}
+\item Usando la regla de Leibnitz (\ref{Ejer:SerieAlternanteReglaLeibniz}) demuestra que la serie $\sum_{n=1}^\infty \frac{(-1)^n }{n}$ converge.
+\item Demuestra:
+\begin{eqnarray*}
+\sum_{k=1}^{2n} \frac{(-1)^{k-1}}{k} &=& \sum_{j=1}^{2n} \frac{1}{j}   - \sum_{m=1}^n \frac{1}{m} 
+\end{eqnarray*}
+
+Sugerencia: separa en las $k$ impares y las $k$ pares.
+
+\item Usando las propiedades del logaritmo y el inciso anterior demuestra que:
+
+\begin{eqnarray*}
+\sum_{k=1}^{2n} \frac{(-1)^{k-1}}{k}=\left( \sum_{j=1}^{2n} \frac{1}{j}-\log(2n) \right) - \left( \sum_{m=1}^n \frac{1}{m}- \log(n) \right) +\log(2)
+\end{eqnarray*}
+
+\item Toma l\'imite, cuando $n\to \infty$, en el inciso anterior y usa el ejercicio \ref{Ejer:NumeroDeEuler} para concluir:
+$$
+ \lim_{n\to \infty} \sum_{k=1}^n \frac{(-1)^{k-1}}{k}= C-C+\log(2)=\log(2).
+$$
+
+\end{enumerate}
+
+
+\item\label{Ejer:SerieArctan} Demuestra que, para toda $x\in [-1,1]$:
+$$
+\arctan(x)=\sum_{n=1}^\infty \frac{(-1)^{n-1}x^{2n-1}}{2n-1}.
+$$
+
+\begin{enumerate}
+\item Demuestra que
+$$
+\arctan(x)=\int_0^x \frac{1}{1+t^2}dt
+$$
+
+Sugerencia: por las derivadas de las funciones trigon\'ometricas inversas sabemos que
+$$
+\frac{d}{dx}(\arctan(x))=\frac{1}{1+x^2};
+$$
+por el Primer Teorema Fundamental  fundamental sabemos que
+$$
+\frac{d}{dx}\left( \int_0^x  \frac{1}{1+t^2}dt\right)= \frac{1}{1+x^2}.
+$$
+
+Con estas dos identidades justifica que $\arctan(x)=\int_0^x \frac{1}{1+t^2}dt$.
+
+\item Usa la serie geom\'etrica (\ref{Ejer:SerieGeometrica}) para probar que para todo $t\in [-1,1]$:
+$$
+\frac{1}{1+t^2}=\sum_{k=0}^n (-t^2)^{k}+ \frac{(-t^2)^{n+1}}{1+t^2}.
+$$
+
+\item De  la identidad del ejercicio anterior obten que, para todo $x\in[-1,1]$:
+
+\begin{equation}\label{Eqn:AproxIntegArctan}
+\int_0^x \frac{dt}{1+t^2}= \sum_{k=0}^n (-1)^k \frac{x^{2k+1}}{2k+1} + (-1)^{n+1} \int_0^x \frac{t^{2n+2}}{1+t^2}dt.
+\end{equation}
+
+\item Demuestra que
+\begin{equation}\label{Eqn:ErrorArctan}
+ \left| \int_0^x \frac{t^{2n+2}}{1+t^2}dt \right|   \leq \frac{1}{2n+3}.
+\end{equation}
+
+\item Toma l\'imite en \eqref{Eqn:AproxIntegArctan} y usa \eqref{Eqn:ErrorArctan} para concluir:
+\begin{eqnarray*}
+\arctan(x) &=& \lim_{n\to \infty} \left(  \sum_{k=0}^n (-1)^k \frac{x^{2k+1}}{2k+1} + (-1)^{n+1} \int_0^x \frac{t^{2n+2}}{1+t^2}dt\right) \\
+&=& \sum_{k=0}^\infty \frac{(-1)^k x^{2k+1}}{2k+1}
+\end{eqnarray*}
+\end{enumerate}
+
+
+\item Demuestra:
+$$\frac{\pi}{4}=\sum_{n=1}^\infty \frac{(-1)^{n-1}}{2n-1} $$
+
+Sugerencia: usa el ejercicio \ref{Ejer:SerieArctan}.
+
+
+\subsection*{Miscelanea}
+
+\item Decir si las siguientes series son convergentes o divergentes. Justificar respuesta.
+
+\begin{enumerate}
+\item $\sum_{n=1}^\infty \frac{(n!)^2}{2^{n^2}}$
+\item $\sum_{n=1}^\infty \frac{2^n n!}{n^n}$
+\item $\sum_{n=1}^\infty \frac{n!}{2^{2n}}$
+\item $\sum_{n=1}^\infty (n^{1/n}-1)^n$
+\item $\sum_{n=1}^\infty e^{-n^2}$
+\item $\sum_{n=1}^\infty \left( \frac{1}{n}-e^{-n^2} \right)$
+\item $\sum_{n=1}^\infty \frac{n^3[\sqrt{2}+(-1)^n]^n}{3^n}$
+
+\end{enumerate}
+
+\item Sean $(a_n)_{n\geq 1}, (b_n)_{n\geq 1}$ dos sucesiones con $a_n>0, b_n >0$ para toda $n \geq N$. Tomar
+$c_n=b_n-(b_{n+1}a_{n+1})/a_n$. Demostrar que
+\begin{enumerate}
+\item Si existe una constante positiva $r$, tal que $c_n \geq r$, para toda $n \geq N$, entonces $\sum_{n=N}^\infty a_n$ converge.
+
+Hint: Probar $\sum_{k=N}^n a_k \leq (a_Nb_N)/r$.
+
+\item Si $c_n \leq 0$ para $n \geq N$ y si $\sum_{n=N}^\infty \frac{1}{b_n}$ diverge, tambi\'en $\sum_{n=N}^\infty a_n$ diverge.
+
+Hint: Probar que $\sum_{n=N}^\infty a_n$ domina a $\sum_{n=N}^\infty \frac{1}{b_n}$.
+\end{enumerate}
+
+\item Sea $(a_n)_{n\geq 1}$ una sucesi\'on de t\'erminos positivos. Probar el siguiente criterio de Raabe: 
+
+Si existe un $r>0$ y un natural $N\geq 1$ tales que
+$$
+\frac{a_{n+1}}{a_n} \leq 1-\frac{1}{n}-\frac{r}{n^2}, \quad \textrm{para todo $n\geq N$}
+$$
+entonces la serie $\sum_{n=1}^\infty a_n$ converge. 
+
+
+Si 
+$$
+\frac{a_{n+1}}{a_n} \geq 1 -\frac{1}{n}, \quad \textrm{para todo $n\geq N$}
+$$
+la serie $\sum_{n=1}^\infty$ diverge.
+
+
+Hint: aplicar el ejercicio anterior con $b_{n+1}=n$.
+
+
+\item Determina la convergencia o divergencia de las series. Justifica la respuesta.
+
+\begin{enumerate}
+\item $\sum_{n=1}^\infty (-1)^{n} \left(\frac{1\cdot 3 \cdot 5 \cdots (2n-1)}{2\cdot 4 \cdot 6 \cdots (2n)}\right)^3$
+\item $\sum_{n=1}^\infty \frac{(-1)^{n(n-1)/2}}{2^n}$
+\item $\sum_{n=1}^\infty (-1)^n \int_n^{n+1}\frac{e^{-x}}{x}dx$
+\item $\sum_{n=1}^\infty \sen(\log(n))$
+\item $\sum_{n=1}^\infty (-1)^n \left( e -(1+\frac{1}{n})^n \right)$
+\end{enumerate}
+
+\item En cada inciso que sigue, determinar el conjunto de las $x \in \mathbb{R}$ para las cuales la serie converge
+\begin{enumerate}
+\item $\sum_{n=1}^\infty  \frac{(-1)^n x^{3n}}{n!}$
+\item $\sum_{n=1}^\infty \frac{x^n}{3^n}$
+\item $\sum_{n=1}^\infty \frac{(z-1)^n}{(n+2)!}$
+\end{enumerate}
+
+\item Si $(a_n)_{n\geq 1}$ es una sucesi\'on de reales con $a_n>0$ para todo $n$ tal que $\sum_{n=1}^\infty a _n$ converge, demuestra que
+$\sum_{n=1}^\infty \frac{1}{a_n}$ diverge.
+
+\item Si $\sum_{n=1}^\infty |a_n|$ converge prueba que $\sum_{n=1}^\infty a_n^2$ converge. Da un ejemplo en el que $\sum_{n=1}^\infty a_n^2$ converge pero $\sum_{n=1}^\infty a_n$ diverge. 
+
+\item Sea $(a_n)_{n\geq 1}$ una sucesi\'on tal que $a_n \geq 0$ para toda $n$ y tal que $\sum_{n=1}^\infty a_n$ converge. Prueba que
+$\sum_{n=1}^\infty \sqrt{a_n} n^{-p}$ converge para $p>1/2$. Da un contraejemplo para $p=1/2$.
+
+\subsection*{Criterio de Cauchy}
+
+
+\item El criterio de Cauchy es una consecuencia directa del Teorema que asegura la convergencia de las suceciones de Cauchy (ejercicio \ref{Ejer:TeoCompletezR}).
+
+Demuestra:
+
+Una sucesi\'on $(a_k)_{k\geq 0}$ es sumable  si y s\'olo si para todo $\varepsilon>0$ existe $N=N(\varepsilon)\in \mathbb{N}$ tal que, para todo $n, m \geq N$ con $n<m$
+$$
+\left|  \sum_{k=n}^m a_k \right| < \varepsilon
+$$
+
+
+\item Sea $(a_k)_{k\geq 0}$ una sucesi\'on y definamos, otra sucesi\'on, de la siguiente forma: fijamos $N \in \mathbb{N}$ y definimos
+$b_k=a_k$ para $k \geq N$ y para $1\leq k \leq N_1$ tomamos $b_k$  cualquiera n\'umeros. Demuestra que
+$$
+(a_k)_{k\geq 0} \quad \textrm{es sumable } \Leftrightarrow (b_k)_{k\geq 0}\quad \textrm{es sumable}.
+$$
+

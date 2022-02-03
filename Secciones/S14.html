@@ -1,0 +1,283 @@
+
+
+
+\section*{Vol\'umenes}
+
+La integral que hemos visto es tan versatil que permite calcular no s\'olo areas si no tambi\'en volumenes.
+
+\begin{definicion}
+El volumen es una funci\'on, denotada $Vol$, que asigna, a ciertos subconjuntos  de $\mathbb{R}^3$, llamados medibles, un n\'umero mayor o igual a cero que satisface
+\begin{enumerate}
+\item Todos los subconjuntos convexos son medibles
+(un conjunto es convexo si, dados dos puntos cualesquiera en el conjunto, el segmento de linea que los une cae totalmente dentro del conjunto , por ejemplo las cajas ).
+$$
+dibujito
+$$
+
+\item Para una caja $C$, con lados de longitud $a,b$ y $c$
+$$
+Vol(C)=abc
+$$
+
+   \item (Aditividad ) Si $S$ y $T$ son conjuntos medibles entonces $S\cup T  $ es medible. Sin son ajenos
+   $$
+   Vol(S\cup T)=Vol(T) + Vol(S)
+   $$
+
+    \item Si $S$ y $T$ son medibles y $S\subseteq T$ entonces $T\setminus S$ es medible y
+    $$
+   Vol(T\setminus S)=Vol(T)-Vol(S) 
+    $$
+
+\end{enumerate}
+\end{definicion}
+
+
+\subsection*{Volumenes por discos}
+
+Un disco $D$ (cilindro chaparrito), de ancho $\Delta$ y radio $r$ tiene volumen $Vol(D)= \pi r^2 \Delta$. 
+ 
+ 
+\item\label{Ejer:VolEsfera} En este ejercicio se calcula el volumen deesfera. Vamos a obtener la esfera, de radio $r$,  como una superficie de revoluci\'on, rotando la gr\'afica de $f(x)=\sqrt{r^2-x^2}$, $x\in [-r,r]$, al rededor del eje de las $x$. 
+
+\begin{enumerate}
+\item Sea $P=\{ x_i\}_{i=0}^n$ la partici\'on homogenea de longitud $n$ de $[-r,r]$ y toma $\Delta x =\frac{2r}{n}$
+la longitud de los subintervalos de la partici\'on. 
+
+Denota por $D_i$ la rebanada de la esfera que se obtiene tomando el intervalo $[x_{i-1}, x_i]$, $i=1,\dots, n$; nota que $D_i$ no es un disco, sin embargo, $D_i$ est\'a atrapada entre dos discos : $D_i^+$, disco con ancho $\Delta x$ y radio $f(x_i^*)$ y otro $D_i^-$, disco con ancho $\Delta x$ y radio $f(x_{i*})$, donde los puntos 
+$x_i^*$ y $x_{i *}$ se toman tales que $f(x_i^*)=\max_{x\in [x_{i-1}, x_i]}\{f(x)\}$, $f(x_{i*})=\min_{x\in [x_{i-1}, x_i]}\{ f(x)\}$. 
+
+Demuestra
+$$
+\sum_{i=1}^n \pi f(x_{i_*})^2 \Delta x \leq Vol(\textrm{Esfera)}) \leq \sum_{i=1}^n \pi f(x_{i^*})^2\Delta x
+$$
+
+\item Toma l\'imite cuando $n\to \infty$ en el inciso anterior y usa el ejercicio \ref{Ejer:IntegrabilidadFuncionesContinuas}
+para concluir
+$$
+Vol(\textrm{Esfera})= \int_{-r}^r \pi f^2(x)dx.
+$$
+
+\item Finalmente, calcula la integral $\int_{-r}^r \pi f^2(x)dx$ para concluir
+$$
+Vol(\textrm{Esfera})=\frac{3}{4}\pi r^2.
+$$
+\end{enumerate}
+
+
+\item\label{Ejer:VolDiscoSuperficiesRevolucion} Este ejercicio generaliza el c\'alculo del volumen de la esfera.
+
+Sea $f:[a, b ]\to \mathbb{R}$ una funci\'on continua, con $f(x)\geq 0 $ para todo $x\in [a,b]$. Demuestra que el volumen del s\'olido de revoluci\'on que se obtiene al girar la gr\'afica de $f$ alrededor del eje de las $x$ es 
+$$
+\int_a^b \pi f(x)^2 dx. 
+$$
+
+Sugerencia: aplica el mismo m\'etodo que en el ejercicio \ref{Ejer:VolEsfera}.
+
+
+\item Encuentra el volumen del s\'olido que se obtiene al rotar la 
+g\'afica de $y=\sqrt{x}$, con $0\leq x \leq 1$. 
+
+Sugerencia: aplica directamente el ejercicio \ref{Ejer:VolDiscoSuperficiesRevolucion}.
+
+
+
+
+\item En cada uno de los siguientes ejercicios, encuentra el volumen que se obtiene al girar la gr\'afica alrededor del eje $x$.
+\begin{enumerate}
+\item $f(x)=\sqrt{x}, 0\leq x \leq 1$.
+\item $f(x)=x^2, -1\leq x \leq 2$	,
+\item $f(x)=\cos(x), 0\leq x \leq \pi/2$.
+\item $f(x)=\sen(x)+\cos(x)$, $0\leq x \leq \pi$.
+\end{enumerate}
+
+
+\subsubsection*{El principio de Cavalieri}
+
+El ejemplo del c\'alculo de vol\'umenes por discos, es un caso particular de un principio m\'as general, que se conoce como el principio de Cavalieri.
+
+
+\begin{definicion}
+Un subconjunto de $\mathbb{R}^3$ se llama acotado si existe una bola, $B_r(p)=\{x\in \mathbb{R}^3: \| x-p\| \leq r \}$, que lo contiene.
+\end{definicion}
+
+\begin{definicion}
+Un solido $S$, se llama de Cavalieri si existe una linea $L$, de tal forma que las secciones obtenidas al cortar $S$, con planos perpendulares a $L$,  son siempre medibles.
+
+
+
+\end{definicion}
+    
+Los s\'olidos de Cavalieri satisfacen la siguiente propiedad:
+
+Para dos s\'olidos de Cavalieri, $S$ y $T$, si las areas seccionales (con respecto a un mismo eje) de $S$ son menores o iguales a las de $T$, entonces el volumen de $S$ es menor o igual al de $T$.
+
+
+    
+\item Este ejercicio da una demostraci\'on del Teorema de Cavalieri.
+
+\begin{teorema}[El principio de Cavalieri]
+Sea $S$ on s\'olido de Cavalieri, acotado.  Denotemos por $A(t)$ el area seccional de $S$ a altura $t$ (con respecto a una l\'inea  $L$).
+
+Note que, al ser $S$ acotado,  existe un intervalo $[a,b]$ tal que $A(t)=0$ para
+$t< a$ o $t> a$. 
+
+
+Si $A$ es una funci\'on integrable entonces
+$$
+Vol(\textrm{S})=\int_a^b A(t)dt
+$$
+\end{teorema}
+\begin{enumerate}
+
+\item Fija $\varepsilon >0$. Demuestra que existen funciones simples $s,t : [a,b] \to \mathbb{R}$, con $0 \leq s(x) \leq A(x) \leq t(x)$, para todo $x\in [a,b]$ y con
+$$
+\int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon.
+$$
+
+\item  Demuestra que 
+$$\int_a^ b s(x)dx \leq \int_a^b A(x)dx \leq \int_a^b t(x)dx .$$
+
+\item Demuestra que 
+$$
+\int_a^b s(x)dx \leq Vol(S) \leq \int_a^b t(x)dx
+$$
+Sugerencia: aplica la propiedad que cumplen los s\'olidos de Cavalieri mencionada justo despu\'es de la definici\'on.
+
+\item Concluye que
+$$
+\left|  Vol(S) - \int_a^b A(x)dx \right| <\varepsilon
+$$ 
+por lo que $Vol(S)=\int_a^b A(x)dx$.
+\end{enumerate}    
+ 
+ 
+
+\item El Principio de Arqu\'imides dice que:
+
+
+$$
+\textrm{Fuerza de empuje}=\textrm{Peso del l\'iquido desplazado}
+$$
+
+Considera un objeto flotando en un l\'iquido como se muestra en la siguiente figura, junto  con su sistema de referencia. Por $A(y)$ denotamos al area de la regi\'on que se obtiene al cortar al objeto con planos a altura $y$.
+\begin{center}
+\includegraphics[scale=0.5]{PrinArquiFig.pdf}
+\end{center}
+Supongamos que $\rho_0$ es la densidad (constante) del objeto y que $\rho_f$ es la densidad (constante) del l\'iquido.
+
+
+
+
+
+\begin{enumerate}
+
+\item Prueba que el peso del objeto es:
+$$
+W= \rho_0  g\int_{-h}^{L-h}A(y)dy.
+$$
+
+\item Usando el principio de Arqu\'imides, demuestra que  la fuerza de empuje  es:
+$$
+F=\rho_f g  \int_{-h}^{0}A(y)dy.
+$$
+
+
+\item Prueba que el porcentaje del volumen del objeto arriba de la superficie es
+$$
+\frac{\rho_f-\rho_0}{\rho_f}
+$$ 
+es decir, prueba
+$$
+\frac{\int_{0}^{L-h} A(y)dy }{\int_{-h}^{L-h}A(y)dy}=\frac{\rho_f-\rho_0}{\rho_f}
+$$
+Sugerencia: Como el objeto esta a flote, debemos de tener $W=F$; luego escribe la identidad anterior en t\'erminos de las integrales de los incisos anteriores.
+
+
+
+\item La densidad del hielo es $917 kg/m^3$ y la densidad del agua de mar es $1030 kg/m^3$. Qu\'e porcentaje de un ice-berg esta por arriba de la superficie ?
+
+\end{enumerate}
+
+\item Encuentra el volumen de un s\'olido, cuyas areas seccionales cortadas por planos perpendiculares al eje $x$, son $ax^2+bx+c$, para cada $x$ en el intervalo $[0,h]$. Expresa el resultado en terminos de $M_0, M_{1/2}$ y $M_1$, que son las areas de las secciones a alturas $x=0, x=h/2$ y $x=h$.
+
+ 
+ 
+
+\subsection*{Volumenes por capas cil\'indricas}
+
+
+
+\item Usando la f\'ormula para el volumen de  un cilindro, y las propiedades del volumen, demuestra que  el volumen de una capa cil\'indrica, $C$, con radio interior $r_2$, radio exterior $r_1$  y altura $h$, esta dado por
+$$
+Vol(C)=2\pi \overline{r} h (r_1-r_2)
+$$
+con $\overline{r}=\frac{r_1+r_2}{2}$ (recordar $r_2 < r_1$). 
+
+\item Este ejercicio muestra otra forma de encontrar vol\'umenes, usando capas cil\'indricas.
+
+
+Sea  $a>0$ y $f:[a,b] \to \mathbb{R}$ una funci\'on continua con $f(x) \geq 0$, para toda $x\in [a,b]$. Sea
+$C$ el s\'olido que se obtiene al rotar la regi\'on bajo la gr\'afica de $f$, con respecto al eje $y$. Demuestra
+$$
+Vol(C)=\int_a^b  2\pi xf(x)dx.
+$$
+
+\begin{enumerate}
+\item Sea $P=\{x_i\}_{i=0}^n$ la partici\'on homogenea de $[a,b]$, de longitud $n$ y sea $\Delta x= \frac{b-a}{n}$ su longitud. 
+
+Sea $C_i$ el s\'olido  que se obtiene al rotar, alrededor el eje $y$, la regi\'on debajo de la gr\'afica de 
+$f$ en  el intervalo $[x_{i-1}, x_i]$. Sea $C_i^+$ la capa cil\'indrica que de obtiene con base $[x_{i-1}, x_i]$ y altura $f(x_i^*)$ y $C_i^-$ la capa cil\'indrica que se obtiene con base $[x_{i-1}, x_i]$ y altura $f(x_{i*})$, donde los puntos $x_{i*}$ y $x_i^*$ se toman tal que
+$$
+f(x_{i*})=\min_{x\in [x_{i-1}, x_i]}\{ f(x)\}, f(x_i^*)=\max_{x\in [x_{i-1},x_i]}\{ f(x)\}.
+$$
+
+
+Demuestra que
+$$
+2\pi \overline{x}_i f(x_{i*}) \leq  Vol(C_i) \leq  2\pi \overline{x}_i f(x_i^*)
+$$
+donde $\overline{x}_i=\frac{x_{i-1}+x_i}{2}$, es el punto medio del intervalo $[x_{i-1},x_i ]$.
+
+\item Usando el inciso anterior prueba
+$$
+\sum_{i=1}^n 2\pi \overline{x}_i f(x_{i*}) \leq Vol(C) \leq \sum_{i=1}^n 2\pi \overline{x}_i f(x_{i}^*) 
+$$
+
+\item Tomando l\'imite, cuando $n\to \infty$, y usando el ejercicio \ref{Ejer:IntegrabilidadFuncionesContinuas} concluye
+que
+$$
+Vol(C)=\int_a^b 2\pi xf(x)dx.
+$$
+
+\end{enumerate}
+
+
+
+
+\item Calcula el volumen  del s\'olido que se obtiene al rotar la regi\'on por debajo de la  gr\'afica de $y=\sen(x^2)$, $0 \leq x \leq \pi$, altededor del eje de las $y$.
+
+
+
+
+
+\item Calcula  el volumen del s\'olido de revoluci\'on que se obtiene al girar la 
+gr\'afica de $f(x)=x^2$, alrededor del eje $y$ y acotada por los planos $y=0$ y $y=a$ ( con $a> 0$ fija) usando: (1) el  m\'etodo de discos y  (2) el m\'etodo de capas cil\'indricas.
+
+
+\item Encuentra el volumen del s\'olido de revoluci\'on que se obtiene rotando la regi\'on dada por las curvas, con respecto al eje especificado.
+
+\begin{enumerate}
+\item $y=x^3, y=x, x\geq 0$, alrededor del eje de las $x$;
+\item $y=x^2, y=4$, alrededor del eje dado por $y=1$.
+\end{enumerate}
+
+\item Encuentra el volumen de la parte superior de la esfera mostrada en la figura.
+
+\begin{center}
+\includegraphics[scale=0.5]{Esfera.jpeg}
+\end{center}
+
+\item Un s\'olido tiene una base circular de radio 2. Cada corte seccional, con planos perpendiculares a un di\'ametro fijo, es un tri\'angulo equil\'aero. Calcula el volumen del s\'olido.
+
+\item Calcula el volumen de una pir\'amide, de altura $h$, cuya base es un tri\'angulo equilatero de lado $a$.

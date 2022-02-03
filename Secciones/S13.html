@@ -1,0 +1,131 @@
+
+
+
+\section*{Area entre curvas}
+
+
+\begin{definicion}
+Para funciones continuas, $f,g:[a,b]\to \mathbb{R}$, con $g\leq f$, el area entre las curvas se define como:
+$$
+\int_a^b f(x)-g(x)dx
+$$
+\end{definicion}
+
+\item Encuentra el area  de la regi\'on acotada entre las curvas $y=x^2$ y $y=\frac{x}{4}$.
+
+
+\item Encuentra el area de la regi\'on entre las gr\'aficas de $f(x)=x$ y $g(x)=\frac{x^3}{4}$ en $[0,2]$
+
+
+\item Encuentra $b$, de tal forma que el \'area de la regi\'on acotada entre las curvas $y=x^2$ y $y=4$, queda partida a la mitad
+por la recta $y=b$.
+
+
+
+
+
+\item Encuentra el area m\'axima debajo de la curva $y=4x-x^3$, desde $x=a$ hasta $x=a+1$, para toda $0<a$.
+
+
+
+\item Encuentra $c$, de tal forma que el \'area  de la regi\'on acotada entre las curvas $y=x^2-c^2$ y $y=c^2-x^2$ es 576.
+
+
+\item A veces, para calcular el area entre curvas, es \'uitl hace un cambio de perspectiva e integrar con respecto 
+a $y$, en ves de integrar con respecto a $x$.  
+\begin{enumerate}
+\item Grafica la recta  $y=x-3$ y la par\'abola $y^2=4x+8$.
+\item Encuentra los puntos de intersecci\'on de $y=x-3$ y $y^2=4x+8$.
+\item Integra con respecto a $y$ y encuentra el area de la regi\'on acotada  entre la recta $y=x-3$ y la par\'abola $y^2=4x+8$.
+\end{enumerate}
+
+\item Bosqueja las regiones encerradas por las curvas dadas. Despu\'es encuentra el area encerrada por las curvas. Decide si integrar con respecto a $x$ o $y$.
+\begin{enumerate}
+\item $y=x+1, y=16-x^2$	;
+\item $y=\sen(x), y=x, x=0, x=\pi/2$;
+\item $y=(x-a)^2, y=x$, donde $a>0$ es una constante fija;
+\item $x=2-y^2, x=y^2-2$;
+\item $x+y^2=12, x=2y$.
+\end{enumerate}
+
+\item Bosqueja la regi\'on del plano delimitada por la desigualdades $x-2y^2 \geq 0$ y  $1-x-|y| \geq 0$. Adem\'as  encuentra su area.
+
+\subsection*{El Indice de Gini}
+
+
+El indice de GINI es una medida de la distribuci\'on del ingreso total entre los habitantes de un pa\'is. Fue propuesto
+por el economista italiano Corrado Gini (en 1912).
+
+Primero, se ranquean los hogares de acuerdo a su ingreso y despu\'es se calcula la cantidad de hogares cuyo ingreso es a lo m\'as 
+un porcentaje del ingreso total del pa\'is. Con estos datos se genera la curva de Lorenz, que es una curva definida 
+en el intervalo $[0,1]$, que es concava hacia arriba y donde un punto $(a/100,b/100)$ esta en la curva si el $a \%$ porciento de los hogares m\'as pobres recibe el $b \%$ del ingreso total. Note que los puntos de la curva de Lorenz estan por abajo de la recta identidad y la curva siempre pasa por $(0,0)$ y $(1,1)$.
+
+\begin{center}
+\includegraphics[scale=0.4]{GINI-MX.jpeg}
+\end{center}
+
+De la gr\'afica se tiene, por ejemplo, que en 1998 y 2004, el 60$\%$ de los hogares m\'as pobres recibieron
+poco m\'as del 20$\%$ del ingreso total.
+
+
+Si por $L(x)$ denotamos la coordenada $y$ de la curva de Lorenz, el \'indice de GINI se define como
+$$
+G=2\int_0^1 x-L(x)dx
+$$
+
+
+Nota que, salvo el factor 2, el \'indice de Gini es una area entre curvas, concretamente entre la curva de Lorenz y la recta identidad.
+\item 
+\begin{enumerate}
+\item Demuetra que $ 0\leq G \leq 1$.
+\item \textquestiondown C\'omo se ve la curva de Lorenz en una dictadura perfecta? \textquestiondown C\'ual es el \'indice de Gini en este caso?
+\item \textquestiondown C\'omo se ve la cuvra de Lorenz en una sociedad donde el ingreso se distribuye de manera absolutamente homogenea ? \textquestiondown Cu\'al es el \'indice de Gini en este caso ?
+\end{enumerate}
+
+
+\begin{definicion}
+Parte de la importancia del  \'indice de Gini es que introduce la idea de medir la distancia entre dos funciones, ya no entre puntos del espacio.
+Dadas dos funciones integrables $f,g:[a,b] \to \mathbb{R}$, el n\'umero
+$$
+d_1(f,g)=\int_a^b|f(x)-g(x)|dx
+$$
+se puede pensar como una distancia entre las funciones.
+\end{definicion}
+
+\item Calcula:
+$$
+\int_0^{\pi/2}|\cos(x)-\sen(x)|dx
+$$
+
+\item Demuestra las siguientes propiedades. Se asume que $f,g,h :[a,b] \to \mathbb{R}$ son funciones continuas.
+
+\begin{enumerate}
+\item $d_1(f,g) \leq d_1(f,h)+d_1(h,g)$.
+\item $d(f,g)=0$ si y s\'olo si $f(x)=g(x)$ para todo $x\in [a,b]$. Sugerencia: usa el ejercicio \ref{Ejer:IntegralCeroDePositivas}.
+\end{enumerate}
+
+\item  Considera la familia de funciones 
+$f_\alpha:[0,1] \to \mathbb{R}$ dadas por
+$$
+f_\alpha(x)=1+\alpha x
+$$
+donde $\alpha$ es un par\'ametro en $[0,1]$.
+
+Sea $f:[0,1]\to \mathbb{R}$ dada por $f(x)=1+x^2$.
+
+
+Encuentra $\alpha$ tal que 
+$$d_1(f,f_\alpha)=\int_0^1 |f_\alpha(x) -f(x)|dx  $$ sea m\'inima.
+
+
+\item Las noci\'on de distancia $d_1$, entre funciones, es muy distinta a la distancia ecuclideana. Por ejemplo, si uno considera la esfera unitaria
+(los puntos cuya distancia al cero es igual a uno), \'esta tiene la propiedad de que para cualesquiera dos puntos distintos, el punto medio cae afuera de la esfera unitaria. Este ejercicio muestra que esto no pasa para la distancia $d_1$.
+
+Define 
+$$
+S=\{ f: [a,b ] \to \mathbb{R}: \textrm{$f$ es conitnua y $d_1(0,f)=1$} \}
+$$
+
+Encuentra funciones $f,g \in S$ tal que $\frac{f+g}{2} \in S$.
+
+Sugerencia: considera funciones lineales a trozos.

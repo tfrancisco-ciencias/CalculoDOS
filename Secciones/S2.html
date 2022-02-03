@@ -1,0 +1,197 @@
+
+
+
+
+
+
+
+\subsection*{La integral de funciones escalonadas}
+
+\begin{definicion}[Integral definida de funciones escalonadas]
+Para una funci\'on escalonada $s:[a,b]\to \mathbb{R}$, con partici\'on $P=\{x_{i}\}_{i=0}^n$, y valores
+$s_i$  en $(x_{i-1},x_i)$, definimos
+$$
+\int_a^b s=\sum_{i=1}^n \underbrace{s_i}_{\textrm{altura}} \underbrace{(x_i-x_{i-1})}_{\textrm{base}}
+$$
+
+\end{definicion}
+\begin{notas}
+\begin{enumerate}
+\item Las alturas muy bien pueden ser negativas.
+\item La integral puede ser positiva o negativa.
+\item Los valoren de la funci\'on $s$, en los puntos de la partici\'on no importan
+para nada en el c\'alculo de la integral.
+\end{enumerate}
+\end{notas}
+
+\item\label{Ejer:IntegralConstantes} Si $s:[a,b] \to \mathbb{R}$ es escalonada y satisface que existe una constante $k$ tal que  $s(x)=k$, para todo $x\in (a,b)$,  probar
+$$
+\int_a^b s(x)dx=k(b-a).
+$$
+
+\item\label{Ejer:AditividadDeEscalones} Sea $s:[a,b] \to \mathbb{R}$ una funci\'on escalonada con partici\'on $P=\{x_i\}_{i=0}^n$. Demuestra que
+$$
+\int_a^b s(x)dx= \sum_{i=1}^n \int_{x_{i-1}}^{x_i} s(x)dx
+$$
+
+Sugerencia: usa la definici\'on  de la integral de funciones escalonadas y el ejercicio \ref{Ejer:IntegralConstantes}.
+
+\begin{definicion}
+Las funciones piso y techo.
+
+Funci\'on piso:
+$$
+\lfloor x \rfloor:=n
+$$
+si $n$ es el \'unico entero tal que $n \leq x  <n+1$.
+
+Funci\'on techo:
+
+$$
+\lceil x \rceil:=n+1
+$$
+si $n$ es el \'unico entero tal que $n <  x   \leq n+1$.
+
+Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
+\end{definicion}
+
+
+\item Calcula la integrales
+
+
+\begin{enumerate}
+\item $\int_{-1}^3 \lfloor x \rfloor dx$
+\item $\int_{-2}^3 \lfloor 2 x \rfloor dx$
+\item $\int_{-2}^3 \lfloor x/2 \rfloor dx$
+\item $\int_{-1}^3 \lfloor x+\frac{1}{2} \rfloor dx$
+\item $\int_0^9 \lfloor \sqrt{t} \rfloor dt$
+\end{enumerate}
+
+\item Demuestra que, para todo $n$ natural:
+
+$$\int_0^{n^2} \lfloor \sqrt{t} \rfloor dt=n(n-1)(4n+1)/6.$$
+
+\item\label{Ejer:LemaAditividadIntervalosEscalonadas} Sea $s:[a,b] \to \mathbb{R}$ una funci\'on escalonada y $c\in (a,b)$. Demuestra:
+$$
+\int_a^c s dx + \int_c^b s dx= \int_a^b s dx
+$$
+
+
+\item Digamos que $s, \tilde{s}:[a,b] \to \mathbb{R}$ son funciones escalonadas y $s=\tilde{s}$, excepto en un n\'umero finito de puntos. 
+Demostrar que  $\int_a^bs=\int_a^b\tilde{s}$.
+
+Sugerencia: usar el ejercicio \ref{Ejer:LemaAditividadIntervalosEscalonadas} e inducci\'on sobre el n\'umero de puntos donde son distintos.
+
+
+\item\label{Ejer:LinealidadMultiplesIntervalos} Sea $s:[a,b]\to \mathbb{R}$ una funci\'on escalonada. Si $Q=\{y_j \}_{j=0}^m$ es una partici\'on arbitraria de $[a,b]$, 
+demuestra:
+$$
+\int_a^b s(x)dx =\sum_{j=1}^m \int_{y_{j-1}}^{y_j}s(x)dx.
+$$
+
+Sugerencia: usa inducci\'on sobre la longitud de la partici\'on y el ejercicio  \ref{Ejer:LemaAditividadIntervalosEscalonadas}.
+
+
+\item Dibuja la gr\'afica de la  funci\'on $f(x)=\lfloor 2x  \rfloor + \lfloor 3x \rfloor$, $0\leq x \leq 2$ y escribe a $f$ de la forma
+$$
+f(x)=\sum_{i=1}^n \alpha_i \chi_{[x_{i-1}, x_i)}
+$$
+donde $\{x_i\}_{i=0}^n$ es una partici\'on de $[0,2]$.
+
+\begin{definicion}
+Sea $P$ una partici\'on de $[a,b]$. Decimos que $Q$, una partici\'on de $[a,b]$, refina a $P$ si $P \subseteq Q$, es decir, $Q$ tiene m\'as puntos que $P$.
+
+Dadas $P$ y $Q$, dos particiones del intervalo $[a,b]$, por $P\vee Q$ denotamos la partici\'on que se obtiene de unir los puntos de $P$ y los de $Q$. Tal partici\'on se llama la conjunta de $P$ y $Q$. 
+
+Note que $P\vee Q$ es una partici\'on que refina tanto a $P$ como a $Q$.
+\end{definicion}
+
+
+\item\label{Ejer:LemaUnionParticionesEscalonadas} Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas. Por $P_s$ y $P_t$ denotamos las particiones asociadas a  $s$ y $t$, respectivamente. Denota $Q=P_t\vee P_s=\{ z_k\}_{k=0}^p$. Demuestra que, para todo $k=1,\dots, p$, 
+$s$ es constante en $(z_{k-1}, z_k)$ y t es constante en $(z_{k-1}, z_k)$.
+
+\item Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas. Desmostrar:
+
+\begin{enumerate}
+\item La funci\'on suma, $s+t$, es otra vez una funci\'on escalonada.
+\item Si $\alpha$ es una constante, la funci\'on $\alpha s$, es otra vez  una funci\'on escalonada.
+\end{enumerate}
+
+Sugerencia: usa el ejercicio \ref{Ejer:LemaUnionParticionesEscalonadas}.
+
+\item\label{Ejer:LinealidadEscalonadasConstantes} Sean $s,t:[a.b] \to \mathbb{R}$ funciones escalonadas con la propiedad de que
+existen constantes $k, l \in \mathbb{R}$ tal que $s(x)=k$, $t(x)=l$, para toda $x\in (a,b)$. Demuestra que
+$$
+\int_a^b (s(x)+t(x))dx=\int_a^bs(x)dx+\int_a^bt(x)dx.
+$$
+
+\item\label{Ejer:LinealidadEscalonadas} Sean $s,t:[a,b] \to \mathbb{R}$ dos funciones 
+escalonadas y $\alpha \in \mathbb{R}$  una constante. Demostrar:
+$$
+\int_a^b  (s+\alpha t )dx =  \int_a^b sdx+ \alpha \int_a^b t dx
+$$
+
+Dicha propiedad se conoce como la linealidad de la integral.
+
+
+Sugerencia: usa el ejercicio \ref{Ejer:LinealidadMultiplesIntervalos} y el ejercicio \ref{Ejer:LinealidadEscalonadasConstantes}.
+
+
+\item  Calcula $\int_{-1}^3 \lfloor x \rfloor +  \lfloor x+\frac{1}{2} \rfloor  dx$.
+
+
+\item Sean $s_1,\cdots, s_m:[a,b]\to \mathbb{R}$ funciones escalonadas. Demuestra
+$$
+\int_a^b \sum_{k=1}^m s_k(x)dx=\sum_{k=1}^m \int_a^b s_k(x)dx.
+$$
+Sugerencia: usa la linealidad e inducci\'on sobre el n\'umero de sumandos.
+
+\item Fija $k\in \mathbb{N}$ y considera la funci\'on $s_k:[0,1] \to \mathbb{R}$ dada por $s_k(x)=\lfloor kx\rfloor$.
+\begin{enumerate}
+\item Demuestra que $s_k(x)=\sum_{j=1}^k (j-1)\chi_{[(j-1)/k, j/k)}$.
+\item Demuestra $\int_0^1 s_k(x)dx=k-1$.
+\item Demuestra
+$$
+\int_0^n \sum_{k=1}^n \lfloor kx \rfloor dx=\frac{(n-1)n	}{2}.
+$$
+\end{enumerate}
+
+\item Fija $n\in \mathbb{N}$  y considera la funci\'on $s(x)=\lfloor 2x \rfloor$, $0 \leq x \leq n$.
+\begin{enumerate}
+\item Prueba que $s(x)=\sum_{j=1}^{2n} (j-1)\chi_{[(j-1)/2, j/2)}(x)$, $0\leq x \leq n$.
+\item Demuestra
+$$
+\int_0^n \lfloor 2x \rfloor dx =\frac{n(2n-1)}{2}.
+$$
+\end{enumerate}
+
+
+\item Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas. Entonces la funci\'on multiplicaci\'on, $st$, es escalonada. 
+
+\item De un ejemplo de funciones escalonadas que muestre
+$$
+\int_a^b s(x)t(x) dx\not= \int_a^b s(x)dx \int_a^b t(x)dx
+$$
+
+
+
+\item Sean $s:[a,b]\to \mathbb{R}$ escalonada.  Si $s(x)\not=0$, para toda $x$, demuestra que $\frac{1}{s}$ es una funci\'on escalonada. 
+
+
+
+\item Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas. Demuestra:
+\begin{enumerate}
+\item La fuci\'on $\max\{s,t\}$ es una funci\'on escalonada.
+\item La funci\'on $\min\{s,t\}$ es una funci\'on escalonada.
+\end{enumerate}
+
+
+
+\item  Sea $s:[a,b]\to \mathbb{R}$ una funci\'on escalonada. Sea $f:[a,b]\to \mathbb{R}$ una funci\'on fija y arbitraria. Demuestra:
+\begin{enumerate}
+\item la composici\'on $s\circ f$, es una funci\'on escalonada.
+\item la composici\'on $f\circ s$, es una funci\'on escalonada.
+\end{enumerate}
+
+\item\label{Ejer:MonotoniaIntegralEscalonadas}   Sean $s,t : [a,b]\to \mathbb{R}$ dos funciones escalondas con $s\leq t$. Demuestra que 
+$$\int_a^b s(x)dx\leq \int_a^b t(x)dx.$$

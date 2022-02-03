@@ -1,0 +1,233 @@
+
+
+
+
+
+\section*{Cambios de variable lineales}
+
+\item\label{Ejer:CambioVariableTranslacionesEscalonadas} Sea $I \subseteq \mathbb{R}$ un intervalo, sea $s:I \to \mathbb{R}$ una funci\'on escalonada y $\alpha$ un escalar. Entonces
+$$
+\int_{a}^b s(x+\alpha) dx =\int_{a+\alpha}^{b+\alpha} s(u)du
+$$
+siempre que $[a+\alpha, b+\alpha] \subseteq I$.
+
+Lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.
+
+
+Sugerencia: empiza con $s$ de la forma $s=\chi_{[c,d)}$; para el caso general nota que cualquier $s$, funci\'on escalonada, es igual
+excepto en un n\'umero finito de puntos a una expresi\'on de la forma  $\sum_{k=1}^m  \beta_k \chi_{[c_k, d_k)}$, para agunos intervalor $[c_k, b_k)$ y escalares $\beta_k$.
+
+
+\item\label{Ejer:CambioVariableTranslaciones} Sea $I \subseteq \mathbb{R}$ un intervalo, sea $f:I \to \mathbb{R}$ una funci\'on integrable en
+los subintervalos cerrados de $I$ y $\alpha$ un escalar. Supongamos que  $[a+\alpha, b+\alpha] \subseteq I$ (para
+que $f(x+\alpha)$, $x\in [a,b]$ est\'e bien definida). 
+
+Entonces la funci\'on $x\mapsto f(x+\alpha)$ es integrable en $[a,b]$ y
+$$
+\int_{a}^b f(x+\alpha) dx =\int_{a+\alpha}^{b+\alpha} f(u)du.
+$$
+
+
+Lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.
+
+
+Sugerencia: define $g(x)=f(x+\alpha)$; para la primera parte, por el ejercicio \ref{Ejer:CriterioCauchyIntegrabilidad}, dada $\varepsilon >0$, es suficiente encotrar funciones escalonadas $s'$ y $t'$ con
+\begin{eqnarray*}
+& s'(x) \leq g(x) \leq t'(x), \forall x \in [a,b] \\
+& \int_{a}^{b} t'(x)dx - \int_{a}^{b}  s'(x)dx  < \varepsilon. 
+\end{eqnarray*}
+
+Usando que $f$ es integrable en $[a+\alpha, b+\alpha]$, si exsiten $s,t : [a+\alpha, b+\alpha] \to \mathbb{R}$, funciones escalonadas con,
+\begin{eqnarray*}
+s(u)\leq f(u) \leq t(u), \forall u \in [a+\alpha, b+\alpha] \\
+\int_{a+\alpha}^{b+\alpha} t(u)du -\int_{a+\alpha}^{b+\alpha} s(u)du < \varepsilon
+\end{eqnarray*}
+
+Considera  $s'(x):=s(x+\alpha)$, $t'(x):=t(x+\alpha)$, $x\in [a,b]$.
+
+Para probar la f\'ormula usa el ejercicio \ref{Ejer:CambioVariableTranslacionesEscalonadas}.
+
+
+\item Calcular las siguientes integrales.
+
+\begin{enumerate}
+\item $\int_{4}^{5} \sqrt{x-3}dx$.
+\item $\int_{-1}^{6}(x+2)^{10}dx$.
+\item $\int_{-8}^{4}(x-4)^{20}dx$.
+\item $\int_{8}^{9}\sqrt[3]{x+7}dx$.
+\item $\int_{0}^{4}(x-1)^{5}xdx$.
+\item $\int_{-2}^{4} \sqrt[4]{x-2}dx$.
+\end{enumerate}
+
+\begin{definicion}
+Supongamos que la funci\'on $v(t)$, $t\in [t_0, T_0]$  modela la valocidad de un objeto al tiempo $t$ . La distancia reccorida del instante
+$t_1 $ al instante $t_2$ se define como
+$$
+\int_{t_1}^{t_2} v(t)dt
+$$
+siempre y cuando  la integral exista.
+\end{definicion}
+
+
+\item Supon que la velocidad al tiempor $t$ de un objeto esta dado por $v(t)=(1+t)^3$, $cm/s$. 
+\begin{enumerate}
+\item Si el objeto se empieza a mover al tiempor $t=0$,  cu\'al es la distancia  que
+el objeto recorre  despu\'es de $7$ minutos  ?
+\item Toma el cambio de variable  $u=t/60$. Entonces  $u$ da los minutos en termino los segundos y  $g(u)=(1+60 u)^3$, la velocidad del objeto en $cm/min$. Calcula 
+$$
+\int_0^{7} g(u)du
+$$
+Son iguales las integrales de los dos incisos ? Por qu\'e?
+\end{enumerate}
+
+\item\label{Ejer:CambioVariableReescalemientosEscalonadas} Sea $I\subseteq \mathbb{R}$ un intervalo y  $s:I \to \mathbb{R}$ una funci\'on escalonada y  $\alpha \not= 0$ un escalar. Demuestra:
+
+\begin{enumerate}
+
+\item si $\alpha>0$
+$$
+\int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha a}^{\alpha b} s(u)du
+$$
+
+siempre que $[\alpha a, \alpha b] \subset I$.
+\item si $\alpha <0$
+$$
+\int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha b}^{\alpha a} s(u)du
+$$
+siempre que $[\alpha b, \alpha a] \subset I$.
+\end{enumerate}
+
+Lo anterior se puede poner como $u=\alpha x$, $du=\alpha dx$.
+
+Sugerencia: empiza con $s$ de la forma $s=\chi_{[c,d)}$; para el caso general nota que cualquier $s$, funci\'on escalonada, es igual
+excepto en un n\'umero finito de puntos a una expresi\'on de la forma  $\sum_{k=1}^m  \beta_k \chi_{[c_k, d_k)}$, para agunos intervalor $[c_k, b_k)$ y escalares $\beta_k$.
+
+\begin{notacion}\label{Notacion:ReversaIntervalos}
+Sean $a,b\in \mathbb{R}$ con $a<b$. Definimos
+$$
+\int_b^a f(x)dx:= - \int_a^b f(x)dx
+$$
+\end{notacion}
+
+
+\item Demuestra que, con la notaci\'on anteior el ejercicio \ref{Ejer:CambioVariableReescalemientosEscalonadas} como
+$$
+\int_{a}^{b} s(\alpha x) dx = \frac{1}{\alpha}\int_{\alpha a}^{\alpha b} s(u)du, \quad u=\alpha x, \quad du=\alpha dx.
+$$
+sin importar el signo de $\alpha$.
+
+\item\label{Ejer:CambioVariableReescalemientos} Sea $I\subseteq \mathbb{R}$ un intervalo, $f:I\to \mathbb{R}$ una funci\'on integrable sobre los subintervalos cerrados de $I$ y $\alpha \ne 0$.  Supongamos que el intervalo determinado por $\alpha a$ y $\alpha b$ est\'a contenido en
+$I$. Entonces la funci\'on  $x \mapsto f(\alpha x)$ es integrable en $[a,b]$ y 
+$$
+\int_{a }^{b }f(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha a}^{\alpha b} f(u)du
+$$
+(se usa la notaci\'on \ref{Notacion:ReversaIntervalos}). Esto se puede abreviar como $\quad u=\alpha x, \quad du =\alpha dx$.
+
+
+\item Calcula las siguientes integrales.
+
+\begin{enumerate}
+\item $\int_0^{4}(2x-1)^4dx$.
+\item $\int_{2}^{6}(\frac{1}{2}x-4)^4dx$.
+\item $\int_{0}^{5}(2x-1)^{5}(x+1)dx$.
+\item $\int_0^4 (x-2)(2x-1)dx$.
+\item $\int_0^4 |(x-2)(2x-1)|dx$.
+\item $\int_{-1}^4 |(x+2)(x-1)|$.
+\item $\int_{7}^{25}\sqrt{3x-2}$.
+\item para $a>0$, $\int_0^{1} \sqrt{2x-a}dx.$
+\end{enumerate}
+
+\item Este ejercicio calcula  las integrales definidas de cualquier  polinomio.
+
+\begin{enumerate}
+\item Demuestra que, para todo $b<0$, 
+$$
+\int_b^0x^kdx=-\frac{b^{k+1}}{k+1}
+$$
+Sugerencia:  toma el cambio de variable $u=-x$.
+
+\item Sean $a.b \in \mathbb{R}$ fijos y arbitrarios con $a<b$. Demuestra que
+$$
+\int_a^b x^k dx =\frac{b^{k+1}-a^{k+1}}{k+1}
+$$
+
+Sugerencia: toma los casos  $0 \leq a<b$, $a<b \leq 0$ y $a \leq 0 \leq b$.
+
+Nota: m\'as adelante se probar\'a que la misma f\'ormula se vale cuando $k$ se reemplaza por un racional positivo. 
+
+\item Demuestra que, para cualesquiera $a,b \in \mathbb{R}$, con $a<b$, 
+$$
+\int_a^b \sum_{k=1}^n a_kx^k dx=\sum_{k=1}^n a_k\left( \frac{b^{k+1}-a^{k+1}}{k+1}  \right)
+$$
+
+\end{enumerate}
+
+\item Encuentra $p$, un polinomio  de grado 2, tal que 
+$$p(0)=p(1)=0 \quad \textrm{y } \quad   \int_0^2 p(x)dx=1$$
+
+\item Encuentra $p$, un polinomio de grado 3, tal que 
+$$p(0)=p(-1)=0, p(1)=5 \quad \textrm{y}  \quad 2 \int_0^1 p(x)dx=4$$
+
+\item Encuentra todos los polinomios de grado 2, $p$, tales que $p(0)=1$ y $\int_{-2}^{2}p(x)dx=0$.
+
+\item Encuentra todos los reals $a,b$, con $a \leq b$, tales que  
+$$\int_{a}^{b}(3-2x)^5dx=0.$$
+
+\item Calcular:
+
+\begin{enumerate}
+
+\item $\int_1^8 (x+8)^{10}dx$
+\item $\int_{10}^{11} \sqrt{x-3}dx$
+\item $\int_1^2 x\sqrt{x-1}dx$
+\item $\int_{2}^{3}x^2\sqrt{x-2}dx$
+\item $\int_{5}^{6} x\sqrt[3]{x-4}$
+\end{enumerate}
+
+Hint: pueden utilizar
+$$
+\int_a^b x^p dx=\frac{b^{p+1}-a^{p+1}}{p+1}
+$$
+v\'alida para cualesquiera reales $a$ y $b$ y racional $p$.
+
+
+
+\item Sea $f:\mathbb{R}\to \mathbb{R}$ una funci\'on tal que, para toda $a>0$, $f$ es integrable en $[-a,a]$. 
+\begin{enumerate}
+\item Si $f$ es par probar:
+$$
+\int_{-a}^a f(x)dx=2\int_0^af(x)dx
+$$
+
+
+\item Si $f$ es impar probar:
+$$
+\int_{-a}^af(x)dx=0
+$$
+\end{enumerate}
+
+
+\item La medida geom\'etrica de un intervalo.
+
+Existen otras nociones de longitues. Dado $(a,b)\subset (0,\infty)$ se define se define su medida o longitud geom\'etrica como
+$$
+\lambda(a,b)=\ln(b)-\ln(a),
+$$
+donde $\ln$ denota la funci\'on logaritmo. Se puede pensar a la medida geom\'etrica como un an\'alogo de la longitud ( $b-a$) y  $(0,\infty)$ podemos pensar la multiplicaci\'on por reales positivos como un an\'alogo de la translaci\'on.
+
+\begin{enumerate}
+\item Prueba que  $\lambda(\gamma a,\gamma b)=\lambda(a,b)$, para $\gamma >0$.
+
+
+
+
+\item Define ahora,  para una funci\'on escalonada $s:[a,b]\to \mathbb{R}$, con $[a,b] \subset (0,\infty)$,  su integral con respecto a la medida geom\'etrica como:
+$$
+\int_a^b s(x)d\lambda(x):=\sum_{i=1}^n s_i (\ln(x_i)-\ln(x_{i-1}))
+$$
+\item Probar, para $\gamma >0$:
+$$
+\int_{a/\gamma}^{b/\gamma} s(\gamma x)d\lambda(x)=\int_a^b s(u)d\lambda(u)
+$$
+\end{enumerate}
+

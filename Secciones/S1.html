@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="./Home.html"> Inicio  </a> </li>
+              <li> <a href="./InfoPrimerDia.html"> Información 1er día </a> </li>
+              <li> <a href="./Secciones.html"> Secciones  </a> </li>
+              <li> <a href="./ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> El ejemplo de Arquímides  </title>
+    
+  </head>
+
+  <body class="fondo-body" >
+
+    <h1 class="number-title "> El ejemplo de Arquímides  </h1>     
+
+
+<div class="info-box">
+    <h2 class="number-title"> La noción de  área </h2>
+    La noción de area no la vamos a definir, pero la vamos a pesnar 
+    como una función $a$, que asigna un número a ciertas regiones del plano 
+    (llamadas medibles) y que satisface las siguientes propiedades:
+
+    <ol>
+    <li>$a(S) \geq 0$ para todo medible $S$; </li> 
+    <li>$a(\emptyset)=0$.</li>
+    <li>$a(S\cup T) = a(S)+ a(T)$ si $S\cap T =\emptyset$;</li>
+    <li>  si $T \subseteq S$ entonces $a(T) \leq a(S)$ y $a(S\setminus T)= a(S)-a(T)$;</li>
+    <li>si $S$ es un rectángulo de base $b$ y altura $h$, $a(S)=bh$;</li>
+    <li>decimos que dos medibles, $S$ y $T$, son congruentes si existen 
+        rotaciones y/o translaciones que manden uno al otro.
+        Con esta definición se tiene que si $S$ y $T$ son congruentes entonces 
+        $a(S)=a(T)$;
+    </li>
+    </ol>
+    
+    Uno de los objetivos principales del cálculo integral es estudiar los medibles que se obtienen mediante partes de regiones bajo gráficas de funciones.
+    
+</div>
+
+
+
+
+
+
+<div class="definicion-box">
+Dado un intervalo $[a,b] \subseteq \mathbb{R}$, su longitud se define como 
+$$b-a.$$
+</div>
+
+
+<div class="definicion-box">
+Una partición del intervalo $[a,b]$ es un subconjunto finito de puntos $P \subset [a,b]$ tal que $a, b \in P$. 
+
+Dada una partición denotamos $P=\{ x_0 < x_1 < \cdots < x_n \}$ con $x_0=a$ y $x_n=b$.  A los intervalos de la forma $[x_{i-1}, x_i]$, $i=1,\dots, n$ se le llaman los subintervalos de la partición y llamamos a $n$ la longitud de la partición.
+
+</div>
+
+\begin{notas}
+
+La partición más sencilla es $P=\{a,b\}$.
+
+La partición se llama homogenea si todos los subintervalos $[x_{i-1}, x_i]$  tienen la misma longitud.
+\end{notas}
+
+\item Sea $[a,b] \subseteq \mathbb{R}$ un intervalo y $n \geq 1$ un natural. Demuestra que la partición homogenea, de longitud $n$, está dada por
+$$
+x_i=a+\frac{b-a}{n}i, \quad i=0,\dots, n
+$$
+
+<div class="definicion-box"> Dada una función $f:[a,b]\to \mathbb{R}$ acotada  y $P$, una partición de $[a,b]$ definimos las sumas inferiores y superiores de Riemann, de la función  $f$, con respecto a $P$ como
+\begin{eqnarray*}
+\overline{S}(f,P)=\sum_{i=1}^n M_i [x_i-x_{i-1}] \\
+\underline{S}(f,P)=\sum_{i=1}^n m_i [x_i-x_{i-1}]
+\end{eqnarray*} 
+donde $M_i=\sup \{f(x) : x\in [x_{i-1}, x_i]\}$, $m_i=\inf \{ f(x): x\in [x_{i-1}, x_i] \}$.
+
+Si $P$ es la partición homogenea de longitud $n$ podemos abreviar $\overline{S}(f,P)$ como $\overline{S}_n(f)$ (similarmente con las sumas inferiores).
+ 
+</div>
+
+\item Considera la funcíon $f(x)=x^2$, $x\in  [0,b]$. Si $P$ es la partición homogenea de longitud $n$ demuestra que:
+\begin{eqnarray*}
+\overline{S}(f,P)= \frac{b^3}{n^3}\sum_{i=1}^n  i^2\\
+\underline{S}(f,P)= \frac{b^3}{n^3}\sum_{i=1}^{n-1}  i^2
+\end{eqnarray*}  
+
+\item Usa la fórmula del volumen de una pirámide de base cuadrada para estimar que
+$$
+\sum_{i=1}^n i^2 \sim \frac{n^3}{3}
+$$
+
+Sugerencia: construye una pirámide con cubos unitarios, con los lados de la base de tamano $n$ y altura igual a $n$.
+
+\item Demuestra por inducción que:
+$$
+\sum_{i=0}^{n-1}i^2 \leq \frac{n^3}{3} \leq \sum_{i=0}^n i^2
+$$
+
+%%\begin{notacion}
+%%Sea $f:[a,b] \to \mathbb{R}$ una función tal que $f(x) \geq 0$ para toda $x\in [a,b]$. Por $\int_a^b f(x)dx$ vamos a denotar a el area bajo la gráfica de $f$.
+%%\end{notacion}
+
+
+ \item Considera la funciíon $f(x)=x^2$, $x\in  [0,b]$.  Demuestra que:
+\begin{eqnarray*}
+\lim_{n\to \infty} \overline{S}_n(f)=\lim_{n\to \infty} \underline{S}_n(f)=\frac{b^3}{3}
+\end{eqnarray*}  
+
+Sugerencia:  checa que
+$$
+\overline{S}_n(f)- \underline{S}_n(f)= \frac{b^3}{n}
+$$
+y usa el ejercicio anterior.
+
+\item Este ejercicio da otra prueba de que, para $f(x)=x^2$, $\lim_{n\to \infty} \overline{S}_n(f)=\lim_{n\to \infty} \underline{S}_n(f)=\frac{b^3}{3}$.
+<ol>
+\item Usar induccion para probar:
+$$
+\sum_{i=1}^n i^2=\frac{n^3}{3}+\frac{n^2}{2}+\frac{n}{6}
+$$
+hint: $k^3-(k-1)^3=3k^2-3k+1$
+
+
+\item Si $f(x)=x^2$, $x\in [0,b]$ y $P_n$ es la partición homogenea, entonces:
+$$
+\lim_n \underline{S}_n(f)=\lim_{n}\overline{S}_n(f) =\frac{b^3}{3}
+$$
+</ol>
+
+\item Este ejercicio  prueba  que, para $f(x)=x^3$,  $\lim_{n}\underline{S}_n(f)=\lim_n\overline{S}_n(f)=\frac{b^4}{4}$. 
+<ol>
+
+\item Probar por inducción:
+$$\sum_{i=1}^n i^3= \frac{n^4}{4}+\frac{n^3}{2}+\frac{n^2}{4}$$
+
+\item Concluir del inciso anterior que, si $f(x)=x^3$, $x\in [0,b]$ y $P_n$ es la partición homogenea, entonces:
+$$\lim_{n}\underline{S}_n(f)=\lim_n\overline{S}_n(f)=\frac{b^4}{4}$$
+</ol>
+
+
+\item Sean $A,B\subseteq \mathbb{R}$ no vacíos. Si $A\cap B = \emptyset$ entonces $\chi_A+\chi_B=\chi_{A\cup B}$.
+
+
+\section*{Funciones escalonadas}
+
+
+
+<div class="definicion-box">
+Una función $s:[a,b]\to \mathbb{R}$ se llama escalonada si existe una partición $P$, de $[a,b]$, de tal forma que $s$ es constante en los sub-intervalos abiertos generados por $P$. Por ejemplo, toda función constante es escalonada. Llamamos a $P$ la partición de $s$ o la partición inducida o generada por $s$.
+</div>
+
+
+<div class="definicion-box">
+Dada un subconjunto no vacío $A\subseteq \mathbb{R}$ la función característica o indicadora de $A$ se define como
+$$
+\chi_A(x)=
+\left\{
+\begin{array}{cc}
+1 & x\in A \\
+0 & x\notin A
+\end{array}
+\right.
+$$
+</div>
+
+
+\item Sea $P=\{ x_0< x_1<  \cdots< x_{n-1}< x_n  \}$ una partición de $[a,b]$ y sean $s_1,\dots, s_n \in \mathbb{R}$ fijos y arbitrarios. Demuestra que
+$$
+s(x):=\sum_{i=1}^n s_i \chi_{[x_{i-1}, x_i)}(x)
+$$
+es una función escalonada.
+
+
+
+\item Encuentra las gráficas de las siguientes funciones.
+<ol>
+\item $2\chi_{[0,1)}+ 4\chi_{[1,2)}$.
+\item $2\chi_{[0,1)}+4\chi_{[1/2,2)}$
+\item $3\chi_{[0,1)} -2 \chi_{[1/3,1/2)}+ 4\chi_{[1/2, 2)}$.
+</ol>
+
+\item Demuestra que toda función escalonada $s:\mathbb{R}\to \mathbb{R}$ se puede escribir de la forma
+$$
+s=\sum_{j=1}^m s_j \chi_{A_j}
+$$
+
+donde $A_j \subseteq \mathbb{R}$ satisfacen: $\cup_{j=1}^m A_j=\mathbb{R}$ y si $j_1\ne j_2$, $A_{j_1}\cap A_{j_2}=\emptyset$.
+
+
+\item Una partícula se mueve sobre el eje de las $x$, tomando su velocidad positiva cuando se mueve hacia la derecha y negativa cuando se mueve hacia la izquierda. Para fijar ideas, suponemos que el punto de partida de la partícula es el origen al tiempo $t=0$.
+
+<ol>
+\item Supongamos que $v:[0,T] \to \mathbb{R}$ modela la valocidad de la partícula, $v$ dada por:
+
+$$
+v(t)=\left\{
+\begin{array}{cc}
+2,  & \textrm{ si $0\leq t < 5T/6$,} \\ 
+0, &  \textrm{ si $5T/3 \leq t < T/2$,} \\ 
+-1, & \textrm{ si  $T/2 \leq t \leq 3T/4$.}\\
+0 & \textrm{si $3T/4 \leq t < 3T/2$} \\
+3 & \textrm{si $3T/2 \leq t \leq T$}
+\end{array}
+\right.
+$$
+
+Encuentra la distancia recorrida por la partícula en el intervalo de tiempo $[0,T]$.
+
+\item Ahora, toma una variable $v_3$ y considera la velocidad modelada por la función:
+
+
+$$
+v(t)=\left\{
+\begin{array}{cc}
+2,  & \textrm{ si $0\leq t < 5T/6$,} \\ 
+0, &  \textrm{ si $5T/3 \leq t < T/2$,} \\ 
+v_3, & \textrm{ si  $T/2 \leq t \leq 3T/4$.}\\
+0 & \textrm{si $3T/4 \leq t < 3T/2$} \\
+3 & \textrm{si $3T/2 \leq t \leq T$}
+\end{array}
+\right.
+$$
+
+
+Encuentra $v_3$ de tal forma que la distancia recorrida es cero. Es decir, la partícula inicia y termina en el mismo lugar.
+</ol>
+
+</body>

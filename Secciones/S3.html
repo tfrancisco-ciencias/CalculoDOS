@@ -1,0 +1,363 @@
+
+
+
+
+
+
+
+
+
+
+\section*{La integral de Riemann}
+
+\begin{definicion}
+
+
+Sea $f:[a,b]\to \mathbb{R}$ una funci\'on acotada.
+
+La integral inferior de $f$ en $[a,b]$, (denotada $\underline{\int}_{a}^b f(x)dx$), se define como
+$$
+\sup \left\{ \int_a^b s(x)dx \quad \big| \quad s:[a,b]\to \mathbb{R} \quad \textrm{es una funci\'on escalonada y $s\leq f$}  \right\}
+$$
+
+La integral superior de $f$, en $[a,b]$, (denotada $\overline{\int}_{a}^b f(x)dx$), se define como
+$$
+\inf \left\{ \int_a^b t(x)dx \quad \big|  \quad t:[a,b]\to \mathbb{R} \quad \textrm{es una funci\'on escalonada y $f\leq t$}  \right\}
+$$
+
+
+Decimos que una funci\'on es  (Riemann) integrable si  $\underline{\int}_{a}^b f(x)dx =\overline{\int}_{a}^b f(x)dx$. A este n\'umero lo llamamos la integral (de Riemann) definida de $f$, en $[a,b]$, y se denota $\int_a^bf(x)dx$.
+\end{definicion}
+
+
+
+\begin{nota}
+Se pide que $f$ sea acotada, para que existan funciones escalonadas cuya gr\'afica este por arriba de la de $f$ y para que existan funciones escalonadas cuya gr\'afica este por debajo de la de $f$.
+\end{nota}
+
+
+\item Demuestra que toda funci\'in escalonada es integrable. Es m\'as, si $s:[a,b] \to \mathbb{R}$ es escalonada, con partici\'on $P=\{x_i\}_{i=1}^n$,  y con $s=s_i$ en el intervalo $(x_{i-1}, x_i)$, demostrar que
+$$
+\underline{\int}_a^b s(x)dx=\overline{\int}_a^b s(x)dx=\sum_{i=1}^n s_j(x_i-x_{i-1}).
+$$ 
+
+
+\item Demuestra que, para cualquier funci\'on acotada, $f:[a,b]\to \mathbb{R}$ 
+$$\underline{\int}_a^b f(x)dx \leq \overline{\int}_a^bf(x)dx$$
+
+En consecuencia, una funci\'on no es integrable si $\underline{\int}_a^b f(x)dx < \overline{\int}_a^bf(x)dx$
+
+
+\item Considera la funci\'on de Dirichlet $D:[0,1]\to \mathbb{R}$ tal que
+$$
+D(x)=\left\{
+\begin{array}{cc}
+1 & x\in \mathbb{Q}\\
+0 & x \notin \mathbb{Q}
+\end{array}
+\right.
+$$
+
+Demuestra que $D$ no es integrable.
+
+\item\label{Ejer:MonotoniaIntegral} (Monoton\'ia de la integral) . Demuestra el siguiente teorema.
+
+\begin{teorema}
+Sean $f,g:[a,b]\to \mathbb{R}$ dos funciones integrables.  Si $f\leq g$ demuestra que:
+$$\int_a^b f(x)dx\leq \int_a^bg(x)dx .$$
+
+\end{teorema}
+Sugerencia: usa el ejercicio \ref{Ejer:MonotoniaIntegralEscalonadas}.
+
+\item Sea $f:[a,b]\to \mathbb{R}$ integrable. Supon que existen constantes $m$ y $M$ tales que 
+$m\leq f(x)\leq M$, para todo $x\in [a,b]$. Demuestra que:
+$$
+m(a-b)\leq \int_a^bf(x)dx\leq M(b-a).
+$$
+
+
+\item Sea $s:[a,b] \to \mathbb{R}$, una funci\'on escalonada. Define $\tilde{s}:[a.b] \to \mathbb{R}$, dada por
+$$
+\tilde{s}(x):= \left\{
+\begin{array}{cc}
+s(x) & \textrm{si $s(x) \geq 0$} \\
+0 & \textrm{si $s(x) < 0$}
+\end{array}
+\right.
+$$
+
+Prueba que $\tilde{s}$ es escalonada y que $\int_a^b s(x)dx \leq \int_a^b \tilde{s}(x)dx$.
+
+\item Sea $f:[a,b]\to \mathbb{R}$ con $f\geq 0$.  En este caso demuestra que:
+$$
+\underline{\int}_a^b f(x) dx= \sup\{ \int_a^b \tilde{s}(x)dx : 0\leq  \tilde{s} \leq f, \textrm{$\tilde{s}:[a,b] \to \mathbb{R}$ escalonada} \}
+$$
+
+
+\item Demuestra las siguientes cotas. Puedes suponer que todas las funciones involucradas
+son integrables.
+
+\begin{enumerate}
+\item $\int_0^1\sqrt{1+x^2}dx\leq \int_0^1 \sqrt{1+x}$.
+\item $\int_0^4  x^2-4x+4 dx \geq 0$.
+\item $2\leq \int_{-1}^1 \sqrt{1+x^2}\leq 2\sqrt{2}$.
+\item $\frac{\sqrt{2}\pi}{24}\leq \int_{\pi/6}^{\pi/4}\cos(x)dx\leq \frac{\sqrt{3}\pi}{24}$.
+\end{enumerate}
+
+
+
+
+\item\label{Ejer:CriterioCauchyIntegrabilidad} Este ejercicio es el primer criterio para probar si una funci\'on acotada es integrable.
+
+Sea $f:[a,b]\to \mathbb{R}$ una funci\'on acotada. Si para toda $\varepsilon >0$ existen $s,t:[a,b]\to \mathbb{R}$ funciones escalonadas con 
+\begin{eqnarray*}
+s\leq f \leq t \\
+\int_a^b t - \int_a^b s < \varepsilon
+\end{eqnarray*}
+entonces $f$ es integrable en $[a,b]$.
+
+Sugerencia: proceder por contradicci\'on; suponer que 
+$$
+\underline{\int}_a^b f dx =: \alpha < \beta  := \overline{\int}_a^b fx
+$$
+luego tomar $\varepsilon=\beta-\alpha$ y $s\leq f \leq t$ con
+$$
+\int_a^b t - \int_a^b s < \varepsilon
+$$
+
+
+\item\label{Ejer:IntegralAbreSumas} Sean $f,g: [a,b]\to \mathbb{R}$ funciones integrables. Fija $\varepsilon >0$.
+
+\begin{enumerate}
+\item Demuestra que existen $s_f,s_g, t_f, t_g:[a,b]\to \mathbb{R}$ funciones escalonadas tales que
+$s_f \leq f \leq t_f$, $s_g \leq g \leq t_g$ y tal que
+$$
+\int_a^b t_f(x)dx - \int_a^bs_f(x)dx <\varepsilon/2,
+$$
+y 
+$$
+\int_a^b t_g(x)dx - \int_a^bs_g(x)dx <\varepsilon/2.
+$$
+
+\item Define $s:=s_f+s_g$, $t:=t_f+t_g$, con $s_f, t_f, s_g, t_g$ como en el inciso anterior.Demuestra que $s$ y $t$ son  funciones escalonadas, que $s\leq f+g \leq t$ y que:
+\begin{equation}\label{Eqn:Linealidad1}
+\int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon.
+\end{equation}
+
+
+\item Usa el inciso anterior y el criterio de Cauchy (ejercicio \ref{Ejer:CriterioCauchyIntegrabilidad}) para concluir que $f+g$ es integrable.
+
+
+\item Usando la monoton\'ia de la integral y la linealidad de la integral para funciones escalonadas demuestra:
+\begin{equation}\label{Eqn:Linealidad2}
+\int_a^b s(x) dx \leq \int_a^b f(x)dx+ \int_a^b g(x)dx \leq \int_a^b t(x)dx.
+\end{equation}
+
+
+\item De los incisos anteriores y usando la monoton\'ia de la integral, demuestra
+\begin{equation}\label{Eqn:Linealidad3}
+\int_a^b s(x)dx \leq  \int_a^b (f(x)+g(x))dx \leq \int_a^b t(x)dx.
+\end{equation}
+
+\item Usando \eqref{Eqn:Linealidad1}, \eqref{Eqn:Linealidad2} y \eqref{Eqn:Linealidad3} demuestra
+$$
+\left|  \int_a^b f(x)dx+ \int_a^b g(x)dx - \int_a^b(f(x)+g(x))dx \right|<  \varepsilon.
+$$
+
+\item Ya que $\varepsilon$ es arbitrario, concluye del inciso anterior que:
+$$
+\int_a^b (f(x)+g(x))dx=\int_a^bf(x)dx+\int_a^bg(x)dx.
+$$
+
+\end{enumerate} 
+
+\item\label{Ejer:SacaEscalares} 
+
+Sea $f:[a,b] \to \mathbb{R}$ integrable y $\alpha\in \mathbb{R}$, $\alpha\ne 0$, un escalar fijo y arbitrario.
+
+
+Fija $\varepsilon >0$. 
+
+\begin{enumerate}
+\item Demuestra que existen funciones escalonadas $s_f,t_f :[a,b] \to \mathbb{R}$ tales que
+$s_f \leq f \leq t_f$ y tal que
+$$
+\int_a^b t_f(x)dx -\int_a^bs_f(x)dx < \frac{\varepsilon}{|\alpha|}.
+$$
+
+\item Si $\alpha >0$ define $s:=\alpha s_f$, $t:=\alpha t_f$; si $\alpha<0$ define $s=\alpha t_f$, $t=\alpha s_f$. 
+Demuestra que $s$ y $t$ son funciones escalonadas, que $s\leq \alpha f \leq t$ y que
+\begin{equation}\label{Eqn:SacaEscalares1}
+\int_a^b t(x)dx -\int_a^b s(x)dx  <\varepsilon.
+\end{equation}
+
+\item Usa el inciso anterior y el criterio de Cauchy (ejer \ref{Ejer:CriterioCauchyIntegrabilidad}) para concluir que la funci\'on $\alpha f$ es integrable.
+
+\item Usando la monoton\'ia de la integral demuestra que:
+\begin{equation}\label{Eqn:SacaEscalares2}
+\int_a^b s(x)dx \leq \int_a^b \alpha f(x)dx \leq \int_a^b t(x)dx.
+\end{equation}
+
+
+\item Recuerda que, por definici\'on de $t_f$ y $s_f$:
+$$
+\int_a^b s_f(x)dx \leq \int_a^b f(x)dx \leq \int_a^b t_f(x)dx.
+$$
+Multiplica las desigualdades anteriores por $\alpha$  y usa la linealidad de la integral de las
+funciones escalonadas para demostrar que:
+
+\begin{equation}\label{Eqn:SacaEscalares3}
+\int_a^b s(x)dx \leq \alpha \int_a^b f(x)dx \leq \int_a^b t(x)dx
+\end{equation}
+
+\item Usando \eqref{Eqn:SacaEscalares1}, \eqref{Eqn:SacaEscalares2} y \eqref{Eqn:SacaEscalares3} demuestra
+que
+$$
+\left| \alpha \int_a^b f(x)dx -\int_a^b \alpha f(x)dx \right| <\varepsilon.
+$$
+
+\item Ya que $\varepsilon$ es arbitrario, concluye del inciso anterior que
+$$
+\int_a^b \alpha f(x)dx=\alpha\int_a^b f(x)dx.
+$$
+
+\end{enumerate}
+
+\item\label{Ejer:LinealidadIntegral} (Linealidad de la Integral) De los ejercicios \ref{Ejer:IntegralAbreSumas} y 
+\ref{Ejer:SacaEscalares} se sigue el siguiente teorema. 
+
+\begin{teorema}
+Sean $f,g: [a,b]\to \mathbb{R}$ funciones integrables y $\alpha$ un real.  Entonces $\alpha f +g$ es integrable y
+$$
+\int_a^b (\alpha f(x) + g(x))dx=\alpha\int_a^bf(x)dx+\int_a^b g(x)dx
+$$
+\end{teorema}
+
+\item Supon que $\int_{-1}^7f(x)dx=4, \int_{-1}^7f(x)dx=-9, \int_{-1}^7 h(x)dx=10$. Calcula:
+\begin{enumerate}
+\item $\int_{-1}^7 3f(x)+2g(x)dx.$
+\item $\int_{-1}^7 \frac{1}{2}f(x)+g(x)-h(x)dx.$
+\item $\frac{\int_{-1}^7 f(x)+g(x)+h(x)dx}{\int_{-1}^7f(x)+h(x)dx}$.
+\end{enumerate}
+
+
+
+\item Define la funci\'on $F(x,y)=1+x+xy+x^2y^3$, $x,y\in \mathbb{R}$. Calcula las siguientes integrales
+\begin{enumerate}
+\item $\int_0^2 F(x,y)dx$.
+\item $\int_0^2 F(x,y)dy$.
+\end{enumerate}
+
+
+\item\label{Ejer:LinealidadIntervalos} Este ejercicio demuestra el siguiente teorema.
+
+\begin{teorema}
+Sea $f:[a,b]\to \mathbb{R}$ acotada e integrable en $[a,b]$. Sea $c$ un punto $a<c<b$. 
+
+
+Entonces $f$ es integrable en $[a,c]$, $f$ es integrable en $[c,d]$ y:
+
+$$
+\int_a^c f +\int_c^b f =\int_a^b f
+$$
+
+\end{teorema}
+
+
+Fija $\varepsilon>0$.
+
+\begin{enumerate}
+
+\item Demuestra que existen funciones escalonadas, $s$ y $t$, tales que $s(x)\leq f(x) \leq t(x)$ en para todo $x\in [a,b]$ y
+\begin{equation}\label{Eqn:LinealidadIntervalos1}
+\int_a^b t(x)dx - \int_a^b s(x)dx  <\varepsilon.
+\end{equation}
+
+\item Define  las funciones $s_1:=s \chi_{[a,c]}, t_1:=t\chi_{[a,c]}, s_2=s\chi_{[c,b]}, t_2=t\chi_{[c,b]}$. Demuestra que $s_1,s_2,t_1$ y $t_2$ son escalondas, $s_1(x) \leq f(x) \leq t_1(x)$ para todo  $x\in [a,c]$, $s_2(x) \leq f(x) \leq t_2(x)$ para todo $x\in [c,b]$ y 
+$$
+\int_a^c t_i(x)dx - \int_a^c s_i(x) dx  < \varepsilon, \quad i=1,2.
+$$
+
+\item Usando el criterio de Cauchy concluye que $f$ es integrable en $[a,c]$ y $f$ es integrable en $[c,b]$.
+
+\item Demuestra que
+$$
+\int_a^c s_1(x)dx \leq \int_a^c f(x)dx \leq \int_a^c t_1(x)dx
+$$
+y
+$$
+\int_c^b s_2(x)dx \leq \int_c^b f(x)dx \leq \int_c^b t_2(x)dx
+$$
+
+\item Sumando las desigualdades de anteriores y usando el ejercicio \ref{Ejer:LemaAditividadIntervalosEscalonadas} demuestra
+\begin{equation}\label{Eqn:LinealidadIntervalos2}
+\int_a^b s(x)dx \leq \int_a^c f(x)dx+\int_c^b f(x)dx \leq \int_a^b t(x)dx.
+\end{equation}
+
+\item Demuestra
+\begin{equation}\label{Eqn:LinealidadIntervalos3}
+\int_a^b s(x)dx \leq \int_a^b f(x)dx  \leq \int_a^b t(x)dx.
+\end{equation}
+
+
+\item Usando \eqref{Eqn:LinealidadIntervalos1}, \eqref{Eqn:LinealidadIntervalos2} y \eqref{Eqn:LinealidadIntervalos3}
+demuestra:
+$$
+\left|  \int_a^cf(x)dx + \int_c^bf(x)dx - \int_a^b f(x)dx \right| <\varepsilon
+$$
+
+\item Ya que $\varepsilon$ es arbitrario concluye que:
+
+$$
+\int_a^c f(x)dx + \int_c^b f(x)dx=\int_a^b f(x)dx. 
+$$
+
+\end{enumerate}
+
+\item Sean $a,b,c \in \mathbb{R}$ con $a<c<b$ y $f:[a,b] \to \mathbb{R}$ acotada. Demuestra que si  $f$ es integrable
+en $[a,c]$ y $f$ es integrable en $[c,d]$, entonces $f$ es integrable en $[a,b]$.
+
+Sugerencia: demuestra que existen funciones escalonadas $s_a,t_a:[a,c] \to \mathbb{R}$ y $s_b,t_b [c,b]\to \mathbb{R}$ tales que:
+
+\begin{eqnarray*}
+s_a \leq f \leq t_a \quad \textrm{en $[a,c]$} \\
+s_b \leq f \leq t_b \quad \textrm{en $[c,b]$} 
+\end{eqnarray*}
+con
+\begin{eqnarray*}
+\int_a^c (t_a-s_a) dx < \varepsilon/2\\
+\int_c^b (t_b-s_b) dx < \varepsilon/2
+\end{eqnarray*}
+
+Considerar $s=s_a\chi_{[a,c]}+ s_b\chi_{(c,b]}$, $t=t_a\chi_{[a,c]}+ t_b\chi_{(c,b]}$.
+
+\item Sea $f:[a,b] \to \mathbb{R}$ integrable. Sea $c\in (a,b)$ fijo y arbitrario. Demuestra
+$$
+\int_c^bf(x)dx=\int_a^b f(x)dx-\int_a^cf(x)dx.
+$$
+
+\item Supon que $f:[0,\infty) \to \mathbb{R}$ es una funci\'on que satisface $\int_0^b f(x)dx=3b^2+2b+1$, para todo
+$b>0$. Calcula
+\begin{enumerate}
+\item $\int_0^5 f(x)dx$.
+\item $\int_1^7 f(x)dx$.
+\end{enumerate}
+
+
+
+\item Sea $s:[c,d]\to \mathbb{R}$ escalonada. Define $\tilde{s}:[-d,-c] \to \mathbb{R}$ por $\tilde{s}(x)=s(-x)$. Demuestra: 
+$$
+\int_{-d}^{-c}\tilde{s}(x)dx=\int_{c}^d s(x)dx.
+$$
+
+\item Sea $f:[c,d]\to \mathbb{R}$ una funci\'on integrable. Define $\tilde{f}:[-d,-c]\to \mathbb{R}$  por
+$\tilde{f}(x)=f(-x)$ (la funci\'on reflejada). Demuestra que $\tilde{f}$ es integrable y que:
+
+
+$$
+\int_{-d}^{-c}\tilde{f}(x)dx= \int_c^d f(x)dx
+$$
+
+
+\item Demuestra que se  puede cambiar funciones escalonadas por funciones lineales a trozos en la definicion de la integral.
+
