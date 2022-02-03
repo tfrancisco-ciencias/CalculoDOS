@@ -14,6 +14,7 @@ $(document).ready(function() {
     var elementProp=document.querySelectorAll("div.prop-box");
     var elementQuiz=document.querySelectorAll("div.quiz-box");
     document.body.classList.toggle("fondo-body-dark");
+    document.querySelector("nav.top-nav").classList.toggle("top-nav-dark");
     var i;
     for (i=0; i < elementInfo.length; i++ ){
     elementInfo[i].classList.toggle("info-box-dark");
