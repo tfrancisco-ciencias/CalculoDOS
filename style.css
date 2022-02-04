@@ -128,7 +128,8 @@ h1.number-title{
 }
 h1.number-title:before{
  counter-increment: sectionCounter;
- content:"Sección " counter(sectionCounter) " : ";
+ content:"Sección " counter(sectionCounter) " ";
+ font-family: "Muli";
 }
 
 h2.number-title{
