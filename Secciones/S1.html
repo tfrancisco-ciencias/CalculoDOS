@@ -133,14 +133,14 @@
     </p>
     <p>
         Cálcular directamente el área bajo la parábola no es sencillo pero podemos 
-        aproximarla si dividimos la región en franjas y consideramos los rectángulos que 
-        están encerrados debajo de esta área. La ventaja de los rectángulos es que su área 
+        aproximarla si dividimos la región en franjas y consideramos  rectángulos que 
+        aproximen el área de dichas franjas. La ventaja de los rectángulos es que su área 
         es simplemente base por altura.
     </p>
 
     <p>
         Intuitivamente si dividimos la región en un número muy grande de franjas la aproximación 
-        del área de los rectángulos sera cada vez una mejor estimación del área bajo 
+        del área de los rectángulos será cada vez una mejor estimación del área bajo 
         la parábola  y en el límite obtendremos precisamente el área buscada. En lo que 
         sigue hacemos las cuentas que formalizan esta idea. 
     </p>
@@ -148,7 +148,7 @@
         Para empezar dividimos el invervalo \([0,b]\) en número igual de partes. Para 
         llevar un control de las partes vamos a usar un entero \(n\). Por ejemplo, para 
         \(n=2\) lo dividimos en dos partes y para llevar un control vamos a enumerar los 
-        puntos de estas partes iniciando con \(x_0=0\) luego el punto medio 
+        puntos de estas partes iniciando con \(x_0=0\), luego el punto medio 
         \(x_1=\frac{b}{2}\) y el punto final \(x_2=b\). En general si dividimos 
         el intervalo \([0,b]\) en \(n\) partes iguales los puntos de la partición,
         iniciando con \(x_0=0\)  y terminando con \(x_n=b\) son 
@@ -158,10 +158,10 @@
 
     </p>
     <p>
-        Ahora calculamos el area de cada rectángulo que está por debajo de la gráfica y cuya base 
+        Ahora calculamos el área de cada rectángulo cuya base 
         está en el intervalo \([x_{i-1},x_i]\) (con \(1 \leq i \leq n \)). En este punto necesitamos 
-        hace una decisión de cómo tomar la altura del rectángulo, pues podemos aproximar el 
-        área con rectángulos por abajo de la gráfica o por arriba. Vamos a usar los rectángulos 
+        hace una decisión de cómo tomar la altura de cada  rectángulo, pues podemos aproximar el 
+        área con rectángulos por debajo de la gráfica o por arriba. Vamos a usar los rectángulos 
         por arriba. En esta situación tenemos la siguiente figura
     </p>
     <p>
@@ -169,7 +169,7 @@
         \[
         \sum_{i=1}^{n} \frac{b^3}{n^3}i^2=\frac{b^3}{n^3}\sum_{i=1}^ni^2.
         \]
-        lo cual es nuestra apromación del área bajo la parábola.
+        lo cual es una  apromación del área bajo la parábola.
     </p>
     <p>
         En este punto uno topa con pared pues necesitamos una manera de estimar la 
@@ -201,8 +201,8 @@
         a \(x=b\), es \(\frac{b^3}{3}\). 
     </p>
     <p>
-        Este ejemplo es muy ilustrativo pues lo que se hará en adelante es refinar 
-        todas las ideas y cuentas que se han hecho.
+        Este ejemplo es muy ilustrativo pues todo lo que se hará en adelante es refinar 
+        las ideas y cuentas que se han hecho.
     </p>
 </div>
 
@@ -508,8 +508,8 @@
             $$
             v(t)=\left\{
             \begin{array}{cc}
-            2,  & \textrm{ si $0\leq t < 5T/6$,} \\ 
-            0, &  \textrm{ si $5T/3 \leq t < T/2$,} \\ 
+            2,  & \textrm{ si $0\leq t < T/6$,} \\ 
+            0, &  \textrm{ si $T/6 \leq t < T/2$,} \\ 
             -1, & \textrm{ si  $T/2 \leq t \leq 3T/4$.}\\
             0 & \textrm{si $3T/4 \leq t < 3T/2$} \\
             3 & \textrm{si $3T/2 \leq t \leq T$}
@@ -523,8 +523,8 @@
             $$
             v(t)=\left\{
             \begin{array}{cc}
-            2,  & \textrm{ si $0\leq t < 5T/6$,} \\ 
-            0, &  \textrm{ si $5T/3 \leq t < T/2$,} \\ 
+            2,  & \textrm{ si $0\leq t < T/6$,} \\ 
+            0, &  \textrm{ si $T/6 \leq t < T/2$,} \\ 
             v_3, & \textrm{ si  $T/2 \leq t \leq 3T/4$.}\\
             0 & \textrm{si $3T/4 \leq t < 3T/2$} \\
             3 & \textrm{si $3T/2 \leq t \leq T$}
