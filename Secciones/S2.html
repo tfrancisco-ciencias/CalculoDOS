@@ -1,131 +1,246 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
 
 
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
 
-\subsection*{La integral de funciones escalonadas}
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
 
-\begin{definicion}[Integral definida de funciones escalonadas]
-Para una funci\'on escalonada $s:[a,b]\to \mathbb{R}$, con partici\'on $P=\{x_{i}\}_{i=0}^n$, y valores
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              <li><a href="../GoogleClassroom.html"> Google classroom </a></li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> El ejemplo de Arquímides  </title>
+    
+  </head>
+
+  <body class="fondo-body" >
+
+<h1 class="number-title flexbox">La integral de funciones escalonadas</h1>
+
+
+<div class="info-box">
+    <h2 class="number-title"> Introducción </h2>
+</div>
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <h3>Integral definida de funciones escalonadas</h3>
+Para una función escalonada $s:[a,b]\to \mathbb{R}$, con partición $P=\{x_{i}\}_{i=0}^n$, y valores
 $s_i$  en $(x_{i-1},x_i)$, definimos
 $$
 \int_a^b s=\sum_{i=1}^n \underbrace{s_i}_{\textrm{altura}} \underbrace{(x_i-x_{i-1})}_{\textrm{base}}
 $$
 
-\end{definicion}
-\begin{notas}
-\begin{enumerate}
-\item Las alturas muy bien pueden ser negativas.
-\item La integral puede ser positiva o negativa.
-\item Los valoren de la funci\'on $s$, en los puntos de la partici\'on no importan
-para nada en el c\'alculo de la integral.
-\end{enumerate}
-\end{notas}
+<p> 
+    Notas:
+<ol>
+<li>Las alturas muy bien pueden ser negativas.</li> 
+<li>La integral puede ser positiva o negativa.</li> 
+<li>Los valoren de la función $s$, en los puntos de la partición no importan
+    para nada en el cálculo de la integral.
+</li> 
 
-\item\label{Ejer:IntegralConstantes} Si $s:[a,b] \to \mathbb{R}$ es escalonada y satisface que existe una constante $k$ tal que  $s(x)=k$, para todo $x\in (a,b)$,  probar
+</ol>
+</p>
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:IntegralConstantes"> Ejercicio</h2> 
+    Si $s:[a,b] \to \mathbb{R}$ es escalonada y satisface que existe una constante $k$ tal que  $s(x)=k$, para todo $x\in (a,b)$,  probar
 $$
 \int_a^b s(x)dx=k(b-a).
 $$
+</div>
 
-\item\label{Ejer:AditividadDeEscalones} Sea $s:[a,b] \to \mathbb{R}$ una funci\'on escalonada con partici\'on $P=\{x_i\}_{i=0}^n$. Demuestra que
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:AditividadDeEscalones"> Ejercicio</h2> 
+    Sea $s:[a,b] \to \mathbb{R}$ una función escalonada con partición 
+    $P=\{x_i\}_{i=0}^n$. Demuestra que
 $$
 \int_a^b s(x)dx= \sum_{i=1}^n \int_{x_{i-1}}^{x_i} s(x)dx
 $$
 
-Sugerencia: usa la definici\'on  de la integral de funciones escalonadas y el ejercicio \ref{Ejer:IntegralConstantes}.
+Sugerencia: usa la definición  de la integral de funciones escalonadas y el ejercicio \ref{Ejer:IntegralConstantes}.
+</div>
 
-\begin{definicion}
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
 Las funciones piso y techo.
 
-Funci\'on piso:
+Función piso:
 $$
 \lfloor x \rfloor:=n
 $$
-si $n$ es el \'unico entero tal que $n \leq x  <n+1$.
+si $n$ es el único entero tal que $n \leq x  < n+1$.
 
-Funci\'on techo:
+Función techo:
 
 $$
 \lceil x \rceil:=n+1
 $$
-si $n$ es el \'unico entero tal que $n <  x   \leq n+1$.
+si $n$ es el único entero tal que $n <  x   \leq n+1$.
 
 Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
-\end{definicion}
+</div>
 
 
-\item Calcula la integrales
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    Calcula la integrales
 
 
-\begin{enumerate}
-\item $\int_{-1}^3 \lfloor x \rfloor dx$
-\item $\int_{-2}^3 \lfloor 2 x \rfloor dx$
-\item $\int_{-2}^3 \lfloor x/2 \rfloor dx$
-\item $\int_{-1}^3 \lfloor x+\frac{1}{2} \rfloor dx$
-\item $\int_0^9 \lfloor \sqrt{t} \rfloor dt$
-\end{enumerate}
+<ol>
+ <li>$\int_{-1}^3 \lfloor x \rfloor dx$</li> 
+ <li>$\int_{-2}^3 \lfloor 2 x \rfloor dx$</li> 
+ <li>$\int_{-2}^3 \lfloor x/2 \rfloor dx$</li>   
+ <li>$\int_{-1}^3 \lfloor x+\frac{1}{2} \rfloor dx$</li>
+ <li>$\int_0^9 \lfloor \sqrt{t} \rfloor dt$</li>
+</ol>
+</div>
 
-\item Demuestra que, para todo $n$ natural:
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    Demuestra que, para todo $n$ natural:
 
 $$\int_0^{n^2} \lfloor \sqrt{t} \rfloor dt=n(n-1)(4n+1)/6.$$
+</div>
 
-\item\label{Ejer:LemaAditividadIntervalosEscalonadas} Sea $s:[a,b] \to \mathbb{R}$ una funci\'on escalonada y $c\in (a,b)$. Demuestra:
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:LemaAditividadIntervalosEscalonadas"> Ejercicio</h2> 
+    Sea $s:[a,b] \to \mathbb{R}$ una función escalonada y $c\in (a,b)$. Demuestra:
 $$
 \int_a^c s dx + \int_c^b s dx= \int_a^b s dx
 $$
+</div>
 
-
-\item Digamos que $s, \tilde{s}:[a,b] \to \mathbb{R}$ son funciones escalonadas y $s=\tilde{s}$, excepto en un n\'umero finito de puntos. 
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    Digamos que $s, \tilde{s}:[a,b] \to \mathbb{R}$ son funciones escalonadas 
+    y $s=\tilde{s}$, excepto en un número finito de puntos. 
 Demostrar que  $\int_a^bs=\int_a^b\tilde{s}$.
 
-Sugerencia: usar el ejercicio \ref{Ejer:LemaAditividadIntervalosEscalonadas} e inducci\'on sobre el n\'umero de puntos donde son distintos.
+Sugerencia: usar el ejercicio \ref{Ejer:LemaAditividadIntervalosEscalonadas} e inducción sobre el número de puntos donde son distintos.
+</div>
 
-
-\item\label{Ejer:LinealidadMultiplesIntervalos} Sea $s:[a,b]\to \mathbb{R}$ una funci\'on escalonada. Si $Q=\{y_j \}_{j=0}^m$ es una partici\'on arbitraria de $[a,b]$, 
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:LinealidadMultiplesIntervalos"> Ejercicio</h2>
+    Sea $s:[a,b]\to \mathbb{R}$ una función escalonada. 
+    Si $Q=\{y_j \}_{j=0}^m$ es una partición arbitraria de $[a,b]$, 
 demuestra:
 $$
 \int_a^b s(x)dx =\sum_{j=1}^m \int_{y_{j-1}}^{y_j}s(x)dx.
 $$
 
-Sugerencia: usa inducci\'on sobre la longitud de la partici\'on y el ejercicio  \ref{Ejer:LemaAditividadIntervalosEscalonadas}.
+Sugerencia: usa inducción sobre la longitud de la partición y el ejercicio  \ref{Ejer:LemaAditividadIntervalosEscalonadas}.
+</div>
 
-
-\item Dibuja la gr\'afica de la  funci\'on $f(x)=\lfloor 2x  \rfloor + \lfloor 3x \rfloor$, $0\leq x \leq 2$ y escribe a $f$ de la forma
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    Dibuja la gráfica de la  función $f(x)=\lfloor 2x  \rfloor + \lfloor 3x \rfloor$, $0\leq x \leq 2$ y escribe a $f$ de la forma
 $$
 f(x)=\sum_{i=1}^n \alpha_i \chi_{[x_{i-1}, x_i)}
 $$
-donde $\{x_i\}_{i=0}^n$ es una partici\'on de $[0,2]$.
+donde $\{x_i\}_{i=0}^n$ es una partición de $[0,2]$.
+</div>
 
-\begin{definicion}
-Sea $P$ una partici\'on de $[a,b]$. Decimos que $Q$, una partici\'on de $[a,b]$, refina a $P$ si $P \subseteq Q$, es decir, $Q$ tiene m\'as puntos que $P$.
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+Sea $P$ una partición de $[a,b]$. Decimos que $Q$, una partición de $[a,b]$, refina a $P$ si $P \subseteq Q$, es decir, $Q$ tiene más puntos que $P$.
 
-Dadas $P$ y $Q$, dos particiones del intervalo $[a,b]$, por $P\vee Q$ denotamos la partici\'on que se obtiene de unir los puntos de $P$ y los de $Q$. Tal partici\'on se llama la conjunta de $P$ y $Q$. 
+Dadas $P$ y $Q$, dos particiones del intervalo $[a,b]$, por $P\vee Q$ denotamos la partición que se obtiene de unir los puntos de $P$ y los de $Q$. Tal partición se llama la conjunta de $P$ y $Q$. 
 
-Note que $P\vee Q$ es una partici\'on que refina tanto a $P$ como a $Q$.
-\end{definicion}
+Note que $P\vee Q$ es una partición que refina tanto a $P$ como a $Q$.
+</div>
 
 
-\item\label{Ejer:LemaUnionParticionesEscalonadas} Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas. Por $P_s$ y $P_t$ denotamos las particiones asociadas a  $s$ y $t$, respectivamente. Denota $Q=P_t\vee P_s=\{ z_k\}_{k=0}^p$. Demuestra que, para todo $k=1,\dots, p$, 
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:LemaUnionParticionesEscalonadas"> Ejercicio</h2> 
+    Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas. Por $P_s$ y $P_t$ denotamos 
+    las particiones asociadas a  $s$ y $t$, respectivamente. 
+    Denota $Q=P_t\vee P_s=\{ z_k\}_{k=0}^p$. Demuestra que, para todo $k=1,\dots, p$, 
 $s$ es constante en $(z_{k-1}, z_k)$ y t es constante en $(z_{k-1}, z_k)$.
+</div>
 
-\item Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas. Desmostrar:
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas. Desmostrar:
 
-\begin{enumerate}
-\item La funci\'on suma, $s+t$, es otra vez una funci\'on escalonada.
-\item Si $\alpha$ es una constante, la funci\'on $\alpha s$, es otra vez  una funci\'on escalonada.
-\end{enumerate}
+<ol>
+<li>La función suma, $s+t$, es otra vez una función escalonada.</li> 
+<li>Si $\alpha$ es una constante, la función $\alpha s$, es otra vez  una función escalonada.</li> 
+</ol>
 
 Sugerencia: usa el ejercicio \ref{Ejer:LemaUnionParticionesEscalonadas}.
+</div>
 
-\item\label{Ejer:LinealidadEscalonadasConstantes} Sean $s,t:[a.b] \to \mathbb{R}$ funciones escalonadas con la propiedad de que
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:LinealidadEscalonadasConstantes"> Ejercicio</h2> 
+    Sean $s,t:[a.b] \to \mathbb{R}$ funciones escalonadas con la propiedad de que
 existen constantes $k, l \in \mathbb{R}$ tal que $s(x)=k$, $t(x)=l$, para toda $x\in (a,b)$. Demuestra que
 $$
 \int_a^b (s(x)+t(x))dx=\int_a^bs(x)dx+\int_a^bt(x)dx.
 $$
+</div>
 
-\item\label{Ejer:LinealidadEscalonadas} Sean $s,t:[a,b] \to \mathbb{R}$ dos funciones 
+<div class="ejercicio-box"> 
+    <h2 class="number-title" id="Ejer:LinealidadEscalonadas"> Ejercicio</h2> 
+    Sean $s,t:[a,b] \to \mathbb{R}$ dos funciones 
 escalonadas y $\alpha \in \mathbb{R}$  una constante. Demostrar:
 $$
 \int_a^b  (s+\alpha t )dx =  \int_a^b sdx+ \alpha \int_a^b t dx
@@ -135,63 +250,94 @@ Dicha propiedad se conoce como la linealidad de la integral.
 
 
 Sugerencia: usa el ejercicio \ref{Ejer:LinealidadMultiplesIntervalos} y el ejercicio \ref{Ejer:LinealidadEscalonadasConstantes}.
+</div>
 
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2>  
+    Calcula $\int_{-1}^3 \lfloor x \rfloor +  \lfloor x+\frac{1}{2} \rfloor  dx$.
+</div>
 
-\item  Calcula $\int_{-1}^3 \lfloor x \rfloor +  \lfloor x+\frac{1}{2} \rfloor  dx$.
-
-
-\item Sean $s_1,\cdots, s_m:[a,b]\to \mathbb{R}$ funciones escalonadas. Demuestra
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    Sean $s_1,\cdots, s_m:[a,b]\to \mathbb{R}$ funciones escalonadas. Demuestra
 $$
 \int_a^b \sum_{k=1}^m s_k(x)dx=\sum_{k=1}^m \int_a^b s_k(x)dx.
 $$
-Sugerencia: usa la linealidad e inducci\'on sobre el n\'umero de sumandos.
+Sugerencia: usa la linealidad e inducción sobre el número de sumandos.
+</div>
 
-\item Fija $k\in \mathbb{N}$ y considera la funci\'on $s_k:[0,1] \to \mathbb{R}$ dada por $s_k(x)=\lfloor kx\rfloor$.
-\begin{enumerate}
-\item Demuestra que $s_k(x)=\sum_{j=1}^k (j-1)\chi_{[(j-1)/k, j/k)}$.
-\item Demuestra $\int_0^1 s_k(x)dx=k-1$.
-\item Demuestra
-$$
-\int_0^n \sum_{k=1}^n \lfloor kx \rfloor dx=\frac{(n-1)n	}{2}.
-$$
-\end{enumerate}
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    Fija $k\in \mathbb{N}$ y considera la función $s_k:[0,1] \to \mathbb{R}$ dada por $s_k(x)=\lfloor kx\rfloor$.
+<ol>
+<li>Demuestra que $s_k(x)=\sum_{j=1}^k (j-1)\chi_{[(j-1)/k, j/k)}$.</li> 
+<li>Demuestra $\int_0^1 s_k(x)dx=k-1$.</li> 
+<li>Demuestra
+    $$
+    \int_0^n \sum_{k=1}^n \lfloor kx \rfloor dx=\frac{(n-1)n	}{2}.
+    $$</li> 
+</ol>
+</div>
 
-\item Fija $n\in \mathbb{N}$  y considera la funci\'on $s(x)=\lfloor 2x \rfloor$, $0 \leq x \leq n$.
-\begin{enumerate}
-\item Prueba que $s(x)=\sum_{j=1}^{2n} (j-1)\chi_{[(j-1)/2, j/2)}(x)$, $0\leq x \leq n$.
-\item Demuestra
-$$
-\int_0^n \lfloor 2x \rfloor dx =\frac{n(2n-1)}{2}.
-$$
-\end{enumerate}
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    Fija $n\in \mathbb{N}$  y considera la función $s(x)=\lfloor 2x \rfloor$, $0 \leq x \leq n$.
+<ol>
+<li>Prueba que $s(x)=\sum_{j=1}^{2n} (j-1)\chi_{[(j-1)/2, j/2)}(x)$, $0\leq x \leq n$.</li> 
+<li>Demuestra
+    $$
+    \int_0^n \lfloor 2x \rfloor dx =\frac{n(2n-1)}{2}.
+    $$</li> 
+</ol>
+</div>
 
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas.
+     Entonces la función multiplicación, $st$, es escalonada. 
+</div>
 
-\item Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas. Entonces la funci\'on multiplicaci\'on, $st$, es escalonada. 
-
-\item De un ejemplo de funciones escalonadas que muestre
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    De un ejemplo de funciones escalonadas que muestre
 $$
 \int_a^b s(x)t(x) dx\not= \int_a^b s(x)dx \int_a^b t(x)dx
 $$
 
+</div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    Sean $s:[a,b]\to \mathbb{R}$ escalonada.  
+    Si $s(x)\not=0$, para toda $x$, demuestra que $\frac{1}{s}$ es una función escalonada. 
+</div>
 
 
-\item Sean $s:[a,b]\to \mathbb{R}$ escalonada.  Si $s(x)\not=0$, para toda $x$, demuestra que $\frac{1}{s}$ es una funci\'on escalonada. 
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas. Demuestra:
+<ol>
+<li>La fución $\max\{s,t\}$ es una función escalonada.</li> 
+<li>La función $\min\{s,t\}$ es una función escalonada.</li> 
+</ol>
+</div>
 
 
 
-\item Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas. Demuestra:
-\begin{enumerate}
-\item La fuci\'on $\max\{s,t\}$ es una funci\'on escalonada.
-\item La funci\'on $\min\{s,t\}$ es una funci\'on escalonada.
-\end{enumerate}
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2>  
+    Sea $s:[a,b]\to \mathbb{R}$ una función escalonada. 
+    Sea $f:[a,b]\to \mathbb{R}$ una función fija y arbitraria. Demuestra:
+<ol>
+ <li>la composición $s\circ f$, es una función escalonada.</li> 
+ <li>la composición $f\circ s$, es una función escalonada.</li> 
+</ol>
+</div>
 
-
-
-\item  Sea $s:[a,b]\to \mathbb{R}$ una funci\'on escalonada. Sea $f:[a,b]\to \mathbb{R}$ una funci\'on fija y arbitraria. Demuestra:
-\begin{enumerate}
-\item la composici\'on $s\circ f$, es una funci\'on escalonada.
-\item la composici\'on $f\circ s$, es una funci\'on escalonada.
-\end{enumerate}
-
-\item\label{Ejer:MonotoniaIntegralEscalonadas}   Sean $s,t : [a,b]\to \mathbb{R}$ dos funciones escalondas con $s\leq t$. Demuestra que 
+<div class="ejercicio-box">
+     <h2 class="number-title" id="Ejer:MonotoniaIntegralEscalonadas"> Ejercicio</h2>   
+     Sean $s,t : [a,b]\to \mathbb{R}$ dos funciones escalondas con $s\leq t$. Demuestra que 
 $$\int_a^b s(x)dx\leq \int_a^b t(x)dx.$$
+</div>
+
+</body>
