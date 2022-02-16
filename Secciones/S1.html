@@ -140,19 +140,27 @@
         notación muy diferente al que el usó, es calcular el área bajo la curva de la 
         parábola \(y=x^2\), desde \(x=0\) hasta \(x=b\), donde \(b>0\) es un número arbitrario.
     </p>
+    <div class="flexbox">
+        <img src="./Images/S1-Image1.png" alt="AreaBajoParabola" width="40%" height="auto">
+      </div>
     <p>
         Cálcular directamente el área bajo la parábola no es sencillo pero podemos 
         aproximarla si dividimos la región en franjas y consideramos  rectángulos que 
         aproximen el área de dichas franjas. La ventaja de los rectángulos es que su área 
         es simplemente base por altura.
     </p>
-
+    <div class="flexbox">
+        <img src="./Images/S1-Image2.png" alt="FranjasParabola" width="40%" height="auto">
+      </div>
     <p>
         Intuitivamente si dividimos la región en un número muy grande de franjas la aproximación 
         del área de los rectángulos será cada vez una mejor estimación del área bajo 
         la parábola  y en el límite obtendremos precisamente el área buscada. En lo que 
         sigue hacemos las cuentas que formalizan esta idea. 
     </p>
+    <div class="flexbox">
+        <img src="./Images/S1-Image3.png" alt="Escalones" width="40%" height="auto">
+      </div>
     <p>
         Para empezar dividimos el invervalo \([0,b]\) en número igual de partes. Para 
         llevar un control de las partes vamos a usar un entero \(n\). Por ejemplo, para 
@@ -166,6 +174,9 @@
         \]
 
     </p>
+    <div class="flexbox">
+        <img src="./Images/S1-Image5.png" alt="Particion" width="40%" height="auto">
+      </div>
     <p>
         Ahora calculamos el área de cada rectángulo cuya base 
         está en el intervalo \([x_{i-1},x_i]\) (con \(1 \leq i \leq n \)). En este punto necesitamos 
@@ -173,6 +184,9 @@
         área con rectángulos por debajo de la gráfica o por arriba. Vamos a usar los rectángulos 
         por arriba. En esta situación tenemos la siguiente figura
     </p>
+    <div class="flexbox">
+        <img src="./Images/S1-Image4.png" alt="AreaRectangulo" width="40%" height="auto">
+      </div>
     <p>
         Sumando todos las contribuciones de área de los  rectángulos obtenemos 
         \[
@@ -190,7 +204,11 @@
         del volúmen de la pirámide rectangular de base \(n\) y altura \(n\). Lo anterior 
         se puede ver mediante la siguiente figura, que acomoda cubos de lado 1 en forma de 
         una pirámide.
+
     </p>
+    <div class="flexbox">
+        <img src="./Images/S1-Image6.png" alt="AreaRectangulo" width="40%" height="auto">
+      </div>
     <p>
         Con este arreglo cada capa tiene un volumen de \(i^2\), empezando con la 
         base en \(i=n\) y terminando con la cúspide en \(i=1\). El volumen 
