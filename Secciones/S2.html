@@ -22,13 +22,14 @@
             sen: "\\operatorname{sen}",
             seg: ["\\overrightarrow{#1}", 1]
           },
-          tags: "ams" /* this part is for numbered equations */
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
         }
       };
     </script>
 
     <!-- This part is for using single $ for latex input, instead of \(\) -->
-    <script>
+    <!--<script>
         MathJax = {
         tex: {
             inlineMath: [['$', '$'], ['\\(', '\\)']]
@@ -37,7 +38,7 @@
             fontCache: 'global'
         }
     };
-    </script>
+    </script>-->
 
     <!-- CSS -->
 
@@ -257,6 +258,54 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
         \int_a^c s dx + \int_c^b s dx= \int_a^b s dx
         $$
     </p>
+
+    <button class="respButton hvr-grow "> Solución  </button>
+    <div class="resp-box flexbox">
+      <div class="flexbox">
+        <p>
+            Sea \(P=\{a=x_0< x_1 < \cdots < x_n =b \}\) la partición 
+            asociada a \(s\) y supongamos que \(s\) toma el valor de 
+            \(d_i\) en \((x_{i-1},x_i)\), \(i=1,\dots, n\).
+        </p>
+        <p>
+            Notamos que podemos escribir el intervalo \((a,b])\) como 
+            \[
+            (a,b]=\sum_{i=1}^{n}(x_{i-1},x_i]
+            \]
+            donde los intervalos \((x_{i-1},x_i]\) son ajenos dos 
+            a dos. Por lo tanto exsite un único \(i_0\) tal  que 
+            \(c \in (x_{i_0-1},x_{i_0}]\).
+        </p>
+        <p>
+            Por la <a href="#Def:IntegralEscalonadas"> Definición 2.2</a>
+            aplicada en los intervalos \([a,c]\) y \([c,d]\) tenemos 
+            \begin{equation}\label{Eqn:Aux1LinealidadIntervaloes}
+                \int_a^c s(x)dx= d_1(x_1-x_0)+\cdots+ d_{i_0-1}(c- x_{i_0-1})
+            \end{equation}
+            y
+            \begin{equation}\label{Eqn:Aux2LinealidadIntervaloes}
+                \int_c^b s(x)dx= d_{i_0-1}(x_{i_0}-c)+\cdots+ d_n(x_{n}-x_{n-1})
+            \end{equation}
+        </p>
+        <p>
+            Notamos que, si sumamos el último término de \eqref{Eqn:Aux1LinealidadIntervaloes} 
+            y primer término de \eqref{Eqn:Aux2LinealidadIntervaloes} tenemos 
+            \begin{eqnarray*}
+            d_{i_0-1}(c- x_{i_0-1})+ d_{i_0-1}(x_{i_0}-c) = d_{i_0-1}(x_{i_0}-x_{i_0-1})
+            \end{eqnarray*}
+        </p>
+        <p>
+            Por lo tanto, sumando \eqref{Eqn:Aux1LinealidadIntervaloes} 
+            y \eqref{Eqn:Aux2LinealidadIntervaloes} concluimos:
+            \begin{eqnarray*}
+            \int_a^c s(x)dx+\int_c^b s(x)dx&=&d_1(x_1-x_0)+\cdots+ d_{i_0-1}(x_{i_0}- x_{i_0-1}) 
+            + \cdots+ d_n(x_{n}-x_{n-1}) \\
+            &=& \int_a^b s(x)dx
+            \end{eqnarray*}
+        </p>
+    </div>
+    </div>
+    
 </div>
 
 <div class="ejercicio-box"> 
@@ -337,6 +386,45 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
        para todo \(x\in [a,b]\), excepto una cantidad finita de puntos. Demuestra que 
        $$\int_a^b s(x)dx\leq \int_a^b t(x)dx.$$
    </p> 
+
+   <button class="respButton hvr-grow "> Solución  </button>
+    <div class="resp-box flexbox">
+      <div class="flexbox">
+        <p>
+            Sean \(P_s\) y \(P_t\)las particiones asociadas a \(s\) y \(t\) respectivamente.
+            Además sean \(\{z_0< \cdots < z_k\}\) los puntos de \([a,b]\) donde falla 
+            la desigualdad \(s(x) \leq t(x)\). Agregando los puntos \(a\) y \(b\)
+            a \(\{z_0< \cdots < z_k\}\) podemos suponer que 
+            \(P=\{z_0< \cdots < z_k\}\) es una partición de \([a,b]\).
+        </p>
+        <p>
+            Tomemos \(Q=P_s\vee P_t \vee P=\{y_0< \cdots < y_m\}\). 
+            Por el <a>Ejercicio 2.12</a> \(s\) es constante cuando se restringe 
+            a los intervalos \((y_{j-1}, y_j)\), \(j=1,\dots, m\) e igualmente \(t\). 
+            Denotemos por   \(s_j\) el valor que toma \(s\) en \((y_{j-1},y_j)\) y 
+            \(t_j\) el valor de \(t\) en \((y_{j-i},y_j)\). Por el 
+            <a href=""> Ejercicio 2.9</a> tenemos que 
+            \begin{eqnarray*}
+             \int_a^b s(x)dx&=&\sum_{j=1}^m s_j(y_j-y_{j-i})\\
+             \int_a^b t(x)dx&=&\sum_{j=1}^m t_j(y_j-y_{j-i})
+            \end{eqnarray*}
+        </p>
+        <p>
+            Ahora, ya que \(s(x) \leq t(x)\) para \(x\ne z_i\), \(i=0,\dots, k\), 
+            tenemos que \(s_j \leq t_j\), para todo \(j=1,\dots, n\). Multiplicando 
+            por \((y_j-y_{j-i})\) tenemos \(s_j(y_j-y_{j-1}) \leq t_jy(y_j-y_{j-1})\)
+            y sumando desde \(j=1\) a \(j=n\) concluimos
+            \[
+             \sum_{j=1}^n s_j(y_j-y_{j-1}) \leq \sum_{j=1}^m s_j(y_j-y_{j-1}).
+            \]
+            Por lo tanto 
+            \[
+             \int_a^b s(x)dx \leq \int_a^b t(x)dx.
+            \]
+        </p>
+      </div>
+    </div>
+   
 </div>
 
 <div class="ejercicio-box"> 
