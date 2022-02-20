@@ -103,7 +103,7 @@
 </div>
 
 <div class="definicion-box">
-    <h2 class="number-title"> Definición </h2>
+    <h2 class="number-title" id="Def:IntegralEscalonadas"> Definición </h2>
     <h3>Integral  de funciones escalonadas</h3>
 <p>
     Para una función escalonada $s:[a,b]\to \mathbb{R}$, con partición $P=\{x_{i}\}_{i=0}^n$, y 
@@ -151,21 +151,67 @@
             el inciso anterior.
         </li>
     </ol> 
+    <button class="respButton hvr-grow "> Solución  </button>
+    <div class="resp-box flexbox">
+      <div class="flexbox">
+        <p>
+            Inciso 1.
+        </p>
+        <p>
+            Tomando en 
+            cuenta de que \(s\) toma el valor \(k\) en todo \((a,b)\), tenemos
+            que la partición asociada a \(s\) es la más pequeña, \(P=\{a,b\}\),
+            por lo tanto directamente de la 
+            <a href="#Def:IntegralEscalonadas">Definición 2.2</a> tenemos 
+            \[
+                \int_a^b s(x)dx=k(b-a).
+            \]
+        </p>
+        <p>
+            Inciso 2.
+        </p>
+        <p>
+            Supongamos que \(P\) es la partición asociada a \(s\)
+            y que \(s\) toma el valor \(c_i\) en el intervalo
+            \((x_{i-1},x_i)\). Por la <a href="#Def:IntegralEscalonadas">Definición 2.2</a> tenemos 
+            \[
+                \int_a^b s(x)dx=\sum_{i=1}^n c_i (x_i-x_{i-1})
+            \]
+            Por otro lado, ya que \(s\) restringida a \((x_{i-1},x_i)\)
+            es constante igual a \(c_i\) por el inciso anterior tenemos 
+            \[
+                \int_{x_{i-1}}^{x_i}s(x)dx=c_i(x_{i-1}-x_i), i=1,\dots, n
+            \]
+            Igualando estas ecuaciones con los sumando de la 
+            ecuación anterior concluimos 
+        </p>
+        <p>
+                \[
+                \int_a^b s(x)dx=\sum_{i=1}^n \int_{x_{i-1}}^{x_i}s(x)dx.
+                \]
+        </p>
+    
 
+      </div>
+    </div>
+    
 </div>
 
 
 <div class="definicion-box">
     <h2 class="number-title"> Definición</h2>
+<h3>
+    Las funciones piso y techo
+</h3>
 <p>
-    Las funciones piso y techo.
-
+    
 Función piso:
 $$
 \lfloor x \rfloor:=n
 $$
 si $n$ es el único entero tal que $n \leq x  < n+1$.
-
+</p>
+<p>
 Función techo:
 
 $$
