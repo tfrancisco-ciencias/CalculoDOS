@@ -261,7 +261,7 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
 
     <button class="respButton hvr-grow "> Solución  </button>
     <div class="resp-box flexbox">
-      <div class="flexbox">
+      <div >
         <p>
             Sea \(P=\{a=x_0< x_1 < \cdots < x_n =b \}\) la partición 
             asociada a \(s\) y supongamos que \(s\) toma el valor de 
@@ -316,7 +316,7 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
         Demostrar que  $\int_a^bs=\int_a^b\tilde{s}$.
     </p>
     <p>
-        Sugerencia: usar el  <a href="Ejer:LemaAditividadIntervalosEscalonadas">Ejercicio 2.7</a> 
+        Sugerencia: usar el  <a href="#Ejer:LemaAditividadIntervalosEscalonadas">Ejercicio 2.7</a> 
         e inducción sobre el número de puntos donde son distintos.
     </p>
 
@@ -334,7 +334,7 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
     </p>
      <p>
         Sugerencia: usa inducción sobre la longitud de la partición 
-        y el ejercicio  <a href="Ejer:LemaAditividadIntervalosEscalonadas">Ejercicio 2.7.</a>
+        y el ejercicio  <a href="#Ejer:LemaAditividadIntervalosEscalonadas">Ejercicio 2.7.</a>
      </p>
 
 </div>
@@ -403,7 +403,7 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
             a los intervalos \((y_{j-1}, y_j)\), \(j=1,\dots, m\) e igualmente \(t\). 
             Denotemos por   \(s_j\) el valor que toma \(s\) en \((y_{j-1},y_j)\) y 
             \(t_j\) el valor de \(t\) en \((y_{j-i},y_j)\). Por el 
-            <a href=""> Ejercicio 2.9</a> tenemos que 
+            <a href="#Ejer:LinealidadMultiplesIntervalos"> Ejercicio 2.9</a> tenemos que 
             \begin{eqnarray*}
              \int_a^b s(x)dx&=&\sum_{j=1}^m s_j(y_j-y_{j-i})\\
              \int_a^b t(x)dx&=&\sum_{j=1}^m t_j(y_j-y_{j-i})
@@ -457,6 +457,58 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
     <p>
         Dicha propiedad se conoce como la linealidad de la integral.
     </p>
+
+    <button class="respButton hvr-grow "> Solución  </button>
+    <div class="resp-box flexbox">
+      <div >
+        <p>
+            Antes que nada por el <a>Ejercicio 2.14</p> \(s+\alpha t\) es una función 
+             escalonada por lo que podemos tomar su integral.   
+        </p>
+        <p>
+            Sean \(P_s\) y \(P_t\) las particiones asociadas a \(s\) y \(t\) respectivamente.
+            Tomemos \(Q=P_s\vee P_t=\{y_0<\cdots < y_m\}\). 
+        </p>
+        <p>
+            Por el <a href="#Ejer:LinealidadMultiplesIntervalos">Ejercicio 2.9</a> tenemos 
+            \[
+                \int_a^b (s+\alpha t)dx=\sum_{j=1}^m \int_{y_{j-1}}^{y_j} (s+\alpha t)dx 
+            \]
+        </p>
+        <p>
+            Por el <a>Ejercicio 2.12</a> tanto \(s\) como \(t\) son constantes en 
+            \((y_{j-1},y_j)\), \(j=1,\dots, m\). Sean \(s_j\) y \(t_j\) el valor de 
+            \(s\) y \(t\) en \((y_{j-1},y_j)\) respectivamente. Por lo tanto 
+            \begin{equation}\label{Eqn:AuxLinealidad}
+            \int_{y_{j-1}}^{y_j} (s+\alpha t)dx=(s_j+\alpha t_j)(y_j-y_{j-1})=
+            s_j(y_j-y_{j-1})+ \alpha( t_j(y_j-y_{j-1}))
+            \end{equation}
+         </p>
+         <p>
+             Por otro lado, 
+             \begin{eqnarray*}
+                \int_{y_{j-1}}^{y_j}sdx=s_j(y_j-y_{j-1}) \\
+                \int_{y_{j-1}}^{y_j} tdx = t_j (y_j-y_{j-1})
+             \end{eqnarray*}
+         </p>
+         <p>
+             Substituyendo las ecuaciones anteriores en \eqref{Eqn:AuxLinealidad} obtenemos 
+             \[
+             \int_{y_{j-1}}^{y_j} (s+\alpha t)dx=\int_{y_{j-1}}^{y_j}sdx+\alpha \int_{y_{j-1}}^{y_j}tdx
+             \]
+             de dónde se sigue que 
+             \begin{eqnarray*} 
+            \int_{a}^b (s+\alpha t)dx &=&\sum_{j=1}^m \int_{y_{j-1}}^{y_j}(s+\alpha t)dx  \\
+            &=& \sum_{j=1}^m \left( \int_{y_{j-1}}^{y_j} sdx + \alpha \int_{y_{j-1}}^{y_j}tdx  \right) \\
+            &=& \sum_{j=1}^m \int_{y_{j-1}}^{y_j} sdx+ \sum_{j=1}^m \alpha \int_{y_{j-1}}^{y_j}tdx\\
+            &=& \int_a^b sdx+ \alpha \int_a^b tdx 
+             \end{eqnarray*}
+             donde en la última igualdad usamos el <a href="#Ejer:LinealidadMultiplesIntervalos">Ejercicio 2.9</a>.
+         </p>
+      </div>
+    </div>
+
+
 </div>
 
 <div class="ejercicio-box"> 
