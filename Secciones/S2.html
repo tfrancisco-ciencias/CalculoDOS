@@ -239,6 +239,116 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
  <li>$\int_{-1}^3 \lfloor x+\frac{1}{2} \rfloor dx$</li>
  <li>$\int_0^9 \lfloor \sqrt{t} \rfloor dt$</li>
 </ol>
+
+<button class="respButton hvr-grow "> Solución inciso 3  </button>
+<div class="resp-box flexbox" >
+<div class="flexbox">
+        
+<p>
+    Empecemos por considerar la función \(f : [-2, 3]  \rightarrow \mathbb{R}\) 
+    dada por \(f(x) = \lfloor x/2 \rfloor\). 
+    Los primeros pasos para resolver el ejercicio es verificar que la función 
+    \(f\) es una función escalonada, 
+    y para ello basta exibir una partición \(\textbf{P}\) de \([-2, 3]\), 
+    de tal forma que \(f\) sea una función constante en los sub-intervalos abiertos 
+    generados por \(\textbf{P}\).  
+    Una vez demostrada la existencia de la partición \(\textbf{P}\)  
+    ya podemos calcular la integral \(\int_{-2}^3\lfloor x/2 \rfloor dx\) 
+    como lo indica la definición 2.2.
+</p>
+
+<p>
+    Afirmamos que si \( -2 \leq x < 0\), entonces 
+    \(f(x) = -1\). En efecto si \( -2 \leq x < 0\) se sigue 
+    \( -1 \leq x/2 < 0\) y esto implica por la definición de 
+    función piso (Definición 2.2) que 
+    \( f(x) = \lfloor x/2 \rfloor  = -1\), es decir \(f(x) = -1\).
+</p>
+<p>
+    Ahora veamos que si  \( 0 \leq x < 2\), entonces \(f(x) = 0\). 
+    Tenemos que si \( 0 \leq x < 2\) implica que \( 0 \leq x/2 < 1\) y por 
+    lo tanto \( f(x) = \lfloor x/2 \rfloor  = 0\), es decir \(f(x) = 0\).
+</p>
+
+<p>
+    Por último, tenemos que si \( 2 \leq x < 3\), entonces 
+    \( 1 \leq x/2 < 3/2 < 2 \), es decir \( 1 \leq x/2 < 2\) y 
+    esto implica que \(f(x) = 1\).
+</p>
+
+
+<p>
+    Por lo tanto la partición  que buscamos es 
+    \(\textbf{P} = \lbrace -2 < 0 < 2 < 3 \rbrace\), 
+    es decir es aquella que demuestra que $f$ es una función escalonada. 
+    Por lo tanto ya podemos calcular la integral \(\int_{-2}^3\lfloor x/2 \rfloor dx\) 
+    la cual es, 
+    \begin{equation*}
+    \begin{split}
+    \int_{-2}^3\lfloor x/2 \rfloor dx & =  -1(0-(-2)) + 0(2 -0) +1(3-2) \\
+     & = -2 + 0 + 1 \\
+     & = -1 
+     \end{split}  
+    \end{equation*}
+      
+</p>
+
+<p>
+    Por lo tanto \(\int_{-2}^3\lfloor x/2 \rfloor dx = -1\).
+</p>
+</div>
+</div> 
+
+
+
+<button class="respButton hvr-grow "> Solución inciso 5  </button>
+<div class="resp-box flexbox">
+<div class="flexbox">
+
+<p>
+    Afirmamos que \(\lfloor \sqrt{t} \rfloor\) es una función escalonada en \([0,9]\). 
+    Entonces consideremos la siguiente partición 
+    \(\textbf{P} = \lbrace 0 < 1 < 4 < 9 \rbrace \). 
+    Si demostarmos que  \(\lfloor \sqrt{t} \rfloor\) 
+    es  una función constante en los sub-intervalos abiertos generados por 
+    \(\textbf{P}\), entonces tendriamos que \(\lfloor \sqrt{t} \rfloor\) es una función escalonada. 
+</p>
+<p>
+    Si \(t \in (0, 1)\), es decir \(0 < t < 1\), 
+    esto implica que \(0 < \sqrt{t} < 1\) y por lo tanto 
+    \(\lfloor \sqrt{t} \rfloor = 0\). Lo cual implica que 
+    \(\lfloor \sqrt{t} \rfloor \) es constante en el intervalo \((0, 1)\).
+</p>
+
+<p>
+    Si \(t \in (1, 4)\), es decir \(1 < t < 4\), 
+    esto implica que \(1 < \sqrt{t} < 2\) y por lo tanto 
+    \(\lfloor \sqrt{t} \rfloor = 1\). Lo cual implica que \(\lfloor \sqrt{t} \rfloor \) 
+    es constante en el intervalo \((1, 4)\).
+</p>
+<p>
+    Si \(t \in (4, 9)\), es decir \(4 < t < 9\), esto implica que \(2 < \sqrt{t} < 3\) y por lo tanto 
+    \(\lfloor \sqrt{t} \rfloor = 2\). Lo cual implica que \(\lfloor \sqrt{t} \rfloor \) 
+    es constante en el intervalo \((4, 9)\).
+</p>
+<p>
+    Por lo tanto \(\lfloor \sqrt{t} \rfloor \) es una función escalonada en 
+    \([0,9]\). Por lo tanto, a partir de \(\textbf{P}\) ya podemos calcular 
+    la integral \(\int_{0}^9\lfloor \sqrt{t} \rfloor dt\)  la cual es, 
+    \begin{equation*}
+    \begin{split}
+    \int_{0}^9\lfloor \sqrt{t} \rfloor dt & =  0(1-0) + 1(4 -1) + 2(9-4) \\
+     & = 0 + 3 + 10 \\
+     & = 13
+     \end{split}
+    \end{equation*}
+    Por lo tanto \(\int_{0}^9\lfloor \sqrt{t} \rfloor dt = 13\).
+</p>
+</div>
+</div>
+
+
+
 </div>
 
 <div class="ejercicio-box"> 
@@ -347,6 +457,71 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
         Sugerencia: usa inducción sobre la longitud de la partición 
         y el ejercicio  <a href="#Ejer:LemaAditividadIntervalosEscalonadas">Ejercicio 2.7.</a>
      </p>
+
+    <button class="respButton hvr-grow "> Demostración  </button>
+    <div class="resp-box flexbox">
+      <div >
+     <p>
+        La demostración se hara por inducción sobre los elementos de \(Q\). 
+     </p>
+     
+     <p>
+        <h4>Base de Inducción.</h4> Para el caso \(m=2\), tenemos que la única partición 
+        con dos elementos en \([a, b]\) es \(Q = \lbrace a < b \rbrace\) y es claro que se 
+        cumple la igualdad.
+     </p>
+     
+     <p>
+        Para el caso \(m=3\), consideremos una partición arbitraria con tres elementos 
+        \(Q = \lbrace a < y_1 < b \rbrace\), entonces por el  Ejercicio 2.7 tenemos  
+        \[ \int_a^bs(x) dx = \int_a^{y_1}s(x) dx + \int_{y_1}^bs(x) dx . \]
+     </p>
+     
+     <p>
+        <h4>Hipótesis de inducción.</h4> Supongamos que para cualquier partición 
+        \(Q\) con  \(m\) elementos (\(m \geq 2\) ) se cumple que si 
+        \( Q = \lbrace y_j \rbrace_{j=0}^{m-1} \) entonces 
+        \[\int_a^bs(x) dx = \sum_{j=1}^{m-1}\int_{y_{j-1}}^{y_j}s(x) dx \]
+     </p>
+     
+     <p>
+        <h4>Paso inductivo.</h4>  Por demostrar que se cumple para \(m +1\), 
+        es decir, se tiene que demostrar que si \( Q = \lbrace y_j \rbrace_{j=0}^m \)  
+        es una partición con \(m+1\) elementos, entonces se tiene que 
+        \[\int_a^bs(x) dx = \sum_{j=1}^m\int_{y_{j-1}}^{y_j}s(x) dx \]
+     
+        Sea \( Q = \lbrace y_j \rbrace_{j=0}^m \) una partición de \([a, b]\) con 
+        \(m+1\) elementos, entonces  consideremos la partición \(Q^*\) que se obtiene  
+        al quitarle un elemento \(y_{i_0}\) de \(Q\) tal que 
+        \(y_{i_0} \notin \lbrace a, b\rbrace\), tenemos que \(Q^*\) es una partición 
+        con \(m\), es decir tenemos que 
+        \[ Q^* = \lbrace y_0=a  < y_1  < \cdot \cdot \cdot y_{i_0-1} 
+        < y_{i_0+1} < \cdot \cdot \cdot < y_m= b \rbrace \]
+     
+        Entonces por hipótesis de inducción tenemos que  
+        \begin{equation}
+        \int_a^bs(x) dx = \sum_{j=1}^{i_0-1}\int_{y_{j-1}}^{y_j}s(x) dx 
+        + \int_{y_{i_0-1}}^{y_{i_0+1}} s(x) dx + \sum_{j=i_0+2}^m\int_{y_{j-1}}^{y_j}s(x) dx .
+        \end{equation} 
+     
+        Como \(s\) es una función escalonada en \([a, b]\) y \([y_{i_0-1}, y_{i_0+1}] 
+        \subseteq [a, b], \) entonces \(s\) es una función escalonada en  
+        \([y_{i_0-1}, y_{i_0+1}]\) y como \(y_{i_0}\in (y_{i_0-1}, y_{i_0+1}) \) 
+        entonces por el Ejercicio 2.7 tenemos que 
+        \begin{equation}
+        \int_{y_{i_0-1}}^{y_{i_0+1}} s(x) dx = \int_{y_{i_0-1}}^{y_{i_0}} s(x) dx 
+        + \int_{y_{i_0}}^{y_{i_0+1}} s(x) dx 
+        \end{equation}
+     
+        Entonces por (1) y (2) tenemos que 
+        \[\int_a^bs(x) dx = \sum_{j=1}^m\int_{y_{j-1}}^{y_j}s(x) dx \]
+     
+        Con esto se concluye la demostración por Inducción. Por lo tanto, para cualquier 
+        partición arbitraria \( Q = \lbrace y_j \rbrace_{j=0}^m \) de \([a, b]\) se 
+        tiene que \[\int_a^bs(x) dx = \sum_{j=1}^m\int_{y_{j-1}}^{y_j}s(x) dx \]
+     </p>
+    </div>
+</div>
 
 </div>
 
@@ -565,6 +740,75 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
         $$
     </li> 
 </ol>
+<button class="respButton hvr-grow "> Demostración </button>
+<div class="resp-box flexbox" >
+<div>
+
+<h4>Inciso 1.</h4>
+
+<p>
+    Tenemos que la colección de intervalos \(\lbrace [(j-1)/k, j/k) : j = 1, . . . , k \rbrace\) 
+    son ajenos por pares, es decir, si \(i, j \in \lbrace 1, . . ., k\rbrace\) con \(i \neq j\)  
+    entonces \( [(j-1)/k, j/k) \cap [(i-1)/k, i/k) = \emptyset\). 
+    Además \([0, 1) = \cup_{j=1}^k[(j-1)/k, j/k)\). Sea \( x\in [0, 1) \) 
+    arbitrario, entonces existe un \emph{único} 
+    \(i_0 \in \lbrace 1, . . . , k \rbrace \) tal que 
+    \( x \in [(i_0-1)/k, i_0/k) \), y esto implica 
+    \(\chi_{[(j-1)/k, j/k)}(x) = 0 \) si \( j \neq i_0 \) y 
+    \( \chi_{[(i_0-1)/k, i_0/k)}(x) = 1\). Por lo tanto 
+    \[ \sum_{j=1}^k(j-1)\chi_{[(j-1)/k, j/k)}(x) = 
+    (i_0 -1)\chi_{[(i_0-1)/k, i_0/k)}(x) = i_0 -1 \]
+</p>
+
+<p>
+    Por otro lado, como \( x \in [(i_0-1)/k, i_0/k), \) es decir \( (i_0-1)/k \leq x < i_0/k \) 
+    y esto implica que \( i_0 - 1 \leq kx < i_0 \) y como \(i_0 -1\) es el único entero que 
+    satisface \( i_0 - 1 \leq kx < i_0 \) entonces \(\lfloor kx \rfloor = i_0 - 1\), es decir 
+    \(s_k(x) = i_0 - 1\). Por lo tanto \[ s_k(x) = \sum_{j=1}^k(j-1)\chi_{[(j-1)/k, j/k)}(x) \]
+
+    Y como \( x \in [0, 1) \) fue arbitrario, se sigue que \(s_k(x) = 
+    \sum_{j=1}^k(j-1)\chi_{[(j-1)/k, j/k)} \) para toda \( x \in [0, 1). \) 
+
+</p>
+<p>
+    <h4>Inciso 2.</h4>
+    Sean \( r_j : [0, 1] \rightarrow \mathbb{R} \) dadas por 
+    \( r_j(x) = (j-1)\chi_{[(j-1)/k, j/k)} \) con \( j = 1, . . . , k\), las 
+    cuales son  funciones escalonadas y tenemos por el ejercicio anterior que 
+    \( s_k(x) = \sum_{j=1}^kr_j(x). \) Y por el Ejercicio 2.17 
+    tenemos que \[ \int_0^1s_k(x) dx =  \int_0^1\sum_{j=1}^kr_j(x) dx 
+    = \sum_{j=1}^k\int_0^1 r_j(x) dx   \]
+    Como 
+    \begin{equation*}
+    \begin{split}
+    \int_0^1 r_j(x) dx & = \int_0^1  (j-1)\chi_{[(j-1)/k, j/k)}(x) dx 
+    = (j-1) \int_0^1 \chi_{[(j-1)/k, j/k)}(x) dx \\
+    & = (j-1)\left(\frac{j}{k} - \frac{j-1}{k}\right) = \frac{ j-1}{k} 
+    \end{split}
+    \end{equation*}
+</p>
+<p>
+    Es decir \( \int_0^1 r_j(x) dx = \frac{j-1}{k}.\)  
+    Por lo tanto \[ \int_0^1s_k(x) dx =  \sum_{j=1}^k \frac{j-1}{k} 
+    = \frac{1}{k}\sum_{j=1}^k (j-1) = \frac{1}{k}\frac{(k-1)k}{2}= \frac{k-1}{2}\]
+    Por lo tanto \(\int_0^1s_k(x) dx =\frac{k-1}{2}\).
+</p>
+
+<p>
+    <h4>Inciso 3.</h4>
+    Tenemos que  \( s_k(x) = \lfloor kx \rfloor\) es función escalonada para toda 
+    \( k = 1, . . ., n\), ya que es una función constante en los sub-intervalos abiertos 
+    generados por la partición \(\textbf{P}_k = \lbrace j/k \rbrace_{j=0}^k \). Entonces 
+    por el Ejercicio 2.17 y por el inciso 2 tenemos 
+    \[ \int_0^1\sum_{k=1}^n\lfloor kx \rfloor dx = \sum_{k=1}^n\int_0^1\lfloor kx \rfloor dx 
+    = \sum_{k=1}^n\frac{k-1}{2}= \frac{1}{2}\sum_{k=1}^n(k-1) = \frac{1}{2}\frac{(n-1)n}{2} 
+    = \frac{(n-1)n}{4} \]
+
+    Por lo tanto, \[\int_0^1\sum_{k=1}^n\lfloor kx \rfloor dx = \frac{(n-1)n}{4} .\]
+
+</p>
+</div>
+</div>
 </div>
 
 <div class="ejercicio-box"> 
@@ -645,15 +889,77 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
     <h2 class="number-title"> Ejercicio</h2>  
     <p>
         Sea $s:[a,b]\to \mathbb{R}$ una función escalonada. 
-    Sea $f:[c,d] \to \mathbb{R}$ una función fija y arbitraria. Demuestra:
+        Sea $f:[c,d] \to \mathbb{R}$ una función fija y arbitraria.
     </p>
 <ol>
- <li>Supón que \(f(x)\in [a,b]\), para todo \(x\in [c,d]\). Prueba que 
-     la composición $s\circ f$, es una función escalonada.</li> 
+ 
  <li> Supón que \(s(x)\in [c,d]\), para todo \(x\in [a,b]\). Prueba que 
      la composición $f\circ s$, es una función escalonada.</li> 
+ <li> Da un ejemplo que muestre que no siempre 
+        la composición $s\circ f$ es una función escalonada.</li> 
 </ol>
+
+<button class="respButton hvr-grow "> Solución inciso 1  </button>
+    <div class="resp-box flexbox">
+      <div >
+        
+<p>
+    Como \(s\) es una función escalonada, sea 
+    \(\textbf{P} = \lbrace y_j \rbrace_{j=0}^m\) la partición asociada a \(s\). 
+    Veamos que en efecto \(\textbf{P}\) nos demuestra que 
+    \(f \circ s\), es una función escalonada. Basta ver que \(f \circ s\) es 
+    constante en los intervalos \( (y_{j-i}, y_j)\) con \(j =1,. . . ,m\). Sea 
+    \(j \in \lbrace 1, . . ., m\rbrace\) arbitrario, tenemos que si 
+    \( x, y \in (y_{j-i}, y_j)\) basta demostrar que \((f \circ s)(x) =(f \circ s)(y). \) 
+    Como  \(s\) es una función escalonada y \(\textbf{P}\) es la partición asociada a 
+    \(s\), tenemos que \(s\) es constante en \( (y_{j-i}, y_j)\), es decir 
+    \(s(x) = s(y)\).  Por lo tanto   \[(f \circ s)(x) = f(s(x))= f(s(y)) = (f \circ s)(y) \]
+</p>
+<p>
+    Es decir  \((f \circ s)(x) =(f \circ s)(y), \) y esto es válido para 
+    toda \( x, y \in (y_{j-i}, y_j)\) esto implica que \(f \circ s\) es 
+    constante en \( (y_{j-i}, y_j)\) y como \(j\) fue arbitrario, entonces 
+    \(f \circ s\) es constante en los intervalos generados por la parición 
+    \(\textbf{P}\). Por lo tanto \(f \circ s\) es  una función escalonada.
+</p>
+</div>
 </div>
 
+<button class="respButton hvr-grow "> Solución inciso 2  </button>
+<div class="resp-box flexbox">
+<div >
+<p>
+    Para cualquier función \(f \) no necesariamente se tiene que  
+    \(s \circ f\), es una función escalonada. 
+    Consideremos las funciones \(s := \chi_{[1/2, 1]} :[0,1] \rightarrow \mathbb{R}\) 
+    y \(f : [0,1] \rightarrow \mathbb{R}\) dada por; 
+    \begin{equation*}
+    f(x)  = \left\{
+    \begin{array}{cccc}
+    \frac{1}{2}  & \text{ si } x\in \mathbb{Q}\cap [0,1]   \\
+    
+    0  & \text{ en otro caso } 
+    \end{array} \right.
+    \end{equation*}
+    
+    Tenemos la imagen de \(f\) se queda contenido en el dominio de \(s\). Más aún,
+    \begin{equation*}
+    (s\circ f)(x)  = \left\{
+    \begin{array}{cccc}
+    1  & \text{ si } x\in \mathbb{Q}\cap [0,1]   \\
+    
+    0  & \text{ en otro caso } 
+    \end{array} \right.
+    \end{equation*}
+    
+    Y es claro que \((s\circ f)\) no es una función escalonada, 
+    ya que para cualquier partición \(\textbf{P}= \lbrace y_j \rbrace_{j=0}^m \) 
+    se tiene que \((s\circ f)\) no es constante en el intevalo \((y_0,y_1)\)
+     generado por \(\textbf{P}\) y esto es consecuencia de la densidad de los 
+     racionales e irracionales.
+</p>
+</div>
+</div>
+</div>
 
 </body>
