@@ -5,7 +5,7 @@
 \section*{Valor Promedio}
 
 \begin{definicion}
-El promedio de  los n\'umeros $a_1,\dots, a_n$ est\'a dado por:
+El promedio de  los números $a_1,\dots, a_n$ está dado por:
  
 $$
 \frac{1}{n} \sum_{i=1}^n a_i
@@ -16,8 +16,8 @@ Recordando el ejercicio \ref{Ejer:IntegrabilidadFuncionesContinuas} tenemos
 $$
 \int_a^b f(x)dx=\lim_{n} \frac{b-a}{n}\sum_{i=1}^n f(x_i)
 $$
-donde el promedio de los valores de la funci\'on aparece en el lado derecho. Tomando en cuenta esto se define
-el promedio de una funci\'on $f$ integrable,  sobre el subintervalo $[a,b]$, como
+donde el promedio de los valores de la función aparece en el lado derecho. Tomando en cuenta esto se define
+el promedio de una función $f$ integrable,  sobre el subintervalo $[a,b]$, como
 $$
 V_a^b(f)=\frac{1}{b-a}\int_a^b f(x)dx
 $$
@@ -25,33 +25,33 @@ $$
 \end{definicion}
 
 
-\item Para las siguientes funciones, prueba la f\'ormula dada para $V_a^b(f)$.
-\begin{enumerate}
-\item para $f$ una funci\'on constante $k$,  $V_a^b(f)=k$.
-\item para $f(x)=mx+b$, $x\in \mathbb{R}$, $V_a^b(f)=m \frac{a+b}{2}+d$.
-\item para $f(x)=x^2$, $x\in \mathbb{R}$, $V_a^b(f)=\frac{a^2+ab+b^2}{3}$.
-\end{enumerate}
+\item Para las siguientes funciones, prueba la fórmula dada para $V_a^b(f)$.
+<ol>
+    <li></li> para $f$ una función constante $k$,  $V_a^b(f)=k$.
+    <li></li> para $f(x)=mx+b$, $x\in \mathbb{R}$, $V_a^b(f)=m \frac{a+b}{2}+d$.
+    <li></li> para $f(x)=x^2$, $x\in \mathbb{R}$, $V_a^b(f)=\frac{a^2+ab+b^2}{3}$.
+</ol>
 
-\item Usando el ejercicio \ref{Eqn:Resolvent} encuentra una f\'ormula general para el promedio de
+\item Usando el ejercicio \ref{Eqn:Resolvent} encuentra una fórmula general para el promedio de
 las funciones potencia, $V_a^b(x^n)$, $n \in \mathbb{N}$.
 
 
 
     \item Prueba las siguientes propiedades  del valor promedio ($f,g:[a,b]\to \mathbb{R}$ son dos funciones integrables).
-    \begin{enumerate}
-    \item $V_a^b(f+g)=V_a^b(f)+V_a^b(g)$.
-    \item $V_a^b(\alpha f)=\alpha V_a^b(f)$ donde $\alpha \in \mathbb{R}$ es un escalar fijo.
-    \item Si $f(x)\leq g(x)$, para todo $x\in[a,b]$, entonces $V_a^b(f)\leq V_a^b(g)$.
-    \end{enumerate}
+    <ol>
+        <li></li> $V_a^b(f+g)=V_a^b(f)+V_a^b(g)$.
+        <li></li> $V_a^b(\alpha f)=\alpha V_a^b(f)$ donde $\alpha \in \mathbb{R}$ es un escalar fijo.
+        <li></li> Si $f(x)\leq g(x)$, para todo $x\in[a,b]$, entonces $V_a^b(f)\leq V_a^b(g)$.
+    </ol>
 
 
-\item  Sea $f:[a,b] \to \mathbb{R}$ una funci\'on integrable. Probar que si $m \leq f(x) \leq M $, para todo $x\in [a,b]$ entonces
+\item  Sea $f:[a,b] \to \mathbb{R}$ una función integrable. Probar que si $m \leq f(x) \leq M $, para todo $x\in [a,b]$ entonces
     $$
     m\leq V_a^b(f) \leq M.
     $$
 
 
-\item Sea $f:[a,b]\to \mathbb{R}$ una funci\'on continua. Demuestra que para todo subintervalo $[c,d] \subseteq [a,b]$, existe un
+\item Sea $f:[a,b]\to \mathbb{R}$ una función continua. Demuestra que para todo subintervalo $[c,d] \subseteq [a,b]$, existe un
 punto $x_0$  (que depende de $c$ y $d$) tal que  
 de
 $$
@@ -61,7 +61,7 @@ $$
 Sugerencia: utiliza el Teorema del Valor Intermedio.
 
 
-\item Da un ejemplo de una funci\'on $f:[a,b]\to \mathbb{R}$ integrable tal que
+\item Da un ejemplo de una función $f:[a,b]\to \mathbb{R}$ integrable tal que
     el valor promedio nunca se alcansa. Es decir
     $$
     V_a^b(f)\not= f(x)
@@ -69,45 +69,45 @@ Sugerencia: utiliza el Teorema del Valor Intermedio.
     para todo $x\in [a,b]$.
 
 
-\item Sea $f:[a,b] \to \mathbb{R}$ una funci\'on  integrable  en $[a,b]$. Demuestra que
+\item Sea $f:[a,b] \to \mathbb{R}$ una función  integrable  en $[a,b]$. Demuestra que
 $$
 V_a^b(f)=\frac{c-a	}{b-a}V_a^c(f)+ \frac{b-c}{b-a}V_c^b(f).
 $$
 
 
-\item Sea $f:\mathbb{R} \to \mathbb{R}$ una funci\'on tal que es integrable para cualquier intervalo de la forma
+\item Sea $f:\mathbb{R} \to \mathbb{R}$ una función tal que es integrable para cualquier intervalo de la forma
 $[-a,a]$, con $a>0$.
 
-\begin{enumerate}
-\item Si $f$ es una funci\'on par demuestra:
+<ol>
+    <li></li> Si $f$ es una función par demuestra:
 $$
 V_{-a}^{a}(f)=V_0^a(f)
 $$
 
-\item Si $f$ es una funci\'on  impar demuestra:
+<li></li> Si $f$ es una función  impar demuestra:
 $$
 V_{-a}^a(f)=0
 $$
 
-\end{enumerate}
+</ol>
 
 
 
 \item\label{Ejer:ConcavidadYValorPromedio} Sea  $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$ y  diferenciable en $(a,b)$.
 
-\begin{enumerate}
+<ol>
 
-\item Si  $f'$ es  mon\'otona creciente  en $(a,b)$ demuestra que :
+    <li></li> Si  $f'$ es  monótona creciente  en $(a,b)$ demuestra que :
     $$
     V_a^b(f)\geq f\bigg( \frac{a+b}{2}\bigg).
     $$
-\item Si $f'$ es mon\'otona decreciente en $(a,b)$ demuestra que:
+    <li></li> Si $f'$ es monótona decreciente en $(a,b)$ demuestra que:
 $$
 V_a^b(f)\leq f\bigg( \frac{a+b}{2}\bigg).
 $$
 
-\end{enumerate}
-Sugerencia: si $f$ es mon\'otona creciente, por el ejercicio \ref{Ejer:RectaSoporteConcavasArriba}, para cualquier $x_0 \in (a,b)$, 
+</ol>
+Sugerencia: si $f$ es monótona creciente, por el ejercicio \ref{Ejer:RectaSoporteConcavasArriba}, para cualquier $x_0 \in (a,b)$, 
 $$
 f(x) \geq f(x_0)+ f'(x_0)(x-x_0), \quad \forall x\in (a,b)
 $$
@@ -120,7 +120,7 @@ $$
 F(b)-F(a)=V_a^b(F')(b-a).
 $$
 
-Nota que la ventaja de este sobre el Teorema del Valor Medio, es que podemos calcular num\'ericamente $V_a^b(F')$.
+Nota que la ventaja de este sobre el Teorema del Valor Medio, es que podemos calcular numéricamente $V_a^b(F')$.
 
 Sugerencia: nota que $F$ es una antiderivada de $F'$ y aplica el Segundo Teorema Fundamental. 
 
@@ -141,11 +141,11 @@ $$
 \overline{x}:=\frac{\int_0^L x\rho(x)dx}{\int_0^L\rho(x)dx }.
 $$
 
-\begin{enumerate}
-\item Demuestra que si $\rho(x)=\rho_0$, para todo $x\in [0,L]$  (densidad constante) entonces $\overline{x}=\frac{L}{2}$.
-\item  Supon que la funci\'on densidad satisface $\rho(x)=\rho(L-x)$, para $x\in [0,L]$. Demuestra que $\overline{x}=\frac{L}{2}$.  Sugerencia,
+<ol>
+    <li></li> Demuestra que si $\rho(x)=\rho_0$, para todo $x\in [0,L]$  (densidad constante) entonces $\overline{x}=\frac{L}{2}$.
+    <li></li>  Supon que la función densidad satisface $\rho(x)=\rho(L-x)$, para $x\in [0,L]$. Demuestra que $\overline{x}=\frac{L}{2}$.  Sugerencia,
 usa un cambio de variable lineal para probar primero que 
 $$ \frac{ \int_0^L x\rho(x)dx}{\int_0^L \rho(x)dx}=\frac{\int_0^{L}(L-x)\rho(L-x)dx}{\int_0^L \rho(L-x)dx} .$$
-\item Determina una densidad de masa $\rho$, de tal forma que el centro de densidad de una varilla de longitud $L$ est\'e a una distancia $L/4$ de uno de sus extremos.
+<li></li> Determina una densidad de masa $\rho$, de tal forma que el centro de densidad de una varilla de longitud $L$ esté a una distancia $L/4$ de uno de sus extremos.
     
-\end{enumerate}
+</ol>

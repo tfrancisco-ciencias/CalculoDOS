@@ -3,16 +3,16 @@
 \section*{Teoremas Fundamentales}
 
 
-Los teoremas fundamentales del c\'alculo son como las dos caras de una misma moneda. El primer  Teorema Fundamental
+Los teoremas fundamentales del cálculo son como las dos caras de una misma moneda. El primer  Teorema Fundamental
 es visto desde la perspectiva de las derivadas y el segundo desde la perspectiva de las antiderivadas.
 
-\subsection*{Versi\'on Antiderivadas}
+\subsection*{Versión Antiderivadas}
 
 \begin{definicion}
-Dada una funci\'on $f$, una antiderivada de $f$ (\'o primitiva),  en $(a,b)$, es una
-funci\'on $F$  tal que $F'(x)=f(x)$ para toda $x$ en $(a,b)$.
+Dada una función $f$, una antiderivada de $f$ (ó primitiva),  en $(a,b)$, es una
+función $F$  tal que $F'(x)=f(x)$ para toda $x$ en $(a,b)$.
 
-Notaci\'on: escribimos $\int f(x)dx$ o $\int f$ para denotar una antidarivada de $f$ y se 
+Notación: escribimos $\int f(x)dx$ o $\int f$ para denotar una antidarivada de $f$ y se 
 se denominan integrales indefinidas.
 
 \end{definicion}
@@ -20,12 +20,12 @@ se denominan integrales indefinidas.
 \item Encuentra anti-derivadas de las siguintes funciones:
 
 
-\begin{enumerate}
-\item $e^x$, $x\in \mathbb{R}$;
-\item $\sen(x)$, $x\in \mathbb{R}$;
-\item $\cos(x)$, $x\in \mathbb{R}$;
-\item para $p \in \mathbb{Q}$, $p>0$: $x^p$, $x\in (0,\infty)$. Sugerencia: usa el ejercicio \ref{Ejer:DerivadasPotenciasRacionales}.
-\end{enumerate}
+<ol>
+    <li></li> $e^x$, $x\in \mathbb{R}$;
+    <li></li> $\sen(x)$, $x\in \mathbb{R}$;
+    <li></li> $\cos(x)$, $x\in \mathbb{R}$;
+    <li></li> para $p \in \mathbb{Q}$, $p>0$: $x^p$, $x\in (0,\infty)$. Sugerencia: usa el ejercicio \ref{Ejer:DerivadasPotenciasRacionales}.
+</ol>
 
 
 \item Si $F_1$ y $F_2$ son primitivas de $f$ en $(a,b)$, demuestra que existe una constante $c$ tal que
@@ -45,14 +45,14 @@ $$
 
 
 
-\item Este ejercicio justifica porqu\'e la integral de la velocidad es la distancia.
+\item Este ejercicio justifica porqué la integral de la velocidad es la distancia.
 
-Imagina una part\'icula que se mueve sobre el eje de las $x$ y por $x(t)$ denotemos
-la positi\'on (tomando al cero como marco de referencia)  de la particula en el tiempo $t$ y 
-por $v(t)$ denotamos a la velocidad de la part\'icula. Es decir $x'(t)=v(t)$.
+Imagina una partícula que se mueve sobre el eje de las $x$ y por $x(t)$ denotemos
+la positión (tomando al cero como marco de referencia)  de la particula en el tiempo $t$ y 
+por $v(t)$ denotamos a la velocidad de la partícula. Es decir $x'(t)=v(t)$.
 
 Decimos que  $\int_a^b v(t)dt$ representa la distancia neta recorrida, del tiempo $a$ al tiempo
-$b$, pues usando sumas de Riemann tenemos la siguiente aproximaci\'on:
+$b$, pues usando sumas de Riemann tenemos la siguiente aproximación:
 $$
 \sum_{i=1}^n v(\xi_i)(x_i-x_{i-1}) \sim \textrm{distancia neta recorrida del tiempo $a$ al tiempo $b$}
 $$
@@ -66,8 +66,8 @@ Nota que $x(b)-x(a)$ es el cambio neto de la distancia desde el tiempo $a$ al ti
 
 
 
-\item Recuerda que si $a<b$ definimos $\int_b^a f(x)dx=-\int_a^b f(x)dx$. Con esta notaci\'on demuestra que el segundo Teorema
-Fundamental sigue siendo v\'alido si intercambiamos $a$ y $b$, es decir, si $F$ es una antiderivada de $f$ en $(a,b)$, entonces
+\item Recuerda que si $a < b$ definimos $\int_b^a f(x)dx=-\int_a^b f(x)dx$. Con esta notación demuestra que el segundo Teorema
+Fundamental sigue siendo válido si intercambiamos $a$ y $b$, es decir, si $F$ es una antiderivada de $f$ en $(a,b)$, entonces
 $$
 \int_b^a f(x)dx= F(a)-F(b).
 $$ 
@@ -78,7 +78,7 @@ $$
 $$
 
 Ahora, asume que $F$ es una antiderivada de $f$ en $(a,b)$. Usa el segundo Teorema Fundamental para dar otra
-prueba de \'esta f\'ormula.
+prueba de ésta fórmula.
 
 
 \item Por el ejercicio \ref{Ejer:RectaSoporteExpEnCero} sabemos que, para todo $x\in \mathbb{R}$:
@@ -86,26 +86,26 @@ $$
 e^x \geq 1+x.
 $$
 
-\begin{enumerate}
+<ol>
 
-\item Fija $x>0$. Integra ambos lados de la desigualdad anterior en el intervalo $[0,x]$ y usa el Segundo Teorema Fundamental para obtener
+    <li></li> Fija $x>0$. Integra ambos lados de la desigualdad anterior en el intervalo $[0,x]$ y usa el Segundo Teorema Fundamental para obtener
 $$
 e^x \geq 1+x +\frac{x^2}{2}.
 $$
-\item Generaliza el ejercicio anterior y prueba que, para todo natural $n\geq 1$:
+<li></li> Generaliza el ejercicio anterior y prueba que, para todo natural $n\geq 1$:
 $$
 e^x \geq \sum_{k=0}^n \frac{x^k}{k!}.
 $$
 
-Nota que $\sum_{k=0}^n \frac{x^k}{k!}$ es el $n$-\'esimo polinomio de Taylor de $e^x$. Asi que el ejercicio dice que, en $[0, \infty)$, las gr\'aficas de  los polinomios de Taylor de $e^x$  est\'an por debajo de la gr\'afica de $e^x$.
+Nota que $\sum_{k=0}^n \frac{x^k}{k!}$ es el $n$-ésimo polinomio de Taylor de $e^x$. Asi que el ejercicio dice que, en $[0, \infty)$, las gráficas de  los polinomios de Taylor de $e^x$  están por debajo de la gráfica de $e^x$.
 
-\item  \textquestiondown Es cierto que 
+<li></li>  \textquestiondown Es cierto que 
 $$
 e^x \geq \sum_{k=0}^n \frac{x^k}{k!}
 $$
-si $x<0 $? Demuestra o da un contraejemplo.
+si $x < 0 $? Demuestra o da un contraejemplo.
 
-\end{enumerate}
+</ol>
 
 \item\label{Ejer:IntegralPotenciasRacionales}  Vimos en el ejercicio  \ref{Ejer:IntegralPotenciasNaturales} que para todo $k\in \mathbb{N}$ y $0\leq a < b$:
 
@@ -113,9 +113,9 @@ $$
 \int_a^b x^k dx=\frac{b^{k+1}-a^{k+1}}{k+1}.
 $$
 
-Este ejercicio generaliza est\'a f\'ormula para cuando $k$ es racional. 
+Este ejercicio generaliza está fórmula para cuando $k$ es racional. 
 
-Toma $p=\frac{n}{m}$, $m,n \in \mathbb{N}$, $m\ne 0$, un potencia natural. Usa el segundo Teorema Fundamental para demostrar que, para $0 \leq a <b$:
+Toma $p=\frac{n}{m}$, $m,n \in \mathbb{N}$, $m\ne 0$, un potencia natural. Usa el segundo Teorema Fundamental para demostrar que, para $0 \leq a < b$:
 
 $$
 \int_a^b x^pdx=\frac{b^{p+1}-a^{p+1}}{p+1}.
@@ -123,47 +123,47 @@ $$
 
 
 
-\item Este ejercicio da una idea sobre la prueba del Segundo Teorema Fundamental. Recordemos que, por el ejercicio \ref{Ejer:AproximacionSumasRiemann},  dada  $f:[a,b] \to \mathbb{R}$, una funci\'on continua en todo punto de $[a,b]$, \'esta es integrable y
+\item Este ejercicio da una idea sobre la prueba del Segundo Teorema Fundamental. Recordemos que, por el ejercicio \ref{Ejer:AproximacionSumasRiemann},  dada  $f:[a,b] \to \mathbb{R}$, una función continua en todo punto de $[a,b]$, ésta es integrable y
 \begin{equation}\label{Eqn:LimiteSumasRiemann}
 \lim_{n\to \infty} \sum_{i=1}^n f(r_{i})(x_i-x_{i-1})=\int_a^b f(x)dx.
 \end{equation}
-donde $P=\{x_i\}_{i=1}^n$ es la partici\'on homogenea de longitud n y los $r_{i}$, $i=1,\dots, n$, son puntos cualesquiera en el intervalo $[x_{i-1},x_i]$.
+donde $P=\{x_i\}_{i=1}^n$ es la partición homogenea de longitud n y los $r_{i}$, $i=1,\dots, n$, son puntos cualesquiera en el intervalo $[x_{i-1},x_i]$.
 
-\begin{enumerate}
-\item Toma $f(x)=x$, $x\in \mathbb{R}$, y $r_{i}$ los puntos medios del los intervalos $[x_{i-1},x_i]$, es decir $r_{i}=\frac{x_{i-1}+x_i}{2}$. Demuestra
+<ol>
+    <li></li> Toma $f(x)=x$, $x\in \mathbb{R}$, y $r_{i}$ los puntos medios del los intervalos $[x_{i-1},x_i]$, es decir $r_{i}=\frac{x_{i-1}+x_i}{2}$. Demuestra
 que
 $$
 \sum_{i=1}^n f(r_i)(x_i-x_{i-1})=\frac{b^2-a^2}{2}.
 $$
 Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b xdx=\frac{b^2-a^2}{2}$.
 
-\item Toma $f(x)=x^2$, $x\in \mathbb{R}$, y define $r_i=\sqrt[2]{(x_{i-1}^2+x_{i-1}x_i+x_i^2)/3}$. Prueba que $r_i \in [x_{i-1}, x_i]$ y que
+<li></li> Toma $f(x)=x^2$, $x\in \mathbb{R}$, y define $r_i=\sqrt[2]{(x_{i-1}^2+x_{i-1}x_i+x_i^2)/3}$. Prueba que $r_i \in [x_{i-1}, x_i]$ y que
 $$
 \sum_{i=1}^n f(r_i)(x_i-x_{i-1})=\frac{b^3-a^3}{3}
 $$
 Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b x^2dx=\frac{b^3-a^3}{3}$.
 
 
-\item Toma $f(x)=\frac{1}{x^2}$, $x>0$. Define $r_i=\sqrt{x_{i-1}x_i}$. Prueba que $r_i\in [x_{i-1},x_i]$ y que 
+<li></li> Toma $f(x)=\frac{1}{x^2}$, $x>0$. Define $r_i=\sqrt{x_{i-1}x_i}$. Prueba que $r_i\in [x_{i-1},x_i]$ y que 
 $$
 \sum_{i=1}^n f(r_i)(x_i-x_{i-1})=\frac{1}{a}-\frac{1}{b}
 $$
-Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b \frac{1}{x^2}dx=\frac{1}{a}-\frac{1}{b}$, con $0<a<b$.
-\end{enumerate}
+Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b \frac{1}{x^2}dx=\frac{1}{a}-\frac{1}{b}$, con $0< a < b$.
+</ol>
 
 
-\item\label{Ejer:Demo2TFC} Este ejercicio da una demostraci\'on del segundo Teorema Fundamental.
+\item\label{Ejer:Demo2TFC} Este ejercicio da una demostración del segundo Teorema Fundamental.
 
-Sea $f:[a,b]\to \mathbb{R}$ una funci\'on  continua. 
+Sea $f:[a,b]\to \mathbb{R}$ una función  continua. 
 
-\begin{enumerate}
-\item Fija $\varepsilon>0$. Demuestra que existen un $n \in \mathbb{N}$, tal que si $P=\{ x_i\}_{i=0}^n$ es la partici\'on homogenea de longitud $n$, entonces
+<ol>
+    <li></li> Fija $\varepsilon>0$. Demuestra que existen un $n \in \mathbb{N}$, tal que si $P=\{ x_i\}_{i=0}^n$ es la partición homogenea de longitud $n$, entonces
 $$
 \omega f ([x_{i-1},x_i]) < \frac{\varepsilon}{2(b-a)},
 $$
 para toda $i=1,\dots, n$. Sugerencia: usa el ejercicio \ref{Ejer:ContinuidadUniformeEnCompactos}.
 
-\item Demuestra que si $r_i \in [x_{i-1}, x_i]$, es una elecci\'on cualquiera de puntos, entonces
+<li></li> Demuestra que si $r_i \in [x_{i-1}, x_i]$, es una elección cualquiera de puntos, entonces
 
 $$
 \left|  \sum_{i=1}^n f(r_i)(x_i-x_{i-1}) - \int_a^b f(x)dx  \right| <\varepsilon
@@ -171,7 +171,7 @@ $$
 
 Sugerencia: usa el ejericio \ref{Ejer:AproximacionSumasRiemann}.
 
-\item Asume que $F:(a,b)\to \mathbb{R}$ es una antiderivada de $f$ en $(a,b)$. Demuestra que existen puntos $c_i \in (x_{i-1},x_i)$, 
+<li></li> Asume que $F:(a,b)\to \mathbb{R}$ es una antiderivada de $f$ en $(a,b)$. Demuestra que existen puntos $c_i \in (x_{i-1},x_i)$, 
 $i=1,\dots, n$ tales que
 $$
 f(c_i)(x_i-x_{i-1})=F(x_i)-F(x_{i-1})
@@ -179,108 +179,107 @@ $$
 Sugerencia: aplica el Teorema del Valor Medio a $F$.
 
 
-\item Concluye de los dos incisos anteriores que, para todo $\varepsilon>0$,
+<li></li> Concluye de los dos incisos anteriores que, para todo $\varepsilon>0$,
 
 $$
-\left|  F(b)-F(a) - \int_a^b f(x)dx \right|< \varepsilon
+\left|  F(b)-F(a) - \int_a^b f(x)dx \right| < \varepsilon
 $$
  lo cual demuestra el segundo Teorema Fundamental.
 
-
-\end{enumerate}
+</ol>
 
 
 \item Para las siguientes funciones $f$, encuentra una anti-derivada y calcula $\int_a^b f(x)dx$.
-\begin{enumerate}
-\item $f(x)=\frac{x^4-x+3}{x^3}$, $x>0$.
-\item $f(x)=(1+\sqrt{x})^2$, $x>0$.
-\item $f(x)=x^{4/3}-5\cos(x)$, $x\in \mathbb{R}$. 
-\end{enumerate}
+<ol>
+    <li></li> $f(x)=\frac{x^4-x+3}{x^3}$, $x>0$.
+    <li></li> $f(x)=(1+\sqrt{x})^2$, $x>0$.
+    <li></li> $f(x)=x^{4/3}-5\cos(x)$, $x\in \mathbb{R}$. 
+</ol>
 
 
-\item Usando una combinaci\'on de un cambio de variable lineal y el segundo T.F.C. calcula las siguientes integrales.
+\item Usando una combinación de un cambio de variable lineal y el segundo T.F.C. calcula las siguientes integrales.
 
-\begin{enumerate}
-\item $\int_{0}^{\pi} 3\sen(3x+2)dx$.
-\item $\int_0^{\pi} \cos(5x-2)dx$.
-\item $\int_{0}^2 x\sqrt{x+1}dx$.
-\item $\int_1^2 x^2\sqrt[3]{x+2}dx$.
-\item $\int_0^1 6xe^{3x^2-5x+1}dx-5 \int_0^1 e^{3x^2-5x+1}dx$.
-\item Para $\omega >0$, $\int_0^{2\pi} \cos(\omega x)dx $ y $\int_0^{2\pi}\sen(\omega x)dx$.
-\item Para $c, d \in \mathbb{R}$ constantes, $\int_{a}^b e^{cx+m}dx$.
+<ol>
+    <li></li> $\int_{0}^{\pi} 3\sen(3x+2)dx$.
+    <li></li> $\int_0^{\pi} \cos(5x-2)dx$.
+    <li></li> $\int_{0}^2 x\sqrt{x+1}dx$.
+    <li></li> $\int_1^2 x^2\sqrt[3]{x+2}dx$.
+    <li></li> $\int_0^1 6xe^{3x^2-5x+1}dx-5 \int_0^1 e^{3x^2-5x+1}dx$.
+    <li></li> Para $\omega >0$, $\int_0^{2\pi} \cos(\omega x)dx $ y $\int_0^{2\pi}\sen(\omega x)dx$.
+    <li></li> Para $c, d \in \mathbb{R}$ constantes, $\int_{a}^b e^{cx+m}dx$.
 
-\end{enumerate}
+</ol>
 
-\item Sean $a,b \in \mathbb{R}$ tal que $b-a$ es un m\'ultiplo entero de $2\pi$. Demuestra que
+\item Sean $a,b \in \mathbb{R}$ tal que $b-a$ es un múltiplo entero de $2\pi$. Demuestra que
 $$
 \int_a^b \cos(x)e^{\sen(x)}dx=0=\int_a^b \sen(x)e^{\cos(x)}dx.
 $$
 
-\item Encuentra el conjunto de pareas de reales $a,b$, con $a<b$, tales que
+\item Encuentra el conjunto de pareas de reales $a,b$, con $a < b$, tales que
 $$
 \int_a^b 2xe^{x^2-1}dx=0.
 $$
 
 
-\item Usando el segundo T.F.C. encuentra una f\'ormula general para
+\item Usando el segundo T.F.C. encuentra una fórmula general para
 $$
 \int_a^b x^{n}e^{x^{n+1}}dx
 $$
 donde $n \geq 1$ es un natural.
 
-\item Sea $g:\mathbb{R}\to \mathbb{R}$ una funci\'on diferenciable en todo $\mathbb{R}$, con derivada continua en todo $\mathbb{R}$. Usando el segundo T.F.C. encuentra una f\'ormula general para
+\item Sea $g:\mathbb{R}\to \mathbb{R}$ una función diferenciable en todo $\mathbb{R}$, con derivada continua en todo $\mathbb{R}$. Usando el segundo T.F.C. encuentra una fórmula general para
 $$
 \int_a^b g'(x)\sen(g(x))dx, \quad \int_a^b g'(x)\cos(g(x))dx.
 $$
 
 
 \item Encuentras las siguientes integrales indefinidas.
-\begin{enumerate}
-\item $\int c dx$, donde $c\in \mathbb{R}$ es una constante.
-\item $\int x^n dx$, donde $n\in \mathbb{N}$.
-\item $\int \sen(x)dx$.
-\item $\int \cos(x)dx$.
-\item $\int \sec^2(x)dx$.
-\item $\int \csc^2(x)dx$.
-\item $\int sec(x)tan(x)dx$.
-\item $\int \csc(x)\cot(x)dx$.
-\end{enumerate}
+<ol>
+    <li></li> $\int c dx$, donde $c\in \mathbb{R}$ es una constante.
+    <li></li> $\int x^n dx$, donde $n\in \mathbb{N}$.
+    <li></li> $\int \sen(x)dx$.
+    <li></li> $\int \cos(x)dx$.
+    <li></li> $\int \sec^2(x)dx$.
+    <li></li> $\int \csc^2(x)dx$.
+    <li></li> $\int sec(x)tan(x)dx$.
+    <li></li> $\int \csc(x)\cot(x)dx$.
+</ol>
 
-\item Demuestra las siguientes f\'ormulas para las integrales indefinidas dadas, donde $a>0$ es una constante.
+\item Demuestra las siguientes fórmulas para las integrales indefinidas dadas, donde $a>0$ es una constante.
 
-\begin{enumerate}
-\item  $\int \frac{1}{\sqrt{a^2-x^2}}dx=\arcsen(x/a)+c$.
-\item  $\int \frac{1}{x^2+a^2}dx=\frac{1}{a}\arctan(x)+c$.
-\item $\int \frac{1}{x\sqrt{x^2-a^2}}dx=\frac{1}{a}\arcsec(x/a)+c$.
-\end{enumerate}
+<ol>
+    <li></li>  $\int \frac{1}{\sqrt{a^2-x^2}}dx=\arcsen(x/a)+c$.
+    <li></li>  $\int \frac{1}{x^2+a^2}dx=\frac{1}{a}\arctan(x)+c$.
+    <li></li> $\int \frac{1}{x\sqrt{x^2-a^2}}dx=\frac{1}{a}\arcsec(x/a)+c$.
+</ol>
 
 
-\item\label{Ejer:Demo2TFCparaMononotas} En la  versi\'on del segundo T.F.C. que se presenta  en el ejercicio \ref{Ejer:Demo2TFC} , se pide en las hip\'otesis  que la $f$ sea continua en $[a,b]$, pero se puede cambiar \'esta hip\'otesis pidiendo ahora que $f$ sea mon\'onotan en $[a,b]$. Es decir:
+\item\label{Ejer:Demo2TFCparaMononotas} En la  versión del segundo T.F.C. que se presenta  en el ejercicio \ref{Ejer:Demo2TFC} , se pide en las hipótesis  que la $f$ sea continua en $[a,b]$, pero se puede cambiar ésta hipótesis pidiendo ahora que $f$ sea monónotan en $[a,b]$. Es decir:
 
 \begin{teorema}
-Supon que $f:[a,b] \to \mathbb{R}$ es mon\'otona en  $[a,b]$; que $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ y $F$ es una antiderivada de $f$ en $(a,b)$. Entonces
+Supon que $f:[a,b] \to \mathbb{R}$ es monótona en  $[a,b]$; que $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ y $F$ es una antiderivada de $f$ en $(a,b)$. Entonces
 $$
 \int_a^bf(x)dx=F(b)-F(a).
 $$
 \end{teorema}
 
-Usa ahora el ejercicio \ref{Ejer:LimiteSumasRiemannDeMonotonas} y las mismas ideas que en el ejercicio \ref{Ejer:Demo2TFC} para demostrar esta versi\'on del segundo T.F.C.
+Usa ahora el ejercicio \ref{Ejer:LimiteSumasRiemannDeMonotonas} y las mismas ideas que en el ejercicio \ref{Ejer:Demo2TFC} para demostrar esta versión del segundo T.F.C.
 
 
-\item En este ejercicio vemos un ejemplo donde las hip\'otesis de la  versi\'on del segundo T.F.C. dada en  \ref{Ejer:Demo2TFCparaMononotas} se pueden relajar.
+\item En este ejercicio vemos un ejemplo donde las hipótesis de la  versión del segundo T.F.C. dada en  \ref{Ejer:Demo2TFCparaMononotas} se pueden relajar.
 
 Define $f:[0,1] \to \mathbb{R}$ y $F:[0,1] \to \mathbb{R}$ dadas por 
 $$
 f(x)=\left\{
 \begin{array}{cc}
-0 \quad \textrm{si $0\leq x <1/2$} \\
+0 \quad \textrm{si $0\leq x < 1/2$} \\
 1 \quad \textrm{si $1/2\leq x \leq 1$}
 \end{array}
 \right.
 \quad 
 F(x)=\left\{
 \begin{array}{cc}
-0 \quad \textrm{si $0\leq x <1/2$} \\
+0 \quad \textrm{si $0\leq x < 1/2$} \\
 x-1/2 \quad \textrm{si $1/2\leq x \leq 1$}
 \end{array}
 \right.
@@ -291,27 +290,27 @@ $$
 \int_0^1 f(x)dx=F(1)-F(0).
 $$
  
- \item\label{Ejer:Demo2TFCparaMononotas} Usa el ejercicio \ref{Ejer:Demo2TFCparaMononotas} para probar la siguiente versi\'on del segundo T.F.C.
+ \item\label{Ejer:Demo2TFCparaMononotas} Usa el ejercicio \ref{Ejer:Demo2TFCparaMononotas} para probar la siguiente versión del segundo T.F.C.
 
 \begin{teorema}
-Supon que $f:[a,b] \to \mathbb{R}$ es mon\'otona en  $[a,b]$. Supon  que $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ excepto en $E \subset (a,b)$, un conjunto finito de $(a,b)$ y que  $F'(x)=f(x)$ para todo $x\in (a,b)\setminus E$. Entonces
+Supon que $f:[a,b] \to \mathbb{R}$ es monótona en  $[a,b]$. Supon  que $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ excepto en $E \subset (a,b)$, un conjunto finito de $(a,b)$ y que  $F'(x)=f(x)$ para todo $x\in (a,b)\setminus E$. Entonces
 $$
 \int_a^bf(x)dx=F(b)-F(a).
 $$
 \end{teorema}
 
  
-\subsection*{Versi\'on derivadas}
+\subsection*{Versión derivadas}
 
 
 \begin{definicion}
-Supongamos que $f:[a,b] \to \mathbb{R}$ es una funci\'on integrable y que $f(x) \geq 0$, para toda $x\in [0,1]$. La funci\'on area bajo la 
-gr\'afica de $f$ es la funci\'on $F:[a,b]\to \mathbb{R}$ dada por
+Supongamos que $f:[a,b] \to \mathbb{R}$ es una función integrable y que $f(x) \geq 0$, para toda $x\in [0,1]$. La función area bajo la 
+gráfica de $f$ es la función $F:[a,b]\to \mathbb{R}$ dada por
 $$
 F(x):=\int_a^xf(t)dt
 $$
 
-Nota que $F(x_0)$ se puede interpretar como el \'area bajo la gr\'afica de $f$ entre las rectas $x=a$ y $x=x_0$.
+Nota que $F(x_0)$ se puede interpretar como el área bajo la gráfica de $f$ entre las rectas $x=a$ y $x=x_0$.
 \end{definicion}
 
 
@@ -326,8 +325,8 @@ x &  0 \leq x \leq 1 \\
 \right.
 $$
 
-\begin{enumerate}
-\item Sea $F(x)$ la funci\'on area dada por $f$. Prueba que:
+<ol>
+    <li></li> Sea $F(x)$ la función area dada por $f$. Prueba que:
 $$
 F(x)=\left\{
 \begin{array}{cc}
@@ -337,10 +336,10 @@ x^2-3x+\frac{7}{2} & 2< x
 \end{array}
 \right.
 $$
-\item Demuestra que $F$ es diferenciable en todo punto de $(0,\infty)$ y que $F'(x)=f(x)$, para toda $x\in (0,\infty)$.
+<li></li> Demuestra que $F$ es diferenciable en todo punto de $(0,\infty)$ y que $F'(x)=f(x)$, para toda $x\in (0,\infty)$.
 
-\end{enumerate}
-\item Sea $I$ un intervalo y fija  una funci\'on integrable $f: I \to \mathbb{R}$. Con estos datos  crea una nueva funci\'on 
+</ol>
+\item Sea $I$ un intervalo y fija  una función integrable $f: I \to \mathbb{R}$. Con estos datos  crea una nueva función 
 
 $$
 \tilde{F}(x):=\int_a^x f(t)dt,
@@ -348,15 +347,15 @@ $$
 donde $a\in I$ es fijo y arbitrario.
 
 
-Para cada una de las funciones dadas $f$, encuentra la regla de correspondencia de $\tilde{F}$ y despu\'es calcula $\tilde{F}'(x)$.
-\begin{enumerate}
-\item $f(x)=x^2$,  con $a=0$;
-\item $f(x)=x^2$, con $a=1$;
-\item $f(x)=e^x$, con $a=0$;
-\item $f(x)=e^{5x+2}$, con $a=-1$.
-\item $f(x)=\cos(x)$, $a=0$;
-\item $f(x)=\sen(x)$, $a=0$; 
-\end{enumerate}
+Para cada una de las funciones dadas $f$, encuentra la regla de correspondencia de $\tilde{F}$ y después calcula $\tilde{F}'(x)$.
+<ol>
+    <li></li> $f(x)=x^2$,  con $a=0$;
+    <li></li> $f(x)=x^2$, con $a=1$;
+    <li></li> $f(x)=e^x$, con $a=0$;
+    <li></li> $f(x)=e^{5x+2}$, con $a=-1$.
+    <li></li> $f(x)=\cos(x)$, $a=0$;
+    <li></li> $f(x)=\sen(x)$, $a=0$; 
+</ol>
 
 
 \begin{teorema}[Primer Teorema Fundamental]
@@ -371,118 +370,118 @@ $$
 \end{teorema}
 
 
-\item\label{Ejer:LemaDemo1TFC} Sea $f:[a,b] \to \mathbb{R}$ una funci\'on integrable. 
-\begin{enumerate}
-\item Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
+\item\label{Ejer:LemaDemo1TFC} Sea $f:[a,b] \to \mathbb{R}$ una función integrable. 
+<ol>
+    <li></li> Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
 $$
 f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
 $$
 para toda $x\in [x_0, x_0+\delta)$.
 
-\item Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
+<li></li> Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
 $$
 -\varepsilon \leq \frac{\int_{x_0}^x f(t)dt }{x-x_0} -f(x_0) \leq \varepsilon 
 $$
 para todo $x\in [x_0, x_0+\delta)$.
 
-\item Si $f$ es continua por la derecha en $x_0$, demuestra que
+<li></li> Si $f$ es continua por la derecha en $x_0$, demuestra que
 $$
 \lim_{x\to x_0^+} \frac{\int_{x_0}^{x}f(t)dt}{x-x_0}=f(x_0).
 $$
 
-\item Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
+<li></li> Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
 $$
 f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
 $$
 para toda $x\in (x_0-\delta, x_0]$.
 
-\item Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
+<li></li> Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
 $$
 -\varepsilon \leq \frac{\int_{x}^{x_0} f(t)dt }{x_0-x} -f(x_0) \leq \varepsilon 
 $$
 para todo $x\in (x_0-\delta, x_0]$.
 
-\item Si $f$ es continua por la izquierda en $x_0$, demuestra que
+<li></li> Si $f$ es continua por la izquierda en $x_0$, demuestra que
 $$
 \lim_{x\to x_0^-} \frac{\int_{x}^{x_0}f(t)dt}{x_0-x}=f(x_0).
 $$
 
-\end{enumerate}
+</ol>
 
 
 \item Usa el ejercicio \ref{Ejer:LemaDemo1TFC} para demostrar el primer Teorema Fundamental.
 
 
-\item Sea $f:[a,b] \to \mathbb{R}$ una funci\'on continua en $[a,b]$. Usando el Primer Teorema Fundamental demuestra que
+\item Sea $f:[a,b] \to \mathbb{R}$ una función continua en $[a,b]$. Usando el Primer Teorema Fundamental demuestra que
 $f$ tiene una antiderivada.
 
 \item Este ejercicio demuestra que el Primer Teorema Fundamental implica el segundo Teorema Fundamental.
 
-Sea $f:[a,b] \to \mathbb{R}$ una funci\'on continua  y sea $F:[a,b] \to \mathbb{R}$ cualquier antiderivada para $f$ en $(a,b)$. 
+Sea $f:[a,b] \to \mathbb{R}$ una función continua  y sea $F:[a,b] \to \mathbb{R}$ cualquier antiderivada para $f$ en $(a,b)$. 
 
-\begin{enumerate}
-\item Define $\tilde{F}:[a,b] \to \mathbb{R}$ por 
+<ol>
+    <li></li> Define $\tilde{F}:[a,b] \to \mathbb{R}$ por 
 $$
 \tilde{F}(x)=\int_a^x f(t)dt
 $$
 
 Demuestra que existe una constante tal que $F(x)=\tilde{F}(x)+c$, para toda $x\in [a,b]$.
 
-\item Usando el inciso anterior y la funci\'on $\tilde{F}$ demuestra que
+<li></li> Usando el inciso anterior y la función $\tilde{F}$ demuestra que
 $$
 \int_a^b f(t)dt=F(a)-F(b).
 $$
-\end{enumerate}
+</ol>
 
-\item Sin calcular las siguientes integrales, encuentra $F'(x)$, si $F(x)$ est\'a dada por
-\begin{enumerate}
-\item $F(x)=\int_0^x (1+t^2)^{-4}dt$.
-\item $F(x)=\int_0^{x^2} (1+t^2)^{-4}dt$.
-\item $F(x)=\int_{x}^{x^3} (1+t^2)^{-4}dt$.
-\item $F(x)=\int_{\cos(x)}^{\sen(x)} \sen(x)dx$.
-\end{enumerate}
+\item Sin calcular las siguientes integrales, encuentra $F'(x)$, si $F(x)$ está dada por
+<ol>
+    <li></li> $F(x)=\int_0^x (1+t^2)^{-4}dt$.
+    <li></li> $F(x)=\int_0^{x^2} (1+t^2)^{-4}dt$.
+    <li></li> $F(x)=\int_{x}^{x^3} (1+t^2)^{-4}dt$.
+    <li></li> $F(x)=\int_{\cos(x)}^{\sen(x)} \sen(x)dx$.
+</ol>
 
-\item Encontrar una funci\'on continua $f(x)$, que satisface la ecuaci\'on
+\item Encontrar una función continua $f(x)$, que satisface la ecuación
 $$
 \int_0^x f(t)dt=x+2x^2+\frac{1}{3}x^3, \quad \forall x\in \mathbb{R}.
 $$
 Calcular $f(0)$ y $f(1)$.
 
-\item Encontrar una funci\'on continua $f(x)$, y una valor constante $c$, que satisface la ecuaci\'on
+\item Encontrar una función continua $f(x)$, y una valor constante $c$, que satisface la ecuación
 $$
 \int_c^x f(t)dt= \sen(3x)+\frac{1}{3}, \quad \forall x\in \mathbb{R}.
 $$
 
 
-\item Existe una funci\'on continua $f:\mathbb{R} \to \mathbb{R}$ que satisface
+\item Existe una función continua $f:\mathbb{R} \to \mathbb{R}$ que satisface
 $$
 \int_0^x f(t)dt=\int_x^2 t^2f(t)dt+  x-\frac{1}{5}x^5 +c,  \quad \forall x \in \mathbb{R}
 $$
-donde $c$ es una constante. Encontrar una f\'ormula expl\'icita para $f$ y el valor de $c$.
+donde $c$ es una constante. Encontrar una fórmula explícita para $f$ y el valor de $c$.
 
 
 
-\item Sea $f:[a,b]\to \mathbb{R}$ una funci\'on continua en $[a,b]$.
-\begin{enumerate}
-\item Demuestra que $f(x)=0$ para toda $x\in [a,b]$ si y s\'olo si $\int_c^d f(x)dx=0$ para todos
+\item Sea $f:[a,b]\to \mathbb{R}$ una función continua en $[a,b]$.
+<ol>
+    <li></li> Demuestra que $f(x)=0$ para toda $x\in [a,b]$ si y sólo si $\int_c^d f(x)dx=0$ para todos
 $c,d \in [a,b]$.
-\item Da un ejemplo de una funci\'on continua $f:[a,b]\to \mathbb{R}$, distinta de cero, pero que cumple
-$\int_a^b f(x)dx=0$. Es decir, para que el ejercicio anterior sea v\'alido se debe de tener $\int_c^d f(t)dt=0$,
+<li></li> Da un ejemplo de una función continua $f:[a,b]\to \mathbb{R}$, distinta de cero, pero que cumple
+$\int_a^b f(x)dx=0$. Es decir, para que el ejercicio anterior sea válido se debe de tener $\int_c^d f(t)dt=0$,
 para {\bf todos} los subintervalos $[c,d]$.
-\end{enumerate} 
+</ol> 
 
 
 
 \item El  Primer Teorema Fundamental tiene aplicaciones a ecuaciones diferenciales. En ecuaciones diferenciales el problema fundamental es encontrar funciones cuya derivada satisgafa ciertas condiciones dadas. Por ejemplo, usando el Primer Teorema Fundamental 
-encuentra una funci\'on diferenciable $f(x)$, que satisfaga
+encuentra una función diferenciable $f(x)$, que satisfaga
 $$
 f'(x)=e^{3x}+\cos(4x)+2
 $$
 y tal que $f(0)=1$.
 
-En otras palabras, tenemos como dato las pendientes de la funci\'on y queremos recobrar la funci\'on.
+En otras palabras, tenemos como dato las pendientes de la función y queremos recobrar la función.
 
-Nota: m\'as en general el problema anterior se puede plantear como sigue: encontrar una funci\'on $y=y(x)$ que satisfaga
+Nota: más en general el problema anterior se puede plantear como sigue: encontrar una función $y=y(x)$ que satisfaga
 \begin{eqnarray*}
 y'&=&H(x,y)	\\
 y(x_0)&=&y_0

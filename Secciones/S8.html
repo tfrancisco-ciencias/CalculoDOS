@@ -7,10 +7,10 @@
 
 \item\label{Ejer:AproxSimplesConCotas} Sea $f:[a,b]\to \mathbb{R}$  integrable y  supon que existen constantes  $m$ y $M$  tales que $m\leq f(x) \leq M$, para toda $x\in [a,b]$. Demuestra que, para toda  $\varepsilon >0$, 
 existen funciones escalonadas $s.t:[a,b]\to \mathbb{R}$ tales que
-\begin{enumerate}
-\item $m \leq s \leq f \leq t \leq M$
-\item $\int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon$
-\end{enumerate}
+<ol>
+    <li></li> $m \leq s \leq f \leq t \leq M$
+    <li></li> $\int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon$
+</ol>
 
 
 Sugerencia: como $f$ es integrable, existen funciones escalonadas $\tilde{s}$ y $\tilde{t}$ con
@@ -27,12 +27,12 @@ $$
 s:=\max\{\tilde{s},m\}, t=\min\{\tilde{t},M \}
 $$
 
-\item\label{Ejer:IntegrabilidadCuadradosCasoPositivo} Sea $f:[a,b] \to \mathbb{R}$ una funci\'on integrable tal que existe una constante $M$ con $0 \leq f(x) \leq M$, para toda $x\in [a,b]$. Demuestra que, para toda $\varepsilon >0$, existen funciones escalonadas $s,t:[a,b] \to \mathbb{R}$ tales que 
-\begin{enumerate}
-\item  $  s \leq f^2 \leq t $
-\item  $\int_a^b t(x)dx- \int_a^b s(x)dx < \varepsilon$.
-\item Concluye que $f^2$ es integrable.
-\end{enumerate}
+\item\label{Ejer:IntegrabilidadCuadradosCasoPositivo} Sea $f:[a,b] \to \mathbb{R}$ una función integrable tal que existe una constante $M$ con $0 \leq f(x) \leq M$, para toda $x\in [a,b]$. Demuestra que, para toda $\varepsilon >0$, existen funciones escalonadas $s,t:[a,b] \to \mathbb{R}$ tales que 
+<ol>
+    <li></li>  $  s \leq f^2 \leq t $
+    <li></li>  $\int_a^b t(x)dx- \int_a^b s(x)dx < \varepsilon$.
+    <li></li> Concluye que $f^2$ es integrable.
+</ol>
 
 Sugerencia: como $f$ es integrable, el ejercicio  \ref{Ejer:AproxSimplesConCotas} asegura que existen funciones escalonadas $\tilde{s}$ y $\tilde{t}$ con
 $$
@@ -48,30 +48,30 @@ $$
 s:=\tilde{s}^2, t=\tilde{t}^2
 $$
 
-\item Demuestra que el cuadrado de toda funci\'on integrable es de nuevo integrable.
+\item Demuestra que el cuadrado de toda función integrable es de nuevo integrable.
 
 
 Sugerencia: si $f:[a,b] \to \mathbb{R}$ es integrable, necesariamente es acotada; toma $m$ tal que $m \leq f(x)$ para toda $x\in [a,b]$.  Nota
 que $g:=f=m$ siempre es mayor o igual a cero y aplica el ejercicio \ref{Ejer:IntegrabilidadCuadradosCasoPositivo} a $g-m$.
 
-\item Da un ejemplo de una funci\'on $f:[a,b]\to \mathbb{R}$ tal que $f^2$ es integrable pero $f$ no lo es.
+\item Da un ejemplo de una función $f:[a,b]\to \mathbb{R}$ tal que $f^2$ es integrable pero $f$ no lo es.
 
-\item\label{Ejer:IntegralCuadradaNoIntegraldelCuadrado} Da un ejemplo de una funci\'on integrable $f:[a,b]\to \mathbb{R}$ tal que
+\item\label{Ejer:IntegralCuadradaNoIntegraldelCuadrado} Da un ejemplo de una función integrable $f:[a,b]\to \mathbb{R}$ tal que
 $$
 \int_a^b f^2(x)dx \ne \left( \int_a^b f(x)dx \right)^2
 $$
 
-\item El ejercicio  \ref{Ejer:IntegralCuadradaNoIntegraldelCuadrado}  muestra que la relaci\'on entre  $\int_a^b f^2$ y $(\int_a^bf)^2$ no es sencilla. Este ejercicio da una desigualdad que involucra estas integrales. 
-\begin{enumerate}
-\item Demuestra que para toda funci\'on continua $f:[a,b]\to \mathbb{R}$,
+\item El ejercicio  \ref{Ejer:IntegralCuadradaNoIntegraldelCuadrado}  muestra que la relación entre  $\int_a^b f^2$ y $(\int_a^bf)^2$ no es sencilla. Este ejercicio da una desigualdad que involucra estas integrales. 
+<ol>
+    <li></li> Demuestra que para toda función continua $f:[a,b]\to \mathbb{R}$,
 $$
 \left( \int_a^b f(x)dx \right)^2 \leq (b-a)\int_a^b f^2(x)dx.
 $$
-\item Da un ejemplo donde se muestre que la desigualdad anterior puede ser estricta.
-\end{enumerate}
+<li></li> Da un ejemplo donde se muestre que la desigualdad anterior puede ser estricta.
+</ol>
 Sugerencia: para la primera parte, primero demuestra  el caso $a=0, b=1$ usando el ejercicio \ref{Ejer:DesigualdadJensen}; para el caso general usa el cambio de variable y el ejercicio \ref{Ejer:CambioVariableReduccionIntervaloUnitario}.
 
-\item Sean $f,g:[a,b] \to \mathbb{R}$ dos funciones integrables. Demuestra que la funci\'on producto $fg$ es integrable.
+\item Sean $f,g:[a,b] \to \mathbb{R}$ dos funciones integrables. Demuestra que la función producto $fg$ es integrable.
 
 Sugerencia: despeja $fg$ en $(f+g)^2=f^2+2fg+g^2$.
 
@@ -80,35 +80,35 @@ $$
 \left| \int_a^b f(x)g(x)dx \right| \leq \left(\int_a^b f(x)^2dx \right)^{1/2}\left(\int_a^b g(x)^2dx \right)^{1/2}
 $$
 
-Hint: considera la funci\'on
+Hint: considera la función
 $$
 p(t)=\int_a^b (f(x)+t g(x))^2dx
 $$
 Desarrolla el cuadrado y usa linealidad para ver que
 $p$ es una parabola en la variable $t$, que siempre
-est\'a por arriba del eje $x$. Observa su discriminante.
+está por arriba del eje $x$. Observa su discriminante.
 
 \item 
 
-\begin{enumerate} 
+<ol> 
 
-\item Prueba que toda suma $\sum_{i=1}^n a_i$, se puede escribir como la integral de una funci\'on escalonada.
+    <li></li> Prueba que toda suma $\sum_{i=1}^n a_i$, se puede escribir como la integral de una función escalonada.
 
-\item Usa el inciso anterior y el ejercico 1 para probar la desigualdad de Cauchy-Schwartz
+    <li></li> Usa el inciso anterior y el ejercico 1 para probar la desigualdad de Cauchy-Schwartz
 $$
 \left| \sum_{i=1}^n a_ib_i  \right| \leq \left(\sum_{i=1}^n a_i^2 \right)^{1/2}\left(\sum_{i=1}^n b_i^2 \right)^{1/2}
 $$
-para cualesquiera  n\'umeros reales, $a_{1},\dots, a_n, b_1,\dots, b_n$.
+para cualesquiera  números reales, $a_{1},\dots, a_n, b_1,\dots, b_n$.
 
-\end{enumerate}
+</ol>
 
 
-\item Sea $f:[0,1]\to \mathbb{R}$ una funci\'on integrable en $[0,1]$ con $f\geq 0$ en $[0,1]$.  Demuestra:
+\item Sea $f:[0,1]\to \mathbb{R}$ una función integrable en $[0,1]$ con $f\geq 0$ en $[0,1]$.  Demuestra:
 $$
 \int_0^1\sqrt{f}\leq \bigg(\int_0^1 f \bigg)^{1/2}
 $$
 
 Sugerencia: usa la desigualdad de Cauchy-Schwartz para integrales.
 
-Nota: en general , si $f$ es integrable con $f\geq 0$ entonces $\sqrt{f}$ tambi\'en es integrable. Este hecho se puede usar
+Nota: en general , si $f$ es integrable con $f\geq 0$ entonces $\sqrt{f}$ también es integrable. Este hecho se puede usar
 en este ejercicio.

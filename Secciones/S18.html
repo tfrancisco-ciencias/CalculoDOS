@@ -2,12 +2,12 @@
 
 
 
-\section*{Funciones Hiperb\'olicas}
+\section*{Funciones Hiperbólicas}
 
 \begin{definicion}
-Las funciones coseno  hiperb\'olico y seno hiperb\'olico se pueden ver como la parte par e impar, respectivamente de la funci\'on exponencial.
+Las funciones coseno  hiperbólico y seno hiperbólico se pueden ver como la parte par e impar, respectivamente de la función exponencial.
 
-Recordemos  (ejercicio \ref{Ejer:DescomposicionFuncionesParesImpares}) que la parte par e impar de una funci\'on arbitraria $f$, estan dadas respespectivamente por
+Recordemos  (ejercicio \ref{Ejer:DescomposicionFuncionesParesImpares}) que la parte par e impar de una función arbitraria $f$, estan dadas respespectivamente por
 $$
 f_{\textrm{par}}(x):= \frac{f(x)+ f(-x) }{2}
 $$
@@ -15,7 +15,7 @@ $$
 f_{\textrm{impar}}(x):= 
 \frac{f(x)-f(-x)}{2}
 $$
-asi pues definimos las funciones coseno y seno hiperb\'olicos como:
+asi pues definimos las funciones coseno y seno hiperbólicos como:
 
 
 \begin{eqnarray*}
@@ -23,10 +23,10 @@ asi pues definimos las funciones coseno y seno hiperb\'olicos como:
 \senh(x) &=& \frac{ e^x - e^{-x}}{2}, \quad x\in \mathbb{R}.
 \end{eqnarray*}
 
-Es decir, el coseno hiperb\'olico es la parte par de la exponencial y el seno hiperb\'olico es la parte impar de la exponencial.
+Es decir, el coseno hiperbólico es la parte par de la exponencial y el seno hiperbólico es la parte impar de la exponencial.
 
 
-Tomando como modelo las funciones trigonom\'etricas tambi\'en definimos
+Tomando como modelo las funciones trigonométricas también definimos
 
 \begin{eqnarray*}
 \tanh(t) &=& \frac{ \senh(t) }{ \cosh(t) }= \frac{ e^x - e^{-x}}{ e^x + e^{-x }} \\
@@ -38,62 +38,62 @@ Tomando como modelo las funciones trigonom\'etricas tambi\'en definimos
 \end{definicion}
 
 
-\item Usando la definici\'on de las funciones hiperb\'olicas y las propiedades de la exponencial demuestra las siguientes propiedades.
+\item Usando la definición de las funciones hiperbólicas y las propiedades de la exponencial demuestra las siguientes propiedades.
 
-\begin{enumerate}
-\item $\cosh(t)>0$ para todo $t\in \mathbb{R}$.
-\item $\senh(t)=0$ si y s\'olo si $t=0$. 
-\item $\senh(t)>0$ si y s\'olo si $t>0$ y $\senh(t)<0$ si y s\'olo si $t<0$.
- \end{enumerate}
+<ol>
+    <li></li> $\cosh(t)>0$ para todo $t\in \mathbb{R}$.
+    <li></li> $\senh(t)=0$ si y sólo si $t=0$. 
+    <li></li> $\senh(t)>0$ si y sólo si $t>0$ y $\senh(t)< 0$ si y sólo si $t < 0$.
+ </ol>
 
 
 \item Asi como la s funciones coseno y seno estan  atadas al 
-c\'irculo unitario, $x^2 + y^2 = 1$, las funciones coseno hiperb\'olico y seno  hiperb\'olico estan relacionadas con la hiperbola $x^2 - y^2 = 1 $.  Demuestra que,  para toda $t\in \mathbb{R}$ 
+círculo unitario, $x^2 + y^2 = 1$, las funciones coseno hiperbólico y seno  hiperbólico estan relacionadas con la hiperbola $x^2 - y^2 = 1 $.  Demuestra que,  para toda $t\in \mathbb{R}$ 
 $$
 \cosh^2(t) - \senh^2(t)= 1.
 $$
 
 
-\item Las funciones hiperb\'olicas tienen muchas similitudes con las trigonom\'etricas, como lo muestra este ejercicio.
+\item Las funciones hiperbólicas tienen muchas similitudes con las trigonométricas, como lo muestra este ejercicio.
 
-\begin{enumerate}
-\item\label{Ejer:FormulasSumaHiper} Demuetra las leyes para $\cosh$ y $\senh$ de una suma:
+<ol>
+    <li></li>\label{Ejer:FormulasSumaHiper} Demuetra las leyes para $\cosh$ y $\senh$ de una suma:
 \begin{eqnarray*}
 \senh(a+b)&=&\senh(a)\cosh(b)+\senh(b)\cosh(a), \\
 \cosh(a+b)&=& \cosh(a)\cosh(b)+\senh(a)\senh(b), \\
 \tanh(a+b)&=&\frac{\tanh(a)+\tanh(b)}{1+\tanh(a)\tanh(b)}.
 \end{eqnarray*}
-\item Demuestra:
+<li></li> Demuestra:
 $$
 \coth^2(a)-1=\csch^2(a). 
 $$
-\item Demuestra que, para cualquier real $n$, 
+<li></li> Demuestra que, para cualquier real $n$, 
 $$(\cosh(a)+\senh(a))^n=\cosh(na)+\senh(na).$$
 
-\item\label{Ejer:FormulasDerivadasHiper} Demuetra las f\'ormulas para las derivadas:
+<li></li>\label{Ejer:FormulasDerivadasHiper} Demuetra las fórmulas para las derivadas:
 \begin{eqnarray*}
 \frac{d}{dx}(\senh(x))&=&\cosh(x), \\
 \frac{d}{dx}(\cosh(x))&=&\senh(x),\\
 \frac{d}{dx}(\tanh(x))&=&\sech^2(x).\\
 \end{eqnarray*}
-\end{enumerate}
+</ol>
 
 
 
 
 
-\item Demuestra que $\senh$ es una funci\'on estrictamente creciente.
+\item Demuestra que $\senh$ es una función estrictamente creciente.
 
-\item\label{Ejer:FormulaInversaSenh} Ya que $\senh$ es estrictamente creciente, existe su funci\'on inversa (ver ejercicio \ref{Ejer:InversaContinuaMonotona}), denotada $\senh^{-1}:\mathbb{R} \to \mathbb{R}$. Demuestra que, para toda $y\in \mathbb{R}$
+\item\label{Ejer:FormulaInversaSenh} Ya que $\senh$ es estrictamente creciente, existe su función inversa (ver ejercicio \ref{Ejer:InversaContinuaMonotona}), denotada $\senh^{-1}:\mathbb{R} \to \mathbb{R}$. Demuestra que, para toda $y\in \mathbb{R}$
 $$
 \senh^{-1}(y)=\ln(y+\sqrt{y^2+1}).
 $$
 
-Sugerencia: primero, usando la definici\'on de $\senh$,  nota que  la identidad $y=\senh(x)$ es equivalente a  $e^{2x}-2ye^{x}-1=0$; despu\'es
-toma $X=e^x$, escribe $e^{2x}-2ye^{x}-1=0$ como una cuadr\'atica en $X$ y resu\'elvela.
+Sugerencia: primero, usando la definición de $\senh$,  nota que  la identidad $y=\senh(x)$ es equivalente a  $e^{2x}-2ye^{x}-1=0$; después
+toma $X=e^x$, escribe $e^{2x}-2ye^{x}-1=0$ como una cuadrática en $X$ y resuélvela.
 
 
-\item\label{Ejer:FormulaInversaCosh} La funci\'on $\cosh$ no es inyectiva, pero si se restringe el dominio $\cosh(x)$, $x\in [0,\infty)$ la funci\'on es inyectiva y suprayectiva al intervalo $[1,\infty)$. Por lo tanto la inversa est\'a definida $\cosh^{-1}:[1, \infty) \to [0, \infty)$. Demuestra que, para toda
+\item\label{Ejer:FormulaInversaCosh} La función $\cosh$ no es inyectiva, pero si se restringe el dominio $\cosh(x)$, $x\in [0,\infty)$ la función es inyectiva y suprayectiva al intervalo $[1,\infty)$. Por lo tanto la inversa está definida $\cosh^{-1}:[1, \infty) \to [0, \infty)$. Demuestra que, para toda
 $y\in [1,\infty)$,
 $$
 \cosh^{-1}(y)=\ln(y+\sqrt{y^2-1})
@@ -101,7 +101,7 @@ $$
 
 Sugerencia: sigue el mismo procedimiento al ejercicio \ref{Ejer:FormulaInversaSenh}.
 
-\item Demuestra que la funci\'on $\tanh$ es estrictamente creciente.
+\item Demuestra que la función $\tanh$ es estrictamente creciente.
 
 \item\label{Ejer:LimitesTanh} Demuestra que
 \begin{eqnarray*}
@@ -110,7 +110,7 @@ Sugerencia: sigue el mismo procedimiento al ejercicio \ref{Ejer:FormulaInversaSe
 \end{eqnarray*}
 
 
-\item\label{Ejer:FormulaInversaTanh} Ya que $\tanh$ es estrictamente creciente, existe su funci\'on inversa (ver ejercicio \ref{Ejer:InversaContinuaMonotona}) y el ejercicio  \ref{Ejer:LimitesTanh}  dice que su dominio es el intervalo $(-1,1)$. Denotada $\tanh^{-1}:(-1,1) \to \mathbb{R}$ la funci\'on inversa de $\tanh$. Demuestra que
+\item\label{Ejer:FormulaInversaTanh} Ya que $\tanh$ es estrictamente creciente, existe su función inversa (ver ejercicio \ref{Ejer:InversaContinuaMonotona}) y el ejercicio  \ref{Ejer:LimitesTanh}  dice que su dominio es el intervalo $(-1,1)$. Denotada $\tanh^{-1}:(-1,1) \to \mathbb{R}$ la función inversa de $\tanh$. Demuestra que
 $$
 \tanh^{-1}(y)=\frac{1}{2}\ln \left( \frac{1+y}{1-y} \right)
 $$ 	
@@ -119,7 +119,7 @@ Sugerencia: sigue el mismo procedimiento al ejercicio \ref{Ejer:FormulaInversaSe
 
 
 
-\item Usando diferenciaci\'on impl\'icita y el ejercicio \ref{Ejer:FormulasDerivadasHiper}, demuestra las f\'ormulas de las derivadas de las funciones hiperb\'olicas inversas.
+\item Usando diferenciación implícita y el ejercicio \ref{Ejer:FormulasDerivadasHiper}, demuestra las fórmulas de las derivadas de las funciones hiperbólicas inversas.
 
 \begin{eqnarray*}
 \frac{d}{dy}(\senh^{-1}(y))&=&\frac{1}{\sqrt{1+y^2}} \\
@@ -138,26 +138,26 @@ Sugerencia: recuerda que $\cosh^2(t)-\senh^2(t)=1$.
 \end{eqnarray*}
 
 \item Calculas las siguientes integrales 
-\begin{enumerate}
-\item $\int \senh(1+4x)dx$
-\item $\int \frac{\senh(\sqrt{x})}{\sqrt{x}}dx$
-\item $\int_4^6 \frac{1}{\sqrt{t^2-9	}}dt$
-\item $\int_0^1 \frac{1}{\sqrt{16t^2 +1}}dt$
-\item $\int \frac{e^x}{1-e^{2x}}dx$
-\end{enumerate}
+<ol>
+    <li></li> $\int \senh(1+4x)dx$
+    <li></li> $\int \frac{\senh(\sqrt{x})}{\sqrt{x}}dx$
+    <li></li> $\int_4^6 \frac{1}{\sqrt{t^2-9	}}dt$
+    <li></li> $\int_0^1 \frac{1}{\sqrt{16t^2 +1}}dt$
+    <li></li> $\int \frac{e^x}{1-e^{2x}}dx$
+</ol>
 
 
 \item Evalua $\lim_{x\to \infty} \frac{\senh(x)}{e^x}$
 
-\item Demuestra que si $a\ne 0$ y $b\ne 0$, entonces existen n\'umeros $\alpha$ y $\beta$ tal que $ae^x+be^{-x}$ es igual a alguna de las siguientes funciones: $\alpha \cosh(x+\beta)$ \'o $\alpha \senh(x+\beta)$.
-\item \begin{enumerate}
-\item Demuestra que toda funci\'on de la forma 
+\item Demuestra que si $a\ne 0$ y $b\ne 0$, entonces existen números $\alpha$ y $\beta$ tal que $ae^x+be^{-x}$ es igual a alguna de las siguientes funciones: $\alpha \cosh(x+\beta)$ ó $\alpha \senh(x+\beta)$.
+\item <ol>
+    <li></li> Demuestra que toda función de la forma 
 $$
 y=A\cosh(mx)+B\senh(mx)
 $$
-satisface la ecuaci\'on diferencial $y''=m^2y$.
-\item Encuentra $y$ tal que $y''=9y$, $y(0)=-4, y'(0)=6$.
-\end{enumerate}
+satisface la ecuación diferencial $y''=m^2y$.
+<li></li> Encuentra $y$ tal que $y''=9y$, $y(0)=-4, y'(0)=6$.
+</ol>
 
 
 
@@ -165,7 +165,7 @@ satisface la ecuaci\'on diferencial $y''=m^2y$.
 $$
 dibujito
 $$
-es igual a $t/2$, si $t$ es medido en radianes. Algo an\'alogo para para las funciones hiperb\'olicas. Tomar $(a,b)=(\cosh(t_0), \senh(t_0))$
+es igual a $t/2$, si $t$ es medido en radianes. Algo análogo para para las funciones hiperbólicas. Tomar $(a,b)=(\cosh(t_0), \senh(t_0))$
 y considera el area
 $$
 dibujito
@@ -176,17 +176,17 @@ Demuestra que el area es igual a $t_0/2$.
 Vamos a tomar dos areas. $A$ es el area que vamos a calcular y $B$ es el area bajo la curva $y=\sqrt{x^2-1}$, es decir
 $B=\int_1^a\sqrt{x^2-1	}dx$. 
 
-\begin{enumerate}
-\item Prueba que 
+<ol>
+    <li></li> Prueba que 
 $$B=\frac{1}{4}\senh(2t_0)-\frac{1}{2}t_0$$.
 
 Sugerencia: en la integral $\int_1^a\sqrt{x^2-1	}dx$ toma el cambio de variable $x=\cosh(t)$.
 
-\item Demuestra que:
+<li></li> Demuestra que:
 $$
 A+B=\frac{1}{4}\senh(2t_0)
 $$
-Sugerencia: considera el area del tri\'angulo formado por las areas $A$ y $B$.
+Sugerencia: considera el area del triángulo formado por las areas $A$ y $B$.
 
-\item Concluye que $A=t_0/2$.
-\end{enumerate}
+<li></li> Concluye que $A=t_0/2$.
+</ol>

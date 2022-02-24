@@ -4,40 +4,40 @@
 
 
 
-\section*{Integraci\'on por partes}
+\section*{Integración por partes}
 
-Junto con integraci\'on por substituci\'on, integraci\'on por partes es una de las t\'ecnicas m\'as \'utiles y su origen es la f\'ormula de la derivada de un producto
+Junto con integración por substitución, integración por partes es una de las técnicas más útiles y su origen es la fórmula de la derivada de un producto
 $$
 (fg)'=fg'+f'g
 $$
 
 
-\item Sean $f,g:[a,b] \to \mathbb{R}$ funciones continuas en el cerrado y diferenciables en el abierto, con derivadas continuas. Demuestra la f\'ormula de integraci\'on por partes para integrales indefinidas
+\item Sean $f,g:[a,b] \to \mathbb{R}$ funciones continuas en el cerrado y diferenciables en el abierto, con derivadas continuas. Demuestra la fórmula de integración por partes para integrales indefinidas
 $$
 \int_a^b f(x) g'(x)dx=f(b)g(b)-f(a)g(a)-\int_a^b f'(x)g(x)dx.
 $$
 
-\item  Sean $f,g$ funciones diferenciables con derivadas continuas. Demuestra la f\'ormula de integraci\'on por partes para integrales indefinidas
+\item  Sean $f,g$ funciones diferenciables con derivadas continuas. Demuestra la fórmula de integración por partes para integrales indefinidas
 $$
 \int f(x)g'(x)dx=f(x)g(x)-\int f'(x) g(x)dx.
 $$
 
-Tomando la notaci\'on $u=f, v=g$, $u'=f'dx$ y $v'=g'dx$ la f\'ormula se convierte
+Tomando la notación $u=f, v=g$, $u'=f'dx$ y $v'=g'dx$ la fórmula se convierte
 $$
 \int udv=uv-\int vdu
 $$
-la cual es m\'as f\'acil de recordar.
+la cual es más fácil de recordar.
 
 \item Calcula las siguientes integrales.
 
-\begin{enumerate}
-\item $\int x\cos(x)dx$.
-\item $\int x\sen(x)dx$.
-\item $\int x^2 \cos(x)dx$.
-\item $\int x^2 \sen(x)dx$.
-\item $\int xe^x dx$. 
-\item $\int t^2e^t dt$. Sugerencia: $u=t^2$, $dv=e^tdt$.
-\end{enumerate}
+<ol>
+    <li></li> $\int x\cos(x)dx$.
+    <li></li> $\int x\sen(x)dx$.
+    <li></li> $\int x^2 \cos(x)dx$.
+    <li></li> $\int x^2 \sen(x)dx$.
+    <li></li> $\int xe^x dx$. 
+    <li></li> $\int t^2e^t dt$. Sugerencia: $u=t^2$, $dv=e^tdt$.
+</ol>
 
 \item Calcula $\int_0^1 \tan^{-1}(x)dx$. 
 
@@ -46,17 +46,17 @@ Sugerencia:  $u=\tan^{-1}(x)$, $dv=dx$.
 
 \item Calcula $\int e^{\sqrt{x}}dx$.
 
-Sugerencia: primero toma el cambio de variable $u=\sqrt{x}$ y luego una integraci\'on por partes.
+Sugerencia: primero toma el cambio de variable $u=\sqrt{x}$ y luego una integración por partes.
 
 
 
-\item  Usa integrci\'on por partes para demostrar
+\item  Usa integrción por partes para demostrar
 $$
 \int \sqrt{a-x^2}dx=x\sqrt{a-x^2}+\int \frac{x^2}{\sqrt{a-x^2}}dx +C.
 $$
 donde $a$ es una constante positiva.
 
-Escribe $x^2=x^2-a+a$ en el integrando del lado derecho de la f\'ormula anterior para demostrar
+Escribe $x^2=x^2-a+a$ en el integrando del lado derecho de la fórmula anterior para demostrar
 $$
 \int \sqrt{a-x^2}dx=\frac{1}{2}x\sqrt{a-x^2}+\frac{1}{2}\int \frac{1}{\sqrt{a-x^2}}dx+C.
 $$
@@ -64,30 +64,30 @@ $$
 
 \item Considera el conjunto $V$ de funciones continuas $f:[a,b]\to \mathbb{R}$, diferenciables  $(a,b)$ con derivada continua en $(a,b)$ y tal que $f(a)=f(b)=0$.
 
-\begin{enumerate}
-\item Demuestra que si $f,g \in V$ entonces $f+g, fg \in V$.
-\item Para $f,g \in V$ demuestra que la f\'ormula de integraci\'on por partes se reduce a 
+<ol>
+    <li></li> Demuestra que si $f,g \in V$ entonces $f+g, fg \in V$.
+    <li></li> Para $f,g \in V$ demuestra que la fórmula de integración por partes se reduce a 
 $$
 \int_a^b f(x)g'(x)dx=-\int_a^b f'(x)g(x)dx
 $$
 
-\item Da un ejemplo de funciones $f$ y $g$, que no perrtenezcan a $V$ donde la f\'ormula del inciso anterior no se cumpla.
-\end{enumerate}
+<li></li> Da un ejemplo de funciones $f$ y $g$, que no perrtenezcan a $V$ donde la fórmula del inciso anterior no se cumpla.
+</ol>
 
 
 
 \item Calcula las siguientes integrales.
 
-\begin{enumerate}
-\item\label{Ejer:IntegralxLogx} $\int x\log(x)dx$.
-\item Para un natural $n>1$ y un real $a>0$, $\int x^n\log(ax)dx$.
-\item $\int x\log^2(x)dx$. Usa una integraci\'on por partes y el inciso \ref{Ejer:IntegralxLogx}.
-\end{enumerate}
+<ol>
+    <li></li>\label{Ejer:IntegralxLogx} $\int x\log(x)dx$.
+    <li></li> Para un natural $n>1$ y un real $a>0$, $\int x^n\log(ax)dx$.
+    <li></li> $\int x\log^2(x)dx$. Usa una integración por partes y el inciso \ref{Ejer:IntegralxLogx}.
+</ol>
 
 
 
 
-\item Demuestra la f\'ormula de recursi\'on
+\item Demuestra la fórmula de recursión
 $$
 \int x^m \log^n(x)dx=\frac{x^{m+1}\log^n(x)}{m+1}-\frac{n}{m+1}\int x^m \log^{n-1}(x)dx.
 $$
@@ -95,15 +95,15 @@ $$
 
 
 %\item 
-%\begin{enumerate}
-%\item Sea $\phi: [a,b]\to \mathbb{R}$  una funci\'on que satisface:  su segunda derivada  es continua y no se anula en $[a,b]$; existe $m>0$ tal que su primera derivada satisface $\phi'(t)>m$ para todo $t\in [a,b]$. Usar el segundo teorema del valor medio para integrales para probar
+%<ol>
+%\item Sea $\phi: [a,b]\to \mathbb{R}$  una función que satisface:  su segunda derivada  es continua y no se anula en $[a,b]$; existe $m>0$ tal que su primera derivada satisface $\phi'(t)>m$ para todo $t\in [a,b]$. Usar el segundo teorema del valor medio para integrales para probar
 %$$
 %\left|  \int_a^b \sen(\phi(t)) dt \right| \leq \frac{4}{m}
 %$$
 
 %Hint: multiplicar y dividir el integrando por $\phi'(t)$.
 %\item Sea $a>0$  fijo y arbitrario. Demostrar que $\left|  \int_a^b \sen(t^2)dt\right| \leq \frac{2}{a}$ para todo $x>a$.
-%\end{enumerate}
+%</ol>
 
 \item Demuestra el siguiente teorema.
 

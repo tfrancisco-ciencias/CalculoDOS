@@ -5,17 +5,17 @@
 
 
 
-\section*{Integrabilidad de funciones mon\'otonas}
+\section*{Integrabilidad de funciones monótonas}
 
-\item Demuestra que toda funci\'on monotona definida en un intervalo de la forma $[a,b]$ esta acotada.
+\item Demuestra que toda función monotona definida en un intervalo de la forma $[a,b]$ esta acotada.
 
 \item\label{Ejer:IntegrabilidadFuncionesMonotonas} Demuestra el siguiente teorema.
 
- \begin{teorema}[Toda funci\'on  monotona es integrable.]
-Sea $f:[a,b]\to \mathbb{R}$ una funci\'on monotona. Entonces $f$ es integrable.
+ \begin{teorema}[Toda función  monotona es integrable.]
+Sea $f:[a,b]\to \mathbb{R}$ una función monotona. Entonces $f$ es integrable.
 \end{teorema}
 
-Sugerencia: usa el ejercicio \ref{Ejer:CriterioCauchyIntegrabilidad}; considera el caso de cuando $f$ es mon\'ononta creciente.
+Sugerencia: usa el ejercicio \ref{Ejer:CriterioCauchyIntegrabilidad}; considera el caso de cuando $f$ es monónonta creciente.
 
 Para $n\geq 1$ natural define:
 $$
@@ -28,10 +28,10 @@ $$
 
 
 
-\item\label{Ejer:CalculoIntegralFuncionesMonotonas} A pesar de que el  Teorema en \ref{Ejer:IntegrabilidadFuncionesMonotonas} no da el valor ex\'acto de la integral, este ejercicio da una manera de encontrar dicho valor.
+\item\label{Ejer:CalculoIntegralFuncionesMonotonas} A pesar de que el  Teorema en \ref{Ejer:IntegrabilidadFuncionesMonotonas} no da el valor exácto de la integral, este ejercicio da una manera de encontrar dicho valor.
 
-Sea $f:[a,b]\to \mathbb{R}$ una funci\'on mon\'otona creciente. Sea $x_i=a+i\Delta_n$, con $i=1,\dots, n$ y $\Delta_n=\frac{b-a}{n}$.
-Si $J$ es un n\'umero que satisface 
+Sea $f:[a,b]\to \mathbb{R}$ una función monótona creciente. Sea $x_i=a+i\Delta_n$, con $i=1,\dots, n$ y $\Delta_n=\frac{b-a}{n}$.
+Si $J$ es un número que satisface 
 $$
 \Delta_n \sum_{i=0}^{n-1}f(x_i)\leq J \leq  \Delta_n \sum_{i=1}^n f(x_i)
 $$
@@ -40,24 +40,24 @@ $$
 J=\int_a^b f(x)dx
 $$
 
-Sugerencia: con la notaci\'on del ejercicio \ref{Ejer:IntegrabilidadFuncionesMonotonas} demuestra
+Sugerencia: con la notación del ejercicio \ref{Ejer:IntegrabilidadFuncionesMonotonas} demuestra
 $$
 \Delta_n \sum_{i=0}^{n-1}f(x_i)=\int_a^b s_n, \quad  \Delta_n \sum_{i=1}^n f(x_i) =\int_a^b t_n
 $$
 \item\label{Ejer:IntegralesPotencias1} Fija $k \in \mathbb{N}$. Este ejercicio ayuda a calcular  la integral de $x\mapsto x^k$ en $[0,b]$. 
 
-\begin{enumerate}
-\item Demuestra que para todo  $n$ natural:
+<ol>
+    <li></li> Demuestra que para todo  $n$ natural:
 $$
 \sum_{i=1}^{n-1}i^k \leq \frac{n^{k+1}}{k+1} \leq \sum_{i=1}^n i^k
 $$
 
-\item Usa el ejercicio \ref{Ejer:CalculoIntegralFuncionesMonotonas} para concluir:
+<li></li> Usa el ejercicio \ref{Ejer:CalculoIntegralFuncionesMonotonas} para concluir:
 $$
 \int_0^b x^k dx = \frac{x^{k+1}}{k+1},
 $$
 para toda $b>0$.
-\end{enumerate}
+</ol>
 
 \item\label{Ejer:IntegralPotenciasNaturales} Usando la linealidad de la integral con respecto a intervalos y el ejercicio \ref{Ejer:IntegralesPotencias1}, prueba que para todos $a,b \in \mathbb{R}$, con $0\leq a <b$ y $k \in \mathbb{N}$:
 
@@ -65,21 +65,21 @@ $$
 \int_a^b x^kdx=\frac{b^{k+1}-a^{k+1}}{k+1}.
 $$
 
-\item En este ejercicio piensa a la integral como el \'are bajo la gr\'afica.
+\item En este ejercicio piensa a la integral como el áre bajo la gráfica.
 
-\begin{enumerate}
-\item Hacer un cambio de perspectiva  para probar que:
+<ol>
+    <li></li> Hacer un cambio de perspectiva  para probar que:
 $$
 b^{3/2}=\int_0^b\sqrt{x}dx+\int_0^{\sqrt{b}}y^2dy.
 $$ 
 
-\item Concluir que:
+<li></li> Concluir que:
 $$
 \int_0^b\sqrt{x}dx=\frac{2}{3}b^{3/2}
 $$
-\end{enumerate}
+</ol>
 
-\item Usar la interpretaci\'on de area de la integral, junto con la funci\'on $y=\sqrt[n]{x}$ en el rect\'angulo de lados $[0,b], [0, \sqrt[n]{b}]$, para demostrar:
+\item Usar la interpretación de area de la integral, junto con la función $y=\sqrt[n]{x}$ en el rectángulo de lados $[0,b], [0, \sqrt[n]{b}]$, para demostrar:
 $$
 \int_0^b \sqrt[n]{x}dx=\frac{n}{n+1}b^{\frac{n+1}{n}}
 $$
@@ -87,21 +87,21 @@ $$
 
 
 
-\item\label{Ejer:LimitePromediosMonotonas} Sea $f:[a,b]\to \mathbb{R}$ una funci\'on mon\'otona en $[a,b]$. Demuestra que:
+\item\label{Ejer:LimitePromediosMonotonas} Sea $f:[a,b]\to \mathbb{R}$ una función monótona en $[a,b]$. Demuestra que:
 $$
 \int_a^b f(x)dx=\lim_{n \to \infty} \frac{b-a}{n}\sum_{i=1}^n f(a+i(b-a)/n)
 $$
 
-Sugerencia: con la notaci\'on del ejercicio \ref{Ejer:IntegrabilidadFuncionesMonotonas}, demuestra:
+Sugerencia: con la notación del ejercicio \ref{Ejer:IntegrabilidadFuncionesMonotonas}, demuestra:
 $$
 \left| \int_a^b f(x)dx - \frac{b-a}{n}\sum_{i=1}^n f(a+i(b-a)/n)  \right| \leq \int_a^b t_n - \int_a^b s _n.
 $$
 
 
-\item\label{Ejer:LimiteSumasRiemannDeMonotonas} El ejercicio anterior se puede generalizar, cambiando los puntos donde se valuan los valores de la funci\'on $f$.
+\item\label{Ejer:LimiteSumasRiemannDeMonotonas} El ejercicio anterior se puede generalizar, cambiando los puntos donde se valuan los valores de la función $f$.
 
-Sea $f:[a,b]\to \mathbb{R}$ una funci\'on mon\'otona en $[a,b]$. 
-Denotamos $P_n=\{ x_i\}_{i=0}^n$ la partici\'on homogenea de $[a,b]$ con longitud $n$. Para cada sub-intervalo $[x_{i-1},x_i]$
+Sea $f:[a,b]\to \mathbb{R}$ una función monótona en $[a,b]$. 
+Denotamos $P_n=\{ x_i\}_{i=0}^n$ la partición homogenea de $[a,b]$ con longitud $n$. Para cada sub-intervalo $[x_{i-1},x_i]$
 de $P_n$ fija puntos cualesquiera $r_i \in [x_{i-1},x_i]$. Demuestra que
 
 $$
@@ -118,29 +118,29 @@ $$
 \int_a^b \rho_n(x)dx=\sum_{i=1}^n f(r_i)(x_i-x_{i-1}),
 $$
 
-despu\'es, con la notaci\'on del ejercicio \ref{Ejer:IntegrabilidadFuncionesMonotonas}, demuestra que $s_n \leq \rho_n \leq t_n$ y:
+después, con la notación del ejercicio \ref{Ejer:IntegrabilidadFuncionesMonotonas}, demuestra que $s_n \leq \rho_n \leq t_n$ y:
 $$
 \left| \int_a^b f(x)dx - \int_a^b \rho_n(x)dx  \right| \leq \int_a^b t_n - \int_a^b s _n.
 $$
 
 
 
-\item Fija un natural $k\geq 2$. Calcula los siguientes l\'imites
-\begin{enumerate}
-\item $\lim_{i=1}^n \frac{1}{n^{k+1}} \sum_{i=1}^n i^k$.
-\item $\lim_{i=1}^n \frac{1}{n^{(k+1)/k}} \sum_{i=1}^n \sqrt[k]{i}$.
-\end{enumerate}
+\item Fija un natural $k\geq 2$. Calcula los siguientes límites
+<ol>
+    <li></li> $\lim_{i=1}^n \frac{1}{n^{k+1}} \sum_{i=1}^n i^k$.
+    <li></li> $\lim_{i=1}^n \frac{1}{n^{(k+1)/k}} \sum_{i=1}^n \sqrt[k]{i}$.
+</ol>
 
 Sugerencia: usa el ejercicio \ref{Ejer:LimitePromediosMonotonas}.
 
-\item Calcula los siguiente l\'imites.
+\item Calcula los siguiente límites.
 
-\begin{enumerate}
-\item $\lim_{n\to \infty} \frac{1}{n} \sum_{i=1}^n \sqrt{1+\frac{i}{n}}$.
-\item $\lim_{n\to \infty} \frac{1}{n} \sum_{i=1}^n \left( 1+\frac{i}{n} \right)^2$.
-\item $\lim_{n\to \infty} \frac{1}{n} \sum_{i=1}^n \sqrt{1+\frac{2i}{n}}$.
-\item $\lim_{n\to \infty} \frac{1}{n} \sum_{i=1}^n \left( 1+\frac{2i}{n} \right)^2$.
-\end{enumerate}
+<ol>
+    <li></li> $\lim_{n\to \infty} \frac{1}{n} \sum_{i=1}^n \sqrt{1+\frac{i}{n}}$.
+    <li></li> $\lim_{n\to \infty} \frac{1}{n} \sum_{i=1}^n \left( 1+\frac{i}{n} \right)^2$.
+    <li></li> $\lim_{n\to \infty} \frac{1}{n} \sum_{i=1}^n \sqrt{1+\frac{2i}{n}}$.
+    <li></li> $\lim_{n\to \infty} \frac{1}{n} \sum_{i=1}^n \left( 1+\frac{2i}{n} \right)^2$.
+</ol>
 
 Sugerencia: usa el ejercicio \ref{Ejer:LimitePromediosMonotonas} y recuerda que
 $$
