@@ -13,14 +13,14 @@ $ |f(x)-f(y)|<\varepsilon $.
 Demuestra que si $|x-x_0|<\delta$ entonces 
 $ |f(x_0)-f(x)|<\varepsilon $.
 
-\begin{definicion}
+<div class="definicion-box">
 Sea $D\subset \mathbb{R}$ y $f:D \to \mathbb{R}$ una función. Decimos que $f$ es uniformemente continua en $D$ si, para toda $\varepsilon>0$, existe $\delta>0$, que sólo depende de $\varepsilon$ tal que, para cualesquiera $x,y\in D$  con $|x-y|<\delta$ se satisface que
 $$
 |f(x)-f(y)|<\varepsilon.
 $$
 
 Nota: la $\delta$ debe de ser independiente de los puntos $x$ e $y$.
-\end{definicion}
+</div>
 
 \item Define $f:[a,b] \to \mathbb{R}$ por $f(x)=x^2$. Usando la definición de continuidad uniforme, demuestra que $f$ es uniformemente continua en $[a,b]$.
 
@@ -28,14 +28,14 @@ Sugerencia: $x^2-y^2=(x+y)(x-y)$.
 
 \item\label{Ejer:ContinuidadUniformeEnCompactos} Demuestra el siguiente teorema.
 
-\begin{teorema}[Continuidad Uuniforme de funciones continuas en intervalos cerrados y acotados]
+<div class="teorema-box">[Continuidad Uuniforme de funciones continuas en intervalos cerrados y acotados]
 
 Sea $f:[a,b]\to \mathbb{R}$ una función continua en $[a,b]$. 
 
 Para todo $\varepsilon >0$, existe $\delta>0$, que sólo depende de $\varepsilon$, tal que:
 
 si $x,y\in [a,b]$ satisfacen $|x-y|<\delta$ entonces $|f(x)-f(y)| < \varepsilon$.
-\end{teorema}
+</div>
 
 Sugerencia: procede por contradicción de la siguiente forma:
 
@@ -52,7 +52,7 @@ $\lim_{k \to \infty}x_{n_k}=x_0=\lim_{k\to \infty} y_{n_k}$;
 </ol>
 
 
-\begin{definicion}[Oscilación o diámetro]
+<div class="definicion-box">[Oscilación o diámetro]
 
 Sea $I \ne \emptyset$ un intervalo  y $f:I\to \mathbb{R}$. La oscilación o diámetro de $f$
 en $I$  se define como
@@ -61,7 +61,7 @@ $$
 $$
 
 Nota: si el conjunto $\{ |f(x_1)- f(x_2) : x_1,x_2\in I|\}$ no es acotado superiormente definimos $\omega_f(I)=\infty$.
-\end{definicion}
+</div>
 
 \item Demuestra que  $\omega_f(J)\leq \omega_f(I)$, si $J \subseteq I$.
 
@@ -152,7 +152,7 @@ $$
 
 </ol>
 
-\begin{definicion}
+<div class="definicion-box">
 Sea $f:[a,b]\to \mathbb{R}$ una función. Una suma de Riemann de $f$ es una expresión de la forma
 $$
 \sum_{i=1}^n f(r_i)[x_{i}-x_{i-1}]
@@ -161,7 +161,7 @@ donde  $P=\{x_i\}_{i=0}^n$ una partición de $[a,b]$ y $r_i \in [x_{i-1}, x_i]$,
 
 Entonces, por el ejercicio \ref{Ejer:AproximacionSumasRiemann}, para funciones continuas, sus sumas de Riemann con  particiones homogeneas
 se aproximan a la integral de la función.
-\end{definicion}
+</div>
 
 
 \item Expresa los siguiente límites como integrales. No es necesario evaluar la integral.

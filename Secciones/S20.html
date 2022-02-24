@@ -2,40 +2,9 @@
 
 
 
-\documentclass{article}
-\usepackage{amssymb, latexsym, amsmath, amsthm, amsfonts, amsbsy, enumerate, tabularx, graphicx}
-\newtheorem{definicion}{Definición}
-
-\newtheorem{teorema}{Teorema}
-\newtheorem{prop}{Proposición}
-\newtheorem{coro}{Corolario}
-\newtheorem{lema}{Lema}
-\theoremstyle{definition}
-\newtheorem{nota}{Nota}
-\newtheorem{notas}{Notas}
-\newtheorem{ejemplo}{Ejemplo}
-\newtheorem{ejemplos}{Ejemplos}
-%\newtheorem{definicion}{Definición}
-\newtheorem{notacion}{Notación}
-\newcommand{\sen}{\operatorname{sen}}
-\newcommand{\senh}{\operatorname{senh}}
-\newcommand{\csch}{\operatorname{csch}}
-\newcommand{\sech}{\operatorname{sech}}
-\newcommand{\arcsec}{\operatorname{arcsec}}
-\newcommand{\arcsen}{\operatorname{arcsen}}
-\begin{document}
-
-
-
-
-\part*{Cálculo 2}
-
-
-
-
 \section*{Integrales Impropias}
 
-\begin{definicion}
+<div class="definicion-box">
 Sea $a$ un real fijo y $f:[a,\infty) \to \mathbb{R}$  una función.
 
 Si para todo $x\geq a$ la integral $\int_a^x f(t)dt$ existe y 
@@ -52,7 +21,7 @@ $$
 También decimos que la integral $\int_a^\infty f(t)dt$ es convergente. De lo contrario diremos que la integral $\int_a^\infty f(t)dt$ diverge.
 
 
-\end{definicion}
+</div>
 
 
 \item Demuestra que la  integral $\int_1^\infty \frac{1}{x}dx$ diverge.
@@ -93,7 +62,7 @@ $$
 
 \item\label{Ejer:TeoremaDeComparacionIntegImpropias} Demuestra el siguiente Teorema.
 
-\begin{teorema}[Teorema de comparación]
+<div class="teorema-box">[Teorema de comparación]
 Sean $f,g:[a,\infty) \to\mathbb{R}$ funciones que satisfacen
 <ol>
     <li></li> $f(x),g(x) \geq 0$ para toda $x$
@@ -109,7 +78,7 @@ $$
  <li></li> Si $\int_a^\infty f(t)dt$ diverge entonces también $\int_a^\infty g(t)dt$ es divergente.
 </ol>
 
-\end{teorema}
+</div>
 
 \item\label{Ejer:ExistenciaIntImpropiaEmenosx2} Demuestra que la integral $\int_1^\infty e^{-t^2}dt$ es convergente.
 
@@ -145,7 +114,7 @@ $\int_{-\infty}^{c'} f(t)dt$ también converge. Además
 \int^{c}_{\infty} f(t)dt = \int_{-\infty}^{c'}f(t)dt+ \int_{c'}^c f(t)dt, \quad \textrm{si $c>c'$} 
 \end{eqnarray*}
 
-\begin{definicion}
+<div class="definicion-box">
 Dada una función  $f: \mathbb{R} \to \mathbb{R}$, decimos que la integral
 $$
 \int_{-\infty}^\infty f(t)dt
@@ -171,7 +140,7 @@ $$
 Notar que, por el ejercicio \ref{Ejer:LemaDefinicionIntegralImpropiaEnR} , el punto $c$ que aparece en la definición de la convergencia de 
 $\int_{-\infty} ^\infty f(t)dt$ no importa.
 
-\end{definicion}
+</div>
 
 \item\label{Ejer:LinealidadIntervalosIntegralImpropia} Demuestra que si la integral $\int_{-\infty}^\infty f(t)dt$ converge entonces, para cualesquiera $d$,
 $$
