@@ -44,8 +44,8 @@ $$
 
 Sea $f:[a, \infty) \to \mathbb{R}$ una función que satisface
 <ol>
-    <li></li> $f(x)\geq 0$ para toda $x$
-    <li></li> $\int_a^b f(t)dt$ existe para todo intervalo cerrado y acotado $[a,b]$.
+    <li>$f(x)\geq 0$ para toda $x$</li> 
+    <li>$\int_a^b f(t)dt$ existe para todo intervalo cerrado y acotado $[a,b]$.</li> 
 </ol>
 Entonces $\int_a^\infty f(t)dt$ converge si y sólo si el conjunto
 $$
@@ -65,17 +65,21 @@ $$
 <div class="teorema-box">[Teorema de comparación]
 Sean $f,g:[a,\infty) \to\mathbb{R}$ funciones que satisfacen
 <ol>
-    <li></li> $f(x),g(x) \geq 0$ para toda $x$
-    <li></li> $f(x)\leq g(x)$ para toda $x$
+    <li>$f(x),g(x) \geq 0$ para toda $x$</li> 
+    <li>$f(x)\leq g(x)$ para toda $x$</li> 
 </ol>
 
 Entonces:
 <ol>
-    <li></li> Si $\int_a^\infty g(t)dt$ converge entonces también $\int_a^\infty f(t)dt$ converge  y 
+    <li>
+        Si $\int_a^\infty g(t)dt$ converge entonces también $\int_a^\infty f(t)dt$ converge  y 
 $$
 \int_a^\infty f(t)dt \leq \int_a^\infty g(t)dt 
  $$
- <li></li> Si $\int_a^\infty f(t)dt$ diverge entonces también $\int_a^\infty g(t)dt$ es divergente.
+    </li> 
+ <li>
+    Si $\int_a^\infty f(t)dt$ diverge entonces también $\int_a^\infty g(t)dt$ es divergente.
+ </li> 
 </ol>
 
 </div>
@@ -121,12 +125,14 @@ $$
 $$
 converge si:
 <ol>
-    <li></li> para todo intervalo cerrado y acotado $[a,b]$ la integral $\int_a^b f(t)dt$ existe;
-    <li></li> existe $c\in\mathbb{R}$ tal que ambos  límites 
+    <li>para todo intervalo cerrado y acotado $[a,b]$ la integral $\int_a^b f(t)dt$ existe;</li> 
+    <li>
+        existe $c\in\mathbb{R}$ tal que ambos  límites 
 $$
 \lim_{b\to + \infty}\int_c^b f(t)dt \quad \lim_{ a \to - \infty}\int_a^c f(t)dt 
 $$
 existen.
+    </li> 
 </ol>
 
 De ser asi, definimos:
@@ -158,23 +164,29 @@ posteriormente.
 
 \item  Sea $f:\mathbb{R} \to \mathbb{R}$ una función tal que, para todos $a < b$, la integral $\int_a^b f(x)dx$ existe. 
 <ol>
-    <li></li> Demuestra que, si la integral $\int_{-\infty}^\infty f(t)dt $ converge, entonces el siguiente límite existe
+    <li>
+        Demuestra que, si la integral $\int_{-\infty}^\infty f(t)dt $ converge, entonces el siguiente límite existe
 $$
 \lim_{r \to \infty} \int_{-r}^r f(t)dt
 $$
 y es igual a $\int_{-\infty}^\infty f(t)dt$.
 
 Sugerencoa: usa el ejercicio \ref{Ejer:LinealidadIntervalosIntegralImpropia}.
+    </li> 
 
-<li></li> Da un ejemplo donde el límite $\lim_{r \to \infty} \int_{-r}^r f(t)dt$ existe pero la integral $\int_{-\infty}^\infty f(x)dx$
+<li>
+    Da un ejemplo donde el límite $\lim_{r \to \infty} \int_{-r}^r f(t)dt$ existe pero la integral $\int_{-\infty}^\infty f(x)dx$
 no converge.
 
 Sugerencia: consider $f$ una función potencia.
+</li> 
 
-<li></li>\label{Ejer:CriterioIntegraImpropiaCentradoCero} Demuestra que si además pedimos que $f(x) \geq 0$, para toda $x\in \mathbb{R}$, entonces la existencia
+<li>
+    \label{Ejer:CriterioIntegraImpropiaCentradoCero} Demuestra que si además pedimos que $f(x) \geq 0$, para toda $x\in \mathbb{R}$, entonces la existencia
 del límite $\lim_{r\to \infty} \int_{-r}^r f(x)dx$ implica la convergencia de la integral $\int_{-\infty}^\infty f(x)dx$.
 
 Sugerencia: usa el ejercicio \ref{Ejer:ConvergenciaAcotadantegralesImpropias}.
+</li>
 
 </ol>
 

@@ -8,8 +8,8 @@
 \item\label{Ejer:AproxSimplesConCotas} Sea $f:[a,b]\to \mathbb{R}$  integrable y  supon que existen constantes  $m$ y $M$  tales que $m\leq f(x) \leq M$, para toda $x\in [a,b]$. Demuestra que, para toda  $\varepsilon >0$, 
 existen funciones escalonadas $s.t:[a,b]\to \mathbb{R}$ tales que
 <ol>
-    <li></li> $m \leq s \leq f \leq t \leq M$
-    <li></li> $\int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon$
+    <li>$m \leq s \leq f \leq t \leq M$</li> 
+    <li>$\int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon$</li> 
 </ol>
 
 
@@ -29,9 +29,9 @@ $$
 
 \item\label{Ejer:IntegrabilidadCuadradosCasoPositivo} Sea $f:[a,b] \to \mathbb{R}$ una función integrable tal que existe una constante $M$ con $0 \leq f(x) \leq M$, para toda $x\in [a,b]$. Demuestra que, para toda $\varepsilon >0$, existen funciones escalonadas $s,t:[a,b] \to \mathbb{R}$ tales que 
 <ol>
-    <li></li>  $  s \leq f^2 \leq t $
-    <li></li>  $\int_a^b t(x)dx- \int_a^b s(x)dx < \varepsilon$.
-    <li></li> Concluye que $f^2$ es integrable.
+    <li>$  s \leq f^2 \leq t $</li>  
+    <li>$\int_a^b t(x)dx- \int_a^b s(x)dx < \varepsilon$.</li>  
+    <li>Concluye que $f^2$ es integrable.</li> 
 </ol>
 
 Sugerencia: como $f$ es integrable, el ejercicio  \ref{Ejer:AproxSimplesConCotas} asegura que existen funciones escalonadas $\tilde{s}$ y $\tilde{t}$ con
@@ -63,11 +63,13 @@ $$
 
 \item El ejercicio  \ref{Ejer:IntegralCuadradaNoIntegraldelCuadrado}  muestra que la relación entre  $\int_a^b f^2$ y $(\int_a^bf)^2$ no es sencilla. Este ejercicio da una desigualdad que involucra estas integrales. 
 <ol>
-    <li></li> Demuestra que para toda función continua $f:[a,b]\to \mathbb{R}$,
-$$
+    <li>Demuestra que para toda función continua $f:[a,b]\to \mathbb{R}$,
+        $$
 \left( \int_a^b f(x)dx \right)^2 \leq (b-a)\int_a^b f^2(x)dx.
 $$
-<li></li> Da un ejemplo donde se muestre que la desigualdad anterior puede ser estricta.
+
+    </li> 
+<li>Da un ejemplo donde se muestre que la desigualdad anterior puede ser estricta.</li> 
 </ol>
 Sugerencia: para la primera parte, primero demuestra  el caso $a=0, b=1$ usando el ejercicio \ref{Ejer:DesigualdadJensen}; para el caso general usa el cambio de variable y el ejercicio \ref{Ejer:CambioVariableReduccionIntervaloUnitario}.
 
@@ -92,14 +94,14 @@ está por arriba del eje $x$. Observa su discriminante.
 
 <ol> 
 
-    <li></li> Prueba que toda suma $\sum_{i=1}^n a_i$, se puede escribir como la integral de una función escalonada.
+    <li>Prueba que toda suma $\sum_{i=1}^n a_i$, se puede escribir como la integral de una función escalonada.</li> 
 
-    <li></li> Usa el inciso anterior y el ejercico 1 para probar la desigualdad de Cauchy-Schwartz
-$$
-\left| \sum_{i=1}^n a_ib_i  \right| \leq \left(\sum_{i=1}^n a_i^2 \right)^{1/2}\left(\sum_{i=1}^n b_i^2 \right)^{1/2}
-$$
-para cualesquiera  números reales, $a_{1},\dots, a_n, b_1,\dots, b_n$.
-
+    <li>Usa el inciso anterior y el ejercico 1 para probar la desigualdad de Cauchy-Schwartz
+        $$
+        \left| \sum_{i=1}^n a_ib_i  \right| \leq \left(\sum_{i=1}^n a_i^2 \right)^{1/2}\left(\sum_{i=1}^n b_i^2 \right)^{1/2}
+        $$
+        para cualesquiera  números reales, $a_{1},\dots, a_n, b_1,\dots, b_n$.
+        </li> 
 </ol>
 
 

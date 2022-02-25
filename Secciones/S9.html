@@ -21,10 +21,12 @@ se denominan integrales indefinidas.
 
 
 <ol>
-    <li></li> $e^x$, $x\in \mathbb{R}$;
-    <li></li> $\sen(x)$, $x\in \mathbb{R}$;
-    <li></li> $\cos(x)$, $x\in \mathbb{R}$;
-    <li></li> para $p \in \mathbb{Q}$, $p>0$: $x^p$, $x\in (0,\infty)$. Sugerencia: usa el ejercicio \ref{Ejer:DerivadasPotenciasRacionales}.
+    <li>$e^x$, $x\in \mathbb{R}$;</li> 
+    <li>$\sen(x)$, $x\in \mathbb{R}$;</li> 
+    <li>$\cos(x)$, $x\in \mathbb{R}$;</li> 
+    <li>
+        para $p \in \mathbb{Q}$, $p>0$: $x^p$, $x\in (0,\infty)$. Sugerencia: usa el ejercicio \ref{Ejer:DerivadasPotenciasRacionales}.
+    </li> 
 </ol>
 
 
@@ -88,22 +90,24 @@ $$
 
 <ol>
 
-    <li></li> Fija $x>0$. Integra ambos lados de la desigualdad anterior en el intervalo $[0,x]$ y usa el Segundo Teorema Fundamental para obtener
+    <li>
+        Fija $x>0$. Integra ambos lados de la desigualdad anterior en el intervalo $[0,x]$ y usa el Segundo Teorema Fundamental para obtener
 $$
 e^x \geq 1+x +\frac{x^2}{2}.
 $$
-<li></li> Generaliza el ejercicio anterior y prueba que, para todo natural $n\geq 1$:
-$$
-e^x \geq \sum_{k=0}^n \frac{x^k}{k!}.
-$$
+    </li> 
+<li>Generaliza el ejercicio anterior y prueba que, para todo natural $n\geq 1$:
+    $$
+    e^x \geq \sum_{k=0}^n \frac{x^k}{k!}.
+    $$
+    
+    Nota que $\sum_{k=0}^n \frac{x^k}{k!}$ es el $n$-ésimo polinomio de Taylor de $e^x$. Asi que el ejercicio dice que, en $[0, \infty)$, las gráficas de  los polinomios de Taylor de $e^x$  están por debajo de la gráfica de $e^x$.</li> 
 
-Nota que $\sum_{k=0}^n \frac{x^k}{k!}$ es el $n$-ésimo polinomio de Taylor de $e^x$. Asi que el ejercicio dice que, en $[0, \infty)$, las gráficas de  los polinomios de Taylor de $e^x$  están por debajo de la gráfica de $e^x$.
-
-<li></li>  \textquestiondown Es cierto que 
-$$
-e^x \geq \sum_{k=0}^n \frac{x^k}{k!}
-$$
-si $x < 0 $? Demuestra o da un contraejemplo.
+<li>\textquestiondown Es cierto que 
+    $$
+    e^x \geq \sum_{k=0}^n \frac{x^k}{k!}
+    $$
+    si $x < 0 $? Demuestra o da un contraejemplo.</li>  
 
 </ol>
 
@@ -130,25 +134,31 @@ $$
 donde $P=\{x_i\}_{i=1}^n$ es la partición homogenea de longitud n y los $r_{i}$, $i=1,\dots, n$, son puntos cualesquiera en el intervalo $[x_{i-1},x_i]$.
 
 <ol>
-    <li></li> Toma $f(x)=x$, $x\in \mathbb{R}$, y $r_{i}$ los puntos medios del los intervalos $[x_{i-1},x_i]$, es decir $r_{i}=\frac{x_{i-1}+x_i}{2}$. Demuestra
+    <li>
+        Toma $f(x)=x$, $x\in \mathbb{R}$, y $r_{i}$ los puntos medios del los intervalos $[x_{i-1},x_i]$, es decir $r_{i}=\frac{x_{i-1}+x_i}{2}$. Demuestra
 que
 $$
 \sum_{i=1}^n f(r_i)(x_i-x_{i-1})=\frac{b^2-a^2}{2}.
 $$
 Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b xdx=\frac{b^2-a^2}{2}$.
+    </li> 
 
-<li></li> Toma $f(x)=x^2$, $x\in \mathbb{R}$, y define $r_i=\sqrt[2]{(x_{i-1}^2+x_{i-1}x_i+x_i^2)/3}$. Prueba que $r_i \in [x_{i-1}, x_i]$ y que
+<li>
+    Toma $f(x)=x^2$, $x\in \mathbb{R}$, y define $r_i=\sqrt[2]{(x_{i-1}^2+x_{i-1}x_i+x_i^2)/3}$. Prueba que $r_i \in [x_{i-1}, x_i]$ y que
 $$
 \sum_{i=1}^n f(r_i)(x_i-x_{i-1})=\frac{b^3-a^3}{3}
 $$
 Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b x^2dx=\frac{b^3-a^3}{3}$.
+</li> 
 
 
-<li></li> Toma $f(x)=\frac{1}{x^2}$, $x>0$. Define $r_i=\sqrt{x_{i-1}x_i}$. Prueba que $r_i\in [x_{i-1},x_i]$ y que 
+<li>
+    Toma $f(x)=\frac{1}{x^2}$, $x>0$. Define $r_i=\sqrt{x_{i-1}x_i}$. Prueba que $r_i\in [x_{i-1},x_i]$ y que 
 $$
 \sum_{i=1}^n f(r_i)(x_i-x_{i-1})=\frac{1}{a}-\frac{1}{b}
 $$
 Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b \frac{1}{x^2}dx=\frac{1}{a}-\frac{1}{b}$, con $0< a < b$.
+</li> 
 </ol>
 
 
@@ -157,56 +167,62 @@ Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b \frac{1}{x^2}dx=\fr
 Sea $f:[a,b]\to \mathbb{R}$ una función  continua. 
 
 <ol>
-    <li></li> Fija $\varepsilon>0$. Demuestra que existen un $n \in \mathbb{N}$, tal que si $P=\{ x_i\}_{i=0}^n$ es la partición homogenea de longitud $n$, entonces
+    <li>
+        Fija $\varepsilon>0$. Demuestra que existen un $n \in \mathbb{N}$, tal que si $P=\{ x_i\}_{i=0}^n$ es la partición homogenea de longitud $n$, entonces
 $$
 \omega f ([x_{i-1},x_i]) < \frac{\varepsilon}{2(b-a)},
 $$
 para toda $i=1,\dots, n$. Sugerencia: usa el ejercicio \ref{Ejer:ContinuidadUniformeEnCompactos}.
 
-<li></li> Demuestra que si $r_i \in [x_{i-1}, x_i]$, es una elección cualquiera de puntos, entonces
+    </li> 
+<li>
+    Demuestra que si $r_i \in [x_{i-1}, x_i]$, es una elección cualquiera de puntos, entonces
 
 $$
 \left|  \sum_{i=1}^n f(r_i)(x_i-x_{i-1}) - \int_a^b f(x)dx  \right| <\varepsilon
 $$
 
 Sugerencia: usa el ejericio \ref{Ejer:AproximacionSumasRiemann}.
+</li> 
 
-<li></li> Asume que $F:(a,b)\to \mathbb{R}$ es una antiderivada de $f$ en $(a,b)$. Demuestra que existen puntos $c_i \in (x_{i-1},x_i)$, 
+<li>
+    Asume que $F:(a,b)\to \mathbb{R}$ es una antiderivada de $f$ en $(a,b)$. Demuestra que existen puntos $c_i \in (x_{i-1},x_i)$, 
 $i=1,\dots, n$ tales que
 $$
 f(c_i)(x_i-x_{i-1})=F(x_i)-F(x_{i-1})
 $$
 Sugerencia: aplica el Teorema del Valor Medio a $F$.
 
+</li> 
 
-<li></li> Concluye de los dos incisos anteriores que, para todo $\varepsilon>0$,
+<li>Concluye de los dos incisos anteriores que, para todo $\varepsilon>0$,
 
-$$
-\left|  F(b)-F(a) - \int_a^b f(x)dx \right| < \varepsilon
-$$
- lo cual demuestra el segundo Teorema Fundamental.
-
+    $$
+    \left|  F(b)-F(a) - \int_a^b f(x)dx \right| < \varepsilon
+    $$
+     lo cual demuestra el segundo Teorema Fundamental.
+    </li> 
 </ol>
 
 
 \item Para las siguientes funciones $f$, encuentra una anti-derivada y calcula $\int_a^b f(x)dx$.
 <ol>
-    <li></li> $f(x)=\frac{x^4-x+3}{x^3}$, $x>0$.
-    <li></li> $f(x)=(1+\sqrt{x})^2$, $x>0$.
-    <li></li> $f(x)=x^{4/3}-5\cos(x)$, $x\in \mathbb{R}$. 
+    <li>$f(x)=\frac{x^4-x+3}{x^3}$, $x>0$.</li> 
+    <li>$f(x)=(1+\sqrt{x})^2$, $x>0$.</li> 
+    <li>$f(x)=x^{4/3}-5\cos(x)$, $x\in \mathbb{R}$. </li> 
 </ol>
 
 
 \item Usando una combinación de un cambio de variable lineal y el segundo T.F.C. calcula las siguientes integrales.
 
 <ol>
-    <li></li> $\int_{0}^{\pi} 3\sen(3x+2)dx$.
-    <li></li> $\int_0^{\pi} \cos(5x-2)dx$.
-    <li></li> $\int_{0}^2 x\sqrt{x+1}dx$.
-    <li></li> $\int_1^2 x^2\sqrt[3]{x+2}dx$.
-    <li></li> $\int_0^1 6xe^{3x^2-5x+1}dx-5 \int_0^1 e^{3x^2-5x+1}dx$.
-    <li></li> Para $\omega >0$, $\int_0^{2\pi} \cos(\omega x)dx $ y $\int_0^{2\pi}\sen(\omega x)dx$.
-    <li></li> Para $c, d \in \mathbb{R}$ constantes, $\int_{a}^b e^{cx+m}dx$.
+    <li>$\int_{0}^{\pi} 3\sen(3x+2)dx$.</li> 
+    <li>$\int_0^{\pi} \cos(5x-2)dx$.</li> 
+    <li>$\int_{0}^2 x\sqrt{x+1}dx$.</li> 
+    <li>$\int_1^2 x^2\sqrt[3]{x+2}dx$.</li> 
+    <li>$\int_0^1 6xe^{3x^2-5x+1}dx-5 \int_0^1 e^{3x^2-5x+1}dx$.</li> 
+    <li>Para $\omega >0$, $\int_0^{2\pi} \cos(\omega x)dx $ y $\int_0^{2\pi}\sen(\omega x)dx$.</li> 
+    <li>Para $c, d \in \mathbb{R}$ constantes, $\int_{a}^b e^{cx+m}dx$.</li> 
 
 </ol>
 
@@ -235,22 +251,22 @@ $$
 
 \item Encuentras las siguientes integrales indefinidas.
 <ol>
-    <li></li> $\int c dx$, donde $c\in \mathbb{R}$ es una constante.
-    <li></li> $\int x^n dx$, donde $n\in \mathbb{N}$.
-    <li></li> $\int \sen(x)dx$.
-    <li></li> $\int \cos(x)dx$.
-    <li></li> $\int \sec^2(x)dx$.
-    <li></li> $\int \csc^2(x)dx$.
-    <li></li> $\int sec(x)tan(x)dx$.
-    <li></li> $\int \csc(x)\cot(x)dx$.
+    <li>$\int c dx$, donde $c\in \mathbb{R}$ es una constante.</li> 
+    <li>$\int x^n dx$, donde $n\in \mathbb{N}$.</li> 
+    <li>$\int \sen(x)dx$.</li> 
+    <li>$\int \cos(x)dx$.</li> 
+    <li>$\int \sec^2(x)dx$.</li> 
+    <li>$\int \csc^2(x)dx$.</li> 
+    <li>$\int sec(x)tan(x)dx$.</li> 
+    <li>$\int \csc(x)\cot(x)dx$.</li> 
 </ol>
 
 \item Demuestra las siguientes fórmulas para las integrales indefinidas dadas, donde $a>0$ es una constante.
 
 <ol>
-    <li></li>  $\int \frac{1}{\sqrt{a^2-x^2}}dx=\arcsen(x/a)+c$.
-    <li></li>  $\int \frac{1}{x^2+a^2}dx=\frac{1}{a}\arctan(x)+c$.
-    <li></li> $\int \frac{1}{x\sqrt{x^2-a^2}}dx=\frac{1}{a}\arcsec(x/a)+c$.
+    <li>$\int \frac{1}{\sqrt{a^2-x^2}}dx=\arcsen(x/a)+c$.</li>  
+    <li>$\int \frac{1}{x^2+a^2}dx=\frac{1}{a}\arctan(x)+c$.</li>  
+    <li>$\int \frac{1}{x\sqrt{x^2-a^2}}dx=\frac{1}{a}\arcsec(x/a)+c$.</li> 
 </ol>
 
 
@@ -326,17 +342,17 @@ x &  0 \leq x \leq 1 \\
 $$
 
 <ol>
-    <li></li> Sea $F(x)$ la función area dada por $f$. Prueba que:
-$$
-F(x)=\left\{
-\begin{array}{cc}
-\frac{x^2}{2} &  0 \leq x \leq 1 \\
-x - \frac{1}{2} & 1< x \leq 2 \\
-x^2-3x+\frac{7}{2} & 2< x
-\end{array}
-\right.
-$$
-<li></li> Demuestra que $F$ es diferenciable en todo punto de $(0,\infty)$ y que $F'(x)=f(x)$, para toda $x\in (0,\infty)$.
+    <li>Sea $F(x)$ la función area dada por $f$. Prueba que:
+        $$
+        F(x)=\left\{
+        \begin{array}{cc}
+        \frac{x^2}{2} &  0 \leq x \leq 1 \\
+        x - \frac{1}{2} & 1< x \leq 2 \\
+        x^2-3x+\frac{7}{2} & 2< x
+        \end{array}
+        \right.
+        $$</li> 
+<li>Demuestra que $F$ es diferenciable en todo punto de $(0,\infty)$ y que $F'(x)=f(x)$, para toda $x\in (0,\infty)$.</li> 
 
 </ol>
 \item Sea $I$ un intervalo y fija  una función integrable $f: I \to \mathbb{R}$. Con estos datos  crea una nueva función 
@@ -349,12 +365,12 @@ donde $a\in I$ es fijo y arbitrario.
 
 Para cada una de las funciones dadas $f$, encuentra la regla de correspondencia de $\tilde{F}$ y después calcula $\tilde{F}'(x)$.
 <ol>
-    <li></li> $f(x)=x^2$,  con $a=0$;
-    <li></li> $f(x)=x^2$, con $a=1$;
-    <li></li> $f(x)=e^x$, con $a=0$;
-    <li></li> $f(x)=e^{5x+2}$, con $a=-1$.
-    <li></li> $f(x)=\cos(x)$, $a=0$;
-    <li></li> $f(x)=\sen(x)$, $a=0$; 
+    <li>$f(x)=x^2$,  con $a=0$;</li> 
+    <li>$f(x)=x^2$, con $a=1$;</li> 
+    <li>$f(x)=e^x$, con $a=0$;</li> 
+    <li>$f(x)=e^{5x+2}$, con $a=-1$.</li> 
+    <li>$f(x)=\cos(x)$, $a=0$;</li> 
+    <li>$f(x)=\sen(x)$, $a=0$; </li> 
 </ol>
 
 
@@ -372,40 +388,40 @@ $$
 
 \item\label{Ejer:LemaDemo1TFC} Sea $f:[a,b] \to \mathbb{R}$ una función integrable. 
 <ol>
-    <li></li> Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
-$$
-f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
-$$
-para toda $x\in [x_0, x_0+\delta)$.
+    <li>Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
+        $$
+        f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
+        $$
+        para toda $x\in [x_0, x_0+\delta)$.
+        </li> 
+<li>Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
+    $$
+    -\varepsilon \leq \frac{\int_{x_0}^x f(t)dt }{x-x_0} -f(x_0) \leq \varepsilon 
+    $$
+    para todo $x\in [x_0, x_0+\delta)$.
+    </li> 
+<li>Si $f$ es continua por la derecha en $x_0$, demuestra que
+    $$
+    \lim_{x\to x_0^+} \frac{\int_{x_0}^{x}f(t)dt}{x-x_0}=f(x_0).
+    $$</li> 
 
-<li></li> Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
-$$
--\varepsilon \leq \frac{\int_{x_0}^x f(t)dt }{x-x_0} -f(x_0) \leq \varepsilon 
-$$
-para todo $x\in [x_0, x_0+\delta)$.
+<li>Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
+    $$
+    f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
+    $$
+    para toda $x\in (x_0-\delta, x_0]$.</li> 
 
-<li></li> Si $f$ es continua por la derecha en $x_0$, demuestra que
-$$
-\lim_{x\to x_0^+} \frac{\int_{x_0}^{x}f(t)dt}{x-x_0}=f(x_0).
-$$
+<li>Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
+    $$
+    -\varepsilon \leq \frac{\int_{x}^{x_0} f(t)dt }{x_0-x} -f(x_0) \leq \varepsilon 
+    $$
+    para todo $x\in (x_0-\delta, x_0]$.</li> 
 
-<li></li> Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
-$$
-f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
-$$
-para toda $x\in (x_0-\delta, x_0]$.
-
-<li></li> Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
-$$
--\varepsilon \leq \frac{\int_{x}^{x_0} f(t)dt }{x_0-x} -f(x_0) \leq \varepsilon 
-$$
-para todo $x\in (x_0-\delta, x_0]$.
-
-<li></li> Si $f$ es continua por la izquierda en $x_0$, demuestra que
-$$
-\lim_{x\to x_0^-} \frac{\int_{x}^{x_0}f(t)dt}{x_0-x}=f(x_0).
-$$
-
+<li>Si $f$ es continua por la izquierda en $x_0$, demuestra que
+    $$
+    \lim_{x\to x_0^-} \frac{\int_{x}^{x_0}f(t)dt}{x_0-x}=f(x_0).
+    $$
+    </li> 
 </ol>
 
 
@@ -420,25 +436,25 @@ $f$ tiene una antiderivada.
 Sea $f:[a,b] \to \mathbb{R}$ una función continua  y sea $F:[a,b] \to \mathbb{R}$ cualquier antiderivada para $f$ en $(a,b)$. 
 
 <ol>
-    <li></li> Define $\tilde{F}:[a,b] \to \mathbb{R}$ por 
-$$
-\tilde{F}(x)=\int_a^x f(t)dt
-$$
-
-Demuestra que existe una constante tal que $F(x)=\tilde{F}(x)+c$, para toda $x\in [a,b]$.
-
-<li></li> Usando el inciso anterior y la función $\tilde{F}$ demuestra que
-$$
-\int_a^b f(t)dt=F(a)-F(b).
-$$
+    <li>Define $\tilde{F}:[a,b] \to \mathbb{R}$ por 
+        $$
+        \tilde{F}(x)=\int_a^x f(t)dt
+        $$
+        
+        Demuestra que existe una constante tal que $F(x)=\tilde{F}(x)+c$, para toda $x\in [a,b]$.
+        </li> 
+<li>Usando el inciso anterior y la función $\tilde{F}$ demuestra que
+    $$
+    \int_a^b f(t)dt=F(a)-F(b).
+    $$</li> 
 </ol>
 
 \item Sin calcular las siguientes integrales, encuentra $F'(x)$, si $F(x)$ está dada por
 <ol>
-    <li></li> $F(x)=\int_0^x (1+t^2)^{-4}dt$.
-    <li></li> $F(x)=\int_0^{x^2} (1+t^2)^{-4}dt$.
-    <li></li> $F(x)=\int_{x}^{x^3} (1+t^2)^{-4}dt$.
-    <li></li> $F(x)=\int_{\cos(x)}^{\sen(x)} \sen(x)dx$.
+    <li>$F(x)=\int_0^x (1+t^2)^{-4}dt$.</li> 
+    <li>$F(x)=\int_0^{x^2} (1+t^2)^{-4}dt$.</li> 
+    <li>$F(x)=\int_{x}^{x^3} (1+t^2)^{-4}dt$.</li> 
+    <li>$F(x)=\int_{\cos(x)}^{\sen(x)} \sen(x)dx$.</li> 
 </ol>
 
 \item Encontrar una función continua $f(x)$, que satisface la ecuación
@@ -463,11 +479,15 @@ donde $c$ es una constante. Encontrar una fórmula explícita para $f$ y el valo
 
 \item Sea $f:[a,b]\to \mathbb{R}$ una función continua en $[a,b]$.
 <ol>
-    <li></li> Demuestra que $f(x)=0$ para toda $x\in [a,b]$ si y sólo si $\int_c^d f(x)dx=0$ para todos
+    <li>
+        Demuestra que $f(x)=0$ para toda $x\in [a,b]$ si y sólo si $\int_c^d f(x)dx=0$ para todos
 $c,d \in [a,b]$.
-<li></li> Da un ejemplo de una función continua $f:[a,b]\to \mathbb{R}$, distinta de cero, pero que cumple
+    </li> 
+<li>
+    Da un ejemplo de una función continua $f:[a,b]\to \mathbb{R}$, distinta de cero, pero que cumple
 $\int_a^b f(x)dx=0$. Es decir, para que el ejercicio anterior sea válido se debe de tener $\int_c^d f(t)dt=0$,
 para {\bf todos} los subintervalos $[c,d]$.
+</li> 
 </ol> 
 
 

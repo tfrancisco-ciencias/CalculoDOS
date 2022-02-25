@@ -51,12 +51,12 @@ Para probar la fórmula usa el ejercicio \ref{Ejer:CambioVariableTranslacionesEs
 \item Calcular las siguientes integrales.
 
 <ol>
-    <li></li> $\int_{4}^{5} \sqrt{x-3}dx$.
-    <li></li> $\int_{-1}^{6}(x+2)^{10}dx$.
-    <li></li> $\int_{-8}^{4}(x-4)^{20}dx$.
-    <li></li> $\int_{8}^{9}\sqrt[3]{x+7}dx$.
-    <li></li> $\int_{0}^{4}(x-1)^{5}xdx$.
-    <li></li> $\int_{-2}^{4} \sqrt[4]{x-2}dx$.
+    <li>$\int_{4}^{5} \sqrt{x-3}dx$.</li> 
+    <li>$\int_{-1}^{6}(x+2)^{10}dx$.</li> 
+    <li>$\int_{-8}^{4}(x-4)^{20}dx$.</li> 
+    <li>$\int_{8}^{9}\sqrt[3]{x+7}dx$.</li> 
+    <li>$\int_{0}^{4}(x-1)^{5}xdx$.</li> 
+    <li>$\int_{-2}^{4} \sqrt[4]{x-2}dx$.</li> 
 </ol>
 
 <div class="definicion-box">
@@ -71,30 +71,35 @@ siempre y cuando  la integral exista.
 
 \item Supon que la velocidad al tiempor $t$ de un objeto esta dado por $v(t)=(1+t)^3$, $cm/s$. 
 <ol>
-    <li></li> Si el objeto se empieza a mover al tiempor $t=0$,  cuál es la distancia  que
+    <li>
+        Si el objeto se empieza a mover al tiempor $t=0$,  cuál es la distancia  que
 el objeto recorre  después de $7$ minutos  ?
-<li></li> Toma el cambio de variable  $u=t/60$. Entonces  $u$ da los minutos en termino los segundos y  $g(u)=(1+60 u)^3$, la velocidad del objeto en $cm/min$. Calcula 
-$$
-\int_0^{7} g(u)du
-$$
-Son iguales las integrales de los dos incisos ? Por qué?
+
+    </li> 
+    <li>Toma el cambio de variable  $u=t/60$. Entonces  $u$ da los minutos en termino los segundos y  $g(u)=(1+60 u)^3$, la velocidad del objeto en $cm/min$. Calcula 
+    $$
+    \int_0^{7} g(u)du
+    $$
+    Son iguales las integrales de los dos incisos ? Por qué?</li> 
 </ol>
 
 \item\label{Ejer:CambioVariableReescalemientosEscalonadas} Sea $I\subseteq \mathbb{R}$ un intervalo y  $s:I \to \mathbb{R}$ una función escalonada y  $\alpha \not= 0$ un escalar. Demuestra:
 
 <ol>
 
-    <li></li> si $\alpha>0$
-$$
-\int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha a}^{\alpha b} s(u)du
-$$
-
-siempre que $[\alpha a, \alpha b] \subset I$.
-<li></li> si $\alpha < 0$
+    <li>si $\alpha>0$
+        $$
+        \int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha a}^{\alpha b} s(u)du
+        $$
+        
+        siempre que $[\alpha a, \alpha b] \subset I$.</li> 
+<li>
+    si $\alpha < 0$
 $$
 \int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha b}^{\alpha a} s(u)du
 $$
 siempre que $[\alpha b, \alpha a] \subset I$.
+</li> 
 </ol>
 
 Lo anterior se puede poner como $u=\alpha x$, $du=\alpha dx$.
@@ -127,38 +132,54 @@ $$
 \item Calcula las siguientes integrales.
 
 <ol>
-    <li></li> $\int_0^{4}(2x-1)^4dx$.
-    <li></li> $\int_{2}^{6}(\frac{1}{2}x-4)^4dx$.
-    <li></li> $\int_{0}^{5}(2x-1)^{5}(x+1)dx$.
-    <li></li> $\int_0^4 (x-2)(2x-1)dx$.
-    <li></li> $\int_0^4 |(x-2)(2x-1)|dx$.
-    <li></li> $\int_{-1}^4 |(x+2)(x-1)|$.
-    <li></li> $\int_{7}^{25}\sqrt{3x-2}$.
-    <li></li> para $a>0$, $\int_0^{1} \sqrt{2x-a}dx.$
+    <li>
+        $\int_0^{4}(2x-1)^4dx$.
+    </li> 
+    <li>
+        $\int_{2}^{6}(\frac{1}{2}x-4)^4dx$.
+    </li> 
+    <li>
+        $\int_{0}^{5}(2x-1)^{5}(x+1)dx$.
+    </li> 
+    <li>
+        $\int_0^4 (x-2)(2x-1)dx$.
+    </li> 
+    <li>
+        $\int_0^4 |(x-2)(2x-1)|dx$.
+    </li> 
+    <li>
+        $\int_{-1}^4 |(x+2)(x-1)|$.
+    </li> 
+    <li>
+        $\int_{7}^{25}\sqrt{3x-2}$.
+    </li> 
+    <li>para $a>0$, $\int_0^{1} \sqrt{2x-a}dx.$
+
+    </li> 
 </ol>
 
 \item Este ejercicio calcula  las integrales definidas de cualquier  polinomio.
 
 <ol>
-    <li></li> Demuestra que, para todo $b < 0$, 
-$$
-\int_b^0x^kdx=-\frac{b^{k+1}}{k+1}
-$$
-Sugerencia:  toma el cambio de variable $u=-x$.
-
-<li></li> Sean $a.b \in \mathbb{R}$ fijos y arbitrarios con $a < b$. Demuestra que
-$$
-\int_a^b x^k dx =\frac{b^{k+1}-a^{k+1}}{k+1}
-$$
-
-Sugerencia: toma los casos  $0 \leq a < b$, $a < b \leq 0$ y $a \leq 0 \leq b$.
-
-Nota: más adelante se probará que la misma fórmula se vale cuando $k$ se reemplaza por un racional positivo. 
-
-<li></li> Demuestra que, para cualesquiera $a,b \in \mathbb{R}$, con $a < b$, 
-$$
-\int_a^b \sum_{k=1}^n a_kx^k dx=\sum_{k=1}^n a_k\left( \frac{b^{k+1}-a^{k+1}}{k+1}  \right)
-$$
+    <li>Demuestra que, para todo $b < 0$, 
+        $$
+        \int_b^0x^kdx=-\frac{b^{k+1}}{k+1}
+        $$
+        Sugerencia:  toma el cambio de variable $u=-x$.
+        </li> 
+<li>Sean $a.b \in \mathbb{R}$ fijos y arbitrarios con $a < b$. Demuestra que
+    $$
+    \int_a^b x^k dx =\frac{b^{k+1}-a^{k+1}}{k+1}
+    $$
+    
+    Sugerencia: toma los casos  $0 \leq a < b$, $a < b \leq 0$ y $a \leq 0 \leq b$.
+    
+    Nota: más adelante se probará que la misma fórmula se vale cuando $k$ se reemplaza por un racional positivo. 
+    </li> 
+<li>Demuestra que, para cualesquiera $a,b \in \mathbb{R}$, con $a < b$, 
+    $$
+    \int_a^b \sum_{k=1}^n a_kx^k dx=\sum_{k=1}^n a_k\left( \frac{b^{k+1}-a^{k+1}}{k+1}  \right)
+    $$</li> 
 
 </ol>
 
@@ -177,11 +198,11 @@ $$\int_{a}^{b}(3-2x)^5dx=0.$$
 
 <ol>
 
-    <li></li> $\int_1^8 (x+8)^{10}dx$
-    <li></li> $\int_{10}^{11} \sqrt{x-3}dx$
-    <li></li> $\int_1^2 x\sqrt{x-1}dx$
-    <li></li> $\int_{2}^{3}x^2\sqrt{x-2}dx$
-    <li></li> $\int_{5}^{6} x\sqrt[3]{x-4}$
+    <li>$\int_1^8 (x+8)^{10}dx$</li> 
+    <li>$\int_{10}^{11} \sqrt{x-3}dx$</li> 
+    <li>$\int_1^2 x\sqrt{x-1}dx$</li> 
+    <li>$\int_{2}^{3}x^2\sqrt{x-2}dx$</li> 
+    <li>$\int_{5}^{6} x\sqrt[3]{x-4}$</li> 
 </ol>
 
 Hint: pueden utilizar
@@ -194,16 +215,16 @@ válida para cualesquiera reales $a$ y $b$ y racional $p$.
 
 \item Sea $f:\mathbb{R}\to \mathbb{R}$ una función tal que, para toda $a>0$, $f$ es integrable en $[-a,a]$. 
 <ol>
-    <li></li> Si $f$ es par probar:
-$$
-\int_{-a}^a f(x)dx=2\int_0^af(x)dx
-$$
+    <li>Si $f$ es par probar:
+        $$
+        \int_{-a}^a f(x)dx=2\int_0^af(x)dx
+        $$</li> 
 
 
-<li></li> Si $f$ es impar probar:
-$$
-\int_{-a}^af(x)dx=0
-$$
+<li>Si $f$ es impar probar:
+    $$
+    \int_{-a}^af(x)dx=0
+    $$</li> 
 </ol>
 
 
@@ -216,18 +237,21 @@ $$
 donde $\ln$ denota la función logaritmo. Se puede pensar a la medida geométrica como un análogo de la longitud ( $b-a$) y  $(0,\infty)$ podemos pensar la multiplicación por reales positivos como un análogo de la translación.
 
 <ol>
-    <li></li> Prueba que  $\lambda(\gamma a,\gamma b)=\lambda(a,b)$, para $\gamma >0$.
+    <li>
+        Prueba que  $\lambda(\gamma a,\gamma b)=\lambda(a,b)$, para $\gamma >0$.
+    </li> 
 
-
-
-
-    <li></li> Define ahora,  para una función escalonada $s:[a,b]\to \mathbb{R}$, con $[a,b] \subset (0,\infty)$,  su integral con respecto a la medida geométrica como:
+    <li>
+        Define ahora,  para una función escalonada $s:[a,b]\to \mathbb{R}$, con $[a,b] \subset (0,\infty)$,  su integral con respecto a la medida geométrica como:
 $$
 \int_a^b s(x)d\lambda(x):=\sum_{i=1}^n s_i (\ln(x_i)-\ln(x_{i-1}))
 $$
-<li></li> Probar, para $\gamma >0$:
+    </li> 
+<li>
+    Probar, para $\gamma >0$:
 $$
 \int_{a/\gamma}^{b/\gamma} s(\gamma x)d\lambda(x)=\int_a^b s(u)d\lambda(u)
 $$
+</li> 
 </ol>
 
