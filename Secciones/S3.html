@@ -83,37 +83,52 @@
 
 <h1 class="number-title flexbox">La integral de Riemann</h1>
 
+<div class="info-box">
+    <h2 class="number-title"> Introducción </h2>
+    <p>
 
+    </p>
+
+</div>
 
 <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
     <p>
-        Sea $f:[a,b]\to \mathbb{R}$ una función acotada. La integral inferior de $f$ en 
-        $[a,b]$, (denotada $\underline{\int}_{a}^b f(x)dx$), se define como
+        Sea $f:[a,b]\to \mathbb{R}$ una función acotada. 
+    </p>
+    <p>
+        La integral inferior de $f$ en 
+        $[a,b]$, denotada $\underline{\int}_{a}^b f(x)dx$, se define como
         $$
-        \sup \left\{ \int_a^b s(x)dx \quad \big| \quad s:[a,b]\to 
-            \mathbb{R} \quad \textrm{es una función escalonada y $s\leq f$}  
+        \sup \left\{ \int_a^b s(x)dx \quad \big| s:[a,b]\to 
+            \mathbb{R}, \textrm{es una función escalonada y $s\leq f$}  
             \right\}
         $$
-        La integral superior de $f$, en $[a,b]$, (denotada $\overline{\int}_{a}^b f(x)dx$), 
+        La integral superior de $f$, en $[a,b]$, denotada $\overline{\int}_{a}^b f(x)dx$, 
         se define como
         $$
-        \inf \left\{ \int_a^b t(x)dx \quad \big|  \quad 
-            t:[a,b]\to \mathbb{R} \quad \textrm{es una función escalonada 
-            y $f\leq t$}  \right\}
+        \inf \left\{ \int_a^b t(x)dx \quad \big|  t:[a,b]\to 
+            \mathbb{R},\textrm{es una función escalonada  y $f\leq t$}  \right\}
         $$
-        Decimos que una función es  (Riemann) integrable si  
-        $\underline{\int}_{a}^b f(x)dx =\overline{\int}_{a}^b f(x)dx$. 
-        A este número lo llamamos la integral (de Riemann) definida de $f$, 
-        en $[a,b]$, y se denota $\int_a^bf(x)dx$.
+        
+    </p>
+    <p>
+        Decimos que una función es  Riemann integrable sii  
+        \[
+        \underline{\int}_{a}^b f(x)dx =\overline{\int}_{a}^b f(x)dx.
+        \] 
+        A este número lo llamamos la integral de Riemann definida de $f$, 
+        en $[a,b]$, y se denota 
+        \[
+        \int_a^bf(x)dx.
+        \]
     </p>
     <p>
         Nota.
     </p>
     <p>
-        Se pide que $f$ sea acotada, para que existan funciones escalonadas 
-        cuya gráfica este por arriba de la de $f$ y para que existan funciones 
-        escalonadas cuya gráfica este por debajo de la de $f$.
+        Se pide que $f$ sea acotada para que existan funciones escalonadas 
+        cuya gráfica este por arriba de la de $f$ y otras que estén por abajo.
     </p>
 </div>
 
@@ -121,99 +136,123 @@
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
-    Demuestra que toda funciín escalonada es integrable. 
-    Es más, si $s:[a,b] \to \mathbb{R}$ es escalonada, 
-    con partición $P=\{x_i\}_{i=1}^n$,  y con $s=s_i$ en el intervalo $(x_{i-1}, x_i)$, 
-    demostrar que
-    $$
-    \underline{\int}_a^b s(x)dx=\overline{\int}_a^b s(x)dx=\sum_{i=1}^n s_j(x_i-x_{i-1}).
-    $$
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra que toda función escalonada es integrable. 
+    </p>
+    <p>
+        Es más, si $s:[a,b] \to \mathbb{R}$ es escalonada, 
+        con partición $P=\{x_i\}_{i=1}^n$,  y con $s=s_i$ en el intervalo $(x_{i-1}, x_i)$, 
+        demostrar que
+        $$
+        \underline{\int}_a^b s(x)dx=\overline{\int}_a^b s(x)dx=\sum_{i=1}^n s_j(x_i-x_{i-1}).
+        $$
+    </p>
+    
 </div> 
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
-    Demuestra que, para cualquier función acotada, $f:[a,b]\to \mathbb{R}$ 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra que, para cualquier función acotada, $f:[a,b]\to \mathbb{R}$ 
     $$\underline{\int}_a^b f(x)dx \leq \overline{\int}_a^bf(x)dx$$
 
-    En consecuencia, una función no es integrable si 
-    $\underline{\int}_a^b f(x)dx < \overline{\int}_a^bf(x)dx$
+    </p>
+    <p>
+        En consecuencia, una función NO es integrable si 
+        $\underline{\int}_a^b f(x)dx < \overline{\int}_a^bf(x)dx$
+    </p>
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
-    Considera la función de Dirichlet $D:[0,1]\to \mathbb{R}$ tal que
-    $$  
-    D(x)=\left\{
-    \begin{array}{cc}
-    1 & x\in \mathbb{Q}\\
-    0 & x \notin \mathbb{Q}
-    \end{array}
-    \right.
-    $$
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Considera la función de Dirichlet $D:[0,1]\to \mathbb{R}$ tal que
+        $$  
+        D(x)=\left\{
+        \begin{array}{cc}
+        1 & x\in \mathbb{Q}\\
+        0 & x \notin \mathbb{Q}
+        \end{array}
+        \right.
+        $$
 
-    Demuestra que $D$ no es integrable.
+        Demuestra que $D$ no es integrable.
+    </p>
 </div>
 
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:MonotoniaIntegral">Ejercicio</h2>  
-    <h3>Monotonía de la integral</h3>
-    Demuestra el siguiente teorema.
-</div>
+
 
 <div class="teorema-box">
-Sean $f,g:[a,b]\to \mathbb{R}$ dos funciones integrables.  Si $f\leq g$ demuestra que:
-$$\int_a^b f(x)dx\leq \int_a^bg(x)dx .$$
-Sugerencia: usa el ejercicio \ref{Ejer:MonotoniaIntegralEscalonadas}.
+    <h2 class="number-title" id="Ejer:MonotoniaIntegral"> Teorema </h2>
+    <h3>Monotonía de la integral</h3>  
+    <p>
+        Sean $f,g:[a,b]\to \mathbb{R}$ dos funciones integrables.  
+        Si $f(x)\leq g(x)$  para todos \(x\in [a,b]\) demuestra que:
+        $$\int_a^b f(x)dx\leq \int_a^bg(x)dx .$$
+        Sugerencia: usa el ejercicio 
+        <a href="./S2.html#Ejer:MonotoniaIntegralEscalonadas">Ejercicio 2.13</a>
+    </p>
 </div>
 
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
-    Sea $f:[a,b]\to \mathbb{R}$ integrable. Supon que existen 
-    constantes $m$ y $M$ tales que 
-    $m\leq f(x)\leq M$, para todo $x\in [a,b]$. Demuestra que:
-    $$
-    m(a-b)\leq \int_a^bf(x)dx\leq M(b-a).
-    $$
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ integrable. Supon que existen 
+        constantes $m$ y $M$ tales que 
+        $m\leq f(x)\leq M$, para todo $x\in [a,b]$. Demuestra que:
+        $$
+        m(a-b)\leq \int_a^bf(x)dx\leq M(b-a).
+        $$
+    </p>
+    
  </div>   
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
-    Sea $s:[a,b] \to \mathbb{R}$, una función escalonada. 
-    Define $\tilde{s}:[a.b] \to \mathbb{R}$, dada por
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Sea $s:[a,b] \to \mathbb{R}$, una función escalonada. La 
+        parte positiva de \(s\) es la función \(s^+:[a,b]\to \mathbb{R}\)
+        dada por 
+        $$
+        s^+(x):= \left\{
+        \begin{array}{cc}
+        s(x) & \textrm{si $s(x) \geq 0$} \\
+        0 & \textrm{si $s(x) < 0$}
+        \end{array}
+        \right.
     $$
-    \tilde{s}(x):= \left\{
-    \begin{array}{cc}
-    s(x) & \textrm{si $s(x) \geq 0$} \\
-    0 & \textrm{si $s(x) < 0$}
-    \end{array}
-    \right.
-    $$
-
-    Prueba que $\tilde{s}$ es escalonada y que $\int_a^b s(x)dx \leq \int_a^b \tilde{s}(x)dx$.
+    </p>
+    <p>
+        Prueba que $s^+$ es escalonada y que 
+        $\int_a^b s(x)dx \leq \int_a^b s^+(x)dx$.
+    </p>
+    
+    
 </div>
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     Sea $f:[a,b]\to \mathbb{R}$ con $f\geq 0$.  En este caso demuestra que:
     $$
-    \underline{\int}_a^b f(x) dx= \sup\{ \int_a^b \tilde{s}(x)dx : 
-    0\leq  \tilde{s} \leq f, \textrm{$\tilde{s}:[a,b] \to \mathbb{R}$ escalonada} \}
+    \underline{\int}_a^b f(x) dx= \sup\left\{ \int_a^b s(x)dx : 
+    0\leq s \leq f, \textrm{ \(s:[a,b] \to \mathbb{R}\) escalonada} \right\}
     $$
 </div>
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
-    Demuestra las siguientes cotas. Puedes suponer que todas las 
-    funciones involucradas
-    son integrables.
-
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra las siguientes desigualdades. Puedes suponer que todas las 
+        funciones involucradas
+        son integrables.
+    </p>
     <ol>
         <li>$\int_0^1\sqrt{1+x^2}dx\leq \int_0^1 \sqrt{1+x}$.</li> 
         <li>$\int_0^4  x^2-4x+4 dx \geq 0$.</li> 
@@ -228,30 +267,86 @@ Sugerencia: usa el ejercicio \ref{Ejer:MonotoniaIntegralEscalonadas}.
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:CriterioCauchyIntegrabilidad">Ejercicio</h2> 
-    Este ejercicio es el primer criterio para probar si una función acotada es integrable.
+    <h2 class="number-title" id="Ejer:CriterioCauchyIntegrabilidad"> Ejercicio</h2> 
+    <h3>Criterio de Cauchy</h3>
+    <p>
+        Este ejercicio es el primer criterio que presentamos 
+        para probar que una  función  sea integrable.
+    </p>
 
-    Sea $f:[a,b]\to \mathbb{R}$ una función acotada. Si para toda $\varepsilon >0$ 
-    existen $s,t:[a,b]\to \mathbb{R}$ funciones escalonadas con 
-    \begin{eqnarray*}
-    s\leq f \leq t \\
-    \int_a^b t - \int_a^b s < \varepsilon
-    \end{eqnarray*}
-    entonces $f$ es integrable en $[a,b]$.
-
-    Sugerencia: proceder por contradicción; suponer que 
-    $$
-    \underline{\int}_a^b f dx =: \alpha < \beta  := \overline{\int}_a^b fx
-    $$
-    luego tomar $\varepsilon=\beta-\alpha$ y $s\leq f \leq t$ con
-    $$
-    \int_a^b t - \int_a^b s < \varepsilon
-    $$
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ una función acotada. Si para toda $\varepsilon >0$ 
+        existen $s,t:[a,b]\to \mathbb{R}$ funciones escalonadas con: 
+        \begin{eqnarray*}
+        s(x) \leq &f(x) & \leq t(x), \forall x\in [a,b], \\
+        \int_a^b t(x)dx &-& \int_a^b s(x)dx < \varepsilon
+        \end{eqnarray*}
+        entonces $f$ es integrable en $[a,b]$.
+    </p>
+    <p>
+        Sugerencia: proceder por contradicción; suponer que 
+        $$
+        \underline{\int}_a^b f dx =: \alpha < \beta  := \overline{\int}_a^b fx
+        $$
+        luego tomar $\varepsilon=\beta-\alpha$ y $s\leq f \leq t$ con
+        $$
+        \int_a^b t - \int_a^b s < \varepsilon
+        $$
+    </p>
+    
 </div>
 
+
+
+
 <div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:IntegralAbreSumas">Ejercicio</h2> 
-    Sean $f,g: [a,b]\to \mathbb{R}$ funciones integrables. Fija $\varepsilon >0$.
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+        Considera la parábola \(f:[0,b]\to \mathbb{R}\), \(f(x)=x^2\) ,donde \(b>0\).
+    </p>
+    <ol>
+        <li>
+            Prueba que existen funciones escalonadas \(s_n,t_n:[0,b]\to \mathbb{R}\)
+            tales que
+            \begin{eqnarray*}
+                s_n(x)\leq f(x)\leq t_n(x), \forall x\in [0,b],\\
+                \int_0^b t_n(x)dx - \int_0^b s_n(x)dx  \leq \frac{b^3}{n^3},\\
+                \int_0^b s_n(x)dx \leq \frac{b^3}{3} \leq \int_0^b t_n(x)dx
+            \end{eqnarray*}
+            Sugerencia: usa el <a href="./S1.html#Ejer:SumasSupInfParabloa">Ejercicio 1.6</a>
+        </li>
+        <li>
+            Usa el criterio de Cauchy para concluir que \(f\) es integrable en \([a,b]\).
+        </li>
+        <li>
+            Ya que sabemos que \(f\) es integrable podemos tomar \(\int_0^bfdx\) y usar 
+            monotonía para obtener 
+            \[
+                \int_0^b s_n(x)dx \leq \int_0^b f(x)dx \leq \int_0^b t_n(x)dx 
+            \]
+            Usa las desigualdades del inciso 1 para concluir
+            \[
+                \int_0^b x^2 dx =\frac{b^3}{3}
+            \]
+        </li>
+    </ol>
+    <p>
+        Nota: de manera similar y utilizando el <a href="./S1.html#Ejer:SumasSupInfCubica">Ejercicio 1.8</a> 
+        se puede probar 
+        \[
+            \int_0^b x^3dx =\frac{b^4}{4}.
+        \]
+    </p>
+</div>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:IntegralAbreSumas"> Ejercicio</h2> 
+    <p>
+        Sean $f,g: [a,b]\to \mathbb{R}$ funciones integrables y  fija 
+        un número positivo $\varepsilon >0$.
+    </p>
 
 <ol>
 <li>Demuestra que existen $s_f,s_g, t_f, t_g:[a,b]\to \mathbb{R}$ funciones escalonadas tales que
@@ -275,8 +370,9 @@ Sugerencia: usa el ejercicio \ref{Ejer:MonotoniaIntegralEscalonadas}.
 </li> 
 
 <li>
-    Usa el inciso anterior y el criterio de Cauchy (ejercicio 
-    \ref{Ejer:CriterioCauchyIntegrabilidad}) para concluir que $f+g$ es integrable.
+    Usa el inciso anterior y el criterio de Cauchy 
+    (<a href="#Ejer:CriterioCauchyIntegrabilidad"> Ejercicio 3.11</a>) 
+    para concluir que $f+g$ es integrable.
 </li> 
 
 
@@ -315,13 +411,14 @@ Sugerencia: usa el ejercicio \ref{Ejer:MonotoniaIntegralEscalonadas}.
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:SacaEscalares">Ejercicio</h2> 
+    <h2 class="number-title" id="Ejer:SacaEscalares"> Ejercicio</h2> 
 
-    Sea $f:[a,b] \to \mathbb{R}$ integrable y $\alpha\in \mathbb{R}$, 
-    $\alpha\ne 0$, un escalar fijo y arbitrario.
+    <p>
+        Sea $f:[a,b] \to \mathbb{R}$ integrable y $\alpha\in \mathbb{R}$, 
+        $\alpha\ne 0$, un escalar fijo y arbitrario. Fija $\varepsilon >0$. 
+    </p>
 
 
-    Fija $\varepsilon >0$. 
 
 <ol>
     <li>
@@ -342,7 +439,8 @@ Sugerencia: usa el ejercicio \ref{Ejer:MonotoniaIntegralEscalonadas}.
     </li> 
     <li>
         Usa el inciso anterior y el criterio de Cauchy 
-        (ejer \ref{Ejer:CriterioCauchyIntegrabilidad}) para concluir que la función 
+        (<a href="#Ejer:CriterioCauchyIntegrabilidad">Ejercicio 3.11</a>)  
+        para concluir que la función 
         $\alpha f$ es integrable.
     </li> 
 
@@ -384,24 +482,25 @@ Sugerencia: usa el ejercicio \ref{Ejer:MonotoniaIntegralEscalonadas}.
 </ol>
 </div>
 
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:LinealidadIntegral">Ejercicio</h2>
-     <h3>Linealidad de la Integral</h3> 
-     De los ejercicios \ref{Ejer:IntegralAbreSumas} y 
-    \ref{Ejer:SacaEscalares} se sigue el siguiente teorema. 
-</div>
-
+ 
 <div class="teorema-box">
-Sean $f,g: [a,b]\to \mathbb{R}$ funciones integrables y $\alpha$ un real.  Entonces 
-$\alpha f +g$ es integrable y
-$$
-\int_a^b (\alpha f(x) + g(x))dx=\alpha\int_a^bf(x)dx+\int_a^b g(x)dx
-$$
+<h2 class="number-title" id="Ejer:LinealidadIntegral"> Teorema </h2>
+<h3>Linealidad de la Integral</h3> 
+<p>
+    Sean $f,g: [a,b]\to \mathbb{R}$ funciones integrables y $\alpha$ un real.  Entonces 
+    $\alpha f +g$ es integrable y
+    $$
+    \int_a^b (\alpha f(x) + g(x))dx=\alpha\int_a^bf(x)dx+\int_a^b g(x)dx
+    $$
+</p>
+<p>
+    La demostración se sigue directamente de los dos ejercicios anteriores.
+</p>
 </div>
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     Supon que $\int_{-1}^7f(x)dx=4, \int_{-1}^7f(x)dx=-9, \int_{-1}^7 h(x)dx=10$. Calcula:
 <ol>
     <li>$\int_{-1}^7 3f(x)+2g(x)dx.$</li> 
@@ -412,13 +511,25 @@ $$
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
-    Define la función $F(x,y)=1+x+xy+x^2y^3$, $x,y\in \mathbb{R}$. 
-    Calcula las siguientes integrales
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Define la función $F(x,y)=1+x+xy+x^2y^3$, $x,y\in \mathbb{R}$. 
+        Calcula las siguientes integrales:
+    </p>
 <ol>
     <li>$\int_0^2 F(x,y)dx$.</li> 
     <li>$\int_0^2 F(x,y)dy$.</li> 
+    <li>$\int_0^5 F(x,y)dx$ </li>
+    <li>$\int_0^7 F(x,y)dy$</li>
 </ol>
+    <p>
+        En este ejercicio puedes usar las fórmulas 
+        \begin{eqnarray*}
+            \int_0^b xdx = \frac{b^2}{2} \\
+            \int_0^b x^2dx = \frac{b^3}{3}\\
+            \int_0^b x^3dx = \frac{b^4}{4}
+        \end{eqnarray*}
+    </p>
 </div>
 
 
@@ -427,153 +538,194 @@ $$
     
 
 <div class="teorema-box">
-    <h2 class="number-title" id="Ejer:LinealidadIntervalos">Teorema</h2>     
-    Sea $f:[a,b]\to \mathbb{R}$ acotada e integrable en $[a,b]$. Sea $c$ un punto $a< c < b$. 
-    Entonces $f$ es integrable en $[a,c]$, $f$ es integrable en $[c,d]$ y:
-    $$
-    \int_a^c f +\int_c^b f =\int_a^b f
-    $$
+    <h2 class="number-title" id="Ejer:LinealidadIntervalos"> Teorema</h2>     
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ acotada e integrable en $[a,b]$ y sea  $c\in (a,b)$.       
+        Entonces $f$ es integrable en $[a,c]$, $f$ es integrable en $[c,d]$ y:
+        $$
+        \int_a^c f +\int_c^b f =\int_a^b f
+        $$
+    </p>
 
+    <button class="respButton hvr-grow "> Solución  </button>
+    <div class="resp-box flexbox">
+      <div >
 
+        Fija $\varepsilon>0$.
 
-Este ejercicio demuestra el siguiente teorema.
+        <ol>
+    
+        <li>
+            Demuestra que existen funciones escalonadas, $s$ y $t$, tales que 
+            $s(x)\leq f(x) \leq t(x)$ en para todo $x\in [a,b]$ y
+            \begin{equation}\label{Eqn:LinealidadIntervalos1}
+            \int_a^b t(x)dx - \int_a^b s(x)dx  <\varepsilon.
+            \end{equation}
+            </li> 
 
-Fija $\varepsilon>0$.
+        <li>
+           Define  las funciones $s_1:=s \chi_{[a,c]}, t_1:=t\chi_{[a,c]}, s_2=s\chi_{[c,b]}, 
+            t_2=t\chi_{[c,b]}$. Demuestra que $s_1,s_2,t_1$ y $t_2$ son escalondas, 
+            $s_1(x) \leq f(x) \leq t_1(x)$ para todo  $x\in [a,c]$, $s_2(x) \leq f(x) \leq t_2(x)$ 
+            para todo $x\in [c,b]$ y 
+            $$
+            \int_a^c t_i(x)dx - \int_a^c s_i(x) dx  < \varepsilon, \quad i=1,2.
+            $$
+        </li> 
 
-<ol>
+        <li>
+            Usando el criterio de Cauchy concluye que $f$ es integrable en $[a,c]$ y 
+            $f$ es integrable en $[c,b]$.
+        </li> 
 
-    <li>
-        Demuestra que existen funciones escalonadas, $s$ y $t$, tales que 
-        $s(x)\leq f(x) \leq t(x)$ en para todo $x\in [a,b]$ y
-        \begin{equation}\label{Eqn:LinealidadIntervalos1}
-        \int_a^b t(x)dx - \int_a^b s(x)dx  <\varepsilon.
-        \end{equation}
-    </li> 
+        <li>
+            Demuestra que
+            $$
+            \int_a^c s_1(x)dx \leq \int_a^c f(x)dx \leq \int_a^c t_1(x)dx
+            $$
+            y
+            $$
+            \int_c^b s_2(x)dx \leq \int_c^b f(x)dx \leq \int_c^b t_2(x)dx
+            $$
+        </li> 
 
-<li>
-    Define  las funciones $s_1:=s \chi_{[a,c]}, t_1:=t\chi_{[a,c]}, s_2=s\chi_{[c,b]}, 
-    t_2=t\chi_{[c,b]}$. Demuestra que $s_1,s_2,t_1$ y $t_2$ son escalondas, 
-    $s_1(x) \leq f(x) \leq t_1(x)$ para todo  $x\in [a,c]$, $s_2(x) \leq f(x) \leq t_2(x)$ 
-    para todo $x\in [c,b]$ y 
-    $$
-    \int_a^c t_i(x)dx - \int_a^c s_i(x) dx  < \varepsilon, \quad i=1,2.
-    $$
-</li> 
+        <li>
+            Sumando las desigualdades de anteriores y usando el  
+            <a href="./S2.html#Ejer:LemaAditividadIntervalosEscalonadas">Ejercicio 2.7</a> demuestra
+            \begin{equation}\label{Eqn:LinealidadIntervalos2}
+            \int_a^b s(x)dx \leq \int_a^c f(x)dx+\int_c^b f(x)dx \leq \int_a^b t(x)dx.
+            \end{equation}
+        </li> 
 
-<li>
-    Usando el criterio de Cauchy concluye que $f$ es integrable en $[a,c]$ y 
-    $f$ es integrable en $[c,b]$.
-</li> 
+        <li>
+            Demuestra
+            \begin{equation}\label{Eqn:LinealidadIntervalos3}
+            \int_a^b s(x)dx \leq \int_a^b f(x)dx  \leq \int_a^b t(x)dx.
+            \end{equation}
+        </li> 
 
-<li>
-    Demuestra que
-    $$
-    \int_a^c s_1(x)dx \leq \int_a^c f(x)dx \leq \int_a^c t_1(x)dx
-    $$
-    y
-    $$
-    \int_c^b s_2(x)dx \leq \int_c^b f(x)dx \leq \int_c^b t_2(x)dx
-    $$
-</li> 
+        <li>
+            Usando \eqref{Eqn:LinealidadIntervalos1}, \eqref{Eqn:LinealidadIntervalos2} 
+            y \eqref{Eqn:LinealidadIntervalos3}
+            demuestra:
+            $$
+            \left|  \int_a^cf(x)dx + \int_c^bf(x)dx - \int_a^b f(x)dx \right| <\varepsilon
+            $$
+        </li> 
 
-<li>
-    Sumando las desigualdades de anteriores y usando el ejercicio 
-    \ref{Ejer:LemaAditividadIntervalosEscalonadas} demuestra
-    \begin{equation}\label{Eqn:LinealidadIntervalos2}
-    \int_a^b s(x)dx \leq \int_a^c f(x)dx+\int_c^b f(x)dx \leq \int_a^b t(x)dx.
-    \end{equation}
-</li> 
-
-<li>
-    Demuestra
-    \begin{equation}\label{Eqn:LinealidadIntervalos3}
-    \int_a^b s(x)dx \leq \int_a^b f(x)dx  \leq \int_a^b t(x)dx.
-    \end{equation}
-</li> 
-
-<li>
-    Usando \eqref{Eqn:LinealidadIntervalos1}, \eqref{Eqn:LinealidadIntervalos2} 
-    y \eqref{Eqn:LinealidadIntervalos3}
-    demuestra:
-    $$
-    \left|  \int_a^cf(x)dx + \int_c^bf(x)dx - \int_a^b f(x)dx \right| <\varepsilon
-    $$
-</li> 
-
-<li>
-    Ya que $\varepsilon$ es arbitrario concluye que:
-    $$
-    \int_a^c f(x)dx + \int_c^b f(x)dx=\int_a^b f(x)dx. 
-    $$
-</li> 
-</ol>
+        <li>
+            Ya que $\varepsilon$ es arbitrario concluye que:
+            $$
+            \int_a^c f(x)dx + \int_c^b f(x)dx=\int_a^b f(x)dx. 
+            $$
+        </li> 
+    </ol>
+</div>
+</div>
 </div>
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
-    Sean $a,b,c \in \mathbb{R}$ con $a< c < b$ y $f:[a,b] \to \mathbb{R}$ acotada. 
-    Demuestra que si  $f$ es integrable
-    en $[a,c]$ y $f$ es integrable en $[c,d]$, entonces $f$ es integrable en $[a,b]$.
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sean $a,b,c \in \mathbb{R}$ con $a< c < b$ y $f:[a,b] \to \mathbb{R}$ acotada. 
+        Demuestra que si  $f$ es integrable
+        en $[a,c]$ y $f$ es integrable en $[c,d]$, entonces $f$ es integrable en $[a,b]$.
 
-    Sugerencia: demuestra que existen funciones escalonadas 
-    $s_a,t_a:[a,c] \to \mathbb{R}$ y $s_b,t_b [c,b]\to \mathbb{R}$ tales que:
+        Sugerencia: demuestra que existen funciones escalonadas 
+        $s_a,t_a:[a,c] \to \mathbb{R}$ y $s_b,t_b [c,b]\to \mathbb{R}$ tales que:
+        \begin{eqnarray*}
+        s_a \leq f \leq t_a \quad \textrm{en $[a,c]$} \\
+        s_b \leq f \leq t_b \quad \textrm{en $[c,b]$} 
+        \end{eqnarray*}
+        con
+        \begin{eqnarray*}
+        \int_a^c (t_a-s_a) dx < \varepsilon/2\\
+        \int_c^b (t_b-s_b) dx < \varepsilon/2
+        \end{eqnarray*}
 
-    \begin{eqnarray*}
-    s_a \leq f \leq t_a \quad \textrm{en $[a,c]$} \\
-    s_b \leq f \leq t_b \quad \textrm{en $[c,b]$} 
-    \end{eqnarray*}
-    con
-    \begin{eqnarray*}
-    \int_a^c (t_a-s_a) dx < \varepsilon/2\\
-    \int_c^b (t_b-s_b) dx < \varepsilon/2
-    \end{eqnarray*}
-
-    Considerar $s=s_a\chi_{[a,c]}+ s_b\chi_{(c,b]}$, $t=t_a\chi_{[a,c]}+ t_b\chi_{(c,b]}$.
+        Considerar $s=s_a\chi_{[a,c]}+ s_b\chi_{(c,b]}$, $t=t_a\chi_{[a,c]}+ t_b\chi_{(c,b]}$.
+    </p>
+    
 </div>   
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
-    Sea $f:[a,b] \to \mathbb{R}$ integrable. Sea $c\in (a,b)$ fijo y arbitrario. Demuestra
-    $$
-    \int_c^bf(x)dx=\int_a^b f(x)dx-\int_a^cf(x)dx.
-    $$
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $f:[a,b] \to \mathbb{R}$ integrable. Sea $c\in (a,b)$ fijo y arbitrario. Demuestra
+        $$
+        \int_c^bf(x)dx=\int_a^b f(x)dx-\int_a^cf(x)dx.
+        $$
+    </p>
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
-    Supon que $f:[0,\infty) \to \mathbb{R}$ es una función que satisface 
-    $\int_0^b f(x)dx=3b^2+2b+1$, para todo
-    $b>0$. Calcula
-    <ol>
-        <li>$\int_0^5 f(x)dx$.</li> 
-        <li>$\int_1^7 f(x)dx$.</li> 
-    </ol>
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Supon que $f:[0,\infty) \to \mathbb{R}$ es una función que satisface 
+        $\int_0^b f(x)dx=3b^2+2b+1$, para todo
+        $b>0$. Calcula
+        <ol>
+            <li>$\int_0^5 f(x)dx$.</li> 
+            <li>$\int_1^7 f(x)dx$.</li> 
+        </ol>
+    </p>
+
 </div>
 
 
+
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
-    Sea $s:[c,d]\to \mathbb{R}$ escalonada. Define $\tilde{s}:[-d,-c] 
-    \to \mathbb{R}$ por $\tilde{s}(x)=s(-x)$. Demuestra: 
-    $$
-    \int_{-d}^{-c}\tilde{s}(x)dx=\int_{c}^d s(x)dx.
-    $$
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Define la función $F(x,y)=2-x+3x^2y+x^2y^3$, $x,y\in \mathbb{R}$. 
+        Calcula las siguientes integrales:
+    </p>
+<ol>
+    <li>$\int_0^1 F(x,y)dx$.</li> 
+    <li>$\int_0^2 F(x,y)dx$.</li> 
+    <li>$\int_1^2 F(x,y)dx$ </li>
+    <li>$\int_0^1 F(x,y)dy$</li>
+    <li>$\int_0^2 F(x,y)dy$.</li> 
+    <li>$\int_1^2 F(x,y)dy$ </li>
+</ol>
+    <p>
+        En este ejercicio puedes usar las fórmulas 
+        \begin{eqnarray*}
+            \int_0^b xdx = \frac{b^2}{2} \\
+            \int_0^b x^2dx = \frac{b^3}{3}\\
+            \int_0^b x^3dx = \frac{b^4}{4}
+        \end{eqnarray*}
+    </p>
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
-    Sea $f:[c,d]\to \mathbb{R}$ una función integrable. 
-    Define $\tilde{f}:[-d,-c]\to \mathbb{R}$  por
-    $\tilde{f}(x)=f(-x)$ (la función reflejada). Demuestra que $\tilde{f}$ es integrable y que:
-
-    $$
-    \int_{-d}^{-c}\tilde{f}(x)dx= \int_c^d f(x)dx
-    $$
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $s:[c,d]\to \mathbb{R}$ escalonada. Define $\tilde{s}:[-d,-c] 
+        \to \mathbb{R}$ por $\tilde{s}(x)=s(-x)$. Demuestra: 
+        $$
+        \int_{-d}^{-c}\tilde{s}(x)dx=\int_{c}^d s(x)dx.
+        $$
+    </p>
+    
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $f:[c,d]\to \mathbb{R}$ una función integrable. 
+        Define $\tilde{f}:[-d,-c]\to \mathbb{R}$  por
+        $\tilde{f}(x)=f(-x)$ (la función reflejada). Demuestra que $\tilde{f}$ es integrable y que:
+    
+        $$
+        \int_{-d}^{-c}\tilde{f}(x)dx= \int_c^d f(x)dx
+        $$
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
     Demuestra que se  puede cambiar funciones escalonadas por 
     funciones lineales a trozos en la definicion de la integral.
 </div>
