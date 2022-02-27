@@ -500,7 +500,7 @@
     </p>
     <button class="respButton hvr-grow "> Demostración  </button>
     <div class="resp-box flexbox">
-    <div >
+    <div>
     <p>
         Denotemos 
         \[
@@ -608,70 +608,106 @@
 
 <div class="ejercicio-box">
     <h2 class="number-title" id="Ejer:IntegralAbreSumas"> Ejercicio</h2> 
+
     <p>
-        Sean $f,g: [a,b]\to \mathbb{R}$ funciones integrables y  fija 
-        un número positivo $\varepsilon >0$.
+        Sean \(f,g:[a,b]\to \mathbb{R}\) dos funciones integrables. Entonces 
+        la función suma \(f+g\) es integrable y 
+        \[
+            \int_a^b (f(x)+g(x))dx = \int_a^bf(x)dx+\int_a^bg(x)dx
+        \]
+    </p>
+    
+    <button class="respButton hvr-grow "> Demostración  </button>
+    <div class="resp-box flexbox">
+    <div>
+    <p>
+        Primero vamos a probar que \(f+g\) es integrable usando el
+        <a href="#Ejer:CriterioCauchyIntegrabilidad">Criterio de Cauchy</a>
+        (ejercicio 3.11).
+    </p>
+    <p>
+        Fija un número positivo $\varepsilon >0$.
     </p>
 
-<ol>
-<li>Demuestra que existen $s_f,s_g, t_f, t_g:[a,b]\to \mathbb{R}$ funciones escalonadas tales que
+
+<p>Aplicando el criterio de Cauhcy para las funciones \(f\) 
+    y \(g\) podemos asegurar la exsitencia de 
+    $s_f,s_g, t_f, t_g:[a,b]\to \mathbb{R}$ funciones escalonadas tales que
     $s_f \leq f \leq t_f$, $s_g \leq g \leq t_g$ y tal que
-    $$
+    \begin{equation}\label{Eqn:Aux1IntegralAbreSumas}
     \int_a^b t_f(x)dx - \int_a^bs_f(x)dx <\varepsilon/2,
-    $$
+    \end{equation}
     y 
-    $$
+    \begin{equation}\label{Eqn:Aux2IntegralAbreSumas}
     \int_a^b t_g(x)dx - \int_a^bs_g(x)dx <\varepsilon/2.
-    $$
-</li> 
-
-<li>
-    Define $s:=s_f+s_g$, $t:=t_f+t_g$, con $s_f, t_f, s_g, t_g$ 
-    como en el inciso anterior.Demuestra que $s$ y $t$ son  funciones escalonadas, 
-    que $s\leq f+g \leq t$ y que:
-    \begin{equation}\label{Eqn:Linealidad1}
-    \int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon.
     \end{equation}
-</li> 
+</p> 
 
-<li>
-    Usa el inciso anterior y el criterio de Cauchy 
-    (<a href="#Ejer:CriterioCauchyIntegrabilidad"> Ejercicio 3.11</a>) 
-    para concluir que $f+g$ es integrable.
-</li> 
+<p>
+    Vamos a definir  $s:=s_f+s_g$ y $t:=t_f+t_g$. Por el 
+    <a href="./S2.html#Ejer:EscalonadasEspacioVectorial">Ejercicio 2.14</a> 
+    las funciones \(s\) y \(t\) son escalonadas. Además se tiene que 
+    $s\leq f+g \leq t$ y usando el <a href="./S2.html#Ejer:LinealidadEscalonadas">Ejercicio 2.15</a>
+    también resulta 
+    \begin{eqnarray*}\label{Eqn:Linealidad1}
+    \int_a^b t dx - \int_a^b sdx  &=&  \int_a^b t_fdx+\int_a^bt_gdx -\left(\int_a^b s_fdx + \int_a^b s_gdx \right)  \\
+     &=&\int_a^bt_fdx-\int_a^bs_fdx + \int_a^bt_gdx-\int_a^bs_gdx < \varepsilon.
+    \end{eqnarray*}
+    donde en la última desigualdad usamos \eqref{Eqn:Aux1IntegralAbreSumas}
+    y \eqref{Eqn:Aux2IntegralAbreSumas}.
+</p> 
 
+<p>
+    Lo anterior junto con el criterio de Cauchy implica que la función \(f+g\) es integrable.
+</p> 
+<p>
+    Ahora vamos a probar la fórmula \(\int_a^b (f+g)dx=\int_a^bfdx+\int_a^bgdx\).
+</p>
 
-<li>
-    Usando la monotonía de la integral y la linealidad de la integral para 
-    funciones escalonadas demuestra:
+<p>
+    Vamos a volver a usar las funciones escalonadas \(s_f,t_f,s_g,t_g\). Primero, tomando en cuenta 
+    que \(s_f \leq f \leq t_f\) y el <a href="#Ejer:MonotoniaIntegral">Teorema 3.6 </a> (monotonía de la integral)
+    obtenemos 
+    \begin{eqnarray*}
+        \int_a^b s_fdx \leq \int_a^b fdx \leq  \int_a^b t_fdx \\
+        \int_a^b s_gdx \leq \int_a^b gdx \leq  \int_a^b g_fdx 
+    \end{eqnarray*}
+    así que sumando las desigualdades llegamos a 
+    \[
+    \int_a^bs_fdx+\int_a^bs_gdx \leq \int_a^b fdx+\int_a^b gdx \leq \int_a^bt_sdx+\int_a^bs_gdx
+    \]
+    Utilizando que \(s=s_f+s_g, t=t_f+t_g\) y el <a href="./S2.html#Ejer:LinealidadEscalonadas">Ejercicio 2.15</a> (linealidad 
+    de la integral para las funciones escalonadas) podemos reescribir lo anterior como
     \begin{equation}\label{Eqn:Linealidad2}
-    \int_a^b s(x) dx \leq \int_a^b f(x)dx+ \int_a^b g(x)dx \leq \int_a^b t(x)dx.
+    \int_a^b  sdx \leq \int_a^b fdx+ \int_a^b gdx \leq \int_a^b tdx.
     \end{equation}
-</li> 
+</p> 
 
-<li>
-    De los incisos anteriores y usando la monotonía de la integral, demuestra
+<p>
+    Por otro lado usando que \(s\leq f+g\leq t\) la monotonía de la integral implica que:
     \begin{equation}\label{Eqn:Linealidad3}
-    \int_a^b s(x)dx \leq  \int_a^b (f(x)+g(x))dx \leq \int_a^b t(x)dx.
+    \int_a^b sdx \leq  \int_a^b (f+g)dx \leq \int_a^b tdx.
     \end{equation}
-</li> 
+</p> 
 
-<li>
-    Usando \eqref{Eqn:Linealidad1}, \eqref{Eqn:Linealidad2} y \eqref{Eqn:Linealidad3} demuestra
+<p>
+    Finalmente uando \eqref{Eqn:Linealidad2} y \eqref{Eqn:Linealidad3} obtenemos 
     $$
-    \left|  \int_a^b f(x)dx+ \int_a^b g(x)dx - \int_a^b(f(x)+g(x))dx \right|<  \varepsilon.
+    \left|  \int_a^b fdx+ \int_a^b gdx - \int_a^b( f+g)dx \right| 
+    \leq \int_a^b tdx - \int_a^b sdx < \varepsilon
     $$
-</li> 
+</p> 
 
-<li>
-    Ya que $\varepsilon$ es arbitrario, concluye del inciso anterior que:
+<p>
+    Ya que $\varepsilon$ es arbitrario concluimos
     $$
-    \int_a^b (f(x)+g(x))dx=\int_a^bf(x)dx+\int_a^bg(x)dx.   
+    \int_a^b (f+g)dx=\int_a^bfdx+\int_a^bgdx.   
     $$
-</li> 
+</p> 
 
-</ol> 
 
+</div>
+</div>
 </div>
 
 
@@ -680,10 +716,18 @@
 
     <p>
         Sea $f:[a,b] \to \mathbb{R}$ integrable y $\alpha\in \mathbb{R}$, 
-        $\alpha\ne 0$, un escalar fijo y arbitrario. Fija $\varepsilon >0$. 
+        $\alpha\ne 0$, un escalar fijo y arbitrario. 
+    </p>
+    <p>
+        Este ejercicio prueba que la función  \(\alpha f\) es integrable y que 
+        \[
+            \int_a^b \alpha f(x)dx=\alpha\int_a^bf(x)dx
+        \]
     </p>
 
-
+<p>
+    Fija $\varepsilon >0$. 
+</p>
 
 <ol>
     <li>
