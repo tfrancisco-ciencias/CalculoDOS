@@ -160,7 +160,7 @@
         La integral superior de $f$, en $[a,b]$, denotada $\overline{\int}_{a}^b f(x)dx$, 
         se define como
         $$
-        \overline{\int}_{a}^b f(x)dx \inf \left\{ \int_a^b t(x)dx \quad \big|  t:[a,b]\to 
+        \overline{\int}_{a}^b f(x)dx= \inf \left\{ \int_a^b t(x)dx \quad \big|  t:[a,b]\to 
             \mathbb{R},\textrm{es una función escalonada  y $f\leq t$}  \right\}
         $$
         
@@ -354,6 +354,45 @@
         $$\int_a^b f(x)dx\leq \int_a^bg(x)dx .$$
         Sugerencia: usa el ejercicio 
         <a href="./S2.html#Ejer:MonotoniaIntegralEscalonadas">Ejercicio 2.13</a>
+    </p>
+
+    <p>
+        Ya que las funciones \(f\) y \(g\) son integrables sabemos que 
+        \[
+            \int_a^b fdx = \underline{\int}_a^bfdx=\sup_{s\leq f}\left\{\int_a^b sdx \right\},
+        \]
+        \[
+           \int_a^b gdx = \overline{\int}_a^b gdx = \inf_{g \leq t}\left\{ \int_a^b tdx \right\}. 
+        \]
+    </p>
+    <p>
+        Por lo que es suficiente probar 
+        \[
+        \sup_{s\leq f}\left\{\int_a^b sdx \right\} \leq \inf_{g \leq t}\left\{ \int_a^b tdx \right\} 
+        \]
+        donde enfarizamos que tanto \(s\) como \(t\) se toman como  funciones escalonadas.
+    </p>
+    <p>
+        Notamos que si  \(s\leq f\) y \(g\leq t\) entonces \(s\leq t\) así que por 
+        el <a href="./S2.html#Ejer:MonotoniaIntegralEscalonadas">Ejercicio 2.13</a>
+        \[
+            \int_a^b sdx \leq \int_a^b tdx
+        \]
+        Pensando a \(t\) como fija y haciendo variar \(s\) sobre las funciones 
+        escalonadas que satisfacen \(s\leq f\) obtenemos 
+        \[
+            \sup_{s\leq f}\left\{ \int_a^b sdx \right\} \leq \int_a^b tdx. 
+        \]
+        Ahora, pensando a \(t\) como variando sobre las funciones acotadas 
+        que satisfacen \(g \leq t\) la desigualdad anterior nos dice que el número 
+        \(\sup_{s\leq f}\left\{ \int_a^b sdx \right\}\) es cota inferior del conjunto 
+        \[
+            \left\{ \int_a^b tdx: g \leq t\right\}
+        \]
+        De la definición del ínfimo concluimos 
+        \[
+        \sup_{s\leq f}\left\{\int_a^b sdx \right\} \leq \inf_{g \leq t}\left\{ \int_a^b tdx\right\}.
+        \]
     </p>
 </div>
 
