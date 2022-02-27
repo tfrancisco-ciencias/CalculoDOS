@@ -271,7 +271,7 @@
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
+    <h2 class="number-title" id="Ejer:IntegInfMenorIgualIntegSup"> Ejercicio</h2> 
     <p>
         Demuestra que, para cualquier función acotada, $f:[a,b]\to \mathbb{R}$ 
     $$\underline{\int}_a^b f(x)dx \leq \overline{\int}_a^bf(x)dx$$
@@ -356,6 +356,9 @@
         <a href="./S2.html#Ejer:MonotoniaIntegralEscalonadas">Ejercicio 2.13</a>
     </p>
 
+    <button class="respButton hvr-grow "> Demostración  </button>
+    <div class="resp-box flexbox">
+    <div >
     <p>
         Ya que las funciones \(f\) y \(g\) son integrables sabemos que 
         \[
@@ -376,7 +379,7 @@
         Notamos que si  \(s\leq f\) y \(g\leq t\) entonces \(s\leq t\) así que por 
         el <a href="./S2.html#Ejer:MonotoniaIntegralEscalonadas">Ejercicio 2.13</a>
         \[
-            \int_a^b sdx \leq \int_a^b tdx
+            \int_a^b sdx \leq \int_a^b tdx.
         \]
         Pensando a \(t\) como fija y haciendo variar \(s\) sobre las funciones 
         escalonadas que satisfacen \(s\leq f\) obtenemos 
@@ -387,13 +390,15 @@
         que satisfacen \(g \leq t\) la desigualdad anterior nos dice que el número 
         \(\sup_{s\leq f}\left\{ \int_a^b sdx \right\}\) es cota inferior del conjunto 
         \[
-            \left\{ \int_a^b tdx: g \leq t\right\}
+            \left\{ \int_a^b tdx: g \leq t\right\}.
         \]
         De la definición del ínfimo concluimos 
         \[
         \sup_{s\leq f}\left\{\int_a^b sdx \right\} \leq \inf_{g \leq t}\left\{ \int_a^b tdx\right\}.
         \]
     </p>
+    </div>
+    </div>
 </div>
 
 
@@ -475,16 +480,16 @@
     </p>
 
     <p>
-        Sea $f:[a,b]\to \mathbb{R}$ una función acotada. Si para toda $\varepsilon >0$ 
+        Sea $f:[a,b]\to \mathbb{R}$ una función acotada. \(f\) es integrable si y sólo si  
+        para toda $\varepsilon >0$ 
         existen $s,t:[a,b]\to \mathbb{R}$ funciones escalonadas con: 
         \begin{eqnarray*}
         s(x) \leq &f(x) & \leq t(x), \forall x\in [a,b], \\
         \int_a^b t(x)dx &-& \int_a^b s(x)dx < \varepsilon
         \end{eqnarray*}
-        entonces $f$ es integrable en $[a,b]$.
     </p>
     <p>
-        Sugerencia: proceder por contradicción; suponer que 
+        Sugerencia para el regreso: proceder por contradicción; suponer que 
         $$
         \underline{\int}_a^b f dx =: \alpha < \beta  := \overline{\int}_a^b fx
         $$
@@ -493,7 +498,67 @@
         \int_a^b t - \int_a^b s < \varepsilon
         $$
     </p>
-    
+    <button class="respButton hvr-grow "> Demostración  </button>
+    <div class="resp-box flexbox">
+    <div >
+    <p>
+        Denotemos 
+        \[
+        \alpha: = \underline{\int}_a^b f dx, \beta:= \overline{\int}_a^b fx
+        \]
+        Por el <a href="#Ejer:IntegInfMenorIgualIntegSup">Ejercicio 3.4</a> tenemos 
+        \(\alpha \leq \beta\).
+    </p>
+    <p>
+        \(\Leftarrow ] \)
+    </p>
+    <p>
+       
+        Si suponemos que \(f\) no es integrable entones \(\alpha < \beta\). 
+        Tomemos \(\varepsilon = \beta - \alpha\).
+    </p>
+    <p>
+       Usando las suposiciones del ejercicios aplicado a \(\frac{\varepsilon}{2}\)
+       existen funciones escalonadas \(s_0,t_0:[a,b]\to \mathbb{R}\) tal que 
+       \(s_0\leq f \leq t_0\) y con 
+       \[
+        \int_a^b t_0dx - \int_a^b s_0dx < \frac{\varepsilon}{2}
+       \]
+    </p>
+    <p>
+        Por la definición de \(\alpha\) y \(\beta\) obtenemos 
+        \[
+          \int_a^b s_0dx \leq \alpha < \beta \leq \int_a^bt_0dx  
+        \]
+        de lo que se sigue que 
+        \[
+            \varepsilon= \beta - \alpha \leq \int_a^b t_0 dx -\int_a^b s_0dx < \frac{\varepsilon}{2}
+        \]
+        una contradicción. Por lo tanto \(\alpha = \beta\) lo cual dice que 
+        \(f\) es integrable.
+    </p>
+    <p>
+        \(\Rightarrow ]\)
+    </p>
+    <p>
+        Supongamos que \(f\) es integrable. Esto implica que \(\alpha = \beta\).
+    </p>
+    <p>
+        Dado \(\varepsilon > 0\), usando las propiedades fundamentales del ínfirmo y 
+        del supremo aseguramos la existencia de \(s,t:[a,b]\to \mathbb{R}\) funciones 
+        escalonadas tales que 
+        \begin{eqnarray*}
+        \alpha- \frac{\varepsilon}{2}< \int_a^b sdx \leq \alpha \leq 
+        \beta \leq \int_a^b tdx < \beta+\frac{\varepsilon}{2}
+        \end{eqnarray*}
+        lo cual implica 
+        \[
+            \int_a^btdx - \int_a^b sdx < \beta+\frac{\varepsilon}{2}-(\alpha-\frac{\varepsilon}{2} )
+            = \beta-\alpha+ \varepsilon \leq \varepsilon.
+        \]
+    </p>
+</div>
+</div>
 </div>
 
 
