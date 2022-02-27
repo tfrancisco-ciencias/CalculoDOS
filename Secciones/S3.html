@@ -153,14 +153,14 @@
         La integral inferior de $f$ en 
         $[a,b]$, denotada $\underline{\int}_{a}^b f(x)dx$, se define como
         $$
-        \sup \left\{ \int_a^b s(x)dx \quad \big| s:[a,b]\to 
+        \underline{\int}_{a}^b f(x)dx=\sup \left\{ \int_a^b s(x)dx \quad \big| s:[a,b]\to 
             \mathbb{R}, \textrm{es una función escalonada y $s\leq f$}  
             \right\}
         $$
         La integral superior de $f$, en $[a,b]$, denotada $\overline{\int}_{a}^b f(x)dx$, 
         se define como
         $$
-        \inf \left\{ \int_a^b t(x)dx \quad \big|  t:[a,b]\to 
+        \overline{\int}_{a}^b f(x)dx \inf \left\{ \int_a^b t(x)dx \quad \big|  t:[a,b]\to 
             \mathbb{R},\textrm{es una función escalonada  y $f\leq t$}  \right\}
         $$
         
@@ -281,6 +281,49 @@
         En consecuencia, una función NO es integrable si 
         $\underline{\int}_a^b f(x)dx < \overline{\int}_a^bf(x)dx$
     </p>
+
+
+    <button class="respButton hvr-grow "> Demostración  </button>
+    <div class="resp-box flexbox">
+      <div >
+    <p>
+        Directamente de la <a href="#Def:Integral">Definición 3.2</a> debemos de probar 
+        \[
+        \sup_{s\leq f} \left\{ \int_a^b s(x)dx \right\}  
+            \leq 
+        \inf_{f\leq t} \left\{ \int_a^b t(x)dx  \right\}
+        \]
+        donde recordemos que tanto \(s\) como \(t\) son funciones escalonadas.
+    </p>
+    <p>
+        Pero si \(s\leq f \leq t\) se sigue que \(s\leq t\) y del 
+        <a href="./S2.html#Ejer:MonotoniaIntegralEscalonadas">Ejercicio 2.13</a> obtenemos 
+        \[
+            \int_a^b sdx \leq \int_a^b tdx 
+        \]
+        Pensando a la función  \(t\) como  fija y haciendo variar la \(s\) sobre todas 
+        las funciones escalonadas \(s\) con \(s\leq f\) obtenemos del a 
+        ecuación anterior que \(\int_a^b tdx\) es cota superior de 
+        \[
+            \left\{\int_a^bsdx: s\leq f \right\}
+        \]
+        por lo que 
+        \[
+            \underline{\int}_a^b fdx = \sup_{s\leq f}\left\{ \int_a^b sdx\right\} \leq \int_a^b tdx
+        \]
+        Ya que \(t\) es una función escalonada arbitraria que satisface \(f\leq t\) de la 
+        ecuación anterior resulta que \(\underline{\int}_a^bfdx\) es conta inferior del conjunto 
+        \[
+            \left\{ \int_a^b tdx: f\leq t \right\}
+        \]
+        por lo que concluimos 
+        \[
+            \underline{\int}_a^bfdx \leq \sup_{f\leq t}\left\{ \int_a^btdx \right\}=
+            \overline{\int}_a^b fdx.
+        \]
+    </p>
+    </div>
+    </div>
 </div>
 
 <div class="ejercicio-box">
