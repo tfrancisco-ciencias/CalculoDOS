@@ -86,13 +86,66 @@
 <div class="info-box">
     <h2 class="number-title"> Introducción </h2>
     <p>
-
+        En esta sección presentaremos la definición formal de la integral de Riemann. Pero antes 
+        recordemos el ejemplo de Arquímides para tratar de ver qué se recupera de éste.
+    </p>
+    <p>
+        En el ejemplo tenemos la parábola \(f:[0,b]\to \mathbb{R}\), \(f(x)=x^2\), y aproximamos 
+        el área bajo la curva mediante sumas inferiores y superiores sobre particiones 
+        homogeneas. Directamente calculamos que si \(P_n\) nota la partición homogenea 
+        en \([0,b]\) con longitud \(n\) entonces 
+        \begin{eqnarray*}
+        \underline{S}(f,P_n)=\frac{b^3}{n^3}\sum_{i=1}^{n-1}i^2 \\ 
+        \overline{S}(f,P_n)=\frac{b^3}{n^3}\sum_{i=1}^{n}i^2 
+        \end{eqnarray*}
+    </p>
+    <p>
+        Es más probamos que 
+        \[
+        \underline{S}(f,P_n)\leq \frac{b^3}{3} \leq \overline{S}(f,P_n)
+        \]
+        y que 
+        \[
+            \lim_{n\to \infty}\underline{S}(f,P_n)=\lim_{n\to \infty}\overline{S}(f,P_n)=\frac{b^3}{3}
+        \]
+        De lo cual concluimos que el área bajo la curva es \(\frac{b^3}{3}\) 
+        (ver <a href="./S1.html#Ejer:SumasSupInfParabloa">Ejercicio 1.6</a>).
+    </p>
+    <p>
+        Una crítica que surge con éste métodos es la siguiente: ¿ qué pasa si se usan otras 
+        particiones no necesariamente homogeneas? Es una pregunta muy válida pues al parecer
+        el uso de las particiones homogeneas facilita muchas cuentas y tal vez no captan toda la 
+        complejidad del problema (el diablo está en los detalles). Una de las grandes contribuciones 
+        de Riemann es su método para tratar de generalizar el ejemplo de Arquímides usando 
+        cualquier partición y para abarcar una cantidad más grande de funciones. 
+    </p>
+    <p>
+        Un aspecto técnico importante de las particiones homogeneas es que vienen con una manera 
+        sencilla de "hacerlas crecer" o comparar. Nos referimos a la longitud de la partición. Intuitivamente 
+        si la partición es homogenea y con longitud cada vez más grande las sumas inferiores y 
+        superiores aproximan cada vez mejor al área bajo la curva. Otra aspecto también importante 
+        es que este tipo de manera de comparar las particiones es compatible con el refinamiento 
+        de particiones, por ejemplo \(P_{2n}\) es más fina que \(P_n\) y en general 
+        \(P_{kn}\) es más fina que \(P_n\) para todo natural \(k \geq 1\). Por lo tanto la longitud
+        de una partición homogenea es una muy buena mandera de comparar particiones y tiene la 
+        ventaja de que es parecida al como comparamos naturales, tanto que los límites que se 
+        toman son cuando la longitud de la partición tiende a infinito. 
+    </p>
+    <p>
+        Desafortunadamente para particiones en general se pierde esta manera directa de compararlas
+        usando longitud pues para particiones homogeneas longitud más grande no se traduce en 
+        mejor aproximación.
     </p>
 
+    <p>
+        Hay varias formas de solucionar éste problema y la que presentamos recurre al uso de 
+        ínfimos  y supremos. El método también tiene ventaja de que captura la información de 
+        TODAS las psibles particiones que ayudan a aproximar .
+    </p>
 </div>
 
 <div class="definicion-box">
-    <h2 class="number-title"> Definición </h2>
+    <h2 class="number-title" id="Def:Integral"> Definición </h2>
     <p>
         Sea $f:[a,b]\to \mathbb{R}$ una función acotada. 
     </p>
@@ -124,12 +177,34 @@
         \]
     </p>
     <p>
-        Nota.
+        Notas.
     </p>
-    <p>
-        Se pide que $f$ sea acotada para que existan funciones escalonadas 
-        cuya gráfica este por arriba de la de $f$ y otras que estén por abajo.
-    </p>
+    <ol>
+        <li>
+            Se pide que $f$ sea acotada para que existan funciones escalonadas 
+            cuya gráfica este por arriba de la de $f$ y otras que estén por abajo.
+        </li>
+        <li>
+            Dada \(P_n=\{x_0< \cdots < x_n \}\)  una partición homogenea podemos asociarle dos 
+            funciones escalonadas 
+            \begin{eqnarray*}
+            \underline{s}_n(s)=\sum_{i=1}^n m_i\chi_{[x_{i-1},x_i)}\\
+            \overline{s}_n(s)=\sum_{i=1}^n M_i\chi_{[x_{i-1},x_i)}
+            \end{eqnarray*}
+            donde \(m_i=\inf_{x\in (x_{i-1},x_i)}\{f(x)\} , M_i=\sup_{x\in (x_{i-1},x_i)}\{f(x)\}\).
+            Notamos que \(\underline{s}_n \leq f \leq \overline{s}_n\) y por la 
+            <a href="./S2.html#Def:IntegralEscalonadas">Definición 2.2</a> tenemos 
+            \begin{eqnarray*}
+            \int_a^b \underline{s}_n(x)dx=\underline{S}(f,P_n) \\
+            \int_a^b \overline{s}_n(x)dx=\overline{S}(f,P_n)
+            \end{eqnarray*}
+            Por lo que 
+            \[
+                \underline{S}(f,P_n)\leq \int_a^b f(x)dx \leq \overline{S}(f,P_n)
+            \]
+        </li>
+    </ol>
+    
 </div>
 
 
@@ -141,14 +216,57 @@
         Demuestra que toda función escalonada es integrable. 
     </p>
     <p>
-        Es más, si $s:[a,b] \to \mathbb{R}$ es escalonada, 
+        Es más, si fijamos una función escalonada $s_0:[a,b] \to \mathbb{R}$, 
         con partición $P=\{x_i\}_{i=1}^n$,  y con $s=s_i$ en el intervalo $(x_{i-1}, x_i)$, 
-        demostrar que
+        prueba que 
         $$
         \underline{\int}_a^b s(x)dx=\overline{\int}_a^b s(x)dx=\sum_{i=1}^n s_j(x_i-x_{i-1}).
         $$
     </p>
-    
+    <button class="respButton hvr-grow "> Demostración  </button>
+    <div class="resp-box flexbox">
+      <div >
+        <p>
+            Usando directamente la <a href="#Def:Integral">Definición 3.2</a> debemos de 
+            probar 
+            \begin{eqnarray}
+            \sup_{s \leq s_0} \left\{\int_a^b s(x)dx \right\} =\sum_{i=1}^ns_i(x_i-x_{i-1}) \label{EqnAux1Ejer3-3} 
+            \\
+            \inf_{s_0 \leq t} \left\{\int_a^b t(x)dx \right\} =\sum_{i=1}^ns_i(x_i-x_{i-1})\label{EqnAux2Ejer3-3}
+            \end{eqnarray}
+            donde las \(s\) y \(t\) que aparecen en el supremo e ínfirmo respectivamente son funciones 
+            escalonadas.
+        </p>
+        <p>
+            Para \eqref{EqnAux1Ejer3-3}.
+        </p> 
+        <p> \(\geq ] \)     ya que \(s_0\) es escalonada y \(s_0 \leq s_0\) se sigue 
+            directamente 
+            \[
+            \sup_{s \leq s_0} \left\{\int_a^b s(x)dx \right\} \geq \int_a^b s_0dx = \sum_{i=1}^ns_i(x_i-x_{i-1}).\\
+            \]
+         </p>
+         <p>
+             \(\leq ]\) Si  \(s\leq s_0\) y \(s\) es escalonada entonces aplicando el 
+             <a href="./S2.html#Ejer:MonotoniaIntegralEscalonadas">Ejercicio 2.13</a>
+             \[
+             \int_a^b sdx \leq \int_a^b s_0dx =\sum_{i=1}^n s_i(x_i-x_{i-1}).
+             \]
+             Por lo que \(\sum_{i=1}^ns_i(x_i-x_{i-1})\) es una cota superior del contjunto
+             \[
+                \left\{\int_a^b sdx: s\leq s_0 \right\}
+             \]
+             de lo que se concluye 
+             \[
+             \sup_{s \leq s_0} \left\{\int_a^b s(x)dx \right\}\leq \sum_{i=1}^n s_i(x_i-x_{i-1}).
+             \]
+         </p>
+         <p>
+            La prueba de \eqref{EqnAux2Ejer3-3} es similar.
+        </p>           
+      </div>
+    </div>
+     
 </div> 
 
 
