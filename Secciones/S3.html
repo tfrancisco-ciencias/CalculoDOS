@@ -512,6 +512,97 @@
         $$
     </p>
     
+    <button class="respButton hvr-grow "> Demostración  </button>
+    <div class="resp-box flexbox">
+    <div >
+    <p>
+        Empecemos por definir los siguientes conjuntos, 
+        \begin{equation*}
+        \begin{split}
+        A & := \left\lbrace \int_a^bs(x)dx \hspace{4pt} \vert \hspace{4pt} 
+        s: [a, b] \rightarrow \mathbb{R}, \text{ es una función escalonada y } s \leq f \right\rbrace \\
+        B & := \left\lbrace \int_a^bt(x)dx \hspace{4pt}  \vert \hspace{4pt} 
+        t: [a, b] \rightarrow \mathbb{R}, \text{ es una función escalonada y 
+        } f \leq t \right\rbrace.
+        \end{split}
+        \end{equation*}
+        
+     
+        La estrategia a seguir es demostrar que \(m(b-a)\) es cota 
+        inferior del conjunto \(B\) y \(M(b-a)\) es cota superior 
+        del conjunto \(A\). 
+    </p>
+    
+    <p>
+        Empecemos por demostrar que \(M(b-a)\) es cota superior del 
+        conjunto \(A\). 
+    </p>
+    <p>
+        Sea \(s: [a, b] \rightarrow \mathbb{R}\) una función escalonada 
+        arbitraria tal que \(s \leq f\). Afirmamos que 
+        \(\int_a^bs(x)dx \leq M(b-a)\). 
+    </p>
+    
+    <p>
+        Consideremos \(g: [a, b] \rightarrow \mathbb{R}\) dada por 
+        \(g(x) = M\) con \(x\in [a,b]\), es claro que \(g\) es una 
+        función escalonada. Por hipótesis tenemos que \(f(x) \leq M\) 
+        para todo \( x \in [a, b]\), es decir \(f\leq g\), y dado que 
+        \(s \leq f\) obtenemos \(s \leq g\). Entonces por 
+        el <a href="./S2.html#Ejer:MonotoniaIntegralEscalonadas">Ejercicio 2.13</a>
+        \[\int_a^bs(x) dx \leq \int_a^bg(x)dx = M(b-a).\]
+    </p>
+    
+    <p>
+        Por lo tanto \(\int_a^bs(x)dx \leq M(b-a)\). Como \(s\) 
+        fue arbitraría, se tiene que \(M(b-a)\) es una cota superior 
+        de \(A\). Por lo tanto, 
+        \(\int_{\underline{a}}^bf(x)dx = \sup A \leq M(b-a)\), 
+        es decir 
+        \[\int_{\underline{a}}^bf(x)dx \leq M(b-a).\]
+    </p>
+    <p>
+        Lo siguiente es demostrar que \(m(b-a)\) es cota 
+        inferior del conjunto \(B\).
+    </p>
+    
+    <p>
+        Sea \(t: [a, b] \rightarrow \mathbb{R}\) una función 
+        escalonada arbitraria tal que \(f \leq t\). Afirmamos 
+        que \(m(b-a) \leq\int_a^bt(x)dx\). 
+    </p>
+    
+    <p>
+        Consideremos \(h: [a, b] \rightarrow \mathbb{R}\) dada por 
+        \(h(x) = m\) con \(x\in [a,b]\), es claro que \(h\) es una 
+        función escalonada. Por hipótesis tenemos que 
+        \(m \leq f(x)\) para todo \( x \in [a, b]\), es decir 
+        \(h \leq f\), y dado que \(f \leq t\) obtenemos \(h \leq t\). 
+        Entonces por el <a href="./S2.html#Ejer:MonotoniaIntegralEscalonadas">Ejercicio 2.13</a>
+        \[m(b-a) = \int_a^bh(x) dx \leq \int_a^bt(x)dx .\]
+    </p>
+    <p>
+        Por lo tanto \(m(b-a) \leq\int_a^bt(x)dx\). Como \(t\) fue 
+        arbitraría, se tiene que \(m(b-a)\) es una cota inferior de \(B\). 
+        Por lo tanto, 
+        \(m(b-a)\leq \inf B = \int_a^{\overline{b}}f(x)dx \), 
+        es decir 
+        \[m(b-a) \leq \int_a^{\overline{b}}f(x)dx.\]
+    </p>
+    <p>
+        Por lo tanto 
+        \[ m(b-a) \leq \int_a^{\overline{b}}f(x)dx 
+        \leq \int_{\underline{a}}^bf(x)dx \leq M(b-a) \]
+    </p>
+    <p>
+        Como \(f\) es integrable, 
+        \(\int_a^bf(x)dx = \int_a^{\overline{b}}f(x)dx = 
+        \int_{\underline{a}}^bf(x)dx\).  Por lo tanto 
+        \[ m(b-a) \leq \int_a^b f(x) dx \leq M(b-a) .\]
+    </p>
+    </div>
+    </div>
+    
  </div>   
 
 
