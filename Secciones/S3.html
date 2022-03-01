@@ -341,6 +341,104 @@
 
         Demuestra que $D$ no es integrable.
     </p>
+    <button class="respButton hvr-grow "> Demostración  </button>
+    <div class="resp-box flexbox">
+      <div >
+    <p>
+        Primero demostremos que \(\int_{\underline{0}}^1D(x)dx \leq 0\).  
+        Basta demostrar que \(0\) es una cota superior del conjunto 
+        \[A:= \left\lbrace \int_0^1s(x)dx \hspace{4pt}  
+        \vert \hspace{4pt} s: [0, 1] \rightarrow \mathbb{R}, 
+        \text{ es una función escalonada y } s 
+        \leq D \right\rbrace.\]
+    </p>
+    <p>
+        Sea \(s: [0, 1] \rightarrow \mathbb{R}\) una función 
+        escalonada tal que \(s \leq D\) y sea 
+        \(\textbf{P} = \lbrace x_0=0 < x_1 < \cdot 
+        \cdot \cdot < x_n = 1 \rbrace\) 
+        la partición asociada a \(s\). 
+        Afirmamos que \(\int_0^1s(x)dx \leq 0\). 
+    </p>
+    <p>
+        Como  \(s \leq D\), esto implica que \(s(x) \leq D(x) \) 
+        para toda \(x \in (x_{i-1}, x_i)\) con \(i =1, . . ., n \). 
+        Sea \( j \in \lbrace 1, . . . , n \rbrace \) arbitraria, por 
+        la densidad de \(\mathbb{Q}\) existe 
+        \(z_0 \in  (x_{j-1}, x_j) \cap \mathbb{Q}\), entonces 
+        \( s(z_0)\leq D(z_0) = 0\), es decir \(s(z_0)\leq  0\), 
+        y como \(s\) es constante en \((x_{j-1}, x_j)\) implica 
+        que \( s(x) = s(z_0) \leq 0\) para cada \(x \in (x_{j-1}, x_j)\). 
+        Como \(j\) fue arbitraria, se tiene que \( s(x) \leq 0\) para 
+        cada \(x \in (x_{i-1}, x_i)\) con \(i =1, . . ., n \). 
+    </p>
+
+    <p>
+        Por otro lado, si consideramos \(h : [0, 1] \rightarrow \mathbb{R}\) la función 
+        constante cero, \(h(x) = 0\) para cada \(x \in [0,1]\), 
+        tenemos que \(s \leq h\) excepto por una cantidad finita de puntos 
+        y es claro que \(h \) es una función escalonada, entonces por el 
+        <a href="./S2.html#Ejer:MonotoniaIntegralEscalonadas">Ejercicio 2.13</a>, \[\int_0^1s(x) dx \leq \int_0^1h(x)dx = 0.\]
+
+        Es decir, \(\int_0^1s(x)dx \leq 0\).  Como \(s\) fue arbitraria, 
+        se tiene que \(0\) es una cota superior de \(A\). Por lo tanto, 
+        \( \int_{\underline{0}}^1D(x)dx = \sup A \leq 0\), es decir 
+        \(\int_{\underline{0}}^1D(x)dx \leq 0\).
+    </p>
+
+    <p>
+        Lo siguiente es demostrar que 
+        \(1 \leq \int_0^{\overline{1}}D(x) dx\).  
+        Basta demostrar que \(1\) es una cota inferior del 
+        conjunto 
+        \[B:= \left\lbrace \int_0^1t(x)dx \hspace{4pt}  
+        \vert \hspace{4pt} t: [0, 1] \rightarrow \mathbb{R}, 
+        \text{ es una función escalonada y } D \leq t \right\rbrace.\] 
+    </p>
+    <p>
+        Sea \(t: [0, 1] \rightarrow \mathbb{R}\) una función escalonada 
+        tal que \(D \leq t\) y sea 
+        \(\textbf{Q} = \lbrace x_0=0 < x_1 < \cdot \cdot \cdot < x_n 
+        = 1 \rbrace\) 
+        la partición asociada a \(t\). 
+        Afirmamos que \(1 \leq \int_0^1t(x)dx\). 
+    </p>
+    <p>
+        Como  \(D \leq t\), esto implica que \(D(x) \leq t(x) \) para 
+        toda \(x \in (x_{i-1}, x_i)\) con \(i =1, . . ., n \). 
+        Sea \( j \in \lbrace 1, . . . , n \rbrace \) arbitraria, por 
+        la densidad de \(\mathbb{Q}\) existe 
+        \(z_0 \in  (x_{j-1}, x_j) \cap \mathbb{Q}\), entonces 
+        \( 1 = D(z_0) \leq t(z_0)\), es decir \(1 \leq t(z_0)\), 
+        y como \(t\) es constante en \((x_{j-1}, x_j)\) implica que 
+        \( 1 \leq t(x) = t(z_0)\) para cada \(x \in (x_{j-1}, x_j)\). 
+        Como \(j\) fue arbitraria, se tiene que \( 1 \leq t(x)\) para 
+        cada \(x \in (x_{i-1}, x_i)\) con \(i =1, . . ., n \). 
+    </p>
+
+    <p>
+        Sea \(g : [0, 1] \rightarrow \mathbb{R}\) la función constante \(1\), tenemos que \(g \leq t\) 
+        excepto por una cantidad finita de puntos y es claro que 
+        \(g \) es una función escalonada, entonces por el 
+        <a href="./S2.html#Ejer:MonotoniaIntegralEscalonadas">Ejercicio 2.13</a>, 
+        \[1 = \int_0^1g(x) dx \leq \int_0^1t(x)dx .\]
+    </p>
+
+    <p>
+        Es decir, \(1 \leq \int_0^1s(x)dx \).  Como \(t\) fue arbitraria, se tiene que \(1\) 
+        es cota inferior de \(B\). Por lo tanto,  
+        \( 1\leq \inf B = \int_0^{\overline{1}}D(x) dx\), 
+        es decir \(1 \leq \int_0^{\overline{1}}D(x) dx\).
+    </p>
+    <p>
+        Por lo tanto, \(\int_{\underline{0}}^1D(x)dx  <  \int_0^{\overline{1}}D(x) dx\). 
+        Con esto concluimos que \(D\) no es integrable.
+    </p>
+</div>
+</div>
+
+
+
 </div>
 
 
