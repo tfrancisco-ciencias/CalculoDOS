@@ -502,7 +502,7 @@
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
+    <h2 class="number-title" id="Ejer:CotasFacilesIntegral"> Ejercicio</h2> 
     <p>
         Sea $f:[a,b]\to \mathbb{R}$ integrable. Supon que existen 
         constantes $m$ y $M$ tales que 
@@ -667,6 +667,66 @@
             \frac{\sqrt{3}\pi}{24}$.
         </li> 
     </ol>
+
+    <button class="respButton hvr-grow "> Solución inciso 2  </button>
+    <div class="resp-box flexbox">
+    <div >
+    <p>
+        Demostrar
+        \[ \int_0^4x^2 -4x + 4 dx \geq 0.\]
+    </p>
+
+    <p>
+        Suponiendo que la función \(x^2 -4x + 4 dx \) es integrable en 
+        \([0, 4]\), tenemos que 
+        \(x^2 -4x + 4 = (x-2)^2 \geq 0 \) para toda 
+        \(x \in [0, 4]\), entonces por el 
+        <a href="#Ejer:CotasFacilesIntegral">Ejercicio 3.7</a> 
+        tenemos que 
+        \[ 0(4 - 0)  \leq \int_0^4x^2 -4x + 4 dx.\]
+        Por lo tanto, \( \int_0^4x^2 -4x + 4 dx \geq 0\).
+    </p>
+    </div>
+    </div>
+    <button class="respButton hvr-grow "> Solución inciso 4  </button>
+    <div class="resp-box flexbox">
+    <div >
+    <p>
+        Demostrar
+        \[ \frac{\sqrt{2}\pi}{24} 
+        \leq \int_{\pi/6}^{\pi/4}\cos(x)dx \leq \frac{\sqrt{3}\pi}{24}.
+        \]
+    </p>
+    <p>
+        Sea \(g: [\frac{\pi}{6}, \frac{\pi}{4}] \rightarrow \mathbb{R} \) 
+        dada por \(g(x) = \cos(x)\) con \(x \in [\frac{\pi}{6}, \frac{\pi}{4}]\). 
+        Notemos que \(g\) es una función decreciente y continua en 
+        \([\frac{\pi}{6}, \frac{\pi}{4}]\). Por lo 
+        que \(g(\frac{\pi}{4}) \leq g(x) 
+        \leq g(\frac{\pi}{6})\) para toda \(x \in [\frac{\pi}{6}, 
+        \frac{\pi}{4}]\) donde \(g(\frac{\pi}{4}) = \cos(\frac{\pi}{4}) 
+        = \frac{\sqrt{2}}{2}\) y \(g(\frac{\pi}{6}) = \cos (\frac{\pi}{6}) 
+        = \frac{\sqrt{3}}{2}\), lo cual implica \(\frac{\sqrt{2}}{2} \leq g(x) 
+        \leq  \frac{\sqrt{3}}{2}\) para toda \(x \in [\frac{\pi}{6}, 
+        \frac{\pi}{4}]\). Entonces por el 
+        <a href="#Ejer:CotasFacilesIntegral">Ejercicio 3.7</a>
+        \[ \frac{\sqrt{2}}{2}\left(\frac{\pi}{4} - \frac{\pi}{6}\right) 
+        \leq  \int_{\pi/6}^{\pi/4}\cos(x)dx 
+        \leq \frac{\sqrt{3}}{2}\left(\frac{\pi}{4} - \frac{\pi}{6}\right) .\]
+    </p>
+    <p>
+        Y dado que \(\frac{\sqrt{2}}{2}\left(\frac{\pi}{4} 
+        - \frac{\pi}{6}\right) = \frac{\sqrt{2}\pi}{24} \) y 
+        \(  \frac{\sqrt{3}}{2}\left(\frac{\pi}{4} - \frac{\pi}{6}\right) 
+        = \frac{\sqrt{3}\pi}{24}\). 
+        Por lo tanto 
+        \[\frac{\sqrt{2}\pi}{24} \leq \int_{\pi/6}^{\pi/4}\cos(x)dx 
+        \leq \frac{\sqrt{3}\pi}{24} .\]
+    </p>
+
+    </div>
+    </div>
+
 </div>
 
 
