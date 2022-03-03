@@ -502,7 +502,7 @@
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
+    <h2 class="number-title" id="Ejer:CotasFacilesIntegral"> Ejercicio</h2> 
     <p>
         Sea $f:[a,b]\to \mathbb{R}$ integrable. Supon que existen 
         constantes $m$ y $M$ tales que 
@@ -667,6 +667,66 @@
             \frac{\sqrt{3}\pi}{24}$.
         </li> 
     </ol>
+
+    <button class="respButton hvr-grow "> Solución inciso 2  </button>
+    <div class="resp-box flexbox">
+    <div >
+    <p>
+        Demostrar
+        \[ \int_0^4x^2 -4x + 4 dx \geq 0.\]
+    </p>
+
+    <p>
+        Suponiendo que la función \(x^2 -4x + 4 dx \) es integrable en 
+        \([0, 4]\), tenemos que 
+        \(x^2 -4x + 4 = (x-2)^2 \geq 0 \) para toda 
+        \(x \in [0, 4]\), entonces por el 
+        <a href="#Ejer:CotasFacilesIntegral">Ejercicio 3.7</a> 
+        tenemos que 
+        \[ 0(4 - 0)  \leq \int_0^4x^2 -4x + 4 dx.\]
+        Por lo tanto, \( \int_0^4x^2 -4x + 4 dx \geq 0\).
+    </p>
+    </div>
+    </div>
+    <button class="respButton hvr-grow "> Solución inciso 4  </button>
+    <div class="resp-box flexbox">
+    <div >
+    <p>
+        Demostrar
+        \[ \frac{\sqrt{2}\pi}{24} 
+        \leq \int_{\pi/6}^{\pi/4}\cos(x)dx \leq \frac{\sqrt{3}\pi}{24}.
+        \]
+    </p>
+    <p>
+        Sea \(g: [\frac{\pi}{6}, \frac{\pi}{4}] \rightarrow \mathbb{R} \) 
+        dada por \(g(x) = \cos(x)\) con \(x \in [\frac{\pi}{6}, \frac{\pi}{4}]\). 
+        Notemos que \(g\) es una función decreciente y continua en 
+        \([\frac{\pi}{6}, \frac{\pi}{4}]\). Por lo 
+        que \(g(\frac{\pi}{4}) \leq g(x) 
+        \leq g(\frac{\pi}{6})\) para toda \(x \in [\frac{\pi}{6}, 
+        \frac{\pi}{4}]\) donde \(g(\frac{\pi}{4}) = \cos(\frac{\pi}{4}) 
+        = \frac{\sqrt{2}}{2}\) y \(g(\frac{\pi}{6}) = \cos (\frac{\pi}{6}) 
+        = \frac{\sqrt{3}}{2}\), lo cual implica \(\frac{\sqrt{2}}{2} \leq g(x) 
+        \leq  \frac{\sqrt{3}}{2}\) para toda \(x \in [\frac{\pi}{6}, 
+        \frac{\pi}{4}]\). Entonces por el 
+        <a href="#Ejer:CotasFacilesIntegral">Ejercicio 3.7</a>
+        \[ \frac{\sqrt{2}}{2}\left(\frac{\pi}{4} - \frac{\pi}{6}\right) 
+        \leq  \int_{\pi/6}^{\pi/4}\cos(x)dx 
+        \leq \frac{\sqrt{3}}{2}\left(\frac{\pi}{4} - \frac{\pi}{6}\right) .\]
+    </p>
+    <p>
+        Y dado que \(\frac{\sqrt{2}}{2}\left(\frac{\pi}{4} 
+        - \frac{\pi}{6}\right) = \frac{\sqrt{2}\pi}{24} \) y 
+        \(  \frac{\sqrt{3}}{2}\left(\frac{\pi}{4} - \frac{\pi}{6}\right) 
+        = \frac{\sqrt{3}\pi}{24}\). 
+        Por lo tanto 
+        \[\frac{\sqrt{2}\pi}{24} \leq \int_{\pi/6}^{\pi/4}\cos(x)dx 
+        \leq \frac{\sqrt{3}\pi}{24} .\]
+    </p>
+
+    </div>
+    </div>
+
 </div>
 
 
@@ -775,7 +835,7 @@
             tales que
             \begin{eqnarray*}
                 s_n(x)\leq f(x)\leq t_n(x), \forall x\in [0,b],\\
-                \int_0^b t_n(x)dx - \int_0^b s_n(x)dx  \leq \frac{b^3}{n^3},\\
+                \int_0^b t_n(x)dx - \int_0^b s_n(x)dx  \leq \frac{b^3}{n},\\
                 \int_0^b s_n(x)dx \leq \frac{b^3}{3} \leq \int_0^b t_n(x)dx
             \end{eqnarray*}
             Sugerencia: usa el <a href="./S1.html#Ejer:SumasSupInfParabloa">Ejercicio 1.6</a>
@@ -1046,6 +1106,113 @@
             \int_0^b x^3dx = \frac{b^4}{4}
         \end{eqnarray*}
     </p>
+    <button class="respButton hvr-grow "> Solución  </button>
+    <div class="resp-box flexbox">
+    <div>
+    <p>
+        Inciso 1.
+    </p>
+    <p>
+        Sea \(y \in \mathbb{R}\) arbitrario. Definimos 
+        \(f: [0,2] \rightarrow \mathbb{R}\) dada por 
+        \(f(x) = F(x,y)\). 
+        Por el <a href="#Ejer:LinealidadIntegral">Teorema 3.15</a> tenemos que 
+        \(f\) es integrable ya que es la suma finita de 
+        funciones integrables y, 
+        \begin{equation*}
+        \begin{split}
+        \int_0^2f(x) dx & = \int_0^2(1 + x + xy + x^2y^3) dx 
+        = \int_0^21 dx + \int_0^2x dx + \int_0^2 xy dx 
+        + \int_0^2x^2y^3 dx  \\
+        & = \int_0^21 dx + \int_0^2x dx + y\int_0^2 x dx 
+        + y^3\int_0^2x^2 dx \\
+        & = 1(2-0) + \frac{2^2}{2} + y\left(\frac{2^2}{2}\right) 
+        + y^3\left(\frac{2^3}{3}\right) \\
+        & = 4 + 2y + \frac{8}{3}y^3
+        \end{split}
+        \end{equation*}
+    </p>
+    <p>
+        Como  \(\int_0^2F(x,y)dx = \int_0^2f(x) dx. \) 
+        Por lo tanto, \[ \int_0^2F(x,y)dx = 4 + 2y + \frac{8}{3}y^3.\]   
+    </p>
+    <p>
+        Inciso 2.
+    </p>
+    <p>
+        Sea \(x \in \mathbb{R}\) arbitrario. Definimos 
+        \(g: [0,2] \rightarrow \mathbb{R}\) dada por 
+        \(g(y) = F(x,y)\). Por el <a href="#Ejer:LinealidadIntegral">Teorema 3.15</a>
+        tenemos que \(g\) es integrable y, 
+        \begin{equation*}
+        \begin{split}
+        \int_0^2g(y) dy & = \int_0^2(1 + x + xy + x^2y^3) dy 
+        = \int_0^21 dy + \int_0^2x dy + \int_0^2 xy dy 
+        + \int_0^2x^2y^3 dy  \\
+        & = \int_0^21 dy + \int_0^2x dy + x\int_0^2 y dy 
+        + x^2\int_0^2  y^3dy \\
+        & = 1(2-0) + x(2 -0) + x\left(\frac{2^2}{2}\right) 
+        + x^2\left(\frac{2^4}{4}\right) \\
+        & = 2 + 4x + 4x^2
+        \end{split}
+        \end{equation*}
+    </p>
+    <p>
+        Como  \(\int_0^2F(x,y)dy = \int_0^2g(y) dy. \) 
+        Por lo tanto, \[ \int_0^2F(x,y)dy =  2 + 4x + 4x^2.\]
+    </p>
+    <p>
+        Inciso 3.
+    </p>
+
+    <p> 
+        Sea \(y \in \mathbb{R}\) arbitrario. Definimos 
+        \(h: [0,5] \rightarrow \mathbb{R}\) dada por 
+        \(h(x) = F(x,y)\). Por el <a href="#Ejer:LinealidadIntegral">Teorema 3.15</a>
+        tenemos que \(h\) es integrable  y, 
+        \begin{equation*}
+        \begin{split}
+        \int_0^5h(x) dx & = \int_0^5(1 + x + xy + x^2y^3) dx \\
+        & = \int_0^51 dx + \int_0^5x dx + y\int_0^5 x dx 
+        + y^3\int_0^5x^2 dx \\
+        & = 1(5-0) + \frac{5^2}{2} + y\left(\frac{5^2}{2}\right) 
+        + y^3\left(\frac{5^3}{3}\right) \\
+        & = \frac{35}{2} + \frac{25}{2}y + \frac{125}{2}y^3
+        \end{split}
+        \end{equation*}
+    </p>
+    <p>
+        Como  \(\int_0^5F(x,y)dx = \int_0^5h(x) dx. \) Por 
+        lo tanto, \[ \int_0^5F(x,y)dx = \frac{35}{2} + \frac{25}{2}y 
+        + \frac{125}{2}y^3.\]
+    </p>
+
+
+    <p>
+        Inciso 4.
+    </p>
+    <p>
+        Sea \(x \in \mathbb{R}\) arbitrario. Definimos 
+        \(k: [0,7] \rightarrow \mathbb{R}\) dada por 
+        \(k(y) = F(x,y)\). Por el <a href="#Ejer:LinealidadIntegral">Teorema 3.15</a>
+        tenemos que \(k\) es integrable  y, 
+        \begin{equation*}
+        \begin{split}
+        \int_0^7k(y) dy & = \int_0^7(1 + x + xy + x^2y^3) dy \\
+        & = \int_0^71 dy + \int_0^7x dy + x\int_0^7 y dy + x^2\int_0^7  y^3dy \\
+        & = 1(7-0) + x(7 -0) + x\left(\frac{7^2}{2}\right) + x^2\left(\frac{7^4}{4}\right) \\
+        & = 7 + \frac{63}{2}x + \frac{2401}{4}x^2
+        \end{split}
+        \end{equation*}
+    </p>
+    <p>
+        Como  \(\int_0^7F(x,y)dy = \int_0^7k(y) dy. \) 
+        Por lo tanto, \[ \int_0^7F(x,y)dy =  7 + \frac{63}{2}x 
+        + \frac{2401}{4}x^2.\]
+    </p>
+    </div>
+    </div>
+
 </div>
 
 
@@ -1172,7 +1339,7 @@
 </div>   
 
 <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
+    <h2 class="number-title" id="Ejer:CoroLinealidadIntervalos"> Ejercicio</h2> 
     <p>
         Sea $f:[a,b] \to \mathbb{R}$ integrable. Sea $c\in (a,b)$ fijo y arbitrario. Demuestra
         $$
@@ -1232,6 +1399,82 @@
             \int_0^b x^3dx = \frac{b^4}{4}
         \end{eqnarray*}
     </p>
+
+    <button class="respButton hvr-grow "> Solución 1,2,3.  </button>
+    <div class="resp-box flexbox">
+    <div >        
+    <p>
+        Inciso 1.
+    </p>
+    <p>
+        Sea \(y \in \mathbb{R}\) arbitrario. Definimos 
+        \(f: [0,1] \rightarrow \mathbb{R}\) dada por \(f(x) 
+        = F(x,y)\). Por el 
+        <a href="#Ejer:LinealidadIntegral">Teorema 3.15</a> 
+        tenemos que \(f\) es integrable  y, 
+        \begin{equation*}
+        \begin{split}
+        \int_0^1f(x) dx & = \int_0^1(2 - x + 3x^2y + x^2y^3) dx \\
+        & = \int_0^12 dx - \int_0^1x dx + \int_0^1 3x^2y dx 
+        + \int_0^1x^2y^3 dx  \\
+        & = \int_0^12 dx - \int_0^1x dx + 3y\int_0^1 x^2 dx 
+        + y^3\int_0^1x^2 dx \\
+        & = 2(1-0) -\frac{1^2}{2} + 3y\left(\frac{1^3}{3}\right) 
+        + y^3\left(\frac{1^3}{3}\right) \\
+        & = \frac{3}{2} + y + \frac{y^3}{3}
+        \end{split}
+        \end{equation*}
+        Como  \(\int_0^1F(x,y)dx = \int_0^1f(x) dx. \) 
+        Por lo tanto, \[ \int_0^1F(x,y)dx =  \frac{3}{2} + y 
+        + \frac{y^3}{3}.\]
+    </p>
+
+
+    <p>
+        Inciso 2.
+    </p>
+    <p>
+        Sea \(y \in \mathbb{R}\) arbitrario. Definimos 
+        \(g: [0,2] \rightarrow \mathbb{R}\) dada por \(g(x) 
+        = F(x,y)\). Por el  <a href="#Ejer:LinealidadIntegral">Teorema 3.15</a> tenemos que 
+        \(g\) es integrable  y, 
+        \begin{equation*}
+        \begin{split}
+        \int_0^2g(x) dx & = \int_0^2(2 - x + 3x^2y + x^2y^3) dx  \\
+        & = \int_0^22 dx - \int_0^2x dx + 3y\int_0^2 x^2 dx 
+        + y^3\int_0^2x^2 dx \\
+        & = 2(2-0) -\frac{2^2}{2} + 3y\left(\frac{2^3}{3}\right) 
+        + y^3\left(\frac{2^3}{3}\right) \\
+        & = 2  + 8y +\frac{8}{3}y^3
+        \end{split}
+        \end{equation*}
+        
+
+        Como  \(\int_0^2F(x,y)dx = \int_0^2g(x) dx. \) 
+        Por lo tanto, \[ \int_0^2F(x,y)dx = 2  + 8y +\frac{8}{3}y^3.\]
+
+    </p>
+
+
+    <p>
+        Inciso 3.
+    </p>
+    <p>
+        Por el <a href="#Ejer:CoroLinealidadIntervalos">Ejercicio 3.20</a> 
+        tenemos que
+        \begin{equation*}
+        \begin{split}
+        \int_1^2F(x,y)dx & = \int_0^2F(x,y)dx -\int_0^1F(x,y)dx \\
+        & = \left(2  + 8y +\frac{8}{3}y^3\right) - \left( \frac{3}{2} 
+        + y + \frac{y^3}{3}\right)\\
+        & = \frac{1}{2} +7y + \frac{7}{3}y^3
+        \end{split}
+        \end{equation*}
+        Por lo tanto, \[ \int_1^2F(x,y)dx = \frac{1}{2} +7y + \frac{7}{3}y^3. \]
+    </p>
+</div>
+</div>
+
 </div>
 
 <div class="ejercicio-box">
