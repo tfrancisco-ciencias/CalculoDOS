@@ -128,10 +128,10 @@ $$
     </p>
     <p>
         Sea $f:[a,b]\to \mathbb{R}$ una función monótona creciente. 
-        Sea $x_i=a+i\Delta_n$, con $i=1,\dots, n$ y $\Delta_n=\frac{b-a}{n}$.
-        Si $J$ es un número que satisface 
+        Sea $x_i=a+i\frac{b-a}{n}$, con $i=1,\dots, n$. Si $J$ es un número que satisface 
         $$
-        \Delta_n \sum_{i=0}^{n-1}f(x_i)\leq J \leq  \Delta_n \sum_{i=1}^n f(x_i)
+        \left( \frac{b-a}{n} \right)\sum_{i=0}^{n-1}f(x_i)\leq J \leq  
+        \left(\frac{b-a}{n}\right) \sum_{i=1}^n f(x_i)
         $$
         para toda $n$, entonces
         $$
@@ -162,7 +162,7 @@ $$
     </li> 
 
     <li>
-        Usa el <a href="#Ejercicio">Ejercicio</a>  para concluir:
+        Usa el <a href="#Ejercicio">Ejercicio 4.3</a>  para concluir:
         $$
             \int_0^b x^k dx = \frac{x^{k+1}}{k+1},
         $$
@@ -176,7 +176,7 @@ $$
     <h2 class="number-title" id="Ejer:IntegralPotenciasNaturales"> Ejercicio</h2> 
     <p>
         Usando la linealidad de la integral con respecto a intervalos y 
-        el ejercicio <a href="#Ejer:IntegralesPotencias1">Ejercicio </a> 
+        el ejercicio <a href="#Ejer:IntegralesPotencias1">Ejercicio 4.4</a> 
         prueba que para todos $a,b \in \mathbb{R}$, con $0\leq a < b$ y $k \in \mathbb{N}$:
         $$
         \int_a^b x^kdx=\frac{b^{k+1}-a^{k+1}}{k+1}.
@@ -185,13 +185,13 @@ $$
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    En este ejercicio pudes usar que la integral de una función no negativa  
+    <h2 class="number-title" id="Eje:FormulaIntegralRaiz"> Ejercicio</h2> 
+    En este ejercicio puedes usar que la integral de una función no negativa  
     es el áre bajo su gráfica.
 
     <ol>
         <li>
-            Hacer un cambio de perspectiva  para probar que:
+            Hacer un cambio de perspectiva (intercambiar los ejes \(x\) e \(y\)) para probar que:
             $$
             b^{3/2}=\int_0^b\sqrt{x}dx+\int_0^{\sqrt{b}}y^2dy.
             $$ 
@@ -209,7 +209,8 @@ $$
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Usar la interpretación de area cómo una integral, 
+        Usar la interpretación de la integral como área bajo la curva y las ideas del 
+        <a href="#Eje:FormulaIntegralRaiz">Ejercicio 4.6</a>, 
         junto con la función $y=\sqrt[n]{x}$ en el rectángulo de lados $[0,b], 
         [0, \sqrt[n]{b}]$, para demostrar:
         $$
@@ -223,54 +224,36 @@ $$
 <div class="ejercicio-box">
     <h2 class="number-title" id="Ejer:LimitePromediosMonotonas"> Ejercicio</h2> 
     <p>
-        Sea $f:[a,b]\to \mathbb{R}$ una función monótona en $[a,b]$. Demuestra que:
+        Sea $f:[a,b]\to \mathbb{R}$ una función monótona en $[a,b]$. Para cada natural  
+        \(n\geq 1\) define \(\Delta_n=\frac{b-a}{n}\). Demuestra que:
         $$
-        \int_a^b f(x)dx=\lim_{n \to \infty} \frac{b-a}{n}\sum_{i=1}^n f(a+i(b-a)/n)
+        \int_a^b f(x)dx=\lim_{n \to \infty} \left( \Delta_n
+        \sum_{i=1}^n f(a+i\Delta_n) \right)
         $$
     </p>
     <p>
-        Sugerencia: con la notación del ejercicio \ref{Ejer:IntegrabilidadFuncionesMonotonas}, demuestra:
-        $$
-        \left| \int_a^b f(x)dx - \frac{b-a}{n}\sum_{i=1}^n f(a+i(b-a)/n)  \right| \leq \int_a^b t_n - \int_a^b s _n.
-        $$
+        Sugerencia: demuestra que existen funciones escalonadas \(s_n,t_n:[a,b]\to \mathbb{R}\) 
+        que satisfacen:
+        <ol>
+            <li>
+                \(s_n \leq f_n \leq t_n\),
+            </li>
+            <li>
+                \(\int_a^bt_n(x)dx-\int_a^bs(x)dx \leq (b-a)\frac{f(b)-f(a)}{n}\),
+            </li>
+            <li>
+                finalmente 
+                $$
+                \left| \int_a^b f(x)dx - \Delta_n \sum_{i=1}^n f(a+i\Delta_n)  \right| 
+                \leq \int_a^b t_n - \int_a^b s _n.
+                $$
+            </li>
+        </ol>
+        
     </p>
 </div>
 
 
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:LimiteSumasRiemannDeMonotonas"> Ejercicio</h2> 
-    <p>
-        El ejercicio anterior se puede generalizar, 
-        cambiando los puntos donde se valuan los valores de la función $f$.
-    </p>
-    <p>
-        Sea $f:[a,b]\to \mathbb{R}$ una función monótona en $[a,b]$. 
-        Denotamos $P_n=\{ x_i\}_{i=0}^n$ la partición homogenea de $[a,b]$ con longitud $n$. 
-        Para cada sub-intervalo $[x_{i-1},x_i]$
-        de $P_n$ fija puntos cualesquiera $r_i \in [x_{i-1},x_i]$. Demuestra que
-        $$
-        \int_a^b f(x)dx=\lim_{n \to \infty} \sum_{i=1}^n f(r_i)(x_i-x_{i-1})
-        $$
-    </p>
-
-    <p>
-        Sugerencia: para cada natural $n$, define funciones escalonadas
-        $$
-        \rho_n=\sum_{i=1}^n f(r_i) \chi_{[x_{i-1},x_i)}
-        $$
-        
-        Primero demuestra que,
-        $$
-        \int_a^b \rho_n(x)dx=\sum_{i=1}^n f(r_i)(x_i-x_{i-1}),
-        $$
-        
-        después, con la notación del <a href="#Ejer:IntegrabilidadFuncionesMonotonas"> Ejercicio</a> 
-        demuestra que $s_n \leq \rho_n \leq t_n$ y:
-        $$
-        \left| \int_a^b f(x)dx - \int_a^b \rho_n(x)dx  \right| \leq \int_a^b t_n - \int_a^b s _n.
-        $$        
-    </p>
-</div>
 
 
 <div class="ejercicio-box">
@@ -280,14 +263,14 @@ $$
     </p>
     <ol>
         <li>
-            $\lim_{i=1}^n \frac{1}{n^{k+1}} \sum_{i=1}^n i^k$.
+            $\lim_{n\to \infty} \left( \frac{1}{n^{k+1}} \sum_{i=1}^n i^k\right)$.
         </li> 
         <li>
-            $\lim_{i=1}^n \frac{1}{n^{(k+1)/k}} \sum_{i=1}^n \sqrt[k]{i}$.
+            $\lim_{n\to \infty} \left( \frac{1}{n^{(k+1)/k}} \sum_{i=1}^n \sqrt[k]{i}\right)$.
         </li> 
     </ol>
     <p>
-        Sugerencia: usa el ejercicio \ref{Ejer:LimitePromediosMonotonas}.
+        Sugerencia: usa el ejercicio <a href="#Ejer:LimitePromediosMonotonas">Ejercicio 4.8</a>.
     </p>
 </div>
 
@@ -312,10 +295,71 @@ $$
         </li> 
     </ol>
     <p>
-        Sugerencia: usa el ejercicio \ref{Ejer:LimitePromediosMonotonas} y recuerda que
+        Sugerencia: usa el <a href="#Ejer:LimitePromediosMonotonas">Ejercicio 4.8</a> y recuerda que
         $$
         \int_a^b x^2 dx= \frac{b^3-a^3}{3}, \quad \int_a^b \sqrt{x}dx=  \frac{2}{3}b^{3/2}-a^{3/2}
         $$        
     </p>
 </div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:LimiteSumasRiemannDeMonotonas"> Ejercicio</h2> 
+    <p>
+        El <a href="#Ejer:LimitePromediosMonotonas">Ejercicio 4.8</a> se puede generalizar, 
+        cambiando los puntos donde se valuan los valores de la función $f$.
+    </p>
+    <p>
+        Dada una partición \(P=\{a=x_0< x_1<  \cdots < x_{n-1}< x_n=b\}\) de \([a,b]\) la norma 
+        de la partición se define como 
+        \[
+            \|P\|=\max_{i=1,\dots, n}\{ x_i-x_{i-1} \}.
+        \]
+    </p>
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ una función monótona en $[a,b]$. 
+        Para cada natural \(n\) sea $P_n=\{ x_i^{(n)}\}_{i=0}^n$ una  partición  de $[a,b]$ 
+        con la propiedad de que 
+        \[
+            \lim_{n\to \infty}\|P_n\|=0.
+        \] 
+        Para cada sub-intervalo $[x_{i-1}^{(n)},x_i^{(n)}]$
+        de $P_n$ fija puntos cualesquiera  $r_i \in [x_{i-1},x_i]$. Demuestra que
+        $$
+        \int_a^b f(x)dx=\lim_{n \to \infty} \sum_{i=1}^n f(r_i)(x_i^{(n)}-x_{i-1}^{(n)})
+        $$
+    </p>
+
+    <p>
+        Sugerencia: demuestra que existen funciones escalonadas \(s_n,t_n:[a,b]\to \mathbb{R}\) 
+        que satisfacen:
+        <ol>
+            <li>
+                \(s_n \leq f_n \leq t_n\),
+            </li>
+            <li>
+                \(\int_a^bt_n(x)dx-\int_a^bs(x)dx \leq (f(b)-f(a))\|P_n\|\),
+            </li>
+            <li>
+                define funciones escalonadas
+                $$
+                \rho_n=\sum_{i=1}^n f(r_i) \chi_{[x_{i-1}^{(n)},x_i^{(n)})}
+                $$
+                Prueba que 
+                $$
+                \int_a^b \rho_n(x)dx=\sum_{i=1}^n f(r_i)(x_i^{(n)}-x_{i-1}^{(n)}), \quad s_n \leq \rho_n \leq t_n
+                $$
+            </li>
+            <li>
+                finalmente prueba:
+                $$
+                \left| \int_a^b f(x)dx -  \sum_{i=1}^n f(r_i)(x_{i}^{(n)}-x_{i-1}^{(n)})  \right| 
+                \leq \int_a^b t_n - \int_a^b s _n.
+                $$
+            </li>
+        </ol>
+        
+    </p>
+</div>
+
 </body>
