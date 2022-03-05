@@ -22,13 +22,14 @@
             sen: "\\operatorname{sen}",
             seg: ["\\overrightarrow{#1}", 1]
           },
-          tags: "ams" /* this part is for numbered equations */
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
         }
       };
     </script>
 
     <!-- This part is for using single $ for latex input, instead of \(\) -->
-    <script>
+    <!--<script>
         MathJax = {
         tex: {
             inlineMath: [['$', '$'], ['\\(', '\\)']]
@@ -37,7 +38,7 @@
             fontCache: 'global'
         }
     };
-    </script>
+    </script>-->
 
     <!-- CSS -->
 
@@ -73,15 +74,13 @@
         </header>
 
       <!-- This part is for title in tab-->
-      <title> § 4   </title>
+      <title> § 4 </title>
     
   </head>
 
-  <body class="fondo-body" >
+<body class="fondo-body" >
 
-    <h1 class="number-title flexbox"> Integrabilidad de funciones monótonas  </h1>     
-
-
+<h1 class="number-title flexbox">Integrabilidad de  funciones monótonas </h1>
 
 
 <div class="info-box">
@@ -101,18 +100,64 @@
     
     <p>
         Sugerencia: primero consider el caso monótono creciente y usa 
-        el <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Ejercicio 3.11</a>. 
+        el <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Ejercicio 3.11</a> 
+        (criterio de Cauchy). 
     </p>
-
-Para $n\geq 1$ natural define:
-$$
-s_n:=\sum_{i=1}^{n} f(x_{i-1})\chi_{[x_i, x_{i-1})}, \quad t_n:=\sum_{i=1}^n f(x_i)\chi_{[x_i, x_{i-1})}.
-$$
-Prueba que $s_n$ y $t_n$ son funciones escalonadas, $s\leq f\leq t$ y 
-$$
-\int_a^b t_n- \int_a^b s_n =\frac{(b-a)(f(b)-f(a))}{n};
-$$
-
+    <button class="respButton hvr-grow "> Demostración  </button>
+    <div class="resp-box flexbox">
+      <div >
+    <p>
+        Para $n\geq 1$ natural define las siguientes funciones escalonadas,
+        \(s_n,t_n:[a,b]\to \mathbb{R}\):
+        \begin{eqnarray*}
+        s_n(x):=\sum_{i=1}^{n} f(x_{i-1})\chi_{[x_i, x_{i-1})}(x), \\
+         t_n:(x)=\sum_{i=1}^n f(x_i)\chi_{[x_i, x_{i-1})}(x).
+        \end{eqnarray*}
+        donde \(P_n=\{x_0< x_1<  \cdots < x_{n-1} < x_n\}\) es la partición homogenea 
+        de longitud \(n\).
+    </p>
+    <p>
+        Tomando en consideración que la que función \(f\) es monótona creciente resulta 
+        \[
+        f(x_{i-1}) \leq f(x) \leq f(x_i), \forall x\in [x_{i-1},x_i) 
+        \]
+        de lo que se sigue 
+        \begin{equation}\label{Eqn:MonotonaIntegAux1}
+        s_n(x) \leq f(x)\leq t_n(x), \forall x\in [a,b)
+        \end{equation}
+        
+    </p>
+    <p>
+        Ahora vamos a calcular \(\int_a^b t_ndx-\int_a^bs_ndx\).
+        \begin{eqnarray*}
+        \int_a^bt_n(x)dx - \int_a^b s_n(x)dx &=& \sum_{i=1}^n f(x_i)(x_i-x_{i-1})-\sum_{i=1}^{n}f(x_{i-1})(x_i-x_{i-1})\\
+        &=& \sum_{i=1}^{n} (f(x_i)-f(x_{i-1}))(x_i-x_{i-1})
+        \end{eqnarray*}
+        Al ser \(P_n\) la partición homogenea de \([a,b]\) de longitud \(n\) tenemos 
+        \(x_i-x_{i-1}=\frac{b-a}{n}\) por lo que podemos reescribir la identidad  anterior como 
+        \begin{eqnarray*}
+        \int_a^bt_n(x)dx - \int_a^b s_n(x)dx&=&\sum_{i=1}^n (f(x_i)-f(x_{i-1}))\frac{b-a}{n} \\
+        &=& \frac{b-a}{n} \sum_{i=1}^n (f(x_i)-f(x_{i-1}))\\
+        &=& \frac{b-a}{n} (f(b)-f(a))
+        \end{eqnarray*}
+        donde en la última identidad usamos el hecho de que la suma que aparece es telescópica.
+    </p>
+    <p>
+        Por lo tanto, dado \(\varepsilon > 0\) arbitrario, si tomamos \(n\) suficientemente grande para que 
+        \[
+        \frac{b-a}{n} (f(b)-f(a)) < \varepsilon
+        \]
+        concluimos que 
+        \begin{equation}\label{Eqn:MonotonaIntegAux2}
+        \int_a^bt_n(x)dx - \int_a^b s_n(x)dx< \varepsilon 
+        \end{equation}
+    </p>
+    <p>
+        Por \eqref{Eqn:MonotonaIntegAux1} y \eqref{Eqn:MonotonaIntegAux2} concluimos que \(f\)
+        satisface el criterio de Cauchy y por lo tanto es integrable.
+    </p>
+</div>
+</div>
 </div>
 
  
@@ -135,15 +180,77 @@ $$
         $$
         para toda $n$, entonces
         $$
-        J=\int_a^b f(x)dx
+        J=\int_a^b f(x)dx.
         $$
     </p>
-        
-        Sugerencia: con la notación del ejercicio \ref{Ejer:IntegrabilidadFuncionesMonotonas} demuestra
-        $$
-        \Delta_n \sum_{i=0}^{n-1}f(x_i)=\int_a^b s_n, \quad  \Delta_n \sum_{i=1}^n f(x_i) =\int_a^b t_n
-        $$
+    <button class="respButton hvr-grow "> Solución   </button>
+    <div class="resp-box flexbox">
+    <div >     
+    <p>
+        Seguimos la misma estrategia que en el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a>.
     </p>
+    
+    <p>
+        Definimos funciones escalonadas \(s_n,t_n:[a,b]\to \mathbb{R}\):
+        \begin{eqnarray*}
+        s_n(x):=\sum_{i=1}^{n} f(x_{i-1})\chi_{[x_i, x_{i-1})}(x), \\
+         t_n:(x)=\sum_{i=1}^n f(x_i)\chi_{[x_i, x_{i-1})}(x).
+        \end{eqnarray*}
+        Al ser \(f\) monótona creciente se cumple que 
+        \[
+        s_n(x) \leq f(x) \leq t_n(x), \quad \forall x\in [a,b)
+        \]
+        Integrando las desigualdades anteriores obtenemos 
+        \[
+        \int_a^bs_n(x)dx \leq \int_a^b f(x)dx \leq \int_a^nt_n(x)dx
+        \]
+        Denotamos 
+        \[
+            S=\frac{b-a}{n}\sum_{i=1}^{n-1}f(x_{i}), \quad  T=\frac{b-a}{n}\sum_{i=1}^n f(x_i)
+        \]
+        Un calculo directo muestra 
+        \begin{eqnarray*}
+        \int_a^bs_n(x)dx &=& \sum_{i=1}^n f(x_{i-1})(x_i-x_{i-1})=\frac{b-a}{n}\sum_{i=1}^n f(x_{i-1})=
+        \frac{b-a}{n} \sum_{i=0}^{n-1}f(x_i)=S\\
+        \int_a^b t_n(x)dx&=& \sum_{i=1}^n f(x_{i})(x_i-x_{i-1})=\frac{b-a}{n}\sum_{i=1}^n f(x_{i})=T
+        \end{eqnarray*}
+    </p>
+    <p>
+        Por lo tanto tenemos 
+        \begin{equation}\label{Eqn:EstimacionIntegralMonotonaAux1}
+         S\leq \int_a^b f(x)dx \leq T
+        \end{equation}
+        Por otro lado, por la suposición del ejercicio tenemos 
+        \begin{equation}\label{Eqn:EstimacionIntegralMonotonaAux2} 
+        S\leq J \leq T 
+        \end{equation}
+    </p>
+    <p>
+        Comparando las ecuaciones \eqref{Eqn:EstimacionIntegralMonotonaAux1} y \eqref{Eqn:EstimacionIntegralMonotonaAux2}
+        con respecto a la longitud del intervalo \([S,T]\) obtenemos 
+        \[
+        \left| \int_a^bf(x)dx - J \right| \leq T-S
+        \]
+    </p>
+    <p>
+        Pero al igual que en el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> 
+        un cálculo directo muesta 
+        \[
+        T-S=\sum_{i=1}^n (f(x_i)-f(x_{i-1}))(x_i-x_{i-1})=\frac{b-a}{n}(f(b)-f(a))
+        \]
+        Por lo tanto
+        \[
+        \left| \int_a^bf(x)dx - J \right| \leq \frac{b-a}{n}(f(b)-f(a))
+        \]
+    </p>
+    <p>
+        Tomando el límite cuando \(n\to \infty\) concluimos 
+        \[
+        J= \int_a^b f(x)dx.
+        \]
+    </p>
+    </div>
+    </div>
 </div>
 
 <div class="ejercicio-box">
