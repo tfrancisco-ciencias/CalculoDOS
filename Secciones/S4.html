@@ -110,8 +110,8 @@
         Para $n\geq 1$ natural define las siguientes funciones escalonadas,
         \(s_n,t_n:[a,b]\to \mathbb{R}\):
         \begin{eqnarray*}
-        s_n(x):=\sum_{i=1}^{n} f(x_{i-1})\chi_{[x_i, x_{i-1})}(x), \\
-         t_n:(x)=\sum_{i=1}^n f(x_i)\chi_{[x_i, x_{i-1})}(x).
+        s_n(x):=\sum_{i=1}^{n} f(x_{i-1})\chi_{[x_{i-1},x_i)}(x), \\
+         t_n(x):=\sum_{i=1}^n f(x_i)\chi_{[x_{i-1},x_i)}(x).
         \end{eqnarray*}
         donde \(P_n=\{x_0< x_1<  \cdots < x_{n-1} < x_n\}\) es la partición homogenea 
         de longitud \(n\).
@@ -193,8 +193,8 @@
     <p>
         Definimos funciones escalonadas \(s_n,t_n:[a,b]\to \mathbb{R}\):
         \begin{eqnarray*}
-        s_n(x):=\sum_{i=1}^{n} f(x_{i-1})\chi_{[x_i, x_{i-1})}(x), \\
-         t_n:(x)=\sum_{i=1}^n f(x_i)\chi_{[x_i, x_{i-1})}(x).
+        s_n(x):=\sum_{i=1}^{n} f(x_{i-1})\chi_{[x_{i-1},x_i)}(x), \\
+         t_n:(x)=\sum_{i=1}^n f(x_i)\chi_{[x_{i-1},x_i)}(x).
         \end{eqnarray*}
         Al ser \(f\) monótona creciente se cumple que 
         \[
@@ -358,6 +358,64 @@
         </ol>
         
     </p>
+
+    <button class="respButton hvr-grow "> Solución   </button>
+    <div class="resp-box flexbox">
+    <div >     
+    <p>
+        Seguimos la misma estrategia que en el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a>.
+    </p>
+    
+    <p>
+        Definimos funciones escalonadas \(s_n,t_n:[a,b]\to \mathbb{R}\):
+        \begin{eqnarray*}
+        s_n(x)&:=&\sum_{i=1}^{n} f(a+(i-1)\Delta_n )\chi_{[a+(i-1)\Delta_n,a+i\Delta_n)}(x), \\
+        t_n(x)&:=&\sum_{i=1}^n f(a+i\Delta_n)\chi_{[a+(i-1)\Delta_n,a+i\Delta_n)}(x).
+        \end{eqnarray*}
+        Al ser \(f\) monótona creciente se cumple que 
+        \[
+        s_n(x) \leq f(x) \leq t_n(x), \quad \forall x\in [a,b)
+        \]
+        Integrando las desigualdades anteriores obtenemos 
+        \[
+        \int_a^bs_n(x)dx \leq \int_a^b f(x)dx \leq \int_a^nt_n(x)dx
+        \]
+        Denotamos 
+        \[
+            S=\Delta_n \sum_{i=1}^{n-1}f(a+(i-1)\Delta_n), \quad  T=\Delta_n \sum_{i=1}^n f(a+i\Delta_n)
+        \]
+        Un cálculo directo muestra 
+        \begin{eqnarray*}
+        \int_a^bs_n(x)dx &=& \sum_{i=1}^n f(a+(i-1)\Delta_n)(a+i\Delta_n-(a+(i-1)\Delta_n))=S\\
+        \int_a^b t_n(x)dx&=& \sum_{i=1}^n f(a+i\Delta_n)(a+i\Delta_n-(a+(i-1)\Delta_n))=T
+        \end{eqnarray*}
+    </p>
+    <p>
+        Por lo tanto tenemos 
+        \begin{equation*}
+        S\leq \int_a^b f(x)dx \leq T 
+        \end{equation*}
+        lo que implica 
+        \begin{equation*}
+        \left| T - \int_a^b f(x)dx   \right|\leq  T-S 
+        \end{equation*}
+    </p>
+    <p>
+        Pero  \(T-S=(f(b)-f(a))\Delta_n \) por lo tanto 
+        \[
+        \left| \Delta_n \sum_{i=1}^n f(a+i\Delta_n)- \int_a^b f(x)dx   \right|\leq  (f(b)-f(a)) \Delta_n 
+        \]
+    </p>
+    <p>
+        Finalmente notando que \(\lim_{n\to \infty}\Delta_n=0\) concluimos 
+        \[
+        \lim_{n\to \infty} \Delta_n \sum_{i=1}^n f(a+i\Delta_n)=\int_a^b f(x)dx
+        \]
+    </p>
+    
+       </div>
+    </div>
+
 </div>
 
 
