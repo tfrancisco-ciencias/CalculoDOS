@@ -272,9 +272,13 @@
         \]
         Un calculo directo muestra 
         \begin{eqnarray*}
-        \int_a^bs_n(x)dx &=& \sum_{i=1}^n f(x_{i-1})(x_i-x_{i-1})=\frac{b-a}{n}\sum_{i=1}^n f(x_{i-1})=
-        \frac{b-a}{n} \sum_{i=0}^{n-1}f(x_i)=S\\
-        \int_a^b t_n(x)dx&=& \sum_{i=1}^n f(x_{i})(x_i-x_{i-1})=\frac{b-a}{n}\sum_{i=1}^n f(x_{i})=T
+        \int_a^bs_n(x)dx &=& \sum_{i=1}^n f(x_{i-1})(x_i-x_{i-1})\\
+        &=&\frac{b-a}{n}\sum_{i=1}^n f(x_{i-1})\\
+        &=& \frac{b-a}{n} \sum_{i=0}^{n-1}f(x_i)\\
+        &=&S\\
+        \int_a^b t_n(x)dx&=& \sum_{i=1}^n f(x_{i})(x_i-x_{i-1})\\
+        &=&\frac{b-a}{n}\sum_{i=1}^n f(x_{i})\\
+        &=&T
         \end{eqnarray*}
     </p>
     <p>
@@ -331,13 +335,156 @@
     </li> 
 
     <li>
-        Usa el <a href="#Ejercicio">Ejercicio 4.3</a>  para concluir:
+        Usa el <a href="#Ejer:CalculoIntegralFuncionesMonotonas">Ejercicio 4.3</a>  para concluir:
         $$
             \int_0^b x^k dx = \frac{x^{k+1}}{k+1},
         $$
         para toda $b>0$.
     </li> 
 </ol>
+
+<button class="respButton hvr-grow "> Solución   </button>
+    <div class="resp-box flexbox">
+    <div >
+<p>
+    Prueba del inciso 1.
+</p>
+
+<center>
+   La prueba se hara por inducción sobre \(n\).
+</center> 
+
+<p>
+    <b>Base de Inducción.</b> Para \(n =1\) tenemos que 
+    \[ \sum_{i=0}^{n-1}i^k \leq \frac{n^{k+1}}{k+1} \leq \sum_{i=1}^{n}i^k . \]
+    es equivalente a 
+    \begin{equation*}
+    0 \leq \frac{1}{k+1} \leq 1 .
+    \end{equation*} 
+    Lo cual es cierto, ya que \(k \in \mathbb{N}\).
+</p>
+
+<p>
+    <b>Hipótesis de Inducción.</b> Supongamos que existe un natural 
+    \(n \geq 2\) tal que,  
+    \[ \sum_{i=0}^{n-1}i^k \leq \frac{n^{k+1}}{k+1} \leq \sum_{i=1}^{n}i^k . \]
+</p>
+<p>
+    <b>Paso Inductivo. </b>Por demostrar que se cumple para \(n+1\), 
+    es decir demostremos que 
+    \[ \sum_{i=0}^{n}i^k \leq \frac{(n+1)^{k+1}}{k+1} \leq \sum_{i=1}^{n+1}i^k . \]
+</p>
+
+<p>
+    Primero demostremos que \[ \sum_{i=0}^{n}i^k \leq \frac{(n+1)^{k+1}}{k+1} .\]
+</p>
+<p>
+    Tenemos por hipótesis de inducción que 
+    \[ \sum_{i=0}^{n}i^k =  \sum_{i=1}^{n-1}i^k  + n^k \leq \frac{n^{k+1}}{k+1} + n^k  
+    = \frac{n^{k+1} + (k+1)n^k}{k+1} .\]
+
+    Recordemos el teorema del binomio el cual nos dice que para cualesquiera 
+    números reales \(a\) y \(b\) y un número natural \(m\) se tiene que 
+    \[ (a + b)^m = \sum_{i=0}^m\binom{m}{i}a^{m-i}b^i \]
+    
+    donde \(\binom{m}{i} = \frac{m!}{i!(m-i)!}\) y \(m!= m(m-1)\cdot\cdot\cdot2\cdot 1\). 
+    Entonces, 
+    \[(n+1)^{k+1} = \sum_{i=0}^{k+1}\binom{k+1}{i}n^{k+1-i} = 
+    n^{k+1} + (k+1)n^k + \sum_{i=2}^{k+1}\binom{k+1}{i}n^{k+1-i}  \] 
+    y 
+    \( \binom{k+1}{i}n^{k+1-i} \geq 0\) para cada \(i=2, . . .,k+1\), 
+    se sigue  \(n^{k+1} + (k+1)n^k \leq (n+1)^{k+1}\).
+    Por lo tanto \[ \sum_{i=0}^{n}i^k \leq \frac{n^{k+1} + (k+1)n^k}{k+1} \leq\frac{(n+1)^{k+1}}{k+1} .\]
+    
+    Es decir \(\sum_{i=0}^{n}i^k \leq \frac{(n+1)^{k+1}}{k+1}.\)
+    
+</p>
+<p>
+    Por último veamos que \[\frac{(n+1)^{k+1}}{k+1} \leq \sum_{i=1}^{n+1}i^k . \]
+
+    Tenemos que \((n+1)^{k+1} = n^{k+1} + \sum_{i=1}^{k+1}\binom{k+1}{i}n^{k+1-i}\).  
+    Entonces por hipótesis de inducción,
+    \begin{equation*}
+    \begin{split}
+    \frac{(n+1)^{k+1}}{k+1} & = \frac{n^{k+1}}{k+1} + 
+    \frac{1}{k+1}\sum_{i=1}^{k+1}\binom{k+1}{i}n^{k+1-i} \\
+     & \leq \sum_{i=1}^ni^k + \frac{1}{k+1}\sum_{i=1}^{k+1}\binom{k+1}{i}n^{k+1-i} .
+     \end{split}
+     \end{equation*}
+    
+    
+    Haciendo un cambio de variable \(j = i-1 \) tenemos que 
+    \[ \sum_{i=1}^{k+1}\binom{k+1}{i}n^{k+1-i} = \sum_{j=0}^{k}\binom{k+1}{j+1}n^{k-j}\]
+    
+    Recapitulando tenemos,
+    \begin{equation}\label{A}
+    \frac{(n+1)^{k+1}}{k+1}  \leq \sum_{i=1}^ni^k + \frac{1}{k+1}\sum_{j=0}^{k}\binom{k+1}{j+1}n^{k-j}
+    \end{equation}
+    
+    
+    
+</p>
+<p>
+    Afirmamos que \( \frac{1}{k+1}\sum_{j=0}^{k}\binom{k+1}{j+1}n^{k-j} \leq (n+1)^{k}\).
+</p>
+<p>
+    Como \((n+1)^k = \sum_{j=0}^{k}\binom{k}{j}n^{k-j},\) entonces 
+    para demostrar la afirmación basta demostrar que 
+    \(\frac{1}{k+1}\binom{k+1}{j+1} \leq \binom{k}{j}\) 
+    para cada \(j=0, . . . , k\).
+</p>
+<p>
+    Sea \(j\in \lbrace 0,  .. . , k\rbrace\) arbitrario, entonces 
+    \begin{equation*}
+    \begin{split}
+    \frac{1}{k+1}\binom{k+1}{j+1} & = 
+    \frac{1}{k+1}\cdot\frac{(k+1)!}{(j+1)!(k+1-(j+1))!}  
+    = \frac{1}{k+1}\cdot\frac{(k+1)k!}{(j+1)!(k-j)!} \\
+     & = \frac{k!}{(j+1)j!(k-j)!} = \frac{1}{j+1}\binom{k}{j} \leq \binom{k}{j} \\
+     \end{split}
+    \end{equation*}
+    
+    
+    la desigualdad se da ya que \(j+1 \geq 1\) para toda \(j=0,..., k\). 
+    Como \(j\) fue arbitrario tenemos \(\frac{1}{k+1}\binom{k+1}{j+1} \leq \binom{k}{j}\) 
+    para cada \(j=0, . . . , k\). Por lo tanto 
+    \begin{equation}\label{B}
+    \frac{1}{k+1}\sum_{j=0}^{k}\binom{k+1}{j+1}n^{k-j} \leq \sum_{j=0}^{k}\binom{k}{j}n^{k-j} = (n+1)^k .
+    \end{equation} 
+    
+</p>
+<p>
+    Entonces por \(\eqref{A}\) y \(\eqref{B}\) tenemos que 
+    \[\frac{(n+1)^{k+1}}{k+1}  \leq \sum_{i=1}^ni^k + (n+1)^k = \sum_{i=1}^{n+1}i^k . \]
+
+    Por lo tanto se demostró \[ \sum_{i=0}^{n}i^k \leq \frac{(n+1)^{k+1}}{k+1} \leq \sum_{i=1}^{n+1}i^k . \]
+    
+    y esto es válido para toda \(n\geq 1\).
+</p>
+<center>
+    Prueba del inciso 2.
+</center>
+<p>
+    Sea \(b >0\) arbitraria, tenemos que \(f(x) = x^k\) es una función monótona creciente 
+    en \([0, b]\). En nuestro en particular tenemos que \(x_i = i\frac{b}{n}\) y 
+    \[ \frac{b}{n}\sum_{i=0}^{n-1}f(x_i) = \frac{b}{n}\sum_{i=0}^{n-1}\left(i\frac{b}{n}\right)^k 
+    = \frac{b^{k+1}}{n^{k+1}}\sum_{i=0}^{n-1}i^k , \]
+    De la misma manera tenemos 
+    \[  \frac{b}{n}\sum_{i=1}^{n}f(x_i) =\frac{b^{k+1}}{n^{k+1}}\sum_{i=1}^{n}i^k . \]
+    Por lo ya demostrado en el apartado 1, tenemos 
+    \[ \sum_{i=0}^{n-1}i^k \leq \frac{n^{k+1}}{k+1} \leq \sum_{i=1}^{n}i^k . \]
+    Por lo tanto 
+    \[ \frac{b^{k+1}}{n^{k+1}}\sum_{i=0}^{n-1}i^k \leq \frac{b^{k+1}}{k+1} 
+    \leq \frac{b^{k+1}}{n^{k+1}}\sum_{i=1}^{n}i^k . \] 
+    Es decir 
+    \[   \frac{b}{n}\sum_{i=1}^{n}f(x_i) \leq \frac{b^{k+1}}{k+1} 
+    \leq  \frac{b}{n}\sum_{i=1}^{n}f(x_i) . \]
+    y esto es cierto para toda \(n\), entonces por el <a href="#Ejer:CalculoIntegralFuncionesMonotonas">Ejercicio 4.3</a>
+    tenemos \[  \int_0^b x^k dx = \frac{b^{k+1}}{k+1} .\]
+    Como \(b>0\) fue arbitrario, esto implica que es válido para toda \(b>0\).
+</p>
+</div>
+</div>
 </div>
 
 
@@ -352,6 +499,7 @@
         $$
     </p>
 </div>
+
 
 <div class="ejercicio-box">
     <h2 class="number-title" id="Eje:FormulaIntegralRaiz"> Ejercicio</h2> 
@@ -549,9 +697,30 @@
         </li> 
     </ol>
     <p>
-        Sugerencia: usa el
-        la ecuación del  <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a>. 
+        Sugerencia: usa la identidad del  <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a>. 
     </p>
+
+    <button class="respButton hvr-grow "> Solución inciso 1 </button>
+    <div class="resp-box flexbox">
+      <div >
+    <p>
+        Consideremos \(f:[0,1] \rightarrow \mathbb{R}\) dada por 
+        \(f(x) = x^k\), tenemos que \(f\) es monótona creciente en \([0,1]\). 
+        Entonces por el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> tenemos \(f\) es integrable en \([0,1]\) y 
+        \[\lim_{n \rightarrow \infty}\left(\frac{1}{n}\sum_{i=1}^nf\left(i\frac{1}{n}\right)\right)
+        = \int_0^1 f(x)dx = \frac{1}{k+1}. \]
+    </p>
+    <p>
+        Dado que \[ \frac{1}{n}\sum_{i=1}^nf\left(i\frac{1}{n}\right) 
+        = \frac{1}{n}\sum_{i=1}^n\left(\frac{i}{n}\right)^k =  
+         \frac{1}{n^{k+1}}\sum_{i=1}^ni^{k} \]
+    </p>
+    <p>
+        Concluimos \[ \lim_{n \rightarrow \infty} 
+        \left(\frac{1}{n^{k+1}}\sum_{i=1}^ni^k\right) =  \frac{1}{k+1}. \]
+    </p>
+</div>
+</div>
 </div>
 
 <div class="ejercicio-box">
@@ -578,7 +747,7 @@
         Sugerencia: usa el
         la ecuación del  <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> y recuerda que
         $$
-        \int_a^b x^2 dx= \frac{b^3-a^3}{3}, \quad \int_a^b \sqrt{x}dx=  \frac{2}{3}b^{3/2}-a^{3/2}
+        \int_a^b x^2 dx= \frac{b^3-a^3}{3}, \quad \int_a^b \sqrt{x}dx=  \frac{2}{3}(b^{3/2}-a^{3/2})
         $$        
     </p>
 </div>
