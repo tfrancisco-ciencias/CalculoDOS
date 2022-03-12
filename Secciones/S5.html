@@ -87,24 +87,54 @@
 <div class="info-box">
     <h2 class="number-title"> Introducción </h2>
     <p>
-
+        En esta sección se prueba que toda función continua en un intervalo cerrado y acotado 
+        es integrable en dicho intervalo. Este resultado es muy importante pues una gran cantidad de funciones 
+        que uno conoce son continuas y por lo tanto integrables.
     </p>
     <p>
-        Considera la función $f(x)=mx+b$, $x\in \mathbb{R}$, con $m\not=0$.
+        Antes de probar el resultado principal es necesario estudiar detalladamente la continuidad y más en 
+        específico funciones que son continuas en todos los puntos de un intervalo cerrado y acotado. Veremos 
+        que, en cierto sentido, la continuidad en dichos intervalos es más fuerte que sólo ser continua en 
+        un punto o en un intervalo abierto. Esto es importante pues hemos visto que la integrabilidad de una 
+        función también depende del intervalo sobre el cual la estamos considerando. Iniciamos con 
+        dos ejemplos que muestran que la continuidad puede ser más uniforme en ciertos casos que en otros. 
     </p>
     <p>
-        Dada $\varepsilon$ define 
-        $\delta=\delta(\varepsilon) := \frac{\varepsilon}{|a|}$. 
-        Demuestra que si $|x-y|<\delta$ entonces
-        $ |f(x)-f(y)|<\varepsilon $.
+        Considera la función $f(x)=mx+b$, $x\in \mathbb{R}$, con $m\not=0$. Recordemos la prueba de que 
+        \(f\) es continua en un punto fijo \(x_0\). Dada \(\varepsilon >0 \) tomamos 
+        \(\delta=\frac{\varepsilon}{|m|}\). Con estas definiciones si consideramos un punto \(x\)
+        con \(|x-x_0|< \delta\) se tiene:
+        \begin{eqnarray*} 
+        |f(x)-f(x_0)|&=&|mx+b-(mx_0+b)|\\
+        &=&|m||x-x_0| \\
+        &< &|m|\delta \\
+        &=& m \frac{\varepsilon}{|m|} \\
+        &=& \varepsilon
+        \end{eqnarray*}
+        por lo que concluimos que \(f\) es continua en \(x_0\).
     </p>
-§<p>
-    Considera la función $f(x)=\frac{1}{x}$, $x\ne 0$. 
-    Fija $x_0\ne 0$. Dada $\varepsilon$, define 
-    $\delta=\delta(x_0, \varepsilon):= \min\{ \varepsilon |x_0|^2/2,  \frac{|x_0|}{2} \}$. 
-
-    Demuestra que si $|x-x_0|<\delta$ entonces 
-    $ |f(x_0)-f(x)|<\varepsilon $.
+    
+  <p>
+    Ahora consideremos  la función $f(x)=\frac{1}{x}$, definida para $x\ne 0$. Fijamos  un punto $x_0\ne 0$
+    y para simplificar las cuentas suponemos \(x_0 >0\). Queremos recordar cómo se prueba la continuidad de \(f\) en \(x_0\). 
+    Dada $\varepsilon$ tomamos 
+    $\delta:= \min\{ \varepsilon (x_0)^2/2,  \frac{x_0}{2} \}$. Con ésta \(\delta\) si tomamos un punto \(x\)
+    con \(|x-x_0|<\delta\) primero notamos que 
+    \begin{eqnarray*}
+     |x-x_0| < \delta \Rightarrow |x-x_0| < \frac{x_0}{2}
+    \end{eqnarray*}
+    De ésta última desigualdad obtenemos que \(0< x\) y que \(\frac{1}{xx_0}< 2\).
+    
+</p>
+<p>
+    Finalmente tenemos que 
+    \begin{eqnarray*} 
+    |f(x)-f(x_0)| &= & \left| \frac{1}{x}-\frac{1}{x_0} \right| \\
+    &=&  \frac{|x-x_0|}{xx_0} \\
+    \leq 2 |x-x_0| \\
+    < 2 \delta \\
+    < 2 
+    \end{eqnarray*}
 </p>
 </div>
 
