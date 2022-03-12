@@ -1,194 +1,372 @@
   
-\section*{Integrabilidad de funciones continuas}
+
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Considera la función $f(x)=mx+b$, $x\in \mathbb{R}$, con $m\not=0$.
-
-Dada $\varepsilon$ define $\delta=\delta(\varepsilon) := \frac{\varepsilon}{|a|}$. Demuestra que si $|x-y|<\delta$ entonces
-$ |f(x)-f(y)|<\varepsilon $.
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Considera la función $f(x)=\frac{1}{x}$, $x\ne 0$. Fija $x_0\ne 0$. Dada $\varepsilon$, define $\delta=\delta(x_0, \varepsilon):= \min\{ \varepsilon |x_0|^2/2,  \frac{|x_0|}{2} \}$. 
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
 
-Demuestra que si $|x-x_0|<\delta$ entonces 
-$ |f(x_0)-f(x)|<\varepsilon $.
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 4 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 4 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 4 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox"> Integrabilidad de funciones continuas </h1>
+
+<div class="info-box">
+    <h2 class="number-title"> Introducción </h2>
+    <p>
+
+    </p>
+    <p>
+        Considera la función $f(x)=mx+b$, $x\in \mathbb{R}$, con $m\not=0$.
+    </p>
+    <p>
+        Dada $\varepsilon$ define 
+        $\delta=\delta(\varepsilon) := \frac{\varepsilon}{|a|}$. 
+        Demuestra que si $|x-y|<\delta$ entonces
+        $ |f(x)-f(y)|<\varepsilon $.
+    </p>
+§<p>
+    Considera la función $f(x)=\frac{1}{x}$, $x\ne 0$. 
+    Fija $x_0\ne 0$. Dada $\varepsilon$, define 
+    $\delta=\delta(x_0, \varepsilon):= \min\{ \varepsilon |x_0|^2/2,  \frac{|x_0|}{2} \}$. 
+
+    Demuestra que si $|x-x_0|<\delta$ entonces 
+    $ |f(x_0)-f(x)|<\varepsilon $.
+</p>
+</div>
+
 
 <div class="definicion-box">
-Sea $D\subset \mathbb{R}$ y $f:D \to \mathbb{R}$ una función. Decimos que $f$ es uniformemente continua en $D$ si, para toda $\varepsilon>0$, existe $\delta>0$, que sólo depende de $\varepsilon$ tal que, para cualesquiera $x,y\in D$  con $|x-y|<\delta$ se satisface que
-$$
-|f(x)-f(y)|<\varepsilon.
-$$
+    <h2 class="number-title" id="Def:ContinuidadUniforme"> Definición </h2> 
+    <p>
+        Sea $D\subset \mathbb{R}$ y $f:D \to \mathbb{R}$ una función. 
+        Decimos que $f$ es uniformemente continua en $D$ si, para toda $\varepsilon>0$, 
+        existe $\delta>0$, que sólo depende de $\varepsilon$ tal que, para cualesquiera 
+        $x,y\in D$  con $|x-y|<\delta$ se satisface que
+        $$
+        |f(x)-f(y)|<\varepsilon.
+        $$
+    </p>
 
-Nota: la $\delta$ debe de ser independiente de los puntos $x$ e $y$.
+    <p>
+        Nota: la $\delta$ debe de ser independiente de los puntos $x$ e $y$.
+    </p>
 </div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Define $f:[a,b] \to \mathbb{R}$ por $f(x)=x^2$. Usando la definición de continuidad uniforme, demuestra que $f$ es uniformemente continua en $[a,b]$.
-
-Sugerencia: $x^2-y^2=(x+y)(x-y)$.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:ContinuidadUniformeEnCompactos} Demuestra el siguiente teorema.
-
-<div class="teorema-box">[Continuidad Uuniforme de funciones continuas en intervalos cerrados y acotados]
-
-Sea $f:[a,b]\to \mathbb{R}$ una función continua en $[a,b]$. 
-
-Para todo $\varepsilon >0$, existe $\delta>0$, que sólo depende de $\varepsilon$, tal que:
-
-si $x,y\in [a,b]$ satisfacen $|x-y|<\delta$ entonces $|f(x)-f(y)| < \varepsilon$.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Define $f:[a,b] \to \mathbb{R}$ por $f(x)=x^2$.
+    </p>
+    <p>
+        Directamente de la  <a href="#Def:ContinuidadUniforme">Definición</a>  
+        demuestra que $f$ es uniformemente continua en $[a,b]$.
+    </p>
+    
+    <p>
+        Sugerencia: $x^2-y^2=(x+y)(x-y)$.
+    </p>
 </div>
 
-Sugerencia: procede por contradicción de la siguiente forma:
 
+<div class="teorema-box">
+    <h2 class="number-title" id="Ejer:ContinuidadUniformeEnCompactos"> Teorema </h2>  
+    <h3> Continuidad Uniforme de funciones continuas en intervalos cerrados y acotados </h3>
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ una función continua en $[a,b]$. 
+    </p>
+    <p>
+        Para todo $\varepsilon >0$ existe $\delta>0$, que sólo depende de $\varepsilon$, tal que
+        si $x,y\in [a,b]$ satisfacen $|x-y|<\delta$ entonces $|f(x)-f(y)| < \varepsilon$.
+    </p>
+    <p>
+        Sugerencia: procede por contradicción de la siguiente forma:
+    </p>
+    <ol>
+        <li>
+            supón que existe $\varepsilon_0>0$ tal que para toda $\delta>0$ existen puntos, que dependen de $\delta$, 
+            $x, y \in [a,b]$ con $|x - y  |<\delta$ y
+            $|f(x) - f(y)| \geq  \varepsilon_0$;
+        </li>  
+    <li>
+        tomando $\delta=1/n$ construye sucesiones $(x_n)_{n=1}^\infty$,
+        $(y_n)_{n=1}^\infty$ que satisfacen: 
+        $|x_n - y_n| < \frac{1}{n}$ y $|f(x_n)-f(y_n)| \geq \varepsilon_0$, para toda $n$;
+    </li> 
+    <li>
+        usa el <a href="https://tfrancisco-ciencias.github.io/CalculoUNO/Secciones/S10.html#Ejer:TeoremaBolzanoWeirestrass ">Teorema de Bolzano</a> 
+        para asegurar que existen subsucesiones
+        $(x_{n_k})_{k=1}^\infty$, $(y_{n_k})_{k=1}^\infty$ y $x_0\in [a,b]$ con
+        $\lim_{k \to \infty}x_{n_k}=x_0=\lim_{k\to \infty} y_{n_k}$;
+    </li> 
+    <li>
+        finalmente llega a una contradicción usando la continuidad de $f$ en $x_0$.
+    </li> 
+    </ol>
+    
+</div>
+   
+
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <h3> Oscilación o diámetro </h3>
+    <p>
+        Sea $I \ne \emptyset$ un intervalo  y $f:I\to \mathbb{R}$. La oscilación o diámetro de $f$
+        en $I$  se define como
+        $$
+        \omega_f(I)=\sup_{x_1,x_2\in I}\{  |f(x_1)-f(x_2)|\}
+        $$
+    </p>
+    <p>
+        Nota: si el conjunto 
+        $\{ |f(x_1)- f(x_2) : x_1,x_2\in I|\}$ 
+        no es acotado superiormente definimos $\omega_f(I)=\infty$.
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra que  $\omega_f(J)\leq \omega_f(I)$, si $J \subseteq I$.
+    </p>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Calcula las siguientes oscilaciones.
+    </p>
 <ol>
     <li>
-        supón que existe $\varepsilon_0>0$ tal que para toda $\delta>0$ existen puntos, que dependen de $\delta$, 
-$x, y \in [a,b]$ con $|x - y  |<\delta$ y
-$|f(x) - f(y)| \geq  \varepsilon_0$;
+        Si $f(x)=mx+b$ y $I=[c,d]$ entonces  $\omega_f (I)=|m|(d-c) $
+    </li> 
+    <li>
+        Si $f(x)=1/x$ y $I=(0,1)$ entonces $\omega_f (I)=\infty$.
+    </li> 
+</ol>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$. 
+        Fija $\varepsilon >0$ y sea $\delta >0$, la de 
+        la continuidad uniforme de $f$ para $\varepsilon$ (la del 
+        <a href="#Ejer:ContinuidadUniformeEnCompactos"> Teorema </a>). 
+        
+    </p>
+    <p>
+        Demuestra que:
+        $$
+        \omega_f(I)\leq \varepsilon,
+        $$
+        para todo $I \subseteq [a,b]$, sub-intervalo de longitud menor a $\delta$.
+    </p>
+</div>
+
+<div class="teorema-box">
+    <h2 class="number-title" id="Ejer:IntegrabilidadFuncionesContinuas"> Teorema </h2>
+    <h3> Toda función continua es integrable </h3>  
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ continua en todo punto de $[a,b]$.   
+    </p>
+    <p>
+        Entonces \(f\) es integrable en \([a,b]\) y además 
+        \begin{eqnarray*}
+        \int_a^b f(x)dx &=& \lim_{n\to \infty} \frac{b-a}{n}\sum_{i=1}^n f\left(a+ i \frac{b-a}{n} \right) \\
+        &=&\lim_{n\to \infty} \frac{b-a}{n}\sum_{i=0}^{n-1} f\left(a+ i \frac{b-a}{n} \right)
+        \end{eqnarray*}
+    </p>
+
+    <ol>
+
+        <li>
+          Denota $\Delta_n=\frac{b-a}{n}$ y $P_n=\{ a+ i\Delta_n \}_{i=1}^n$ la 
+          partición homogenea de $[a,b]$ de longitud $n$. Define funciones escalonadas
+
+            \begin{eqnarray*}
+            s_n&=&\sum_{i=1}^n f(x_{i *})\chi_{[a+(i-1)\Delta_n,a+i\Delta_n)}\\
+            t_n&=&\sum_{i=1}^n f(x_i^*)\chi_{[a+(i-1)\Delta_n,a+i\Delta_n)}
+            \end{eqnarray*}
+        donde, para cada $i$,  $f(x_{i*})=\min\{f(x): x\in [x_{i-1},x_i]\}$ y 
+        $f(x_i^*)=\max\{f(x): x\in [x_{i-1}, x_i] \}$.
+
+        Demuestra que $s_n \leq f \leq t_n$.
+        \begin{eqnarray*}
+        \int_a^b s_n(x) \leq \int_a^b f(x)dx  \leq \int_a^bt(x)dx
+        \end{eqnarray*}
+
+    </li> 
+    <li>
+        Denota
+        $$
+        \Sigma_n = \frac{b-a}{n}\sum_{i=1}^n f(a+i\Delta_n).
+        $$
+
+        Demuestra que:
+        $$
+        \int_a^b s_n(x) \leq  \Sigma_n \leq \int_a^bt(x)dx.
+        $$
     </li>  
-<li>
-    tomando $\delta=1/n$ construye sucesiones $(x_n)_{n=1}^\infty$,
-$(y_n)_{n=1}^\infty$ que satisfacen: $|x_n - y_n| < \frac{1}{n}$ y $|f(x_n)-f(y_n)| \geq \varepsilon_0$, para toda $n$;
-</li> 
-<li>
-    usa el Teorema de Bolzano (\ref{Ejer:TeoremaBolzanoWeirestrass}) para asegurar que existen subsucesiones
-$(x_{n_k})_{k=1}^\infty$, $(y_{n_k})_{k=1}^\infty$ y $x_0\in [a,b]$ con
-$\lim_{k \to \infty}x_{n_k}=x_0=\lim_{k\to \infty} y_{n_k}$;
-</li> 
-<li>
-    finalmente llega a una contradicción usando la continuidad de $f$ en $x_0$.
-</li> 
+
+    <li>
+        Demuestra que: 
+        $$
+        \int_a^b t_n(x)dx-\int_a^bs_n(x)dx \leq  \frac{b-a}{n} \sum_{i=1}^n \omega_f([a+(i-1)\Delta_n, a+i\Delta_n]).
+        $$
+
+    </li>  
+    <li>
+        Usando la continuidad de $f$, el  <a href="#Ejer:ContinuidadUniformeEnCompactos">Teorema</a>  
+        y los incisos anteriores demuestra que 
+        $f$ es integrable en $[a,b]$ y 
+        $$
+        \int_a^b f(x)dx=\lim_n \frac{b-a}{n} \sum_{i=0}^{n-1} f\left(a+ \frac{i}{n}(b-a) \right)
+        $$
+    </li> 
 </ol>
-
-
-<div class="definicion-box">[Oscilación o diámetro]
-
-Sea $I \ne \emptyset$ un intervalo  y $f:I\to \mathbb{R}$. La oscilación o diámetro de $f$
-en $I$  se define como
-$$
-\omega_f(I)=\sup_{x_1,x_2\in I}\{  |f(x_1)-f(x_2)|\}
-$$
-
-Nota: si el conjunto $\{ |f(x_1)- f(x_2) : x_1,x_2\in I|\}$ no es acotado superiormente definimos $\omega_f(I)=\infty$.
 </div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que  $\omega_f(J)\leq \omega_f(I)$, si $J \subseteq I$.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula las siguientes oscilaciones.
-<ol>
-    <li>
-        Si $f(x)=mx+b$, $I=[c,d]$, $\omega_f (I)=|m|(d-c) $
-    </li> 
-    <li>
-        Si $f(x)=1/x$, $I=(0,1)$, $\omega_f (I)=\infty$.
-    </li> 
-</ol>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$. Fija $\varepsilon >0$ y sea $\delta >0$, la de la continuidad uniforme de $f$ para $\varepsilon$ (la del ejercicio \ref{Ejer:ContinuidadUniformeEnCompactos}). Demuestra que:
-$$
-\omega_f(I)\leq \varepsilon,
-$$
-para todo $I \subseteq [a,b]$, sub-intervalo de longitud menor a $\delta$.
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:AproximacionSumasRiemann"> Ejercicio</h2> 
+    Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$.  
 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:IntegrabilidadFuncionesContinuas} Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$.   Este ejercicio demuestra que $f$ es integrable.
-
-<ol>
-
-    <li>
-        Denota $\Delta_n=\frac{b-a}{n}$ y $P_n=\{ a+ i\Delta_n \}_{i=1}^n$ la partición homogenea de $[a,b]$ de longitud $n$. Define funciones escalonadas
-
-\begin{eqnarray*}
-s_n&=&\sum_{i=1}^n f(x_{i *})\chi_{[a+(i-1)\Delta_n,a+i\Delta_n)}\\
-t_n&=&\sum_{i=1}^n f(x_i^*)\chi_{[a+(i-1)\Delta_n,a+i\Delta_n)}
-\end{eqnarray*}
-donde, para cada $i$,  $f(x_{i*})=\min\{f(x): x\in [x_{i-1},x_i]\}$ y $f(x_i^*)=\max\{f(x): x\in [x_{i-1}, x_i] \}$.
-
-Demuestra que $s_n \leq f \leq t_n$.
-%\begin{eqnarray*}
-%%\int_a^b s_n(x) \leq \int_a^b f(x)dx  \leq \int_a^bt(x)dx
-%\end{eqnarray*}
-
-    </li> 
-<li>
-    Denota
-$$
-\Sigma_n = \frac{b-a}{n}\sum_{i=1}^n f(a+i\Delta_n).
-$$
-
-Demuestra que:
-$$
-\int_a^b s_n(x) \leq  \Sigma_n \leq \int_a^bt(x)dx.
-$$
-</li>  
-
-<li>
-    Demuestra que: 
-$$
-\int_a^b t_n(x)dx-\int_a^bs_n(x)dx \leq  \frac{b-a}{n} \sum_{i=1}^n \omega_f([a+(i-1)\Delta_n, a+i\Delta_n]).
-$$
-
-</li>  
-<li>
-    Usando la continuidad de $f$, el ejercicio \ref{Ejer:ContinuidadUniformeEnCompactos} y los incisos anteriores demuestra que 
-$f$ es integrable en $[a,b]$ y 
-$$
-\int_a^b f(x)dx=\lim_n \frac{b-a}{n} \sum_{i=0}^{n-1} f\left(a+ \frac{i}{n}(b-a) \right)
-$$
-</li> 
-</ol>
-
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:AproximacionSumasRiemann} Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$.  
-
-Sea $P=\{ x_i\}_{i=0}^n$ la partición homogenea con longitud $n$. Para cada $i$, tomemos puntos  $r_{i}$ en el sub-intervalo $[x_{i-1}, x_i]$.
+    Sea $P=\{ x_i\}_{i=0}^n$ la partición homogenea con longitud $n$. 
+    Para cada $i$, tomemos puntos  $r_{i}$ en el sub-intervalo $[x_{i-1}, x_i]$.
 
 <ol>
     <li>
         Demuestra
-$$
-\int_a^bf(x)dx=\sum_{i=1}^n f(r_{i,n})(x_i-x_{i-1})+Error,
-$$
-donde 
-$$
-|Error|  \leq \frac{(b-a)}{n} \sum_{i=1}^n \omega_f ([x_{i-1},x_i]) 
-$$
+        $$
+        \int_a^bf(x)dx=\sum_{i=1}^n f(r_{i,n})(x_i-x_{i-1})+Error,
+        $$
+        donde 
+        $$
+        |Error|  \leq \frac{(b-a)}{n} \sum_{i=1}^n \omega_f ([x_{i-1},x_i]) 
+        $$
 
-Sugerencia: toma $s_n, t_n$  como en el ejercicio  \ref{Ejer:IntegrabilidadFuncionesContinuas}. Define
-$$
-\rho_n=\sum_{i=1}^n r_{i} \chi_{[x_{i-1}, x_i)}.
-$$
-
-Demuestra que $s_n \leq \rho_n \leq  t_n$, $\int_a^b \rho_n =\sum_{i=1}^n f(r_{i,n})(x_i-x_{i-1})$ y concluye que
-$$
-\left| \int_a^bf(x)dx -\sum_{i=1}^n f(r_{i})(x_i-x_{i-1})  \right| \leq \int_a^b t_n -\int_a^b s_n
-$$
+        Sugerencia: toma $s_n, t_n$  como en el <a href="#Ejer:IntegrabilidadFuncionesContinuas">Teorema</a>. 
+        Define
+        $$
+        \rho_n=\sum_{i=1}^n r_{i} \chi_{[x_{i-1}, x_i)}.
+        $$
     </li> 
-<li>
-    Concluye que
-$$
-\lim_{n\to \infty} \sum_{i=1}^n f(r_{i})(x_i-x_{i-1})= \int_a^b f(x)dx.
-$$
-</li> 
-
-
+    <li>
+        Demuestra que $s_n \leq \rho_n \leq  t_n$, $\int_a^b \rho_n =\sum_{i=1}^n f(r_{i,n})(x_i-x_{i-1})$ y 
+        concluye que
+        $$
+        \left| \int_a^bf(x)dx -\sum_{i=1}^n f(r_{i})(x_i-x_{i-1})  \right| \leq \int_a^b t_n -\int_a^b s_n
+        $$
+    </li>
+    <li>
+        Concluye que
+        $$
+        \lim_{n\to \infty} \sum_{i=1}^n f(r_{i})(x_i-x_{i-1})= \int_a^b f(x)dx.
+        $$
+    </li> 
 </ol>
-
-<div class="definicion-box">
-Sea $f:[a,b]\to \mathbb{R}$ una función. Una suma de Riemann de $f$ es una expresión de la forma
-$$
-\sum_{i=1}^n f(r_i)[x_{i}-x_{i-1}]
-$$
-donde  $P=\{x_i\}_{i=0}^n$ una partición de $[a,b]$ y $r_i \in [x_{i-1}, x_i]$, $i=1,\dots, n$, puntos fijos y arbitrarios.
-
-Entonces, por el ejercicio \ref{Ejer:AproximacionSumasRiemann}, para funciones continuas, sus sumas de Riemann con  particiones homogeneas
-se aproximan a la integral de la función.
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Expresa los siguiente límites como integrales. No es necesario evaluar la integral.
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ una función. Una suma de Riemann de $f$ es una expresión de la forma
+        $$
+        \sum_{i=1}^n f(r_i)[x_{i}-x_{i-1}]
+        $$
+        donde  $P=\{x_i\}_{i=0}^n$ una partición de $[a,b]$ y $r_i \in [x_{i-1}, x_i]$, $i=1,\dots, n$, puntos fijos y arbitrarios.
+
+        Entonces, por el <a href="#Ejer:AproximacionSumasRiemann">Ejercicio</a>, 
+        para funciones continuas, sus sumas de Riemann con  particiones homogeneas
+        se aproximan a la integral de la función.
+    </p>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Expresa los siguiente límites como integrales. No es necesario evaluar la integral.
+    </p>
 
 <ol>
     <li>
@@ -204,71 +382,125 @@ se aproximan a la integral de la función.
         $\lim_{n\to \infty} \frac{1}{n} \sum_{i=1}^n \frac{1}{3+(i/n)^2}$
     </li> 
 </ol>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Fija $a,b \in \mathbb{R}$ con $0<a<b$. Calcula $\int_{a}^{b} x^{-2}dx$. 
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Fija $a,b \in \mathbb{R}$ con $0< a < b$. Calcula $\int_{a}^{b} x^{-2}dx $. 
+    </p>
+    <p>
+        Sugerencia: usa el ejercicio  <a href="#Ejer:AproximacionSumasRiemann"> Ejercicio</a>,
+        tomando $P_n=\{x_i\}_{i=0}^n$  la partición homogenea y $r_{i,n}=\sqrt{x_{i-1}x_i}$ 
+        y usando la identidad
+        $$
+        \frac{1}{c}-\frac{1}{d}=\frac{d-c}{cd}.
+        $$
+    </p>
+</div>
 
-Sugerencia: usa el ejercicio \ref{Ejer:AproximacionSumasRiemann},  tomando $P_n=\{x_i\}_{i=0}^n$  la partición homogenea y $r_{i,n}=\sqrt{x_{i-1}x_i}$ y usando la identidad
-$$
-\frac{1}{c}-\frac{1}{d}=\frac{d-c}{cd}.
-$$
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $f:[a,b] \to \mathbb{R}$ continua. 
+        Sea $m_f=\min_{x\in [a,b]}\{f(x)\}$ y $M_f=\max_{x\in [a,b]}\{ f(x)\}$. 
+        Demuestra que
+        $$
+        m_f(b-a) \leq \int_a^b f(x)dx \leq M_f(b-a).
+        $$
+    </p>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:[a,b] \to \mathbb{R}$ continua. Sea $m_f=\min_{x\in [a,b]}\{f(x)\}$ y $M_f=\max_{x\in [a,b]}\{ f(x)\}$. Demuestra que
-$$
-m_f(b-a) \leq \int_a^b f(x)dx \leq M_f(b-a).
-$$
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:LemaIntegralCeroDePositivas} Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$ con $f(x)\geq 0 $ para todo $x\in [a,b]$.  Si $f(x_0) > 0 $  para algún $x_0\in [a,b]$ demuestra que:
-$$
-\int_a^b f(x)dx >0
-$$ 
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:IntegralCeroDePositivas} Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$ con $f(x)\geq 0 $ para todo $x\in [a,b]$. Si $\int_a^bf(x)dx=0$
-demuestra que $f(x)=0$ para toda $x\in [a,b]$. 
-
-Sugerencia: usa el ejercicio \ref{Ejer:LemaIntegralCeroDePositivas}.
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Da un ejemplo de una función continua $f:[a,b]\to \mathbb{R}$ tal que $\int_a^b f(x)dx>0$ pero que no se cumpla $f(x) \geq 0$
-para todo $x\in [a,b]$.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio muestra la relación entre la oscilación de una función y la continuidad.
-
-Considera una función  $f:[a,b]\to \mathbb{R}$ y $x_0$ un punto fijo en el intervalo. Prueba que
-$$
-\lim_{\delta \to 0}\omega f([x_0-\delta, x_0+\delta])=0
-$$
-si y sólo si   $f$ es continua en $x_0$. 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:TeoremaValorMedioIntegrales} Demuestra el Teorema del valor medio para para integrales.
-
-
-Sea $f:[a,b]\to \mathbb{R}$ una función continua. Existe $\xi \in [a,b]$ con 
-$$
-\int_a^b f(x)dx=f(\xi)(b-a)
-$$
-
-Sugerencia: considera la desigualdad
-$$
-\min_{x\in [a,b]}\{f(x)\}  \leq f(x) \leq \max_{x\in [a,b]}\{f(x)\} 
-$$
-integra y aplica el Teorema del Valor Intermedio.
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:LemaIntegralCeroDePositivas"> Ejercicio</h2> 
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$ con $f(x)\geq 0 $ 
+        para todo $x\in [a,b]$.  Si $f(x_0) > 0 $  para algún $x_0\in [a,b]$ demuestra que:
+        $$
+        \int_a^b f(x)dx >0
+        $$ 
+    </p>
+    
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:TeoremaValorPonderadoIntegrales} Demuestra el Teorema del valor medio ponderado para integrales.
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:IntegralCeroDePositivas"> Ejercicio</h2>  
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$ con $f(x)\geq 0 $ 
+        para todo $x\in [a,b]$. Si $\int_a^bf(x)dx=0$
+        demuestra que $f(x)=0$ para toda $x\in [a,b]$. 
+    </p>
+    <p>
+        Sugerencia: usa el <a href="#Ejer:LemaIntegralCeroDePositivas">Ejercicio</a>.
+    </p>
+</div>
 
-Supongamos que $f,g:[a,b]\to \mathbb{R}$ son funciones continuas y que $g$
-nunca cambia de signo en el intervalo $[a,b]$. Entonces existe $\xi \in [a,b]$
-tal que
-$$
-\int_a^bf(x)g(x)=f(\xi)\int_a^bg(x)dx
-$$
 
-Sugerencia: si $g(x) \geq 0$ para todo $x\in [a,b]$, considera la desigualdad
-$$
-\min_{x\in [a,b]}\{f(x)\} g(x) \leq f(x)g(x) \leq \max_{x\in [a,b]}\{f(x)\} g(x)
-$$
-integra y aplica el Teorema del Valor Intermedio a $f$.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Da un ejemplo de una función continua $f:[a,b]\to \mathbb{R}$ tal que 
+        $\int_a^b f(x)dx>0$ pero que no se cumpla $f(x) \geq 0$
+        para todo $x\in [a,b]$.
+    </p>
+</div>
 
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio muestra la relación entre la oscilación de una función y la continuidad.
+    </p>
+    <p>
+        Considera una función  $f:[a,b]\to \mathbb{R}$ y $x_0$ un punto fijo en el intervalo. Prueba que
+        $$
+        \lim_{\delta \to 0}\omega f([x_0-\delta, x_0+\delta])=0
+        $$
+        si y sólo si   $f$ es continua en $x_0$. 
+
+    </p>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:TeoremaValorMedioIntegrales"> Ejercicio</h2> 
+    <h3>Teorema del valor medio para para integrales</h3> 
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ una función continua. Existe $\xi \in [a,b]$ con 
+        $$
+        \int_a^b f(x)dx=f(\xi)(b-a)
+        $$
+    </p>
+    <p>
+        Sugerencia: considera la desigualdad
+        $$
+        \min_{x\in [a,b]}\{f(x)\}  \leq f(x) \leq \max_{x\in [a,b]}\{f(x)\} 
+        $$
+        integra y aplica el Teorema del Valor Intermedio.
+    </p>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:TeoremaValorPonderadoIntegrales"> Ejercicio</h2>
+    <p>
+        Demuestra el Teorema del valor medio ponderado para integrales.
+    </p>
+    <p>
+        Supongamos que $f,g:[a,b]\to \mathbb{R}$ son funciones continuas y que $g$
+        nunca cambia de signo en el intervalo $[a,b]$. Entonces existe $\xi \in [a,b]$
+        tal que
+        $$
+        \int_a^bf(x)g(x)=f(\xi)\int_a^bg(x)dx
+        $$
+    </p>
+    <p>
+        Sugerencia: si $g(x) \geq 0$ para todo $x\in [a,b]$, considera la desigualdad
+        $$
+        \min_{x\in [a,b]}\{f(x)\} g(x) \leq f(x)g(x) \leq \max_{x\in [a,b]}\{f(x)\} g(x)
+        $$
+        integra y aplica el Teorema del Valor Intermedio a $f$.        
+    </p>
+</div>
+
+</body>
