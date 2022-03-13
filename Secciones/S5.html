@@ -99,6 +99,7 @@
         función también depende del intervalo sobre el cual la estamos considerando. Iniciamos con 
         dos ejemplos que muestran que la continuidad puede ser más uniforme en ciertos casos que en otros. 
     </p>
+    <h4>Ejemplo 1.</h4>
     <p>
         Considera la función $f(x)=mx+b$, $x\in \mathbb{R}$, con $m\not=0$. Recordemos la prueba de que 
         \(f\) es continua en un punto fijo \(x_0\). Dada \(\varepsilon >0 \) tomamos 
@@ -113,28 +114,46 @@
         \end{eqnarray*}
         por lo que concluimos que \(f\) es continua en \(x_0\).
     </p>
-    
+   <h4>Ejemplo 2.</h4> 
   <p>
     Ahora consideremos  la función $f(x)=\frac{1}{x}$, definida para $x\ne 0$. Fijamos  un punto $x_0\ne 0$
     y para simplificar las cuentas suponemos \(x_0 >0\). Queremos recordar cómo se prueba la continuidad de \(f\) en \(x_0\). 
+  </p>
+
+    <p>
     Dada $\varepsilon$ tomamos 
-    $\delta:= \min\{ \varepsilon (x_0)^2/2,  \frac{x_0}{2} \}$. Con ésta \(\delta\) si tomamos un punto \(x\)
+    $\delta:= \min\{ \frac{x_0^2\varepsilon }{2},  \frac{x_0}{2} \}$. Con ésta \(\delta\) si tomamos un punto \(x\)
     con \(|x-x_0|<\delta\) primero notamos que 
     \begin{eqnarray*}
-     |x-x_0| < \delta \Rightarrow |x-x_0| < \frac{x_0}{2}
-    \end{eqnarray*}
-    De ésta última desigualdad obtenemos que \(0< x\) y que \(\frac{1}{xx_0}< 2\).
+     |x-x_0| < \delta \leq \frac{x_0}{2} &\Rightarrow  &  -\frac{x_0}{2} < x-x_0 \\
+      &\Rightarrow & \frac{x_0}{2} < x     
+      \end{eqnarray*}
+    De ésta última desigualdad obtenemos que \(0< x\) y que \(\frac{1}{xx_0}< \frac{2}{x_0^2}\).
     
 </p>
 <p>
-    Finalmente tenemos que 
+    Finalmente obtenemos:
     \begin{eqnarray*} 
     |f(x)-f(x_0)| &= & \left| \frac{1}{x}-\frac{1}{x_0} \right| \\
     &=&  \frac{|x-x_0|}{xx_0} \\
-    \leq 2 |x-x_0| \\
-    < 2 \delta \\
-    < 2 
+    &\leq&  \frac{2}{x_0^2} |x-x_0| \\
+    &<& \frac{2}{x_0^2} \delta  \\
+    &\leq & \frac{2}{x_0^2}  \frac{x_0^2\varepsilon}{2}\\
+    &=& \varepsilon
     \end{eqnarray*}
+</p>
+<h4>Conclusiones.</h4>
+<p>
+    En el primer ejemplo la \(\delta\) que obtuvimos es \(\delta=\frac{\varepsilon}{|m|}\)
+    y en el segundo es \(\delta=\min\{\frac{x_0^2\varepsilon}{2}, \frac{x_0}{2}\}\). Notamos 
+    que en el primero la \(\delta\) no depende del punto \(x_0\), se dice que \(\delta\) es
+    uniforme (igual) para todo punto \(x_0\). En el segundo ejemplo \(\delta\) depende 
+    fuertemente de \(x_0\) (entre más cercano a \(0\) está el \(x_0\) la \(\delta\) es más 
+    pequeña). 
+</p>
+<p>
+    Esta diferencia va a ser crucial para la integrabilidad de la función y es con lo que 
+    se inicia está sección.
 </p>
 </div>
 
@@ -150,9 +169,15 @@
         |f(x)-f(y)|<\varepsilon.
         $$
     </p>
+    <p>
+        Es decir, dado un número \(\varepsilon >0\)
+        una misma \(\delta\) sirve para todos los puntos del dominio \(D\).
+    </p>
 
     <p>
-        Nota: la $\delta$ debe de ser independiente de los puntos $x$ e $y$.
+        Por ejemplo en la introducción se probó que  \(f(x)=mx+b\) es uniformemente continua en todo 
+        \(\mathbb{R}\) y en los ejercicios se prueba que \(f(x)=\frac{1}{x}\) es NO es 
+        uniformemente continua en \((0,1)\).
     </p>
 </div>
 
@@ -162,7 +187,7 @@
         Define $f:[a,b] \to \mathbb{R}$ por $f(x)=x^2$.
     </p>
     <p>
-        Directamente de la  <a href="#Def:ContinuidadUniforme">Definición</a>  
+        Directamente de la  <a href="#Def:ContinuidadUniforme">Definición 5.2</a>  
         demuestra que $f$ es uniformemente continua en $[a,b]$.
     </p>
     
@@ -172,40 +197,103 @@
 </div>
 
 
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+        Sea \(f:(0,1)\to \mathbb{R}\) dada por \(f(x)=\frac{1}{x}\). Prueba que 
+        \(f\) no es uniformemente continua en \((0,1)\).
+    </p>
+    <p>
+        Sugerencia: procede por contradicción. Entonces para \(\varepsilon=1\)
+        existe una \(\delta >0\) que satisaface: para todos \(x,y\in (0,1)\) 
+        con \(|x-y|< \delta\) se tiene que \(|f(x)-f(y)|< 1\).
+    
+    <p>
+        Termina considerando puntos de la forma \(\frac{1}{n}\), \(n\in \mathbb{N}\).
+    </p>
+
+</div>
+
 <div class="teorema-box">
     <h2 class="number-title" id="Ejer:ContinuidadUniformeEnCompactos"> Teorema </h2>  
     <h3> Continuidad Uniforme de funciones continuas en intervalos cerrados y acotados </h3>
     <p>
-        Sea $f:[a,b]\to \mathbb{R}$ una función continua en $[a,b]$. 
+        Sea $f:[a,b]\to \mathbb{R}$ una función continua en todo punto de $[a,b]$. 
     </p>
     <p>
-        Para todo $\varepsilon >0$ existe $\delta>0$, que sólo depende de $\varepsilon$, tal que
-        si $x,y\in [a,b]$ satisfacen $|x-y|<\delta$ entonces $|f(x)-f(y)| < \varepsilon$.
+        Prueba que \(f\) es uniformemente continua en \([a,b]\) 
+    </p>
+
+    <p>
+        Vamos a proceder por contradicción. 
     </p>
     <p>
-        Sugerencia: procede por contradicción de la siguiente forma:
+        Iniciamos negando la definición de continuidad uniforme.
     </p>
-    <ol>
-        <li>
-            supón que existe $\varepsilon_0>0$ tal que para toda $\delta>0$ existen puntos, que dependen de $\delta$, 
-            $x, y \in [a,b]$ con $|x - y  |<\delta$ y
-            $|f(x) - f(y)| \geq  \varepsilon_0$;
-        </li>  
-    <li>
-        tomando $\delta=1/n$ construye sucesiones $(x_n)_{n=1}^\infty$,
-        $(y_n)_{n=1}^\infty$ que satisfacen: 
-        $|x_n - y_n| < \frac{1}{n}$ y $|f(x_n)-f(y_n)| \geq \varepsilon_0$, para toda $n$;
-    </li> 
-    <li>
-        usa el <a href="https://tfrancisco-ciencias.github.io/CalculoUNO/Secciones/S10.html#Ejer:TeoremaBolzanoWeirestrass ">Teorema de Bolzano</a> 
-        para asegurar que existen subsucesiones
-        $(x_{n_k})_{k=1}^\infty$, $(y_{n_k})_{k=1}^\infty$ y $x_0\in [a,b]$ con
-        $\lim_{k \to \infty}x_{n_k}=x_0=\lim_{k\to \infty} y_{n_k}$;
-    </li> 
-    <li>
-        finalmente llega a una contradicción usando la continuidad de $f$ en $x_0$.
-    </li> 
-    </ol>
+    <p>
+        Recordamos que 
+        al negar un enunciado cambiamos los cuantificadores y con esto obtenemos que 
+        \(f\) NO es uniformemente continua en \([a,b]\) sii existe un número $\varepsilon_0>0$ 
+        tal que para cualquier número $\delta>0$ existen puntos  $x, y \in [a,b]$ con $|x - y  |<\delta$ y
+        pero que sin embargo satisfacen $|f(x) - f(y)| \geq  \varepsilon_0$. 
+    </p>
+    
+    <p>
+        El enunciado anterior va a funcionar como una maquinita al cual le vamos 
+        a dar diferentes \(\delta\) para que nos arroje los puntos \(x,y\). Tomando 
+        $\delta=1/n$ aseguramos la existencia de puntos  $(x_n)_{n=1}^\infty$,
+        $(y_n)_{n=1}^\infty$ que satisfacen 
+        \[
+        |x_n - y_n| < \frac{1}{n} \quad \textrm{y} \quad |f(x_n)-f(y_n)| \geq \varepsilon_0,
+        \]
+        para toda $n$ natural. 
+    </p> 
+    <p>
+        Ahora aplicamos el  <a href="https://tfrancisco-ciencias.github.io/CalculoUNO/Secciones/S10.html#Ejer:TeoremaBolzanoWeirestrass ">Teorema de Bolzano</a> 
+        para asegurar la  existencia de dos subsucesiones
+        $(x_{n_k})_{k=1}^\infty$, $(y_{n_k})_{k=1}^\infty$ y puntos $x_0,y_0 \in [a,b]$ con
+        \begin{eqnarray*}
+         \lim_{k \to \infty}x_{n_k}=x_0 \\
+         \lim_{k\to \infty} y_{n_k}= y_0 \\ 
+         \end{eqnarray*}
+    </p> 
+    <p>
+        Afirmamos que \(x_0=y_0\). Razón: 
+        \begin{eqnarray} 
+            |x_0-y_0| &\leq & |x_0-x_{n_k}|+ |x_{n_k}-y_{n_k}|+ |y_{n_k}-y_0| \label{Eqn:Aux1ContinuidadUnif}
+        \end{eqnarray}
+        pero 
+        \begin{eqnarray*} 
+            \lim_{k\to \infty} |x_0-x_{n_k}| &=&0 \\
+            \lim_{k\to \infty} |y_0 -y_{n_k}| &=& 0 
+        \end{eqnarray*} 
+         y   
+        \begin{eqnarray*}
+             |x_{n_k}-y_{n_k}|  \leq   \frac{1}{n_k} &\Rightarrow & \lim_{k\to \infty}|x_{n_k}-y_{n_k}| \leq \lim_{k\to \infty} \frac{1}{n_k}=0   
+        \end{eqnarray*}
+    </p>
+    <p>
+        Por \eqref{Eqn:Aux1ContinuidadUnif} y el Teorema de Sandwich concluimos que \(|x_0-y_0|=0\), 
+        es decir \(x_0=y_0\). 
+    </p>
+    <p>
+        Ahora vamos a usar que \(f\) es continua en todo punto de \([a,b]\), en particular en \(x_0\).
+    </p>
+    <p>
+        Por las propiedades de las funciones continuas y límites tenemos 
+        \[
+           f(x_0)=\lim_{k\to \infty} f(x_{n_k})=\lim_{k\to \infty} f(y_{n_k}) 
+        \]
+        pero además sabemos que para todo \(n\) se cumple 
+        \[
+        |f(x_n)-f(y_n)| \geq \varepsilon_0,
+        \]
+        así que tomando límites concluimos 
+        \[
+          |f(x_0)-f(y_0)| \geq \varepsilon_0 >0  
+        \]
+        contradiciendo el hecho de que \(x_0=y_0\).
+    </p>
     
 </div>
    
@@ -258,7 +346,7 @@
         Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$. 
         Fija $\varepsilon >0$ y sea $\delta >0$, la de 
         la continuidad uniforme de $f$ para $\varepsilon$ (la del 
-        <a href="#Ejer:ContinuidadUniformeEnCompactos"> Teorema </a>). 
+        <a href="#Ejer:ContinuidadUniformeEnCompactos"> Teorema 5.5 </a>). 
         
     </p>
     <p>
@@ -385,7 +473,7 @@
         $$
         donde  $P=\{x_i\}_{i=0}^n$ una partición de $[a,b]$ y $r_i \in [x_{i-1}, x_i]$, $i=1,\dots, n$, puntos fijos y arbitrarios.
 
-        Entonces, por el <a href="#Ejer:AproximacionSumasRiemann">Ejercicio</a>, 
+        Entonces, por el <a href="#Ejer:AproximacionSumasRiemann">Ejercicio 5.11</a>, 
         para funciones continuas, sus sumas de Riemann con  particiones homogeneas
         se aproximan a la integral de la función.
     </p>
@@ -420,7 +508,7 @@
         Fija $a,b \in \mathbb{R}$ con $0< a < b$. Calcula $\int_{a}^{b} x^{-2}dx $. 
     </p>
     <p>
-        Sugerencia: usa el ejercicio  <a href="#Ejer:AproximacionSumasRiemann"> Ejercicio</a>,
+        Sugerencia: usa el ejercicio  <a href="#Ejer:AproximacionSumasRiemann"> Ejercicio 5.11</a>,
         tomando $P_n=\{x_i\}_{i=0}^n$  la partición homogenea y $r_{i,n}=\sqrt{x_{i-1}x_i}$ 
         y usando la identidad
         $$
@@ -462,7 +550,7 @@
         demuestra que $f(x)=0$ para toda $x\in [a,b]$. 
     </p>
     <p>
-        Sugerencia: usa el <a href="#Ejer:LemaIntegralCeroDePositivas">Ejercicio</a>.
+        Sugerencia: usa el <a href="#Ejer:LemaIntegralCeroDePositivas">Ejercicio 5.16</a>.
     </p>
 </div>
 
@@ -471,7 +559,8 @@
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Da un ejemplo de una función continua $f:[a,b]\to \mathbb{R}$ tal que 
-        $\int_a^b f(x)dx>0$ pero que no se cumpla $f(x) \geq 0$
+        $$\int_a^b f(x)dx>0$$ 
+        pero que no se cumpla $f(x) \geq 0$
         para todo $x\in [a,b]$.
     </p>
 </div>
@@ -484,7 +573,7 @@
     <p>
         Considera una función  $f:[a,b]\to \mathbb{R}$ y $x_0$ un punto fijo en el intervalo. Prueba que
         $$
-        \lim_{\delta \to 0}\omega f([x_0-\delta, x_0+\delta])=0
+        \lim_{\delta \to 0}\omega_f([x_0-\delta, x_0+\delta])=0
         $$
         si y sólo si   $f$ es continua en $x_0$. 
 
