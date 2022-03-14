@@ -76,7 +76,7 @@
         </header>
 
       <!-- This part is for title in tab-->
-      <title> § 4 </title>
+      <title> § 5 </title>
     
   </head>
 
@@ -216,14 +216,15 @@
 
 <div class="teorema-box">
     <h2 class="number-title" id="Ejer:ContinuidadUniformeEnCompactos"> Teorema </h2>  
-    <h3> Continuidad Uniforme de funciones continuas en intervalos cerrados y acotados </h3>
+    <h3> Continuidad Uniforme  </h3>
     <p>
         Sea $f:[a,b]\to \mathbb{R}$ una función continua en todo punto de $[a,b]$. 
     </p>
     <p>
         Prueba que \(f\) es uniformemente continua en \([a,b]\) 
     </p>
-
+    <button class="respButton hvr-grow "> Demostración  escrita </button>
+    <div class="resp-box flexbox">
     <p>
         Vamos a proceder por contradicción. 
     </p>
@@ -294,7 +295,7 @@
         \]
         contradiciendo el hecho de que \(x_0=y_0\).
     </p>
-    
+</div>    
 </div>
    
 
@@ -341,7 +342,7 @@
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
+    <h2 class="number-title" id="Ejer:LemaContinuidadUniformeOscilacion"> Ejercicio</h2> 
     <p>
         Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$. 
         Fija $\varepsilon >0$ y sea $\delta >0$, la de 
@@ -368,84 +369,244 @@
         Entonces \(f\) es integrable en \([a,b]\) y además 
         \begin{eqnarray*}
         \int_a^b f(x)dx &=& \lim_{n\to \infty} \frac{b-a}{n}\sum_{i=1}^n f\left(a+ i \frac{b-a}{n} \right) \\
-        &=&\lim_{n\to \infty} \frac{b-a}{n}\sum_{i=0}^{n-1} f\left(a+ i \frac{b-a}{n} \right)
+        &=&\lim_{n\to \infty} \frac{b-a}{n}\sum_{i=1}^{n} f\left(a+ (i-1) \frac{b-a}{n} \right)
         \end{eqnarray*}
     </p>
+    <button class="respButton hvr-grow "> Demostración  escrita </button>
+    <div class="resp-box flexbox">
+    
 
-    <ol>
-
-        <li>
-          Denota $\Delta_n=\frac{b-a}{n}$ y $P_n=\{ a+ i\Delta_n \}_{i=1}^n$ la 
-          partición homogenea de $[a,b]$ de longitud $n$. Define funciones escalonadas
-
+        <p>
+          Denotemos  $P_n=\{a=x_0< x_1< \cdots < x_n=b \}$, la 
+          partición homogenea de $[a,b]$ de longitud $n$. 
+        </p> 
+        <p>
+            Ahora definimos funciones escalonadas \(s_n,t_n:[a,b]\to \mathbb{R}\)
             \begin{eqnarray*}
-            s_n&=&\sum_{i=1}^n f(x_{i *})\chi_{[a+(i-1)\Delta_n,a+i\Delta_n)}\\
-            t_n&=&\sum_{i=1}^n f(x_i^*)\chi_{[a+(i-1)\Delta_n,a+i\Delta_n)}
+            s_n&=&\sum_{i=1}^n f(x_{i *})\chi_{[x_{i-1},x_i)},\\
+            t_n&=&\sum_{i=1}^n f(x_i^*)\chi_{[x_{i-1},x_i)}
             \end{eqnarray*}
-        donde, para cada $i$,  $f(x_{i*})=\min\{f(x): x\in [x_{i-1},x_i]\}$ y 
-        $f(x_i^*)=\max\{f(x): x\in [x_{i-1}, x_i] \}$.
-
-        Demuestra que $s_n \leq f \leq t_n$.
-        \begin{eqnarray*}
-        \int_a^b s_n(x) \leq \int_a^b f(x)dx  \leq \int_a^bt(x)dx
+            donde, para cada $i$,  
+            \begin{eqnarray*}
+            f(x_{i*})&=&\min\{f(x): x\in [x_{i-1},x_i]\}, \\
+            f(x_i^*)&=&\max\{f(x): x\in [x_{i-1}, x_i] \}.
+            \end{eqnarray*}
+         </p>
+         <p>
+            Si lo anterior les recuerda la prueba del  
+            <a href="./S4.html#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> 
+            sobre funciones monótonas es que 
+            están presentando atención. Vamos a proceder de manera muy similar.
+        </p>
+        <p>
+            Vamos a usar el <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Criterio de Cauchy</a> para probar que la función 
+            es integrable.
+        </p>
+        <p>
+            Ya que \(f(x_{i*}) \leq f(x) \leq f(x_i^*)\), para todo \(x\in [x_{i-1},x_i)\),
+            se sigue que  
+            \begin{equation}\label{Eqn:Aux1IntegrabilidadContinuas} 
+            s_n(x) \leq f(x) \leq t_n(x),
+            \end{equation}
+            para todo \(x\in [a,b)\).
+        </p>
+        <p>
+            Ahora tenemos que asegurar que 
+            \[
+            \int_a^bt_n(x)dx - \int_a^bs_n(x)dx
+            \]
+            se hace pequeño cuando \(n\) tiende a infinito. 
+        </p>
+        <p>
+            Para probar lo anterior primero probaremos 
+            \begin{equation}\label{Eqn:Aux2IntegrabilidadContinuas} 
+            \int_a^bt_n(x)dx - \int_a^bs_n(x)dx \leq \frac{b-a}{n}\sum_{i=1}^n \omega_f([x_{i-1},x_i])
+            \end{equation}
+        </p>
+    
+        <p>
+        Por la definición de la integral de funciones escalonadas y usando que 
+        la partición es homogenea obtenemos 
+        \begin{eqnarray*} 
+        \int_a^b s_n(x)dx =\frac{b-a}{n}\sum_{i=1}^n f(x_{i*}), \\
+        \int_a^b t_n(x)dx =\frac{b-a}{n}\sum_{i=1}^n f(x_i^*)
         \end{eqnarray*}
+        por lo que se sigue 
+        \begin{eqnarray*}
+            \int_a^bt_n(x)dx-\int_a^bs_n(x)dx = \frac{b-a}{n}\sum_{i=1}^n f(x_i^*)-f(x_{i*}).
+        \end{eqnarray*}
+        Así pues, para probar \eqref{Eqn:Aux2IntegrabilidadContinuas} es suficiente probar que 
+        para toda \(i=1,\dots, n\)
+        \[
+            f(x_i^*)-f(x_{i*})= \omega_f([x_{i-1},x_i]).
+        \]
+        Para ésto últimos notamos que para todo \(x,y \in [x_{i-1},x_i]\),
+        \begin{eqnarray*} 
+        f(x_{i*}) \leq f(x),f(y) \leq f(x_i^*) & \Rightarrow &  |f(x)-f(y))| \leq f(x_i^*)-f(x_{i*})  \\
+        & \Rightarrow & \sup_{x,y\in [x_{i-1},x_i]}\{|f(x)-f(y)| \} \leq f(x_i^*)-f(x_{i*})
+        \end{eqnarray*}
+        cuando \(x\) e \(y\) toman los valores \(x=x_{i*}, y=x_i^*\) obtenemos que la desigualdad anterior es igualdad y por lo tanto 
+        \[
+        \omega_f([x_{i-1},x_i])=\sup_{x,y\in [x_{i-1},x_i]}\{|f(x)-f(y)| \} = f(x_i^*)-f(x_{i*})
+        \]
+        lo cual termina la prueba de \eqref{Eqn:Aux2IntegrabilidadContinuas}.
+        </p>
+        <p>
+            Para finalizar el Criterio de Cauchy vamos a usar el 
+            <a href="#Ejer:ContinuidadUniformeEnCompactos">Teorema de continuidad uniforme</a>. 
+            Sea \(\varepsilon >0\) fijo y arbitrario. Para el número positivo \(\frac{\varepsilon}{b-a}\)
+            el <a href="#Ejer:ContinuidadUniformeEnCompactos">Teorema de continuidad uniforme</a>
+            asegura la existencia de una \(\delta >0\) tal que si \(x,y\in [a,b]\) y si \(|x-y|< \delta \)
+            entonces \(|f(x)-f(y)|< \frac{\varepsilon}{b-a}\).
+        </p>
+        <p>
+            Tomamos \(N\in \mathbb{N}\) tal que \(\frac{b-a}{N} < \delta \). Entonces 
+            para  todo  \(n\geq N\) los subintervalos de \(P_n=\{x_i\}_{i=0}^n\) tienen longitud menor a \(\delta\) 
+            por  lo que el <a href="#Ejer:IntegrabilidadFuncionesContinuas">Ejercicio 5.9</a> 
+            implica que \(\omega_f([x_{i-1},x_i])< \frac{\varepsilon}{b-a}\). Utilizando ésta última 
+            cota en \eqref{Eqn:Aux2IntegrabilidadContinuas} llegamos a que, para todo \(n\geq N\):
+            \begin{eqnarray}
+            \int_a^bt_n(x)dx-\int_a^bs_n(x)dx &=& \frac{b-a}{n}\sum_{i=1}^n \omega_f([x_{i-1},x_i]) \nonumber \\
+            &\leq & \frac{b-a}{n}\sum_{i=1}^n \frac{\varepsilon}{b-a} \nonumber \\
+            &=& \varepsilon \label{Eqn:Aux3IntegrabilidadContinuas}
+            \end{eqnarray}
+        </p>
+        <p>
+            Por \eqref{Eqn:Aux1IntegrabilidadContinuas} y \eqref{Eqn:Aux3IntegrabilidadContinuas}
+            concluimos que \(f\) es integrable.
+        </p>
+    <p>
+        Solo resta probar los límites que vienen en el Teorema. Para esto denotemos 
+        $$
+        \underline{\Sigma}_n = \frac{b-a}{n} \sum_{i=1}^{n} f(x_{i-1}), \quad 
+        \overline{\Sigma}_n=\frac{b-a}{n}\sum_{i=1}^nf(x_i).
+        $$
 
-    </li> 
-    <li>
-        Denota
-        $$
-        \Sigma_n = \frac{b-a}{n}\sum_{i=1}^n f(a+i\Delta_n).
-        $$
+        Notamos que  \(f(x_{i*}) \leq f(x_i), f(x_{i-1})\leq f(x_i^*)\) 
+        para todo \(i=1,\dots, n\), de los que se sigue 
+        \begin{eqnarray*} 
+            \frac{b-a}{n}\sum_{i=1}^n f(x_{i*}) \leq \frac{b-a}{n}\sum_{i=1}^n f(x_{i-1}) \leq \frac{b-a}{n}\sum_{i=1}^n f(x_{i}^*), \\
+            \frac{b-a}{n}\sum_{i=1}^n f(x_{i*}) \leq \frac{b-a}{n}\sum_{i=1}^n f(x_i) \leq \frac{b-a}{n}\sum_{i=1}^n f(x_{i}^*)
+        \end{eqnarray*}
+        lo cual podemos escribir como:
+        \begin{eqnarray*} 
+        \int_a^b s_n(x)dx \leq \underline{\Sigma}_n \leq \int_a^n t_n(x)dx, \\
+        \int_a^b s_n(x)dx \leq \overline{\Sigma}_n \leq \int_a^n t_n(x)dx. 
+        \end{eqnarray*}
+    </p>  
+    <p>
+        Pero por \eqref{Eqn:Aux1IntegrabilidadContinuas} también tenemos    
+        \[
+        \int_a^bt_n(x)dx \leq \int_a^b f(x)dx \leq \int_a^b t_n(x)dx. 
+        \]
+    </p>
+    <p>
+        Con estas últimas tres desigualdades podemos escribir 
+        \begin{eqnarray*} 
+        \left| \underline{\Sigma}_n -\int_a^b f(x)dx  \right| \leq \int_a^b t_n(x)dx -\int_a^b s_n(x)dx,   \\
+        \left|  \overline{\Sigma}_n -\int_a^b f(x)dx  \right| \leq \int_a^b t_n(x)dx -\int_a^b s_n(x)dx
+        \end{eqnarray*}
+    </p>
+    <p>
+        y con ayuda de \eqref{Eqn:Aux2IntegrabilidadContinuas} podemos acotar las desigualdades 
+        anteriores como 
+    </p>
+    <p>
+        \begin{eqnarray*} 
+        \left| \underline{\Sigma}_n -\int_a^b f(x)dx  \right| \leq  \frac{b-a}{n} \sum_{i=1}^n \omega_f([x_{i-1},x_i]),   \\
+        \left|  \overline{\Sigma}_n -\int_a^b f(x)dx  \right| \leq \frac{b-a}{n} \sum_{i=1}^n \omega_f([x_{i-1},x_i]).
+        \end{eqnarray*}   
+    </p>
+    <p>
+        Al igual que en \eqref{Eqn:Aux3IntegrabilidadContinuas} podemos concluir que para toda 
+        \(n\geq N\)
 
-        Demuestra que:
-        $$
-        \int_a^b s_n(x) \leq  \Sigma_n \leq \int_a^bt(x)dx.
-        $$
-    </li>  
 
-    <li>
-        Demuestra que: 
-        $$
-        \int_a^b t_n(x)dx-\int_a^bs_n(x)dx \leq  \frac{b-a}{n} \sum_{i=1}^n \omega_f([a+(i-1)\Delta_n, a+i\Delta_n]).
-        $$
-
-    </li>  
-    <li>
-        Usando la continuidad de $f$, el  <a href="#Ejer:ContinuidadUniformeEnCompactos">Teorema</a>  
-        y los incisos anteriores demuestra que 
-        $f$ es integrable en $[a,b]$ y 
-        $$
-        \int_a^b f(x)dx=\lim_n \frac{b-a}{n} \sum_{i=0}^{n-1} f\left(a+ \frac{i}{n}(b-a) \right)
-        $$
-    </li> 
-</ol>
+        \begin{eqnarray*} 
+        \left| \underline{\Sigma}_n -\int_a^b f(x)dx  \right| \leq  \varepsilon ,   \\
+        \left|  \overline{\Sigma}_n -\int_a^b f(x)dx  \right| \leq \varepsilon.
+        \end{eqnarray*}   
+        lo cual prueba los límites 
+        \begin{eqnarray*}
+        \int_a^b f(x)dx &=& \lim_{n\to \infty} \frac{b-a}{n}\sum_{i=1}^n f\left(a+ i \frac{b-a}{n} \right) \\
+        &=&\lim_{n\to \infty} \frac{b-a}{n}\sum_{i=1}^{n} f\left(a+ (i-1) \frac{b-a}{n} \right)
+        \end{eqnarray*}
+    </p>  
+    
+</div>
 </div>
 
 
 
 <div class="ejercicio-box">
     <h2 class="number-title" id="Ejer:AproximacionSumasRiemann"> Ejercicio</h2> 
-    Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$.  
+    
+    <p>
+        Este ejercicios generaliza las fórmulas de los límites del 
+        <a href="#Ejer:IntegrabilidadFuncionesContinuas">Teorema 5.10</a>
+    </p>
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$.  
+    </p>
 
-    Sea $P=\{ x_i\}_{i=0}^n$ la partición homogenea con longitud $n$. 
-    Para cada $i$, tomemos puntos  $r_{i}$ en el sub-intervalo $[x_{i-1}, x_i]$.
+    
 
 <ol>
     <li>
+        Sea $P=\{ x_i\}_{i=0}^n$ una partición arbitraria de \([a,b]\). 
+        Para cada $i$, tomemos puntos fijos y arbitrarios  $r_{i}$ en el sub-intervalo $[x_{i-1}, x_i]$.
         Demuestra
         $$
-        \int_a^bf(x)dx=\sum_{i=1}^n f(r_{i,n})(x_i-x_{i-1})+Error,
+        \left| \int_a^bf(x)dx - \sum_{i=1}^n f(r_{i})(x_i-x_{i-1}) \right| \leq \|P\| \sum_{i=1}^n \omega_f ([x_{i-1},x_i]) 
         $$
-        donde 
-        $$
-        |Error|  \leq \frac{(b-a)}{n} \sum_{i=1}^n \omega_f ([x_{i-1},x_i]) 
-        $$
+        
+        <p>
+            Definamos funciones escalonadas $s_n, t_n, \rho_n:[a,b]\to \mathbb{R}$  por  
+            \begin{eqnarray*}
+            s_n&=&\sum_{i=1}^n m_i\chi_{[x_{i-1},x_i]}\\
+            t_n&=&\sum_{i=1}^n M_i\chi_{[x_{i-1},x_i]}\\
+            \rho_n&=&\sum_{i=1}^n r_{i} \chi_{[x_{i-1}, x_i)}.
+            \end{eqnarray*}
+            donde para cada \(i\), \(m_{i}=\inf_{x\in [x_{i-1},x_i]}\{f(x)\}\) y 
+            \(M_{i}=\sup_{x\in [x_{i-1},x_i]}\{f(x)\}\).
+        </p>
+        <p>
+            También notamos que 
+            \begin{eqnarray*}
+                \int_a^b \rho_n(x)dx=\sum_{i=1}^n f(r_i)(x_i-x_{i-1})
+            \end{eqnarray*}
+        </p>
+        <p>
+            Por las definiciones de \(m_i\) y \(M_i\) debemos de tener 
+            \begin{eqnarray*}
+              s_n \leq \rho_n \leq t_n   \\
+              s_n \leq f \leq t_n
+            \end{eqnarray*}
+            por lo que 
+            \begin{eqnarray*}
+                \int_a^b s_n(x)dx \leq \int_a^b \rho_n(x)dx \leq \int_a^b t_n(x)dx \\
+                \int_a^b s_n(x)dx \leq \int_a^b f(x)dx \leq \int_a^b t_n(x)dx 
+              
+            \end{eqnarray*}
 
-        Sugerencia: toma $s_n, t_n$  como en el <a href="#Ejer:IntegrabilidadFuncionesContinuas">Teorema</a>. 
-        Define
-        $$
-        \rho_n=\sum_{i=1}^n r_{i} \chi_{[x_{i-1}, x_i)}.
-        $$
+            \begin{eqnarray*} 
+            \left| \int_a^b\rho_n(x)dx-\int_a^bf(x)dx \right| \leq \int_a^bt_n(x)dx - \int_a^b s_n(x)dx   
+            \end{eqnarray*}
+
+            \begin{eqnarray*}
+            \int_a^b t_n(x)dx - \int_a^b s_n(x)dx & = & \sum_{i=1}^n (M_i-m_i)(x_i-x_{i-1}) \\ 
+            &\leq & \|P\| \sum_{i=1}^n (M_i-m_i)
+            \end{eqnarray*}
+
+            \begin{equation} 
+             M_i-m_i= \omega_f([x_{i-1},x_i]).
+            \end{equation}
+
+            \[
+            \left|  \int_a^b\rho_n(x)dx-\int_a^bf(x)dx\right| \leq \|P\| \sum_{i=1}^n\omega_f([x_{i-1},x_i]).
+            \]
+        </p>
+        
     </li> 
     <li>
         Demuestra que $s_n \leq \rho_n \leq  t_n$, $\int_a^b \rho_n =\sum_{i=1}^n f(r_{i,n})(x_i-x_{i-1})$ y 
@@ -471,11 +632,11 @@
         $$
         \sum_{i=1}^n f(r_i)[x_{i}-x_{i-1}]
         $$
-        donde  $P=\{x_i\}_{i=0}^n$ una partición de $[a,b]$ y $r_i \in [x_{i-1}, x_i]$, $i=1,\dots, n$, puntos fijos y arbitrarios.
+        donde  $P=\{x_i\}_{i=0}^n$ es una partición de $[a,b]$ y los puntos $r_i \in [x_{i-1}, x_i]$, $i=1,\dots, n$, son fijos y arbitrarios.
 
-        Entonces, por el <a href="#Ejer:AproximacionSumasRiemann">Ejercicio 5.11</a>, 
+        Nota que por el <a href="#Ejer:AproximacionSumasRiemann">Ejercicio 5.11</a>, 
         para funciones continuas, sus sumas de Riemann con  particiones homogeneas
-        se aproximan a la integral de la función.
+        se aproximan a la integral de la función cuando la longitud de la partición tiende a infinito.
     </p>
 </div>
 
