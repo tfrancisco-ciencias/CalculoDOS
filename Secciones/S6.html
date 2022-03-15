@@ -1,54 +1,160 @@
 
 
 
+  
+
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
-\section*{Cambios de variable lineales}
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:CambioVariableTranslacionesEscalonadas} Sea $I \subseteq \mathbb{R}$ un intervalo, sea $s:I \to \mathbb{R}$ una función escalonada y $\alpha$ un escalar. Entonces
-$$
-\int_{a}^b s(x+\alpha) dx =\int_{a+\alpha}^{b+\alpha} s(u)du
-$$
-siempre que $[a+\alpha, b+\alpha] \subseteq I$.
-
-Lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-Sugerencia: empiza con $s$ de la forma $s=\chi_{[c,d)}$; para el caso general nota que cualquier $s$, función escalonada, es igual
-excepto en un número finito de puntos a una expresión de la forma  $\sum_{k=1}^m  \beta_k \chi_{[c_k, d_k)}$, para agunos intervalor $[c_k, b_k)$ y escalares $\beta_k$.
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:CambioVariableTranslaciones} Sea $I \subseteq \mathbb{R}$ un intervalo, sea $f:I \to \mathbb{R}$ una función integrable en
-los subintervalos cerrados de $I$ y $\alpha$ un escalar. Supongamos que  $[a+\alpha, b+\alpha] \subseteq I$ (para
-que $f(x+\alpha)$, $x\in [a,b]$ esté bien definida). 
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
 
-Entonces la función $x\mapsto f(x+\alpha)$ es integrable en $[a,b]$ y
-$$
-\int_{a}^b f(x+\alpha) dx =\int_{a+\alpha}^{b+\alpha} f(u)du.
-$$
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 4 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 4 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
 
 
-Lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 6 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox"> Cambios de variable lineales </h1>
 
 
-Sugerencia: define $g(x)=f(x+\alpha)$; para la primera parte, por el ejercicio \ref{Ejer:CriterioCauchyIntegrabilidad}, dada $\varepsilon >0$, es suficiente encotrar funciones escalonadas $s'$ y $t'$ con
-\begin{eqnarray*}
-& s'(x) \leq g(x) \leq t'(x), \forall x \in [a,b] \\
-& \int_{a}^{b} t'(x)dx - \int_{a}^{b}  s'(x)dx  < \varepsilon. 
-\end{eqnarray*}
 
-Usando que $f$ es integrable en $[a+\alpha, b+\alpha]$, si exsiten $s,t : [a+\alpha, b+\alpha] \to \mathbb{R}$, funciones escalonadas con,
-\begin{eqnarray*}
-s(u)\leq f(u) \leq t(u), \forall u \in [a+\alpha, b+\alpha] \\
-\int_{a+\alpha}^{b+\alpha} t(u)du -\int_{a+\alpha}^{b+\alpha} s(u)du < \varepsilon
-\end{eqnarray*}
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:CambioVariableTranslacionesEscalonadas">Ejercicio</h2>
+     <p>    
+        Sea $I \subseteq \mathbb{R}$ un intervalo, sea $s:I \to \mathbb{R}$ una función 
+        escalonada y $\alpha$ un escalar. Entonces
+        $$
+        \int_{a}^b s(x+\alpha) dx =\int_{a+\alpha}^{b+\alpha} s(u)du
+        $$
+        siempre que $[a+\alpha, b+\alpha] \subseteq I$.
+        Lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.        
+     </p>
+     <p>
+        Sugerencia: empiza con $s$ de la forma $s=\chi_{[c,d)}$; para el caso general nota 
+        que cualquier $s$, función escalonada, es igual
+        excepto en un número finito de puntos a una expresión de la forma  
+        $\sum_{k=1}^m  \beta_k \chi_{[c_k, d_k)}$, para agunos intervalor 
+        $[c_k, b_k)$ y escalares $\beta_k$.        
+     </p>
+</div>
 
-Considera  $s'(x):=s(x+\alpha)$, $t'(x):=t(x+\alpha)$, $x\in [a,b]$.
 
-Para probar la fórmula usa el ejercicio \ref{Ejer:CambioVariableTranslacionesEscalonadas}.
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:CambioVariableTranslaciones">Ejercicio</h2> 
+    <p>
+    Sea $I \subseteq \mathbb{R}$ un intervalo, sea $f:I \to \mathbb{R}$ una función 
+    integrable en los subintervalos cerrados de $I$ y $\alpha$ un escalar. 
+    Supongamos que  $[a+\alpha, b+\alpha] \subseteq I$ (para
+    que $f(x+\alpha)$, $x\in [a,b]$ esté bien definida). 
+
+    Entonces la función $x\mapsto f(x+\alpha)$ es integrable en $[a,b]$ y
+    $$
+    \int_{a}^b f(x+\alpha) dx =\int_{a+\alpha}^{b+\alpha} f(u)du.
+    $$
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcular las siguientes integrales.
+    Lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.
+    </p>
+    <p>
+        Sugerencia: define $g(x)=f(x+\alpha)$; para la primera parte, por el ejercicio 
+        \ref{Ejer:CriterioCauchyIntegrabilidad}, dada $\varepsilon >0$, es 
+        suficiente encotrar funciones escalonadas $s'$ y $t'$ con
+        \begin{eqnarray*}
+        & s'(x) \leq g(x) \leq t'(x), \forall x \in [a,b] \\
+        & \int_{a}^{b} t'(x)dx - \int_{a}^{b}  s'(x)dx  < \varepsilon. 
+        \end{eqnarray*}
+
+        Usando que $f$ es integrable en $[a+\alpha, b+\alpha]$, si exsiten 
+        $s,t : [a+\alpha, b+\alpha] \to \mathbb{R}$, funciones escalonadas con,
+        \begin{eqnarray*}
+        s(u)\leq f(u) \leq t(u), \forall u \in [a+\alpha, b+\alpha] \\
+        \int_{a+\alpha}^{b+\alpha} t(u)du -\int_{a+\alpha}^{b+\alpha} s(u)du 
+        < \varepsilon
+        \end{eqnarray*}
+
+        Considera  $s'(x):=s(x+\alpha)$, $t'(x):=t(x+\alpha)$, $x\in [a,b]$.
+
+        Para probar la fórmula usa el ejercicio 
+        \ref{Ejer:CambioVariableTranslacionesEscalonadas}.
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title">Ejercicio</h2> 
+    <p>
+        Calcular las siguientes integrales.
+    </p>
 
 <ol>
     <li>$\int_{4}^{5} \sqrt{x-3}dx$.</li> 
@@ -58,78 +164,121 @@ Para probar la fórmula usa el ejercicio \ref{Ejer:CambioVariableTranslacionesEs
     <li>$\int_{0}^{4}(x-1)^{5}xdx$.</li> 
     <li>$\int_{-2}^{4} \sqrt[4]{x-2}dx$.</li> 
 </ol>
-
-<div class="definicion-box">
-Supongamos que la función $v(t)$, $t\in [t_0, T_0]$  modela la valocidad de un objeto al tiempo $t$ . La distancia reccorida del instante
-$t_1 $ al instante $t_2$ se define como
-$$
-\int_{t_1}^{t_2} v(t)dt
-$$
-siempre y cuando  la integral exista.
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Supon que la velocidad al tiempor $t$ de un objeto esta dado por $v(t)=(1+t)^3$, $cm/s$. 
+<div class="definicion-box">
+<p>
+    Supongamos que la función $v(t)$, $t\in [t_0, T_0]$  
+    modela la valocidad de un objeto al tiempo $t$ . 
+    La distancia reccorida del instante
+    $t_1 $ al instante $t_2$ se define como
+    $$
+    \int_{t_1}^{t_2} v(t)dt
+    $$
+    siempre y cuando  la integral exista.
+</p>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title">Ejercicio</h2> 
+    <p>
+        Supon que la velocidad al tiempor $t$ de un objeto esta dado por 
+        $v(t)=(1+t)^3$, $cm/s$. 
+    </p>
 <ol>
     <li>
         Si el objeto se empieza a mover al tiempor $t=0$,  cuál es la distancia  que
-el objeto recorre  después de $7$ minutos  ?
-
+        el objeto recorre  después de $7$ minutos  ?
     </li> 
-    <li>Toma el cambio de variable  $u=t/60$. Entonces  $u$ da los minutos en termino los segundos y  $g(u)=(1+60 u)^3$, la velocidad del objeto en $cm/min$. Calcula 
-    $$
-    \int_0^{7} g(u)du
-    $$
-    Son iguales las integrales de los dos incisos ? Por qué?</li> 
+    <li>Toma el cambio de variable  $u=t/60$. Entonces  $u$ da los minutos en 
+        termino los segundos y  $g(u)=(1+60 u)^3$, la velocidad del objeto en 
+        $cm/min$. Calcula 
+        $$
+        \int_0^{7} g(u)du
+        $$
+        ¿Son iguales las integrales de los dos incisos ? ¿Por qué?
+    </li> 
 </ol>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:CambioVariableReescalemientosEscalonadas} Sea $I\subseteq \mathbb{R}$ un intervalo y  $s:I \to \mathbb{R}$ una función escalonada y  $\alpha \not= 0$ un escalar. Demuestra:
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:CambioVariableReescalemientosEscalonadas">Ejercicio</h2> 
+    <p>
+        Sea $I\subseteq \mathbb{R}$ un intervalo y  $s:I \to \mathbb{R}$ una función 
+        escalonada y  $\alpha \not= 0$ un escalar. Demuestra:
+    </p>
 
 <ol>
 
-    <li>si $\alpha>0$
+    <li>
+        si $\alpha>0$
         $$
         \int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha a}^{\alpha b} s(u)du
         $$
         
-        siempre que $[\alpha a, \alpha b] \subset I$.</li> 
-<li>
-    si $\alpha < 0$
-$$
-\int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha b}^{\alpha a} s(u)du
-$$
-siempre que $[\alpha b, \alpha a] \subset I$.
-</li> 
+        siempre que $[\alpha a, \alpha b] \subset I$.
+    </li> 
+    <li>
+        si $\alpha < 0$
+        $$
+        \int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha b}^{\alpha a} s(u)du
+        $$
+        siempre que $[\alpha b, \alpha a] \subset I$.
+    </li> 
 </ol>
-
-Lo anterior se puede poner como $u=\alpha x$, $du=\alpha dx$.
-
-Sugerencia: empiza con $s$ de la forma $s=\chi_{[c,d)}$; para el caso general nota que cualquier $s$, función escalonada, es igual
-excepto en un número finito de puntos a una expresión de la forma  $\sum_{k=1}^m  \beta_k \chi_{[c_k, d_k)}$, para agunos intervalor $[c_k, b_k)$ y escalares $\beta_k$.
-
-\begin{notacion}\label{Notacion:ReversaIntervalos}
-Sean $a,b\in \mathbb{R}$ con $a < b$. Definimos
-$$
-\int_b^a f(x)dx:= - \int_a^b f(x)dx
-$$
-\end{notacion}
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que, con la notación anteior el ejercicio \ref{Ejer:CambioVariableReescalemientosEscalonadas} como
-$$
-\int_{a}^{b} s(\alpha x) dx = \frac{1}{\alpha}\int_{\alpha a}^{\alpha b} s(u)du, \quad u=\alpha x, \quad du=\alpha dx.
-$$
-sin importar el signo de $\alpha$.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:CambioVariableReescalemientos} Sea $I\subseteq \mathbb{R}$ un intervalo, $f:I\to \mathbb{R}$ una función integrable sobre los subintervalos cerrados de $I$ y $\alpha \ne 0$.  Supongamos que el intervalo determinado por $\alpha a$ y $\alpha b$ está contenido en
-$I$. Entonces la función  $x \mapsto f(\alpha x)$ es integrable en $[a,b]$ y 
-$$
-\int_{a }^{b }f(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha a}^{\alpha b} f(u)du
-$$
-(se usa la notación \ref{Notacion:ReversaIntervalos}). Esto se puede abreviar como $\quad u=\alpha x, \quad du =\alpha dx$.
+<p>
+    Lo anterior se puede poner como $u=\alpha x$, $du=\alpha dx$.
+</p>
+<p>
+    Sugerencia: empiza con $s$ de la forma $s=\chi_{[c,d)}$; para el caso general nota que cualquier $s$, función escalonada, es igual
+    excepto en un número finito de puntos a una expresión de la forma  $\sum_{k=1}^m  \beta_k \chi_{[c_k, d_k)}$, para agunos intervalor $[c_k, b_k)$ y escalares $\beta_k$.
+    
+    \begin{notacion}\label{Notacion:ReversaIntervalos}
+    Sean $a,b\in \mathbb{R}$ con $a < b$. Definimos
+    $$
+    \int_b^a f(x)dx:= - \int_a^b f(x)dx
+    $$
+    \end{notacion}
+    
+</p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula las siguientes integrales.
+<div class="ejercicio-box">
+    <h2 class="number-title">Ejercicio</h2> 
+    <p>
+        Demuestra que, con la notación anteior el ejercicio 
+        \ref{Ejer:CambioVariableReescalemientosEscalonadas} como
+        $$
+        \int_{a}^{b} s(\alpha x) dx = 
+        \frac{1}{\alpha}\int_{\alpha a}^{\alpha b} s(u)du, 
+        \quad u=\alpha x, \quad du=\alpha dx.
+        $$
+        sin importar el signo de $\alpha$.
+    </p>
+ </div>
+ 
+ 
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:CambioVariableReescalemientos">Ejercicio</h2>
+        Sea $I\subseteq \mathbb{R}$ un intervalo, 
+        $f:I\to \mathbb{R}$ una función integrable sobre los subintervalos 
+        cerrados de $I$ y $\alpha \ne 0$.  Supongamos que el intervalo determinado 
+        por $\alpha a$ y $\alpha b$ está contenido en
+        $I$. Entonces la función  $x \mapsto f(\alpha x)$ es integrable en $[a,b]$ y 
+        $$
+        \int_{a }^{b }f(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha a}^{\alpha b} f(u)du
+        $$
+        (se usa la notación \ref{Notacion:ReversaIntervalos}). Esto se puede 
+        abreviar como $\quad u=\alpha x, \quad du =\alpha dx$.
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title">Ejercicio</h2> 
+    Calcula las siguientes integrales.
 
 <ol>
     <li>
@@ -157,8 +306,11 @@ $$
 
     </li> 
 </ol>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio calcula  las integrales definidas de cualquier  polinomio.
+<div class="ejercicio-box">
+    <h2 class="number-title">Ejercicio</h2> 
+    Este ejercicio calcula  las integrales definidas de cualquier  polinomio.
 
 <ol>
     <li>Demuestra que, para todo $b < 0$, 
@@ -174,27 +326,59 @@ $$
     
     Sugerencia: toma los casos  $0 \leq a < b$, $a < b \leq 0$ y $a \leq 0 \leq b$.
     
-    Nota: más adelante se probará que la misma fórmula se vale cuando $k$ se reemplaza por un racional positivo. 
+    Nota: más adelante se probará que la misma fórmula se vale cuando $k$ 
+    se reemplaza por un racional positivo. 
     </li> 
 <li>Demuestra que, para cualesquiera $a,b \in \mathbb{R}$, con $a < b$, 
     $$
-    \int_a^b \sum_{k=1}^n a_kx^k dx=\sum_{k=1}^n a_k\left( \frac{b^{k+1}-a^{k+1}}{k+1}  \right)
+    \int_a^b \sum_{k=1}^n a_kx^k dx=
+    \sum_{k=1}^n a_k\left( 
+        \frac{b^{k+1}-a^{k+1}}{k+1}  
+    \right)
     $$</li> 
 
 </ol>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentra $p$, un polinomio  de grado 2, tal que 
-$$p(0)=p(1)=0 \quad \textrm{y } \quad   \int_0^2 p(x)dx=1$$
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentra $p$, un polinomio de grado 3, tal que 
-$$p(0)=p(-1)=0, p(1)=5 \quad \textrm{y}  \quad 2 \int_0^1 p(x)dx=4$$
+<div class="ejercicio-box">
+    <h2 class="number-title">Ejercicio</h2> 
+    <p>
+        Encuentra $p$, un polinomio  de grado 2, tal que 
+        $$p(0)=p(1)=0 \quad \textrm{y } \quad   \int_0^2 p(x)dx=1$$
+    </p>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentra todos los polinomios de grado 2, $p$, tales que $p(0)=1$ y $\int_{-2}^{2}p(x)dx=0$.
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentra todos los reals $a,b$, con $a \leq b$, tales que  
-$$\int_{a}^{b}(3-2x)^5dx=0.$$
+<div class="ejercicio-box">
+    <h2 class="number-title">Ejercicio</h2> 
+    <p>
+        Encuentra $p$, un polinomio de grado 3, tal que 
+        $$p(0)=p(-1)=0, p(1)=5 \quad \textrm{y}  \quad 2 \int_0^1 p(x)dx=4$$
+    </p>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcular:
+<div class="ejercicio-box">
+    <h2 class="number-title">Ejercicio</h2> 
+    <p>
+        Encuentra todos los polinomios de grado 2, $p$, tales que $p(0)=1$ y $\int_{-2}^{2}p(x)dx=0$.
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title">Ejercicio</h2> 
+    <p>
+        Encuentra todos los reals $a,b$, con $a \leq b$, tales que  
+        $$\int_{a}^{b}(3-2x)^5dx=0.$$
+
+    </p>
+</div>
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> 
+    <p>
+        Calcular:
+    </p>
 
 <ol>
 
@@ -204,54 +388,76 @@ $$\int_{a}^{b}(3-2x)^5dx=0.$$
     <li>$\int_{2}^{3}x^2\sqrt{x-2}dx$</li> 
     <li>$\int_{5}^{6} x\sqrt[3]{x-4}$</li> 
 </ol>
+<p>
+    Hint: pueden utilizar
+    $$
+    \int_a^b x^p dx=\frac{b^{p+1}-a^{p+1}}{p+1}
+    $$
+    válida para cualesquiera reales $a$ y $b$ y racional $p$.
+    
+</p>
+</div>
 
-Hint: pueden utilizar
-$$
-\int_a^b x^p dx=\frac{b^{p+1}-a^{p+1}}{p+1}
-$$
-válida para cualesquiera reales $a$ y $b$ y racional $p$.
 
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:\mathbb{R}\to \mathbb{R}$ una función tal que, para toda $a>0$, $f$ es integrable en $[-a,a]$. 
+<div class="ejercicio-box">
+    <h2 class="number-title">Ejercicio</h2> 
+    <p>
+        Sea $f:\mathbb{R}\to \mathbb{R}$ una función tal que, para toda $a>0$, 
+        $f$ es integrable en $[-a,a]$. 
+    </p>
 <ol>
-    <li>Si $f$ es par probar:
+    <li>
+        Si $f$ es par probar:
         $$
         \int_{-a}^a f(x)dx=2\int_0^af(x)dx
-        $$</li> 
+        $$
+    </li> 
 
 
-<li>Si $f$ es impar probar:
-    $$
-    \int_{-a}^af(x)dx=0
-    $$</li> 
+    <li>
+        Si $f$ es impar probar:
+        $$
+        \int_{-a}^af(x)dx=0
+        $$
+    </li> 
 </ol>
+</div>
 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> La medida geométrica de un intervalo.
-
-Existen otras nociones de longitues. Dado $(a,b)\subset (0,\infty)$ se define se define su medida o longitud geométrica como
-$$
-\lambda(a,b)=\ln(b)-\ln(a),
-$$
-donde $\ln$ denota la función logaritmo. Se puede pensar a la medida geométrica como un análogo de la longitud ( $b-a$) y  $(0,\infty)$ podemos pensar la multiplicación por reales positivos como un análogo de la translación.
-
+<div class="ejercicio-box">
+    <h2 class="number-title">Ejercicio</h2> 
+    <h3>La medida geométrica de un intervalo</h3>
+    <p>
+        
+        Existen otras nociones de longitues. 
+        Dado $(a,b)\subset (0,\infty)$ se define se define su 
+        medida o longitud geométrica como
+        $$
+        \lambda(a,b)=\ln(b)-\ln(a),
+        $$
+        donde $\ln$ denota la función logaritmo. Se puede pensar a la 
+        medida geométrica como un análogo de la longitud ( $b-a$) y  
+        $(0,\infty)$ podemos pensar la multiplicación por reales positivos 
+        como un análogo de la translación.
+    </p>
 <ol>
     <li>
         Prueba que  $\lambda(\gamma a,\gamma b)=\lambda(a,b)$, para $\gamma >0$.
     </li> 
 
     <li>
-        Define ahora,  para una función escalonada $s:[a,b]\to \mathbb{R}$, con $[a,b] \subset (0,\infty)$,  su integral con respecto a la medida geométrica como:
-$$
-\int_a^b s(x)d\lambda(x):=\sum_{i=1}^n s_i (\ln(x_i)-\ln(x_{i-1}))
-$$
+        Define ahora,  para una función escalonada $s:[a,b]\to \mathbb{R}$, 
+        con $[a,b] \subset (0,\infty)$,  su integral con respecto a la medida 
+        geométrica como:
+        $$
+        \int_a^b s(x)d\lambda(x):=\sum_{i=1}^n s_i (\ln(x_i)-\ln(x_{i-1}))
+        $$
     </li> 
-<li>
-    Probar, para $\gamma >0$:
-$$
-\int_{a/\gamma}^{b/\gamma} s(\gamma x)d\lambda(x)=\int_a^b s(u)d\lambda(u)
-$$
-</li> 
+    <li>
+        Probar, para $\gamma >0$:
+        $$
+        \int_{a/\gamma}^{b/\gamma} s(\gamma x)d\lambda(x)=\int_a^b s(u)d\lambda(u)
+        $$
+    </li> 
 </ol>
-
+</div>
+</body>
