@@ -551,33 +551,37 @@
 
     
 
-<ol>
-    <li>
-        Sea $P=\{ x_i\}_{i=0}^n$ una partición arbitraria de \([a,b]\). 
+
+    <p>
+        Sea $P_n=\{ x_i\}_{i=0}^n$ la partición homogena de longitud n de \([a,b]\). 
         Para cada $i$, tomemos puntos fijos y arbitrarios  $r_{i}$ en el sub-intervalo $[x_{i-1}, x_i]$.
         Demuestra
         $$
-        \left| \int_a^bf(x)dx - \sum_{i=1}^n f(r_{i})(x_i-x_{i-1}) \right| \leq \|P\| \sum_{i=1}^n \omega_f ([x_{i-1},x_i]) 
+        \int_a^bf(x)dx =\lim_{n\to \infty} \frac{b-a}{n}\sum_{i=1}^n f(r_{i}) 
         $$
-        
+    </p>  
+    
+    <button class="respButton hvr-grow "> Demostración </button>
+    <div class="resp-box flexbox">
         <p>
             Definamos funciones escalonadas $s_n, t_n, \rho_n:[a,b]\to \mathbb{R}$  por  
             \begin{eqnarray*}
-            s_n&=&\sum_{i=1}^n m_i\chi_{[x_{i-1},x_i]}\\
-            t_n&=&\sum_{i=1}^n M_i\chi_{[x_{i-1},x_i]}\\
+            s_n&=&\sum_{i=1}^n  f(x_{i*})\chi_{[x_{i-1},x_i]}\\
+            t_n&=&\sum_{i=1}^n f(x_i^*)\chi_{[x_{i-1},x_i]}\\
             \rho_n&=&\sum_{i=1}^n r_{i} \chi_{[x_{i-1}, x_i)}.
             \end{eqnarray*}
-            donde para cada \(i\), \(m_{i}=\inf_{x\in [x_{i-1},x_i]}\{f(x)\}\) y 
-            \(M_{i}=\sup_{x\in [x_{i-1},x_i]}\{f(x)\}\).
+            donde para cada \(i\), \(f(x_{i*})=\min_{x\in [x_{i-1},x_i]}\{f(x)\}\) y 
+            \(f(x_{i}^*)=\max_{x\in [x_{i-1},x_i]}\{f(x)\}\), los cuales existen 
+            al ser \(f\) continua en \([a,b]\).
         </p>
         <p>
             También notamos que 
             \begin{eqnarray*}
-                \int_a^b \rho_n(x)dx=\sum_{i=1}^n f(r_i)(x_i-x_{i-1})
+                \int_a^b \rho_n(x)dx=\frac{b-a}{n}\sum_{i=1}^n f(r_i)
             \end{eqnarray*}
         </p>
         <p>
-            Por las definiciones de \(m_i\) y \(M_i\) debemos de tener 
+            Por las definiciones de \(f(x_{i*})\) y \(f(x_i^*)\) debemos de tener 
             \begin{eqnarray*}
               s_n \leq \rho_n \leq t_n   \\
               s_n \leq f \leq t_n
@@ -586,42 +590,47 @@
             \begin{eqnarray*}
                 \int_a^b s_n(x)dx \leq \int_a^b \rho_n(x)dx \leq \int_a^b t_n(x)dx \\
                 \int_a^b s_n(x)dx \leq \int_a^b f(x)dx \leq \int_a^b t_n(x)dx 
-              
             \end{eqnarray*}
+            de lo cual se puede obtener
+            \begin{eqnarray} 
+            \left| \int_a^b\rho_n(x)dx-\int_a^bf(x)dx \right| \leq \int_a^bt_n(x)dx - \int_a^b s_n(x)dx. \label{Eqn:Aux2RiemannSum}  
+            \end{eqnarray}
+            Por otro lado vamos a ver que la diferencia \(\int_a^b t_n-\int_a^bs_n\) tiende a cero cuando 
+            \(n\) tiende a infinito. Para esto tenemos 
+            \begin{eqnarray}
+            \int_a^b t_n(x)dx - \int_a^b s_n(x)dx & = & \sum_{i=1}^n (f(x_{i}^*)-f(x_{i*}))(x_i-x_{i-1})\nonumber \\ 
+            &= & \frac{b-a}{n} \sum_{i=1}^n (f(x_i^*)-f(x_{i*})) \label{Eqn:AuxRiemannSum}
+            \end{eqnarray}
 
+        </p>
+        <p>
+            Ahora usamos la continuidad uniforme de \(f\) en \([a,b]\). Dado un número \(\varepsilon >0\)
+            por continuidad uniforme existe una \(\delta >0\) tal que si \(x,y\in [a,b]\) 
+            satisfacen \(|x-y|< \delta\) entonces \(|f(x)-f(y)|< \frac{\varepsilon}{b-a}\).
+        </p>
+        <p>
+            Fijamos \(N\in \mathbb{N}\) con \(\frac{b-a}{N}< \delta \). Entonces, 
+            para todo \(n\geq N\) la longitud del subintervalo \([x_{i-1},x_i]\) de \(P_n\) es menor a \(\delta\) y 
+            por lo tanto \(|f(x)-f(y)|< \frac{\varepsilon}{b-a}\), para todos \(x,y\in [x_{i-1},x_i]\). 
+            En particular \( |f(x_i^*)-f(x_{i*})| < \frac{\varepsilon}{b-a}\). Substituyendo ésto 
+            último en \eqref{Eqn:AuxRiemannSum} obtenemos 
             \begin{eqnarray*} 
-            \left| \int_a^b\rho_n(x)dx-\int_a^bf(x)dx \right| \leq \int_a^bt_n(x)dx - \int_a^b s_n(x)dx   
+            \int_a^b t_n(x)dx - \int_a^b s_n(x)dx & \leq  & \frac{b-a}{n}\sum_{i=1}^n \frac{\varepsilon}{b-a}=\varepsilon
             \end{eqnarray*}
-
-            \begin{eqnarray*}
-            \int_a^b t_n(x)dx - \int_a^b s_n(x)dx & = & \sum_{i=1}^n (M_i-m_i)(x_i-x_{i-1}) \\ 
-            &\leq & \|P\| \sum_{i=1}^n (M_i-m_i)
-            \end{eqnarray*}
-
-            \begin{equation} 
-             M_i-m_i= \omega_f([x_{i-1},x_i]).
-            \end{equation}
-
+            la cual se cunple para todo \(n\geq N\).
+        </p>
+        <p>
+            Por lo tanto hemos probado que 
             \[
-            \left|  \int_a^b\rho_n(x)dx-\int_a^bf(x)dx\right| \leq \|P\| \sum_{i=1}^n\omega_f([x_{i-1},x_i]).
+                \lim_{n\to \infty} \int_a^bt_n(x)dx - \int_a^b s_n(x)dx=0
+            \]
+            y gracias a \eqref{Eqn:Aux2RiemannSum} lo anterior implica que 
+            \[
+                \int_a^bf(x)dx =\lim_{n\to \infty}\int_a^b \rho_n(x)dx =\lim_{n\to \infty} \frac{b-a}{n}\sum_{i=1}^n f(r_i).
             \]
         </p>
-        
-    </li> 
-    <li>
-        Demuestra que $s_n \leq \rho_n \leq  t_n$, $\int_a^b \rho_n =\sum_{i=1}^n f(r_{i,n})(x_i-x_{i-1})$ y 
-        concluye que
-        $$
-        \left| \int_a^bf(x)dx -\sum_{i=1}^n f(r_{i})(x_i-x_{i-1})  \right| \leq \int_a^b t_n -\int_a^b s_n
-        $$
-    </li>
-    <li>
-        Concluye que
-        $$
-        \lim_{n\to \infty} \sum_{i=1}^n f(r_{i})(x_i-x_{i-1})= \int_a^b f(x)dx.
-        $$
-    </li> 
-</ol>
+     </div>   
+    
 </div>
 
 
