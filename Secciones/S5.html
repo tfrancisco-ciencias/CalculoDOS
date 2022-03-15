@@ -339,6 +339,33 @@
         Si $f(x)=1/x$ y $I=(0,1)$ entonces $\omega_f (I)=\infty$.
     </li> 
 </ol>
+
+<button class="respButton hvr-grow "> Demostración  inciso 2 </button>
+    <div class="resp-box flexbox">
+<p>
+    Para demostrar que \(\omega_f(I) = \infty\) es necesario demostrar 
+    que el conjunto 
+    \[ A:= \lbrace \vert f(x_1) -f(x_2)\vert : x_1, x_2 \in I \rbrace\] 
+    no es acotado superiormente. Procederemos como sigue:
+</p>
+<p>
+    Supongamos que \(A\) es acotado superiormente, es decir, existe \(M >0 \) tal que \(z < M\) 
+    para toda \(z \in A\). Definimos \(y_n := \frac{1}{2n}\) para cada natural 
+    \(n \geq 1\). Para cada \(n \geq 1\), tenemos que \(y_n \in I \)  
+    y \(f(y_n) = \frac{1}{y_n} = 2n\). Definimos \(z_n := \vert f(y_n) -f(y_1)\vert, \) 
+    entonces por lo anterior tenemos que \(z_n \in A\) y \(z_n = \vert 2n -2 \vert = 2n - 2\) 
+    ya que \(n\geq 1\). Sea \(n_0 = \lceil M \rceil + 1 \in \mathbb{N}\) donde \(\lceil \cdot \rceil\) 
+    denota la función techo y notemos que \(\lceil x \rceil \geq x\) para cualquier \(x \in \mathbb{R}\). 
+    Entonces tenemos que \(z_{n_0} = 2n_0 -2 = 2(\lceil M \rceil + 1 ) -2 = 2\lceil M \rceil > M. \)
+     Esto contradice el hecho de \(A\) esta acotado superiormente.
+</p>
+<p>
+    Por lo tanto, \(A\) no es acotado superiormente. Por lo tanto \(\omega_f(I) = \infty\).
+</p>
+</div>
+
+
+
 </div>
 
 <div class="ejercicio-box">
@@ -357,6 +384,31 @@
         $$
         para todo $I \subseteq [a,b]$, sub-intervalo de longitud menor a $\delta$.
     </p>
+
+    <button class="respButton hvr-grow "> Demostración </button>
+    <div class="resp-box flexbox">
+    <p>
+        Dado que  \(f:[a,b] \rightarrow \mathbb{R}\) continua en \([a,b]\), 
+        usamos el <a hrf="#Ejer:ContinuidadUniformeEnCompactos">Teorema 5.5</a> que nos dice que 
+        \(f\) es uniformemente continua en \([a,b]\). 
+        Entonces fijamos \(\epsilon >0\)  y sea \(\delta >0\), 
+        la de la continuidad uniforme de \(f\) para \(\epsilon\). 
+    </p>
+    <p>
+        Sea \(I \subseteq [a, b], \) sub-intervalo arbitrario de longitud menor a \(\delta\). 
+        Para demostrar que \( \omega_f(I) \leq \epsilon\) es suficiente demostrar 
+        que \(\epsilon\) es una cota superior del conjunto 
+        \[ A:= \lbrace \vert f(x_1) -f(x_2)\vert : x_1, x_2 \in I \rbrace .\] 
+        Pero esto es cierto ya que para cualquier \(z \in A\), 
+        existen \( x_1, x_2 \in I\) tal que \(z = \vert f(x_1) -f(x_2)\vert\) y 
+        como \(I\) es un subintervalo cuya longitud es menor a \(\delta\), 
+        \(\vert x_1 - x_2 \vert  < \delta\) entonces por la continuidad 
+        uniforme de \(f\) se sigue que  \(\vert f(x_1) -f(x_2)\vert < \epsilon\), 
+        es decir \( z < \epsilon\).  Esto se cumple para cualquier \(z \in A\). 
+        Por lo tanto \(\epsilon\) es una cota superior de \(A\). Por lo tanto, 
+        \(\omega_f(I) \leq \epsilon\).
+    </p>
+</div>
 </div>
 
 <div class="teorema-box">
@@ -688,7 +740,7 @@
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
+    <h2 class="number-title" id="Ejer:CotasMaxMinIntegral"> Ejercicio</h2> 
     <p>
         Sea $f:[a,b] \to \mathbb{R}$ continua. 
         Sea $m_f=\min_{x\in [a,b]}\{f(x)\}$ y $M_f=\max_{x\in [a,b]}\{ f(x)\}$. 
@@ -697,6 +749,17 @@
         m_f(b-a) \leq \int_a^b f(x)dx \leq M_f(b-a).
         $$
     </p>
+    <button class="respButton hvr-grow "> Demostración   </button>
+    <div class="resp-box flexbox">
+    <p>
+        Como \(f\) es continua en \([a,b]\), existen \(m_f\) y \(M_f\), ya que la función \(f\) 
+        alcanza su mínimo y su máximo en \([a,b]\) y esto implica, \(m_f \leq f(x) \leq M_f\) para 
+        toda \(x \in [a,b]\). Además por el <a href="#Ejer:IntegrabilidadFuncionesContinuas">Teorema 5.10</a> tenemos que \(f\) es integrable. 
+        Entonces por el <a href="./S3.html#Ejer:CotasFacilesIntegral">Ejercicio 3.7</a>  
+        concluimos \[ m_f(b-a) \leq \int_a^b f(x)dx \leq M_f(b-a) .\]
+    </p>
+    </div>
+
 </div>
 
 <div class="ejercicio-box">
@@ -767,14 +830,35 @@
         $$
         integra y aplica el Teorema del Valor Intermedio.
     </p>
+    <button class="respButton hvr-grow "> Demostración  escrita </button>
+    <div class="resp-box flexbox">
+
+    <p>
+        Como \(f:[a,b] \rightarrow \mathbb{R}\) es una función continua, 
+        entonces por el <a href="#Ejer:CotasMaxMinIntegral">Ejercicio 5.15</a>  tenemos que 
+        \[m_f(b-a) \leq \int_a^b f(x)dx \leq M_f(b-a) ,\]
+        donde \(m_f = \min_{x \in [a,b]}\lbrace f(x) \rbrace\) y 
+        \(M_f = \max_{x\in [a,b]}\lbrace f(x) \rbrace.\) Lo cual implica que 
+        \[ m_f \leq \frac{1}{b-a}\int_a^b f(x)dx \leq M_f .\]
+    </p>
+    <p>
+        Como \(f\) es continua, tenemos que \(f\) alcanza su máximo y si mínimo, 
+        es decir existen \(x_0, x_1 \in [a,b]\) tales que \(m_f = f(x_0) \) y \(M_f = f(x_1)\). 
+        Podemos suponer sin pérdida de generalidad que \(x_0 \leq x_1\) entonces por el Teorema 
+        del valor intermedio existe \(\xi \in [x_0, x_1] \subseteq [a,b]\) tal que 
+        \[ f(\xi) = \frac{1}{b-a}\int_a^b f(x)dx .\]
+        Por lo tanto \[ \int_a^bf(x)dx = f(\xi)(b-a), \] 
+        con \(\xi \in [a, b]\). 
+    </p>
+    </div>
 </div>
 
 
 <div class="ejercicio-box">
     <h2 class="number-title" id="Ejer:TeoremaValorPonderadoIntegrales"> Ejercicio</h2>
-    <p>
-        Demuestra el Teorema del valor medio ponderado para integrales.
-    </p>
+    <h3>
+        Teorema del valor medio ponderado para integrales
+    </h3>
     <p>
         Supongamos que $f,g:[a,b]\to \mathbb{R}$ son funciones continuas y que $g$
         nunca cambia de signo en el intervalo $[a,b]$. Entonces existe $\xi \in [a,b]$
