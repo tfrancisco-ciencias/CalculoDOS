@@ -176,7 +176,7 @@
 
     <p>
         Por ejemplo en la introducción se probó que  \(f(x)=mx+b\) es uniformemente continua en todo 
-        \(\mathbb{R}\) y en los ejercicios se prueba que \(f(x)=\frac{1}{x}\) es NO es 
+        \(\mathbb{R}\) y en los ejercicios se prueba que \(f(x)=\frac{1}{x}\) NO es 
         uniformemente continua en \((0,1)\).
     </p>
 </div>
@@ -811,6 +811,71 @@
         si y sólo si   $f$ es continua en $x_0$. 
 
     </p>
+
+    <button class="respButton hvr-grow "> Demostración </button>
+    <div class="resp-box flexbox">
+    <p>
+        \(\Rightarrow ]\) Supongamos que 
+        \[
+            \lim_{r\to 0}\omega_f([x_0-r,x_0+r])=0.
+        \]
+        Debemos de probar que \(f\) es continua en \(0\). Procedemos mediante \(\varepsilon\)'s y \(\delta\)'s.
+    </p>
+    <p>
+        Para \(\varepsilon > 0\) existe una \(r_0\) tal que 
+        \[
+         \omega_f([x_0-r,x_0+r]) < \varepsilon
+        \]
+        para todo \(r\) con \(0< r < r_0 \). 
+    </p>
+    <p>
+        Tomamos \(\delta=\frac{r_0}{2}\) y notamos que si \(|x-x_0|< \delta\) entonces 
+        \(x\in (x_0-\delta ,x_0+\delta ) \) por lo tanto 
+        \[
+        |f(x)-f(x_0)|\leq \sup_{x_1,x_2\in [x_0-\delta,x_0+\delta] }\{|f(x_1)-f(x_2)|\}=\omega_f([x_0-\delta, x_0+\delta]) < \varepsilon
+        \]
+        lo cual prueba que \(f\) es continua en \(x_0\).
+    </p>
+    <p>
+        \(\Leftarrow ]\) Supongamos que \(f\) es continua en \(x_0\). Debemos 
+        de probar 
+        \[
+        \lim_{r\to 0}\omega_f([x_0-r, x_0+r])=0
+        \]
+        Vamos a hacerlo por \(\varepsilon\)'s y \(\delta\)'s.
+    </p>
+    <p>
+        Fijemos un número positivo \(\varepsilon\). Ya que 
+        \(f\) es continua en \(x_0\) existe una \(\delta >0\) tal que 
+        si \(|x-x_0|<\delta \) entonces \(|f(x)-f(x_0)|< \varepsilon/2\). Vamos 
+        a escribir lo anterior en términos de la oscilación. 
+    </p>
+    <p>
+        Los puntos que satisfacen \(|x-x_0|<\delta \) son 
+        precisamente los puntos del intervalo \((x_0-\delta, x_0+\delta)\). 
+
+        Ahora, si \(x,y\in (x_0-\delta, x_0+\delta)\) entonces 
+        \[
+        |f(x)-f(x_0)|< \frac{\varepsilon}{2}, |f(y)-f(x_0)|< 
+            \frac{\varepsilon}{2} \Rightarrow |f(x)-f(y)|< \varepsilon
+        \]
+        Tomando supremo sobre los \(x,y\) lo anterior implica que 
+        \[
+         \sup_{x,y\in (x_0-\delta, x_0+\delta)}\{|f(x)-f(y)|\}\leq \varepsilon
+        \]
+         lo cual se puede escribir en términos de la oscilación como 
+         \(\omega_f((x_0-\delta, x_0+\delta)) \leq \varepsilon\).
+    </p>
+    <p>
+        Finalmente, para todo \(0< r < \delta \) se tiene 
+        \[
+        \omega_f([x_0-r,x_0+r])\leq \omega_f((x_0-\delta, x_0+\delta))\leq \varepsilon
+        \]
+    </p>
+    <p>
+        Esto termina la prueba de que \(\lim_{r\to 0}\omega_f([x_0-r,x_0+r])=0\).
+    </p>
+    </div>
 </div>
 
 
