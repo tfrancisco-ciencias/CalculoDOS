@@ -1,8 +1,3 @@
-
-
-
-  
-
 <!DOCTYPE html PUBLIC >
 
 <html lang="es">
@@ -52,10 +47,10 @@
     <!-- This part restart counter of cards to start at n+1 -->
     <style>
         body.number-title{
-          counter-reset: sectionCounter 4 cardCounter ;
+          counter-reset: sectionCounter 5 cardCounter ;
         }
         h1.number-title{
-          counter-reset: sectionCounter 4 cardCounter ;
+          counter-reset: sectionCounter 5 cardCounter ;
         }
       </style>
   
@@ -87,18 +82,25 @@
 
 <h1 class="number-title flexbox"> Cambios de variable lineales </h1>
 
+<div class="info-box">
+    <h2 class="number-title"> Introducción </h2>
+    <p>
+        En esta sección se introducen los cmabios de variables más sencillos los cuales son 
+        cambios de variable lineales, de decir de la forma \(u=mx+b\).
+    </p>
+
+</div>
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:CambioVariableTranslacionesEscalonadas">Ejercicio</h2>
+    <h2 class="number-title" id="Ejer:CambioVariableTranslacionesEscalonadas"> Ejercicio</h2>
      <p>    
-        Sea $I \subseteq \mathbb{R}$ un intervalo, sea $s:I \to \mathbb{R}$ una función 
+        Sea $s:\mathbb{R} \to \mathbb{R}$ una función 
         escalonada y $\alpha$ un escalar. Entonces
         $$
         \int_{a}^b s(x+\alpha) dx =\int_{a+\alpha}^{b+\alpha} s(u)du
         $$
-        siempre que $[a+\alpha, b+\alpha] \subseteq I$.
-        Lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.        
+        Haciendo substituciones formales, lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.        
      </p>
      <p>
         Sugerencia: empiza con $s$ de la forma $s=\chi_{[c,d)}$; para el caso general nota 
@@ -111,22 +113,25 @@
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:CambioVariableTranslaciones">Ejercicio</h2> 
+    <h2 class="number-title" id="Ejer:CambioVariableTranslaciones"> Ejercicio</h2> 
     <p>
-    Sea $I \subseteq \mathbb{R}$ un intervalo, sea $f:I \to \mathbb{R}$ una función 
-    integrable en los subintervalos cerrados de $I$ y $\alpha$ un escalar. 
-    Supongamos que  $[a+\alpha, b+\alpha] \subseteq I$ (para
+    Sea $I \subseteq \mathbb{R}$ un intervaloy supongamos que  $f:I \to \mathbb{R}$ una función 
+    integrable en los subintervalos cerrados de $I$.
+    </p>
+    <p>
+        Sea  $\alpha$ un escalar y supongamos que  $[a+\alpha, b+\alpha] \subseteq I$ (para
     que $f(x+\alpha)$, $x\in [a,b]$ esté bien definida). 
 
     Entonces la función $x\mapsto f(x+\alpha)$ es integrable en $[a,b]$ y
     $$
     \int_{a}^b f(x+\alpha) dx =\int_{a+\alpha}^{b+\alpha} f(u)du.
     $$
-
-
-    Lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.
     </p>
     <p>
+        Haciendo substituciones formales lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.
+    </p>
+    <p>
+
         Sugerencia: define $g(x)=f(x+\alpha)$; para la primera parte, por el ejercicio 
         \ref{Ejer:CriterioCauchyIntegrabilidad}, dada $\varepsilon >0$, es 
         suficiente encotrar funciones escalonadas $s'$ y $t'$ con
@@ -151,7 +156,7 @@
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Calcular las siguientes integrales.
     </p>
@@ -168,10 +173,11 @@
 
 
 <div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
 <p>
-    Supongamos que la función $v(t)$, $t\in [t_0, T_0]$  
-    modela la valocidad de un objeto al tiempo $t$ . 
-    La distancia reccorida del instante
+    Supongamos que la función $v: [t_0, T_0] \to \mathbb{R}$  
+    modela la valocidad, al tiempo \(t\), de una partículo que se mueve sobre una
+    línea recta. La distancia recorrida del instante
     $t_1 $ al instante $t_2$ se define como
     $$
     \int_{t_1}^{t_2} v(t)dt
@@ -182,14 +188,14 @@
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Supon que la velocidad al tiempor $t$ de un objeto esta dado por 
+        Supon que la velocidad al tiempor $t$ de una partículo esta dado por 
         $v(t)=(1+t)^3$, $cm/s$. 
     </p>
 <ol>
     <li>
-        Si el objeto se empieza a mover al tiempor $t=0$,  cuál es la distancia  que
+        Si el objeto se empieza a mover al tiempor $t=0$,  ¿cuál es la distancia  que
         el objeto recorre  después de $7$ minutos  ?
     </li> 
     <li>Toma el cambio de variable  $u=t/60$. Entonces  $u$ da los minutos en 
@@ -205,9 +211,9 @@
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:CambioVariableReescalemientosEscalonadas">Ejercicio</h2> 
+    <h2 class="number-title" id="Ejer:CambioVariableReescalemientosEscalonadas"> Ejercicio</h2> 
     <p>
-        Sea $I\subseteq \mathbb{R}$ un intervalo y  $s:I \to \mathbb{R}$ una función 
+        Sea $s:\mathbb{R} \to \mathbb{R}$ una función 
         escalonada y  $\alpha \not= 0$ un escalar. Demuestra:
     </p>
 
@@ -216,64 +222,71 @@
     <li>
         si $\alpha>0$
         $$
-        \int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha a}^{\alpha b} s(u)du
+        \int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha a}^{\alpha b} s(u)du.
         $$
-        
-        siempre que $[\alpha a, \alpha b] \subset I$.
     </li> 
     <li>
         si $\alpha < 0$
         $$
-        \int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha b}^{\alpha a} s(u)du
+        \int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha b}^{\alpha a} s(u)du.
         $$
-        siempre que $[\alpha b, \alpha a] \subset I$.
     </li> 
 </ol>
 <p>
-    Lo anterior se puede poner como $u=\alpha x$, $du=\alpha dx$.
+    Haciendo substituciones formales, lo anterior se puede poner como $u=\alpha x$, $du=\alpha dx$.
 </p>
 <p>
     Sugerencia: empiza con $s$ de la forma $s=\chi_{[c,d)}$; para el caso general nota que cualquier $s$, función escalonada, es igual
     excepto en un número finito de puntos a una expresión de la forma  $\sum_{k=1}^m  \beta_k \chi_{[c_k, d_k)}$, para agunos intervalor $[c_k, b_k)$ y escalares $\beta_k$.
     
-    \begin{notacion}\label{Notacion:ReversaIntervalos}
-    Sean $a,b\in \mathbb{R}$ con $a < b$. Definimos
-    $$
-    \int_b^a f(x)dx:= - \int_a^b f(x)dx
-    $$
-    \end{notacion}
     
 </p>
 </div>
 
+<div class="info-box">
+    <h2 class="number-title"> Notación </h2>
 
-<div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
-    <p>
-        Demuestra que, con la notación anteior el ejercicio 
-        \ref{Ejer:CambioVariableReescalemientosEscalonadas} como
+    <p> 
+        Tomando en cuenta el ejercicio anterior damos la siguiente notación. Dados  $a,b\in \mathbb{R}$ con $a < b$, 
+        definimos
         $$
+        \int_b^a f(x)dx:= - \int_a^b f(x)dx
+        $$    
+    </p>    
+    <p>
+        Con esta notación el <a href="#Ejer:CambioVariableReescalemientosEscalonadas">Ejercicio 6.7</a> se puede 
+        reescribir como 
+        \[
         \int_{a}^{b} s(\alpha x) dx = 
         \frac{1}{\alpha}\int_{\alpha a}^{\alpha b} s(u)du, 
-        \quad u=\alpha x, \quad du=\alpha dx.
-        $$
-        sin importar el signo de $\alpha$.
+        \]
+        sín importan el signo de \(\alpha\).
     </p>
- </div>
- 
+
+</div>
+
  
 <div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:CambioVariableReescalemientos">Ejercicio</h2>
-        Sea $I\subseteq \mathbb{R}$ un intervalo, 
-        $f:I\to \mathbb{R}$ una función integrable sobre los subintervalos 
-        cerrados de $I$ y $\alpha \ne 0$.  Supongamos que el intervalo determinado 
+    <h2 class="number-title" id="Ejer:CambioVariableReescalemientos"> Ejercicio</h2>
+        <p>
+            Sea $I\subseteq \mathbb{R}$ un intervalo y supón que la función 
+            $f:I\to \mathbb{R}$ es  integrable sobre todos los subintervalos 
+            cerrados de $I$. 
+        </p>
+        <p>
+            Sea $\alpha \ne 0$ y  supón  que el intervalo determinado 
         por $\alpha a$ y $\alpha b$ está contenido en
         $I$. Entonces la función  $x \mapsto f(\alpha x)$ es integrable en $[a,b]$ y 
         $$
         \int_{a }^{b }f(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha a}^{\alpha b} f(u)du
         $$
-        (se usa la notación \ref{Notacion:ReversaIntervalos}). Esto se puede 
-        abreviar como $\quad u=\alpha x, \quad du =\alpha dx$.
+        Nota que se  usa la <a href="#Notacion:ReversaIntervalos">Notación 6.8</a> pues 
+        hay que tomar en cuenta el signo de \(\alpha\). 
+        </p>
+        <p>
+            Haciendo substituciones formales esto se puede 
+            abreviar como $\quad u=\alpha x, \quad du =\alpha dx$.
+        </p>
 </div>
 
 <div class="ejercicio-box">
@@ -309,7 +322,7 @@
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     Este ejercicio calcula  las integrales definidas de cualquier  polinomio.
 
 <ol>
@@ -325,9 +338,7 @@
     $$
     
     Sugerencia: toma los casos  $0 \leq a < b$, $a < b \leq 0$ y $a \leq 0 \leq b$.
-    
-    Nota: más adelante se probará que la misma fórmula se vale cuando $k$ 
-    se reemplaza por un racional positivo. 
+
     </li> 
 <li>Demuestra que, para cualesquiera $a,b \in \mathbb{R}$, con $a < b$, 
     $$
@@ -342,7 +353,7 @@
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Encuentra $p$, un polinomio  de grado 2, tal que 
         $$p(0)=p(1)=0 \quad \textrm{y } \quad   \int_0^2 p(x)dx=1$$
@@ -351,7 +362,7 @@
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Encuentra $p$, un polinomio de grado 3, tal que 
         $$p(0)=p(-1)=0, p(1)=5 \quad \textrm{y}  \quad 2 \int_0^1 p(x)dx=4$$
@@ -359,14 +370,14 @@
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Encuentra todos los polinomios de grado 2, $p$, tales que $p(0)=1$ y $\int_{-2}^{2}p(x)dx=0$.
     </p>
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Encuentra todos los reals $a,b$, con $a \leq b$, tales que  
         $$\int_{a}^{b}(3-2x)^5dx=0.$$
@@ -375,7 +386,7 @@
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> 
+<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> 
     <p>
         Calcular:
     </p>
@@ -400,14 +411,14 @@
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Sea $f:\mathbb{R}\to \mathbb{R}$ una función tal que, para toda $a>0$, 
         $f$ es integrable en $[-a,a]$. 
     </p>
 <ol>
     <li>
-        Si $f$ es par probar:
+        Si $f$ es una función par (\(f(-x)=f(x)\) para todo \(x\)) probar:
         $$
         \int_{-a}^a f(x)dx=2\int_0^af(x)dx
         $$
@@ -415,7 +426,7 @@
 
 
     <li>
-        Si $f$ es impar probar:
+        Si $f$ es una función  impar (\(f(-x)=-f(x)\) para todo \(x\)) probar:
         $$
         \int_{-a}^af(x)dx=0
         $$
@@ -424,7 +435,7 @@
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <h3>La medida geométrica de un intervalo</h3>
     <p>
         
@@ -445,15 +456,17 @@
     </li> 
 
     <li>
-        Define ahora,  para una función escalonada $s:[a,b]\to \mathbb{R}$, 
-        con $[a,b] \subset (0,\infty)$,  su integral con respecto a la medida 
-        geométrica como:
+        Para una función escalonada con dominio contenido en \((0,+\infty)\), 
+        $s:(0,+\infty)\to \mathbb{R}$, su integral sobre \([a,b]\), con respecto a la medida 
+        geométrica, se define  como:
         $$
         \int_a^b s(x)d\lambda(x):=\sum_{i=1}^n s_i (\ln(x_i)-\ln(x_{i-1}))
         $$
+        donde \(P=\{x_i\}_{i=1}^n\) es una partición de \([a,b]\) tal que \(s\)
+        es constante en \((x_{i-1},x_i)\) y el valor de dicha constante es \(s_i\).
     </li> 
     <li>
-        Probar, para $\gamma >0$:
+        Si $\gamma >0$ prueba que :
         $$
         \int_{a/\gamma}^{b/\gamma} s(\gamma x)d\lambda(x)=\int_a^b s(u)d\lambda(u)
         $$
