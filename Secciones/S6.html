@@ -97,18 +97,112 @@
      <p>    
         Sea $s:\mathbb{R} \to \mathbb{R}$ una función 
         escalonada y $\alpha$ un escalar. Entonces
-        $$
-        \int_{a}^b s(x+\alpha) dx =\int_{a+\alpha}^{b+\alpha} s(u)du
-        $$
+        \begin{eqnarray}
+        \int_{a}^b s(x+\alpha) dx =\int_{a+\alpha}^{b+\alpha} s(u)du \label{Eqn:AuxCambioVarTranslacionesEscalonadas}
+        \end{eqnarray}
         Haciendo substituciones formales, lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.        
      </p>
+
+     <button class="respButton hvr-grow "> Demostración  escrita </button>
+     <div class="resp-box flexbox">
+
+    <p>
+        Caso 1: \(s\) es de la forma \(s=\chi_{[x_0,x_1)}\).
+    </p>
+    <p>
+        Primero probamos la siguiente identidad de funciones 
+        \begin{equation}\label{Ejer:Aux1CambioVarTraslacionEscalonada}
+            \chi_{[x_0,x_1)}(x+\alpha)=\chi_{[x_0-\alpha,x_1-\alpha)}(x), 
+        \end{equation}
+        para todo \(x\).
+    </p>
+    <p>
+        Ya que las funciones características sólo toman los valores \(0\) y \(1\) es suficiente probar 
+        \( \chi_{[x_0,x_1)}(x+\alpha)=1\) si y sólo si \( \chi_{[x_0-\alpha,x_1-\alpha)}(x)=1\).  Para 
+        éste último tenemos:
+        \begin{eqnarray*} 
+         \chi_{[x_0,x_1)}(x+\alpha)=1 & \Leftrightarrow &  x+\alpha \in [x_0,x_1)  \\ 
+         & \Leftrightarrow & x\in [x_0-\alpha, x_1-\alpha) \\
+         & \Leftrightarrow & \chi_{[x_0-\alpha,x_1-\alpha)}(x)=1.
+        \end{eqnarray*}
+    </p>
+
      <p>
-        Sugerencia: empiza con $s$ de la forma $s=\chi_{[c,d)}$; para el caso general nota 
-        que cualquier $s$, función escalonada, es igual
-        excepto en un número finito de puntos a una expresión de la forma  
-        $\sum_{k=1}^m  \beta_k \chi_{[c_k, d_k)}$, para agunos intervalor 
-        $[c_k, b_k)$ y escalares $\beta_k$.        
+        Integrando \eqref{Ejer:Aux1CambioVarTraslacionEscalonada} obtenemos 
+        \begin{eqnarray*}
+        \int_a^bs(x+\alpha)dx&=&\int_a^b \chi_{[x_0,x_1]}(x+\alpha)dx \\
+        &=& \int_a^b \chi_{[x_0-\alpha, x_1-\alpha)}(x)dx
+        \end{eqnarray*}
      </p>
+     <p>
+         Por lo tanto para  terminar el primer caso  debemos de probar la identidad
+         \[
+         \int_a^b \chi_{[x_0-\alpha, x_1-\alpha)}(x)dx=\int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(x)dx
+         \]
+         la cual se prueba por casos.
+     </p>
+     <p>
+        Subcaso: \(x_1-\alpha \leq a \) ó \(b\leq x_0- \alpha\). Entonces también se tiene 
+        \(x_1\leq a+\alpha\) ó \(b+\alpha \leq x_0\), por lo que 
+        \[
+        \int_a^b \chi_{[x_0-\alpha, x_1-\alpha)}(x)dx = 0 = \int_{a+\alpha }^{b+\alpha}\chi_{[x_0,x_1)}(x)dx 
+        \]
+     </p>
+     <p>
+        Subcaso: \(x_0-\alpha < a \leq  x_1-\alpha \leq b \). En este caso tenemos 
+        \begin{eqnarray*}
+        \int_{a}^{b}\chi_{[x_0-\alpha,x_1-\alpha)}(x)dx&=&x_1-\alpha-a \\
+        \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(x)dx&=&x_1-(a+\alpha)
+        \end{eqnarray*}
+     </p>
+     <p>
+        Subcaso: \(a \leq  x_0-\alpha < b < x_1-\alpha \). En este caso tenemos 
+        \begin{eqnarray*}
+        \int_{a}^{b}\chi_{[x_0-\alpha,x_1-\alpha)}(x)dx&=&b-(x_0-\alpha)\\
+        \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(x)dx&=&b+\alpha-x_0
+        \end{eqnarray*}
+     </p>
+     
+     <p>
+         Subcaso: \(a \leq x_0+\alpha <  x_1+\alpha \leq b\). En este caso tenemos 
+         \begin{eqnarray*}
+         \int_{a}^{b}\chi_{[x_0-\alpha,x_1-\alpha)}(x)dx&=&x_1+\alpha - (x_0+\alpha)=x_1-x_0\\
+         \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(x)dx&=&x_1-x_0
+         \end{eqnarray*}
+     </p>
+
+     <p>
+        Subcaso: \(x_0-\alpha < a <   b< x_1+\alpha\). En este caso tenemos 
+        \begin{eqnarray*}
+        \int_{a}^{b}\chi_{[x_0-\alpha,x_1-\alpha)}(x)dx&=&b-a\\
+        \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(x)dx&=&(b+\alpha)-(a+\alpha)=b-a
+        \end{eqnarray*}
+    </p>
+
+    <p>
+        Caso 2: caso general, \(s\) es de la forma 
+        \[
+        s=\sum_{i=1}^n s_i\chi_{[x_{i-1},x_i)}
+        \]
+        donde \(x_0< x_1< \cdots < x_n\).
+    </p>
+    <p>
+        Para iniciar la prueba de \eqref{Eqn:AuxCambioVarTranslacionesEscalonadas}, usando linealidad tenemos 
+        \begin{equation}\label{Ejer:Aux2CambioVarTraslacionEscalonada}
+        \int_a^b s(x+\alpha)dx=\sum_{i=1}^n s_i \int_a^b \chi_{[x_{i-1},x_i)}(x+\alpha)dx
+        \end{equation}
+        luego por el primer caso tenemos 
+        
+        \begin{eqnarray}
+        \sum_{i=1}^n s_i\int_a^b \chi_{[x_{i-1}, x_i)}(x+\alpha)dx &=& 
+        \sum_{i=1}^n s_i \int_{a+\alpha}^{b+\alpha}\chi_{[x_{i-1},x_i)}(x)dx \nonumber \\
+        &=& \int_{a+\alpha}^{b+\alpha}s(x)dx \label{Ejer:Aux3CambioVarTraslacionEscalonada}
+        \end{eqnarray}
+        donde la última identidad se debe a la linealidad. Finalmente, por 
+        las ecuaciones \eqref{Ejer:Aux2CambioVarTraslacionEscalonada} y 
+        \eqref{Ejer:Aux3CambioVarTraslacionEscalonada} concluimos \eqref{Eqn:AuxCambioVarTranslacionesEscalonadas}.
+    </p>
+    </div>
 </div>
 
 
@@ -132,26 +226,51 @@
     </p>
     <p>
 
-        Sugerencia: define $g(x)=f(x+\alpha)$; para la primera parte, por el ejercicio 
-        \ref{Ejer:CriterioCauchyIntegrabilidad}, dada $\varepsilon >0$, es 
-        suficiente encotrar funciones escalonadas $s'$ y $t'$ con
+        Definimos $g:[a,b]\to \mathbb{R}$ por $g(x)=f(x+\alpha)$, bien definida pues 
+        suponemos que \([a+\alpha, b+\alpha]\subseteq I\). Vamos a probar que 
+        \(g\) es integrable en \([a,b]\) y que 
+        \[
+        \int_a^b g(x)dx =\int_{a+\alpha}^{b+\alpha} f(u)du
+        \]
+    </p>
+    <p>
+        Para probar que \(g\) es integrable en \([a,b]\) vamos a usar el Criterio de Cauchy.
+    </p>
+    <p>
+        Usando que $f$ es integrable en $[a+\alpha, b+\alpha]$, dada \(\varepsilon >0\) existen 
+        $s,t : \mathbb{R} \to \mathbb{R}$, funciones escalonadas con:
+        <ul>
+            <li>
+                para toda \(u \in [a+\alpha, b+\alpha]\):
+                \[
+                s(u)\leq f(u) \leq t(u),
+                \]
+            </li>
+            <li> además 
+                \[
+                \int_{a+\alpha}^{b+\alpha} t(u)du -\int_{a+\alpha}^{b+\alpha} s(u)du 
+                < \varepsilon.
+                \]
+            </li>
+        </ul>
+        Consideramos $s',t':\mathbb{R}\to \mathbb{R}$ definidas por $s'(x):=s(x+\alpha)$, 
+        $t'(x):=t(x+\alpha)$. Se sigue que para toda \(x\in [a,b]\):
+        \begin{eqnarray}
+         s'(x) \leq g(x) \leq t'(x). \label{Eqn:Aux1CambioVarTraslaciones}
+        \end{eqnarray}
+        Además por el <a href="#Ejer:CambioVariableTranslacionesEscalonadas">Ejercicio 6.2</a>
         \begin{eqnarray*}
-        & s'(x) \leq g(x) \leq t'(x), \forall x \in [a,b] \\
-        & \int_{a}^{b} t'(x)dx - \int_{a}^{b}  s'(x)dx  < \varepsilon. 
+        \int_a^b s'(x)dx &=& \int_{a+\alpha}^{b+\alpha}s(u)du,\\ 
+        \int_a^b t'(x)dx &=& \int_{a+\alpha}^{b+\alpha}t(u)du,
         \end{eqnarray*}
-
-        Usando que $f$ es integrable en $[a+\alpha, b+\alpha]$, si exsiten 
-        $s,t : [a+\alpha, b+\alpha] \to \mathbb{R}$, funciones escalonadas con,
-        \begin{eqnarray*}
-        s(u)\leq f(u) \leq t(u), \forall u \in [a+\alpha, b+\alpha] \\
-        \int_{a+\alpha}^{b+\alpha} t(u)du -\int_{a+\alpha}^{b+\alpha} s(u)du 
-        < \varepsilon
-        \end{eqnarray*}
-
-        Considera  $s'(x):=s(x+\alpha)$, $t'(x):=t(x+\alpha)$, $x\in [a,b]$.
-
-        Para probar la fórmula usa el ejercicio 
-        \ref{Ejer:CambioVariableTranslacionesEscalonadas}.
+        por lo que  
+        \begin{equation}
+        \int_{a}^{b} t'(x)dx - \int_{a}^{b}  s'(x)dx = \int_a^b t(u)du-\int_a^b s(u)du  < \varepsilon.  \label{Eqn:Aux2CambioVarTraslaciones}
+        \end{equation}
+    </p>
+    <p>
+        De \eqref{Eqn:Aux1CambioVarTraslaciones}, \eqref{Eqn:Aux2CambioVarTraslaciones} y del Criterio de 
+        Cauchy concluimos que \(g\) es integrable en \([a,b]\).
     </p>
 </div>
 
