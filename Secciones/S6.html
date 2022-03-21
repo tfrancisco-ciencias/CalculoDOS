@@ -638,7 +638,7 @@
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
+    <h2 class="number-title" id="Ejer:FormulasIntegralesPolinomios"> Ejercicio</h2> 
     Este ejercicio calcula  las integrales definidas de cualquier  polinomio.
 
 <ol>
@@ -674,6 +674,42 @@
         Encuentra $p$, un polinomio  de grado 2, tal que 
         $$p(0)=p(1)=0 \quad \textrm{y } \quad   \int_0^2 p(x)dx=1$$
     </p>
+    <button class="respButton hvr-grow "> Solución </button>
+    <div class="resp-box flexbox">
+    <p>
+        Tenemos que todo polinomio de grado 2 es de la forma, 
+        \(p(x) = ax^2 +bx + c\) con \(a, b ,c\in \mathbb{R}\). 
+        Por el <a href="#Ejer:FormulasIntegralesPolinomios">Ejercicio 6.11.(3)</a> tenemos que :
+        \begin{equation}\label{B}
+        \int_0^2p(x) dx = a\left(\frac{2^3-0^3}{3}\right) 
+        + b\left(\frac{2^2 - 0^2}{2}\right) + c(2-0)= \frac{8}{3}a + 2b + 2c .
+        \end{equation} 
+        
+    </p>
+    <p>
+        Supongamos que existe un polinomio de grado 2, 
+        \(p(x) = ax^2 +bx + c\) con \(a, b ,c\in \mathbb{R}\), 
+        tal que \( p(0) = p(1) = 0 \text{ y } \int_0^2p(x)dx = 1\) 
+        esto implica que: \[ 0 = p(0) = c = p(1) = a + b +c. \]
+    </p>
+    <p>
+        Es decir, \(0=c= a +b + c\), esto implica que \(a+b=0\) y se sigue que  
+        \(b=-a\). Por lo tanto, nuestro polinomio es de la forma 
+        \(p(x) = ax^2 -ax .\) Además como \(\int_0^2p(x)dx = 1\) y 
+        por \(\eqref{B}\) tenemos que: \[  \frac{8}{3}a -2a = 1. \]
+    </p>
+
+    <p>
+        Esto implica que \(a = \frac{3}{2},\) Por lo tanto nuestro 
+        polinomio debe de ser de la forma \(p(x) = \frac{3}{2}x^2 -\frac{3}{2}x\).
+    </p>
+    <p>
+        No es difícil verificar que en efecto, si 
+        \(p(x) = \frac{3}{2}x^2 -\frac{3}{2}x\), entonces \(p(0)= p(1) = 0\) 
+        y 
+        \(\int_0^2p(x) dx = \frac{8}{3}\cdot\frac{3}{2} - 2\cdot\frac{3}{2} = 4-3 = 1. \)
+    </p>
+</div>
 </div>
 
 
@@ -723,6 +759,34 @@
     válida para cualesquiera reales $a$ y $b$ y racional $p$.
     
 </p>
+<button class="respButton hvr-grow "> Solución de 4 </button>
+    <div class="resp-box flexbox">
+<p>
+    Sea \(f:[2, \infty) \rightarrow \mathbb{R}\) dada por 
+    \(f(x) = x^2\sqrt{x-2}\) es una función que esta bien definida en 
+    \([2, \infty)\) y más aún es continua en dicho intervalo. 
+    Entonces \(f\) es integrable en cualquier intervalo cerrado y 
+    acotado de \([2, \infty)\). Procederemos hacer un cambio de variable 
+    \(u= x-2\) implica que \(du = dx\) y \(x = u+2\). Entonces dado que 
+    \(f(u) = (u+2)^2\sqrt{u}\) y es integrable en \([u(2), u(3)] = [0,1]\) se tiene: 
+    \begin{equation*}
+    \begin{split}
+    \int_2^3f(x) dx & = \int_0^1 f(u) du \\
+    & = \int_0^1 (u+2)^2\sqrt{u} du \\
+    & = \int_0^1(u^2 +4u +4)\sqrt{u} du \\
+    & = \int_0^1(u^{5/2} +4u^{3/2} +4u^{1/2}) du \\
+    & = \int_0^1u^{5/2}du +4\int_0^1u^{3/2}du +4\int_0^1u^{1/2} du \\
+    & = \left(\frac{1^{\frac{5}{2} +1}}{\frac{5}{2} +1}\right) + 4\cdot\left(\frac{1^{\frac{3}{2} +1}}{\frac{3}{2} +1}\right) + 4\cdot\left(\frac{1^{\frac{1}{2} + 1}}{\frac{1}{2} + 1}\right) \\
+    & = \frac{2}{7} + 4\cdot\frac{2}{5} + 4\cdot\frac{2}{3} \\
+    & = \frac{478}{105}
+    \end{split}
+    \end{equation*}
+</p>
+    <p>
+        Por lo tanto, \(\int_2^3x^2\sqrt{x-2}dx =  \frac{478}{105}.\)
+    </p>
+</div>
+
 </div>
 
 
