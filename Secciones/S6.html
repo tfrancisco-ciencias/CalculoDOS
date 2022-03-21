@@ -434,7 +434,7 @@
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     Calcula las siguientes integrales.
 
 <ol>
@@ -463,6 +463,178 @@
 
     </li> 
 </ol>
+<button class="respButton hvr-grow "> Solución de 1 </button>
+<div class="resp-box flexbox">
+    <p>
+        Sea \(f : \mathbb{R} \rightarrow \mathbb{R}\) dada por \(f(x) = (2x-1)^4\) 
+        tenemos que \(f\) es continua en \(\mathbb{R}\) y por el 
+        <a href="./S5.html#Ejer:IntegrabilidadFuncionesContinuas">Teorema 5.10</a>
+        se sigue que \(f\) es integrable en cualquier intervalo cerrado y acotado, 
+        en particular es integrable en \([0, 4]\). Haciendo 
+        el cambio de variable \(u= 2x-1\), implica  \(du = 2dx\) y \(f(u) = u^4\) 
+        la cual es integrablen el intervalo \([u(0), u(4)] = [-1, 7]\) y   
+        tenemos: 
+        \[\int_0^4f(2x-1)dx = \frac{1}{2}\int_{2\cdot 0 -1}^{2 \cdot 4 -1}f(u) du 
+        =  \frac{1}{2}\int_{-1}^{7}f(u) du \]
+    </p>
+    <p>
+        Es decir: 
+        \[ 
+        \int_0^4(2x-1)^4dx = \frac{1}{2}\int_{-1}^{7}u^4du 
+        = \frac{1}{2}\left(\frac{7^5-(-1)^5}{5}\right) 
+        = \frac{7^5 +1}{10} = \frac{8,404}{5} 
+        \]
+    </p>
+    <p>
+        Por lo tanto, \(\int_0^4(2x-1)^4dx = \frac{8,404}{5} .\)
+    </p>
+</div>
+
+<button class="respButton hvr-grow "> Solución de 3 </button>
+<div class="resp-box flexbox">
+    <p>
+        Tenemos que \(f: \mathbb{R} \rightarrow \mathbb{R}\) dada por 
+        \(f(x)=(2x-1)^5(x+1)\) es una función continua y por lo tanto integrable en cualquier intervalo 
+        cerrado y acotado, en particular en \([0, 5]\). Haciendo un cambio de variable \(u = 2x-1\) 
+        implica \(du= 2dx\) y \(x= \frac{u+1}{2}\). Entonces 
+        \( f(u) = u^5(\frac{u+1}{2}+1) = \frac{u^6 +3u^5}{2}\) la cual es integrable en el 
+        intervalo \([u(0), u(5)] =[2\cdot 0-1, 2\cdot 5-1] =[-1, 9]\) y    
+        \begin{equation*}
+        \begin{split}
+        \int_0^5 f(x) dx & =  \frac{1}{2}\int_{-1}^9f(u) du = \frac{1}{2}\int_{-1}^9 \frac{u^6 +3u^5}{2} du \\
+         & = \frac{1}{4}\int_{-1}^9 (u^6 +3u^5) du \\
+         & = \frac{1}{4}\left(\int_{-1}^9 u^6 +3\int_{-1}^9 u^5du \right) \\
+         & = \frac{1}{4}\left(\frac{9^7-(-1)^7}{7} +3\cdot \frac{9^6 - (-1)^6}{6}\right) \\
+         & = \frac{1}{4}\left(\frac{9^7 +1}{7} +  \frac{9^6 - 1}{2}\right) \\
+         & = \frac{3,321,505}{14}
+        \end{split}
+        \end{equation*}  
+    </p>
+    <p>
+        Por lo tanto, \( \int_0^5(2x-1)^5(x+1)dx = \frac{3,321,505}{14}.\)
+    </p>
+</div>
+
+
+<button class="respButton hvr-grow "> Solución de 5 </button>
+<div class="resp-box flexbox">
+        <p>
+            Primero veamos que valores de \(x\) en \(\mathbb{R}\) hacen positivo o negativo a 
+            \((x-2)(2x-1)\), es decir, encontremos cuando \(x \in \mathbb{R}\) satisface que 
+            \((x-2)(2x-1) \geq 0 \) o \((x-2)(2x-1)\leq 0\).
+        </p>
+        <p>
+            <i>(i)</i> Sea \(x\in \mathbb{R}\) y supongamos que \((x-2)(2x-1) \geq 0\).
+        </p>
+        <p>
+            Lo anterior sucede si y sólo si \((x-2 \geq 0)\) y  \((2x-1 \geq 0)\) o  
+            en su defecto \( (x-2 \leq 0) \) y \( (2x-1 \leq 0). \) 
+        </p>
+        <p>
+            Si \((x-2 \geq 0) \) y \((2x-1 \geq 0)\), entonces 
+            \(x \geq 2\) y \(x \geq \frac{1}{2}\) y esto 
+            implica que \(x \geq 2\).  Es decir, para \(x \geq 2\) tenemos que \((x-2)(2x-1) \geq 0\).
+        </p>
+        <p>
+            Si \( (x-2 \leq 0)\) y \( (2x-1 \leq 0),\) entonces \( x \leq 2\) y 
+            \( x \leq \frac{1}{2}\), por lo que \(x \leq  \frac{1}{2}\). Entonces para 
+            \(x \leq  \frac{1}{2}\) se tiene que \((x-2)(2x-1) \geq 0\).
+        </p>
+        <p>
+            En resumen   \((x-2)(2x-1) \geq 0\) si y sólo si \( x \in (-\infty, \frac{1}{2}] \cup [2, \infty)\).
+        </p>
+
+        <p>
+            <i>(ii)</i> Ahora veamos cuando  \((x-2)(2x-1) \leq 0\). 
+        </p>
+        <p>
+            Sea  \(x\in \mathbb{R}\) y supongamos que \((x-2)(2x-1) \leq 0\), 
+            esto sucede si y sólo si  \((x-2 \geq 0)\)  y \((2x-1 \leq 0)\) o en su defecto  
+            \( (x-2 \leq 0)\) y \((2x-1 \geq 0). \)
+        </p>
+
+        <p>
+            Si \((x-2 \geq 0)\) y \((2x-1 \leq 0)\), 
+            entonces \( x\geq 2\) y \(x \leq \frac{1}{2}\), es decir 
+            \(x \leq \frac{1}{2} < 2 \leq x\), lo que implica \( x < x\) 
+            y esto es una contradicción. Por lo tanto no existe \(x \in \mathbb{R}\) 
+            tal que  \((x-2 \geq 0) \wedge (2x-1 \leq 0)\).
+        </p>
+        <p>
+            Si \( (x-2 \leq 0)\) y  \((2x-1 \geq 0), \) entonces 
+            \( x \leq 2\) y \( x \geq \frac{1}{2}\), es decir \(x \in [\frac{1}{2}, 2]\). 
+            Entonces \((x-2)(2x-1) \leq 0\) si y sólo si \(x \in [\frac{1}{2}, 2]\). 
+        </p> 
+        <p>
+            Por lo tanto, 
+            \begin{equation*}
+            \vert(x-2)(2x-1)\vert =  \left\{
+            \begin{array}{cccc}
+            (x-2)(2x-1)  &  \text{si }   x \in (-\infty, \frac{1}{2}] \cup [2, \infty) \\
+             \\
+            -(x-2)(2x-1) & \text{ si }    x \in [\frac{1}{2}, 2]
+            \end{array} \right.
+            \end{equation*}            
+        </p>
+        <p>
+            Sea \( f: [0, 4] \rightarrow \mathbb{R}\) dada por 
+            \begin{equation*}
+            f(x) = \vert(x-2)(2x-1)\vert =  \left\{
+            \begin{array}{cccc}
+            (x-2)(2x-1)  & \text{ si }   x \in [0, \frac{1}{2}] \cup [2, 4] \\
+            \\
+            -(x-2)(2x-1) & \text{ si }    x \in [\frac{1}{2}, 2]
+            \end{array} \right.
+            \end{equation*}            
+        </p>
+        <p>
+            Entonces por la <a href="./S3.html#Ejer:LinealidadIntervalos">Linealidad con respecto a intervalos</a> tenemos:  
+            \begin{equation}\label{A}
+            \int_0^4f(x) dx = \int_0^{\frac{1}{2}}f(x) dx + \int_{\frac{1}{2}}^2f(x) dx + \int_2^4 f(x) dx . 
+            \end{equation}
+        </p>
+
+        <p>
+            Entonces calculemos \(\int_0^{\frac{1}{2}}f(x) dx, \int_{\frac{1}{2}}^2f(x) dx \text{ y}  
+            \int_2^4 f(x) dx\). Tenemos que : 
+            
+            \begin{eqnarray*}
+            \int_0^{\frac{1}{2}}f(x) dx&=&\int_0^{\frac{1}{2}}(x-2)(2x-1) dx \\
+             &=& \int_0^{\frac{1}{2}}(2x^2-5x+2)dx \\
+             & =& 2\int_0^{\frac{1}{2}}x^2 -5 \int_0^{\frac{1}{2}}x dx + 2 \int_0^{\frac{1}{2}}dx \\
+             & =& 2\left(\frac{(1/2)^{3}}{3}\right) -5\left(\frac{(1/2)^{2}}{2}\right) 
+             +2\left(\frac{1}{2} -0\right) \\
+             & =& \frac{11}{24},
+             \end{eqnarray*}
+            
+        </p>    
+        <p>
+            \begin{eqnarray*}
+            \int_{\frac{1}{2}}^2f(x) dx &=&  \int_{\frac{1}{2}}^2-(x-2)(2x-1) dx\\
+             &=& \int_{\frac{1}{2}}^2(-2x^2 +5x -2)dx \\
+             &=& -2\int_{\frac{1}{2}}^2x^2 dx +5\int_{\frac{1}{2}}^2xdx -2\int_{\frac{1}{2}}^2dx \\
+             &=& -2\left(\frac{2^3 -(1/2)^{3}}{3}\right) +5\left(\frac{2^2-(1/2)^{2}}{2}\right) -2\left(2-\frac{1}{2}  \right) \\
+             &=& \frac{2}{3} + \frac{11}{24}.
+            \end{eqnarray*}
+            
+            Y por último: 
+            \begin{eqnarray*}
+            \int_2^4 f(x) dx &=&  \int_2^4 (x-2)(2x-1) dx \\
+             &=&  \int_2^4 (2x^2-5x+2)dx \\
+             & =& 2\int_2^4x^2 -5 \int_2^4x dx + 2 \int_2^4dx \\
+             & =& 2\left(\frac{4^3 -2^{3}}{3}\right) -5\left(\frac{4^2-2^{2}}{2}\right) +2\left(4-2\right) \\
+             & =& \frac{32}{3} + \frac{2}{3}. 
+            \end{eqnarray*}
+        </p>
+        <p>
+            Por lo tanto \[\int_0^4f(x) dx =  
+            \frac{11}{24}+ \left(\frac{2}{3} + \frac{11}{24}\right) 
+            + \left(\frac{32}{3} + \frac{2}{3} \right) = \frac{35}{2}. \]
+        </p>
+        <p>
+            Es decir, \(\int_0^4f(x) dx = \frac{35}{2}.\) 
+        </p>
+        </div>
 </div>
 
 <div class="ejercicio-box">
