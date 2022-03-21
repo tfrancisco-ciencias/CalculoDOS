@@ -217,13 +217,15 @@
     que $f(x+\alpha)$, $x\in [a,b]$ esté bien definida). 
 
     Entonces la función $x\mapsto f(x+\alpha)$ es integrable en $[a,b]$ y
-    $$
+    \begin{equation}\label{Eqn:CambioVariableTranslaciones}
     \int_{a}^b f(x+\alpha) dx =\int_{a+\alpha}^{b+\alpha} f(u)du.
-    $$
+    \end{equation}
     </p>
     <p>
         Haciendo substituciones formales lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.
     </p>
+    <button class="respButton hvr-grow "> Demostración </button>
+    <div class="resp-box flexbox">
     <p>
 
         Definimos $g:[a,b]\to \mathbb{R}$ por $g(x)=f(x+\alpha)$, bien definida pues 
@@ -234,7 +236,7 @@
         \]
     </p>
     <p>
-        Para probar que \(g\) es integrable en \([a,b]\) vamos a usar el Criterio de Cauchy.
+        Para probar que \(g\) es integrable en \([a,b]\) vamos a usar el <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Criterio de Cauchy</a>.
     </p>
     <p>
         Usando que $f$ es integrable en $[a+\alpha, b+\alpha]$, dada \(\varepsilon >0\) existen 
@@ -269,9 +271,32 @@
         \end{equation}
     </p>
     <p>
-        De \eqref{Eqn:Aux1CambioVarTraslaciones}, \eqref{Eqn:Aux2CambioVarTraslaciones} y del Criterio de 
-        Cauchy concluimos que \(g\) es integrable en \([a,b]\).
+        De \eqref{Eqn:Aux1CambioVarTraslaciones}, \eqref{Eqn:Aux2CambioVarTraslaciones} y del 
+        <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Criterio de Cauchy</a> 
+        concluimos que \(g\) es integrable en \([a,b]\).
     </p>
+    <p>
+        Resta probar \eqref{Eqn:CambioVariableTranslaciones}. Iniciamos integrando 
+        las desigualdades \(s(u)\leq f(u)\leq t(u)\), válida para \(u\in [a+\alpha, b+\alpha]\),
+        \(s'(x)\leq g(x)\leq t'(x)\), válida para \(x\in [a,b]\):
+        \begin{eqnarray*}
+        \int_{a+\alpha}^{b+\alpha} s(u)du \leq & \int_{a+\alpha}^{b+\alpha} f(u)du & \leq \int_{a+\alpha}^{b+\alpha} t(u)du \\
+        \int_{a+\alpha}^{b+\alpha} s(u)du =\int_{a}^{b} s'(x)dx \leq & \int_{a}^{b} g(x)dx & \leq \int_a^b t'(x)dx=\int_{a+\alpha}^{b+\alpha} t(u)du
+        \end{eqnarray*}
+        donde las identidades del segundo renglón se deben al <a href="#Ejer:CambioVariableTranslacionesEscalonadas">Ejercicio 6.2</a>.
+    </p>
+    <p>
+        Comparando las desigualdades anteriores concluimos 
+        \[
+        \left| \int_{a+\alpha}^{b+\alpha} f(u)du - \int_{a}^{b} g(x)dx  \right| \leq 
+        \int_{a+\alpha}^{b+\alpha} t(u)du - \int_{a+\alpha}^{b+\alpha} s(u)du < \varepsilon,
+        \]
+        y al ser \(\varepsilon\) arbitraria concluimos 
+        \[
+        \int_{a+\alpha}^{b+\alpha} f(u)du = \int_{a}^{b} g(x)dx=\int_{a}^b f(x+\alpha)dx.
+        \]
+    </p>
+</div>
 </div>
 
 <div class="ejercicio-box">
