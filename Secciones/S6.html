@@ -85,8 +85,32 @@
 <div class="info-box">
     <h2 class="number-title"> Introducción </h2>
     <p>
-        En esta sección se introducen los cmabios de variables más sencillos los cuales son 
-        cambios de variable lineales, de decir de la forma \(u=mx+b\).
+        Un cambio de variable es una transformación de una integral la cual trata de simplificar su cálculo.
+    </p>
+    <p>
+        Para ejemplificar primero veamos transformaciones de figuras en el plano y cómo éstas afectan el área. 
+        Las más sencillas son las translaciones pues éstas preservan el área. Otras transformaciones son 
+        los reescalamientos u homotecias, estas son de la forma \((x,y)\mapsto k(x,y) \) donde \(k\)
+        es una constante distinta de cero. Si \(k>0\) podemos ver que un cuadrado de lado \(l\)
+        se transforma en un cuadrado de lado \(kl\) por lo que el área pasa de \(l^2\) a 
+        \(k^2l^2\), es decir se multiplica por un factor \(k^2\). Si \(k< 0\) el comportamiento es muy 
+        parecido sólo que el signo negativo hace que las figuras se reflejen por el origen pero el área 
+        se sigue multiplicando un el factor \(|k|^2\).
+    </p>
+    <p>
+        Ahora veamos estas transformaciones con respecto a funciones.
+    </p>
+    <p>
+        Para las translaciones tenemos que dada una función \(f(x)\) podemos expresar 
+        una translación horizontal de la gráfica de \(f\) mediante la función \(f(x+\alpha)\). Si 
+        \(\alpha >0\) se translada hacia la izquierda y si \(\alpha < 0 \) se translada hacia 
+        la derecha. Además, si \(f(x)\) está definida para  \(x\in [a,b]\) entonces 
+        \(f(x+\alpha)\) está definida para \(x\in [a-\alpha, b-\alpha]\). Ya que para las traslaciones 
+        no afectan el área debería pasar que 
+        \[
+        \int_{a}^{b} f(x)dx=\int_{a-\alpha}^{b-\alpha}f(u+\alpha)du,
+        \]
+        este es la fórmula del cambio de variable para las translaciones.
     </p>
 
 </div>
