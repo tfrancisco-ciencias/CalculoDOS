@@ -137,7 +137,7 @@
      <p>
          Por lo tanto para  terminar el primer caso  debemos de probar la identidad
          \[
-         \int_a^b \chi_{[x_0-\alpha, x_1-\alpha)}(x)dx=\int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(x)dx
+         \int_a^b \chi_{[x_0-\alpha, x_1-\alpha)}(x)dx=\int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(u)du
          \]
          la cual se prueba por casos.
      </p>
@@ -145,37 +145,37 @@
         Subcaso: \(x_1-\alpha \leq a \) ó \(b\leq x_0- \alpha\). Entonces también se tiene 
         \(x_1\leq a+\alpha\) ó \(b+\alpha \leq x_0\), por lo que 
         \[
-        \int_a^b \chi_{[x_0-\alpha, x_1-\alpha)}(x)dx = 0 = \int_{a+\alpha }^{b+\alpha}\chi_{[x_0,x_1)}(x)dx 
+        \int_a^b \chi_{[x_0-\alpha, x_1-\alpha)}(x)dx = 0 = \int_{a+\alpha }^{b+\alpha}\chi_{[x_0,x_1)}(u)du
         \]
      </p>
      <p>
         Subcaso: \(x_0-\alpha < a \leq  x_1-\alpha \leq b \). En este caso tenemos 
         \begin{eqnarray*}
         \int_{a}^{b}\chi_{[x_0-\alpha,x_1-\alpha)}(x)dx&=&x_1-\alpha-a \\
-        \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(x)dx&=&x_1-(a+\alpha)
+        \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(u)du&=&x_1-(a+\alpha)
         \end{eqnarray*}
      </p>
      <p>
         Subcaso: \(a \leq  x_0-\alpha < b < x_1-\alpha \). En este caso tenemos 
         \begin{eqnarray*}
         \int_{a}^{b}\chi_{[x_0-\alpha,x_1-\alpha)}(x)dx&=&b-(x_0-\alpha)\\
-        \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(x)dx&=&b+\alpha-x_0
+        \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(u)du&=&b+\alpha-x_0
         \end{eqnarray*}
      </p>
      
      <p>
-         Subcaso: \(a \leq x_0+\alpha <  x_1+\alpha \leq b\). En este caso tenemos 
+         Subcaso: \(a \leq x_0-\alpha <  x_1-\alpha \leq b\). En este caso tenemos 
          \begin{eqnarray*}
          \int_{a}^{b}\chi_{[x_0-\alpha,x_1-\alpha)}(x)dx&=&x_1+\alpha - (x_0+\alpha)=x_1-x_0\\
-         \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(x)dx&=&x_1-x_0
+         \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(u)du&=&x_1-x_0
          \end{eqnarray*}
      </p>
 
      <p>
-        Subcaso: \(x_0-\alpha < a <   b< x_1+\alpha\). En este caso tenemos 
+        Subcaso: \(x_0-\alpha < a <   b< x_1-\alpha\). En este caso tenemos 
         \begin{eqnarray*}
         \int_{a}^{b}\chi_{[x_0-\alpha,x_1-\alpha)}(x)dx&=&b-a\\
-        \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(x)dx&=&(b+\alpha)-(a+\alpha)=b-a
+        \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(u)du&=&(b+\alpha)-(a+\alpha)=b-a
         \end{eqnarray*}
     </p>
 
@@ -195,8 +195,8 @@
         
         \begin{eqnarray}
         \sum_{i=1}^n s_i\int_a^b \chi_{[x_{i-1}, x_i)}(x+\alpha)dx &=& 
-        \sum_{i=1}^n s_i \int_{a+\alpha}^{b+\alpha}\chi_{[x_{i-1},x_i)}(x)dx \nonumber \\
-        &=& \int_{a+\alpha}^{b+\alpha}s(x)dx \label{Ejer:Aux3CambioVarTraslacionEscalonada}
+        \sum_{i=1}^n s_i \int_{a+\alpha}^{b+\alpha}\chi_{[x_{i-1},x_i)}(u)du \nonumber \\
+        &=& \int_{a+\alpha}^{b+\alpha}s(u)du \label{Ejer:Aux3CambioVarTraslacionEscalonada}
         \end{eqnarray}
         donde la última identidad se debe a la linealidad. Finalmente, por 
         las ecuaciones \eqref{Ejer:Aux2CambioVarTraslacionEscalonada} y 
@@ -358,37 +358,204 @@
     <h2 class="number-title" id="Ejer:CambioVariableReescalemientosEscalonadas"> Ejercicio</h2> 
     <p>
         Sea $s:\mathbb{R} \to \mathbb{R}$ una función 
-        escalonada y  $\alpha \not= 0$ un escalar. Demuestra:
+        escalonada y  $k \not= 0$ un escalar. Demuestra:
     </p>
 
 <ol>
 
     <li>
-        si $\alpha>0$
+        si $k>0$
         $$
-        \int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha a}^{\alpha b} s(u)du.
+        \int_{a }^{b} s(k x)dx=\frac{1}{k} \int_{k a}^{k b} s(u)du.
         $$
     </li> 
     <li>
-        si $\alpha < 0$
+        si $k < 0$
         $$
-        \int_{a }^{b} s(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha b}^{\alpha a} s(u)du.
+        \int_{a }^{b} s(k x)dx=\frac{1}{|k|} \int_{k b}^{k a} s(u)du.
         $$
     </li> 
 </ol>
+<button class="respButton hvr-grow "> Demostración  1 </button>
+    <div class="resp-box flexbox">
 <p>
-    Haciendo substituciones formales, lo anterior se puede poner como $u=\alpha x$, $du=\alpha dx$.
+    <center> Caso \(k>0\)</center>
+</p>
+
+<p>
+    Caso 1: \(s\) es de la forma \(s=\chi_{[x_0,x_1)}\).
 </p>
 <p>
-    Sugerencia: empiza con $s$ de la forma $s=\chi_{[c,d)}$; para el caso general nota que cualquier $s$, función escalonada, es igual
-    excepto en un número finito de puntos a una expresión de la forma  $\sum_{k=1}^m  \beta_k \chi_{[c_k, d_k)}$, para agunos intervalor $[c_k, b_k)$ y escalares $\beta_k$.
+    Primero probamos la siguiente identidad de funciones 
+    \begin{equation}\label{Ejer:Aux1CambioVarReescalemientoEscalonada}
+        \chi_{[x_0,x_1)}(kx)=\chi_{[x_0/k,x_1/k)}(x), 
+    \end{equation}
+    para todo \(x\).
+</p>
+<p>
+    Ya que las funciones características sólo toman los valores \(0\) y \(1\) es suficiente probar 
+    \( \chi_{[x_0,x_1)}(kx)=1\) si y sólo si \( \chi_{[x_0/k,x_1/k)}(x)=1\).  Para 
+    éste último tenemos:
+    \begin{eqnarray*} 
+     \chi_{[x_0,x_1)}(kx)=1 & \Leftrightarrow &  kx \in [x_0,x_1)  \\ 
+     & \Leftrightarrow & x\in [x_0/k, x_1/k) \\
+     & \Leftrightarrow & \chi_{[x_0/k,x_1/k)}(x)=1.
+    \end{eqnarray*}
+</p>
+
+ <p>
+    Integrando \eqref{Ejer:Aux1CambioVarReescalemientoEscalonada} obtenemos 
+    \begin{eqnarray*}
+    \int_a^bs(kx)dx&=&\int_a^b \chi_{[x_0,x_1]}(kx)dx \\
+    &=& \int_a^b \chi_{[x_0/k, x_1/k)}(x)dx
+    \end{eqnarray*}
+ </p>
+ <p>
+     Por lo tanto para  terminar el primer caso  debemos de probar la identidad
+     \[
+     \int_a^b \chi_{[x_0/k, x_1/k)}(x)dx=\frac{1}{k}\int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du
+     \]
+     la cual se prueba por casos.
+ </p>
+ <p>
+    Subcaso: \(x_1/k \leq a \) ó \(b\leq x_0/k\). Entonces también se tiene 
+    \(x_1\leq ka \) ó \(kb\leq x_0\), por lo que 
+    \[
+    \int_a^b \chi_{[x_0/k, x_1/k)}(x)dx = 0 = \int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du
+    \]
+ </p>
+ <p>
+    Subcaso: \(x_0/k < a \leq  x_1/k \leq b \). En este caso tenemos 
+    \begin{eqnarray*}
+    \int_{a}^{b}\chi_{[x_0/k,x_1/k)}(x)dx&=&\frac{x_1}{k}-a \\
+    \frac{1}{k}\int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du&=& \frac{1}{k}(x_1-ka)
+    \end{eqnarray*}
+ </p>
+ <p>
+    Subcaso: \(a \leq  x_0/k < b < x_1/k\). En este caso tenemos 
+    \begin{eqnarray*}
+    \int_{a}^{b}\chi_{[x_0/k,x_1/k)}(x)dx&=&b-\frac{x_0}{k}\\
+    \frac{1}{k}\int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du&=& \frac{1}{k}(kb-x_0)
+    \end{eqnarray*}
+ </p>
+ 
+ <p>
+     Subcaso: \(a \leq x_0/k <  x_1/k \leq b\). En este caso tenemos 
+     \begin{eqnarray*}
+     \int_{a}^{b}\chi_{[x_0/k,x_1/k)}(x)dx&=&\frac{x_1}{k}-\frac{x_0}{k}\\
+     \frac{1}{k}\int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du&=&\frac{1}{k}(x_1-x_0)&
+     \end{eqnarray*}
+ </p>
+
+ <p>
+    Subcaso: \(x_0/k < a <   b< x_1/k\). En este caso tenemos 
+    \begin{eqnarray*}
+    \int_{a}^{b}\chi_{[x_0/k,x_1/k)}(x)dx&=&b-a\\
+    \frac{1}{k}\int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du&=&\frac{1}{k}(kb-ka)
+    \end{eqnarray*}
+</p>
+
+<p>
+    Caso 2: caso general, \(s\) es de la forma 
+    \[
+    s=\sum_{i=1}^n s_i\chi_{[x_{i-1},x_i)}
+    \]
+    donde \(x_0< x_1< \cdots < x_n\).
+</p>
+<p>
+    Usando linealidad tenemos 
+    \begin{equation}\label{Ejer:Aux2CambioVarReescalamientoEscalonada}
+    \int_a^b s(kx)dx=\sum_{i=1}^n s_i \int_a^b \chi_{[x_{i-1},x_i)}(kx)dx
+    \end{equation}
+    luego por el primer caso tenemos 
     
-    
+    \begin{eqnarray}
+    \sum_{i=1}^n s_i\int_a^b \chi_{[x_{i-1}, x_i)}(kx)dx &=& 
+    \frac{1}{k}\sum_{i=1}^n s_i \int_{ka}^{kb}\chi_{[x_{i-1},x_i)}(u)du \nonumber \\
+    &=& \frac{1}{k}\int_{ka}^{kb}s(u)du \label{Ejer:Aux3CambioVarReescalamientoEscalonada}
+    \end{eqnarray}
+    donde la última identidad se debe a la linealidad. Finalmente, por 
+    las ecuaciones \eqref{Ejer:Aux2CambioVarReescalamientoEscalonada} y 
+    \eqref{Ejer:Aux3CambioVarReescalamientoEscalonada} concluimos 
+    \[
+        \int_a^b s(kx)dx = \frac{1}{k}\int_{ka}^{kb}s(u)du.
+    \]
 </p>
 </div>
 
+
+
+<button class="respButton hvr-grow "> Demostración  2 </button>
+    <div class="resp-box flexbox">
+<p>
+    <center> Caso \(k< 0\)</center>
+</p>
+<p>
+    Este caso es muy similar, primero el caso \(s=\chi_{[x_0,x_1)}\)
+    y luego el caso general, \(s=\sum_{i=1}^n s_i\chi_{[x_{i-1},x_i)}\). Sólo se revisa el 
+    caso \(s=\chi_{[x_0,x_1)}\).
+</p>
+<p>
+    Para este caso la identidad que se tiene es:  
+    \begin{equation}\label{Ejer:Aux5CambioVarReescalemientoEscalonada}
+        \chi_{[x_0,x_1)}(kx)=\chi_{[x_1/k,x_0/k)}(x), 
+    \end{equation}
+    para todo \(x\). Notar el cambio de orden entre \(x_0\) y \(x_1\). La prueba es muy similar 
+    a el caso \(k>0\) y se omite.
+</p>
+
+ <p>
+     Por lo tanto para  terminar el caso \(s=\chi_{[x_0,x_1)}\) debemos de probar la identidad
+     \[
+     \int_a^b \chi_{[x_1/k, x_0/k)}(x)dx=\frac{1}{|k|}\int_{kb}^{ka}\chi_{[x_0,x_1)}(u)du
+     \]
+     la cual se prueba por casos.
+ </p>
+ <p>
+    Subcaso: \(x_0/k \leq a \) ó \(b\leq x_1/k\). Entonces también se tiene 
+    \(x_0 \geq  ka \) ó \(kb\geq x_1\), por lo que 
+    \[
+    \int_a^b \chi_{[x_1/k, x_0/k)}(x)dx = 0 = \int_{kb}^{ka}\chi_{[x_0,x_1)}(u)du
+    \]
+ </p>
+ <p>
+    Subcaso: \(x_1/k < a \leq  x_0/k \leq b \). Entonces también tenemos 
+    \(x_1 > ka \geq x_0 \geq kb \), por lo que 
+    \begin{eqnarray*}
+    \int_{a}^{b}\chi_{[x_1/k,x_0/k)}(x)dx&=&\frac{x_0}{k}-a \\
+    \frac{1}{|k|}\int_{kb}^{ka}\chi_{[x_0,x_1)}(u)du&=& \frac{1}{|k|}(ka-x_0)=\frac{1}{k}(x_0-ka)
+    \end{eqnarray*}
+ </p>
+ <p>
+    Subcaso: \(a \leq  x_1/k < b < x_0/k\). Entonces también tenemos \(ka \geq x_1 > kb > x_0\)
+    por lo que
+    \begin{eqnarray*}
+    \int_{a}^{b}\chi_{[x_1/k,x_0/k)}(x)dx&=&b-\frac{x_1}{k}\\
+    \frac{1}{|k|}\int_{kb}^{ka}\chi_{[x_0,x_1)}(u)du&=& \frac{1}{|k|}(x_1-kb)=\frac{1}{k}(kb-x_1)
+    \end{eqnarray*}
+ </p>
+ 
+ <p>
+     Subcaso: \(a \leq x_1/k <  x_0/k \leq b\). Entonces también tenemos \(ka \geq x_1 > x_0 \geq kb \)
+     por lo que 
+     \begin{eqnarray*}
+     \int_{a}^{b}\chi_{[x_1/k,x_0/k)}(x)dx&=&\frac{x_0}{k}-\frac{x_1}{k}\\
+     \frac{1}{|k|}\int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du&=&\frac{1}{|k|}(x_1-x_0)=\frac{1}{k}(x_0-x_1)
+     \end{eqnarray*}
+ </p>
+
+ <p>
+    Subcaso: \(x_1/k < a <   b< x_0/k\). Entonces también tenemos \(x_1 > ka > kb > x_0\) por lo que 
+    \begin{eqnarray*}
+    \int_{a}^{b}\chi_{[x_1/k,x_0/k)}(x)dx&=&b-a\\
+    \frac{1}{|k|}\int_{kb}^{ka}\chi_{[x_0,x_1)}(u)du&=&\frac{1}{|k|}(ka-kb)=\frac{1}{k}(kb-ka)
+    \end{eqnarray*}
+</p>
+</div>
+</div>
+
 <div class="info-box">
-    <h2 class="number-title"> Notación </h2>
+    <h2 class="number-title" id="Nota:CambioVarReescalamiento"> Notación </h2>
 
     <p> 
         Tomando en cuenta el ejercicio anterior damos la siguiente notación. Dados  $a,b\in \mathbb{R}$ con $a < b$, 
@@ -401,12 +568,14 @@
         Con esta notación el <a href="#Ejer:CambioVariableReescalemientosEscalonadas">Ejercicio 6.7</a> se puede 
         reescribir como 
         \[
-        \int_{a}^{b} s(\alpha x) dx = 
-        \frac{1}{\alpha}\int_{\alpha a}^{\alpha b} s(u)du, 
+        \int_{a}^{b} s(k x) dx = 
+        \frac{1}{k}\int_{k a}^{k b} s(u)du, 
         \]
-        sín importan el signo de \(\alpha\).
+        sín importan el signo de \(k\).
     </p>
-
+    <p>
+        Haciendo substituciones formales, lo anterior se puede poner como $u=k x$, $du=k dx$.
+    </p>
 </div>
 
  
@@ -418,19 +587,154 @@
             cerrados de $I$. 
         </p>
         <p>
-            Sea $\alpha \ne 0$ y  supón  que el intervalo determinado 
-        por $\alpha a$ y $\alpha b$ está contenido en
-        $I$. Entonces la función  $x \mapsto f(\alpha x)$ es integrable en $[a,b]$ y 
-        $$
-        \int_{a }^{b }f(\alpha x)dx=\frac{1}{\alpha} \int_{\alpha a}^{\alpha b} f(u)du
-        $$
+            Sea $k \ne 0$ y  supón  que el intervalo determinado 
+        por $k a$ y $k b$ está contenido en
+        $I$. Entonces la función  $x \mapsto f(k x)$ es integrable en $[a,b]$ y 
+        \begin{equation}\label{Eqn:CambioVariableReescalamiento}
+        \int_{a }^{b }f(k x)dx=\frac{1}{k} \int_{k a}^{k b} f(u)du
+        \end{equation}
         Nota que se  usa la <a href="#Notacion:ReversaIntervalos">Notación 6.8</a> pues 
-        hay que tomar en cuenta el signo de \(\alpha\). 
+        hay que tomar en cuenta el signo de \(k\). 
         </p>
         <p>
             Haciendo substituciones formales esto se puede 
-            abreviar como $\quad u=\alpha x, \quad du =\alpha dx$.
+            abreviar como $\quad u=kx, \quad du =kdx$.
         </p>
+        <button class="respButton hvr-grow "> Demostración  </button>
+        <div class="resp-box flexbox">
+        <p>
+            Primera establecemos notación. Si \(k>0\) denotamos \(a'=ka, b'=kb\), si 
+            \(k< 0\) denotamos \(a'=kb, b'=kb\). Notamos que en cualquier caso \(a'< b'\)
+            y que por suposición \([a',b']\subseteq I\).
+        </p>
+        <p>
+
+            Definimos $g:[a,b]\to \mathbb{R}$ por $g(x)=f(kx)$, bien definida pues 
+            suponemos que \([a', b']\subseteq I\). Vamos a probar que 
+            \(g\) es integrable en \([a,b]\) y que 
+            \[
+            \int_{a}^{b} g(x)dx =\frac{1}{k}\int_{a'}^{b'} f(u)du
+            \]
+        </p>
+        <p>
+            Para probar que \(g\) es integrable en \([a,b]\) vamos a usar el <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Criterio de Cauchy</a>.
+        </p>
+        <p>
+            Usando que $f$ es integrable en $[a', b']$, dada \(\varepsilon >0\) existen 
+            $s,t : \mathbb{R} \to \mathbb{R}$, funciones escalonadas con:
+            <ul>
+                <li>
+                    para toda \(u \in [a', b']\):
+                    \[
+                    s(u)\leq f(u) \leq t(u),
+                    \]
+                </li>
+                <li> además 
+                    \[
+                    \int_{a'}^{b'} t(u)du -\int_{a'}^{b'} s(u)du 
+                    < \varepsilon |k|.
+                    \]
+                </li>
+            </ul>
+            Consideramos $\tilde{s},\tilde{t}:\mathbb{R}\to \mathbb{R}$ definidas por $\tilde{s}(x):=s(kx)$, 
+            $\tilde{t}(x):=t(kx)$. Se sigue que para toda \(x\in [a,b]\):
+            \begin{eqnarray}
+             \tilde{s}(x) \leq g(x) \leq \tilde{t}(x). \label{Eqn:Aux1CambioVarReescalamiento}
+            \end{eqnarray}
+            Además por el <a href="#Ejer:CambioVariableReescalemientosEscalonadas">Ejercicio 6.7</a>
+            
+            \begin{eqnarray*}
+            \int_a^b \tilde{s}(x)dx &=& \frac{1}{|k|}\int_{a'}^{b'}s(u)du,\\ 
+            \int_a^b \tilde{t}(x)dx &=& \frac{1}{|k|}\int_{a'}^{b'}t(u)du,
+            \end{eqnarray*}
+            por lo que  
+            \begin{equation}
+            \int_{a}^{b} \tilde{t}(x)dx - \int_{a}^{b}  \tilde{s}(x)dx = 
+            \frac{1}{|k|}\left( \int_{a'}^{b'} t(u)du-\int_a^b s(u)du \right) < \varepsilon.  
+            \label{Eqn:Aux2CambioVarReescalamiento}
+            \end{equation}
+        </p>
+        <p>
+            De \eqref{Eqn:Aux1CambioVarReescalamiento}, \eqref{Eqn:Aux2CambioVarReescalamiento} y del 
+            <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Criterio de Cauchy</a> 
+            concluimos que \(g\) es integrable en \([a,b]\).
+        </p>
+        <p>
+            Resta probar \eqref{Eqn:CambioVariableReescalamiento}. Iniciamos integrando 
+            las desigualdades \(s(u)\leq f(u)\leq t(u)\), válida para \(u\in [a', b']\),
+            \(\tilde{s}(x)\leq g(x)\leq \tilde{t}(x)\), válida para \(x\in [a,b]\):
+            \begin{eqnarray*}
+            \int_{a'}^{b'} s(u)du \leq & \int_{a'}^{b'} f(u)du & \leq \int_{a'}^{b'} t(u)du \\
+            \frac{1}{|k|}\int_{a'}^{b'} s(u)du =\int_{a}^{b} \tilde{s}(x)dx \leq & \int_{a}^{b} g(x)dx & 
+            \leq \int_a^b \tilde{t}(x)dx=\frac{1}{|k|}\int_{a'}^{b'} t(u)du
+            \end{eqnarray*}
+            donde las identidades del segundo renglón se deben al <a href="#Ejer:CambioVariableTranslacionesEscalonadas">Ejercicio 6.2</a>.
+        </p>
+        <p>
+            Comparando las desigualdades anteriores concluimos 
+            \[
+            \left| \int_{a'}^{b'} f(u)du - |k|\int_{a}^{b} g(x)dx  \right| \leq 
+            \int_{a'}^{b'} t(u)du - \int_{a'}^{b'} s(u)du < \varepsilon,
+            \]
+            y al ser \(\varepsilon\) arbitraria concluimos 
+            \[
+            \int_{a'}^{b'} f(u)du = |k|\int_{a}^{b} g(x)dx=|k|\int_{a}^{b} f(kx)dx
+            \]
+            que se puede reescribir como, tomando los casos \(k>0\) y \(k< 0\) como 
+            
+            \[
+            \frac{1}{k}\int_{ak}^{bk} f(u)du=\int_{a}^b f(kx)dx.
+            \]
+        </p>
+    </div>
+</div>
+
+<div class="teorema-box">
+    <h2> Teorema </h2>
+    <h3> Cambios de variable lineales </h3>
+    <p>
+        Sea $I\subseteq \mathbb{R}$ un intervalo y supón que la función 
+        $f:I\to \mathbb{R}$ es  integrable sobre todos los subintervalos 
+        cerrados de $I$. 
+    </p>
+    <p>
+        Sean \(\alpha,k \in \mathbb{R}\) con \(k \ne 0\). Supón que el intervalo 
+        \([a,b]\) satisface que  el intervalo determinado por \(k a +\alpha \), \(k b+\alpha \)
+        está contenido en \(I\). Entonces la función \(x\mapsto f( kx + \alpha )\) es 
+        integrable en \([a,b]\) y 
+        \[
+            \int_a^b f(kx+\alpha )dx = \frac{1}{k}\int_{ka + \alpha}^{k b+\alpha} f(u)du
+        \]
+    </p>
+    <button class="respButton hvr-grow "> Demostración </button>
+    <div class="resp-box flexbox">
+    <p>
+        Definimos \(J=\{x-\alpha: x\in I\}\) y \(h:J\to \mathbb{R}\) por \(h(u)=f(u+\alpha)\). Por 
+        el <a href="#Ejer:CambioVariableTranslaciones">Ejercicio 6.3</a> \(h\) es integrable en \([a'+\alpha,b'+\alpha]\)
+        donde \(a'=ka\), \(b'=kb\) si \(k>0\) y \(a'=kb, b'=ka\) si \(k< 0\).
+    </p>
+    <p>
+        Con la notación anterior tenemos que \(f(kx+\alpha)=h(kx)\), para todo \(x\in [a,b]\), por lo 
+        tanto 
+        \[
+        \int_a^b f(kx + \alpha)dx = \int_a^b h(kx)dx
+        \]
+        Notamos que el intervalo determinado por \(ka\)  y \(kb\) está contenido en 
+        \(J\) (pues el intervalo determinado por \(ka+\alpha\) y \(kb+\alpha\) está contenido en 
+        \(I\)) por lo tanto  el <a href="#Ejer:CambioVariableReescalemientos">Ejercicio 6.9</a> implica 
+        \[
+        \int_a^b h(kx)dx = \frac{1}{k}\int_{ka}^{kb} h(u)du,
+        \]
+        pero por el <a href="#Ejer:CambioVariableTranslaciones">Ejercicio 6.3</a>
+        \[
+        \int_{ka}^{kb} h(u)du=\int_{ka}^{kb}f(u+\alpha)du=\int_{ka+\alpha}^{kb+\alpha} f(x)dx
+        \]
+        por lo que concluimos 
+        \[
+        \int_a^b f(kx + \alpha)dx= \frac{1}{k}\int_{ka+\alpha}^{kb+\alpha} f(x)dx
+        \]
+    </p>
+    </div>
 </div>
 
 <div class="ejercicio-box">
