@@ -1,86 +1,386 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 6 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 6 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 7 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox"> Más propiedades de la integral </h1>
 
 
 
-
-
-\section*{Más propiedades de la integral}
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:[a,b]\to \mathbb{R}$ una función continua. Prueba que
-$$
-\left| \int_a^b f(x)dx \right|  \leq \int_a^b |f(x)|dx
-$$
-
-Hint: $-|f|\leq f \leq |f|$.
-
-Nota: el mismo resultado se vale si sólo se pide que las funcion sea integrable.
-
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ una función continua. Prueba que
+        $$
+        \left| \int_a^b f(x)dx \right|  \leq \int_a^b |f(x)|dx
+        $$
+        Hint: $-|f|\leq f \leq |f|$.    
+    </p>
+    <p>
+        Nota: el mismo resultado se vale si sólo se pide que las funcion sea integrable.
+    </p>
+    
+    
+</div>
 
 	
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Si $f:[a,b] \to \mathbb{R}$ es una función continua, $f\geq 0$, tal que 
-$$
-\int_a^b f(x)dx = \max_{x\in [a,b]} 
-\{ f(x)\} (b-a)
-$$
-entonces $f$ es constante.
+<div class="ejercicio-box"
+><h2 class="number-title"> Ejercicio</h2> 
+<p>
+    Si $f:[a,b] \to \mathbb{R}$ es una función continua, $f\geq 0$, tal que 
+    $$
+    \int_a^b f(x)dx = \max_{x\in [a,b]} 
+    \{ f(x)\} (b-a)
+    $$
+    entonces $f$ es constante.
+</p>
+
+</div>
 
 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:DesigualdadJensen} Una función $\varphi:[a,b]\to \mathbb{R}$ se  llama convexa (o cóncava hacia arriba) si
-$$
-\varphi(tx_1+(1-t)x_2)\leq t \varphi(x_1)+(1-t)\varphi(x_2)
-$$
-para $x_1,x_2 \in [a.b]$ y $t\in [0,1]$.
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:DesigualdadJensen"> Ejercicio</h2>
+    <h3?>Desigualdad de Jensen </h3>  
+    <p>
+        Una función $\varphi:[a,b]\to \mathbb{R}$ se  llama convexa (o cóncava hacia arriba) si
+        $$
+        \varphi(tx_1+(1-t)x_2)\leq t \varphi(x_1)+(1-t)\varphi(x_2)
+        $$
+        para $x_1,x_2 \in [a.b]$ y $t\in [0,1]$.
+    </p>
+    
 
 <ol>
 
-    <li>Si $x_1,\dots, x_n \in [a,b]$ y $t_i\geq 0$ para $i=1,\dots, n$ satisfacen $\sum_{i=1}^n t_i=1$, entonces
+    <li>
+        Si $x_1,\dots, x_n \in [a,b]$ y $t_i\geq 0$ para $i=1,\dots, n$ satisfacen $\sum_{i=1}^n t_i=1$, entonces
         $\sum_{i=1}^n t_ix_i$ pertenece a $[a,b]$.
-        </li> 
+    </li> 
 
-<li>Prueba que si $\varphi:[a,b]\to \mathbb{R}$ es convexa entonces
-    $$
-    \varphi\left( \sum_{i=1}^n t_i x_i \right) \leq \sum_{i=1}^n t_i \varphi(x_i)
-    $$
-    para $x_1,\dots, x_n \in [a,b]$ y $t_i\geq 0$ con $\sum_{i=1}^n t_i=1$.</li> 
+    <li>
+        Prueba que si $\varphi:[a,b]\to \mathbb{R}$ es convexa entonces
+        $$
+        \varphi\left( \sum_{i=1}^n t_i x_i \right) \leq \sum_{i=1}^n t_i \varphi(x_i)
+        $$
+        para $x_1,\dots, x_n \in [a,b]$ y $t_i\geq 0$ con $\sum_{i=1}^n t_i=1$.
+    </li> 
 
-<li>Prueba que si $\varphi:\mathbb{R} \to \mathbb{R}$ es una función convexa y $s:[0,1]\to \mathbb{R}$
-    es una función escalonada entonces
-    $$
-    \varphi\left( \int_0^1 s(x)dx \right) \leq \int_0^1 \varphi \circ s(x)dx 
-    $$</li> 
+    <li>
+        Prueba que si $\varphi:\mathbb{R} \to \mathbb{R}$ es una función convexa y $s:[0,1]\to \mathbb{R}$
+        es una función escalonada entonces
+        $$
+        \varphi\left( \int_0^1 s(x)dx \right) \leq \int_0^1 \varphi \circ s(x)dx 
+        $$
+    </li> 
 
-<li>Prueba que si $\varphi:\mathbb{R} \to \mathbb{R}$ es una función convexa y continua en todo $\mathbb{R}$ y $f:[0,1]\to \mathbb{R}$ es una función continua entonces
-    $$
-    \varphi\left( \int_0^1 f (x)dx \right) \leq \int_0^1 \varphi \circ f(x)dx 
-    $$
-    
-    Sugerencia: usa el inciso anterior y el ejercicio \ref{Ejer:IntegrabilidadFuncionesContinuas}.</li>  
+    <li>
+        Prueba que si $\varphi:\mathbb{R} \to \mathbb{R}$ es una función convexa y continua en todo $\mathbb{R}$ y $f:[0,1]\to \mathbb{R}$ es una función continua entonces
+        $$
+        \varphi\left( \int_0^1 f (x)dx \right) \leq \int_0^1 \varphi \circ f(x)dx 
+        $$
+        Sugerencia: usa el inciso anterior y el ejercicio <a href="./S5.html#Ejer:IntegrabilidadFuncionesContinuas">Teorema 5.10</a>.
+    </li>  
 </ol>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Para $0< b < 1,$ encuentre la integral de
+        $$
+        \int_0^b \frac{1-x^{n+1}}{1-x}dx
+        $$ 
+        Sugerencia: usar
+        $$
+        \sum_{j=1}^n x^j=\frac{1-x^{n+1}}{1-x}
+        $$
+        la cual es válida para \(|x|< 1\).
+    </p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Para $0< b < 1,$ encuentre la integral de
-$$
-\int_0^b \frac{1-x^{n+1}}{1-x}dx
-$$ 
-
-
-Sugerencia: usar
-$$
-\sum_{j=1}^n x^j=\frac{1-x^{n+1}}{1-x}
-$$
 
 
 
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:CambioVariableReduccionIntervaloUnitario"> Ejercicio</h2>
+    <p>
+        Este ejercicio muestra que en la teoría de integración en intervalos cerrados y 
+        acotados es suficiente estudiar funciones definidas en $[0,1]$.
+        Sea $f:[a,b]\to \mathbb{R}$ integrable. Entonces
+        $$
+        \int_a^bf(x)dx=(b-a)\int_0^1 f(a+(b-a)t)dt
+        $$
+    </p>  
+    
+</div>
 
 
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:AproxSimplesConCotas"> Ejercicio</h2> 
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$  integrable y  supon que existen constantes  
+    $m$ y $M$  tales que $m\leq f(x) \leq M$, para toda $x\in [a,b]$. Demuestra que, 
+    para toda  $\varepsilon >0$, 
+    existen funciones escalonadas $s.t:[a,b]\to \mathbb{R}$ tales que
+    </p>
+    
+<ol>
+    <li>$m \leq s \leq f \leq t \leq M$</li> 
+    <li>$\int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon$</li> 
+</ol>
+    <p>
+        Sugerencia: como $f$ es integrable, existen funciones escalonadas $\tilde{s}$ y $\tilde{t}$ con
+        $$
+        \tilde{s} \leq f \leq \tilde{t}
+        $$
+        y
+        \begin{equation}\label{Eqn:step1stAprox}
+        \int_a^b \tilde{t}(x)dx-\int_a^b\tilde{s}(x)dx < \varepsilon.
+        \end{equation}
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:CambioVariableReduccionIntervaloUnitario} Este ejercicio muestra que en la teoría de integración en intervalos cerrados y acotados es suficiente estudiar funciones definidas en $[0,1]$.
+        Considera
+        $$
+        s:=\max\{\tilde{s},m\}, t=\min\{\tilde{t},M \}
+        $$
+    </p>
 
-Sea $f:[a,b]\to \mathbb{R}$ integrable. Entonces
-$$
-\int_a^bf(x)dx=(b-a)\int_0^1 f(a+(b-a)t)dt
-$$
+    
+</div>
 
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:IntegrabilidadCuadradosCasoPositivo"> Ejercicio</h2> 
+    <p>
+        Sea $f:[a,b] \to \mathbb{R}$ una función integrable tal que existe una constante 
+        $M$ con $0 \leq f(x) \leq M$, para toda $x\in [a,b]$. Demuestra que, para toda 
+        $\varepsilon >0$, existen funciones escalonadas $s,t:[a,b] \to \mathbb{R}$ tales que 
+    </p>
+<ol>
+    <li>$  s \leq f^2 \leq t $</li>  
+    <li>$\int_a^b t(x)dx- \int_a^b s(x)dx < \varepsilon$.</li>  
+    <li>Concluye que $f^2$ es integrable.</li> 
+</ol>
+    <p>
+        Sugerencia: como $f$ es integrable, el ejercicio  <a href="#Ejer:AproxSimplesConCotas">Ejercicio 7.6</a> 
+        asegura que existen funciones escalonadas $\tilde{s}$ y $\tilde{t}$ con
+        $$
+         0\leq \tilde{s} \leq f \leq \tilde{t} \leq M
+        $$
+        y
+        \begin{equation}\label{Eqn:step2-1stAprox}
+        \int_a^b \tilde{t}(x)dx-\int_a^b\tilde{s}(x)dx < \varepsilon/M.
+        \end{equation}
+        Considera
+        $$
+        s:=\tilde{s}^2, t=\tilde{t}^2
+        $$        
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea \(f:[a,b]\to \mathbb{R}\) integrable en \([a,b]\). Prueba que 
+        \(f^2\) también es integrable en \([a,b]\).
+    </p>
+    <p>
+        Sugerencia: 
+        toma $m$ tal que $m \leq f(x)$ para toda $x\in [a,b]$.  Nota
+        que $g:=f-m$ siempre es mayor o igual a cero y aplica el ejercicio 
+        <a href="#Ejer:IntegrabilidadCuadradosCasoPositivo">Ejercicio 7.7</a> a $g-m$.      
+    </p>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Da un ejemplo de una función $f:[a,b]\to \mathbb{R}$ tal que $f^2$ es integrable pero $f$ no lo es.
+    </p>
+
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:IntegralCuadradaNoIntegraldelCuadrado"> Ejercicio</h2> 
+    <p>
+        Da un ejemplo de una función integrable $f:[a,b]\to \mathbb{R}$ tal que
+        $$
+        \int_a^b f^2(x)dx \ne \left( \int_a^b f(x)dx \right)^2
+        $$
+    </p>
+    
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        El ejercicio  <a href="#Ejer:IntegralCuadradaNoIntegraldelCuadrado">Ejercicio 7.10</a>  
+        muestra que la relación entre  $\int_a^b f^2$ y $(\int_a^bf)^2$ no es sencilla. 
+        Este ejercicio da una desigualdad que involucra estas integrales. 
+    </p>
+<ol>
+        <li>
+            Demuestra que para toda función continua $f:[a,b]\to \mathbb{R}$,
+            $$
+            \left( \int_a^b f(x)dx \right)^2 \leq (b-a)\int_a^b f^2(x)dx.
+            $$
+        </li> 
+        <li>
+            Da un ejemplo donde se muestre que la desigualdad anterior puede ser estricta.
+        </li> 
+</ol>
+    <p>
+        Sugerencia: para la primera parte, primero demuestra  el caso $a=0, b=1$ 
+        usando la <a href="#Ejer:DesigualdadJensen">desigualdad de Jensen </a>; 
+        para el caso general usa el cambio de variable y el ejercicio 
+        <a href="#Ejer:CambioVariableReduccionIntervaloUnitario">Ejercicio 7.5</a>.
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sean $f,g:[a,b] \to \mathbb{R}$ dos funciones integrables. 
+        Demuestra que la función producto $fg$ es integrable.
+    </p>
+    <p>
+        Sugerencia: despeja $fg$ en $(f+g)^2=f^2+2fg+g^2$.
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <h3>La desigualdad de Cauchy-Schwartz para integrales </h3> 
+    <p>
+        Prueba
+        $$
+        \left| \int_a^b f(x)g(x)dx \right| \leq \left(\int_a^b f(x)^2dx \right)^{1/2}\left(\int_a^b g(x)^2dx \right)^{1/2}
+        $$
+        
+        Hint: considera la función
+        $$
+        p(t)=\int_a^b (f(x)+t g(x))^2dx
+        $$
+        Desarrolla el cuadrado y usa linealidad para ver que
+        $p$ es una parabola en la variable $t$, que siempre
+        está por arriba del eje $x$. Observa su discriminante.
+        
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+
+<ol> 
+
+    <li>
+        Prueba que toda suma $\sum_{i=1}^n a_i$, se puede escribir como 
+        la integral de una función escalonada.
+    </li> 
+
+    <li>
+        Usa el inciso anterior y el ejercico 1 para probar la desigualdad de Cauchy-Schwartz
+        $$
+        \left| \sum_{i=1}^n a_ib_i  \right| \leq 
+        \left(\sum_{i=1}^n a_i^2 \right)^{1/2}\left(\sum_{i=1}^n b_i^2 \right)^{1/2}
+        $$
+        para cualesquiera  números reales, $a_{1},\dots, a_n, b_1,\dots, b_n$.
+    </li> 
+</ol>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p> 
+        Sea $f:[0,1]\to \mathbb{R}$ una función integrable en $[0,1]$ con $f\geq 0$ en $[0,1]$.  Demuestra:
+        $$
+        \int_0^1\sqrt{f}\leq \bigg(\int_0^1 f \bigg)^{1/2}
+        $$
+        Sugerencia: usa la desigualdad de Cauchy-Schwartz para integrales.
+    </p>
+    <p>
+        Nota: en general , si $f$ es integrable con $f\geq 0$ entonces $\sqrt{f}$ 
+        también es integrable. Este hecho se puede usar
+        en este ejercicio.        
+    </p>
+</div>
+</body>
