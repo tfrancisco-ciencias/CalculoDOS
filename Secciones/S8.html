@@ -1,116 +1,731 @@
 
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-\section*{Algebra de las funciones integrables}
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:AproxSimplesConCotas} Sea $f:[a,b]\to \mathbb{R}$  integrable y  supon que existen constantes  $m$ y $M$  tales que $m\leq f(x) \leq M$, para toda $x\in [a,b]$. Demuestra que, para toda  $\varepsilon >0$, 
-existen funciones escalonadas $s.t:[a,b]\to \mathbb{R}$ tales que
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 6 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 6 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 6 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox"> Teoremas Fundamentales </h1>
+
+
+<div class="info-box">
+    <h2 class="number-title"> Introducción </h2>
+    <p>
+        Los teoremas fundamentales del cálculo son como las dos caras de una misma moneda. El primer  
+        Teorema Fundamental
+        es visto desde la perspectiva de las derivadas y el segundo desde la perspectiva de las 
+        antiderivadas.        
+    </p>
+
+</div>
+
+
+<div class="definicion-box">
+    <h3> Antiderivadas</h3>
+    <p>
+        Dada una función $f$, una antiderivada de $f$ (ó primitiva),  en $(a,b)$, es una
+        función $F$  tal que $F'(x)=f(x)$ para toda $x$ en $(a,b)$.
+    </p>
+    <p>
+        Notación: escribimos $\int f(x)dx$ o $\int f$ para denotar una antidarivada de $f$ y se 
+        se denominan integrales indefinidas.
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Encuentra anti-derivadas de las siguintes funciones:
+    </p>
+
+
 <ol>
-    <li>$m \leq s \leq f \leq t \leq M$</li> 
-    <li>$\int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon$</li> 
-</ol>
-
-
-Sugerencia: como $f$ es integrable, existen funciones escalonadas $\tilde{s}$ y $\tilde{t}$ con
-$$
-\tilde{s} \leq f \leq \tilde{t}
-$$
-y
-\begin{equation}\label{Eqn:step1stAprox}
-\int_a^b \tilde{t}(x)dx-\int_a^b\tilde{s}(x)dx < \varepsilon.
-\end{equation}
-
-Considera
-$$
-s:=\max\{\tilde{s},m\}, t=\min\{\tilde{t},M \}
-$$
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:IntegrabilidadCuadradosCasoPositivo} Sea $f:[a,b] \to \mathbb{R}$ una función integrable tal que existe una constante $M$ con $0 \leq f(x) \leq M$, para toda $x\in [a,b]$. Demuestra que, para toda $\varepsilon >0$, existen funciones escalonadas $s,t:[a,b] \to \mathbb{R}$ tales que 
-<ol>
-    <li>$  s \leq f^2 \leq t $</li>  
-    <li>$\int_a^b t(x)dx- \int_a^b s(x)dx < \varepsilon$.</li>  
-    <li>Concluye que $f^2$ es integrable.</li> 
-</ol>
-
-Sugerencia: como $f$ es integrable, el ejercicio  \ref{Ejer:AproxSimplesConCotas} asegura que existen funciones escalonadas $\tilde{s}$ y $\tilde{t}$ con
-$$
- 0\leq \tilde{s} \leq f \leq \tilde{t} \leq M
-$$
-y
-\begin{equation}\label{Eqn:step2-1stAprox}
-\int_a^b \tilde{t}(x)dx-\int_a^b\tilde{s}(x)dx < \varepsilon/M.
-\end{equation}
-
-Considera
-$$
-s:=\tilde{s}^2, t=\tilde{t}^2
-$$
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que el cuadrado de toda función integrable es de nuevo integrable.
-
-
-Sugerencia: si $f:[a,b] \to \mathbb{R}$ es integrable, necesariamente es acotada; toma $m$ tal que $m \leq f(x)$ para toda $x\in [a,b]$.  Nota
-que $g:=f=m$ siempre es mayor o igual a cero y aplica el ejercicio \ref{Ejer:IntegrabilidadCuadradosCasoPositivo} a $g-m$.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Da un ejemplo de una función $f:[a,b]\to \mathbb{R}$ tal que $f^2$ es integrable pero $f$ no lo es.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:IntegralCuadradaNoIntegraldelCuadrado} Da un ejemplo de una función integrable $f:[a,b]\to \mathbb{R}$ tal que
-$$
-\int_a^b f^2(x)dx \ne \left( \int_a^b f(x)dx \right)^2
-$$
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El ejercicio  \ref{Ejer:IntegralCuadradaNoIntegraldelCuadrado}  muestra que la relación entre  $\int_a^b f^2$ y $(\int_a^bf)^2$ no es sencilla. Este ejercicio da una desigualdad que involucra estas integrales. 
-<ol>
-    <li>Demuestra que para toda función continua $f:[a,b]\to \mathbb{R}$,
-        $$
-\left( \int_a^b f(x)dx \right)^2 \leq (b-a)\int_a^b f^2(x)dx.
-$$
-
+    <li>$e^x$, $x\in \mathbb{R}$;</li> 
+    <li>$\sen(x)$, $x\in \mathbb{R}$;</li> 
+    <li>$\cos(x)$, $x\in \mathbb{R}$;</li> 
+    <li>
+        para $p \in \mathbb{Q}$, $p>0$: $x^p$, $x\in (0,\infty)$. 
+        Sugerencia: usa el ejercicio \ref{Ejer:DerivadasPotenciasRacionales}.
     </li> 
-<li>Da un ejemplo donde se muestre que la desigualdad anterior puede ser estricta.</li> 
 </ol>
-Sugerencia: para la primera parte, primero demuestra  el caso $a=0, b=1$ usando el ejercicio \ref{Ejer:DesigualdadJensen}; para el caso general usa el cambio de variable y el ejercicio \ref{Ejer:CambioVariableReduccionIntervaloUnitario}.
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sean $f,g:[a,b] \to \mathbb{R}$ dos funciones integrables. Demuestra que la función producto $fg$ es integrable.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Si $F_1$ y $F_2$ son primitivas de $f$ en $(a,b)$, demuestra que existe una constante $c$ tal que
+    $F_1(x)=F_2(x)+c$, para todo $x\in (a,b)$.
+</div>
 
-Sugerencia: despeja $fg$ en $(f+g)^2=f^2+2fg+g^2$.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> (desigualdad de Cauchy-Schwartz para integrales) Prueba
-$$
-\left| \int_a^b f(x)g(x)dx \right| \leq \left(\int_a^b f(x)^2dx \right)^{1/2}\left(\int_a^b g(x)^2dx \right)^{1/2}
-$$
-
-Hint: considera la función
-$$
-p(t)=\int_a^b (f(x)+t g(x))^2dx
-$$
-Desarrolla el cuadrado y usa linealidad para ver que
-$p$ es una parabola en la variable $t$, que siempre
-está por arriba del eje $x$. Observa su discriminante.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> 
-
-<ol> 
-
-    <li>Prueba que toda suma $\sum_{i=1}^n a_i$, se puede escribir como la integral de una función escalonada.</li> 
-
-    <li>Usa el inciso anterior y el ejercico 1 para probar la desigualdad de Cauchy-Schwartz
+<div class="teorema-box"> 
+    <h2 class="number-title"  id="Teo:TF-2"> Teorema </h2>
+    <h3> Segundo Teorema Fundamental</h3>
+    <p>
+        Supon que $f:[a,b] \to \mathbb{R}$ es continua en todo punto de  $[a,b]$; que 
+        $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ y $F$ es una 
+        antiderivada de
+        $f$ en $(a,b)$. Entonces
         $$
-        \left| \sum_{i=1}^n a_ib_i  \right| \leq \left(\sum_{i=1}^n a_i^2 \right)^{1/2}\left(\sum_{i=1}^n b_i^2 \right)^{1/2}
+        \int_a^bf(x)dx=F(b)-F(a).
+        $$        
+    </p>
+</div>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+        Este ejercicio justifica porqué la integral de la velocidad es la distancia.
+    </p> 
+    <p>
+        Imagina una partícula que se mueve sobre el eje de las $x$ y por $x(t)$ denotemos
+        la positión (tomando al cero como marco de referencia)  de la particula en el tiempo $t$ y 
+        por $v(t)$ denotamos a la velocidad de la partícula. Es decir $x'(t)=v(t)$.
+
+        Decimos que  $\int_a^b v(t)dt$ representa la distancia neta recorrida, del tiempo $a$ al tiempo
+        $b$, pues usando sumas de Riemann tenemos la siguiente aproximación:
         $$
-        para cualesquiera  números reales, $a_{1},\dots, a_n, b_1,\dots, b_n$.
+        \sum_{i=1}^n v(\xi_i)(x_i-x_{i-1}) \sim \textrm{distancia neta recorrida del tiempo $a$ al tiempo $b$}
+        $$
+
+        Usa el teorema fundamental para probar
+        $$
+        \int_a^b v(t)dx=x(b)-x(a).
+        $$
+    </p>
+    <p>
+        Nota que $x(b)-x(a)$ es el cambio neto de la distancia desde el tiempo $a$ al tiempo $b$.
+    </p>
+
+</div>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Recuerda que si $a < b$ definimos $\int_b^a f(x)dx=-\int_a^b f(x)dx$. 
+        Con esta notación demuestra que el segundo Teorema
+        Fundamental sigue siendo válido si intercambiamos $a$ y $b$, es decir, 
+        si $F$ es una antiderivada de $f$ en $(a,b)$, entonces
+        $$
+        \int_b^a f(x)dx= F(a)-F(b).
+        $$ 
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+        Recuerda que si $f:[a,b]\to \mathbb{R}$ es integrable en $[a,b]$ y $c\in (a,b)$ entonces
+        $$
+        \int_a^cf(x)dx+\int_c^b f(x)dx=\int_a^b f(x)dx.
+        $$
+    </p> 
+    <p>
+        Ahora, asume que $F$ es una antiderivada de $f$ en $(a,b)$. Usa el segundo Teorema Fundamental para dar otra
+        prueba de ésta fórmula.
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+   <p>
+    Por el <a href="#Ejer:RectaSoporteExpEnCero">Ejercicio</a> sabemos que, para todo $x\in \mathbb{R}$:
+    $$
+    e^x \geq 1+x.
+    $$
+   </p>
+    
+<ol>
+
+    <li>
+        Fija $x>0$. Integra ambos lados de la desigualdad anterior en el intervalo $[0,x]$ y 
+        usa el Segundo Teorema Fundamental para obtener
+        $$
+        e^x \geq 1+x +\frac{x^2}{2}.
+        $$
+    </li> 
+    <li>
+        Generaliza el ejercicio anterior y prueba que, para todo natural $n\geq 1$:
+        $$
+        e^x \geq \sum_{k=0}^n \frac{x^k}{k!}.
+        $$
+        Nota que $\sum_{k=0}^n \frac{x^k}{k!}$ es el $n$-ésimo polinomio de Taylor de $e^x$. Asi 
+        que el ejercicio dice que, en $[0, \infty)$, las gráficas de  los polinomios de Taylor 
+        de $e^x$  están por debajo de la gráfica de $e^x$.
+    </li> 
+
+    <li>
+        ¿Es cierto que 
+        $$
+        e^x \geq \sum_{k=0}^n \frac{x^k}{k!}
+        $$
+        si $x < 0 $? Demuestra o da un contraejemplo.
+    </li>  
+</ol>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:IntegralPotenciasRacionales"> Ejercicio</h2>   
+    
+    <p>
+        Vimos en el ejercicio  \ref{Ejer:IntegralPotenciasNaturales} que para todo 
+        $k\in \mathbb{N}$ y $0\leq a < b$:
+        $$
+        \int_a^b x^k dx=\frac{b^{k+1}-a^{k+1}}{k+1}.
+        $$
+    </p>
+    <p>
+        Este ejercicio generaliza está fórmula para cuando $k$ es racional. 
+    </p>
+    <p>
+        Toma $p=\frac{n}{m}$, $m,n \in \mathbb{N}$, $m\ne 0$, un potencia natural. 
+        Usa el segundo Teorema Fundamental para demostrar que, para $0 \leq a < b$:
+        $$
+        \int_a^b x^pdx=\frac{b^{p+1}-a^{p+1}}{p+1}.
+        $$
+    </p>
+</div>
+
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio da una idea sobre la prueba del Segundo Teorema Fundamental. 
+        Recordemos que, por el <a href="./S5.html#Ejer:AproximacionSumasRiemann">Ejercicio</a>,  dada  
+        $f:[a,b] \to \mathbb{R}$, una función continua en todo punto de $[a,b]$, ésta es integrable y
+        \begin{equation}\label{Eqn:LimiteSumasRiemann}
+        \lim_{n\to \infty} \sum_{i=1}^n f(r_{i})(x_i-x_{i-1})=\int_a^b f(x)dx.
+        \end{equation}
+        donde $P=\{x_i\}_{i=1}^n$ es la partición homogenea de longitud n y los $r_{i}$, 
+        $i=1,\dots, n$, son puntos cualesquiera en el intervalo $[x_{i-1},x_i]$.
+    </p>
+<ol>
+    <li>
+        Toma $f(x)=x$, $x\in \mathbb{R}$, y $r_{i}$ los puntos medios del los intervalos 
+        $[x_{i-1},x_i]$, es decir $r_{i}=\frac{x_{i-1}+x_i}{2}$. Demuestra que
+        $$
+        \sum_{i=1}^n f(r_i)(x_i-x_{i-1})=\frac{b^2-a^2}{2}.
+        $$
+        Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b xdx=\frac{b^2-a^2}{2}$.
+    </li> 
+
+    <li>
+        Toma $f(x)=x^2$, $x\in \mathbb{R}$, y define $r_i=\sqrt[2]{(x_{i-1}^2+x_{i-1}x_i+x_i^2)/3}$. 
+        Prueba que $r_i \in [x_{i-1}, x_i]$ y que
+        $$
+        \sum_{i=1}^n f(r_i)(x_i-x_{i-1})=\frac{b^3-a^3}{3}
+        $$
+        Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b x^2dx=\frac{b^3-a^3}{3}$.
+    </li> 
+    <li>
+        Toma $f(x)=\frac{1}{x^2}$, $x>0$. Define $r_i=\sqrt{x_{i-1}x_i}$. Prueba que $r_i\in [x_{i-1},x_i]$ 
+        y que 
+        $$
+        \sum_{i=1}^n f(r_i)(x_i-x_{i-1})=\frac{1}{a}-\frac{1}{b}
+        $$
+        Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b \frac{1}{x^2}dx=\frac{1}{a}-\frac{1}{b}$, 
+        con $0< a < b$.
+    </li> 
+</ol>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:Demo2TFC"> Ejercicio</h2> 
+    <p>
+        Este ejercicio da una demostración del segundo Teorema Fundamental.
+    </p>
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ una función  continua. 
+    </p>
+
+
+<ol>
+    <li>
+        Fija $\varepsilon>0$. Demuestra que existen un $n \in \mathbb{N}$, tal que si $P=\{ x_i\}_{i=0}^n$ es la partición homogenea de longitud $n$, entonces
+        $$
+        \omega f ([x_{i-1},x_i]) < \frac{\varepsilon}{2(b-a)},
+        $$
+        para toda $i=1,\dots, n$. Sugerencia: usa el ejercicio \ref{Ejer:ContinuidadUniformeEnCompactos}.
+    </li> 
+    <li>
+        Demuestra que si $r_i \in [x_{i-1}, x_i]$, es una elección cualquiera de puntos, entonces
+        $$
+        \left|  \sum_{i=1}^n f(r_i)(x_i-x_{i-1}) - \int_a^b f(x)dx  \right| <\varepsilon
+        $$
+        Sugerencia: usa el ejericio \ref{Ejer:AproximacionSumasRiemann}.
+    </li> 
+
+    <li>
+        Asume que $F:(a,b)\to \mathbb{R}$ es una antiderivada de $f$ en $(a,b)$. Demuestra que existen puntos $c_i \in (x_{i-1},x_i)$, 
+        $i=1,\dots, n$ tales que
+        $$
+        f(c_i)(x_i-x_{i-1})=F(x_i)-F(x_{i-1})
+        $$
+        Sugerencia: aplica el Teorema del Valor Medio a $F$.
+    </li> 
+
+    <li>
+        Concluye de los dos incisos anteriores que, para todo $\varepsilon>0$,
+        $$
+        \left|  F(b)-F(a) - \int_a^b f(x)dx \right| < \varepsilon
+        $$
+        lo cual demuestra el segundo Teorema Fundamental.
+    </li> 
+</ol>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Para las siguientes funciones $f$, encuentra una anti-derivada y calcula $\int_a^b f(x)dx$.
+    </p>
+<ol>
+    <li>$f(x)=\frac{x^4-x+3}{x^3}$, $x>0$.</li> 
+    <li>$f(x)=(1+\sqrt{x})^2$, $x>0$.</li> 
+    <li>$f(x)=x^{4/3}-5\cos(x)$, $x\in \mathbb{R}$. </li> 
+</ol>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Usando una combinación de un cambio de variable lineal y el segundo T.F.C. 
+        calcula las siguientes integrales.
+    </p>
+
+<ol>
+    <li>$\int_{0}^{\pi} 3\sen(3x+2)dx$.</li> 
+    <li>$\int_0^{\pi} \cos(5x-2)dx$.</li> 
+    <li>$\int_{0}^2 x\sqrt{x+1}dx$.</li> 
+    <li>$\int_1^2 x^2\sqrt[3]{x+2}dx$.</li> 
+    <li>$\int_0^1 6xe^{3x^2-5x+1}dx-5 \int_0^1 e^{3x^2-5x+1}dx$.</li> 
+    <li>Para $\omega >0$, $\int_0^{2\pi} \cos(\omega x)dx $ y $\int_0^{2\pi}\sen(\omega x)dx$.</li> 
+    <li>Para $c, d \in \mathbb{R}$ constantes, $\int_{a}^b e^{cx+m}dx$.</li> 
+
+</ol>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sean $a,b \in \mathbb{R}$ tal que $b-a$ es un múltiplo entero de $2\pi$. Demuestra que
+        $$
+        \int_a^b \cos(x)e^{\sen(x)}dx=0=\int_a^b \sen(x)e^{\cos(x)}dx.
+        $$
+    </p>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Encuentra el conjunto de pareas de reales $a,b$, con $a < b$, tales que
+        $$
+        \int_a^b 2xe^{x^2-1}dx=0.
+        $$
+    </p>
+</div>    
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Usando el segundo T.F.C. encuentra una fórmula general para
+        $$
+        \int_a^b x^{n}e^{x^{n+1}}dx
+        $$
+        donde $n \geq 1$ es un natural.        
+    </p>
+</div>
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $g:\mathbb{R}\to \mathbb{R}$ una función diferenciable en todo $\mathbb{R}$, con derivada continua en todo $\mathbb{R}$. Usando el segundo T.F.C. encuentra una fórmula general para
+$$
+\int_a^b g'(x)\sen(g(x))dx, \quad \int_a^b g'(x)\cos(g(x))dx.
+$$
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentras las siguientes integrales indefinidas.
+<ol>
+    <li>$\int c dx$, donde $c\in \mathbb{R}$ es una constante.</li> 
+    <li>$\int x^n dx$, donde $n\in \mathbb{N}$.</li> 
+    <li>$\int \sen(x)dx$.</li> 
+    <li>$\int \cos(x)dx$.</li> 
+    <li>$\int \sec^2(x)dx$.</li> 
+    <li>$\int \csc^2(x)dx$.</li> 
+    <li>$\int sec(x)tan(x)dx$.</li> 
+    <li>$\int \csc(x)\cot(x)dx$.</li> 
+</ol>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra las siguientes fórmulas para las integrales indefinidas dadas, donde $a>0$ es una constante.
+    </p>
+
+<ol>
+    <li>$\int \frac{1}{\sqrt{a^2-x^2}}dx=\arcsen(x/a)+c$.</li>  
+    <li>$\int \frac{1}{x^2+a^2}dx=\frac{1}{a}\arctan(x)+c$.</li>  
+    <li>$\int \frac{1}{x\sqrt{x^2-a^2}}dx=\frac{1}{a}\arcsec(x/a)+c$.</li> 
+</ol>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:Demo2TFCparaMononotas"> Ejercicio</h2> 
+    <p>
+        En la  versión del segundo T.F.C. que se presenta  en el 
+        <a href="#Ejer:Demo2TFC">Ejercicio</a>, 
+        se pide en las hipótesis  que la $f$ sea continua en $[a,b]$, 
+        pero se puede cambiar ésta hipótesis pidiendo ahora que $f$ sea monónotan en $[a,b]$. Es decir:
+    </p>
+    <p>
+        Supon que $f:[a,b] \to \mathbb{R}$ es monótona en  $[a,b]$; que $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ y $F$ es una antiderivada de $f$ en $(a,b)$. Entonces
+        $$
+        \int_a^bf(x)dx=F(b)-F(a).
+        $$
+    </p>
+    <p>
+        Usa ahora el <a href="./S5.html#Ejer:LimiteSumasRiemannDeMonotonas">Ejercicio</a>  
+        y las mismas ideas que en el <a href="#Ejer:Demo2TFC">Ejercicio</a>  
+        para demostrar esta versión del segundo T.F.C.
+    </p>
+</div>
+
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        En este ejercicio vemos un ejemplo donde las hipótesis de la  versión del segundo T.F.C. 
+        dada en  <a href="Ejer:Demo2TFCparaMononotas">Teorema </a> se pueden relajar.
+    </p>
+    <p>
+        Define $f:[0,1] \to \mathbb{R}$ y $F:[0,1] \to \mathbb{R}$ dadas por 
+        $$
+        f(x)=\left\{
+        \begin{array}{cc}
+        0 \quad \textrm{si $0\leq x < 1/2$} \\
+        1 \quad \textrm{si $1/2\leq x \leq 1$}
+        \end{array}
+        \right.
+        \quad 
+        F(x)=\left\{
+        \begin{array}{cc}
+        0 \quad \textrm{si $0\leq x < 1/2$} \\
+        x-1/2 \quad \textrm{si $1/2\leq x \leq 1$}
+        \end{array}
+        \right.
+        $$        
+    </p>
+    <p>
+        Demuestra que $F'(x)=f(x)$, para todo $x\in [0,1]$ excepto en $x=1/2$ y que
+        $$
+        \int_0^1 f(x)dx=F(1)-F(0).
+        $$        
+    </p>
+ </div>
+
+ <div class="ejercicio-box">
+     <h2 class="number-title" id="Ejer:Demo2TFCparaMononotas"> Ejercicio</h2> 
+     <p>
+        Usa el <a href="#Ejer:Demo2TFCparaMononotas">Ejercicio</a>  
+        para probar la siguiente versión del segundo T.F.C.
+     </p>
+</div>
+
+<div class="teorema-box">
+Supon que $f:[a,b] \to \mathbb{R}$ es monótona en  $[a,b]$. Supon  
+que $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ 
+excepto en $E \subset (a,b)$, un conjunto finito de $(a,b)$ y que  $F'(x)=f(x)$ para 
+todo $x\in (a,b)\setminus E$. Entonces
+$$
+\int_a^bf(x)dx=F(b)-F(a).
+$$
+</div>
+
+ 
+\subsection*{Versión derivadas}
+
+
+<div class="definicion-box">
+Supongamos que $f:[a,b] \to \mathbb{R}$ es una función integrable y que $f(x) \geq 0$, para toda $x\in [0,1]$. La función area bajo la 
+gráfica de $f$ es la función $F:[a,b]\to \mathbb{R}$ dada por
+$$
+F(x):=\int_a^xf(t)dt
+$$
+
+Nota que $F(x_0)$ se puede interpretar como el área bajo la gráfica de $f$ entre las rectas $x=a$ y $x=x_0$.
+</div>
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Define $f:[0,\infty) \to \mathbb{R}$ dada por
+$$
+f(x)=\left\{
+\begin{array}{cc}
+x &  0 \leq x \leq 1 \\
+1 & 1< x \leq 2 \\
+2x-3 & 2< x
+\end{array}
+\right.
+$$
+
+<ol>
+    <li>Sea $F(x)$ la función area dada por $f$. Prueba que:
+        $$
+        F(x)=\left\{
+        \begin{array}{cc}
+        \frac{x^2}{2} &  0 \leq x \leq 1 \\
+        x - \frac{1}{2} & 1< x \leq 2 \\
+        x^2-3x+\frac{7}{2} & 2< x
+        \end{array}
+        \right.
+        $$</li> 
+<li>Demuestra que $F$ es diferenciable en todo punto de $(0,\infty)$ y que $F'(x)=f(x)$, para toda $x\in (0,\infty)$.</li> 
+
+</ol>
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $I$ un intervalo y fija  una función integrable $f: I \to \mathbb{R}$. Con estos datos  crea una nueva función 
+
+$$
+\tilde{F}(x):=\int_a^x f(t)dt,
+$$
+donde $a\in I$ es fijo y arbitrario.
+
+
+Para cada una de las funciones dadas $f$, encuentra la regla de correspondencia de $\tilde{F}$ y después calcula $\tilde{F}'(x)$.
+<ol>
+    <li>$f(x)=x^2$,  con $a=0$;</li> 
+    <li>$f(x)=x^2$, con $a=1$;</li> 
+    <li>$f(x)=e^x$, con $a=0$;</li> 
+    <li>$f(x)=e^{5x+2}$, con $a=-1$.</li> 
+    <li>$f(x)=\cos(x)$, $a=0$;</li> 
+    <li>$f(x)=\sen(x)$, $a=0$; </li> 
+</ol>
+
+
+<div class="teorema-box">[Primer Teorema Fundamental]
+
+Sea $f:[a,b]\to \mathbb{R}$ continua en todo punto de $[a,b]$.
+
+$$
+\frac{d}{dx}\left( \int_a^x f(t)dt  \right)=f(x)
+$$
+
+
+</div>
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:LemaDemo1TFC} Sea $f:[a,b] \to \mathbb{R}$ una función integrable. 
+<ol>
+    <li>Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
+        $$
+        f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
+        $$
+        para toda $x\in [x_0, x_0+\delta)$.
         </li> 
+<li>Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
+    $$
+    -\varepsilon \leq \frac{\int_{x_0}^x f(t)dt }{x-x_0} -f(x_0) \leq \varepsilon 
+    $$
+    para todo $x\in [x_0, x_0+\delta)$.
+    </li> 
+<li>Si $f$ es continua por la derecha en $x_0$, demuestra que
+    $$
+    \lim_{x\to x_0^+} \frac{\int_{x_0}^{x}f(t)dt}{x-x_0}=f(x_0).
+    $$</li> 
+
+<li>Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
+    $$
+    f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
+    $$
+    para toda $x\in (x_0-\delta, x_0]$.</li> 
+
+<li>Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
+    $$
+    -\varepsilon \leq \frac{\int_{x}^{x_0} f(t)dt }{x_0-x} -f(x_0) \leq \varepsilon 
+    $$
+    para todo $x\in (x_0-\delta, x_0]$.</li> 
+
+<li>Si $f$ es continua por la izquierda en $x_0$, demuestra que
+    $$
+    \lim_{x\to x_0^-} \frac{\int_{x}^{x_0}f(t)dt}{x_0-x}=f(x_0).
+    $$
+    </li> 
 </ol>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:[0,1]\to \mathbb{R}$ una función integrable en $[0,1]$ con $f\geq 0$ en $[0,1]$.  Demuestra:
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usa el ejercicio \ref{Ejer:LemaDemo1TFC} para demostrar el primer Teorema Fundamental.
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:[a,b] \to \mathbb{R}$ una función continua en $[a,b]$. Usando el Primer Teorema Fundamental demuestra que
+$f$ tiene una antiderivada.
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio demuestra que el Primer Teorema Fundamental implica el segundo Teorema Fundamental.
+
+Sea $f:[a,b] \to \mathbb{R}$ una función continua  y sea $F:[a,b] \to \mathbb{R}$ cualquier antiderivada para $f$ en $(a,b)$. 
+
+<ol>
+    <li>Define $\tilde{F}:[a,b] \to \mathbb{R}$ por 
+        $$
+        \tilde{F}(x)=\int_a^x f(t)dt
+        $$
+        
+        Demuestra que existe una constante tal que $F(x)=\tilde{F}(x)+c$, para toda $x\in [a,b]$.
+        </li> 
+<li>Usando el inciso anterior y la función $\tilde{F}$ demuestra que
+    $$
+    \int_a^b f(t)dt=F(a)-F(b).
+    $$</li> 
+</ol>
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sin calcular las siguientes integrales, encuentra $F'(x)$, si $F(x)$ está dada por
+<ol>
+    <li>$F(x)=\int_0^x (1+t^2)^{-4}dt$.</li> 
+    <li>$F(x)=\int_0^{x^2} (1+t^2)^{-4}dt$.</li> 
+    <li>$F(x)=\int_{x}^{x^3} (1+t^2)^{-4}dt$.</li> 
+    <li>$F(x)=\int_{\cos(x)}^{\sen(x)} \sen(x)dx$.</li> 
+</ol>
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encontrar una función continua $f(x)$, que satisface la ecuación
 $$
-\int_0^1\sqrt{f}\leq \bigg(\int_0^1 f \bigg)^{1/2}
+\int_0^x f(t)dt=x+2x^2+\frac{1}{3}x^3, \quad \forall x\in \mathbb{R}.
+$$
+Calcular $f(0)$ y $f(1)$.
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encontrar una función continua $f(x)$, y una valor constante $c$, que satisface la ecuación
+$$
+\int_c^x f(t)dt= \sen(3x)+\frac{1}{3}, \quad \forall x\in \mathbb{R}.
 $$
 
-Sugerencia: usa la desigualdad de Cauchy-Schwartz para integrales.
 
-Nota: en general , si $f$ es integrable con $f\geq 0$ entonces $\sqrt{f}$ también es integrable. Este hecho se puede usar
-en este ejercicio.
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Existe una función continua $f:\mathbb{R} \to \mathbb{R}$ que satisface
+$$
+\int_0^x f(t)dt=\int_x^2 t^2f(t)dt+  x-\frac{1}{5}x^5 +c,  \quad \forall x \in \mathbb{R}
+$$
+donde $c$ es una constante. Encontrar una fórmula explícita para $f$ y el valor de $c$.
+
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:[a,b]\to \mathbb{R}$ una función continua en $[a,b]$.
+<ol>
+    <li>
+        Demuestra que $f(x)=0$ para toda $x\in [a,b]$ si y sólo si $\int_c^d f(x)dx=0$ para todos
+$c,d \in [a,b]$.
+    </li> 
+<li>
+    Da un ejemplo de una función continua $f:[a,b]\to \mathbb{R}$, distinta de cero, pero que cumple
+$\int_a^b f(x)dx=0$. Es decir, para que el ejercicio anterior sea válido se debe de tener $\int_c^d f(t)dt=0$,
+para {\bf todos} los subintervalos $[c,d]$.
+</li> 
+</ol> 
+
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El  Primer Teorema Fundamental tiene aplicaciones a ecuaciones diferenciales. En ecuaciones diferenciales el problema fundamental es encontrar funciones cuya derivada satisgafa ciertas condiciones dadas. Por ejemplo, usando el Primer Teorema Fundamental 
+encuentra una función diferenciable $f(x)$, que satisfaga
+$$
+f'(x)=e^{3x}+\cos(4x)+2
+$$
+y tal que $f(0)=1$.
+
+En otras palabras, tenemos como dato las pendientes de la función y queremos recobrar la función.
+
+Nota: más en general el problema anterior se puede plantear como sigue: encontrar una función $y=y(x)$ que satisfaga
+\begin{eqnarray*}
+y'&=&H(x,y)	\\
+y(x_0)&=&y_0
+\end{eqnarray*}
+el cual se conoce como un problema de ecuaciones ordinarias con valor inicial (donde se piensa $y=f$).
+
+Por ejemplo, en el ejercicio se tiene $H(x,y)=e^{3x}+\cos(4x)+2$, $x_0=0$ y $y_0=1$; el problema  para $H(x,y)=y$
+y $y(0)=1$ se  puede resolver usando el ejercicio \ref{Ejer:ODEMasImportante}.
+
+
+
+
+
+
+</body>
