@@ -48,10 +48,10 @@
     <!-- This part restart counter of cards to start at n+1 -->
     <style>
         body.number-title{
-          counter-reset: sectionCounter 6 cardCounter ;
+          counter-reset: sectionCounter 7 cardCounter ;
         }
         h1.number-title{
-          counter-reset: sectionCounter 6 cardCounter ;
+          counter-reset: sectionCounter 7 cardCounter ;
         }
       </style>
   
@@ -75,7 +75,7 @@
         </header>
 
       <!-- This part is for title in tab-->
-      <title> § 6 </title>
+      <title> § 8 </title>
     
   </head>
 
@@ -97,6 +97,7 @@
 
 
 <div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
     <h3> Antiderivadas</h3>
     <p>
         Dada una función $f$, una antiderivada de $f$ (ó primitiva),  en $(a,b)$, es una
@@ -120,8 +121,7 @@
     <li>$\sen(x)$, $x\in \mathbb{R}$;</li> 
     <li>$\cos(x)$, $x\in \mathbb{R}$;</li> 
     <li>
-        para $p \in \mathbb{Q}$, $p>0$: $x^p$, $x\in (0,\infty)$. 
-        Sugerencia: usa el ejercicio \ref{Ejer:DerivadasPotenciasRacionales}.
+        $x^p$, $x\in (0,\infty)$ donde $p \in \mathbb{Q}$ y $p>0$: . 
     </li> 
 </ol>
 </div>
@@ -136,10 +136,12 @@
     <h2 class="number-title"  id="Teo:TF-2"> Teorema </h2>
     <h3> Segundo Teorema Fundamental</h3>
     <p>
-        Supon que $f:[a,b] \to \mathbb{R}$ es continua en todo punto de  $[a,b]$; que 
-        $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ y $F$ es una 
-        antiderivada de
-        $f$ en $(a,b)$. Entonces
+        Sea $f:[a,b] \to \mathbb{R}$ una función  continua en todo punto de  $[a,b]$.
+    </p>
+    <p>
+        Supongamos que 
+        $F:[a,b]\to \mathbb{R}$ es  una antiderivada de \(f\) continua en $[a,b]$ y diferenciable en $(a,b)$.
+        Entonces
         $$
         \int_a^bf(x)dx=F(b)-F(a).
         $$        
@@ -420,10 +422,16 @@
     </p>
 </div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $g:\mathbb{R}\to \mathbb{R}$ una función diferenciable en todo $\mathbb{R}$, con derivada continua en todo $\mathbb{R}$. Usando el segundo T.F.C. encuentra una fórmula general para
-$$
-\int_a^b g'(x)\sen(g(x))dx, \quad \int_a^b g'(x)\cos(g(x))dx.
-$$
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $g:\mathbb{R}\to \mathbb{R}$ una función diferenciable en todo $\mathbb{R}$, 
+        con derivada continua en todo $\mathbb{R}$. Usando el segundo T.F.C. encuentra una fórmula general para
+        $$
+        \int_a^b g'(x)\sen(g(x))dx, \quad \int_a^b g'(x)\cos(g(x))dx.
+        $$
+    </p>
+ </div>   
 
 
 <div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentras las siguientes integrales indefinidas.
@@ -437,6 +445,8 @@ $$
     <li>$\int sec(x)tan(x)dx$.</li> 
     <li>$\int \csc(x)\cot(x)dx$.</li> 
 </ol>
+</div>
+
 
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
@@ -542,19 +552,23 @@ Nota que $F(x_0)$ se puede interpretar como el área bajo la gráfica de $f$ ent
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Define $f:[0,\infty) \to \mathbb{R}$ dada por
-$$
-f(x)=\left\{
-\begin{array}{cc}
-x &  0 \leq x \leq 1 \\
-1 & 1< x \leq 2 \\
-2x-3 & 2< x
-\end{array}
-\right.
-$$
-
+<div class="ejercicio-box">
+    <h2 class="number-title">Ejercicio</h2> 
+    <p>
+        Define $f:[0,\infty) \to \mathbb{R}$ dada por
+        $$
+        f(x)=\left\{
+        \begin{array}{cc}
+        x &  0 \leq x \leq 1 \\
+        1 & 1< x \leq 2 \\
+        2x-3 & 2< x
+        \end{array}
+        \right.
+        $$
+    </p>
 <ol>
-    <li>Sea $F(x)$ la función area dada por $f$. Prueba que:
+    <li>
+        Sea $F(x)$ la función area dada por $f$. Prueba que:
         $$
         F(x)=\left\{
         \begin{array}{cc}
@@ -563,19 +577,34 @@ $$
         x^2-3x+\frac{7}{2} & 2< x
         \end{array}
         \right.
-        $$</li> 
-<li>Demuestra que $F$ es diferenciable en todo punto de $(0,\infty)$ y que $F'(x)=f(x)$, para toda $x\in (0,\infty)$.</li> 
+        $$
+    </li> 
+    <li>
+        Demuestra que $F$ es diferenciable en todo punto de 
+        $(0,\infty)$ y que $F'(x)=f(x)$, para toda $x\in (0,\infty)$.
+    </li> 
 
 </ol>
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $I$ un intervalo y fija  una función integrable $f: I \to \mathbb{R}$. Con estos datos  crea una nueva función 
+</div>
 
-$$
-\tilde{F}(x):=\int_a^x f(t)dt,
-$$
-donde $a\in I$ es fijo y arbitrario.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $I$ un intervalo y fija  una función integrable 
+        $f: I \to \mathbb{R}$. Con estos datos  crea una nueva función 
+    </p>
+    <p>
+        $$
+        \tilde{F}(x):=\int_a^x f(t)dt,
+        $$
+        donde $a\in I$ es fijo y arbitrario.   
+     </p>
+     <p>
+        Para cada una de las funciones dadas $f$, encuentra la regla de correspondencia 
+        de $\tilde{F}$ y después calcula $\tilde{F}'(x)$.
+     </p>
 
 
-Para cada una de las funciones dadas $f$, encuentra la regla de correspondencia de $\tilde{F}$ y después calcula $\tilde{F}'(x)$.
 <ol>
     <li>$f(x)=x^2$,  con $a=0$;</li> 
     <li>$f(x)=x^2$, con $a=1$;</li> 
@@ -584,9 +613,11 @@ Para cada una de las funciones dadas $f$, encuentra la regla de correspondencia 
     <li>$f(x)=\cos(x)$, $a=0$;</li> 
     <li>$f(x)=\sen(x)$, $a=0$; </li> 
 </ol>
+</div>
 
 
-<div class="teorema-box">[Primer Teorema Fundamental]
+<div class="teorema-box">
+    [Primer Teorema Fundamental]
 
 Sea $f:[a,b]\to \mathbb{R}$ continua en todo punto de $[a,b]$.
 
@@ -594,138 +625,207 @@ $$
 \frac{d}{dx}\left( \int_a^x f(t)dt  \right)=f(x)
 $$
 
-
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:LemaDemo1TFC} Sea $f:[a,b] \to \mathbb{R}$ una función integrable. 
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:LemaDemo1TFC"> Ejercicio</h2> 
+    <p>
+        Sea $f:[a,b] \to \mathbb{R}$ una función integrable. 
+    </p>
 <ol>
-    <li>Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
+    <li>
+        Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, 
+        existe $\delta >0$ tal que
         $$
         f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
         $$
         para toda $x\in [x_0, x_0+\delta)$.
-        </li> 
-<li>Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
-    $$
-    -\varepsilon \leq \frac{\int_{x_0}^x f(t)dt }{x-x_0} -f(x_0) \leq \varepsilon 
-    $$
-    para todo $x\in [x_0, x_0+\delta)$.
     </li> 
-<li>Si $f$ es continua por la derecha en $x_0$, demuestra que
-    $$
-    \lim_{x\to x_0^+} \frac{\int_{x_0}^{x}f(t)dt}{x-x_0}=f(x_0).
-    $$</li> 
+    <li>
+        Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, 
+        existe $\delta>0$ tal que,
+        $$
+        -\varepsilon \leq \frac{\int_{x_0}^x f(t)dt }{x-x_0} -f(x_0) \leq \varepsilon 
+        $$
+        para todo $x\in [x_0, x_0+\delta)$.
+    </li> 
+    <li>
+        Si $f$ es continua por la derecha en $x_0$, demuestra que
+        $$
+        \lim_{x\to x_0^+} \frac{\int_{x_0}^{x}f(t)dt}{x-x_0}=f(x_0).
+        $$
+    </li> 
 
-<li>Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
-    $$
-    f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
-    $$
-    para toda $x\in (x_0-\delta, x_0]$.</li> 
+    <li>
+        Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, 
+        existe $\delta >0$ tal que
+        $$
+        f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
+        $$
+        para toda $x\in (x_0-\delta, x_0]$.
+    </li> 
 
-<li>Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
-    $$
-    -\varepsilon \leq \frac{\int_{x}^{x_0} f(t)dt }{x_0-x} -f(x_0) \leq \varepsilon 
-    $$
-    para todo $x\in (x_0-\delta, x_0]$.</li> 
+    <li>
+        Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, 
+        existe $\delta>0$ tal que,
+        $$
+        -\varepsilon \leq \frac{\int_{x}^{x_0} f(t)dt }{x_0-x} -f(x_0) \leq \varepsilon 
+        $$
+        para todo $x\in (x_0-\delta, x_0]$.
+    </li> 
 
-<li>Si $f$ es continua por la izquierda en $x_0$, demuestra que
-    $$
-    \lim_{x\to x_0^-} \frac{\int_{x}^{x_0}f(t)dt}{x_0-x}=f(x_0).
-    $$
+    <li>
+        Si $f$ es continua por la izquierda en $x_0$, demuestra que
+        $$
+        \lim_{x\to x_0^-} \frac{\int_{x}^{x_0}f(t)dt}{x_0-x}=f(x_0).
+        $$
     </li> 
 </ol>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Usa el <a href="#Ejer:LemaDemo1TFC">Ejercicio</a>  para demostrar el primer Teorema Fundamental.
+    </p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usa el ejercicio \ref{Ejer:LemaDemo1TFC} para demostrar el primer Teorema Fundamental.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
+    <p>
+        Sea $f:[a,b] \to \mathbb{R}$ una función continua en $[a,b]$. 
+        Usando el Primer Teorema Fundamental demuestra que
+        $f$ tiene una antiderivada.
+    </p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:[a,b] \to \mathbb{R}$ una función continua en $[a,b]$. Usando el Primer Teorema Fundamental demuestra que
-$f$ tiene una antiderivada.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio demuestra que el Primer Teorema Fundamental implica el segundo Teorema Fundamental.
-
-Sea $f:[a,b] \to \mathbb{R}$ una función continua  y sea $F:[a,b] \to \mathbb{R}$ cualquier antiderivada para $f$ en $(a,b)$. 
-
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio demuestra que el Primer Teorema Fundamental implica el segundo Teorema Fundamental.
+    </p>
+    <p>
+        Sea $f:[a,b] \to \mathbb{R}$ una función continua  y sea $F:[a,b] \to \mathbb{R}$ 
+        cualquier antiderivada para $f$ en $(a,b)$. 
+    </p>
 <ol>
-    <li>Define $\tilde{F}:[a,b] \to \mathbb{R}$ por 
+    <li>
+        Define $\tilde{F}:[a,b] \to \mathbb{R}$ por 
         $$
         \tilde{F}(x)=\int_a^x f(t)dt
         $$
-        
         Demuestra que existe una constante tal que $F(x)=\tilde{F}(x)+c$, para toda $x\in [a,b]$.
-        </li> 
-<li>Usando el inciso anterior y la función $\tilde{F}$ demuestra que
-    $$
-    \int_a^b f(t)dt=F(a)-F(b).
-    $$</li> 
+    </li> 
+    <li>U
+        sando el inciso anterior y la función $\tilde{F}$ demuestra que
+        $$
+        \int_a^b f(t)dt=F(a)-F(b).
+        $$
+    </li> 
 </ol>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sin calcular las siguientes integrales, encuentra $F'(x)$, si $F(x)$ está dada por
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sin calcular las siguientes integrales, encuentra $F'(x)$, si $F(x)$ está dada por
+    </p>
 <ol>
     <li>$F(x)=\int_0^x (1+t^2)^{-4}dt$.</li> 
     <li>$F(x)=\int_0^{x^2} (1+t^2)^{-4}dt$.</li> 
     <li>$F(x)=\int_{x}^{x^3} (1+t^2)^{-4}dt$.</li> 
     <li>$F(x)=\int_{\cos(x)}^{\sen(x)} \sen(x)dx$.</li> 
 </ol>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encontrar una función continua $f(x)$, que satisface la ecuación
-$$
-\int_0^x f(t)dt=x+2x^2+\frac{1}{3}x^3, \quad \forall x\in \mathbb{R}.
-$$
-Calcular $f(0)$ y $f(1)$.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encontrar una función continua $f(x)$, y una valor constante $c$, que satisface la ecuación
-$$
-\int_c^x f(t)dt= \sen(3x)+\frac{1}{3}, \quad \forall x\in \mathbb{R}.
-$$
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Existe una función continua $f:\mathbb{R} \to \mathbb{R}$ que satisface
-$$
-\int_0^x f(t)dt=\int_x^2 t^2f(t)dt+  x-\frac{1}{5}x^5 +c,  \quad \forall x \in \mathbb{R}
-$$
-donde $c$ es una constante. Encontrar una fórmula explícita para $f$ y el valor de $c$.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Encontrar una función continua $f(x)$, que satisface la ecuación
+        $$
+        \int_0^x f(t)dt=x+2x^2+\frac{1}{3}x^3, \quad \forall x\in \mathbb{R}.
+        $$
+        Calcular $f(0)$ y $f(1)$.
+        
+    </p>
+</div>
 
 
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p> 
+        Encontrar una función continua $f(x)$, y una valor constante $c$, que satisface la ecuación
+        $$
+        \int_c^x f(t)dt= \sen(3x)+\frac{1}{3}, \quad \forall x\in \mathbb{R}.
+        $$
+    </p>    
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:[a,b]\to \mathbb{R}$ una función continua en $[a,b]$.
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Existe una función continua $f:\mathbb{R} \to \mathbb{R}$ que satisface
+        $$
+        \int_0^x f(t)dt=\int_x^2 t^2f(t)dt+  x-\frac{1}{5}x^5 +c,  \quad \forall x \in \mathbb{R}
+        $$
+        donde $c$ es una constante. Encontrar una fórmula explícita para $f$ y el valor de $c$.
+    </p>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ una función continua en $[a,b]$.
+    </p>
 <ol>
     <li>
         Demuestra que $f(x)=0$ para toda $x\in [a,b]$ si y sólo si $\int_c^d f(x)dx=0$ para todos
-$c,d \in [a,b]$.
+        $c,d \in [a,b]$.
     </li> 
-<li>
-    Da un ejemplo de una función continua $f:[a,b]\to \mathbb{R}$, distinta de cero, pero que cumple
-$\int_a^b f(x)dx=0$. Es decir, para que el ejercicio anterior sea válido se debe de tener $\int_c^d f(t)dt=0$,
-para {\bf todos} los subintervalos $[c,d]$.
-</li> 
+    <li>
+        Da un ejemplo de una función continua $f:[a,b]\to \mathbb{R}$, distinta de cero, pero que cumple
+        $\int_a^b f(x)dx=0$. Es decir, para que el ejercicio anterior sea válido se debe de tener 
+        $\int_c^d f(t)dt=0$,
+        para {\bf todos} los subintervalos $[c,d]$.
+    </li> 
 </ol> 
+</div>
 
 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El  Primer Teorema Fundamental tiene aplicaciones a ecuaciones diferenciales. En ecuaciones diferenciales el problema fundamental es encontrar funciones cuya derivada satisgafa ciertas condiciones dadas. Por ejemplo, usando el Primer Teorema Fundamental 
-encuentra una función diferenciable $f(x)$, que satisfaga
-$$
-f'(x)=e^{3x}+\cos(4x)+2
-$$
-y tal que $f(0)=1$.
-
-En otras palabras, tenemos como dato las pendientes de la función y queremos recobrar la función.
-
-Nota: más en general el problema anterior se puede plantear como sigue: encontrar una función $y=y(x)$ que satisfaga
-\begin{eqnarray*}
-y'&=&H(x,y)	\\
-y(x_0)&=&y_0
-\end{eqnarray*}
-el cual se conoce como un problema de ecuaciones ordinarias con valor inicial (donde se piensa $y=f$).
-
-Por ejemplo, en el ejercicio se tiene $H(x,y)=e^{3x}+\cos(4x)+2$, $x_0=0$ y $y_0=1$; el problema  para $H(x,y)=y$
-y $y(0)=1$ se  puede resolver usando el ejercicio \ref{Ejer:ODEMasImportante}.
-
-
-
-
-
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        El  Primer Teorema Fundamental tiene aplicaciones a ecuaciones diferenciales. En ecuaciones 
+        diferenciales el problema fundamental es encontrar funciones cuya derivada satisgafa ciertas 
+        condiciones dadas. Por ejemplo, usando el Primer Teorema Fundamental 
+        encuentra una función diferenciable $f(x)$, que satisfaga
+        $$
+        f'(x)=e^{3x}+\cos(4x)+2
+        $$
+        y tal que $f(0)=1$.        
+    </p>
+    <p>
+        En otras palabras, tenemos como dato las pendientes de la función y queremos recobrar la función.
+    </p>
+    <p>
+        Nota: más en general el problema anterior se puede plantear como sigue: encontrar una función $y=y(x)$ que satisfaga
+        \begin{eqnarray*}
+        y'&=&H(x,y)	\\
+        y(x_0)&=&y_0
+        \end{eqnarray*}
+        el cual se conoce como un problema de ecuaciones ordinarias con valor inicial (donde se piensa $y=f$).
+    </p>
+    <p>
+        Por ejemplo, en el ejercicio se tiene $H(x,y)=e^{3x}+\cos(4x)+2$, $x_0=0$ y $y_0=1$; el problema  
+        para $H(x,y)=y$
+        y $y(0)=1$ se  puede resolver usando el ejercicio \ref{Ejer:ODEMasImportante}.
+    </p>
+</div>
 
 </body>
