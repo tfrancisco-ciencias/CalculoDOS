@@ -21,7 +21,9 @@
         tex: {
           macros: {
             sen: "\\operatorname{sen}",
-            seg: ["\\overrightarrow{#1}", 1]
+            seg: ["\\overrightarrow{#1}", 1],
+            arcsen: "\\operatorname{arcsen}",
+            arcsec: "\\operatorname{arcsec}"
           },
           tags: "ams", /* this part is for numbered equations */
           inlineMath: [['$', '$'], ['\\(', '\\)']]
@@ -95,10 +97,11 @@
 
 </div>
 
-
+<h1 class="flexbox"> Segundo Teorema Fundamental</h1>
+<h2 class="flexbox"> Antiderivadas </h2>
 <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
-    <h3> Antiderivadas</h3>
+    
     <p>
         Dada una función $f$, una antiderivada de $f$ (ó primitiva),  en $(a,b)$, es una
         función $F$  tal que $F'(x)=f(x)$ para toda $x$ en $(a,b)$.
@@ -121,15 +124,17 @@
     <li>$\sen(x)$, $x\in \mathbb{R}$;</li> 
     <li>$\cos(x)$, $x\in \mathbb{R}$;</li> 
     <li>
-        $x^p$, $x\in (0,\infty)$ donde $p \in \mathbb{Q}$ y $p>0$: . 
+        $x^p$, $x\in (0,\infty)$ donde $p \in \mathbb{Q}$ y $p>0$. 
     </li> 
 </ol>
 </div>
 
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
-    Si $F_1$ y $F_2$ son primitivas de $f$ en $(a,b)$, demuestra que existe una constante $c$ tal que
-    $F_1(x)=F_2(x)+c$, para todo $x\in (a,b)$.
+    <p>
+        Si $F_1$ y $F_2$ son primitivas de $f$ en $(a,b)$, demuestra que existe una constante $c$ tal que
+        $F_1(x)=F_2(x)+c$, para todo $x\in (a,b)$.
+    </p>
 </div>
 
 <div class="teorema-box"> 
@@ -146,6 +151,42 @@
         \int_a^bf(x)dx=F(b)-F(a).
         $$        
     </p>
+
+
+    <ol>
+        <li>
+            Fija $\varepsilon>0$. Demuestra que existen un $n \in \mathbb{N}$, tal que si $P=\{ x_i\}_{i=0}^n$ es la partición homogenea de longitud $n$, entonces
+            $$
+            \omega f ([x_{i-1},x_i]) < \frac{\varepsilon}{2(b-a)},
+            $$
+            para toda $i=1,\dots, n$. Sugerencia: usa el ejercicio \ref{Ejer:ContinuidadUniformeEnCompactos}.
+        </li> 
+        <li>
+            Demuestra que si $r_i \in [x_{i-1}, x_i]$, es una elección cualquiera de puntos, entonces
+            $$
+            \left|  \sum_{i=1}^n f(r_i)(x_i-x_{i-1}) - \int_a^b f(x)dx  \right| <\varepsilon
+            $$
+            Sugerencia: usa el ejericio \ref{Ejer:AproximacionSumasRiemann}.
+        </li> 
+    
+        <li>
+            Asume que $F:(a,b)\to \mathbb{R}$ es una antiderivada de $f$ en $(a,b)$. Demuestra que existen puntos $c_i \in (x_{i-1},x_i)$, 
+            $i=1,\dots, n$ tales que
+            $$
+            f(c_i)(x_i-x_{i-1})=F(x_i)-F(x_{i-1})
+            $$
+            Sugerencia: aplica el Teorema del Valor Medio a $F$.
+        </li> 
+    
+        <li>
+            Concluye de los dos incisos anteriores que, para todo $\varepsilon>0$,
+            $$
+            \left|  F(b)-F(a) - \int_a^b f(x)dx \right| < \varepsilon
+            $$
+            lo cual demuestra el segundo Teorema Fundamental.
+        </li> 
+    </ol>
+    
 </div>
 
 
@@ -183,6 +224,8 @@
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Recuerda que si $a < b$ definimos $\int_b^a f(x)dx=-\int_a^b f(x)dx$. 
+    </p>
+    <p>
         Con esta notación demuestra que el segundo Teorema
         Fundamental sigue siendo válido si intercambiamos $a$ y $b$, es decir, 
         si $F$ es una antiderivada de $f$ en $(a,b)$, entonces
@@ -271,7 +314,7 @@
 
 
 
-<div class="ejercicio-box">
+<!--<div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Este ejercicio da una idea sobre la prueba del Segundo Teorema Fundamental. 
@@ -312,51 +355,9 @@
     </li> 
 </ol>
 </div>
+-->
 
 
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:Demo2TFC"> Ejercicio</h2> 
-    <p>
-        Este ejercicio da una demostración del segundo Teorema Fundamental.
-    </p>
-    <p>
-        Sea $f:[a,b]\to \mathbb{R}$ una función  continua. 
-    </p>
-
-
-<ol>
-    <li>
-        Fija $\varepsilon>0$. Demuestra que existen un $n \in \mathbb{N}$, tal que si $P=\{ x_i\}_{i=0}^n$ es la partición homogenea de longitud $n$, entonces
-        $$
-        \omega f ([x_{i-1},x_i]) < \frac{\varepsilon}{2(b-a)},
-        $$
-        para toda $i=1,\dots, n$. Sugerencia: usa el ejercicio \ref{Ejer:ContinuidadUniformeEnCompactos}.
-    </li> 
-    <li>
-        Demuestra que si $r_i \in [x_{i-1}, x_i]$, es una elección cualquiera de puntos, entonces
-        $$
-        \left|  \sum_{i=1}^n f(r_i)(x_i-x_{i-1}) - \int_a^b f(x)dx  \right| <\varepsilon
-        $$
-        Sugerencia: usa el ejericio \ref{Ejer:AproximacionSumasRiemann}.
-    </li> 
-
-    <li>
-        Asume que $F:(a,b)\to \mathbb{R}$ es una antiderivada de $f$ en $(a,b)$. Demuestra que existen puntos $c_i \in (x_{i-1},x_i)$, 
-        $i=1,\dots, n$ tales que
-        $$
-        f(c_i)(x_i-x_{i-1})=F(x_i)-F(x_{i-1})
-        $$
-        Sugerencia: aplica el Teorema del Valor Medio a $F$.
-    </li> 
-
-    <li>
-        Concluye de los dos incisos anteriores que, para todo $\varepsilon>0$,
-        $$
-        \left|  F(b)-F(a) - \int_a^b f(x)dx \right| < \varepsilon
-        $$
-        lo cual demuestra el segundo Teorema Fundamental.
-    </li> 
-</ol>
 </div>
 
 <div class="ejercicio-box">
@@ -383,11 +384,11 @@
     <li>$\int_0^{\pi} \cos(5x-2)dx$.</li> 
     <li>$\int_{0}^2 x\sqrt{x+1}dx$.</li> 
     <li>$\int_1^2 x^2\sqrt[3]{x+2}dx$.</li> 
-    <li>$\int_0^1 6xe^{3x^2-5x+1}dx-5 \int_0^1 e^{3x^2-5x+1}dx$.</li> 
+    <li>$\int_0^1 6xe^{3x^2-5x+1}dx$</li> 
     <li>Para $\omega >0$, $\int_0^{2\pi} \cos(\omega x)dx $ y $\int_0^{2\pi}\sen(\omega x)dx$.</li> 
     <li>Para $c, d \in \mathbb{R}$ constantes, $\int_{a}^b e^{cx+m}dx$.</li> 
 
-</ol>
+
 </div>
 
 <div class="ejercicio-box">
@@ -525,30 +526,37 @@
         Usa el <a href="#Ejer:Demo2TFCparaMononotas">Ejercicio</a>  
         para probar la siguiente versión del segundo T.F.C.
      </p>
+     <p>
+        Supon que $f:[a,b] \to \mathbb{R}$ es monótona en  $[a,b]$. Supon  
+        que $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ 
+        excepto en $E \subset (a,b)$, un conjunto finito de $(a,b)$ y que  $F'(x)=f(x)$ para 
+        todo $x\in (a,b)\setminus E$. Entonces
+        $$
+        \int_a^bf(x)dx=F(b)-F(a).
+     </p>
 </div>
 
-<div class="teorema-box">
-Supon que $f:[a,b] \to \mathbb{R}$ es monótona en  $[a,b]$. Supon  
-que $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ 
-excepto en $E \subset (a,b)$, un conjunto finito de $(a,b)$ y que  $F'(x)=f(x)$ para 
-todo $x\in (a,b)\setminus E$. Entonces
-$$
-\int_a^bf(x)dx=F(b)-F(a).
-$$
-</div>
+
 
  
-\subsection*{Versión derivadas}
+  <h1 class="flexbox"> Primer Teorema Fundamental  </h1>
+  <h2 class="flexbox">Derivadas</h2>
 
 
 <div class="definicion-box">
-Supongamos que $f:[a,b] \to \mathbb{R}$ es una función integrable y que $f(x) \geq 0$, para toda $x\in [0,1]$. La función area bajo la 
-gráfica de $f$ es la función $F:[a,b]\to \mathbb{R}$ dada por
-$$
-F(x):=\int_a^xf(t)dt
-$$
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Supongamos que $f:[a,b] \to \mathbb{R}$ es una función integrable y que $f(x) \geq 0$, para toda $x\in [0,1]$. La función area bajo la 
+        gráfica de $f$ es la función $F:[a,b]\to \mathbb{R}$ dada por
+        $$
+        F(x):=\int_a^xf(t)dt
+        $$
+        
+    </p>
+    <p>
+        Nota que $F(x_0)$ se puede interpretar como el área bajo la gráfica de $f$ entre las rectas $x=a$ y $x=x_0$.
+    </p>
 
-Nota que $F(x_0)$ se puede interpretar como el área bajo la gráfica de $f$ entre las rectas $x=a$ y $x=x_0$.
 </div>
 
 
@@ -617,79 +625,70 @@ Nota que $F(x_0)$ se puede interpretar como el área bajo la gráfica de $f$ ent
 
 
 <div class="teorema-box">
-    [Primer Teorema Fundamental]
-
-Sea $f:[a,b]\to \mathbb{R}$ continua en todo punto de $[a,b]$.
-
-$$
-\frac{d}{dx}\left( \int_a^x f(t)dt  \right)=f(x)
-$$
-
-</div>
-
-
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:LemaDemo1TFC"> Ejercicio</h2> 
+    <h2 class="number-title"> Teorema </h2>
+    <h3> Primer Teorema Fundamental</h3>
     <p>
-        Sea $f:[a,b] \to \mathbb{R}$ una función integrable. 
+        Sea $f:[a,b]\to \mathbb{R}$ continua en todo punto de $[a,b]$.
+
+        $$
+        \frac{d}{dx}\left( \int_a^x f(t)dt  \right)=f(x)
+        $$
+        
     </p>
-<ol>
-    <li>
-        Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, 
-        existe $\delta >0$ tal que
-        $$
-        f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
-        $$
-        para toda $x\in [x_0, x_0+\delta)$.
-    </li> 
-    <li>
-        Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, 
-        existe $\delta>0$ tal que,
-        $$
-        -\varepsilon \leq \frac{\int_{x_0}^x f(t)dt }{x-x_0} -f(x_0) \leq \varepsilon 
-        $$
-        para todo $x\in [x_0, x_0+\delta)$.
-    </li> 
-    <li>
-        Si $f$ es continua por la derecha en $x_0$, demuestra que
-        $$
-        \lim_{x\to x_0^+} \frac{\int_{x_0}^{x}f(t)dt}{x-x_0}=f(x_0).
-        $$
-    </li> 
+    <ol>
+        <li>
+            Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, 
+            existe $\delta >0$ tal que
+            $$
+            f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
+            $$
+            para toda $x\in [x_0, x_0+\delta)$.
+        </li> 
+        <li>
+            Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, 
+            existe $\delta>0$ tal que,
+            $$
+            -\varepsilon \leq \frac{\int_{x_0}^x f(t)dt }{x-x_0} -f(x_0) \leq \varepsilon 
+            $$
+            para todo $x\in [x_0, x_0+\delta)$.
+        </li> 
+        <li>
+            Si $f$ es continua por la derecha en $x_0$, demuestra que
+            $$
+            \lim_{x\to x_0^+} \frac{\int_{x_0}^{x}f(t)dt}{x-x_0}=f(x_0).
+            $$
+        </li> 
+    
+        <li>
+            Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, 
+            existe $\delta >0$ tal que
+            $$
+            f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
+            $$
+            para toda $x\in (x_0-\delta, x_0]$.
+        </li> 
+    
+        <li>
+            Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, 
+            existe $\delta>0$ tal que,
+            $$
+            -\varepsilon \leq \frac{\int_{x}^{x_0} f(t)dt }{x_0-x} -f(x_0) \leq \varepsilon 
+            $$
+            para todo $x\in (x_0-\delta, x_0]$.
+        </li> 
+    
+        <li>
+            Si $f$ es continua por la izquierda en $x_0$, demuestra que
+            $$
+            \lim_{x\to x_0^-} \frac{\int_{x}^{x_0}f(t)dt}{x_0-x}=f(x_0).
+            $$
+        </li> 
+    </ol>
+    
 
-    <li>
-        Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, 
-        existe $\delta >0$ tal que
-        $$
-        f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
-        $$
-        para toda $x\in (x_0-\delta, x_0]$.
-    </li> 
-
-    <li>
-        Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, 
-        existe $\delta>0$ tal que,
-        $$
-        -\varepsilon \leq \frac{\int_{x}^{x_0} f(t)dt }{x_0-x} -f(x_0) \leq \varepsilon 
-        $$
-        para todo $x\in (x_0-\delta, x_0]$.
-    </li> 
-
-    <li>
-        Si $f$ es continua por la izquierda en $x_0$, demuestra que
-        $$
-        \lim_{x\to x_0^-} \frac{\int_{x}^{x_0}f(t)dt}{x_0-x}=f(x_0).
-        $$
-    </li> 
-</ol>
 </div>
 
-<div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Usa el <a href="#Ejer:LemaDemo1TFC">Ejercicio</a>  para demostrar el primer Teorema Fundamental.
-    </p>
-</div>
+
 
 
 <div class="ejercicio-box">
@@ -792,7 +791,7 @@ $$
         Da un ejemplo de una función continua $f:[a,b]\to \mathbb{R}$, distinta de cero, pero que cumple
         $\int_a^b f(x)dx=0$. Es decir, para que el ejercicio anterior sea válido se debe de tener 
         $\int_c^d f(t)dt=0$,
-        para {\bf todos} los subintervalos $[c,d]$.
+        para <b>todos</b> los subintervalos $[c,d]$.
     </li> 
 </ol> 
 </div>
