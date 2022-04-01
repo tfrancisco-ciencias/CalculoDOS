@@ -115,7 +115,7 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Encuentra anti-derivadas de las siguintes funciones:
+        Encuentra anti-derivadas de las siguientes funciones:
     </p>
 
 
@@ -135,6 +135,16 @@
         Si $F_1$ y $F_2$ son primitivas de $f$ en $(a,b)$, demuestra que existe una constante $c$ tal que
         $F_1(x)=F_2(x)+c$, para todo $x\in (a,b)$.
     </p>
+    <button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
+    <p>
+        Supongamos que \(F_1,F_2:[a,b]\to \mathbb{R}\) son antiderivadas de \(f\) en \([a,b]\). Se sigue que 
+        la función \(g(x)=F_1(x)-F_2(x)\) tiene derivada cero en \((a,b)\), pues 
+        \[g'(x)=F_1'(x)-F_2'(x)=f(x)-f(x)=0.\]
+        Por lo tanto \(g\) es constante en \((a,b)\). Si ésta constante es \(c\) entonces 
+        \(F_1(x)-F_2(x)=c\) para todo \(x\in (a,b)\), es decir \(F_1(x)=F_2(x)+c\).
+    </p>
+    </div>
 </div>
 
 <div class="teorema-box"> 
@@ -152,40 +162,40 @@
         $$        
     </p>
 
-
-    <ol>
-        <li>
-            Fija $\varepsilon>0$. Demuestra que existen un $n \in \mathbb{N}$, tal que si $P=\{ x_i\}_{i=0}^n$ es la partición homogenea de longitud $n$, entonces
-            $$
-            \omega f ([x_{i-1},x_i]) < \frac{\varepsilon}{2(b-a)},
-            $$
-            para toda $i=1,\dots, n$. Sugerencia: usa el ejercicio \ref{Ejer:ContinuidadUniformeEnCompactos}.
-        </li> 
-        <li>
-            Demuestra que si $r_i \in [x_{i-1}, x_i]$, es una elección cualquiera de puntos, entonces
-            $$
-            \left|  \sum_{i=1}^n f(r_i)(x_i-x_{i-1}) - \int_a^b f(x)dx  \right| <\varepsilon
-            $$
-            Sugerencia: usa el ejericio \ref{Ejer:AproximacionSumasRiemann}.
-        </li> 
-    
-        <li>
-            Asume que $F:(a,b)\to \mathbb{R}$ es una antiderivada de $f$ en $(a,b)$. Demuestra que existen puntos $c_i \in (x_{i-1},x_i)$, 
-            $i=1,\dots, n$ tales que
-            $$
+        <button class="respButton hvr-grow "> Demostración  </button>
+        <div class="resp-box flexbox">
+        <p>
+            Para \(n\in \mathbb{N}\) denotamos por \(P_n=\{x_i\}_{i=0}^n\) la partición homogenea de \([a,b]\)
+            de longitud \(n\).
+        </p>
+        <p>
+            Ahora aplicamos el Teorema del Valor medio para las derivadas a la función \(F\) en 
+            los intervalos \([x_{i-1},x_i]\) para obtener puntos \(c_i\in [x_{i-1},x_i]\)
+            que cumplan 
+            \begin{equation}\label{Eqn:Aux12oTFC}
             f(c_i)(x_i-x_{i-1})=F(x_i)-F(x_{i-1})
-            $$
-            Sugerencia: aplica el Teorema del Valor Medio a $F$.
-        </li> 
-    
-        <li>
-            Concluye de los dos incisos anteriores que, para todo $\varepsilon>0$,
-            $$
-            \left|  F(b)-F(a) - \int_a^b f(x)dx \right| < \varepsilon
-            $$
-            lo cual demuestra el segundo Teorema Fundamental.
-        </li> 
-    </ol>
+            \end{equation}
+        </p>
+        <p>
+            Si aplicamos el  <a href="./S5.html#Ejer:AproximacionSumasRiemann">Ejercicio 5.11</a> (con los puntos \(r_i=c_i\)) obtenemos que 
+            \[
+            \int_a^b f(x)dx=\lim_{n\to \infty} \sum_{i=1}^n f(c_i)(x_i-x_{i-1})
+            \]
+            pero por usando \eqref{Eqn:Aux12oTFC} podemos escribir el límite anterior como 
+            \[
+            \int_a^b f(x)dx=\lim_{n\to \infty} \sum_{i=1}^n F(x_i)-F(x_{i-1})
+            \]
+            pero al ser la suma del lado derecho una suma telescópica resulta 
+            \[
+            \sum_{i=1}^{n}F(x_i)-F(x_{i-1})=F(b)-F(a)
+            \]
+            por lo que concluimos 
+            \[
+            \int_a^b f(x)dx=F(b)-F(a).
+            \]
+        </p>
+        
+        </div>
     
 </div>
 
@@ -375,7 +385,7 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Usando una combinación de un cambio de variable lineal y el segundo T.F.C. 
+        Usando  un cambio de variable lineal y/o el segundo T.F.C. 
         calcula las siguientes integrales.
     </p>
 
@@ -384,7 +394,7 @@
     <li>$\int_0^{\pi} \cos(5x-2)dx$.</li> 
     <li>$\int_{0}^2 x\sqrt{x+1}dx$.</li> 
     <li>$\int_1^2 x^2\sqrt[3]{x+2}dx$.</li> 
-    <li>$\int_0^1 6xe^{3x^2-5x+1}dx$</li> 
+    <li>$\int_0^1 (x-2)e^{3x^2-12x+1}dx$</li> 
     <li>Para $\omega >0$, $\int_0^{2\pi} \cos(\omega x)dx $ y $\int_0^{2\pi}\sen(\omega x)dx$.</li> 
     <li>Para $c, d \in \mathbb{R}$ constantes, $\int_{a}^b e^{cx+m}dx$.</li> 
 
@@ -561,7 +571,7 @@
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Define $f:[0,\infty) \to \mathbb{R}$ dada por
         $$
