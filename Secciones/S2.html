@@ -892,6 +892,36 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
 <li>La fución $\max\{s,t\}$ es una función escalonada.</li> 
 <li>La función $\min\{s,t\}$ es una función escalonada.</li> 
 </ol>
+
+<button class="respButton hvr-grow "> Demostración  </button>
+     <div class="resp-box flexbox">
+<p>
+    Sean \(P\) y \(Q\) las  particiones asociadas a \(s \) y \( t\) respectivamente. 
+    Y consideremos \( P \vee Q = \lbrace z_k \rbrace_{k=0}^{n}\), 
+    entonces por el <a href="#Ejer:LemaUnionParticionesEscalonadas">Ejercicio 2.12</a> tenemos que   \(s \) y \(t\) son 
+    constantes en \((z_{k-1}, z_k)\)  para todo \(k =1, . . ., n\). 
+    Veamos que en efecto \(\max\lbrace s, t\rbrace\) y \(\min\lbrace s, t\rbrace\)  
+    son constantes en  \((z_{k-1}, z_k)\)  para todo \(k =1, . . ., n\). 
+</p>
+<p>
+    Sea \(k \in \lbrace1, . . ., n \rbrace\) arbitrario, y sean \(x, y \in (z_{k-1}, z_k)\), 
+    entonces tenemos que \(s(x) = s(y)\) y \(t(x) = t(y)\) (ya que  \(s \) y \(t\) son constantes 
+    en \((z_{k-1}, z_k)\)), podemos suponer sin perdida de generalidad que \(s(x) \leq t(x)\) por lo 
+    tanto \(\max\lbrace s, t\rbrace (x) = \max\lbrace s(x), t(x)\rbrace = t(x)\) y por otro lado  
+    \(\max\lbrace s, t\rbrace (y) = \max\lbrace s(y), t(y)\rbrace = \max\lbrace s(x), t(x)\rbrace =  t(x)\). 
+    Por lo tanto \(\max\lbrace s, t\rbrace (x) = \max\lbrace s, t\rbrace (y)\), es decir la función 
+     \(\max\lbrace s, t\rbrace\)  es constante en \((z_{k-1}, z_k)\). Como \(k\) fue arbitrarío se sigue 
+     que la función \(\max\lbrace s, t\rbrace\)  es constante en  \((z_{k-1}, z_k)\)  para 
+     todo \(k =1, . . ., n\). De manera análoga se tiene que la función \(\min\lbrace s, t\rbrace\)  
+     es constante en  \((z_{k-1}, z_k)\)  para todo \(k =1, . . ., n\). 
+</p>
+<p>
+    Esto demuestra que \(\max\lbrace s, t\rbrace\) y \(\min\lbrace s, t\rbrace\)  son funciones
+     escalonadas ya que exhibimos una partición en donde esta es constante en los intervalos que genera.
+</p>
+
+</div>
+
 </div>
 
 

@@ -111,13 +111,95 @@
 <div class="ejercicio-box"
 ><h2 class="number-title"> Ejercicio</h2> 
 <p>
-    Si $f:[a,b] \to \mathbb{R}$ es una función continua, $f\geq 0$, tal que 
+    Si $f:[a,b] \to \mathbb{R}$ es una función continua,  tal que 
     $$
     \int_a^b f(x)dx = \max_{x\in [a,b]} 
     \{ f(x)\} (b-a)
     $$
     entonces $f$ es constante.
 </p>
+
+<button class="respButton hvr-grow "> Demostración  </button>
+     <div class="resp-box flexbox">
+<p>
+    Como \(f\) es continua en \([a,b]\), entonces 
+    \(\min_{x\in [a,b]}\lbrace f(x)\rbrace \) y 
+    \( \max_{x\in [a,b]}\lbrace f(x) \rbrace\) existen, más aún existen 
+    \(x_0, x_1 \in [a, b]\) tales que 
+    \(f(x_0) = \min_{x\in [a,b]}\lbrace f(x)\rbrace \) y 
+    \( f(x_1) = \max_{x\in [a,b]}\lbrace f(x) \rbrace\). 
+    Basta demostrar que \(f(x_0) = f(x_1)\) para demostrar 
+    que \(f\) es constante, ya que si se demuestra que 
+    \(f(x_0) = f(x_1)\), entonces \(f(x_0) \leq f(x) \leq f(x_1) = f(x_0) \) 
+    para toda \(x \in [a, b]\), es decir \(f(x) = f(x_0)\) 
+    para toda \(x \in [a,b]\) y esto demuestra que \(f\) es constante.
+        
+</p>
+<p>
+    Supongamos que \(f(x_0) \neq f(x_1)\), esto implica que \(f(x_0) < f(x_1)\). 
+    Supongamos sin pérdida de generalidad que \(x_0 < x_1\), sea \(\epsilon >0\) tal que  
+    \(f(x_0) +\epsilon < f(x_1)\) entonces por la continuidad de \(f\) tenemos que existe 
+    \(\delta >0 \) tal que si \(x \in [x_0 -\delta, x_0 +\delta] \cap [a, b]\), entonces 
+    \(\vert f(x) - f(x_0)\vert < \epsilon\). Sea \(A := [x_0 -\delta, x_0 +\delta] \cap [a, b]\), 
+    entonces \(f(x) -f(x_0) < \epsilon\) si \(x\in A\), esto implica que \(f(x) < f(x_0) + \epsilon\) 
+    para toda \(x \in A\).
+</p>
+
+ 
+<p>
+    Caso 1.
+</p>  
+<p>
+    Si \(x_0 -\delta \leq a\), en este caso tenemos que \(f(x) < f(x_0) + \epsilon\) para toda 
+    \(x \in [a, x_0 + \delta ]\). Como \(f\) es continua en \([a,b]\), 
+    se tiene que \(f\) es integrable en  \([a, b]\) y por el 
+    <a href="./S3.html#Ejer:LinealidadIntervalos">Teorema 3.18</a>  \(f\) es integrable \([a, x_0 + \delta]\), 
+    más aún por el 
+    <a href="./S3.html#Ejer:CotasFacilesIntegral">Ejercicio 3.7</a>  tenemos que 
+    \[ \int_a^{x_0 +\delta} f(x) dx \leq (f(x_0) + \epsilon)(x_0 + \delta -a) . \] 
+</p>
+<p>
+    Y por la \textbf{Linealidad con respecto a intervalos } tenemos: 
+    \begin{equation}
+    \begin{split}
+    \int_a^bf(x) dx & = \int_a^{x_0 +\delta} f(x) dx + \int_{x_0 +\delta}^bf(x) dx \\
+     & \leq (f(x_0) + \epsilon)(x_0 + \delta -a) + f(x_1)(b -(x_0 + \delta)) \\
+     & < f(x_1)(x_0 + \delta -a) + f(x_1)(b -(x_0 + \delta)) \\
+     & = f(x_1)(b-a)
+     \end{split}
+    \end{equation}
+    
+    
+    Es decir, \(\int_a^bf(x) dx <  f(x_1)(b-a)\). Lo cual es una contradicción, ya que  
+    \(\int_a^bf(x) dx = f(x_1)(b-a)\). 
+    
+</p>
+<p>
+    Caso 2.
+</p>
+
+<p>
+    Si \(a < x_0 - \delta\), como \(x_1 \notin A\) y \(x_0 < x_1\) se tiene que \(x + \delta < x_1 \leq b\), 
+    es decir \(A = [x_0 -\delta, x_0 + \delta] \subseteq (a, b)\). Dado que \(f\) es integrable en \([a,b]\), 
+    entonces por la \textbf{Linealidad con respecto a intervalos } y por el \textbf{Ejercicio 3.7} tenemos :  
+    \begin{equation}
+    \begin{split}
+    \int_a^bf(x) dx & = \int_a^{x_0 -\delta}f(x) dx + \int_{x_0 -\delta}^{x_0 +\delta}f(x) dx + 
+    \int_{x_0 +\delta}^bf(x) dx \\
+     & \leq f(x_1)(x_0 -\delta -a) + (f(x_0) + \epsilon)(x_0 +\delta -(x_0 -\delta)) \\
+     & + f(x_1)(b -(x_0 +\delta)) \\
+     & <  f(x_1)(x_0 -\delta -a) + f(x_1)(x_0 +\delta -(x_0 -\delta)) \\
+     &+ f(x_1)(b -(x_0 +\delta)) \\
+     & = f(x_1)(b-a)
+     \end{split}
+     \end{equation}
+    
+    
+    Es decir, \(\int_a^bf(x) dx <  f(x_1)(b-a)\). Lo cual es una contradicción en ambos casos. 
+    Por lo tanto \(f(x_0) = f(x_1)\) y esto demuestra que \(f\) es constante.
+    
+</p> 
+</div>
 
 </div>
 
@@ -228,8 +310,35 @@
         s:=\max\{\tilde{s},m\}, t=\min\{\tilde{t},M \}
         $$
     </p>
+    <button class="respButton hvr-grow "> Demostración </button>
+     <div class="resp-box flexbox">
+    <p>
+        Como \(f\) es integrable, entonces existen funciones escalonadas \(\tilde{s} \) y \(\tilde{t}\) con 
+        \(\tilde{s} \leq f \leq \tilde{t}\) y \[ \int_a^b\tilde{t}(x)dx - \int_a^b\tilde{s}(x)dx < \epsilon .\]
+        Definimos \(s, t : [a, b] \rightarrow \mathbb{R}\) como \(s := \max\lbrace \tilde{s},m \rbrace\) y 
+        \( t:= \min\lbrace \tilde{t}, M\rbrace\). Es claro que \(m \leq s \) y \( t \leq M\), 
+        dado que \(m \leq f(x) \leq M\), para toda \(x\in [a,b]\) y \(\tilde{s} \leq f \leq \tilde{t}\)  
+        implica que \(s = \max\lbrace \tilde{s},m \rbrace \leq f \leq \min\lbrace \tilde{t}, M\rbrace = t\). 
+        Por lo tanto, \(m \leq s \leq f \leq t \leq M\). Y por el \textbf{Ejercicio 2.22.} tenemos que \(s\) y 
+        \(t\) son funciones escalonadas, ya que podemos pensar a \(m\) y \(M\) como funciones constantes en 
+        \([a,b]\), de manera más precisa definimos \(\tilde{m}, \tilde{M} : [a, b] \rightarrow \mathbb{R}\) 
+        dadas por \(\tilde{m}(x) = m \) y \(\tilde{M}(x) = M \) para toda \(x \in [a, b]\), es claro que 
+        \(s := \max\lbrace \tilde{s},\tilde{m} \rbrace\) y \( t:= \min\lbrace \tilde{t}, \tilde{M}\rbrace\), 
+        además \(\tilde{m} \) y \(\tilde{M}\) son funciones escalonadas. 
+    </p>
 
+    <p>
+        Por otro lado, como \(t \leq \tilde{t}\), entonces por la \textbf{monotonía de la integral} 
+        tenemos \(\int_a^bt(x) dx \leq \int_a^b\tilde{t}(x)dx\) y como \(\tilde{s} \leq s\), entonces 
+        \(\int_a^b\tilde{s}(x)dx \leq \int_a^bs(x) dx\), es decir 
+        \(- \int_a^bs(x) dx \leq -\int_a^b\tilde{s}(x)dx\). Por lo tanto, 
+        \[ \int_a^bt(x)dx - \int_a^bs(x)dx  \leq \int_a^b\tilde{t}(x)dx - \int_a^b\tilde{s}(x)dx < \epsilon .\]
     
+        Es decir, \(\int_a^bt(x)dx - \int_a^bs(x)dx < \epsilon\).
+        
+    </p>
+</div>
+        
 </div>
 
 <div class="ejercicio-box">
@@ -281,12 +390,15 @@
     <p>
         Da un ejemplo de una función $f:[a,b]\to \mathbb{R}$ tal que $f^2$ es integrable pero $f$ no lo es.
     </p>
+<<<<<<< HEAD
     <button class="respButton hvr-grow ">Demostración  </button>
     <div class="resp-box flexbox">
       <div class="flexbox">
         <a href="https://youtu.be/HH13AHpV8oQ" target="_blank" > Video </a>
       </div>
     </div>
+=======
+>>>>>>> 662384d1381606069ad66d1dd7c7a8056ad8346a
 </div>
 
 <div class="ejercicio-box">
@@ -298,6 +410,24 @@
         $$
     </p>
     
+    <button class="respButton hvr-grow "> Solución </button>
+    <div class="resp-box flexbox">
+
+    <p>
+        Consideremos la función \(f:[0,1] \rightarrow \mathbb{R}\) dada por \(f(x) = x\), 
+        ya se demostró que \(f\) y \(f^2\), donde \(f^2(x) = x^2 \) en \([0,1] \),  
+        son funciones integrables y \( \int_0^1 f(x) dx = \frac{1}{2} \) esto implica que 
+        
+        \[\left(\int_0^1f(x)dx \right)^2 = \frac{1}{4} . \] 
+    </p>
+    <p>
+        Por otra parte, \(\int_0^1f^2(x)dx = \int_0^1x^2dx = \frac{1}{3}. \) Por lo tanto, 
+        \[ \int_0^1f^2(x)dx \neq \left(\int_0^1f(x)dx\right)^2 .\]
+    </p>
+    </div>
+
+
+
 </div>
 
 <div class="ejercicio-box">
