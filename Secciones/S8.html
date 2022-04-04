@@ -544,6 +544,7 @@
         todo $x\in (a,b)\setminus E$. Entonces
         $$
         \int_a^bf(x)dx=F(b)-F(a).
+        $$
      </p>
 </div>
 
@@ -646,57 +647,105 @@
         $$
         
     </p>
-    <ol>
-        <li>
-            Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, 
-            existe $\delta >0$ tal que
+    <button class="respButton hvr-grow "> Demostración  </button>
+     <div class="resp-box flexbox">
+    <p>
+        Definimos \(F:[a,b]\to \mathbb{R}\) por 
+        \[
+        F(x)=\int_a^x f(t)dt
+        \]
+        Ya que \(f\) es continua en \([a,b]\) también es integrable en 
+        \([a,b]\) y pot lo tanto la integral anterior existe para todo \(x\in [a,b]\)
+        y \(F\) está bien definida.
+
+    </p>
+    <p>
+        Usando la definción de derivada lo que debemos de probar es que 
+        para todo \(x_0\in (a,b)\):
+        \begin{equation}\label{Eqn:Aux1TFC2}
+        \lim_{x\to x_0}\frac{F(x)-F(x_0)}{x-x_0}=f(x_0)
+        \end{equation}
+        Usando la definición de \(F\) tenemos que el cociente diferencial es 
+        \[
+        \frac{F(x)-F(x_0)}{x-x_0}=\frac{\int_a^x f(t)dt-\int_a^{x_0}f(t)dt}{x-x_0}
+        \]
+        el cual vamos a analizar tomando dos casos.
+    </p>
+    <p>
+        Si \(x< x_0 \) usamos  linealidad con respecto a intervalos 
+        para obtener \(\int_{a}^{x_0}f(t)dt=\int_{a}^xf(t)dt+\int_x^{x_0}f(t)dt\),
+        por lo que el cociente diferencial se simplifica a 
+        \[
+        \frac{F(x)-F(x_0)}{x-x_0}=\frac{-\int_{x}^{x_0}f(t)dt}{x-x_0}=\frac{\int_{x}^{x_0}f(t)dt}{x_0-x}
+        \]
+    </p>
+    <p>
+        Si \(x_0< x\) aplicando nuevamente la linealidad con respecto a intervalos obtenemos 
+        \[
+        \frac{F(x)-F(x_0)}{x-x_0}=\frac{\int_{x_0}^{x}f(t)dt}{x-x_0}
+        \]
+    </p>
+    <p>
+        Así, para probar la igualdad en \eqref{Eqn:Aux1TFC2} es suficiente probar  a probar 
+        \begin{eqnarray}
+        \lim_{x\to x_0^{-}} \frac{\int_{x}^{x_0}f(t)dt}{x_0-x}=f(x_0)  \label{Eqn:Aux2TFC2}\\
+        \lim_{x\to x_0^+} \frac{\int_{x_0}^{x}f(t)dt}{x-x_0}=f(x_0) \label{Eqn:Aux3TFC2}
+        \end{eqnarray}
+    </p>
+        <p>
+            Probemos \eqref{Eqn:Aux2TFC2}.
+        </p>
+        <p>
+            Ya que $f$ es continua por la izquierda en $x_0$ dado un número $\varepsilon>0$, 
+            existe $\delta >0$ tal que $|f(x)-f(x_0)|< \varepsilon$ para todo $x$ 
+            con $x_0-\delta < x < x_0$. Abriendo el valor absoluto y despejando \(f(x)\) podemos escrbiri lo 
+            anterior como 
             $$
             f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
             $$
-            para toda $x\in [x_0, x_0+\delta)$.
-        </li> 
-        <li>
-            Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, 
-            existe $\delta>0$ tal que,
-            $$
-            -\varepsilon \leq \frac{\int_{x_0}^x f(t)dt }{x-x_0} -f(x_0) \leq \varepsilon 
-            $$
-            para todo $x\in [x_0, x_0+\delta)$.
-        </li> 
-        <li>
-            Si $f$ es continua por la derecha en $x_0$, demuestra que
-            $$
-            \lim_{x\to x_0^+} \frac{\int_{x_0}^{x}f(t)dt}{x-x_0}=f(x_0).
-            $$
-        </li> 
-    
-        <li>
-            Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, 
-            existe $\delta >0$ tal que
-            $$
-            f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
-            $$
-            para toda $x\in (x_0-\delta, x_0]$.
-        </li> 
-    
-        <li>
-            Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, 
-            existe $\delta>0$ tal que,
+            para toda $x\in (x_0-\delta, x_0)$.
+            Ahora, si integramos las desigualdades anteriores obtenemos 
+            \[
+            \int_x^{x_0} (f(x_0)-\varepsilon) dt \leq \int_{x}^{x_0}f(t)dt \leq \int_{x}^{x_0}(f(x_0)+
+            \varepsilon)dt
+            \]
+            Notamos que los extremos de las desigualdades son iguales a 
+            \begin{eqnarray*}
+            \int_x^{x_0} (f(x_0)-\varepsilon) dt= (f(x_0)-\varepsilon)(x_0-x)\\
+            \int_{x}^{x_0}(f(x_0)+\varepsilon)dt=(f(x_0)+\varepsilon)(x_0-x)
+            \end{eqnarray*}
+            por lo cual, dividiendo entre \(x_0-x\), podemos reescribir las desigualdades anteriores como 
             $$
             -\varepsilon \leq \frac{\int_{x}^{x_0} f(t)dt }{x_0-x} -f(x_0) \leq \varepsilon 
             $$
-            para todo $x\in (x_0-\delta, x_0]$.
-        </li> 
-    
-        <li>
-            Si $f$ es continua por la izquierda en $x_0$, demuestra que
+            para todo $x\in (x_0-\delta, x_0)$. Lo cual prueba precisamente 
+            \eqref{Eqn:Aux2TFC2}.
+        </p> 
+        <p>
+            A continuación probemos \eqref{Eqn:Aux3TFC2}, cuya prueba es muy similar 
+            a la anterior.
+        </p>
+        <p>
+            Si $f$ es continua por la derecha en $x_0$, dada $\varepsilon>0$, 
+            existe $\delta>0$ tal que $|f(x)-f(x_0)|< \varepsilon$ siempre que 
+            \(x_0 < x < x_0+\delta\). Abriendo el valor absoluto y despejando 
+            \(f(x)\) lo anterior es equivalente a 
+            \[
+            f(x_0)-\varepsilon < f(x) < f(x_0)+\varepsilon
+            \]
+            e integrando obtenemos 
             $$
-            \lim_{x\to x_0^-} \frac{\int_{x}^{x_0}f(t)dt}{x_0-x}=f(x_0).
+            (f(x_0)-\varepsilon)(x-x_0) \leq \int_{x_0}^x f(t)dt \leq (f(x_0)+\varepsilon )(x-x_0)
             $$
-        </li> 
-    </ol>
+            para todo $x\in (x_0, x_0+\delta)$ lo cual se puede reescribir como 
+            \[
+            -\varepsilon \leq \frac{\int_{x}^{x_0}f(t)dt}{x-x_0} -f(x_0) \leq \varepsilon
+            \]
+            para todo \(x\in (x_0,x_0+\delta)\), lo cual prueba \eqref{Eqn:Aux3TFC2}.
+        </p> 
+    </div>
     
-
+    
 </div>
 
 
