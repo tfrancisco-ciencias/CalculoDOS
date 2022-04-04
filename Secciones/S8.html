@@ -115,7 +115,7 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Encuentra anti-derivadas de las siguintes funciones:
+        Encuentra anti-derivadas de las siguientes funciones:
     </p>
 
 
@@ -135,6 +135,16 @@
         Si $F_1$ y $F_2$ son primitivas de $f$ en $(a,b)$, demuestra que existe una constante $c$ tal que
         $F_1(x)=F_2(x)+c$, para todo $x\in (a,b)$.
     </p>
+    <button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
+    <p>
+        Supongamos que \(F_1,F_2:[a,b]\to \mathbb{R}\) son antiderivadas de \(f\) en \([a,b]\). Se sigue que 
+        la función \(g(x)=F_1(x)-F_2(x)\) tiene derivada cero en \((a,b)\), pues 
+        \[g'(x)=F_1'(x)-F_2'(x)=f(x)-f(x)=0.\]
+        Por lo tanto \(g\) es constante en \((a,b)\). Si ésta constante es \(c\) entonces 
+        \(F_1(x)-F_2(x)=c\) para todo \(x\in (a,b)\), es decir \(F_1(x)=F_2(x)+c\).
+    </p>
+    </div>
 </div>
 
 <div class="teorema-box"> 
@@ -152,40 +162,40 @@
         $$        
     </p>
 
-
-    <ol>
-        <li>
-            Fija $\varepsilon>0$. Demuestra que existen un $n \in \mathbb{N}$, tal que si $P=\{ x_i\}_{i=0}^n$ es la partición homogenea de longitud $n$, entonces
-            $$
-            \omega f ([x_{i-1},x_i]) < \frac{\varepsilon}{2(b-a)},
-            $$
-            para toda $i=1,\dots, n$. Sugerencia: usa el ejercicio \ref{Ejer:ContinuidadUniformeEnCompactos}.
-        </li> 
-        <li>
-            Demuestra que si $r_i \in [x_{i-1}, x_i]$, es una elección cualquiera de puntos, entonces
-            $$
-            \left|  \sum_{i=1}^n f(r_i)(x_i-x_{i-1}) - \int_a^b f(x)dx  \right| <\varepsilon
-            $$
-            Sugerencia: usa el ejericio \ref{Ejer:AproximacionSumasRiemann}.
-        </li> 
-    
-        <li>
-            Asume que $F:(a,b)\to \mathbb{R}$ es una antiderivada de $f$ en $(a,b)$. Demuestra que existen puntos $c_i \in (x_{i-1},x_i)$, 
-            $i=1,\dots, n$ tales que
-            $$
+        <button class="respButton hvr-grow "> Demostración  </button>
+        <div class="resp-box flexbox">
+        <p>
+            Para \(n\in \mathbb{N}\) denotamos por \(P_n=\{x_i\}_{i=0}^n\) la partición homogenea de \([a,b]\)
+            de longitud \(n\).
+        </p>
+        <p>
+            Ahora aplicamos el Teorema del Valor medio para las derivadas a la función \(F\) en 
+            los intervalos \([x_{i-1},x_i]\) para obtener puntos \(c_i\in [x_{i-1},x_i]\)
+            que cumplan 
+            \begin{equation}\label{Eqn:Aux12oTFC}
             f(c_i)(x_i-x_{i-1})=F(x_i)-F(x_{i-1})
-            $$
-            Sugerencia: aplica el Teorema del Valor Medio a $F$.
-        </li> 
-    
-        <li>
-            Concluye de los dos incisos anteriores que, para todo $\varepsilon>0$,
-            $$
-            \left|  F(b)-F(a) - \int_a^b f(x)dx \right| < \varepsilon
-            $$
-            lo cual demuestra el segundo Teorema Fundamental.
-        </li> 
-    </ol>
+            \end{equation}
+        </p>
+        <p>
+            Si aplicamos el  <a href="./S5.html#Ejer:AproximacionSumasRiemann">Ejercicio 5.11</a> (con los puntos \(r_i=c_i\)) obtenemos que 
+            \[
+            \int_a^b f(x)dx=\lim_{n\to \infty} \sum_{i=1}^n f(c_i)(x_i-x_{i-1})
+            \]
+            pero por usando \eqref{Eqn:Aux12oTFC} podemos escribir el límite anterior como 
+            \[
+            \int_a^b f(x)dx=\lim_{n\to \infty} \sum_{i=1}^n F(x_i)-F(x_{i-1})
+            \]
+            pero al ser la suma del lado derecho una suma telescópica resulta 
+            \[
+            \sum_{i=1}^{n}F(x_i)-F(x_{i-1})=F(b)-F(a)
+            \]
+            por lo que concluimos 
+            \[
+            \int_a^b f(x)dx=F(b)-F(a).
+            \]
+        </p>
+        
+        </div>
     
 </div>
 
@@ -252,7 +262,9 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
    <p>
-    Por el <a href="#Ejer:RectaSoporteExpEnCero">Ejercicio</a> sabemos que, para todo $x\in \mathbb{R}$:
+    Por el 
+    <a href="https://tfrancisco-ciencias.github.io/CalculoUNO/Secciones/S16.html#Ejer:RectaSoporteExpEnCero">
+        C1:Ejercicio 16.5</a> sabemos que, para todo $x\in \mathbb{R}$:
     $$
     e^x \geq 1+x.
     $$
@@ -292,7 +304,7 @@
     <h2 class="number-title" id="Ejer:IntegralPotenciasRacionales"> Ejercicio</h2>   
     
     <p>
-        Vimos en el ejercicio  \ref{Ejer:IntegralPotenciasNaturales} que para todo 
+        Vimos en el ejercicio  <a href="./S4.html#Ejer:IntegralPotenciasNaturales"> Ejercicio 4.5</a> que para todo 
         $k\in \mathbb{N}$ y $0\leq a < b$:
         $$
         \int_a^b x^k dx=\frac{b^{k+1}-a^{k+1}}{k+1}.
@@ -302,7 +314,7 @@
         Este ejercicio generaliza está fórmula para cuando $k$ es racional. 
     </p>
     <p>
-        Toma $p=\frac{n}{m}$, $m,n \in \mathbb{N}$, $m\ne 0$, un potencia natural. 
+        Toma $p=\frac{n}{m}$, $m,n \in \mathbb{N}$, $m\ne 0$, un potencia racional. 
         Usa el segundo Teorema Fundamental para demostrar que, para $0 \leq a < b$:
         $$
         \int_a^b x^pdx=\frac{b^{p+1}-a^{p+1}}{p+1}.
@@ -375,7 +387,7 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Usando una combinación de un cambio de variable lineal y el segundo T.F.C. 
+        Usando  un cambio de variable lineal y/o el segundo T.F.C. 
         calcula las siguientes integrales.
     </p>
 
@@ -384,7 +396,7 @@
     <li>$\int_0^{\pi} \cos(5x-2)dx$.</li> 
     <li>$\int_{0}^2 x\sqrt{x+1}dx$.</li> 
     <li>$\int_1^2 x^2\sqrt[3]{x+2}dx$.</li> 
-    <li>$\int_0^1 6xe^{3x^2-5x+1}dx$</li> 
+    <li>$\int_0^1 (x-2)e^{3x^2-12x+1}dx$</li> 
     <li>Para $\omega >0$, $\int_0^{2\pi} \cos(\omega x)dx $ y $\int_0^{2\pi}\sen(\omega x)dx$.</li> 
     <li>Para $c, d \in \mathbb{R}$ constantes, $\int_{a}^b e^{cx+m}dx$.</li> 
 
@@ -435,7 +447,7 @@
  </div>   
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentras las siguientes integrales indefinidas.
+<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Encuentras las siguientes integrales indefinidas.
 <ol>
     <li>$\int c dx$, donde $c\in \mathbb{R}$ es una constante.</li> 
     <li>$\int x^n dx$, donde $n\in \mathbb{N}$.</li> 
@@ -466,8 +478,7 @@
 <div class="ejercicio-box">
     <h2 class="number-title" id="Ejer:Demo2TFCparaMononotas"> Ejercicio</h2> 
     <p>
-        En la  versión del segundo T.F.C. que se presenta  en el 
-        <a href="#Ejer:Demo2TFC">Ejercicio</a>, 
+        En el Segundo Teorema Fundamental  
         se pide en las hipótesis  que la $f$ sea continua en $[a,b]$, 
         pero se puede cambiar ésta hipótesis pidiendo ahora que $f$ sea monónotan en $[a,b]$. Es decir:
     </p>
@@ -478,8 +489,8 @@
         $$
     </p>
     <p>
-        Usa ahora el <a href="./S5.html#Ejer:LimiteSumasRiemannDeMonotonas">Ejercicio</a>  
-        y las mismas ideas que en el <a href="#Ejer:Demo2TFC">Ejercicio</a>  
+        Usa ahora el <a href="./S4.html#Ejer:LimiteSumasRiemannDeMonotonas"> Ejercicio 4.8</a>  
+        y las mismas ideas que en el <a href="#Teo:TF-2">Segundo Teorema Fundamental</a>  
         para demostrar esta versión del segundo T.F.C.
     </p>
 </div>
@@ -533,6 +544,7 @@
         todo $x\in (a,b)\setminus E$. Entonces
         $$
         \int_a^bf(x)dx=F(b)-F(a).
+        $$
      </p>
 </div>
 
@@ -561,7 +573,7 @@
 
 
 <div class="ejercicio-box">
-    <h2 class="number-title">Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Define $f:[0,\infty) \to \mathbb{R}$ dada por
         $$
@@ -635,57 +647,105 @@
         $$
         
     </p>
-    <ol>
-        <li>
-            Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, 
-            existe $\delta >0$ tal que
+    <button class="respButton hvr-grow "> Demostración  </button>
+     <div class="resp-box flexbox">
+    <p>
+        Definimos \(F:[a,b]\to \mathbb{R}\) por 
+        \[
+        F(x)=\int_a^x f(t)dt
+        \]
+        Ya que \(f\) es continua en \([a,b]\) también es integrable en 
+        \([a,b]\) y pot lo tanto la integral anterior existe para todo \(x\in [a,b]\)
+        y \(F\) está bien definida.
+
+    </p>
+    <p>
+        Usando la definción de derivada lo que debemos de probar es que 
+        para todo \(x_0\in (a,b)\):
+        \begin{equation}\label{Eqn:Aux1TFC2}
+        \lim_{x\to x_0}\frac{F(x)-F(x_0)}{x-x_0}=f(x_0)
+        \end{equation}
+        Usando la definición de \(F\) tenemos que el cociente diferencial es 
+        \[
+        \frac{F(x)-F(x_0)}{x-x_0}=\frac{\int_a^x f(t)dt-\int_a^{x_0}f(t)dt}{x-x_0}
+        \]
+        el cual vamos a analizar tomando dos casos.
+    </p>
+    <p>
+        Si \(x< x_0 \) usamos  linealidad con respecto a intervalos 
+        para obtener \(\int_{a}^{x_0}f(t)dt=\int_{a}^xf(t)dt+\int_x^{x_0}f(t)dt\),
+        por lo que el cociente diferencial se simplifica a 
+        \[
+        \frac{F(x)-F(x_0)}{x-x_0}=\frac{-\int_{x}^{x_0}f(t)dt}{x-x_0}=\frac{\int_{x}^{x_0}f(t)dt}{x_0-x}
+        \]
+    </p>
+    <p>
+        Si \(x_0< x\) aplicando nuevamente la linealidad con respecto a intervalos obtenemos 
+        \[
+        \frac{F(x)-F(x_0)}{x-x_0}=\frac{\int_{x_0}^{x}f(t)dt}{x-x_0}
+        \]
+    </p>
+    <p>
+        Así, para probar la igualdad en \eqref{Eqn:Aux1TFC2} es suficiente probar  a probar 
+        \begin{eqnarray}
+        \lim_{x\to x_0^{-}} \frac{\int_{x}^{x_0}f(t)dt}{x_0-x}=f(x_0)  \label{Eqn:Aux2TFC2}\\
+        \lim_{x\to x_0^+} \frac{\int_{x_0}^{x}f(t)dt}{x-x_0}=f(x_0) \label{Eqn:Aux3TFC2}
+        \end{eqnarray}
+    </p>
+        <p>
+            Probemos \eqref{Eqn:Aux2TFC2}.
+        </p>
+        <p>
+            Ya que $f$ es continua por la izquierda en $x_0$ dado un número $\varepsilon>0$, 
+            existe $\delta >0$ tal que $|f(x)-f(x_0)|< \varepsilon$ para todo $x$ 
+            con $x_0-\delta < x < x_0$. Abriendo el valor absoluto y despejando \(f(x)\) podemos escrbiri lo 
+            anterior como 
             $$
             f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
             $$
-            para toda $x\in [x_0, x_0+\delta)$.
-        </li> 
-        <li>
-            Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, 
-            existe $\delta>0$ tal que,
-            $$
-            -\varepsilon \leq \frac{\int_{x_0}^x f(t)dt }{x-x_0} -f(x_0) \leq \varepsilon 
-            $$
-            para todo $x\in [x_0, x_0+\delta)$.
-        </li> 
-        <li>
-            Si $f$ es continua por la derecha en $x_0$, demuestra que
-            $$
-            \lim_{x\to x_0^+} \frac{\int_{x_0}^{x}f(t)dt}{x-x_0}=f(x_0).
-            $$
-        </li> 
-    
-        <li>
-            Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, 
-            existe $\delta >0$ tal que
-            $$
-            f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
-            $$
-            para toda $x\in (x_0-\delta, x_0]$.
-        </li> 
-    
-        <li>
-            Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, 
-            existe $\delta>0$ tal que,
+            para toda $x\in (x_0-\delta, x_0)$.
+            Ahora, si integramos las desigualdades anteriores obtenemos 
+            \[
+            \int_x^{x_0} (f(x_0)-\varepsilon) dt \leq \int_{x}^{x_0}f(t)dt \leq \int_{x}^{x_0}(f(x_0)+
+            \varepsilon)dt
+            \]
+            Notamos que los extremos de las desigualdades son iguales a 
+            \begin{eqnarray*}
+            \int_x^{x_0} (f(x_0)-\varepsilon) dt= (f(x_0)-\varepsilon)(x_0-x)\\
+            \int_{x}^{x_0}(f(x_0)+\varepsilon)dt=(f(x_0)+\varepsilon)(x_0-x)
+            \end{eqnarray*}
+            por lo cual, dividiendo entre \(x_0-x\), podemos reescribir las desigualdades anteriores como 
             $$
             -\varepsilon \leq \frac{\int_{x}^{x_0} f(t)dt }{x_0-x} -f(x_0) \leq \varepsilon 
             $$
-            para todo $x\in (x_0-\delta, x_0]$.
-        </li> 
-    
-        <li>
-            Si $f$ es continua por la izquierda en $x_0$, demuestra que
+            para todo $x\in (x_0-\delta, x_0)$. Lo cual prueba precisamente 
+            \eqref{Eqn:Aux2TFC2}.
+        </p> 
+        <p>
+            A continuación probemos \eqref{Eqn:Aux3TFC2}, cuya prueba es muy similar 
+            a la anterior.
+        </p>
+        <p>
+            Si $f$ es continua por la derecha en $x_0$, dada $\varepsilon>0$, 
+            existe $\delta>0$ tal que $|f(x)-f(x_0)|< \varepsilon$ siempre que 
+            \(x_0 < x < x_0+\delta\). Abriendo el valor absoluto y despejando 
+            \(f(x)\) lo anterior es equivalente a 
+            \[
+            f(x_0)-\varepsilon < f(x) < f(x_0)+\varepsilon
+            \]
+            e integrando obtenemos 
             $$
-            \lim_{x\to x_0^-} \frac{\int_{x}^{x_0}f(t)dt}{x_0-x}=f(x_0).
+            (f(x_0)-\varepsilon)(x-x_0) \leq \int_{x_0}^x f(t)dt \leq (f(x_0)+\varepsilon )(x-x_0)
             $$
-        </li> 
-    </ol>
+            para todo $x\in (x_0, x_0+\delta)$ lo cual se puede reescribir como 
+            \[
+            -\varepsilon \leq \frac{\int_{x}^{x_0}f(t)dt}{x-x_0} -f(x_0) \leq \varepsilon
+            \]
+            para todo \(x\in (x_0,x_0+\delta)\), lo cual prueba \eqref{Eqn:Aux3TFC2}.
+        </p> 
+    </div>
     
-
+    
 </div>
 
 
