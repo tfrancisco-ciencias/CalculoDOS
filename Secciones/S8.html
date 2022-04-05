@@ -302,6 +302,77 @@
         si $x < 0 $? Demuestra o da un contraejemplo.
     </li>  
 </ol>
+
+<button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
+<p>
+    <b>Demostración inciso 1</b>.
+</p> 
+
+<p>
+    Fijamos \(x> 0\),  como \(e^x \geq  1 +x \) podemos integrar por ambos lados de la desigualdad en el 
+    intervalo \([0,x]\), recordemos que esto se puede hacer por la 
+    <i>Monotonía de la Integral</i>, por lo que : 
+    \[ \int_0^xe^ydy \geq \int_0^x(1 + y) dy = \int_0^xdx 
+    + \int_0^xydy = x + \frac{x^2}{2} .\] 
+</p>
+<p>
+    Es decir, \(\int_0^xe^ydy \geq  x + \frac{x^2}{2}. \) Por otro lado, 
+    tenemos que la función exponencial, \(e^y\), es su propia antiderivada entonces 
+    por el <i>Segundo Teorema Fundamental</i> tenemos: 
+    \[ \int_0^xe^ydy  = e^x -e^0 = e^x -1 .\] 
+    Lo cual implica, \( e^x -1 \geq x + \frac{x^2}{2} .\) Por lo tanto, \[ e^x \geq 1+ x +\frac{x^2}{2} .\] 
+</p>
+
+<p>
+    <b>Demostración inciso 2</b>.
+</p> 
+
+<p>
+    Para demostrar este inciso, procedemos por inducción. La base de inducción ya la hicimos en el inciso (1).
+</p>
+<p>
+    <b>Hipótesis de Inducción.</b>Supongamos que existe un natural \(n \geq 1\) tal que 
+    \[ e^x \geq \sum_{k=0}^n\frac{x^k}{k!} . \]
+</p>
+
+ <p>
+    <b>Paso Inductivo.</b>Por demostrar que \(e^x \geq \sum_{k=0}^{n+1}\frac{x^k}{k!}\). 
+    Integrando en \([0,x]\) y usando la \textbf{Monotonía de la Integral} tenemos: 
+    \[ \int_0^xe^ydy \geq \int_0^x\left(\sum_{k=0}^n\frac{y^k}{k!}\right) dy .\] 
+ </p>  
+ <p>
+    Y por la linealidad de la integral tenemos : 
+    \begin{eqnarray*} 
+    \int_0^x\left(\sum_{k=0}^n\frac{y^k}{k!}\right) dy &=&  \sum_{k=0}^n\frac{1}{k!}\int_0^xy^kdy 
+     \\ 
+     &=&   \sum_{k=0}^n\frac{1}{k!}\cdot\frac{x^{k+1}}{k+1} \\
+     &= &  \sum_{k=0}^n\frac{x^{k+1}}{k+1!}   \\
+    &=& \sum_{k=1}^{n+1}\frac{x^{k}}{k!} .
+    \end{eqnarray*}
+ </p>
+
+ <p>
+    Por lo tanto: \[ \int_0^xe^ydy \geq  \sum_{k=1}^{n+1}\frac{x^{k}}{k!} .\] 
+    Y como ya vimos que \( \int_0^xe^ydy = e^x -1\). Lo cual implica que, \( e^x -1 \geq  
+    \sum_{k=1}^{n+1}\frac{x^{k}}{k!}\). Por lo tanto: \[ e^x \geq 1 + \sum_{k=1}^{n+1}\frac{x^k}{k!} 
+    = \sum_{k=0}^{n+1}\frac{x^k}{k!} .\]
+ </p>
+
+ <p>
+    Esto demuestra el paso inductiva. Por lo tanto, para todo \(n \geq 1\) tenemos, 
+    \[ e^x \geq \sum_{k=0}^n\frac{x^k}{k!} . \]
+ </p>
+
+<p>
+    <b>Demostración inciso 2</b>.
+</p> 
+<p>
+    Es Falso. Consideremos \(n=2\) y \(x=-10\), entonces tenemos que \[ e^{-10} < 
+        1 < 1 -10 + \frac{(-10)^2}{2} = 41. \]
+</p>
+</div>
+
 </div>
 
 
