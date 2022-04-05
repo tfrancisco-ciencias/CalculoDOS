@@ -505,6 +505,41 @@
         \int_a^b 2xe^{x^2-1}dx=0.
         $$
     </p>
+
+    <button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
+
+    <p>
+        Tenemos que para cualesquiera  \(a, b \in \mathbb{R}\) con  \(a < b\) se 
+        tiene \[\int_a^b2xe^{x^2-1} dx = \int_a^b2xe^{x^2}e^{-1} dx = \frac{1}{e}\int_a^b2xe^{x^2} dx \]
+    </p>
+    <p>
+        Si suponemos que \(\int_a^b2xe^{x^2-1} dx = 0\), entonces 
+        \( \int_a^b2xe^{x^2} dx = 0\). Y si \( \int_a^b2xe^{x^2} dx = 0\) se 
+        sigue que \(\int_a^b2xe^{x^2-1} dx = 0\). Entonces basta encontrar el conjunto de 
+        parejas de reales \(a, b\), con \(a < b\) tales que: \[ \int_a^b2xe^{x^2} dx = 0.\]    
+    </p>
+    <p>
+        Notemos que la derivada de \(e^{x^2}\) es \(2xe^{x^2}\) para cualquier \(x \in \mathbb{R}\).  
+        Esto implica que para cualesquiera \(a, b \in \mathbb{R}\) se tiene que la función  
+        \(F: [a,b] \rightarrow \mathbb{R}\) dada por \(F(x) = e^{x^2}\) es una antiderivada de  
+        \(2xe^{x^2}\) continua  en \([a, b]\) y diferenciable en \((a, b)\). Entonces por el 
+        <i>Segundo Teorema Fundamental</i> tenemos: 
+        \[ \int_a^b2xe^{x^2} dx =  F(b) - F(a) = e^{b^2} - e^{a^2}  . \]
+    </p>
+    <p>
+        Si \(  \int_a^b2xe^{x^2} dx = 0 \) implica que \( e^{b^2} - e^{a^2} = 0\), es decir 
+        \(e^{b^2} = e^{a^2}\). Y como la función \(e^x\) es biyectiva se sigue que \(b^2 = a^2\), 
+        lo que implica que \(b = \pm a\). Como estamos suponiendo que \(a < b\) esto da lugar a que
+         \(b>0 \) y \(a =-b\). 
+    </p>
+    <p>
+        Por lo tanto el conjunto  de parejas de reales \(a, b\), con \(a < b\), tales que 
+        \( \int_a^b2xe^{x^2-1} dx = 0,\) es: \[ \lbrace (a, b) \in \mathbb{R}^2 : b>0 
+        \text{ y } a =-b \rbrace . \]
+    </p>
+    </div>
+
 </div>    
 
 <div class="ejercicio-box">
@@ -593,9 +628,10 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        En este ejercicio vemos un ejemplo donde las hipótesis de la  versión del segundo T.F.C. 
-        dada en  <a href="Ejer:Demo2TFCparaMononotas">Teorema </a> se pueden relajar.
+        En este ejercicio vemos un ejemplo donde las hipótesis del
+         <a href="Ejer:Demo2TFCparaMononotas"> Segundo Teorema Fundamental </a> se pueden relajar.
     </p>
+
     <p>
         Define $f:[0,1] \to \mathbb{R}$ y $F:[0,1] \to \mathbb{R}$ dadas por 
         $$
@@ -620,6 +656,48 @@
         \int_0^1 f(x)dx=F(1)-F(0).
         $$        
     </p>
+    <button class="respButton hvr-grow "> Solución   </button>
+     <div class="resp-box flexbox">
+
+    <p>
+        Es claro que \(F\) es diferenciable en \((0,1/2)\cup(1/2,1)\). Veamos que \(F\) no es 
+        diferenciable en \(1/2\). Tenemos que el límite por la derecha es:  
+        \begin{equation*}
+        \begin{split}
+        \lim_{h\rightarrow 0^+}\frac{F(\frac{1}{2}+h) -F(\frac{1}{2})}{h} = \lim_{h\rightarrow 0^+}\frac{1}{h}\left(\left(\frac{1}{2} +h -\frac{1}{2}\right) -0\right) =  \lim_{h\rightarrow 0^+}\frac{h}{h} = 1
+        \end{split}
+        \end{equation*} 
+    </p>
+    <p>
+        Y el límite por la izquierda es: 
+        \begin{equation*}
+        \begin{split}
+        \lim_{h\rightarrow 0^-}\frac{F(\frac{1}{2}+h) -F(\frac{1}{2})}{h} 
+        = \lim_{h\rightarrow 0^-}\frac{0-0}{h}=  0
+        \end{split}
+        \end{equation*} 
+        Como los límites \(\lim_{h\rightarrow 0^+}\frac{F(\frac{1}{2}+h) -F(\frac{1}{2})}{h} \) 
+        y \( \lim_{h\rightarrow 0^-}\frac{F(\frac{1}{2}+h) -F(\frac{1}{2})}{h} \) son distintos 
+        se tiene que el límite \(\lim_{h\rightarrow 0}\frac{F(\frac{1}{2}+h) -F(\frac{1}{2})}{h} \) 
+        no existe y por lo tanto \(F\) no es diferenciable en \(1/2\).
+    </p>
+    <p>
+        Por otro lado tenemos que \(f\) es integrable por ser una función continua, entonces por la linealidad con respecto a intervalos tenemos : 
+        \begin{equation*}
+        \begin{split}
+        \int_0^1f(x)dx & = \int_0^\frac{1}{2}f(x)dx + \int_\frac{1}{2}^1f(x)dx  = 0 
+        + \int_\frac{1}{2}^1dx  = 1 -\frac{1}{2} = \frac{1}{2}
+        \end{split}
+        \end{equation*} 
+    
+    </p>
+
+    <p>
+        Es decir \(\int_0^1f(x)dx = \frac{1}{2}\). Por otro lado \(F(1) = 1 -1/2 = 1/2\) y \(F(0) = 0\), 
+        lo que implica que \(F(1) -F(0) = 1/2\). Por lo tanto \[   \int_0^1f(x)dx = F(1) -F(0). \]
+    </p>
+    </div>
+
  </div>
 
  <div class="ejercicio-box">
@@ -696,6 +774,136 @@
     </li> 
 
 </ol>
+
+
+<button class="respButton hvr-grow "> Solución inciso 1  </button>
+     <div class="resp-box flexbox">
+
+
+<p>
+    Es claro que \( f\) es una función continua y por lo tanto integrable, 
+    además \(f\geq 0\), entonces consideremos \(F(x)\) la función area dada por \(f\).  
+    Sea \(x\in [0,1]\), entonces \[F(x) = \int_0^xf(y)dy = \int_0^xy dy = \frac{x^2}{2} \] 
+</p>
+<p>
+    Sea \(x \in (1, 2]\), entonces por la linealidad con respecto a intervalos tenemos: 
+    \begin{equation*}
+    \begin{split}
+    F(x) & = \int_0^xf(y)dy  = \int_0^1f(y)dy + \int_1^xf(y)dy \\
+     &  = \int_0^1ydy + \int_1^xdy \\
+     &  = \frac{1}{2} + (x-1) = x -\frac{1}{2}
+     \end{split}
+     \end{equation*} 
+            
+</p>
+<p>
+    Sea \(x > 2\) , entonces: 
+    \begin{equation*}
+    \begin{split}
+    F(x) & = \int_0^xf(y)dy  = \int_0^1f(y)dy + \int_1^2f(y)dy + \int_2^xf(y)dy  \\
+     &  = \int_0^1ydy + \int_1^2dy + \int_2^x(2y -3)dy \\
+     &  = \frac{1}{2} + (2-1) + 2\int_2^xydy -3\int_2^x dy \\
+     & = \frac{3}{2} + 2\cdot\left(\frac{x^2- 2^2}{2}\right) -3(x-2) \\
+     & = x^2 -3x +\frac{7}{2}
+     \end{split}
+    \end{equation*} 
+    
+    
+    Por lo tanto: 
+    \begin{equation*}
+    F(x) =  \left\{
+    \begin{array}{cccc}
+    \frac{x^2}{2}  &   0 \leq  x \leq 1 \\
+    x-\frac{1}{2} &  1 < x \leq 2 \\
+    x^2 -3x +\frac{7}{2} & 2 < x
+    \end{array} \right.
+    \end{equation*}
+        
+</p>
+</div>
+
+
+
+<button class="respButton hvr-grow "> Solución inciso 2  </button>
+     <div class="resp-box flexbox">
+<p>
+    Solución inciso 2.
+</p>
+<p>
+    Observamos que \(F\) es diferenciable en \((0,1)\cup(1,2)\cup(2,\infty)\) y  
+    \(F^\prime(x) = f(x)\), para toda \(x \in (0,1)\cup(1,2)\cup(2,\infty)\). 
+    Por demostrar que \(F\) es diferenciable en 1 y 2. Veamos primero que \(F\) es diferenciable en 1. 
+</p>
+<p>
+    Procederemos a calcular primero el límite por la derecha, 
+    \begin{equation*}
+    \begin{split}
+    \lim_{h\rightarrow 0^+}\frac{F(1+h) -F(1)}{h} = \lim_{h\rightarrow 0^+}\frac{1}{h}\left(\left(1 + 
+    h -\frac{1}{2}\right) -\frac{1}{2}\right) =  \lim_{h\rightarrow 0^+}\frac{h}{h} = 1
+    \end{split}
+    \end{equation*} 
+    
+</p>
+<p>
+    Y el límite por la izquierda es, 
+    \begin{equation*}
+    \begin{split}
+    \lim_{h\rightarrow 0^-}\frac{F(1+h) -F(1)}{h} &= 
+    \lim_{h\rightarrow 0^-}\frac{1}{h}\left(\frac{(1+h)^2}{2} -\frac{1}{2}\right) \\
+    &=  \lim_{h\rightarrow 0^-}\frac{h^2+2h}{h} =  \lim_{h\rightarrow 0^-}\frac{h}{2} +1 = 1
+    \end{split}
+    \end{equation*} 
+
+</p>
+
+
+<p>
+    Como los \(\lim_{h\rightarrow 0^+}\frac{F(1+h) -F(1)}{h}\) y 
+    \( \lim_{h\rightarrow 0^-}\frac{F(1+h) -F(1)}{h}\) existen y son iguales 
+    tenemos que \(\lim_{h\rightarrow 0}\frac{F(1+h) -F(1)}{h}\) existe y por lo tanto 
+    \(F\) es diferenciable en 1 y \(F^\prime(1) = 1 = f(1)\), es decir \(F^\prime(1) = f(1)\).
+</p>
+<p>
+    Ahora veamos que \(F\) es diferenciable en 2. Procederemos de la misma manera calculando primero el 
+    límite por la derecha, 
+</p>
+<p>
+
+\begin{equation*}
+\begin{split}
+\lim_{h\rightarrow 0^+}\frac{F(2+h) -F(2)}{h} & = \lim_{h\rightarrow 0^+}\frac{1}{h}\left((2 +h)^2 -3(2+h) 
++\frac{7}{2} -\frac{3}{2}\right) \\
+ & =  \lim_{h\rightarrow 0^+}\frac{1}{h}\left( 4 + 4h +h^2 -6 -3h +2\right) \\
+ & = \lim_{h\rightarrow 0^+}\frac{h^2 +h}{h} =  \lim_{h\rightarrow 0^+} h+1 = 1
+ \end{split}
+ \end{equation*} 
+
+
+</p>
+<p>
+    Y el límite por la izquierda es, 
+    \begin{eqnarray}
+    \begin{split}
+    \lim_{h\rightarrow 0^-}\frac{F(2+h) -F(2)}{h} &= \lim_{h\rightarrow 0^-}\frac{1}{h}\left(\left(2 +
+    h -\frac{1}{2}\right) -\frac{3}{2}\right) \\
+    &=  \lim_{h\rightarrow 0^-}\frac{h^2+2h}{h} \\
+    &=  \lim_{h\rightarrow 0^-}\frac{h}{h} = 1
+    \end{split}
+    \end{eqnarray} 
+    
+    
+</p>
+<p>
+    Por lo tanto los dos límites \(\lim_{h\rightarrow 0^+}\frac{F(2+h) -F(2)}{h}\) y 
+    \( \lim_{h\rightarrow 0^-}\frac{F(2+h) -F(2)}{h}\) existen y son iguales, entonces 
+    \(F\) es diferenciable en 2 y \(F^\prime(2) = 1 = f(2)\), es decir \(F^\prime(2) = f(2)\).
+</p>
+<p>
+    Concluimos que \(F\) es diferenciable en todo punto de \((0,\infty)\) y \(F^\prime(x) = f(x)\), 
+    para toda \(x \in (0, \infty)\).
+</p>
+</div>
+
 </div>
 
 <div class="ejercicio-box">
@@ -917,6 +1125,41 @@
         \int_c^x f(t)dt= \sen(3x)+\frac{1}{3}, \quad \forall x\in \mathbb{R}.
         $$
     </p>    
+    <button class="respButton hvr-grow "> Solución  </button>
+    <div class="resp-box flexbox">
+
+    <p>
+        Supongamos que existe una función continua \(f(x)\), y un valor constante \(c\) 
+        tal que:  \[ \int_c^xf(t) dt = \sen (3x) + \frac{1}{3}, \hspace{3pt} \forall x \in \mathbb{R}. \] 
+    </p>
+    <p>
+        Entonces por el \textbf{Primer Teorema Fundamental} tenemos: 
+        \[ f(x) = \frac{d}{dx}\left(\int_c^xf(t) dt\right) = \frac{d}{dx}\left(\sen (3x) 
+        + \frac{1}{3}\right) = 3\cos (3x) . \]
+    </p>
+    <p>
+        Y si definimos \(F: [c, x]\rightarrow \mathbb{R}\) dada por \(F(y) = \sen (3y)\) 
+        tenemos que \(F\) es una antiderivada de \(f\) en \((c,x)\). Entonces por el 
+        <i>Segundo Teorema Fundamental </i> tenemos : 
+        \[  \int_c^xf(t) dt = F(x) - F(c) = \sen (3x) - \sen (3c). \]
+    </p>
+    <p>
+        Esto implica que \( \sen (3x) + \frac{1}{3} = \sen (3x) - \sen (3c) \) para 
+        toda \(x \in \mathbb{R}\). Por lo tanto, \(\sen (3c) = -\frac{1}{3}\),  como 
+        la función \(\sen(\cdot)\) es invertible en \([-\frac{\pi}{2}, \frac{\pi}{2}] \) y 
+        su inversa es \(\arcsen : [-1, 1] \rightarrow [-\frac{\pi}{2}, \frac{\pi}{2}] \), 
+        entonces se tiene que \( 3c = \arcsen\left(-\frac{1}{3}\right)\), es decir 
+        \(c = \frac{1}{3}\arcsen\left(-\frac{1}{3}\right)\).
+    </p>
+
+    <p>
+        Por lo tanto, la función continua \(f(x)= 3\cos (3x)\) y el valor 
+        \(c = \frac{1}{3}\arcsen\left(-\frac{1}{3}\right)\) satisfacen la ecuación 
+        \[ \int_c^xf(t) dt = \sen (3x) + \frac{1}{3}, \hspace{3pt} \forall x \in \mathbb{R}. \] 
+    </p>
+
+</div>
+
 </div>
 
 
