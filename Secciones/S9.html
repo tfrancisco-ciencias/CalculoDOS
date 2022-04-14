@@ -119,17 +119,11 @@
         continua en $[a,b]$, derivable en $(a,b)$ y 
         con derivada integrable  en $[a,b]$.  Entonces
         $$
-        \int_{u(a)}^{u(b)}g(t)dt =\int_{a}^{b} g(u(x))u'(x)dx
+        \int_{a}^{b} g(u(x))u'(x)dx = \int_{u(a)}^{u(b)}g(t)dt 
         $$
         
     </p>
-    <p>
-        Nota: Para aplicar el teorema de manera eficiente se hace lo siguiente:
-        se propone el cambio de variable \(t=u(x)\), entonces usando diferenciales 
-        \(dt=u'(x)dx\), además si \(x=a, t=u(a)\) y si \(x=b, t=u(b)\). Substituyendo 
-        directamente estos valores en \(\int_a^b g(u(x))u'(x)dx\) obtenemos 
-        \(\int_{u(a)}^{u(b)} g(t)dt\). 
-    </p>
+    
     <button class="respButton hvr-grow "> Demostración  </button>
      <div class="resp-box flexbox">
     <p>
@@ -184,8 +178,47 @@
 </div>
 
 
+
+<div class="nota-box">
+    <h2 class="number-title"> Notas</h2>
+    <ul>
+        <li>
+            La fórmula del <a href="#Teo:CambioDeVariable"> Teorema de cambio de variable</a> se puede 
+            aplicar de  "izquierda a derecha" o de "derecha a izquierda". Hay ocasiones en las que se 
+            inicia con una integral complicada que tiene una forma general como 
+            \[
+            \int_a^b g(u(x))u'(x)dx
+            \]
+            la cual se puede reducir a una de la forma 
+            \[
+            \int_{u(a)}^{u(b)}g(t)dt
+            \]
+            la cual se espera que sea más sencilla de calcular. En este caso para resolver la integral 
+            se propone el cambio de variable \(t=u(x)\), entonces usando diferenciales 
+            \(dt=u'(x)dx\), además si \(x=a, t=u(a)\) y si \(x=b, t=u(b)\). Substituyendo 
+            directamente estos valores en \(\int_a^b g(u(x))u'(x)dx\) obtenemos 
+            \(\int_{u(a)}^{u(b)} g(t)dt\). Ver <a href="#Ejer:Aplicacion1TeoCV"> Ejercicio 9.4</a> para 
+            éste tipo de aplicación.
+        </li>
+        <li>
+            La otra forma de aplicar el <a href="#Teo:CambioDeVariable"> Teorema de cambio de variable</a>
+            es iniciar con una integral de la forma 
+            \[
+            \int_{a'}^{b'}g(t)dt
+            \]
+            y uno busca un cambio de variable \(t=u(x)\) para poder calcular la integral. Esta forma 
+            de aplicar el teorema es más delicada pues la función \(u(x)\) que se debe de proponer 
+            no esta sugerida explícitamente en ninguna parte de la integral. Por ejemplo la substitución 
+            trigonométrica o hiperbólica son de este tipo. Ver  <a href="#Nota:SubsTrig"> Nota 9.13</a> para 
+            éste tipo de aplicación.
+        </li>
+    
+    </ul>
+    
+</div>
+
 <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio </h2> 
+    <h2 class="number-title" id="Ejer:Aplicacion1TeoCV"> Ejercicio </h2> 
     <p>
         Calcular 
         $$
@@ -386,6 +419,196 @@
 	</li> 
 
 </ol>
+</div>
+
+
+
+<div class="nota-box">
+    <h2 class="number-title" id="Nota:SubsTrig"> Nota </h2>
+    <h3> Substitución trigonométrica </h3>
+    <p>
+        La substitución trigonométrica propone un cambio de variable que involucra alguna 
+        función trigonométrica para tratar de calcular una integral. Consideremos el ejemplo 
+        \[
+            \int_{0}^4 \sqrt{25-t^2}dt
+        \]
+        Para aplicar el 
+        <a id="##Teo:CambioDeVariable">Teorema de cambio de variable</a> no es conveniente iniciar 
+        la solución tratando de ver a la integral en la forma \(\int g(u(x))u'(x)dx\) pues no es claro qué parte de la integral 
+        debería ser \(u'(x)\). En vez de ésto vamor a proponer un cambio de variable trigonométrico \(x=u(t)\)
+        para llevar ésta integral a una de la forma \(\int g(u(x))u'(x)dx\) la cual se espera sea más sencillo de calcular.
+    </p>
+    <p>
+        Proponemos el cambio \(t=5\cos(x)\). Como tenemos que \(0\leq t \leq 4\)
+        debemos de tener que \(0\leq 5\cos(x) \leq 4\) o equivalentemente \( \arccos(4/5) \leq x \leq \arccos(0)=\pi/2\)
+        (recordar que \(\arccos\) es decreciente). Sacando 
+        diferenciales obtenemos \(dt = -5\sen(x)dx \). Aplicando el 
+        <a id="##Teo:CambioDeVariable">Teorema de cambio de variable </a>
+        obtenemos 
+        \begin{eqnarray*}
+        \int_{0}^4 \sqrt{25-t^2}dt &=&  \int_{\arccos(0)}^{\arccos(4/5)} \sqrt{25-25\cos^2(x)}(-5\sen(x)) dx \\
+        &=& -25\int_{\arccos(0)}^{\arccos(4/5)}\sen(x)\sqrt{1-\cos^2(x)} dx \\
+        &=& 25 \int_{\arccos(4/5)}^{\pi/2} \sen(x)|\sen(x)|dx
+        \end{eqnarray*}
+        Para tratar el valor absoluto del integrando notamos que para \(x\in [\arccos(4/5),\pi/2]\)
+        la función \(\sen\) es  positiva por lo tanto 
+        \[
+        \int_{0}^4 \sqrt{25-t^2}dt=25\int_{\arccos(4/5)}^{\pi/2} \sen^2(x)dx
+        \]
+    </p>
+    <p>
+        Ahora debemos de calcular la integral 
+        \[
+        \int_{\arccos(4/5)}^{\pi/2} \sen^2(x)dx
+        \]
+        para lo cual usamos la identidad \(1-\cos(2x)=2\sen^2(x)\)
+        para obtener 
+        \[
+        \int_{\arccos(4/5)}^{\pi/2} \sen^2(x)dx=\frac{1}{2}\int_{\arccos(4/5)}^{\pi/2} (1-\cos(2x))dx 
+        \]
+        la cual se puede hacer mediante el cambio de variable \(u=2x\)
+        \begin{eqnarray*}
+        \frac{1}{2}\int_{\arccos(4/5)}^{\pi/2} (1-\cos(2x))dx &=& \frac{1}{2}\int_{\arccos(4/5)}^{\pi/2} 1dx 
+        -
+        \int_{\arccos(4/5)}^{\pi/2}\cos(2x))dx \\
+        &=&\frac{1}{2}\left( \frac{\pi}{2}-\arccos(4/5)\right)-\frac{1}{2}\int_{2\arccos(4/5)}^{\pi}\cos(u)du \\
+        &=& \frac{1}{2}\left( \frac{\pi}{2}-\arccos(4/5)\right) - \frac{1}{2}\left(\sen(\pi)-\sen(2\arccos(4/5)) \right)\\
+        &=& \frac{1}{2}\left( \frac{\pi}{2}-\arccos(4/5)\right) + \frac{1}{2}\sen(2\arccos(4/5)) \\
+        &=& \frac{1}{2}\left( \frac{\pi}{2}-\arccos(4/5)\right) + \sen(\arccos(4/5)) \cos(\arccos(4/5)) \\
+        &=&\frac{1}{2}\left( \frac{\pi}{2}-\arccos(4/5)\right) + \frac{4}{5}\sen(\arccos(4/5))\\
+        &=& \frac{\pi}{4} +\frac{3}{10}\sen(\arccos(4/5))
+        \end{eqnarray*}
+    </p>
+    <p>
+        Por lo tanto 
+        \begin{eqnarray*}
+        \int_{0}^4 \sqrt{25-t^2}dt&=&25\int_{\arccos(4/5)}^{\pi/2} \sen^2(x)dx \\
+        &=& 25\left( \frac{\pi}{4} +\frac{3}{10}\sen(\arccos(4/5))\right)
+        \end{eqnarray*}
+    </p>
+    
+</div>
+
+<div class="nota-box">
+    <h2 class="number-title"> Nota </h2>
+    <h3> Tabla para substitución trigonométrica</h3>
+    <p>
+        Las identidades $1=\sen^2(\theta)+\cos^2(\theta)$ y  $1+\tan^2(\theta)=\sec^2(\theta)$ son útilies en la substitución trigonométrica.
+        Además la siguiente tabla es útil.
+        
+    </p>
+
+    <table>
+        <tr>
+            <th >Expresión </th>  
+            <th >Substitución</th> 
+            <th  > Rango </th> 
+            <th >Diferencial </th> 
+        </tr> 
+        <tr>
+            <th  >$\sqrt{a^2-x^2}$</th>
+            <th >  $x=a\sen(\theta)$</th>  
+            <th > $-\pi/2 \leq \theta \leq \pi/2$</th> 
+            <th >$dx=a\cos(\theta)$</th>
+        </tr>
+        <tr>
+            <th > $\sqrt{a^2+x^2}$</th> 
+            <th >$x=a\tan(\theta)$ </th> 
+            <th > $-\pi/2 < \theta < \pi/2$ </th>
+            <th > $dx=a\sen^2(x)dx$  </th>  
+        </tr>
+         <tr>
+            <th > $\sqrt{x^2-a^2}$</th> 
+            <th >$x=\sen(\theta)$  </th> 
+            <th > $0 \leq \theta < \pi/2, \pi\leq \theta < 3\pi/2$ </th>
+            <th >$dx=\sec(\theta)\tan(\theta)$</th>  
+         </tr>
+        
+        </table>
+        
+</div>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Calcular $\int \frac{\sqrt{16-x^2}}{x^2}dx$.
+    </p>
+    <p>
+        Sugerencia: $ \tan^2(\theta)  =\sec^2(\theta) -1$.        
+    </p>
+
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Calcular $\int \frac{1}{x^2\sqrt{x^2+9}}dx$.
+    </p>
+    <p>
+        Sugerencia: $\frac{\sec^2(\theta)}{\tan^2(\theta)\sec(\theta)}=\frac{\cos(\theta)}{\sen^2(\theta)}$.
+    </p>
+
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Calcular $\int \frac{x}{\sqrt{2-4x-x^2}}$.
+    </p>
+    <p>
+        Sugerencia: completa el cuadrado en $2-4x-x^2$.
+    </p>
+
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Encuentra el area encerrada por la elipse
+        $$
+        \frac{x^2}{a^2}+\frac{y^2}{b^2}=1.
+        $$
+    </p>
+    
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Calcula las siguientes integrales.
+
+<ol>
+	<li>$\int_{\sqrt{3}}^3 \frac{1}{t^3\sqrt{t^2-1}}$</li> 
+	<li>$\int_0^2 \frac{x}{\sqrt{25-x^2}}dx$</li> 
+	<li>$\int \frac{2x}{\sqrt{x^2+x+1}}$.</li> 
+</ol>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Prueba la fórmula, $A=\frac{1}{2}r^2\alpha $,  para el área
+        de un segmento circular con ángulo $\alpha$ y radio $r$. 
+    </p>
+    <p>
+        Sugerencia: primero justifica que puedes suponer que $0< \alpha < \pi/2$. Para éste caso, asume que el segmento proviene del círculo
+        $x^2+y^2=r^2$ y escribe a el área $A$ como la suma del área
+        de un triángulo y una región bajo la gráfica de una función adecuada
+    </p>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Usa una substitución trigonométrica para probar
+        $$
+        \int_0^x \sqrt{a^2-t^2}dt=\frac{1}{2}a^2\arcsen(x/a)+\frac{1}{2}x\sqrt{a^2-x^2}
+        $$ 
+    </p>
 </div>
 
 </body>
