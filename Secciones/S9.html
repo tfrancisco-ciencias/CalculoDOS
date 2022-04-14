@@ -1,512 +1,391 @@
 
+<!DOCTYPE html PUBLIC >
 
-\section*{Teoremas Fundamentales}
-
-
-Los teoremas fundamentales del cálculo son como las dos caras de una misma moneda. El primer  Teorema Fundamental
-es visto desde la perspectiva de las derivadas y el segundo desde la perspectiva de las antiderivadas.
-
-\subsection*{Versión Antiderivadas}
-
-<div class="definicion-box">
-Dada una función $f$, una antiderivada de $f$ (ó primitiva),  en $(a,b)$, es una
-función $F$  tal que $F'(x)=f(x)$ para toda $x$ en $(a,b)$.
-
-Notación: escribimos $\int f(x)dx$ o $\int f$ para denotar una antidarivada de $f$ y se 
-se denominan integrales indefinidas.
-
-</div>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentra anti-derivadas de las siguintes funciones:
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
-<ol>
-    <li>$e^x$, $x\in \mathbb{R}$;</li> 
-    <li>$\sen(x)$, $x\in \mathbb{R}$;</li> 
-    <li>$\cos(x)$, $x\in \mathbb{R}$;</li> 
-    <li>
-        para $p \in \mathbb{Q}$, $p>0$: $x^p$, $x\in (0,\infty)$. Sugerencia: usa el ejercicio \ref{Ejer:DerivadasPotenciasRacionales}.
-    </li> 
-</ol>
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Si $F_1$ y $F_2$ son primitivas de $f$ en $(a,b)$, demuestra que existe una constante $c$ tal que
-$F_1(x)=F_2(x)+c$, para todo $x\in (a,b)$.
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
 
 
-<div class="teorema-box">\label{Teo:TF-2}[Segundo Teorema Fundamental]
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            arcsen: "\\operatorname{arcsen}",
+            arcsec: "\\operatorname{arcsec}"
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 8 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 8 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
 
 
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
 
-Supon que $f:[a,b] \to \mathbb{R}$ es continua en todo punto de  $[a,b]$; que $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ y $F$ es una antiderivada de
-$f$ en $(a,b)$. Entonces
-$$
-\int_a^bf(x)dx=F(b)-F(a).
-$$
-</div>
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio justifica porqué la integral de la velocidad es la distancia.
-
-Imagina una partícula que se mueve sobre el eje de las $x$ y por $x(t)$ denotemos
-la positión (tomando al cero como marco de referencia)  de la particula en el tiempo $t$ y 
-por $v(t)$ denotamos a la velocidad de la partícula. Es decir $x'(t)=v(t)$.
-
-Decimos que  $\int_a^b v(t)dt$ representa la distancia neta recorrida, del tiempo $a$ al tiempo
-$b$, pues usando sumas de Riemann tenemos la siguiente aproximación:
-$$
-\sum_{i=1}^n v(\xi_i)(x_i-x_{i-1}) \sim \textrm{distancia neta recorrida del tiempo $a$ al tiempo $b$}
-$$
-
-Usa el teorema fundamental para probar
-$$
-\int_a^b v(t)dx=x(b)-x(a).
-$$
-Nota que $x(b)-x(a)$ es el cambio neto de la distancia desde el tiempo $a$ al tiempo $b$.
-
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Recuerda que si $a < b$ definimos $\int_b^a f(x)dx=-\int_a^b f(x)dx$. Con esta notación demuestra que el segundo Teorema
-Fundamental sigue siendo válido si intercambiamos $a$ y $b$, es decir, si $F$ es una antiderivada de $f$ en $(a,b)$, entonces
-$$
-\int_b^a f(x)dx= F(a)-F(b).
-$$ 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Recuerda que si $f:[a,b]\to \mathbb{R}$ es integrable en $[a,b]$ y $c\in (a,b)$ entonces
-$$
-\int_a^cf(x)dx+\int_c^b f(x)dx=\int_a^b f(x)dx.
-$$
-
-Ahora, asume que $F$ es una antiderivada de $f$ en $(a,b)$. Usa el segundo Teorema Fundamental para dar otra
-prueba de ésta fórmula.
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Por el ejercicio \ref{Ejer:RectaSoporteExpEnCero} sabemos que, para todo $x\in \mathbb{R}$:
-$$
-e^x \geq 1+x.
-$$
-
-<ol>
-
-    <li>
-        Fija $x>0$. Integra ambos lados de la desigualdad anterior en el intervalo $[0,x]$ y usa el Segundo Teorema Fundamental para obtener
-$$
-e^x \geq 1+x +\frac{x^2}{2}.
-$$
-    </li> 
-<li>Generaliza el ejercicio anterior y prueba que, para todo natural $n\geq 1$:
-    $$
-    e^x \geq \sum_{k=0}^n \frac{x^k}{k!}.
-    $$
+      <!-- This part is for title in tab-->
+      <title> § 9 </title>
     
-    Nota que $\sum_{k=0}^n \frac{x^k}{k!}$ es el $n$-ésimo polinomio de Taylor de $e^x$. Asi que el ejercicio dice que, en $[0, \infty)$, las gráficas de  los polinomios de Taylor de $e^x$  están por debajo de la gráfica de $e^x$.</li> 
+  </head>
 
-<li>\textquestiondown Es cierto que 
-    $$
-    e^x \geq \sum_{k=0}^n \frac{x^k}{k!}
-    $$
-    si $x < 0 $? Demuestra o da un contraejemplo.</li>  
+<body class="fondo-body" >
 
-</ol>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:IntegralPotenciasRacionales}  Vimos en el ejercicio  \ref{Ejer:IntegralPotenciasNaturales} que para todo $k\in \mathbb{N}$ y $0\leq a < b$:
-
-$$
-\int_a^b x^k dx=\frac{b^{k+1}-a^{k+1}}{k+1}.
-$$
-
-Este ejercicio generaliza está fórmula para cuando $k$ es racional. 
-
-Toma $p=\frac{n}{m}$, $m,n \in \mathbb{N}$, $m\ne 0$, un potencia natural. Usa el segundo Teorema Fundamental para demostrar que, para $0 \leq a < b$:
-
-$$
-\int_a^b x^pdx=\frac{b^{p+1}-a^{p+1}}{p+1}.
-$$
+<h1 class="number-title flexbox"> Integración por substitución </h1>
 
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio da una idea sobre la prueba del Segundo Teorema Fundamental. Recordemos que, por el ejercicio \ref{Ejer:AproximacionSumasRiemann},  dada  $f:[a,b] \to \mathbb{R}$, una función continua en todo punto de $[a,b]$, ésta es integrable y
-\begin{equation}\label{Eqn:LimiteSumasRiemann}
-\lim_{n\to \infty} \sum_{i=1}^n f(r_{i})(x_i-x_{i-1})=\int_a^b f(x)dx.
-\end{equation}
-donde $P=\{x_i\}_{i=1}^n$ es la partición homogenea de longitud n y los $r_{i}$, $i=1,\dots, n$, son puntos cualesquiera en el intervalo $[x_{i-1},x_i]$.
+<div class="info-box">
+    <h2 class="number-title"> Introducción</h2>
+    <p>
+        Las fórmulas para la integrales con traslacion, ejer \ref{Ejer:CambioVariableTranslaciones} y con reescalamientos, \ref{Ejer:CambioVariableReescalemientos}, son casos particulares de una técnica de integración llamada integración por substitución.
 
-<ol>
-    <li>
-        Toma $f(x)=x$, $x\in \mathbb{R}$, y $r_{i}$ los puntos medios del los intervalos $[x_{i-1},x_i]$, es decir $r_{i}=\frac{x_{i-1}+x_i}{2}$. Demuestra
-que
-$$
-\sum_{i=1}^n f(r_i)(x_i-x_{i-1})=\frac{b^2-a^2}{2}.
-$$
-Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b xdx=\frac{b^2-a^2}{2}$.
-    </li> 
-
-<li>
-    Toma $f(x)=x^2$, $x\in \mathbb{R}$, y define $r_i=\sqrt[2]{(x_{i-1}^2+x_{i-1}x_i+x_i^2)/3}$. Prueba que $r_i \in [x_{i-1}, x_i]$ y que
-$$
-\sum_{i=1}^n f(r_i)(x_i-x_{i-1})=\frac{b^3-a^3}{3}
-$$
-Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b x^2dx=\frac{b^3-a^3}{3}$.
-</li> 
-
-
-<li>
-    Toma $f(x)=\frac{1}{x^2}$, $x>0$. Define $r_i=\sqrt{x_{i-1}x_i}$. Prueba que $r_i\in [x_{i-1},x_i]$ y que 
-$$
-\sum_{i=1}^n f(r_i)(x_i-x_{i-1})=\frac{1}{a}-\frac{1}{b}
-$$
-Concluye usando \eqref{Eqn:LimiteSumasRiemann} que $\int_a^b \frac{1}{x^2}dx=\frac{1}{a}-\frac{1}{b}$, con $0< a < b$.
-</li> 
-</ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:Demo2TFC} Este ejercicio da una demostración del segundo Teorema Fundamental.
-
-Sea $f:[a,b]\to \mathbb{R}$ una función  continua. 
-
-<ol>
-    <li>
-        Fija $\varepsilon>0$. Demuestra que existen un $n \in \mathbb{N}$, tal que si $P=\{ x_i\}_{i=0}^n$ es la partición homogenea de longitud $n$, entonces
-$$
-\omega f ([x_{i-1},x_i]) < \frac{\varepsilon}{2(b-a)},
-$$
-para toda $i=1,\dots, n$. Sugerencia: usa el ejercicio \ref{Ejer:ContinuidadUniformeEnCompactos}.
-
-    </li> 
-<li>
-    Demuestra que si $r_i \in [x_{i-1}, x_i]$, es una elección cualquiera de puntos, entonces
-
-$$
-\left|  \sum_{i=1}^n f(r_i)(x_i-x_{i-1}) - \int_a^b f(x)dx  \right| <\varepsilon
-$$
-
-Sugerencia: usa el ejericio \ref{Ejer:AproximacionSumasRiemann}.
-</li> 
-
-<li>
-    Asume que $F:(a,b)\to \mathbb{R}$ es una antiderivada de $f$ en $(a,b)$. Demuestra que existen puntos $c_i \in (x_{i-1},x_i)$, 
-$i=1,\dots, n$ tales que
-$$
-f(c_i)(x_i-x_{i-1})=F(x_i)-F(x_{i-1})
-$$
-Sugerencia: aplica el Teorema del Valor Medio a $F$.
-
-</li> 
-
-<li>Concluye de los dos incisos anteriores que, para todo $\varepsilon>0$,
-
-    $$
-    \left|  F(b)-F(a) - \int_a^b f(x)dx \right| < \varepsilon
-    $$
-     lo cual demuestra el segundo Teorema Fundamental.
-    </li> 
-</ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Para las siguientes funciones $f$, encuentra una anti-derivada y calcula $\int_a^b f(x)dx$.
-<ol>
-    <li>$f(x)=\frac{x^4-x+3}{x^3}$, $x>0$.</li> 
-    <li>$f(x)=(1+\sqrt{x})^2$, $x>0$.</li> 
-    <li>$f(x)=x^{4/3}-5\cos(x)$, $x\in \mathbb{R}$. </li> 
-</ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando una combinación de un cambio de variable lineal y el segundo T.F.C. calcula las siguientes integrales.
-
-<ol>
-    <li>$\int_{0}^{\pi} 3\sen(3x+2)dx$.</li> 
-    <li>$\int_0^{\pi} \cos(5x-2)dx$.</li> 
-    <li>$\int_{0}^2 x\sqrt{x+1}dx$.</li> 
-    <li>$\int_1^2 x^2\sqrt[3]{x+2}dx$.</li> 
-    <li>$\int_0^1 6xe^{3x^2-5x+1}dx-5 \int_0^1 e^{3x^2-5x+1}dx$.</li> 
-    <li>Para $\omega >0$, $\int_0^{2\pi} \cos(\omega x)dx $ y $\int_0^{2\pi}\sen(\omega x)dx$.</li> 
-    <li>Para $c, d \in \mathbb{R}$ constantes, $\int_{a}^b e^{cx+m}dx$.</li> 
-
-</ol>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sean $a,b \in \mathbb{R}$ tal que $b-a$ es un múltiplo entero de $2\pi$. Demuestra que
-$$
-\int_a^b \cos(x)e^{\sen(x)}dx=0=\int_a^b \sen(x)e^{\cos(x)}dx.
-$$
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentra el conjunto de pareas de reales $a,b$, con $a < b$, tales que
-$$
-\int_a^b 2xe^{x^2-1}dx=0.
-$$
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando el segundo T.F.C. encuentra una fórmula general para
-$$
-\int_a^b x^{n}e^{x^{n+1}}dx
-$$
-donde $n \geq 1$ es un natural.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $g:\mathbb{R}\to \mathbb{R}$ una función diferenciable en todo $\mathbb{R}$, con derivada continua en todo $\mathbb{R}$. Usando el segundo T.F.C. encuentra una fórmula general para
-$$
-\int_a^b g'(x)\sen(g(x))dx, \quad \int_a^b g'(x)\cos(g(x))dx.
-$$
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentras las siguientes integrales indefinidas.
-<ol>
-    <li>$\int c dx$, donde $c\in \mathbb{R}$ es una constante.</li> 
-    <li>$\int x^n dx$, donde $n\in \mathbb{N}$.</li> 
-    <li>$\int \sen(x)dx$.</li> 
-    <li>$\int \cos(x)dx$.</li> 
-    <li>$\int \sec^2(x)dx$.</li> 
-    <li>$\int \csc^2(x)dx$.</li> 
-    <li>$\int sec(x)tan(x)dx$.</li> 
-    <li>$\int \csc(x)\cot(x)dx$.</li> 
-</ol>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra las siguientes fórmulas para las integrales indefinidas dadas, donde $a>0$ es una constante.
-
-<ol>
-    <li>$\int \frac{1}{\sqrt{a^2-x^2}}dx=\arcsen(x/a)+c$.</li>  
-    <li>$\int \frac{1}{x^2+a^2}dx=\frac{1}{a}\arctan(x)+c$.</li>  
-    <li>$\int \frac{1}{x\sqrt{x^2-a^2}}dx=\frac{1}{a}\arcsec(x/a)+c$.</li> 
-</ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:Demo2TFCparaMononotas} En la  versión del segundo T.F.C. que se presenta  en el ejercicio \ref{Ejer:Demo2TFC} , se pide en las hipótesis  que la $f$ sea continua en $[a,b]$, pero se puede cambiar ésta hipótesis pidiendo ahora que $f$ sea monónotan en $[a,b]$. Es decir:
-
-<div class="teorema-box">
-Supon que $f:[a,b] \to \mathbb{R}$ es monótona en  $[a,b]$; que $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ y $F$ es una antiderivada de $f$ en $(a,b)$. Entonces
-$$
-\int_a^bf(x)dx=F(b)-F(a).
-$$
-</div>
-
-Usa ahora el ejercicio \ref{Ejer:LimiteSumasRiemannDeMonotonas} y las mismas ideas que en el ejercicio \ref{Ejer:Demo2TFC} para demostrar esta versión del segundo T.F.C.
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> En este ejercicio vemos un ejemplo donde las hipótesis de la  versión del segundo T.F.C. dada en  \ref{Ejer:Demo2TFCparaMononotas} se pueden relajar.
-
-Define $f:[0,1] \to \mathbb{R}$ y $F:[0,1] \to \mathbb{R}$ dadas por 
-$$
-f(x)=\left\{
-\begin{array}{cc}
-0 \quad \textrm{si $0\leq x < 1/2$} \\
-1 \quad \textrm{si $1/2\leq x \leq 1$}
-\end{array}
-\right.
-\quad 
-F(x)=\left\{
-\begin{array}{cc}
-0 \quad \textrm{si $0\leq x < 1/2$} \\
-x-1/2 \quad \textrm{si $1/2\leq x \leq 1$}
-\end{array}
-\right.
-$$
-
-Demuestra que $F'(x)=f(x)$, para todo $x\in [0,1]$ excepto en $x=1/2$ y que
-$$
-\int_0^1 f(x)dx=F(1)-F(0).
-$$
- 
- <div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:Demo2TFCparaMononotas} Usa el ejercicio \ref{Ejer:Demo2TFCparaMononotas} para probar la siguiente versión del segundo T.F.C.
-
-<div class="teorema-box">
-Supon que $f:[a,b] \to \mathbb{R}$ es monótona en  $[a,b]$. Supon  que $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ excepto en $E \subset (a,b)$, un conjunto finito de $(a,b)$ y que  $F'(x)=f(x)$ para todo $x\in (a,b)\setminus E$. Entonces
-$$
-\int_a^bf(x)dx=F(b)-F(a).
-$$
-</div>
-
- 
-\subsection*{Versión derivadas}
-
-
-<div class="definicion-box">
-Supongamos que $f:[a,b] \to \mathbb{R}$ es una función integrable y que $f(x) \geq 0$, para toda $x\in [0,1]$. La función area bajo la 
-gráfica de $f$ es la función $F:[a,b]\to \mathbb{R}$ dada por
-$$
-F(x):=\int_a^xf(t)dt
-$$
-
-Nota que $F(x_0)$ se puede interpretar como el área bajo la gráfica de $f$ entre las rectas $x=a$ y $x=x_0$.
-</div>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Define $f:[0,\infty) \to \mathbb{R}$ dada por
-$$
-f(x)=\left\{
-\begin{array}{cc}
-x &  0 \leq x \leq 1 \\
-1 & 1< x \leq 2 \\
-2x-3 & 2< x
-\end{array}
-\right.
-$$
-
-<ol>
-    <li>Sea $F(x)$ la función area dada por $f$. Prueba que:
+        De manera informal, dado el cambio de variable  $u(x)$, $x\in [c,d]$, se escribe $u'(x)dx=du$, se sustituye esto en
+        $\int_a^b g(u(x))u'(x)dx$ y se calcula  $\int_{u(a)}^{u(b)} g(u)du$. El teorema del cambio de variable
+        relaciona estas dos integrales como:
+        
         $$
-        F(x)=\left\{
-        \begin{array}{cc}
-        \frac{x^2}{2} &  0 \leq x \leq 1 \\
-        x - \frac{1}{2} & 1< x \leq 2 \\
-        x^2-3x+\frac{7}{2} & 2< x
-        \end{array}
-        \right.
-        $$</li> 
-<li>Demuestra que $F$ es diferenciable en todo punto de $(0,\infty)$ y que $F'(x)=f(x)$, para toda $x\in (0,\infty)$.</li> 
-
-</ol>
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $I$ un intervalo y fija  una función integrable $f: I \to \mathbb{R}$. Con estos datos  crea una nueva función 
-
-$$
-\tilde{F}(x):=\int_a^x f(t)dt,
-$$
-donde $a\in I$ es fijo y arbitrario.
-
-
-Para cada una de las funciones dadas $f$, encuentra la regla de correspondencia de $\tilde{F}$ y después calcula $\tilde{F}'(x)$.
-<ol>
-    <li>$f(x)=x^2$,  con $a=0$;</li> 
-    <li>$f(x)=x^2$, con $a=1$;</li> 
-    <li>$f(x)=e^x$, con $a=0$;</li> 
-    <li>$f(x)=e^{5x+2}$, con $a=-1$.</li> 
-    <li>$f(x)=\cos(x)$, $a=0$;</li> 
-    <li>$f(x)=\sen(x)$, $a=0$; </li> 
-</ol>
-
-
-<div class="teorema-box">[Primer Teorema Fundamental]
-
-Sea $f:[a,b]\to \mathbb{R}$ continua en todo punto de $[a,b]$.
-
-$$
-\frac{d}{dx}\left( \int_a^x f(t)dt  \right)=f(x)
-$$
-
-
-</div>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:LemaDemo1TFC} Sea $f:[a,b] \to \mathbb{R}$ una función integrable. 
-<ol>
-    <li>Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
-        $$
-        f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
-        $$
-        para toda $x\in [x_0, x_0+\delta)$.
-        </li> 
-<li>Si $f$ es continua por la derecha en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
-    $$
-    -\varepsilon \leq \frac{\int_{x_0}^x f(t)dt }{x-x_0} -f(x_0) \leq \varepsilon 
-    $$
-    para todo $x\in [x_0, x_0+\delta)$.
-    </li> 
-<li>Si $f$ es continua por la derecha en $x_0$, demuestra que
-    $$
-    \lim_{x\to x_0^+} \frac{\int_{x_0}^{x}f(t)dt}{x-x_0}=f(x_0).
-    $$</li> 
-
-<li>Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta >0$ tal que
-    $$
-    f(x_0)- \varepsilon \leq f(x) \leq f(x_0)+\varepsilon
-    $$
-    para toda $x\in (x_0-\delta, x_0]$.</li> 
-
-<li>Si $f$ es continua por la izquierda en $x_0$, demuestra que, dada $\varepsilon>0$, existe $\delta>0$ tal que,
-    $$
-    -\varepsilon \leq \frac{\int_{x}^{x_0} f(t)dt }{x_0-x} -f(x_0) \leq \varepsilon 
-    $$
-    para todo $x\in (x_0-\delta, x_0]$.</li> 
-
-<li>Si $f$ es continua por la izquierda en $x_0$, demuestra que
-    $$
-    \lim_{x\to x_0^-} \frac{\int_{x}^{x_0}f(t)dt}{x_0-x}=f(x_0).
-    $$
-    </li> 
-</ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usa el ejercicio \ref{Ejer:LemaDemo1TFC} para demostrar el primer Teorema Fundamental.
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:[a,b] \to \mathbb{R}$ una función continua en $[a,b]$. Usando el Primer Teorema Fundamental demuestra que
-$f$ tiene una antiderivada.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio demuestra que el Primer Teorema Fundamental implica el segundo Teorema Fundamental.
-
-Sea $f:[a,b] \to \mathbb{R}$ una función continua  y sea $F:[a,b] \to \mathbb{R}$ cualquier antiderivada para $f$ en $(a,b)$. 
-
-<ol>
-    <li>Define $\tilde{F}:[a,b] \to \mathbb{R}$ por 
-        $$
-        \tilde{F}(x)=\int_a^x f(t)dt
+        \int_{u(a)}^{u(b)}f(u)du=\int_a^b f(u(x))u'(x)dx.
         $$
         
-        Demuestra que existe una constante tal que $F(x)=\tilde{F}(x)+c$, para toda $x\in [a,b]$.
-        </li> 
-<li>Usando el inciso anterior y la función $\tilde{F}$ demuestra que
-    $$
-    \int_a^b f(t)dt=F(a)-F(b).
-    $$</li> 
-</ol>
+        El Teorema de Cambio de Variable es úitl pues escencialemente es puramente algebráico; es decir, dado $u$, encontrar
+        $du$ y substituir para obtener una integral más sencilla a la original.
+        
+    </p>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sin calcular las siguientes integrales, encuentra $F'(x)$, si $F(x)$ está dada por
-<ol>
-    <li>$F(x)=\int_0^x (1+t^2)^{-4}dt$.</li> 
-    <li>$F(x)=\int_0^{x^2} (1+t^2)^{-4}dt$.</li> 
-    <li>$F(x)=\int_{x}^{x^3} (1+t^2)^{-4}dt$.</li> 
-    <li>$F(x)=\int_{\cos(x)}^{\sen(x)} \sen(x)dx$.</li> 
-</ol>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encontrar una función continua $f(x)$, que satisface la ecuación
-$$
-\int_0^x f(t)dt=x+2x^2+\frac{1}{3}x^3, \quad \forall x\in \mathbb{R}.
-$$
-Calcular $f(0)$ y $f(1)$.
+ 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encontrar una función continua $f(x)$, y una valor constante $c$, que satisface la ecuación
-$$
-\int_c^x f(t)dt= \sen(3x)+\frac{1}{3}, \quad \forall x\in \mathbb{R}.
-$$
+ <div class="teorema-box">
+    <h2 class="number-title" id="Teo:CambioDeVariable"> Teorema </h2>
+     <h3> Teorema de cambio de variable</h3>
+    <p>
+        Supongamos que $I$ es un intervalo y  que $g: I \to \mathbb{R}$ es 
+        continua en todo punto de $I$. 
+        Sea $u:[a,b]\to \mathbb{R}$ una función, 
+        continua en $[a,b]$, derivable en $(a,b)$ y 
+        con derivada integrable  en $[a,b]$.  Entonces
+        $$
+        \int_{u(a)}^{u(b)}g(t)dt =\int_{a}^{b} g(u(x))u'(x)dx
+        $$
+        
+    </p>
+    <p>
+        Nota: Para aplicar el teorema de manera eficiente se hace lo siguiente:
+        se propone el cambio de variable \(t=u(x)\), entonces usando diferenciales 
+        \(dt=u'(x)dx\), además si \(x=a, t=u(a)\) y si \(x=b, t=u(b)\). Substituyendo 
+        directamente estos valores en \(\int_a^b g(u(x))u'(x)dx\) obtenemos 
+        \(\int_{u(a)}^{u(b)} g(t)dt\). 
+    </p>
+    <button class="respButton hvr-grow "> Demostración  </button>
+     <div class="resp-box flexbox">
+    <p>
+        La idea de la demostración es encontrar \(F\), una anti-derivada adecuada, 
+        de tal forma que mabos lados de la identidad anterior 
+        son iguales a \(F(b)-F(a)\).
+    </p>
+    
 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Existe una función continua $f:\mathbb{R} \to \mathbb{R}$ que satisface
-$$
-\int_0^x f(t)dt=\int_x^2 t^2f(t)dt+  x-\frac{1}{5}x^5 +c,  \quad \forall x \in \mathbb{R}
-$$
-donde $c$ es una constante. Encontrar una fórmula explícita para $f$ y el valor de $c$.
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:[a,b]\to \mathbb{R}$ una función continua en $[a,b]$.
-<ol>
-    <li>
-        Demuestra que $f(x)=0$ para toda $x\in [a,b]$ si y sólo si $\int_c^d f(x)dx=0$ para todos
-$c,d \in [a,b]$.
+    <p>
+        Definimos   $G(v)=\int_{u(a)}^v g(t)dt$, para $v\in I$. Ya que \(g\)
+        es continua en \(I\) por el primer T.F.C. tenemos que 
+            \begin{equation}\label{Eqn:Aux1TeoCambioVariable}
+            G'(v)=g(v)
+            \end{equation}
+        para todo \(v\) en el interior de  \(I\).    
     </li> 
-<li>
-    Da un ejemplo de una función continua $f:[a,b]\to \mathbb{R}$, distinta de cero, pero que cumple
-$\int_a^b f(x)dx=0$. Es decir, para que el ejercicio anterior sea válido se debe de tener $\int_c^d f(t)dt=0$,
-para {\bf todos} los subintervalos $[c,d]$.
-</li> 
-</ol> 
+    
+    
+    <p>
+        Ahora definimos  $F(x):=G(u(x))$, $x\in [a,b]$. Ya que tanto  \(u\)
+        como \(G\) son diferenciables y la imagen de \(u\) cae dentro del dominio de 
+        \(G\) la regla de la cadena implica que 
+        $$
+        F'(x)=G'(u(x))u'(x)=g(u(x))u'(x)
+        $$
+        para todo \(x\in (a,b)\), donde en la segunda identidad usamos 
+        \eqref{Eqn:Aux1TeoCambioVariable}. Se sigue que 
+        \(F(x)\) es una anti-derivada de \(g(u(x))u'(x) \) en \((a,b)\). Por  el 
+        segundo T.F.C. obtenemos 
+        $$
+        \int_a^b g(u(x))u'(x)dx=F(b)-F(a).
+        $$
+        
+    </p> 
+    <p>
+        Por otro lado un cálcul directo usando la definición de \(F\) y \(G\) arroja 
+        \begin{eqnarray*}
+        F(b)-F(a)&=& G(u(b))-G(u(a)) \\
+        &=&\int_{u(a))}^{u(b)}g(t)dt-\int_{u(a)}^{u(a)}g(t)dt \\
+        &=& \int_{u(a)}^{u(b)} g(t)dt
+        \end{eqnarray*}
+    </p>
+    <p>
+        Concluimos 
+        \[
+        \int_a^b g(u(x))u'(x)dx=F(b)-F(a)=\int_{u(a)}^{u(b)} g(t)dt
+        \]
+        lo cual termina la demostración del Teorema.
+    </p>
+</div>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2> 
+    <p>
+        Calcular 
+        $$
+        \int_0^{1/2} x\sqrt{1-x^2}dx
+        $$
+        
+    </p>
+    <button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
+
+
+	<p>
+        Consideramos la función (la que se llama cambio de variable) 
+        $u=1-x^2$. Notamos que $u$ como función de \(x\)  es diferenciable y con derivada integrable. Ahora 
+        definimos \(g(t)=\sqrt{t}\). Entonces \(g(u(x))u'(x) = \sqrt{1-x^2}(-2x)\) así que por el 
+        <a href="#Teo:CambioDeVariable"> Teorema de cambio de variable</a>
+        \[
+        \int_{u(a)}^{u(b)}\sqrt{t}dt =\int_a^b -2x\sqrt{1-x^2}dx
+        \]
+        Ahora "re-acomodamos" la integral anterior para obtener la integral que se nos pide. 
+        En este caso debemos dividir entre \(-2\) y tomar \(a=0, b=1/2\). Asiendo ésto llegamos a 
+        \[
+        -\frac{1}{2}\int_{u(0)}^{u(1/2)} \sqrt{t}dt=\int_0^{1/2}x\sqrt{1-x^2}dx
+        \]
+        Si el cambio de variable es útil una de las integrales anteriores será posible de 
+        calcular. En nuestro caso 
+        \begin{eqnarray*}
+        -\frac{1}{2}\int_{u(0)}^{u(1/2)} \sqrt{t}dt&=& -\frac{1}{2}\int_{1}^{3/4} \sqrt{t}dt=
+        \frac{1}{2} \\
+        &=& \frac{1}{2}\int_{3/4}^{1} \sqrt{t}dt \\
+        &=& \frac{1}{2} \frac{2}{3}[ 1^{3/2}-(3/4)^{3/2}   ]\\
+        &=& \frac{1}{3}[1-(3/4)^{3/2}].
+        \end{eqnarray*}
+    </p> 
+    <p>
+        Concluimos 
+        \[
+        \int_0^{1/2} x\sqrt{1-x^2}dx = \frac{1}{3}[1-(3/4)^{3/2}].
+        \]
+    </p>
+    <p>
+        Nota: para hacer el proceso más eficiente simplemente se toma 
+        \(t=1-x^2\), se sacan diferenciales 
+        \(du=-2xdx \Rightarrow -\frac{1}{2}dt=xdx\), límites de integración \(u(0)=1,u(1/2)=3/4\) y se 
+        substituyen directamente en la integral 
+        \[
+        \int_{0}^{1/2}x\sqrt{1-x^2}dx=-\frac{1}{2}\int_{1}^{3/4}\sqrt{t}dt 
+        \]
+    </p>
+    </div>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encontrando un cambio de variable adecuado, calcula las siguientes integrales.
+
+<ol>
+	<li>$\int_0^1 \sqrt[4]{1+5x}dx$.</li> 
+	<li>$\int_0^5 (x+7)\sqrt{x+4}dx$</li> 
+	<li>$\int_0^{1} \frac{1}{\sqrt[3]{(5x-2)^4}}dx$.</li> 
+	<li>$\int_1^4 x\sqrt{x-1}dx$.</li> 
+	<li>$\int_0^{16}\frac{x}{(1+2x)^3}dx$.</li> 
+	<li>$\int_0^{\pi } \sec^2(5x)dx$.</li> 
+	<li>$\int_0^{\sqrt{\pi} }x\sen(x^2)dx$.</li> 
+	<li>$\int_1^2 \frac{\cos(x^{-2})}{x^3}dx$.</li> 
+	<li>$\int_0^1 \frac{1}{(1+\sqrt{x})^4}dx$.</li> 
+</ol>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $f:(0,\infty) \to \mathbb{R}$ una función continua y $0< a < b$ fijos y arbitrarios. 
+        Demuestra
+        $$
+        \int_a^b \frac{f(\sqrt{x})}{\sqrt{x}}dx=2 \int_{\sqrt{a}}^{\sqrt{b}}f(u)du.
+        $$
+    </p>
+</div>
+
+ <div class="ejercicio-box">
+     <h2 class="number-title"> Ejercicio</h2>
+      <p>
+        El Teorema de Cambio de Variable también se usa para integrales indefinidas.
+      </p>
+      <p>
+        Calcula $\int x^3\cos(x^4)dx$. 
+      </p>
+      <button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
+      <p>
+          Tomamos el cambio de variable \(u=x^4\), el cual es continua y tiene derivada integrable. Entonces 
+          \(du=4x^3dx \Rightarrow \frac{1}{4}du=x^3dx\) por lo que aplicando el <a href="#Teo:CambioDeVariable"> Teorema de cambio de variable</a>
+          obtenemos 
+          \[
+          \int x^3\cos(x^4)dx= \frac{1}{4}\int \cos(u)du=\frac{1}{4}\sen(u)+C=\frac{1}{4}\sen(x^4) +C 
+          \]
+      </p>
+      </div>
+</div>
 
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El  Primer Teorema Fundamental tiene aplicaciones a ecuaciones diferenciales. En ecuaciones diferenciales el problema fundamental es encontrar funciones cuya derivada satisgafa ciertas condiciones dadas. Por ejemplo, usando el Primer Teorema Fundamental 
-encuentra una función diferenciable $f(x)$, que satisfaga
-$$
-f'(x)=e^{3x}+\cos(4x)+2
-$$
-y tal que $f(0)=1$.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p> 
+        Calcula $\int \frac{\sen(\sqrt{x})}{\sqrt{x}}dx$ y 
+        $\int_{\pi^2}^{4\pi^2} \frac{\sen(\sqrt{x})}{\sqrt{x}}dx$.  
+    </p>
+</div>
 
-En otras palabras, tenemos como dato las pendientes de la función y queremos recobrar la función.
 
-Nota: más en general el problema anterior se puede plantear como sigue: encontrar una función $y=y(x)$ que satisfaga
-\begin{eqnarray*}
-y'&=&H(x,y)	\\
-y(x_0)&=&y_0
-\end{eqnarray*}
-el cual se conoce como un problema de ecuaciones ordinarias con valor inicial (donde se piensa $y=f$).
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>     
+        Supon que  $f:[0,\pi]\to \mathbb{R}$ es continua en $[0, \pi]$. 
+    </p>        
+<ol>
+	<li>Usa el cambio de variable $u=\pi-x$ para probar
+		$$
+		\int_0^{\pi}xf(\sen(x))dx=\frac{\pi}{2}\int_0^{\pi}f(\sen(x))dx.
+		$$</li> 
+<li>Usa el inciso anterior para evaluar
+	$$
+	\int_0^{\pi} \frac{x\sen(x)}{1+\cos^2(x)}dx.
+	$$</li> 
+</ol>
+</div>
 
-Por ejemplo, en el ejercicio se tiene $H(x,y)=e^{3x}+\cos(4x)+2$, $x_0=0$ y $y_0=1$; el problema  para $H(x,y)=y$
-y $y(0)=1$ se  puede resolver usando el ejercicio \ref{Ejer:ODEMasImportante}.
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Para enteros positivos $p$ y $q$ define:
+        $$
+        F(x,a)=\int_0^x \frac{t^p}{(t^2+a^2)^q}dt.
+        $$
+        Demuestra que:
+        $$
+        F(x,a)=a^{p+1-2q}F(x/a,1).
+        $$
+    </p>
+
+    <p>
+        Sugerencia: tomar el cambio de variable $u=at$.
+    </p>
+</div>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Encuentra un cambio de variable adecuado para calcular las siguientes integrales indefinidas.
+    </p>
+
+        <ol>
+
+            <li>$\int \frac{\cos(x)}{\sen^2(x)}dx$.</li> 
+
+            <li>$\int \cos^4(t)\sen(t)dt$.</li> 
+
+            <li>$\int \sec^2(t)\tan^3(t)dt$.</li> 
+
+            <li>$\int \sec^3(t)\tan(t)dt$.</li> 
+
+            <li>$\int \frac{\tan(t)}{\cos^2(t)}dt$.</li> 
+
+        </ol>
+</div>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>
+
+<ol>
+	
+	<li>
+        Para todo $x\in [0,\pi/2]$ se cumple $\sen(x)=\cos(\pi/2 -x)$. Usando la identidad anterior y un cambio de variable lineal concluye que, para todo natural $m \geq 1$:
+		$$
+		\int_0^{\pi/2} \sen^m(x)dx=\int_0^{\pi/2}\cos^m(x)dx.
+		$$
+    </li> 
+
+	<li>
+        Demuestra:
+		$$
+		\int_0^{\pi/2} \cos^m(x)\sen^m(x)dx=
+		2^{-m}\int_0^{\pi/2}\sen^m(x)dx=
+		2^{-m}\int_0^{\pi/2}\cos^m(x)dx
+		$$
+		para todo entero positivo $m$.
+		
+		Sugerencia: para la primera identidad usa $\sen(2\alpha)=2\sen(\alpha)\cos(\alpha)$ 
+        y después haz  un cambio de variable tomando en cuenta de que $\sen^m(x)$ es una 
+        función par.
+	</li> 
+
+</ol>
+</div>
+
+</body>
