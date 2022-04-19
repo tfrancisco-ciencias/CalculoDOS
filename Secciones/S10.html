@@ -1,0 +1,481 @@
+
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            arcsen: "\\operatorname{arcsen}",
+            arcsec: "\\operatorname{arcsec}"
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 9 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 9 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 10 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox"> Valor Promedio  </h1>
+<h1 class="flexbox"> Trabajo </h1>
+
+
+
+
+
+
+
+<div class="definicion-box">
+	<h2 class="number-title"> Definición</h2>
+<p>
+	El promedio de  los números $a_1,\dots, a_n$ está dado por:
+ 
+	$$
+	\frac{1}{n} \sum_{i=1}^n a_i
+	$$
+	
+	Recordando el  <a href="./S5.html#Ejer:IntegrabilidadFuncionesContinuas"> Ejercicio</a> tenemos
+	
+	$$
+	\int_a^b f(x)dx=\lim_{n} \frac{b-a}{n}\sum_{i=1}^n f(x_i)
+	$$
+	donde el promedio de los valores de la función aparece en el lado derecho. Tomando en cuenta esto se define
+	el promedio de una función $f$ integrable,  sobre el subintervalo $[a,b]$, como
+	$$
+	V_a^b(f)=\frac{1}{b-a}\int_a^b f(x)dx
+	$$
+</p>
+
+</div>
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Para las siguientes funciones, prueba la fórmula dada para $V_a^b(f)$.
+	</p>
+<ol>
+    <li>para $f$ una función constante $k$,  $V_a^b(f)=k$.</li> 
+    <li>para $f(x)=mx+b$, $x\in \mathbb{R}$, $V_a^b(f)=m \frac{a+b}{2}+d$.</li> 
+    <li>para $f(x)=x^2$, $x\in \mathbb{R}$, $V_a^b(f)=\frac{a^2+ab+b^2}{3}$.</li> 
+</ol>
+</div>
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Usando el <a href="./S1.html#Eqn:Resolvent"> Ejercicio</a> encuentra una fórmula general para el promedio de
+		las funciones potencia, $V_a^b(x^n)$, $n \in \mathbb{N}$.
+	</p>
+</div>
+
+
+    <div class="ejercicio-box">
+		<h2 class="number-title"> Ejercicio</h2> 
+		<p>
+			Prueba las siguientes propiedades  del valor promedio. Las funciones ($f,g:[a,b]\to \mathbb{R}$ son dos 
+			funciones integrables).
+		</p>
+    <ol>
+        <li>$V_a^b(f+g)=V_a^b(f)+V_a^b(g)$.</li> 
+        <li>$V_a^b(\alpha f)=\alpha V_a^b(f)$ donde $\alpha \in \mathbb{R}$ es un escalar fijo.</li> 
+        <li>Si $f(x)\leq g(x)$, para todo $x\in[a,b]$, entonces $V_a^b(f)\leq V_a^b(g)$.</li> 
+    </ol>
+</div>
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2>  
+	Sea $f:[a,b] \to \mathbb{R}$ una función integrable. Probar que si 
+	$m \leq f(x) \leq M $, para todo $x\in [a,b]$ entonces
+    $$
+    m\leq V_a^b(f) \leq M.
+    $$
+</div>
+
+<div class="ejercicio-box"
+><h2 class="number-title"> Ejercicio</h2> 
+<p>
+	Sea $f:[a,b]\to \mathbb{R}$ una función continua. Demuestra que para todo subintervalo $[c,d] \subseteq [a,b]$, existe un
+	punto $x_0$  (que depende de $c$ y $d$) tal que  
+	de
+	$$
+	V_c^d(f)=f(x_0).
+	$$
+	
+</p>
+<p>
+	Sugerencia: utiliza el Teorema del Valor Intermedio.
+</p>
+</div>
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Da un ejemplo de una función $f:[a,b]\to \mathbb{R}$ integrable tal que
+		el valor promedio nunca se alcansa. Es decir
+		$$
+		V_a^b(f)\not= f(x)
+		$$
+		para todo $x\in [a,b]$.
+	
+	</p>
+</div>
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Sea $f:[a,b] \to \mathbb{R}$ una función  integrable  en $[a,b]$. Demuestra que
+		$$
+		V_a^b(f)=\frac{c-a	}{b-a}V_a^c(f)+ \frac{b-c}{b-a}V_c^b(f).
+		$$
+	</p>
+</div>
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Sea $f:\mathbb{R} \to \mathbb{R}$ una función tal que es integrable para cualquier intervalo de la forma
+		$[-a,a]$, con $a>0$.
+		
+	</p>
+<ol>
+    <li>Si $f$ es una función par demuestra:
+        $$
+        V_{-a}^{a}(f)=V_0^a(f)
+        $$</li> 
+
+<li>Si $f$ es una función  impar demuestra:
+    $$
+    V_{-a}^a(f)=0
+    $$</li> 
+
+</ol>
+</div>
+
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title" id="Ejer:ConcavidadYValorPromedio"> Ejercicio</h2> 
+	<p>
+		Sea  $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$ y  diferenciable en $(a,b)$.
+	</p>
+
+<ol>
+
+    <li>Si  $f'$ es  monótona creciente  en $(a,b)$ demuestra que :
+        $$
+        V_a^b(f)\geq f\bigg( \frac{a+b}{2}\bigg).
+        $$</li> 
+    <li>Si $f'$ es monótona decreciente en $(a,b)$ demuestra que:
+        $$
+        V_a^b(f)\leq f\bigg( \frac{a+b}{2}\bigg).
+        $$
+        </li> 
+</ol>
+<p>
+	Sugerencia: si $f$ es monótona creciente, se cumple que 
+	para cualquier $x_0 \in (a,b)$, 
+	$$
+	f(x) \geq f(x_0)+ f'(x_0)(x-x_0), \quad \forall x\in (a,b)
+	$$
+	Toma $x_0=\frac{a+b}{2} $ e integra.
+</p>
+</div>
+
+<div class="ejercicio-box">
+	<h2 class="number-title" id="Ejer:TeoremaValorMedioMejorado"> Ejercicio</h2> 
+	<p>
+		Este ejercicio es una nueva mirada el Teorema del Valor Medio.
+
+		Sea $F:[a,b] \to \mathbb{R}$ continua en $[a,b]$ y diferenciable en $(a,b)$. Demuestra que
+		$$
+		F(b)-F(a)=V_a^b(F')(b-a).
+		$$
+	</p>
+	<p>
+		Nota que la ventaja de este sobre el Teorema del Valor Medio, es que podemos 
+		calcular numéricamente $V_a^b(F')$.
+	</p>
+	<p>
+		Sugerencia: nota que $F$ es una antiderivada de $F'$ y aplica el Segundo Teorema Fundamental. 
+	</p>
+</div>
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Este ejercicio mejora el segundo inciso del <a href="#Ejer:DesigualdadesAplicandoTVM"> Ejercicio</a>.
+	</p>
+	<p>
+		Demuestra que para todo $x\in (0,\pi/4)$
+		$$
+		\sen(2x) -\sen(x) \leq x\cos(3x/2)
+		$$
+	</p>
+	<p>
+		Sugerencia: usa el <a href="#Ejer:TeoremaValorMedioMejorado"> Ejercicio</a> junto con el 
+		<a href="#Ejer:ConcavidadYValorPromedio"> Ejercicio</a>.
+	</p>
+</div>
+
+
+
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title" id="Ejer:CentroMasa"> Ejercicio</h2>  
+	<p>
+		Imagina una  varilla, de longitud $L$, colocada a lo largo del eje $x$. Por 
+		$\rho:[0,L] \to \mathbb{R}$ vamos a modelar la densidad de la varilla, 
+		es decir $\rho(x)$ es la densidad de una rebanada muy pequena de la varilla, 
+		cortada en el punto $x$. Lo que se pide a $\rho$ es que $\rho(x) \geq 0$ para toda $x\in [0,L]$, 
+		que $\rho$ sea integrable y $\int_0^L \rho(x)dx >0$. Con estas suposiciones de de define el  
+		centro de masa de la varilla como
+		$$
+		\overline{x}:=\frac{\int_0^L x\rho(x)dx}{\int_0^L\rho(x)dx }.
+		$$
+	</p>
+
+<ol>
+    <li>
+        Demuestra que si $\rho(x)=\rho_0$, para todo $x\in [0,L]$  
+		(densidad constante) entonces $\overline{x}=\frac{L}{2}$.
+    </li> 
+    <li>
+        Supon que la función densidad satisface $\rho(x)=\rho(L-x)$, para $x\in [0,L]$. 
+		Demuestra que $\overline{x}=\frac{L}{2}$.  Sugerencia,
+		usa un cambio de variable lineal para probar primero que 
+		$$ \frac{ \int_0^L x\rho(x)dx}{\int_0^L \rho(x)dx}=
+		\frac{\int_0^{L}(L-x)\rho(L-x)dx}{\int_0^L \rho(L-x)dx} .
+		$$
+    </li>  
+	<li>
+		Determina una densidad de masa $\rho$, de tal forma que el centro de densidad de una varilla 
+		de longitud $L$ esté a una distancia $L/4$ de uno de sus extremos.
+	</li> 
+    
+</ol>
+</div>
+
+
+<div class="definicion-box">
+	<h2 class="number-title"> Definición</h2>
+	<h3>Trabajo, fuerza constante </h3>
+	<p>
+		El trabajo (denotado por $W$) realizado al mover un objeto (a lo largo de una linea recta) 
+		una distancia $d$, aplicando una fuerza constante $F$ esta dado por
+		$$
+		W=F\times d
+		$$
+		Una nota sobre las unidades. Substituyendo directamente tenemos 
+		$$
+		W=(m/s^2)(kg)(m)=kg (m/s)^2= J
+		$$
+		que se denomina Jouls y es la unidad de trabajo en el sistema internacional.		
+	</p>
+</div>
+	
+	
+	<div class="ejercicio-box">
+		<h2 class="number-title"> Ejercicio</h2> 
+		<p>
+			Calcular el trabajo realizado por una persona que pesa 60kg para subir una escalera de 4 metros.
+		</p>
+		<p>
+			Sugerencia: para calcular  $F$ usa
+			$$
+			F=ma
+			$$
+			donde  la aceleración es $a=g=9.8m/s^2$.
+			
+		</p>
+	</div>	
+	
+	
+	
+	
+	
+	<div class="definicion-box">
+		<h2 class="number-title"> Definición</h2>
+		<h3> Trabajo, fuerza variable</h3>
+		<p>
+			Como estamos tratando cálculo uno-dimensional,  siempre vamos a pensar a la fuerza aplicada a lo 
+			largo de  una direcci'on fija (una linea recta), como un eje de desplazamiento o el eje de las $x$.
+	
+			Si la fuerza no es constante, pero esta dada por una función continua, $F(x)$, 
+			durante el desplazamiento de $x_{i-1}$ a $x_i$, el trabajo realizado es aproximadamente
+			$$
+			W_i\sim F(x_i)\Delta x_i
+			$$
+			
+			donde  $\Delta x_i=x_i-x_{i-1}$ es la distancia recorrida.
+			
+			Tomando una partición homogenea de longitud $n$,  $P=\{x_i\}_{i=0}^n$, y 
+			suponiendo la continuidad de la función ferza,  el trabajo ejercido para mover una particula, 
+			que se mueve a lo largo del  eje $x$, del punto $a$ al $b$,  ejerciendo una fuerza $F(x)$ en el 
+			punto $x$, como: 
+			$$
+			W=\lim_{n\to \infty } W_i = \int_a^b F(x)dx.
+			$$
+		</p>
+	</div>
+	
+	
+	
+	
+	<div class="ejercicio-box">
+		<h2 class="number-title"> Ejercicio</h2> 
+		<p>
+			La pirámide del faraon Kufh fue  construida en un periodo de 20 a\~nos, utulizando 
+			piedra caliza, tiene  una altura de $h=146 m$  y  una base cuadrada de $L=230 m$.  
+			La densidad de la piedra  caliza  es $\rho=2560 kg/m^3$.   Este ejercicio estima el 
+			trabajo necesario para construirla.		
+		</p>
+		<p>
+			Vamos a simplificar el problema. Imagina la piramide con el eje central sobre el eje $x$ y 
+			la base en $x=0$. Ahora, vamos a discretizar el problema; divide el intervalo $[0,h]$ en 
+			$n$-invervalos homogeneos (con la partición $P=\{x_i\}_{i=0}^n$) y aproxima el volumen por 
+			la suma de los volumenes de rectángulos  $V_i$, con
+			$$
+			V_i=  l^2(x_i^*)\Delta x_i
+			$$
+			donde $l(x^*)$ denota la longitud del lado del cuadrado que se obtiene al  cortar al 
+			pirámide con un plano perpedicular al eje $x$ a la altura $x^*$. 
+		</p>
+	<ol>
+	<li>
+		Usando triángulos semejantes encuentra $l(x)$.
+	</li>  
+	
+	<li>
+		Denota por  $W_i$ a el trabajo necesario para subir la $i$-ésima rebanada de piedra caliza. Suponiendo que 
+		$F_i$, la fuerza que se necesita para subir la $i$-ésima rebanada a una altura $x_i$, se tiene 
+		que $W_i=F_i x_i$. Usando
+		$F=ma$ y el inciso anterior encuantra una expresión para $W_i$.
+			   
+	</li>  
+	<li>
+		Usando la integrabilidad de las funciones continuas calcula
+		$$
+	   W=\lim_{n\to \infty} W_i
+		$$  
+	   mediante una integral.
+	</li> 
+	
+	<li>
+		Si cada trabajador laboraba 10 horas diarias,  340 días por 20 a\~nos, haciendo $9576 J/h$ de trabajo, 
+		levantando piedra caliza, aproximadamente \textquestiondown cuantos trabajadores se necesitarón para 
+		construir la pirámide ?  Sólo para tener un punto de comparación, para correr 4 kilómetros se gastan 
+		134,400 J.
+	</li> 
+	 </ol>
+</div>	
+	
+	<div class="ejercicio-box">
+		<h2 class="number-title"> Ejercicio</h2> 
+	<ol>
+		<li>
+			La ley gravedad de Newton establece que, dados dos cuerpos con masas $m_1.m_2$, éstos se atraen 
+			entre ellos con una fuerza
+			$$
+			F=G\frac{m_1m_2}{r}
+			$$
+			donde $r$ es la distancia entre los cuerpos y $G$ es la constante de gravitación. Si uno de 
+			los cuerpos está fijo, encuentra el trabajo necesario para mover el otro desde $r=a$ hasta $r=b$.
+		</li> 
+		<li>
+			Calcula el trabajo requerido para lanzar un satélite de 1000kg, de manera vertical, 
+			a una altura de 1000km. Asume que la masa de la tierra es $5.98(10^{24})kg$ y que dicha masa 
+			está concentrada en el centro. Toma el radio de la tierra como $6.37(10^6)m$ y 
+			$G=6.67(10^{-11})Nm^2/kg^2$.
+		</li> 
+	</ol>
+	</div>
+	
+	<div class="ejercicio-box">
+		<h2 class="number-title"> Ejercicio</h2> 
+		<p>
+			El tanque que se muestra en la figura está lleno de agua. Calcula el trabajo requerido 
+			para bombear afuera todoa el agua, a través del tubo. Usar que el agua pesa $62.5lb/ft^3$.
+		</p>
+	
+		\begin{center}
+		\includegraphics[scale=0.5]{Tanque.jpeg}
+		\end{center}
+		
+	</div>
+
+	
+
+</body>

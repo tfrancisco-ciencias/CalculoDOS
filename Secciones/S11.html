@@ -1,155 +1,224 @@
 
 
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
-\section*{Valor Promedio}
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            arcsen: "\\operatorname{arcsen}",
+            arcsec: "\\operatorname{arcsec}"
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 10 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 10 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 11 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox"> Areas </h1>
+
+
+
+\section*{Area en coordenadas polares}
+	
+	
 <div class="definicion-box">
-El promedio de  los números $a_1,\dots, a_n$ está dado por:
- 
-$$
-\frac{1}{n} \sum_{i=1}^n a_i
-$$
 
-Recordando el ejercicio \ref{Ejer:IntegrabilidadFuncionesContinuas} tenemos
+De polares a cartesianas. $r\geq 0$, $\theta \in \mathbb{R}$
+\begin{eqnarray*}
+x&=&r\cos(\theta)\\
+y&=&r\sen(\theta)
+\end{eqnarray*}
 
-$$
-\int_a^b f(x)dx=\lim_{n} \frac{b-a}{n}\sum_{i=1}^n f(x_i)
-$$
-donde el promedio de los valores de la función aparece en el lado derecho. Tomando en cuenta esto se define
-el promedio de una función $f$ integrable,  sobre el subintervalo $[a,b]$, como
-$$
-V_a^b(f)=\frac{1}{b-a}\int_a^b f(x)dx
-$$
+Nota: el cero puede tener cualquier $\theta$.
 
+De cartesianas a polares. El ángulo se mide con respecto al eje $x$ en sentido contrario 
+a las manecillas del reloj.
+\begin{eqnarray*}
+r&=&\sqrt{x^2+y^2}\\
+\theta &=& \left\{
+\begin{array}{cc}
+\arctan(x/y) &  y\not=0 \\
+0 & y=0
+\end{array}
+\right. 
+\end{eqnarray*}
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Para las siguientes funciones, prueba la fórmula dada para $V_a^b(f)$.
+<div class="definicion-box">
+Definimos $\pi$ como el cociente de la longitd de una circunferencia de un círculo entre su diámetro.
+</div>
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El area de un círculo de radio $R$ es $\pi R^2$. En particular, la longitud de una circunferencia de radio
+$R$ es $2\pi R$.
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El area del un círculo de radio $R$ es $\pi R^2$. 
+
+<div class="definicion-box">
+Considera un círculo de radio $R$ y un ángulo $\measuredangle AOB$ mide $a$ radianes si 
+$$
+a=\frac{L}{R}
+$$
+donde $L$ es la longitud del arco que subtiende $\measuredangle AOB$ .
+</div>
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio  relaciona radianes con area.
+
 <ol>
-    <li>para $f$ una función constante $k$,  $V_a^b(f)=k$.</li> 
-    <li>para $f(x)=mx+b$, $x\in \mathbb{R}$, $V_a^b(f)=m \frac{a+b}{2}+d$.</li> 
-    <li>para $f(x)=x^2$, $x\in \mathbb{R}$, $V_a^b(f)=\frac{a^2+ab+b^2}{3}$.</li> 
+    <li>Divide el criculo de radio $R$ en $n$ partes iguales. Demuestra que el área de cada parte es
+        $$
+        A=\frac{a}{2}R^2
+        $$
+        donde $a$ es la medida del ángulo, en radianes,  de cada parte. </li> 
+
+<li>Considera un segmento circular, con ángulo $a$, medido en radianes y supon que $a=\frac{p}{q}2\pi$, donde $p$ y $q$ son enteros positivos con $p/q < 1$.  Demuestra que el área del segmento es
+    $$
+    A=\frac{a}{2}R^2
+    $$
+    
+    Sugerencia: denota por $A$ a el area del segmento y por $\tilde{A}$ el area de un segmento
+     circular con angulo  $\frac{2pi}{q}$. Nota que  $A=p\tilde{A}$ y usa el inciso anterior.</li> 
+
+ <li>Usando la densidad de los racionales  y la continuidad de la función area se puede argumentar que el area de un segmento circular, con ángulo $a$ (en radianes) y radio $R$ es
+    $$
+    \frac{a}{2}R^2
+    $$
+    </li> 
 </ol>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando el ejercicio \ref{Eqn:Resolvent} encuentra una fórmula general para el promedio de
-las funciones potencia, $V_a^b(x^n)$, $n \in \mathbb{N}$.
 
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio demuestra el siguiente teorema.
 
+<div class="teorema-box">
+Sea $f:[a,b]\to \mathbb{R}$ una función no negativa, con $b-a< 2\pi$ y supongamos
+que $f^2$ es integrable. Sea $D$ la región descrita en coordenadas polares por $r(\theta)\leq f(\theta)$.
 
-    <div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Prueba las siguientes propiedades  del valor promedio ($f,g:[a,b]\to \mathbb{R}$ son dos funciones integrables).
-    <ol>
-        <li>$V_a^b(f+g)=V_a^b(f)+V_a^b(g)$.</li> 
-        <li>$V_a^b(\alpha f)=\alpha V_a^b(f)$ donde $\alpha \in \mathbb{R}$ es un escalar fijo.</li> 
-        <li>Si $f(x)\leq g(x)$, para todo $x\in[a,b]$, entonces $V_a^b(f)\leq V_a^b(g)$.</li> 
-    </ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>  Sea $f:[a,b] \to \mathbb{R}$ una función integrable. Probar que si $m \leq f(x) \leq M $, para todo $x\in [a,b]$ entonces
-    $$
-    m\leq V_a^b(f) \leq M.
-    $$
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:[a,b]\to \mathbb{R}$ una función continua. Demuestra que para todo subintervalo $[c,d] \subseteq [a,b]$, existe un
-punto $x_0$  (que depende de $c$ y $d$) tal que  
-de
+Entonces el área de $D$ esta dada por
 $$
-V_c^d(f)=f(x_0).
-$$
-
-Sugerencia: utiliza el Teorema del Valor Intermedio.
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Da un ejemplo de una función $f:[a,b]\to \mathbb{R}$ integrable tal que
-    el valor promedio nunca se alcansa. Es decir
-    $$
-    V_a^b(f)\not= f(x)
-    $$
-    para todo $x\in [a,b]$.
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:[a,b] \to \mathbb{R}$ una función  integrable  en $[a,b]$. Demuestra que
-$$
-V_a^b(f)=\frac{c-a	}{b-a}V_a^c(f)+ \frac{b-c}{b-a}V_c^b(f).
-$$
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:\mathbb{R} \to \mathbb{R}$ una función tal que es integrable para cualquier intervalo de la forma
-$[-a,a]$, con $a>0$.
-
+\frac{1}{2}\int_a^b f^2(\theta)d\theta.
+$$ 
+</div>
 <ol>
-    <li>Si $f$ es una función par demuestra:
+
+    <li>Fijemos $\varepsilon >0$. Demuestra que existen funciones escalonadas, $\tilde{s}$ y $\tilde{t}$ tal que:
         $$
-        V_{-a}^{a}(f)=V_0^a(f)
+        \tilde{s} \leq f^2 \leq \tilde{t}
+        $$
+        y
+        $$
+        \int_a^b (\tilde{s}-\tilde{t})<  \varepsilon
         $$</li> 
 
-<li>Si $f$ es una función  impar demuestra:
+
+<li>Define $s:=\sqrt{\tilde{s}}$ y $t:=\sqrt{\tilde{t}}$. Demuestra que:
+
     $$
-    V_{-a}^a(f)=0
+    \frac{1}{2}\int_a^b s^2(\theta)d\theta
+    $$
+    representa al area de una región formada por segmentos circulares, contenida en $D$ y 
+    $$
+    \frac{1}{2}\int_a^b t^2(\theta)d\theta
+    $$ 
+    representa el área de una región formada por segmentos circulares, que contiene a $D$.</li> 
+
+<li>Demuestra que:
+    $$
+    \frac{1}{2}\int_a^b s^2 \leq  \textrm{Area}(D) \leq \frac{1}{2}\int_a^b t^2
+    $$
+    
+    y
+    
+    $$
+    \frac{1}{2}\int_a^b\tilde{s}\leq  \frac{1}{2} \int_a^b f^2 \leq \frac{1}{2}\int_a^b \tilde{t}
     $$</li> 
 
-</ol>
+<li>De los incisos anteriores concluye que:
 
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:ConcavidadYValorPromedio} Sea  $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$ y  diferenciable en $(a,b)$.
-
-<ol>
-
-    <li>Si  $f'$ es  monótona creciente  en $(a,b)$ demuestra que :
-        $$
-        V_a^b(f)\geq f\bigg( \frac{a+b}{2}\bigg).
-        $$</li> 
-    <li>Si $f'$ es monótona decreciente en $(a,b)$ demuestra que:
-        $$
-        V_a^b(f)\leq f\bigg( \frac{a+b}{2}\bigg).
-        $$
-        </li> 
-</ol>
-Sugerencia: si $f$ es monótona creciente, por el ejercicio \ref{Ejer:RectaSoporteConcavasArriba}, para cualquier $x_0 \in (a,b)$, 
-$$
-f(x) \geq f(x_0)+ f'(x_0)(x-x_0), \quad \forall x\in (a,b)
-$$
-Toma $x_0=\frac{a+b}{2} $ e integra.\
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:TeoremaValorMedioMejorado} Este ejercicio es una nueva mirada el Teorema del Valor Medio.
-
-Sea $F:[a,b] \to \mathbb{R}$ continua en $[a,b]$ y diferenciable en $(a,b)$. Demuestra que
-$$
-F(b)-F(a)=V_a^b(F')(b-a).
-$$
-
-Nota que la ventaja de este sobre el Teorema del Valor Medio, es que podemos calcular numéricamente $V_a^b(F')$.
-
-Sugerencia: nota que $F$ es una antiderivada de $F'$ y aplica el Segundo Teorema Fundamental. 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio mejora el segundo inciso del ejercicio  \ref{Ejer:DesigualdadesAplicandoTVM}.
-
-Demuestra que para todo $x\in (0,\pi/4)$
-$$
-\sen(2x) -\sen(x) \leq x\cos(3x/2)
-$$
-
-Sugerencia: usa el ejercicio \ref{Ejer:TeoremaValorMedioMejorado} junto con el ejercicio \ref{Ejer:ConcavidadYValorPromedio}.
-
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:CentroMasa}  Imagina una  varilla, de longitud $L$, colocada a lo largo del eje $x$. Por $\rho:[0,L] \to \mathbb{R}$ vamos a modelar la densidad de la varilla, es decir $\rho(x)$ es la densidad de una rebanada muy pequena de la varilla, cortada en el punto $x$. Lo que se pide a $\rho$ es que $\rho(x) \geq 0$ para toda $x\in [0,L]$, que $\rho$ sea integrable y $\int_0^L \rho(x)dx >0$. Con estas suposiciones de de define el  centro de masa de la varilla como
-$$
-\overline{x}:=\frac{\int_0^L x\rho(x)dx}{\int_0^L\rho(x)dx }.
-$$
-
-<ol>
-    <li>
-        Demuestra que si $\rho(x)=\rho_0$, para todo $x\in [0,L]$  (densidad constante) entonces $\overline{x}=\frac{L}{2}$.
+    $$
+    \left| \int_a^b f^2 - \textrm{Area}(D)   \right| <\frac{\varepsilon}{2}
+    $$
+    Como $\varepsilon >0$ es arbitraria, acabamos.
     </li> 
-    <li>
-        Supon que la función densidad satisface $\rho(x)=\rho(L-x)$, para $x\in [0,L]$. Demuestra que $\overline{x}=\frac{L}{2}$.  Sugerencia,
-usa un cambio de variable lineal para probar primero que 
-$$ \frac{ \int_0^L x\rho(x)dx}{\int_0^L \rho(x)dx}=\frac{\int_0^{L}(L-x)\rho(L-x)dx}{\int_0^L \rho(L-x)dx} .$$
-    </li>  
-<li>Determina una densidad de masa $\rho$, de tal forma que el centro de densidad de una varilla de longitud $L$ esté a una distancia $L/4$ de uno de sus extremos.</li> 
-    
 </ol>
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> En cada una de las siguientes funciones, haz un bosquejo (con ayudad de una computadora o celular) y calcula el area dada en coordenadas polares.
+    <ol>
+        <li>La espiral de Arquímides: $r(\theta)=\theta$, $0\leq \theta \leq 2\pi$.</li> 
+        <li>Dos circulos tangentes en el eje $y$: $r(\theta)=2|\cos(\theta)|$, $0\leq \theta \leq 2\pi$.</li> 
+        <li>Rosa de cuatro hojas: $r(\theta)=|\sen(2\theta)|$, $0\leq \theta \leq 2\pi$.</li> 
+        <li>Cardioide: $r(\theta)=1+\cos(\theta)$, $0\leq \theta \leq 2\pi$.</li> 
+    
+    </ol>
+</body>
