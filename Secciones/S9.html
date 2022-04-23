@@ -286,6 +286,70 @@
 	<li>$\int_1^2 \frac{\cos(x^{-2})}{x^3}dx$.</li> 
 	<li>$\int_0^1 \frac{1}{(1+\sqrt{x})^4}dx$.</li> 
 </ol>
+
+<button class="respButton hvr-grow "> Solución inciso 1 </button>
+<div class="resp-box flexbox">
+<p>
+    Consideremos la función  \(u : [0,1] \rightarrow \mathbb{R}\) como \(u(x) = 1+5x\). 
+    Notamos que \(u \) es una  función diferenciable y con derivada integrable. 
+    Consideramos \(g(t) = \sqrt[4]{t}\). Entonces por el 
+    <i>Teorema de cambio de variable</i> tenemos: 
+    \[ \int_0^1g(u(x)) u^\prime(x) dx = \int_{u(0)}^{u(1)}g(t) \]
+</p>
+<p>
+    Por un lado \( g(u(x)) u^\prime(x) = 5\sqrt[4]{1+ 5x}\). Por lo tanto, 
+    \[ \int_0^1g(u(x)) u^\prime(x) dx = 5\int_0^1\sqrt[4]{1+ 5x}dx \]
+</p>
+<p>
+    Y por otro lado \(u(0) = 1\) y \( u(1) = 6\). Por lo tanto, 
+    \[ \int_{u(0)}^{u(1)}g(t) = \int_1^{6} \sqrt[4]{t} dt \]
+</p>
+<p>
+    Es decir \[ 5\int_0^1\sqrt[4]{1+ 5x}dx  = \int_1^{6} \sqrt[4]{t} dt \]
+</p>
+<p>
+    Lo cual implica que 
+    \begin{eqnarray*}
+    \int_0^1\sqrt[4]{1+ 5x}dx  = \frac{1}{5}\int_1^{6} \sqrt[4]{t} dt =\frac{1}{5}
+    \left[\frac{6^{\frac{1}{4}+1} -1^{\frac{1}{4}+1}}{\frac{1}{4}+1}\right] = 
+    \frac{4\left(6\sqrt[4]{6}-1\right)}{25} 
+    \end{eqnarray*}
+</p>
+</div>
+<button class="respButton hvr-grow "> Solución inciso 2</button>
+<div class="resp-box flexbox">
+<p>
+    Sea \(u = 5x-2\) (Notamos que \(u: [0, \frac{1}{5}] \rightarrow \mathbb{R}\) y 
+    \(u([0, \frac{1}{5}]) = [u(0), u(\frac{1}{5})] = [-2, -1]).\) 
+    Consideramos \(g: [-2, -1] \rightarrow \mathbb{R}\) dada 
+    por \(g(t) = \frac{1}{\sqrt[3]{t^4}}\). Notemos que las funciones satisfacen las 
+    condiciones del Teorema de cambio de variable. 
+    Además \(du = 5dx\) esto implica que \(dx = \frac{1}{5}du\). Por lo tanto, 
+    \begin{eqnarray*}
+    \int_0^{1/5} \frac{1}{\sqrt[3]{(5x-2)^4}}dx & = & \frac{1}{5}\int_{-2}^{-1} \frac{1}{\sqrt[3]{u^4}}du \\
+     & = &  \frac{1}{5}\int_{-2}^{-1}u^{-\frac{4}{3}}du \\
+     & = & \frac{1}{5}\left[ \frac{(-1)^{\frac{-4}{3}+1}-(-2)^{\frac{-4}{3}+1}}{\frac{-4}{3}+1}\right] \\
+     & = & \frac{3}{5}\left(1 -\frac{1}{\sqrt[3]{2}}\right)
+    \end{eqnarray*}    
+</p>
+</div>
+
+<button class="respButton hvr-grow "> Solución 3</button>
+<div class="resp-box flexbox">
+<p>
+    Haciendo el cambio de variable \(u = 1+2x\), \(u\) es diferenciable y con derivada integrable. 
+    Además \(du = 2dx \Rightarrow dx = \frac{du}{2}\), \( u(0) = 1 \) y \( u(16) = 33\). 
+    Entonces por el Teorema de cambio de variable: 
+    \begin{eqnarray*}
+    \int_0^{16}\frac{x}{(1+2x)^3}dx & = & \int_1^{33} \frac{u-1}{2u^3}\cdot\frac{du}{2} = \frac{1}{4}\int_1^{33}\left(\frac{u}{u^3}- \frac{1}{u^3}\right)du  \\
+     & = & \frac{1}{4}\int_1^{33}(u^{-2}-u^{-3})du  \\
+     & = & \frac{1}{4} \left[\int_1^{33}u^{-2}du -\int_1^{33}u^{-3}du \right] \\
+     & = & \frac{1}{4}\left(\frac{33^{-1} -1^{-1}}{-1} -\frac{33^{-2}-1^{-2}}{-2}\right) \\
+     & = & \frac{1}{4}\left(\frac{33^{-2}}{2}-33^{-1} + \frac{1}{2} \right)
+    \end{eqnarray*}
+</p>
+</div>
+
 </div>
 
 <div class="ejercicio-box">
@@ -388,6 +452,24 @@
             <li>$\int \frac{\tan(t)}{\cos^2(t)}dt$.</li> 
 
         </ol>
+
+        <button class="respButton hvr-grow "> Solución inciso 1</button>
+        <div class="resp-box flexbox">
+        <p>
+            Haciendo el cambio de variable \(u = \sen (x) \) el cual es continuo y su derivada es integrable. 
+            Entonces \(du = \cos (x) dx\) y por el Teorema de cambio de variable tenemos: 
+            \[ \int \frac{\cos (x)}{\sen^2 (x)}dx = \int \frac{1}{u^2}du = \frac{u^{-2 +1}}{-2 +1} + C 
+            = -\frac{1}{\sen (x)} + C \]
+        </p>
+        </div>
+        <button class="respButton hvr-grow "> Solución inciso 2</button>
+        <div class="resp-box flexbox"> 
+        <p>
+            Haciendo el cambio de variable \(u = \tan (x) \) el cual es continuo y su derivada es integrable. 
+            Usando diferenciales nos da \(du = \sec^2 (x) dx\) y por el Teorema de cambio de variable tenemos: 
+            \[ \int \sec^2 (t) \tan^3 (t)dt = \int u^3 du = \frac{u^4}{4} + C = \frac{\tan^4(t)}{4} + C \]
+        </p>
+        </div>
 </div>
 
 
@@ -538,6 +620,67 @@
     <p>
         Sugerencia: $ \tan^2(\theta)  =\sec^2(\theta) -1$.        
     </p>
+    <button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
+    <p>
+        Vamos hacer uso de la substitución trigonométrica. Sea \(x = 4\sen (\theta)\), 
+        donde \(-\pi/2 \leq \theta \leq \pi/2\), entonces \(dx = 4\cos( \theta) d\theta\). 
+        Y además 
+        \[ \frac{\sqrt{16- x^2}}{x^2} = \frac{\sqrt{16- 16\sen^2 (\theta)}}{16\sen^2(\theta)} 
+        = \frac{\vert \cos (\theta) \vert}{4\sen^2 (\theta)}  = \frac{\cos (\theta) }{4\sen^2 (\theta)} \]
+    </p>
+
+    <p>
+        La última igualdad se debe a que \(\cos (\theta) \geq 0 \) cuando 
+        \(-\pi/2 \leq \theta \leq \pi/2\). Entonces por el Teorema de cambio de variable: 
+    </p>
+    <p>
+        \begin{eqnarray*}
+        \int \frac{\sqrt{16- x^2}}{x^2}dx & = & \int \frac{\cos (\theta) }{4\sen^2 (\theta)}\cdot 4\cos (\theta)d\theta \\
+         & = &  \int \frac{\cos^2 (\theta) }{\sen^2 (\theta)}d\theta \\
+         & = &  \int \cot^2 (\theta) d\theta \\
+         & = & \int (\csc^2 (\theta) -1) d\theta \\
+         & = & \int \csc^2 (\theta)d\theta   -\int d\theta 
+        \end{eqnarray*}
+        
+    </p>
+    <p>
+        Afirmamos que \(\int \csc^2 (\theta)d\theta = -\cot (\theta) + K.\)
+    </p>    
+    <p>
+        Pero esto es consecuencia del segundo teorema fundamental ya que la primitiva de 
+        \(\csc^2 (\theta)\) es \(-\cot(\theta)\), es decir \[ \frac{d}{d\theta}(-\cot(\theta)) 
+        = \csc^2 (\theta)\]
+    </p>
+    <p>
+        Por lo tanto, \[ \int \frac{\sqrt{16- x^2}}{x^2}dx = \int \csc^2 (\theta)d\theta   -\int d\theta  
+        = -\cot (\theta) - \theta + C \]
+    </p>
+    <p>
+        Pero \(x = 4\sen(\theta)\), implica que \(\theta = \arcsen(x/4)\). Ahora tratemos de exprezar 
+        \(\cot(\theta)\) en terminos de \(x\). Recordemos que 
+        \[ \cot(\theta) = \frac{\cos(\theta)}{\sen(\theta)}
+        = \frac{\frac{c a}{h}}{\frac{co}{h}} = \frac{ca}{co}\]
+        donde \(ca =\) cateto adyacente, \(co =\) cateto opuesto y \(h = \) hipotenusa. 
+        Como  \(x = 4\sen(\theta)\) implica que \(\sen(\theta) = \frac{x}{4}\) se sigue que 
+        \(co = x\) y \(h = 4\). Entonces con esta información podemos constrir el siguiente triángulo: 
+        <div class="flexbox">
+            <img src="./Images/S9-Image1.png" alt="TrianguloAux" width="50%" height="auto">
+          </div>
+
+
+    </p>
+    <P>
+        Por lo tanto \(\cot(\theta) =   \frac{ca}{co} = \frac{\sqrt{16 -x^2}}{x}\). Por lo tanto, 
+        \[ \int \frac{\sqrt{16- x^2}}{x^2}dx = -\frac{\sqrt{16 -x^2}}{x} - \arcsen(x/4) + C \]
+    </P>
+</div>
+
+
+
+
+
+
 
 </div>
 
@@ -609,6 +752,69 @@
         \int_0^x \sqrt{a^2-t^2}dt=\frac{1}{2}a^2\arcsen(x/a)+\frac{1}{2}x\sqrt{a^2-x^2}
         $$ 
     </p>
+
+    <button class="respButton hvr-grow "> Solución  </button>
+    <div class="resp-box flexbox">
+<p>
+   Sea \(t = a\sen(\theta)\) donde \(-\pi/2 \leq \theta \leq \pi/2,  \Rightarrow dt = a\cos(\theta)d\theta. \)
+</p>
+<p>
+   Si \(t=0 \Rightarrow a\sen(\theta) = 0 \Rightarrow \theta = 0\)(suponiendo \(a\neq 0\)). 
+   Por otro lado, si \(t=x \Rightarrow a\sen(\theta) = x \Rightarrow \theta= \arcsen(x/a)\). 
+</p>
+<p>
+   Además \(\sqrt{a^2-t^2} = \vert a\vert\cdot\vert \cos(\theta)\vert = \vert a\vert\cos(\theta)\) 
+   la última igualdad se debe a que \(\cos(\theta)\geq 0\) si \(-\pi/2 \leq \theta \leq \pi/2\). 
+   Entonces por el teorema de cambio de variable tenemos: 
+   \begin{eqnarray*}
+   \int_0^x\sqrt{a^2-t^2}dt & = & \int_0^{\arcsen(x/a)}\vert a\vert\cos(\theta)a\cos(\theta)d\theta \\
+    & = & a^2 \int_0^{\arcsen(x/a)}\cos^2(\theta)d\theta \\
+    & = & a^2\int_0^{\arcsen(x/a)}\left(\frac{\cos(2\theta) +1}{2}\right)d\theta \\
+    & = & \frac{a^2}{2}\left[ \int_0^{\arcsen(x/a)}\cos(2\theta)d\theta + \int_0^{\arcsen(x/a)}d\theta \right]
+   \end{eqnarray*}
+   
+</p>
+<p>
+   Notemos que \(F(\theta) = \frac{\sen(2\theta)}{2}\) es una primitiva de \(\cos(2\theta)\), es decir, 
+   \(F^{\prime}(\theta) = \cos(2\theta)\). Entonces por el Segundo Teorema Fundamental. 
+   \[ \int_0^{\arcsen(x/a)}\cos(2\theta)d\theta = F(\arcsen(x/a)) -F(0) =  \frac{\sen(2\arcsen(x/a))}{2} \]
+</p>
+<p>
+   Y recordando \(\sen(2t) = 2\sen(t)\cos(t)\). Por lo tanto, 
+   \begin{eqnarray*}
+   \frac{\sen(2\arcsen(x/a))}{2} &=&  \frac{2\sen(\arcsen(x/a))\cos(\arcsen(x/a))}{2} \\
+   &=& \frac{x\cos(\arcsen(x/a))}{a}
+   \end{eqnarray*} 
+</p>
+
+<p>
+   Es decir \[ \int_0^{\arcsen(x/a)}\cos(2\theta)d\theta = \frac{x\cos(\arcsen(x/a))}{a}\] 
+</p>
+<p>
+   Entonces calculemos \(\cos(\arcsen(x/a))\), recordando que \(\theta= \arcsen(x/a)\) y \( \sen(\theta) = \frac{x}{a} = \frac{co}{h}\), donde \(co =\) cateto opuesto, \( h = \) hipotenusa y \(ca = \) cateto adyasente.  Entonces con esta información podemos constrir el siguiente triángulo: 
+   <div class="flexbox">
+       <img src="./Images/S9-Image2.png" alt="AreaBajoParabola" width="50%" height="auto">
+     </div>
+   
+</p>
+<p>
+   Por lo tanto: \[ \cos(\arcsen(x/a)) = \frac{\sqrt{a^2-x^2}}{a} \]
+</p>
+<p>
+   Recapitulando tenemos que: 
+   \begin{eqnarray*}
+   \int_0^x\sqrt{a^2-t^2}dt & = & \frac{a^2}{2}\left[ \int_0^{\arcsen(x/a)}\cos(2\theta)d\theta + \int_0^{\arcsen(x/a)}d\theta \right]\\
+    & = & \frac{a^2}{2}\left[ \frac{x\cos(\arcsen(x/a))}{a} + \arcsen(x/a) \right]\\
+    & = & \frac{a^2}{2}\left[ \frac{x}{a^2}\sqrt{a^2-x^2} + \arcsen(x/a) \right]\\
+    & = & \frac{x}{2}\sqrt{a^2-x^2} + \frac{a^2}{2}\arcsen(x/a)
+   \end{eqnarray*}
+   
+</p>
+<p>
+   Por lo tanto \[ \int_0^x\sqrt{a^2-t^2}dt = \frac{x}{2}\sqrt{a^2-x^2} + \frac{a^2}{2}\arcsen(x/a)\]
+</p>
+</div>
+
 </div>
 
 </body>
