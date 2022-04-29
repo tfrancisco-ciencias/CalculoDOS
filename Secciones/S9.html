@@ -90,7 +90,8 @@
 <div class="info-box">
     <h2 class="number-title"> Introducción</h2>
     <p>
-        Las fórmulas para la integrales con traslacion, ejer \ref{Ejer:CambioVariableTranslaciones} y con reescalamientos, \ref{Ejer:CambioVariableReescalemientos}, son casos particulares de una técnica de integración llamada integración por substitución.
+        Las fórmulas para la integrales con traslacion, <a href="./S6.html#Ejer:CambioVariableTranslaciones">Ejercicio 6.3</a> y con reescalamientos, 
+            <a href="./S6.html#Ejer:CambioVariableReescalemientos">Ejercicio 6.9</a>, son casos particulares de una técnica de integración llamada integración por substitución.
 
         De manera informal, dado el cambio de variable  $u(x)$, $x\in [c,d]$, se escribe $u'(x)dx=du$, se sustituye esto en
         $\int_a^b g(u(x))u'(x)dx$ y se calcula  $\int_{u(a)}^{u(b)} g(u)du$. El teorema del cambio de variable
@@ -334,7 +335,7 @@
 </p>
 </div>
 
-<button class="respButton hvr-grow "> Solución 3</button>
+<button class="respButton hvr-grow "> Solución inciso 3</button>
 <div class="resp-box flexbox">
 <p>
     Haciendo el cambio de variable \(u = 1+2x\), \(u\) es diferenciable y con derivada integrable. 
@@ -522,52 +523,66 @@
     </p>
     <p>
         Proponemos el cambio \(t=5\cos(x)\). Como tenemos que \(0\leq t \leq 4\)
-        debemos de tener que \(0\leq 5\cos(x) \leq 4\) o equivalentemente \( \arccos(4/5) \leq x \leq \arccos(0)=\pi/2\)
-        (recordar que \(\arccos\) es decreciente). Sacando 
+        debemos de tener que \(0\leq 5\cos(x) \leq 4\) o equivalentemente \( \theta_0 \leq x \leq \arccos(0)=\pi/2\)
+        (recordar que \(\arccos\) es decreciente). Por simplicidad denotamos 
+        \(\theta_0=\theta_0\). Sacando 
         diferenciales obtenemos \(dt = -5\sen(x)dx \). Aplicando el 
         <a id="##Teo:CambioDeVariable">Teorema de cambio de variable </a>
         obtenemos 
         \begin{eqnarray*}
-        \int_{0}^4 \sqrt{25-t^2}dt &=&  \int_{\arccos(0)}^{\arccos(4/5)} \sqrt{25-25\cos^2(x)}(-5\sen(x)) dx \\
-        &=& -25\int_{\arccos(0)}^{\arccos(4/5)}\sen(x)\sqrt{1-\cos^2(x)} dx \\
-        &=& 25 \int_{\arccos(4/5)}^{\pi/2} \sen(x)|\sen(x)|dx
+        \int_{0}^4 \sqrt{25-t^2}dt &=&  \int_{\arccos(0)}^{\theta_0} \sqrt{25-25\cos^2(x)}(-5\sen(x)) dx \\
+        &=& -25\int_{\arccos(0)}^{\theta_0}\sen(x)\sqrt{1-\cos^2(x)} dx \\
+        &=& 25 \int_{\theta_0}^{\pi/2} \sen(x)|\sen(x)|dx
         \end{eqnarray*}
-        Para tratar el valor absoluto del integrando notamos que para \(x\in [\arccos(4/5),\pi/2]\)
+        Para tratar el valor absoluto del integrando notamos que para \(x\in [\theta_0,\pi/2]\)
         la función \(\sen\) es  positiva por lo tanto 
         \[
-        \int_{0}^4 \sqrt{25-t^2}dt=25\int_{\arccos(4/5)}^{\pi/2} \sen^2(x)dx
+        \int_{0}^4 \sqrt{25-t^2}dt=25\int_{\theta_0}^{\pi/2} \sen^2(x)dx
         \]
     </p>
     <p>
         Ahora debemos de calcular la integral 
         \[
-        \int_{\arccos(4/5)}^{\pi/2} \sen^2(x)dx
+        \int_{\theta_0}^{\pi/2} \sen^2(x)dx
         \]
         para lo cual usamos la identidad \(1-\cos(2x)=2\sen^2(x)\)
         para obtener 
         \[
-        \int_{\arccos(4/5)}^{\pi/2} \sen^2(x)dx=\frac{1}{2}\int_{\arccos(4/5)}^{\pi/2} (1-\cos(2x))dx 
+        \int_{\theta_0}^{\pi/2} \sen^2(x)dx=\frac{1}{2}\int_{\theta_0}^{\pi/2} (1-\cos(2x))dx 
         \]
         la cual se puede hacer mediante el cambio de variable \(u=2x\)
         \begin{eqnarray*}
-        \frac{1}{2}\int_{\arccos(4/5)}^{\pi/2} (1-\cos(2x))dx &=& \frac{1}{2}\int_{\arccos(4/5)}^{\pi/2} 1dx 
+        \frac{1}{2}\int_{\theta_0}^{\pi/2} (1-\cos(2x))dx &=& \frac{1}{2}\int_{\theta_0}^{\pi/2} 1dx 
         -
-        \int_{\arccos(4/5)}^{\pi/2}\cos(2x))dx \\
-        &=&\frac{1}{2}\left( \frac{\pi}{2}-\arccos(4/5)\right)-\frac{1}{2}\int_{2\arccos(4/5)}^{\pi}\cos(u)du \\
-        &=& \frac{1}{2}\left( \frac{\pi}{2}-\arccos(4/5)\right) - \frac{1}{2}\left(\sen(\pi)-\sen(2\arccos(4/5)) \right)\\
-        &=& \frac{1}{2}\left( \frac{\pi}{2}-\arccos(4/5)\right) + \frac{1}{2}\sen(2\arccos(4/5)) \\
-        &=& \frac{1}{2}\left( \frac{\pi}{2}-\arccos(4/5)\right) + \sen(\arccos(4/5)) \cos(\arccos(4/5)) \\
-        &=&\frac{1}{2}\left( \frac{\pi}{2}-\arccos(4/5)\right) + \frac{4}{5}\sen(\arccos(4/5))\\
-        &=& \frac{\pi}{4} +\frac{3}{10}\sen(\arccos(4/5))
+        \int_{\theta_0}^{\pi/2}\cos(2x))dx \\
+        &=&\frac{1}{2}\left( \frac{\pi}{2}-\theta_0\right)-\frac{1}{2}\int_{2\theta_0}^{\pi}\cos(u)du \\
+        &=& \frac{1}{2}\left( \frac{\pi}{2}-\theta_0\right) - \frac{1}{2}\left(\sen(\pi)-\sen(2\theta_0) \right)\\
+        &=& \frac{1}{2}\left( \frac{\pi}{2}-\theta_0\right) + \frac{1}{2}\sen(2\theta_0) \\
+        &=& \frac{1}{2}\left( \frac{\pi}{2}-\theta_0\right) + \sen(\theta_0) \cos(\theta_0) \\
+        &=&\frac{1}{2}\left( \frac{\pi}{2}-\theta_0\right) + \frac{4}{5}\sen(\theta_0)\\
         \end{eqnarray*}
+    </p>
+    <p>
+        Ahora calculamos \(\sen(\theta_0)\). Para esto recordamos \(\theta_0=\arccos(4/5)\), por lo que podemos 
+        calcular las funciones trigonométricas de \(\theta_0\) mediante el siguiente triángulo rectángulo 
+
+        <div class="flexbox">
+            <img src="./Images/Sec9-Image3.png" alt="TrianguloAux" width="50%" height="auto">
+          </div>
+
+
+        Usando la definición de \(\sen\) se sigue que \(\sen(\theta_0)=\frac{3}{5}\).
     </p>
     <p>
         Por lo tanto 
         \begin{eqnarray*}
-        \int_{0}^4 \sqrt{25-t^2}dt&=&25\int_{\arccos(4/5)}^{\pi/2} \sen^2(x)dx \\
-        &=& 25\left( \frac{\pi}{4} +\frac{3}{10}\sen(\arccos(4/5))\right)
+        \int_{0}^4 \sqrt{25-t^2}dt&=&25\int_{\theta_0}^{\pi/2} \sen^2(x)dx \\
+        &=& 25\left(  \frac{1}{2}\left( \frac{\pi}{2}-\theta_0\right) + \frac{4}{5}\sen(\theta_0)  \right) \\
+        &=& 25\left( \frac{1}{2}\left( \frac{\pi}{2}-\theta_0\right) + \frac{12}{25} \right)\\
+        &=& \frac{25}{2}\left( \frac{\pi}{2}-\theta_0\right) + 12 
         \end{eqnarray*}
     </p>
+    
     
 </div>
 
