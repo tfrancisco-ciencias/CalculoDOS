@@ -88,25 +88,32 @@
 
 
 
+<!--<div class="info-box">
+	<h2 class="number-title"> Introducción</h2>
+	<p>
+		En esta sección vemos dos sencillas aplicaciones de la integral: valor promedio y trabajo.
+	</p>
 
+</div>-->
 
 
 
 <div class="definicion-box">
 	<h2 class="number-title"> Definición</h2>
 <p>
-	El promedio de  los números $a_1,\dots, a_n$ está dado por:
+	Recordamos que el  promedio de  los números $a_1,\dots, a_n$ está dado por:
  
 	$$
 	\frac{1}{n} \sum_{i=1}^n a_i
 	$$
 	
-	Recordando el  <a href="./S5.html#Ejer:IntegrabilidadFuncionesContinuas"> Ejercicio</a> tenemos
+	Recordando el  <a href="./S5.html#Ejer:IntegrabilidadFuncionesContinuas"> Ejercicio 5.10</a> tenemos
 	
 	$$
 	\int_a^b f(x)dx=\lim_{n} \frac{b-a}{n}\sum_{i=1}^n f(x_i)
 	$$
-	donde el promedio de los valores de la función aparece en el lado derecho. Tomando en cuenta esto se define
+	donde el promedio de los valores de la función sobre los puntos de la 
+	partición homogenea de longitud \(n\) aparece a la derecha de la igualdad. Tomando en cuenta esto se define
 	el promedio de una función $f$ integrable,  sobre el subintervalo $[a,b]$, como
 	$$
 	V_a^b(f)=\frac{1}{b-a}\int_a^b f(x)dx
@@ -122,8 +129,8 @@
 		Para las siguientes funciones, prueba la fórmula dada para $V_a^b(f)$.
 	</p>
 <ol>
-    <li>para $f$ una función constante $k$,  $V_a^b(f)=k$.</li> 
-    <li>para $f(x)=mx+b$, $x\in \mathbb{R}$, $V_a^b(f)=m \frac{a+b}{2}+d$.</li> 
+    <li>para $f$ una función constante con valor $k$,  $V_a^b(f)=k$.</li> 
+    <li>para $f(x)=mx+b$, $x\in \mathbb{R}$, $V_a^b(f)=m \frac{a+b}{2}+b$.</li> 
     <li>para $f(x)=x^2$, $x\in \mathbb{R}$, $V_a^b(f)=\frac{a^2+ab+b^2}{3}$.</li> 
 </ol>
 </div>
@@ -131,7 +138,12 @@
 <div class="ejercicio-box">
 	<h2 class="number-title"> Ejercicio</h2> 
 	<p>
-		Usando el <a href="./S1.html#Eqn:Resolvent"> Ejercicio</a> encuentra una fórmula general para el promedio de
+		Usando la identidad 
+		\[
+		b^n-a^n =(b-a)\sum_{k=0}^{n-1} a^kb^{n-k-1}
+		\]
+		
+		encuentra una fórmula general para el promedio de
 		las funciones potencia, $V_a^b(x^n)$, $n \in \mathbb{N}$.
 	</p>
 </div>
@@ -140,8 +152,8 @@
     <div class="ejercicio-box">
 		<h2 class="number-title"> Ejercicio</h2> 
 		<p>
-			Prueba las siguientes propiedades  del valor promedio. Las funciones ($f,g:[a,b]\to \mathbb{R}$ son dos 
-			funciones integrables).
+			Prueba las siguientes propiedades  del valor promedio. Las funciones, $f,g:[a,b]\to \mathbb{R}$ son dos 
+			funciones integrables.
 		</p>
     <ol>
         <li>$V_a^b(f+g)=V_a^b(f)+V_a^b(g)$.</li> 
@@ -181,7 +193,7 @@
 	<h2 class="number-title"> Ejercicio</h2> 
 	<p>
 		Da un ejemplo de una función $f:[a,b]\to \mathbb{R}$ integrable tal que
-		el valor promedio nunca se alcansa. Es decir
+		el valor promedio nunca se alcanza. Es decir
 		$$
 		V_a^b(f)\not= f(x)
 		$$
@@ -275,17 +287,19 @@
 <div class="ejercicio-box">
 	<h2 class="number-title"> Ejercicio</h2> 
 	<p>
-		Este ejercicio mejora el segundo inciso del <a href="#Ejer:DesigualdadesAplicandoTVM"> Ejercicio</a>.
+		Usando el Teorema del Valor Medio para derivadas se puede probar 
+		\(|\sen(2x)-\sen(x) | \leq x\) para todo \(x\). El siguiente ejercicio mejora 
+		la cota en el intervalo \((0,\pi/4)\).
 	</p>
 	<p>
 		Demuestra que para todo $x\in (0,\pi/4)$
 		$$
-		\sen(2x) -\sen(x) \leq x\cos(3x/2)
+		|\sen(2x) -\sen(x)| \leq x\cos(3x/2)
 		$$
 	</p>
 	<p>
-		Sugerencia: usa el <a href="#Ejer:TeoremaValorMedioMejorado"> Ejercicio</a> junto con el 
-		<a href="#Ejer:ConcavidadYValorPromedio"> Ejercicio</a>.
+		Sugerencia: usa el <a href="#Ejer:TeoremaValorMedioMejorado"> Ejercicio 10.11</a> junto con el 
+		<a href="#Ejer:ConcavidadYValorPromedio"> Ejercicio 10.10</a>.
 	</p>
 </div>
 
@@ -467,12 +481,15 @@
 		<h2 class="number-title"> Ejercicio</h2> 
 		<p>
 			El tanque que se muestra en la figura está lleno de agua. Calcula el trabajo requerido 
-			para bombear afuera todoa el agua, a través del tubo. Usar que el agua pesa $62.5lb/ft^3$.
+			para bombear afuera todoa el agua, a través del tubo. 
 		</p>
+		<div class="flexbox">
+            <img src="./Images/S10-Image1.png" alt="Tanque" width="50%" height="auto">
+          </div>
+
+		
+		
 	
-		\begin{center}
-		\includegraphics[scale=0.5]{Tanque.jpeg}
-		\end{center}
 		
 	</div>
 
