@@ -133,6 +133,38 @@
     <li>para $f(x)=mx+b$, $x\in \mathbb{R}$, $V_a^b(f)=m \frac{a+b}{2}+b$.</li> 
     <li>para $f(x)=x^2$, $x\in \mathbb{R}$, $V_a^b(f)=\frac{a^2+ab+b^2}{3}$.</li> 
 </ol>
+
+
+<p>
+	Calculando de manera directa tenemos 
+	<ul>	
+		<li> Inciso 1:
+			\begin{eqnarray*} 
+			V_a^b(f)=\frac{1}{b-a}\int_a^b k dx= \frac{1}{b-a}k(b-a)=k
+			\end{eqnarray*}
+
+		</li>
+
+		<li>
+			Inciso 2:
+			\begin{eqnarray*} 
+			V_a^b(f)= \frac{1}{b-a}\int_a^b mx+ c &=& \frac{1}{b-a}\left(m \frac{b^2-a^2}{2}+ c (b-a) \right) \\ 
+			&=& \frac{1}{b-a}\left( m\frac{(b-a)(b+a)}{2}+ c (b-a) \right) \\
+			&=& m\frac{b+a}{2}+c
+			\end{eqnarray*}
+			donde en la segudna igualdad usamos diferencia de cuadrados.
+		</li>
+		<li>
+			Inciso 3:
+			\begin{eqnarray*} 
+			V_a^b(f)=\frac{1}{b-a}\int_a^b x^2 dx &=& \frac{1}{b-a}\frac{b^3-a^3}{3} \\
+			&=& \frac{1}{b-a}\frac{(b-a)(a^2+ab+b^2)}{3} \\
+			&=& \frac{a^2+ab+b^2}{3}
+			\end{eqnarray*}
+			donde en la segunda igualdad usamos diferencia de cubos.
+		</li>
+	</ul>
+</p>
 </div>
 
 <div class="ejercicio-box">
@@ -160,6 +192,7 @@
         <li>$V_a^b(\alpha f)=\alpha V_a^b(f)$ donde $\alpha \in \mathbb{R}$ es un escalar fijo.</li> 
         <li>Si $f(x)\leq g(x)$, para todo $x\in[a,b]$, entonces $V_a^b(f)\leq V_a^b(g)$.</li> 
     </ol>
+
 </div>
 
 
@@ -185,6 +218,22 @@
 </p>
 <p>
 	Sugerencia: utiliza el Teorema del Valor Intermedio.
+</p>
+<p>
+	Ya que la función \(f\) es continua en el intervalo cerrado y acotado 
+	\([a,b]\) ésta alcanza su máximo \(M=\max_{t\in [a,b]}{f(t)}\) y
+	mínimo \(m=\min_{t\in [a,b]}\{f(t)\}\). Por lo tanto, para todo punto \(t\in [a,b]\) 
+	\[
+	m \leq f(t) \leq M.
+	\]
+	Integrando las desigualdades anteriores y dividiendo entre \(b-a\) llegamos 
+	\begin{eqnarray*}
+	& m(b-a)= \int_a^b m dt \leq \int_a^b f(t)dt \leq \int_a^bM dt = M(b-a) \\
+	& \Rightarrow m \leq V_a^b(f)\leq M.
+	\end{eqnarray*}
+	Ahora, ya que la función es continua por el Teorema del Valor intermedio existe al menos un
+	\(x_0\in [a,b]\)  tal que \( f(x_0)= V_a^b(f)\). 
+	
 </p>
 </div>
 
@@ -254,13 +303,59 @@
         $$
         </li> 
 </ol>
+
+
 <p>
-	Sugerencia: si $f$ es monótona creciente, se cumple que 
-	para cualquier $x_0 \in (a,b)$, 
-	$$
-	f(x) \geq f(x_0)+ f'(x_0)(x-x_0), \quad \forall x\in (a,b)
-	$$
-	Toma $x_0=\frac{a+b}{2} $ e integra.
+	Primero afirmamos que si $f'$ es monótona creciente entonces 
+	para cualquier $x_0 \in (a,b)$ se cunple 
+	\begin{equation}\label{Eqn:Aux1ConcavidadValorPromedio}
+	f(x) \geq f(x_0)+ f'(x_0)(x-x_0)
+	\end{equation}
+	para todo \(x\in (a,b)\)
+</p>
+<p>
+	Por el Teorema del Valor Media para las derivadas tenemos que 
+	para \(x\ne x_0\) existe un número \(c\) entre \(x\) y \(x_0\) tal que 
+	\[
+	\frac{f(x)-f(x_0)}{x-x_0} = f'(c).
+	\]
+	Para probar \eqref{Eqn:Aux1ConcavidadValorPromedio} veamos dos casos.
+	<ul>
+		<li>
+			Caso 1: \(x_0 < x \). En este caso tenemos que \(x_0 \leq c \leq x\)
+			por lo que al usar \(f'\) monótona creciente obtenemos \(f'(x_0)\leq f'(c)\). Por lo tanto 
+			de la ecuación anterior se sigue
+			\begin{eqnarray*}
+			& \frac{f(x)-f(x_0)}{x-x_0} = f'(c) \geq f'(x_0) \\
+			& \Rightarrow  f(x)-f(x_0) \geq f'(x_0)(x-x_0) \\
+			& \Rightarrow  f(x) \geq f'(x_0)(x-x_0) + f(x_0)
+			\end{eqnarray*}
+			donde en la segunda implicación usamos que \(x-x_0 >0 \).
+		</li>
+		<li>
+			Caso 2: \(x< x_0\). En este caso tenemos \(x \leq c \leq x_0\). Por la monotonía de 
+			\(f'\) se tiene \(f'(c)\leq f'(x_0)\). Por lo tanto 
+			
+			\begin{eqnarray*}
+			& \frac{f(x)-f(x_0)}{x-x_0} = f'(c) \leq  f'(x_0) \\
+			& \Rightarrow  f(x)-f(x_0) \geq f'(x_0)(x-x_0) \\
+			& \Rightarrow  f(x) \geq f'(x_0)(x-x_0) + f(x_0)
+			\end{eqnarray*}
+			donde en la segunda implicación la desigualdad se revierte pues \(x-x_0 < 0\). 
+		</li>
+	</ul>
+	Una vez probada \eqref{Eqn:Aux1ConcavidadValorPromedio} tomando el punto medio 
+	del intervalo \([a,b]\), \(x_0=\frac{a+b}{2}\) obtenemos 
+	\[
+	f(x)\geq  g(x)
+	\]
+	donde \(g\) es la función lineal \(g(x)=f'(x_0)(x-x_0)+f(x_0)=f'(x_0)x + (f(x_0)-f'(x_0)x_0)\). Por los 
+	propiedades del valor promedio se sigue 
+	\begin{eqnarray*} 
+	V_a^b(f)\geq V_a^b(g)&=& f'(x_0)\frac{a+b}{2}+ (f(x_0)-f'(x_0)x_0)\\
+	&=&  f'(x_0)x_0+ (f(x_0)-f'(x_0)x_0)\\
+	&=& f(x_0).
+	\end{eqnarray*}
 </p>
 </div>
 
@@ -268,10 +363,13 @@
 	<h2 class="number-title" id="Ejer:TeoremaValorMedioMejorado"> Ejercicio</h2> 
 	<p>
 		Este ejercicio es una nueva mirada el Teorema del Valor Medio.
+	</p>
+	<p>
+		
 
 		Sea $F:[a,b] \to \mathbb{R}$ continua en $[a,b]$ y diferenciable en $(a,b)$. Demuestra que
 		$$
-		F(b)-F(a)=V_a^b(F')(b-a).
+		\frac{F(b)-F(a)}{b-a}=V_a^b(F').
 		$$
 	</p>
 	<p>
@@ -279,7 +377,18 @@
 		calcular numéricamente $V_a^b(F')$.
 	</p>
 	<p>
-		Sugerencia: nota que $F$ es una antiderivada de $F'$ y aplica el Segundo Teorema Fundamental. 
+		Por definición del valor promedio 
+		\[
+		V_a^b(F')=\frac{1}{b-a}\int_a^b F'(x)dx.
+		\]
+		Pero por el segundo T.F.C. 
+		\[
+		\int_a^b F'(x)dx=F(b)-F(a).
+		\]
+		Por lo tanto 
+		\[
+		V_a^b(F')=\frac{1}{b-a}\int_a^b F'(x)dx= \frac{F(b)-F(a)}{b-a}.
+		\]
 	</p>
 </div>
 
