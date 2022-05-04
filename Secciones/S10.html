@@ -134,7 +134,8 @@
     <li>para $f(x)=x^2$, $x\in \mathbb{R}$, $V_a^b(f)=\frac{a^2+ab+b^2}{3}$.</li> 
 </ol>
 
-
+<button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
 <p>
 	Calculando de manera directa tenemos 
 	<ul>	
@@ -165,6 +166,7 @@
 		</li>
 	</ul>
 </p>
+</div>
 </div>
 
 <div class="ejercicio-box">
@@ -203,12 +205,27 @@
     $$
     m\leq V_a^b(f) \leq M.
     $$
+
+	<button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
+	<p>
+		Por el <a href="./S3.html#Ejer:MonotoniaIntegral">Teorema 3.6</a> tenemos que 
+		\[m(b-a) \leq \int_a^bf(x) dx \leq M(b-a). \]
+
+		Por lo tanto dividiendo por \(b-a\) en las respectivas desigualdades tenemos que  
+		\[ m \leq \frac{1}{b-a} \int_a^bf(x) dx  \leq M . \]
+		
+		Pero \( V_a^b (f)  = \frac{1}{b-a} \int_a^bf(x) dx\), es decir \[ m \leq V_a^b (f) \leq M.\]
+		
+	</p>
+	</div>
 </div>
 
 <div class="ejercicio-box"
 ><h2 class="number-title"> Ejercicio</h2> 
 <p>
-	Sea $f:[a,b]\to \mathbb{R}$ una función continua. Demuestra que para todo subintervalo $[c,d] \subseteq [a,b]$, existe un
+	Sea $f:[a,b]\to \mathbb{R}$ una función continua. Demuestra que para todo subintervalo 
+	$[c,d] \subseteq [a,b]$, existe un
 	punto $x_0$  (que depende de $c$ y $d$) tal que  
 	de
 	$$
@@ -219,6 +236,8 @@
 <p>
 	Sugerencia: utiliza el Teorema del Valor Intermedio.
 </p>
+<button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
 <p>
 	Ya que la función \(f\) es continua en el intervalo cerrado y acotado 
 	\([a,b]\) ésta alcanza su máximo \(M=\max_{t\in [a,b]}{f(t)}\) y
@@ -235,6 +254,7 @@
 	\(x_0\in [a,b]\)  tal que \( f(x_0)= V_a^b(f)\). 
 	
 </p>
+</div>
 </div>
 
 
@@ -259,6 +279,24 @@
 		V_a^b(f)=\frac{c-a	}{b-a}V_a^c(f)+ \frac{b-c}{b-a}V_c^b(f).
 		$$
 	</p>
+	<button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
+	<p>
+		Sea \(c \in (a,b)\), como \(f\) es integrable entonces por la 
+		linealidad con respecto de intervalos (<a href="./S3.html#Ejer:LinealidadIntervalos">Teorema 3.18</a>) tenemos que 
+		\[ \int_a^b f(x) dx = \int_a^c f(x) dx + \int_c^b f(x) dx . \]
+
+		Dividiendo por \(b-a\) tenemos que 
+		\begin{eqnarray*}
+		V_a^b (f)  = \frac{1}{b-a} \int_a^bf(x) dx & = & \frac{1}{b-a} \int_a^cf(x) dx + \frac{1}{b-a} \int_c^bf(x) dx \\
+ 		& = & \frac{1}{b-a}\cdot\frac{c-a}{c-a} \int_a^cf(x) dx + \frac{1}{b-a}\cdot \frac{b-c}{b-c} \int_c^bf(x) dx \\
+ 		& = & \frac{c-a}{b-a}\cdot\frac{1}{c-a} \int_a^cf(x) dx + \frac{b-c}{b-a}\cdot \frac{1}{b-c} \int_c^bf(x) dx \\
+ 		& = & \frac{c-a}{b-a}V_a^c (f) + \frac{b-c}{b-a}V_c^b (f) 
+		\end{eqnarray*} 
+
+		Por lo tanto \[ V_a^b (f) = \frac{c-a}{b-a}V_a^c (f) + \frac{b-c}{b-a}V_c^b (f) . \] 
+	</p>
+	</div>
 </div>
 
 
@@ -304,7 +342,8 @@
         </li> 
 </ol>
 
-
+<button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
 <p>
 	Primero afirmamos que si $f'$ es monótona creciente entonces 
 	para cualquier $x_0 \in (a,b)$ se cunple 
@@ -358,6 +397,7 @@
 	\end{eqnarray*}
 </p>
 </div>
+</div>
 
 <div class="ejercicio-box">
 	<h2 class="number-title" id="Ejer:TeoremaValorMedioMejorado"> Ejercicio</h2> 
@@ -376,6 +416,8 @@
 		Nota que la ventaja de este sobre el Teorema del Valor Medio, es que podemos 
 		calcular numéricamente $V_a^b(F')$.
 	</p>
+	<button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
 	<p>
 		Por definición del valor promedio 
 		\[
@@ -390,6 +432,7 @@
 		V_a^b(F')=\frac{1}{b-a}\int_a^b F'(x)dx= \frac{F(b)-F(a)}{b-a}.
 		\]
 	</p>
+	</div>
 </div>
 
 
@@ -505,11 +548,11 @@
 			donde  $\Delta x_i=x_i-x_{i-1}$ es la distancia recorrida.
 			
 			Tomando una partición homogenea de longitud $n$,  $P=\{x_i\}_{i=0}^n$, y 
-			suponiendo la continuidad de la función ferza,  el trabajo ejercido para mover una particula, 
+			suponiendo la continuidad de la función fuerza,  el trabajo ejercido para mover una particula, 
 			que se mueve a lo largo del  eje $x$, del punto $a$ al $b$,  ejerciendo una fuerza $F(x)$ en el 
 			punto $x$, como: 
 			$$
-			W=\lim_{n\to \infty } W_i = \int_a^b F(x)dx.
+			W=\lim_{n\to \infty } \sum_{i=0}^n W_i = \int_a^b F(x)dx.
 			$$
 		</p>
 	</div>
@@ -520,7 +563,7 @@
 	<div class="ejercicio-box">
 		<h2 class="number-title"> Ejercicio</h2> 
 		<p>
-			La pirámide del faraon Kufh fue  construida en un periodo de 20 a\~nos, utulizando 
+			La pirámide del faraon Kufh fue  construida en un periodo de 20 años, utulizando 
 			piedra caliza, tiene  una altura de $h=146 m$  y  una base cuadrada de $L=230 m$.  
 			La densidad de la piedra  caliza  es $\rho=2560 kg/m^3$.   Este ejercicio estima el 
 			trabajo necesario para construirla.		
@@ -557,8 +600,8 @@
 	</li> 
 	
 	<li>
-		Si cada trabajador laboraba 10 horas diarias,  340 días por 20 a\~nos, haciendo $9576 J/h$ de trabajo, 
-		levantando piedra caliza, aproximadamente \textquestiondown cuantos trabajadores se necesitarón para 
+		Si cada trabajador laboraba 10 horas diarias,  340 días por 20 años, haciendo $9576 J/h$ de trabajo, 
+		levantando piedra caliza, aproximadamente ¿cuántos trabajadores se necesitarón para 
 		construir la pirámide ?  Sólo para tener un punto de comparación, para correr 4 kilómetros se gastan 
 		134,400 J.
 	</li> 
@@ -572,7 +615,7 @@
 			La ley gravedad de Newton establece que, dados dos cuerpos con masas $m_1.m_2$, éstos se atraen 
 			entre ellos con una fuerza
 			$$
-			F=G\frac{m_1m_2}{r}
+			F=G\frac{m_1m_2}{r^2}
 			$$
 			donde $r$ es la distancia entre los cuerpos y $G$ es la constante de gravitación. Si uno de 
 			los cuerpos está fijo, encuentra el trabajo necesario para mover el otro desde $r=a$ hasta $r=b$.
@@ -583,8 +626,46 @@
 			está concentrada en el centro. Toma el radio de la tierra como $6.37(10^6)m$ y 
 			$G=6.67(10^{-11})Nm^2/kg^2$.
 		</li> 
+
 	</ol>
+
+
+	<button class="respButton hvr-grow "> Solución  inciso 1</button>
+	<div class="resp-box flexbox">
+	   <p>
+		   A partir de la ley de la Gravedad de Newton podemos ver a la fuerza como una función que 
+		   depende de la distancia \(r\), es decir \( F(r) = G\frac{m_1m_2}{r^2}\). 
+		   Entonces el trabajo que se necesita para mover un objeto desde \(r= a\)  
+		   hasta \(r = b\), está dado por :
+		   \[ W= \int_a^bF(r) dr = \int_a^bG\frac{m_1m_2}{r^2} dr 
+		   = Gm_1m_2\int_a^b\frac{1}{r^2}dr 
+		   = Gm_1m_2\left(-\frac{1}{b} + \frac{1}{a}\right) .
+		   \]
+
+		   Es decir \[  W = Gm_1m_2\left(\frac{1}{a} - \frac{1}{b}\right) . \]
+	   </p>
+	</div>   
+
+	   <button class="respButton hvr-grow "> Solución  inciso 2</button>
+	   <div class="resp-box flexbox">
+	   <p>
+		Antes de empezar recordemos que\(1km = 1000m\) por lo que \(1000km = 1,000,000 m\). 
+		Sea \(m_T = \text{masa de la tierra} = 5.98(10^{24})kg\) y sea \( m_S = \text{ masa del satélite } 
+		= 1000kg\). Entonces tomando como punto fijo el centro de la tierra, tenemos que el satélite al principio se encuentra a  \(6.37(10^6)m\) con respecto del centro de la Tierra ( que esto es el radio de la tierra), entonces se quiere calcular el trabajo que realiza el satélite partiendo de \(a= 6.37(10^6)m \) hasta \( b= (1,000,000 + a) m=  7.37(10^6) m\). Entonces usando la formula que sacamos del problema anterior tenemos : 
+		\begin{eqnarray*}
+		W & = & Gm_Tm_S\left(\frac{1}{6.37(10^6)} - \frac{1}{6.37(10^6)}\right) \\
+		 & = & [6.67(10^{-11})][ 5.98(10^{24})][1000] \left(\frac{1}{6.37(10^6)} - \frac{1}{6.37(10^6)}\right) \\
+		 & \approx & 8.50(10^9)
+		\end{eqnarray*}  
+		Es decir, \(W = 8.50(10^9)\) Joules.
+	   </p>
+	   </div>
+	
+		
+	
+		
 	</div>
+
 	
 	<div class="ejercicio-box">
 		<h2 class="number-title"> Ejercicio</h2> 
@@ -595,13 +676,8 @@
 		<div class="flexbox">
             <img src="./Images/S10-Image1.png" alt="Tanque" width="50%" height="auto">
           </div>
-
-		
-		
-	
-		
 	</div>
-
+		
 	
 
 </body>
