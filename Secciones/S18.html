@@ -1,210 +1,398 @@
 
 
 
+<!DOCTYPE html PUBLIC >
 
-\section*{Funciones Hiperbólicas}
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            arcsen: "\\operatorname{arcsen}",
+            arcsec: "\\operatorname{arcsec}"
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 17 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 17 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 18 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox"> Integrales Impropias </h1>
+
+
 
 <div class="definicion-box">
-Las funciones coseno  hiperbólico y seno hiperbólico se pueden ver como la parte par e impar, respectivamente de la función exponencial.
+Sea $a$ un real fijo y $f:[a,\infty) \to \mathbb{R}$  una función.
 
-Recordemos  (ejercicio \ref{Ejer:DescomposicionFuncionesParesImpares}) que la parte par e impar de una función arbitraria $f$, estan dadas respespectivamente por
+Si para todo $x\geq a$ la integral $\int_a^x f(t)dt$ existe y 
+el límite
 $$
-f_{\textrm{par}}(x):= \frac{f(x)+ f(-x) }{2}
+\lim_{T\to \infty} \int_a^T f(t)dt
 $$
+
+existe  entonces decimos que la integral $\int_a^\infty f(t)dt$ existe y definimos
 $$
-f_{\textrm{impar}}(x):= 
-\frac{f(x)-f(-x)}{2}
-$$
-asi pues definimos las funciones coseno y seno hiperbólicos como:
+\int_a^\infty f(t)dt:=\lim_{T\to \infty} \int_a^T f(t)dt
+$$ 
 
+También decimos que la integral $\int_a^\infty f(t)dt$ es convergente. De lo contrario diremos que la integral $\int_a^\infty f(t)dt$ diverge.
 
-\begin{eqnarray*}
-\cosh(x)&=& \frac{e^x+ e^{-x}}{2}, \quad x\in \mathbb{R}, \\
-\senh(x) &=& \frac{ e^x - e^{-x}}{2}, \quad x\in \mathbb{R}.
-\end{eqnarray*}
-
-Es decir, el coseno hiperbólico es la parte par de la exponencial y el seno hiperbólico es la parte impar de la exponencial.
-
-
-Tomando como modelo las funciones trigonométricas también definimos
-
-\begin{eqnarray*}
-\tanh(t) &=& \frac{ \senh(t) }{ \cosh(t) }= \frac{ e^x - e^{-x}}{ e^x + e^{-x }} \\
-\csch(t)&=&\frac{1}{\senh(t)} \\
-\sech(t)&=&\frac{1}{\cosh(t)} \\
-\coth(t)&=&\frac{1}{\tanh(t)}
-\end{eqnarray*}
 
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando la definición de las funciones hiperbólicas y las propiedades de la exponencial demuestra las siguientes propiedades.
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que la  integral $\int_1^\infty \frac{1}{x}dx$ diverge.
 
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Considera una potencia  $p\in (0,\infty)$ y la función $f(t)=\frac{1}{t^p}$, $t\geq 1$.
+
+Encuentra los valores $p$ para los cuales la integral $\int_1^\infty f(t)dt$ converge.
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Considera la función $f(t)=\sen(t)$, $t\geq 0$.  Demuestra que $\lim_{n \to \infty} \int_0^{n\pi} \sen(t)dt$ existe, sin embargo demuestra que $\int_0^{\infty}f(t)dt$ diverge.
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:IntegralInversae} Demuestra
+$$
+\int_1^\infty e^{-t}dt=\frac{1}{e}
+$$
+
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:ConvergenciaAcotadantegralesImpropias} Demuestra el siguiente resultado.
+
+Sea $f:[a, \infty) \to \mathbb{R}$ una función que satisface
 <ol>
-    <li>$\cosh(t)>0$ para todo $t\in \mathbb{R}$.</li> 
-    <li>$\senh(t)=0$ si y sólo si $t=0$. </li> 
-    <li>$\senh(t)>0$ si y sólo si $t>0$ y $\senh(t)< 0$ si y sólo si $t < 0$.</li> 
- </ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Asi como la s funciones coseno y seno estan  atadas al 
-círculo unitario, $x^2 + y^2 = 1$, las funciones coseno hiperbólico y seno  hiperbólico estan relacionadas con la hiperbola $x^2 - y^2 = 1 $.  Demuestra que,  para toda $t\in \mathbb{R}$ 
+    <li>$f(x)\geq 0$ para toda $x$</li> 
+    <li>$\int_a^b f(t)dt$ existe para todo intervalo cerrado y acotado $[a,b]$.</li> 
+</ol>
+Entonces $\int_a^\infty f(t)dt$ converge si y sólo si el conjunto
 $$
-\cosh^2(t) - \senh^2(t)= 1.
+\left\{  \int_a^b f(t)dt : b > a  \right\}
+$$
+esta acotado superiormente.  
+
+Es  más, en tal caso
+$$
+\int_a^\infty f(t)dt = \sup \left\{  \int_a^b f(t)dt : b > a  \right\}
 $$
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Las funciones hiperbólicas tienen muchas similitudes con las trigonométricas, como lo muestra este ejercicio.
 
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:TeoremaDeComparacionIntegImpropias} Demuestra el siguiente Teorema.
+
+<div class="teorema-box">[Teorema de comparación]
+Sean $f,g:[a,\infty) \to\mathbb{R}$ funciones que satisfacen
+<ol>
+    <li>$f(x),g(x) \geq 0$ para toda $x$</li> 
+    <li>$f(x)\leq g(x)$ para toda $x$</li> 
+</ol>
+
+Entonces:
 <ol>
     <li>
-        \label{Ejer:FormulasSumaHiper} Demuetra las leyes para $\cosh$ y $\senh$ de una suma:
-\begin{eqnarray*}
-\senh(a+b)&=&\senh(a)\cosh(b)+\senh(b)\cosh(a), \\
-\cosh(a+b)&=& \cosh(a)\cosh(b)+\senh(a)\senh(b), \\
-\tanh(a+b)&=&\frac{\tanh(a)+\tanh(b)}{1+\tanh(a)\tanh(b)}.
-\end{eqnarray*}
-    </li>
-<li>
-    Demuestra:
+        Si $\int_a^\infty g(t)dt$ converge entonces también $\int_a^\infty f(t)dt$ converge  y 
 $$
-\coth^2(a)-1=\csch^2(a). 
-$$
-</li> 
-<li>
-    Demuestra que, para cualquier real $n$, 
-$$(\cosh(a)+\senh(a))^n=\cosh(na)+\senh(na).$$
+\int_a^\infty f(t)dt \leq \int_a^\infty g(t)dt 
+ $$
+    </li> 
+ <li>
+    Si $\int_a^\infty f(t)dt$ diverge entonces también $\int_a^\infty g(t)dt$ es divergente.
+ </li> 
+</ol>
 
-</li> 
-<li>
-    \label{Ejer:FormulasDerivadasHiper} Demuetra las fórmulas para las derivadas:
+</div>
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:ExistenciaIntImpropiaEmenosx2} Demuestra que la integral $\int_1^\infty e^{-t^2}dt$ es convergente.
+
+Sugerencia: usa el Teorema de Comparación (ejercicio \ref{Ejer:TeoremaDeComparacionIntegImpropias}) y el ejercicio \ref{Ejer:IntegralInversae}.
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:LaplaceTransformPotenciasNaturales} Sea $\omega >0$ fijo. Demuestra que, para todo natural $n$, la integral $\int_0^\infty x^n e^{-\omega x}dx $ converge. Además
+$$
+\int_0^\infty x^n e^{-\omega x}dx=\frac{n!}{\omega^n}
+$$
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:LaplaceTransformPotenciasReales} Sea $\omega >0$ fijo. Demuestra  que, para todo real $s>0$, la integral $\int_0^\infty x^s e^{-\omega x}dx$ converge.
+
+Sugerencia: usa el ejercicio \ref{Ejer:TeoremaDeComparacionIntegImpropias} y el ejercicio \ref{Ejer:LaplaceTransformPotenciasNaturales}.
+
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:LemaDefinicionIntegralImpropiaEnR} Considera una función $f: \mathbb{R} \to \mathbb{R}$ tal que, para todo intervalo cerrado y acotado $[a,b]$, la integral $\int_a^b f(t)dt$ exsite. 
+
+Si existe $c$ tal que $\int_c^\infty f(t)dt$ converge, demuestra que para todo $c'$, la integral 
+$\int_{c'}^\infty f(t)dt$ también converge. Además
 \begin{eqnarray*}
-\frac{d}{dx}(\senh(x))&=&\cosh(x), \\
-\frac{d}{dx}(\cosh(x))&=&\senh(x),\\
-\frac{d}{dx}(\tanh(x))&=&\sech^2(x).\\
+\int_{c}^\infty f(t)dt = \int_{c}^{c'}f(t)dt+ \int_{c'}^\infty f(t)dt, \quad \textrm{si $c'>c$} \\
+\int_{c'}^\infty f(t)dt = \int_{c'}^cf(t)dt+ \int_{c}^\infty f(t)dt, \quad \textrm{si $c>c'$} 
 \end{eqnarray*}
+
+
+De manera similar, si existe $c$ tal que $\int_{-\infty}^c f(t)dt$ converge, demuestra que para todo $c'$, la integral 
+$\int_{-\infty}^{c'} f(t)dt$ también converge. Además
+
+\begin{eqnarray*}
+\int^{c'}_{-\infty} f(t)dt = \int_{-\infty}^{c}f(t)dt+ \int_{c}^{c'} f(t)dt, \quad \textrm{si $c'>c$} \\
+\int^{c}_{\infty} f(t)dt = \int_{-\infty}^{c'}f(t)dt+ \int_{c'}^c f(t)dt, \quad \textrm{si $c>c'$} 
+\end{eqnarray*}
+
+<div class="definicion-box">
+Dada una función  $f: \mathbb{R} \to \mathbb{R}$, decimos que la integral
+$$
+\int_{-\infty}^\infty f(t)dt
+$$
+converge si:
+<ol>
+    <li>para todo intervalo cerrado y acotado $[a,b]$ la integral $\int_a^b f(t)dt$ existe;</li> 
+    <li>
+        existe $c\in\mathbb{R}$ tal que ambos  límites 
+$$
+\lim_{b\to + \infty}\int_c^b f(t)dt \quad \lim_{ a \to - \infty}\int_a^c f(t)dt 
+$$
+existen.
+    </li> 
+</ol>
+
+De ser asi, definimos:
+$$
+\int_{-\infty}^\infty f(t)dt :=\lim_{ a \to - \infty}\int_a^c f(t)dt +  \lim_{b\to + \infty}\int_c^b f(t)dt 
+$$
+es decir, con la notación anterior
+$$
+\int_{-\infty}^\infty f(t)dt :=\int_{-\infty}^c f(t)dt +  \int_c^\infty f(t)dt 
+$$
+Notar que, por el ejercicio \ref{Ejer:LemaDefinicionIntegralImpropiaEnR} , el punto $c$ que aparece en la definición de la convergencia de 
+$\int_{-\infty} ^\infty f(t)dt$ no importa.
+
+</div>
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:LinealidadIntervalosIntegralImpropia} Demuestra que si la integral $\int_{-\infty}^\infty f(t)dt$ converge entonces, para cualesquiera $d$,
+$$
+\int_{-\infty}^d f(t)dt +\int_d^{\infty} f(t)dt = \int_{-\infty}^\infty f(t)dt.
+$$
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que la integral $\int_{-\infty}^\infty e^{-x^2}dx$ converge. 
+
+Sugerencia: usa el ejercicio \ref{Ejer:ExistenciaIntImpropiaEmenosx2}.
+
+
+Nota: el ejercicio sólo asegura la existencia de la integral, el valor exácto de $\int_{-\infty}^\infty e^{-x^2}dx$ se calculará
+posteriormente.
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>  Sea $f:\mathbb{R} \to \mathbb{R}$ una función tal que, para todos $a < b$, la integral $\int_a^b f(x)dx$ existe. 
+<ol>
+    <li>
+        Demuestra que, si la integral $\int_{-\infty}^\infty f(t)dt $ converge, entonces el siguiente límite existe
+$$
+\lim_{r \to \infty} \int_{-r}^r f(t)dt
+$$
+y es igual a $\int_{-\infty}^\infty f(t)dt$.
+
+Sugerencoa: usa el ejercicio \ref{Ejer:LinealidadIntervalosIntegralImpropia}.
+    </li> 
+
+<li>
+    Da un ejemplo donde el límite $\lim_{r \to \infty} \int_{-r}^r f(t)dt$ existe pero la integral $\int_{-\infty}^\infty f(x)dx$
+no converge.
+
+Sugerencia: consider $f$ una función potencia.
+</li> 
+
+<li>
+    \label{Ejer:CriterioIntegraImpropiaCentradoCero} Demuestra que si además pedimos que $f(x) \geq 0$, para toda $x\in \mathbb{R}$, entonces la existencia
+del límite $\lim_{r\to \infty} \int_{-r}^r f(x)dx$ implica la convergencia de la integral $\int_{-\infty}^\infty f(x)dx$.
+
+Sugerencia: usa el ejercicio \ref{Ejer:ConvergenciaAcotadantegralesImpropias}.
 </li>
+
 </ol>
 
 
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra
+$$\int_{-\infty}^\infty \frac{1}{1+x^2}dx=\pi .$$
+
+Sugerencia: usa el ejercicio  \ref{Ejer:CriterioIntegraImpropiaCentradoCero}.
 
 
+\subsection*{La integral $\int_{-\infty}^\infty e^{-x^2}dx$}
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que $\senh$ es una función estrictamente creciente.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:FormulaInversaSenh} Ya que $\senh$ es estrictamente creciente, existe su función inversa (ver ejercicio \ref{Ejer:InversaContinuaMonotona}), denotada $\senh^{-1}:\mathbb{R} \to \mathbb{R}$. Demuestra que, para toda $y\in \mathbb{R}$
+En esta sección se demuestra la siguiente identidad:
 $$
-\senh^{-1}(y)=\ln(y+\sqrt{y^2+1}).
-$$
-
-Sugerencia: primero, usando la definición de $\senh$,  nota que  la identidad $y=\senh(x)$ es equivalente a  $e^{2x}-2ye^{x}-1=0$; después
-toma $X=e^x$, escribe $e^{2x}-2ye^{x}-1=0$ como una cuadrática en $X$ y resuélvela.
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:FormulaInversaCosh} La función $\cosh$ no es inyectiva, pero si se restringe el dominio $\cosh(x)$, $x\in [0,\infty)$ la función es inyectiva y suprayectiva al intervalo $[1,\infty)$. Por lo tanto la inversa está definida $\cosh^{-1}:[1, \infty) \to [0, \infty)$. Demuestra que, para toda
-$y\in [1,\infty)$,
-$$
-\cosh^{-1}(y)=\ln(y+\sqrt{y^2-1})
+\int_{-\infty}^{\infty} e^{-x^2}dx=\sqrt{\pi}.
 $$
 
-Sugerencia: sigue el mismo procedimiento al ejercicio \ref{Ejer:FormulaInversaSenh}.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que la función $\tanh$ es estrictamente creciente.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:LimitesTanh} Demuestra que
-\begin{eqnarray*}
-\lim_{x\to \infty}\tanh(x)&=&1 \\
-\lim_{x\to -\infty}\tanh(x)&=&-1
-\end{eqnarray*}
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:FormulaInversaTanh} Ya que $\tanh$ es estrictamente creciente, existe su función inversa (ver ejercicio \ref{Ejer:InversaContinuaMonotona}) y el ejercicio  \ref{Ejer:LimitesTanh}  dice que su dominio es el intervalo $(-1,1)$. Denotada $\tanh^{-1}:(-1,1) \to \mathbb{R}$ la función inversa de $\tanh$. Demuestra que
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:CotaPorAbajoCampanaGauss} Demuestra que, para $x\in [0,1]$
 $$
-\tanh^{-1}(y)=\frac{1}{2}\ln \left( \frac{1+y}{1-y} \right)
-$$ 	
+1-x^2 \leq e^{-x^2}.
+$$
 
-Sugerencia: sigue el mismo procedimiento al ejercicio \ref{Ejer:FormulaInversaSenh}.
+Sugerencia: define la función $f(x)= e^{-x^2}-1+x^2$; analizando la función $f$ mediante su derivada, demuestra que $f$ es monónota creciente en $[0,1]$.
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:CotaPorArribaCampanaGauss} Demuestra que, para $x\in [0,\infty ]$
+$$
+e^{-x^2} \leq \frac{1}{1+x^2}.
+$$
+
+Sugerencia: es equivalente probar $1+x^2 \leq e^{x^2}$; para ésta última usa la recta soporte
+de la exponencial en cero, ejercicio \ref{Ejer:RectaSoporteExpEnCero}.
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:AproxIntegralPorAbajoCampanaGauss} Demuestra que, para todo natural $n\geq 1$
+$$
+\int_0^1 (1-x^2)^n dx = \frac{2}{3}\frac{4}{5}  \cdots \frac{2n}{2n+1}.
+$$
+
+Sugerencia: empieza con el cambio de variable $x=\cos(\theta)$ y depués usa la fórmulas de reducción (ejercicio  \ref{Ejer:FormulasReduccionSenoCoseno}).
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:AproxIntegralPorArribaCampanaGauss} Demuestra que, para todo natural $n\geq 2$,
+
+$$
+\int_0^{\infty} \frac{1}{(1+x^2)^n}dx = \frac{\pi}{2}\frac{1}{2}\frac{3}{4}\cdots \frac{2n-3}{2n-2}.
+$$
+
+Sugerencia: fija $b>0$ y empieza con el cambio de variable $x=\tan(\theta)$ para  $x\in [0,b]$ (nota que
+$x\to \infty$ si $b\to \pi/2$); depués usa la fórmulas de reducción  (ejercicio \ref{Ejer:FormulasReduccionSenoCoseno}).
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:ReescalamientoPorAbajoCampanaGauss}  Demuestra que, para todo natural $n\geq 1$:
+
+$$
+\frac{2}{3}\frac{4}{5}\cdots \frac{2n}{2n+1} \leq \int_0^1 e^{-nx^2}dx.
+$$
+
+Sugerencia: usa los incisos \ref{Ejer:CotaPorAbajoCampanaGauss} y \ref{Ejer:AproxIntegralPorAbajoCampanaGauss}.
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:CotaPorAbajoIntegralCampanaGauss} Demuestra que, para todo natural $n\geq 1$:
+
+\begin{equation*}
+\sqrt{n} \frac{2}{3}\frac{4}{5}\cdots \frac{2n}{2n+1} \leq \int_0^{\infty} e^{-u^2}du
+\end{equation*}
+Sugerencia: toma el cambio de variable $u=\sqrt{n}x$ en el ejercicio \ref{Ejer:ReescalamientoPorAbajoCampanaGauss}.
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:ReescalamientoPorArribaCampanaGauss}  Demuestra que, para toda $b>0$ y todo natural $n\geq 2$:
+
+$$
+\int_0^b e^{-nx^2} \leq   \frac{\pi}{2}\frac{1}{2}\frac{3}{4}\cdots \frac{2n-3}{2n-2}.
+$$
+
+
+Sugerencia: usa el ejercicio \ref{Ejer:CotaPorArribaCampanaGauss} y \ref{Ejer:AproxIntegralPorArribaCampanaGauss}.
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:CotaPorArribaIntegralCampanaGauss} Demuestra que, para todo natural $n\geq 2$:
+$$
+\int_0^{\infty} e^{-u^2}du \leq \sqrt{n} \frac{\pi}{2} \frac{1}{2}\frac{3}{4}\cdots \frac{2n-3}{2n-2}
+$$
+
+Sugerencia: toma el cambio de variable $u=\sqrt{n}x$ en el ejercicio \ref{Ejer:ReescalamientoPorArribaCampanaGauss} y después toma límite cuando $b \to \infty$.
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra:
+$$
+\lim_{n\to \infty}  \left\{ \sqrt{n} \frac{2}{3}\frac{4}{5}\cdots \frac{2n}{2n+1 } \right\} =\frac{\sqrt{\pi}}{2}.
+$$
+
+Sugerencia: nota que se puede escribir:
+$$
+\sqrt{n} \frac{2}{3}\frac{4}{5}\cdots \frac{2n}{2n+1 } = \left[  \frac{2}{1}\frac{4}{3}\cdots \frac{2n}{2n-1} \right] \frac{\sqrt{n}}{2n+1}=
+\left[ \frac{1}{\sqrt{n}}   \frac{2}{1}\frac{4}{3}\cdots \frac{2n}{2n-1} \right]   \frac{n}{2n+1},
+$$
+y usa el ejercicio \ref{Ejer:LemaWillisCampanaGauss}.
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra:
+$$
+\lim_{n\to \infty}   \left\{ \sqrt{n} \frac{\pi}{2} \frac{1}{2}\frac{3}{4}\cdots \frac{2n-3}{2n-2}  \right\}=\frac{\sqrt{\pi}}{2}.
+$$
+
+Sugerencia: nota que se puede escribir:
+$$
+\sqrt{n} \frac{\pi}{2} \frac{1}{2}\frac{3}{4}\cdots \frac{2n-3}{2n-2} = \frac{\pi}{2} \left[ \frac{1}{ \frac{1}{\sqrt{n}}  \frac{2}{1}\frac{4}{3}\cdots \frac{2n-2} {2n-3}} \right]=\frac{\pi}{2} \left[ \frac{1}{ \frac{1}{\sqrt{n}}  \frac{2}{1}\frac{4}{3}\cdots \frac{2n-2} {2n-3} \frac{2n}{2n-1}} \right] \frac{1}{\frac{2n-1}{2n}} 
+$$
+y usa el ejercicio \ref{Ejer:LemaWillisCampanaGauss}.
 
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando diferenciación implícita y el ejercicio \ref{Ejer:FormulasDerivadasHiper}, demuestra las fórmulas de las derivadas de las funciones hiperbólicas inversas.
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Finalmente, demuestra:
 
-\begin{eqnarray*}
-\frac{d}{dy}(\senh^{-1}(y))&=&\frac{1}{\sqrt{1+y^2}} \\
-\frac{d}{dy}(\cosh^{-1}(y))&=&\frac{1}{\sqrt{y^2-1}} \\
-\frac{d}{dy}(\tanh^{-1}(y))&=& \frac{1}{1-y^2}
-\end{eqnarray*}
+$$
+\int_{-\infty}^{\infty} e^{-x^2}dx=\sqrt{\pi}.
+$$
 
-Sugerencia: recuerda que $\cosh^2(t)-\senh^2(t)=1$.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra: 
-
-\begin{eqnarray*}
-\int \frac{1}{\sqrt{1+y^2}} dy &=&  \senh^{-1}(y),\\
-\int \frac{1}{\sqrt{y^2-1}}dy &=&  \cosh^{-1}(y), \\
-\int \frac{1}{1-y^2}dy  &=& \tanh^{-1}(y).
-\end{eqnarray*}
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calculas las siguientes integrales 
-<ol>
-    <li>$\int \senh(1+4x)dx$</li> 
-    <li>$\int \frac{\senh(\sqrt{x})}{\sqrt{x}}dx$</li> 
-    <li>$\int_4^6 \frac{1}{\sqrt{t^2-9	}}dt$</li> 
-    <li>$\int_0^1 \frac{1}{\sqrt{16t^2 +1}}dt$</li> 
-    <li>$\int \frac{e^x}{1-e^{2x}}dx$</li> 
+Sugerencia: De los incisos \ref{Ejer:CotaPorAbajoIntegralCampanaGauss} y \ref{Ejer:CotaPorArribaIntegralCampanaGauss} concluye que, para todo
+natural $n\geq 2$:
+$$
+\sqrt{n} \frac{2}{3}\frac{4}{5}\cdots \frac{2n}{2n+1} \leq \int_0^{\infty} e^{-u^2}du \leq \sqrt{n} \frac{\pi}{2} \frac{1}{2}\frac{3}{4}\cdots \frac{2n-3}{2n-2}.
+$$
+después, usa los dos incisos anteriores.
 </ol>
+\end{document}
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Evalua $\lim_{x\to \infty} \frac{\senh(x)}{e^x}$
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que si $a\ne 0$ y $b\ne 0$, entonces existen números $\alpha$ y $\beta$ tal que $ae^x+be^{-x}$ es igual a alguna de las siguientes funciones: $\alpha \cosh(x+\beta)$ ó $\alpha \senh(x+\beta)$.
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> <ol>
-    <li>
-        Demuestra que toda función de la forma 
-$$
-y=A\cosh(mx)+B\senh(mx)
-$$
-satisface la ecuación diferencial $y''=m^2y$.
-    </li> 
-<li>
-    Encuentra $y$ tal que $y''=9y$, $y(0)=-4, y'(0)=6$.
-</li> 
-</ol>
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> En el circulo unitario, el area 
-$$
-dibujito
-$$
-es igual a $t/2$, si $t$ es medido en radianes. Algo análogo para para las funciones hiperbólicas. Tomar $(a,b)=(\cosh(t_0), \senh(t_0))$
-y considera el area
-$$
-dibujito
-$$
-
-Demuestra que el area es igual a $t_0/2$.
-
-Vamos a tomar dos areas. $A$ es el area que vamos a calcular y $B$ es el area bajo la curva $y=\sqrt{x^2-1}$, es decir
-$B=\int_1^a\sqrt{x^2-1	}dx$. 
-
-<ol>
-    <li>
-        Prueba que 
-$$B=\frac{1}{4}\senh(2t_0)-\frac{1}{2}t_0$$.
-
-Sugerencia: en la integral $\int_1^a\sqrt{x^2-1	}dx$ toma el cambio de variable $x=\cosh(t)$.
-    </li> 
-
-<li>
-    Demuestra que:
-$$
-A+B=\frac{1}{4}\senh(2t_0)
-$$
-Sugerencia: considera el area del triángulo formado por las areas $A$ y $B$.
-</li> 
-
-<li>
-    Concluye que $A=t_0/2$.
-</li> 
-</ol>

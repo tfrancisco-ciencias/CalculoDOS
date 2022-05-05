@@ -86,134 +86,184 @@
 
 <h1 class="number-title flexbox"> Areas </h1>
 
+<div class="info-box">
+  <h2 class="number-title"> Introducción </h2>
+  <p>
+    En ésta sección revisamos varias aplicaciones de la integral para calcular áreas. Primero 
+    se revisa el área en coordenadas polares, después el área entre curvas y se termina con 
+    la aplicación del índice de Gini y la introducción de una distancia entre funciones continuas.
+  </p>
 
-
-\section*{Area en coordenadas polares}
+</div>
 	
 	
-<div class="definicion-box">
+<div class="info-box">
+  <h2 class="number-title"> Nota </h2>
+  <h3> Cambios de coordenadas</h3>
+  <h4>
+    De polares a cartesianas
+  </h4>
+  <p>
+    $r\geq 0$, $\theta \in \mathbb{R}$
+    \begin{eqnarray*}
+    x&=&r\cos(\theta)\\
+    y&=&r\sen(\theta)
+    \end{eqnarray*}
 
-De polares a cartesianas. $r\geq 0$, $\theta \in \mathbb{R}$
-\begin{eqnarray*}
-x&=&r\cos(\theta)\\
-y&=&r\sen(\theta)
-\end{eqnarray*}
+    Nota: el cero puede tener cualquier $\theta$.
+  </p>
+  <h4>
+    De cartesianas a polares
+  </h4>
 
-Nota: el cero puede tener cualquier $\theta$.
-
-De cartesianas a polares. El ángulo se mide con respecto al eje $x$ en sentido contrario 
-a las manecillas del reloj.
-\begin{eqnarray*}
-r&=&\sqrt{x^2+y^2}\\
-\theta &=& \left\{
-\begin{array}{cc}
-\arctan(x/y) &  y\not=0 \\
-0 & y=0
-\end{array}
-\right. 
-\end{eqnarray*}
+  <p>
+    El ángulo se mide con respecto al eje $x$ en sentido contrario 
+    a las manecillas del reloj.
+    \begin{eqnarray*}
+    r&=&\sqrt{x^2+y^2}\\
+    \theta &=& \left\{
+    \begin{array}{cc}
+    \arctan(x/y) &  y\not=0 \\
+    0 & y=0
+    \end{array}
+    \right. 
+    \end{eqnarray*}
+  </p>
 </div>
 
 
-<div class="definicion-box">
-Definimos $\pi$ como el cociente de la longitd de una circunferencia de un círculo entre su diámetro.
-</div>
 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El area de un círculo de radio $R$ es $\pi R^2$. En particular, la longitud de una circunferencia de radio
-$R$ es $2\pi R$.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El area del un círculo de radio $R$ es $\pi R^2$. 
 
 <div class="definicion-box">
-Considera un círculo de radio $R$ y un ángulo $\measuredangle AOB$ mide $a$ radianes si 
-$$
-a=\frac{L}{R}
-$$
-donde $L$ es la longitud del arco que subtiende $\measuredangle AOB$ .
+  <h2 class="number-title"> Definición</h2>
+  <p>
+    Definimos $\pi$ como el cociente de la longitd de una circunferencia de un círculo entre su diámetro.
+    
+  </p>
+  <p>
+    Más en general, éste método ayuda a introducir la medida de ángulos en en radianes.
+  </p>
+<p>
+  Considera un círculo de radio $R$ y un ángulo $\measuredangle AOB$ mide $a$ radianes si 
+  $$
+  a=\frac{L}{R}
+  $$
+  donde $L$ es la longitud del arco que subtiende $\measuredangle AOB$ .
+</p>
 </div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio  relaciona radianes con area.
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Este ejercicio  relaciona radianes con area.
+  </p>
 
 <ol>
-    <li>Divide el criculo de radio $R$ en $n$ partes iguales. Demuestra que el área de cada parte es
+    <li>
+        Divide el criculo de radio $R$ en $n$ partes iguales. Demuestra que el área de cada parte es
         $$
         A=\frac{a}{2}R^2
         $$
-        donde $a$ es la medida del ángulo, en radianes,  de cada parte. </li> 
+        donde $a$ es la medida del ángulo, en radianes,  de cada parte. 
+      </li> 
 
-<li>Considera un segmento circular, con ángulo $a$, medido en radianes y supon que $a=\frac{p}{q}2\pi$, donde $p$ y $q$ son enteros positivos con $p/q < 1$.  Demuestra que el área del segmento es
-    $$
-    A=\frac{a}{2}R^2
-    $$
-    
-    Sugerencia: denota por $A$ a el area del segmento y por $\tilde{A}$ el area de un segmento
-     circular con angulo  $\frac{2pi}{q}$. Nota que  $A=p\tilde{A}$ y usa el inciso anterior.</li> 
+    <li>
+      Considera un segmento circular, con ángulo $a$, medido en radianes y supon que $a=\frac{p}{q}2\pi$, 
+      donde $p$ y $q$ son enteros positivos con $p/q < 1$.  Demuestra que el área del segmento es
+      $$
+      A=\frac{a}{2}R^2
+      $$
+      
+      <p>
+        Sugerencia: denota por $A$ a el area del segmento y por $\tilde{A}$ el area de un segmento
+        circular con angulo  $\frac{2pi}{q}$. Nota que  $A=p\tilde{A}$ y usa el inciso anterior.
+      </p>
+  </li> 
 
- <li>Usando la densidad de los racionales  y la continuidad de la función area se puede argumentar que el area de un segmento circular, con ángulo $a$ (en radianes) y radio $R$ es
+ <li>
+    Usando la densidad de los racionales  y la continuidad de la función area se puede argumentar 
+    que el area de un segmento circular, con ángulo $a$ (en radianes) y radio $R$ es
     $$
     \frac{a}{2}R^2
     $$
-    </li> 
+  </li> 
 </ol>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio demuestra el siguiente teorema.
+
+  
 
 <div class="teorema-box">
-Sea $f:[a,b]\to \mathbb{R}$ una función no negativa, con $b-a< 2\pi$ y supongamos
-que $f^2$ es integrable. Sea $D$ la región descrita en coordenadas polares por $r(\theta)\leq f(\theta)$.
+  <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Sea $f:[a,b]\to \mathbb{R}$ una función no negativa, con $b-a< 2\pi$ y supongamos
+      que $f^2$ es integrable. Sea $D$ la región descrita en coordenadas polares por $r(\theta)\leq f(\theta)$.
+  
+      Entonces el área de $D$ esta dada por
+      $$
+      \frac{1}{2}\int_a^b f^2(\theta)d\theta.
+      $$ 
+  
+    </p>
 
-Entonces el área de $D$ esta dada por
-$$
-\frac{1}{2}\int_a^b f^2(\theta)d\theta.
-$$ 
-</div>
+  <p>
+    Este ejercicio demuestra el siguiente teorema.
+  </p>
+
 <ol>
 
-    <li>Fijemos $\varepsilon >0$. Demuestra que existen funciones escalonadas, $\tilde{s}$ y $\tilde{t}$ tal que:
+    <li>
+        Fijemos $\varepsilon >0$. Demuestra que existen funciones escalonadas, $\tilde{s}$ y $\tilde{t}$ tal que:
         $$
         \tilde{s} \leq f^2 \leq \tilde{t}
         $$
         y
         $$
         \int_a^b (\tilde{s}-\tilde{t})<  \varepsilon
-        $$</li> 
+        $$
+    </li> 
 
 
-<li>Define $s:=\sqrt{\tilde{s}}$ y $t:=\sqrt{\tilde{t}}$. Demuestra que:
+    <li>
+        Define $s:=\sqrt{\tilde{s}}$ y $t:=\sqrt{\tilde{t}}$. Demuestra que:
 
-    $$
-    \frac{1}{2}\int_a^b s^2(\theta)d\theta
-    $$
-    representa al area de una región formada por segmentos circulares, contenida en $D$ y 
-    $$
-    \frac{1}{2}\int_a^b t^2(\theta)d\theta
-    $$ 
-    representa el área de una región formada por segmentos circulares, que contiene a $D$.</li> 
+        $$
+        \frac{1}{2}\int_a^b s^2(\theta)d\theta
+        $$
+        representa al area de una región formada por segmentos circulares, contenida en $D$ y 
+        $$
+        \frac{1}{2}\int_a^b t^2(\theta)d\theta
+        $$ 
+        representa el área de una región formada por segmentos circulares, que contiene a $D$.
+    </li> 
 
-<li>Demuestra que:
-    $$
-    \frac{1}{2}\int_a^b s^2 \leq  \textrm{Area}(D) \leq \frac{1}{2}\int_a^b t^2
-    $$
-    
-    y
-    
-    $$
-    \frac{1}{2}\int_a^b\tilde{s}\leq  \frac{1}{2} \int_a^b f^2 \leq \frac{1}{2}\int_a^b \tilde{t}
-    $$</li> 
+    <li>
+        Demuestra que:
+        $$
+        \frac{1}{2}\int_a^b s^2 \leq  \textrm{Area}(D) \leq \frac{1}{2}\int_a^b t^2
+        $$
+        
+        y
+        
+        $$
+        \frac{1}{2}\int_a^b\tilde{s}\leq  \frac{1}{2} \int_a^b f^2 \leq \frac{1}{2}\int_a^b \tilde{t}
+        $$
+      </li> 
 
-<li>De los incisos anteriores concluye que:
+    <li>
+        De los incisos anteriores concluye que:
 
-    $$
-    \left| \int_a^b f^2 - \textrm{Area}(D)   \right| <\frac{\varepsilon}{2}
-    $$
-    Como $\varepsilon >0$ es arbitraria, acabamos.
+        $$
+        \left| \int_a^b f^2 - \textrm{Area}(D)   \right| <\frac{\varepsilon}{2}
+        $$
+        Como $\varepsilon >0$ es arbitraria, acabamos.
     </li> 
 </ol>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> En cada una de las siguientes funciones, haz un bosquejo (con ayudad de una computadora o celular) y calcula el area dada en coordenadas polares.
+<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> En cada una de las siguientes funciones, haz un bosquejo (con ayudad de una computadora o celular) y calcula el area dada en coordenadas polares.
     <ol>
         <li>La espiral de Arquímides: $r(\theta)=\theta$, $0\leq \theta \leq 2\pi$.</li> 
         <li>Dos circulos tangentes en el eje $y$: $r(\theta)=2|\cos(\theta)|$, $0\leq \theta \leq 2\pi$.</li> 
@@ -221,4 +271,234 @@ $$
         <li>Cardioide: $r(\theta)=1+\cos(\theta)$, $0\leq \theta \leq 2\pi$.</li> 
     
     </ol>
+
+</div>
+
+
+
+
+<div class="definicion-box">
+  <h2 class="number-title"> Definición </h2>
+  <p>
+    Para funciones continuas, $f,g:[a,b]\to \mathbb{R}$, con $g\leq f$, el area entre las curvas se define como:
+    $$
+    \int_a^b f(x)-g(x)dx
+    $$
+  </p>
+  </div>
+  
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encuentra el area  de la región acotada entre las curvas $y=x^2$ y $y=\frac{x}{4}$.
+  </div>
+  
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encuentra el area de la región entre las gráficas de $f(x)=x$ y $g(x)=\frac{x^3}{4}$ en $[0,2]$
+  </div>
+  
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encuentra $b$, de tal forma que el área de la región acotada entre las curvas $y=x^2$ y $y=4$, 
+    queda partida a la mitad
+    por la recta $y=b$.
+  </div>
+
+  
+  
+  
+  
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encuentra el area máxima debajo de la curva $y=4x-x^3$, desde $x=a$ hasta $x=a+1$, 
+    para toda $0 < a$.
+  </div>
+  
+  
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encuentra $c$, de tal forma que el área  de la región acotada entre las curvas 
+    $y=x^2-c^2$ y $y=c^2-x^2$ es 576.
+  </div>
+  
+
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      A veces, para calcular el area entre curvas, es úitl hace un cambio de perspectiva e integrar con respecto 
+      a $y$, en ves de integrar con respecto a $x$.  
+    </p>
+  <ol>
+      <li>Grafica la recta  $y=x-3$ y la parábola $y^2=4x+8$.</li> 
+      <li> Encuentra los puntos de intersección de $y=x-3$ y $y^2=4x+8$.</li> 
+      <li>Integra con respecto a $y$ y encuentra el area de la región acotada  
+        entre la recta $y=x-3$ y la parábola $y^2=4x+8$.</li> 
+  </ol>
+  </div>
+
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Bosqueja las regiones encerradas por las curvas dadas. Después encuentra el area encerrada por las curvas. 
+      Decide si integrar con respecto a $x$ o $y$.
+    </p>
+  <ol>
+      <li>$y=x+1, y=16-x^2$	;</li> 
+      <li>$y=\sen(x), y=x, x=0, x=\pi/2$;</li> 
+      <li>$y=(x-a)^2, y=x$, donde $a>0$ es una constante fija;</li> 
+      <li>$x=2-y^2, x=y^2-2$;</li> 
+      <li>$x+y^2=12, x=2y$.</li> 
+  </ol>
+  </div>
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Bosqueja la región del plano delimitada por la desigualdades $x-2y^2 \geq 0$ y  $1-x-|y| \geq 0$. 
+      Además  encuentra su area.
+    </p>
+  </div>
+
+    <div class="info-box">
+      <h2 class="number-title"> Nota</h2>
+      <h3> El Indice de Gini </h3>
+      <p>
+        El indice de GINI es una medida de la distribución del ingreso total entre los habitantes de un país. 
+        Fue propuesto
+        por el economista italiano Corrado Gini (en 1912).
+        
+      </p>
+      <p>
+        Primero, se ranquean los hogares de acuerdo a su ingreso y después se calcula la cantidad de hogares cuyo ingreso es a lo más 
+        un porcentaje del ingreso total del país. Con estos datos se genera la curva de Lorenz, que es una curva definida 
+        en el intervalo $[0,1]$, que es concava hacia arriba y donde un punto $(a/100,b/100)$ esta en la curva si el $a \%$ porciento de los hogares más pobres recibe el $b \%$ del ingreso total. Note que los puntos de la curva de Lorenz estan por abajo de la recta identidad y la curva siempre pasa por $(0,0)$ y $(1,1)$.
+        
+      </p>
+      
+
+      <div class="flexbox">
+        <img src="./Images/S11-Image1-GINI-MX.jpeg" alt="Tanque" width="50%" height="auto">
+      </div>
+      
+
+      
+      <p>
+        De la gráfica se tiene, por ejemplo, que en 1998 y 2004, el 60$\%$ de los hogares más pobres recibieron
+        poco más del 20$\%$ del ingreso total.
+        
+      </p>
+      
+      <p>
+        Si por $L(x)$ denotamos la coordenada $y$ de la curva de Lorenz, el índice de GINI se define como
+        $$
+        G=2\int_0^1 x-L(x)dx
+        $$
+      </p>
+      
+      
+      <p>
+        Nota que, salvo el factor 2, el índice de Gini es una area entre curvas, 
+        concretamente entre la curva de Lorenz y la recta identidad.
+      </p>
+      <p>
+        El índice de Gini de México: 
+      </p>
+    
+      <p class="flexbox">
+        <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=OUw7&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+      </p>
+      
+    </div>
+  
+  
+  
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio</h2> 
+      <ol>
+          <li>Demuetra que $ 0\leq G \leq 1$.</li> 
+          <li>¿ Cómo se ve la curva de Lorenz en una dictadura perfecta? ¿ Cúal es el índice de Gini en este caso?</li> 
+          <li>¿ Cómo se ve la cuvra de Lorenz en una sociedad donde el ingreso se distribuye de manera absolutamente homogenea ? ¿ Cuál es el índice de Gini en este caso ?</li> 
+      </ol>
+    </div>
+
+  
+  <div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+  <p>
+    Parte de la importancia del  índice de Gini es que introduce la idea de medir la distancia entre dos funciones, ya no entre puntos del espacio.
+    Dadas dos funciones integrables $f,g:[a,b] \to \mathbb{R}$, el número
+    $$
+    d_1(f,g)=\int_a^b|f(x)-g(x)|dx
+    $$
+    se puede pensar como una distancia entre las funciones.
+  
+  </p>  
+</div>
+  
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Calcula:
+    $$
+    \int_0^{\pi/2}|\cos(x)-\sen(x)|dx
+    $$
+  </div>
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Demuestra las siguientes propiedades. Se asume que $f,g,h :[a,b] \to \mathbb{R}$ son funciones continuas.
+    </p>
+  
+  <ol>
+      <li>$d_1(f,g) \leq d_1(f,h)+d_1(h,g)$.</li> 
+      <li>$d(f,g)=0$ si y sólo si $f(x)=g(x)$ para todo $x\in [a,b]$. Sugerencia: usa el ejercicio \ref{Ejer:IntegralCeroDePositivas}.</li> 
+  </ol>
+  </div>
+
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>  
+    <p>
+      Considera la familia de funciones 
+      $f_\alpha:[0,1] \to \mathbb{R}$ dadas por
+      $$
+      f_\alpha(x)=1+\alpha x
+      $$
+      donde $\alpha$ es un parámetro en $[0,1]$.
+      
+      Sea $f:[0,1]\to \mathbb{R}$ dada por $f(x)=1+x^2$.
+          
+    </p>
+    <p>
+      Encuentra $\alpha$ tal que 
+      $$d_1(f,f_\alpha)=\int_0^1 |f_\alpha(x) -f(x)|dx  $$ sea mínima.
+    </p>
+  </div>
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Las noción de distancia $d_1$, entre funciones, es muy distinta a la distancia ecuclideana. 
+      Por ejemplo, si uno considera la esfera unitaria
+      (los puntos cuya distancia al cero es igual a uno), ésta tiene la propiedad de que para 
+      cualesquiera dos puntos distintos, el punto medio cae afuera de la esfera unitaria. Este ejercicio 
+      muestra que esto no pasa para la distancia $d_1$.
+      
+    </p>
+      <p>
+        Define 
+        $$
+        S=\{ f: [a,b ] \to \mathbb{R}: \textrm{$f$ es conitnua y $d_1(0,f)=1$} \}
+        $$
+        
+        Encuentra funciones $f,g \in S$ tal que $\frac{f+g}{2} \in S$.
+        
+      </p>
+      <p>
+        Sugerencia: considera funciones lineales a trozos.
+      </p>
+  </div>
+
 </body>

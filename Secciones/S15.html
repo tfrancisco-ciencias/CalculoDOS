@@ -1,484 +1,300 @@
 
 
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            arcsen: "\\operatorname{arcsen}",
+            arcsec: "\\operatorname{arcsec}"
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 14 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 14 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 15 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox"> Integrales trigonométricas </h1>
 
 
 
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Utilizando las fórmulas para las derivadas de las funciones trigonométricas, calcula las siguientes integrales indefinidas.
 
-
-\section*{Logaritmos }
-
-
-\subsection*{Definicion}
-
-<div class="definicion-box">
-
-Definimos la función logaritmo natural (o logaritmo base $e$) como:
-$$
-L(x):=\int_1^x\frac{dt}{t}, \quad x> 0
-$$
-
-Por el Primer Teorema Fundamental, el logaritmo natural es la única solución
-al problema de ecuaciones diferenciales con valor inicial
-
-\begin{eqnarray*}\label{Eqn:SistemaEcuDifLog}
-y'&=&\frac{1}{x}, \quad  x>0 \\
-y(1)&=&0
-\end{eqnarray*}
-
-</div>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando la  definición, demuestra las siguientes características del logaritmo natural:
 <ol>
-    <li>$L(1)=0$.</li> 
-    <li>$L(x)>0$ para $x>1$, $L(x) < 0$ para $0< x < 1$.</li> 
-    <li>$L'(x)=\frac{1}{x} > 0$, por lo que $L$ es estrictamente creciente.</li> 
-    <li>$L''(x)=\frac{-1}{x^2} < 0$, por lo que $L$ es concava hacia abajo.</li> 
-</ol> 
+	<li>$\int \sen(x)dx$.</li> 
+	<li>$\int \cos(x)dx$.</li> 
+	<li>$\int \sec^2(x)dx$.</li> 
+	<li>$\int \csc^2(x)dx$.</li> 
+	<li>$\int \sec(x)\tan(x)dx$.</li> 
+	<li>$\int \cot(x)\csc(x)dx$.</li> 
+</ol>
 
 
-Asi que la función debe verse mas o menos así
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> 
+	Utilizando las identidades  $1+\tan^2(x)=\sec^2(x)$ y $1+\cot^2(x)=\csc^2(x)$ calcula
 
-$$
-dibujito
-$$
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio demuestra que la función exponencial y logaritmo son funciones inversas una de la otra.
-
-Demuestra que:
 <ol>
-    <li>Para todo $x>0$:
-        $$
-        e^{L(x)}=x.
-        $$
-        
-        Sugerencia: diferencia la función $\frac{e^{L(x)}}{x}$.
-    </li> 
+	<li>$\int \tan^2(x)dx$.</li> 
+	<li>$\int \cot^2(x)dx$.</li> 
+</ol>
 
-<li>
-    Para todo $x\in \mathbb{R}$:
-
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando integración por partes probar
 $$
-L(e^x)=x
+\int \sen^2(x)dx=-\sen(x)\cos(x)+\int \cos^2(x)dx.
+$$
+Finalmente, usar la identidad $\cos^2(x)+\sen^2(x)=1$ para demostrar:
+$$
+\int \sen^2(x)dx=\frac{1}{2}x-\frac{1}{4}\sen(2x),
 $$
 
-Sugerencia: diferencia la función $L(e^x) -x$.
-</li> 
+$$
+\int \cos^2(x)dx=\frac{1}{2}x+\frac{1}{4}\sen(2x).
+$$
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:IntegralCos3}  Tomando la substitución $u=\sen(x)$ demuestra
+$$\int \cos^3(x)dx = \sen^2(x)-\frac{\sen^3(x)}{3}+C$$
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:IntegralCosPotenciaImpar} Este ejercicio generaliza el ejercicio \ref{Ejer:IntegralCos3}. 
+<ol>
+
+	<li>Usando el binomio de Newtown, demuestra que
+		$$
+		\int (1-u^2)^k du =\sum_{j=0}^k (-1)^{j}\frac{u^{2j+1}}{2j+1}+C.
+		$$</li> 
+<li>Demuestra que, para todo natural $k\geq 1$,</li> 
+
+
+
+$$
+\int \cos^{2k+1}(x)dx=\sum_{j=0}^k (-1)^j\frac{\sen^{2j+1}(x)}{2j+1}+C.
+$$
+
+Sugerencia: toma el cambio de variable $u=\sen(x)$ y usa la identidad $\sen^2(x)+\cos^2(x)=1$ junto con
+el inciso anterior.
+
+<li>Demuestra que, para cualquier natural $k \geq 1$ y cualquie real $a$:
+	$$
+	\int_{a}^{a+2\pi} \cos^{2k+1}(x)dx=0.
+	$$</li> 
+</ol>
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:IntegralSenPotenciaImpar} Este ejercicio es el análogo al  \ref{Ejer:IntegralCosPotenciaImpar}, pero para la función seno. 
+<ol>
+
+	<li>Usando el binomio de Newtown, demuestra que
+		$$
+		\int (1-u^2)^k du =\sum_{j=0}^k (-1)^{j}\frac{u^{2j+1}}{2j+1}+C.
+		$$</li> 
+
+<li>Demuestra que, para toda $k \geq 1$:
+	$$
+	\int \sen^{2k+1}(x)dx=\sum_{j=0}^k (-1)^{j+1}\frac{\cos^{2j+1}(x)}{2j+1}+C.
+	$$
+	
+	Sugerencia: toma el cambio de variable $u=\cos(x)$ y usa la identidad $\sen^2(x)+\cos^2(x)=1$ junto con el inciso anterior.</li> 
+
+
+<li>Demuestra que, para cualquier natural $k \geq 1$ y cualquie real $a$:
+	$$
+	\int_{a}^{a+2\pi} \sen^{2k+1}(x)dx=0.
+	$$</li> 
 </ol>
 
 
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>  Este ejercicio provee dos demostraciones de lo  que puede ser la principal propiedad del logaritmo, la cual se llama la ecuación funcional del logaritmo. 
 
-Para cualesquiera $a,b>0$:
-\begin{equation}\label{Eqn:EcuFuncionalLog}
-L(ab)=L(a)+L(b)
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando el método de los ejercicios \ref{Ejer:IntegralCosPotenciaImpar} y \ref{Ejer:IntegralSenPotenciaImpar} demuestra que, para cualesquiera naturales $k,m \geq 1$:
+
+
+$$
+\int \cos^{2k+1}(x)\sen^m(x)dx=\sum_{j=0}^k (-1)^{j} \frac{\sen^{2j+m+1}(x)}{2j+m+1}+C,
+$$
+
+
+$$
+\int \sen^{2k+1}(x)\cos^m(x)dx=\sum_{j=0}^k (-1)^{j+1} \frac{\cos^{2j+m+1}(x)}{2j+m+1}+C.
+$$
+
+
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:FormulasReduccionSenoCoseno} Usando integración por partes, demuestra las fórmula de reducción para seno y coseno:
+
+$$
+\int \sen^n(x)dx=-\frac{1}{n}\cos(x)\sen^{n-1}(x) + \frac{n-1}{n}\int \sen^{n-2} (x) dx 
+$$
+
+$$
+\int \cos^n(x)dx=\frac{1}{n}\cos^{n-1}(x)\sen(x)+\frac{n-1}{n}\int \cos^{n-2}(x)dx
+$$
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:FormulaWallis} Este ejercicio demuestra la fórmula de Wallis, que da una forma de calcular $\pi$ mediante un producto infinito.
+
+
+
+<div class="teorema-box">[Producto de Wallis (1655)]
+$$
+\frac{\pi}{2}=\prod_{i=1}^\infty \frac{(2i)(2i)}{(2i-1)(2i+1)},
+$$
+es decir,
+
+$$
+\frac{\pi}{2}= \lim_{n\to \infty} \prod_{i=1}^n \frac{(2i)(2i)}{(2i-1)(2i+1)}.
+$$
+
+</div>
+<ol>
+	<li>
+		Usando el ejercicio \ref{Ejer:FormulasReduccionSenoCoseno} demuestra que, para todo natural $n\geq 2$:
+
+\begin{equation}\label{Eqn:RecursionIntDefSEN}
+\int_0^{\pi/2}\sen^n(x)dx=\frac{n-1}{n}\int_0^{\pi/2}\sen^{n-2}(x)dx
+\end{equation}
+	</li> 
+
+<li>
+	Demuestra por  inducción que, para todo natural $n \geq 1$:
+$$
+\int_0^{\pi/2}\sen^{2n+1}(x)dx=\frac{2}{3}\frac{4}{5}\frac{6}{7}\cdots \frac{2n+1}{2n}=\prod_{i=1}^n\frac{2i}{2i+1},
+$$
+
+$$
+\int_0^{\pi/2}\sen^{2n}(x)dx=\frac{\pi}{2}\frac{1}{2}\frac{3}{4}\frac{5}{6}\cdots \frac{2n-1}{2n}=\frac{\pi}{2}\prod_{i=1}^n\frac{2i-1}{2i}.
+$$
+
+Sugerencia: usa \eqref{Eqn:RecursionIntDefSEN}.
+</li> 
+
+<li>
+	Usa el inciso anterior para demostrar que:
+
+\begin{equation}\label{Eqn:PartialProductWallisFormula}
+\frac{\pi}{2}=\prod_{i=1}^n\frac{(2i)(2i)}{(2i-1)(2i+1)}\frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}
 \end{equation}
 
-
-
-<ol>
-
-    <li>
-        Fijemos $b>0$ y definamos
-$$
-F(x)=L(xb), G(x)=L(x)+L(b), \quad x >0
-$$
-
-Diferenciando $F$ y $G$ demuestra que $F(x)=G(x)$, para todo $x>0$.
-    </li> 
-
-<li>
-    Usando \ref{Ejer:LinealidadIntervalos} demuestra que:
-
-$$
-\int_1^{ab}\frac{1}{t}dt=\int_1^a \frac{1}{t}dt+\int_{a}^{ab}\frac{1}{t}dt
-$$
-
-despúes usa un cambio de variable para  obtener
-$$
-\int_a^{ab}\frac{1}{t}dt=\int_1^b \frac{1}{u}du
-$$
-y concluir $L(ab)=L(a)+L(b)$.
-
-</li> 
-</ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Para $a,b > 0$ y $p/q >0$ racional con $p,q\in \mathbb{N}$, demuestra:
-<ol>
-    <li>$L(a/b)=L(a)-L(b)$. Sugerencia: usa \ref{Eqn:EcuFuncionalLog}.    </li> 
-    
-    <li>
-        $L(a^{p/q})=\frac{p}{q} L(a)$. Sugerencia: comienza con $p=n \in \mathbb{N}$ y $q=1$; para el caso general
-    considera $qL(a^{p/q})=L(a^p)$.
-    </li> 
-</ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:DeepDefinicionLog} Vamos a ver con más detalle la ecuación \eqref{Eqn:EcuFuncionalLog}.
-
-<ol>
-    <li>
-        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLog}, $cf$ es solución, para cualquier constante $c$.
-    </li> 
-
-    <li>
-        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLog},  $f(1)=0$.
-    </li> 
-
-    <li>
-        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLog} y $0$ esta en el dominio de $f$ enotnces $f(x)=0$ para toda
-$x$.
-    </li> 
-
-<li>
-    Si $f$ es una solución de \eqref{Eqn:EcuFuncionalLog} y  $\mathbb{R}\setminus\{0\}$ es el dominio de $f$, entonces $f$ es par.
-
-Este ejercicio demuestra que nos podemos restringir  a soluciones  de \eqref{Eqn:EcuFuncionalLog} con dominio $(0,\infty)$.
 </li> 
 
+<li>\label{Ejer:CotaInferiorFraccionWallis} Demuestra que:
+	$$
+	1\leq \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}.
+	$$
+	Sugerencia: nota que, para $x\in (0,\pi/2)$ y naturales $p < q$, $\sen^q(x)<\sen^p(x)$.
+	</li> 
 <li>
-    Si $f$ es diferenciable en todo $(0,\infty)$, entonces
+	\label{Ejer:CotaSuperiorFraccionWallis} Demuestra que:
 $$
-f'(x)=\frac{f'(1)}{x}
-$$
-
-Considera la ecuación funcional $f(xa)=f(x)+f(a)$ y deriva con respecto de $x$.
-</li> 
-
-<li>
-    Si $f$ es solución  \eqref{Eqn:EcuFuncionalLog}  y es diferenciable en $(0,\infty)$ entonces
-$$
-f(x)=f'(1)L(x)
+\frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}\leq 1+\frac{1}{2n}
 $$
 
-</li> 
-
-</ol>
-
-
-<div class="definicion-box">
-
-Tomando en cuenta 	el ejercicio \ref{Ejer:DeepDefinicionLog} inciso (c), el dominio más grande que uno puede considerar para extender la ecuación funcional del logaritmo es $\mathbb{R}\setminus\{0\}$ y por el inciso (d)  dicha extensión debe de ser par, por lo tanto es natural definir,  para $t\ne 0$
-
+Sugerencia: primero usa \eqref{Eqn:RecursionIntDefSEN} para probar
 $$
-\log(t)=\int_1^{|t|}\frac{dx}{x}
+\frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}= \frac{2n+1}{2n} \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n-1}(x)dx}
 $$
-También se sule denotar $\ln(t)$.	
-	
-</div>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demustra que $\frac{d \log(t)}{dt}=\frac{1}{t}$, para todo $t\neq 0$. 
-
-En términos de integrales indefinidas lo anterior se puede resumir como
-$$
-\int \frac{dt}{t}=\log(t)
-$$
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:(0,\infty) \to \mathbb{R}$ una función continua,  con la propiedad de que
-$$
-b\int_{1}^{xy}f(t)dt=a y\int_1^xf(t)dt+ b x \int_{1}^y f(t)dt
-$$
-para todas $x,y>0$, donde $a,b>0$ son constantes. Si $f(1)=2$, calcula $f(x)$ para toda $x$.
-
-Sugerencia: deriva y usa el teorema fundamental.
-
-\subsection*{La función logaritmo y las funciones exponenciales}
-
-
-<div class="definicion-box">
-Fijemos una base $b > 0 $. Pra cualquier número real $t$ se define la potencia $b^t$ como
-$$
-b^t := e^{t L (b) }
-$$
-</div>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Fija una base $b>0$ y considera la función $f(x)=b^x$, $x>0$. Demuestra que si 
-$0<b<1$ entonces $f$ es estrictamente decreciente , si  $b=1$ entonces $f$ es la función constante uno y si 
-$b>1$ entonces $f$ es estrictamente creciente.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio justifica la definición anterior. En lo incisos que siguen, $b>0$ es fija y arbitraria.
-
-<ol> 
-
-    <li>
-        Demuestra que si $t=n \in \mathbb{N}$ entonces $e^{nL(b)}=b^n$, donde $b^n$ se interpreta como $b$ multiplicado con sigo mismo $n$-veces.
-    </li> 
-    <li>
-        Demuestra que si $t=p \in \mathbb{Z}$, entonces $e^{pL(b)}=b^p$, donde $b^p$ se interpreta
-    como en el inciso anterior si $p > 0$ y como $(\frac{1}{b})^{|p|}$ si $p < 0$.
-    </li> 
-    <li>
-        Demuestra que si $t=p/q \in \mathbb{Q}$  ($q>0$) entonces $e^{(p/q)L(b)}=b^{p/q}$, donde $b^{p/q}$ se interpreta como raíz $q$-ésima de $b^p$ y $b^p$ se interpreta como en el inciso anterior.
-    </li> 
-
-    <li>
-        Usando $e^xe^y=e^{x+y}$ demuestra que $b^xb^y=b^{x+y}$, para cualquier base $b$.
-    </li> 
- 
-    <li>
-        Usando las propiedades  del logaritmo y la exponencial, junto con la definición de $a^t$,  prueba  que la exponencial y el logaritmo son inversas.
-    </li> 
- 
-</ol>
-
-
-
-
-<div class="definicion-box">[Definición algebráica de logaritmo] 
-
-
-Para una base $b>0$ escribimos  $y=\log_b(x)$ si y sólo si $b^y=x$, es decir $b^{\log_b(x)}=x$.
-
-Ejemplo
-$$
-\log_{10}(0.1)=-1, \log_{10}(100)=2.
-$$
-</div>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio define logaritmos con otras bases distintas a $e$.
-
-Define para $b>0$ define $L_b(x)=\frac{L(x)}{L(b)}$, $x>0$. Demuestra que $b^{L_b(x)}=x$.
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> En cada caso, encuentra un $x$ que satisfaga la ecuación.
-<ol>
-    <li>$L(1+x)=L(1-x)$</li> 
-    <li>$L(1+x)=1+L(1-x)$</li> 
-    <li>$2L(x)=xL(2)$, $x\not=2$.</li> 
-    <li>$L(\sqrt{x}+\sqrt{1+x})=1$</li> 
-
-</ol>
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Define  $f(x)=L(x)/x$, para $x>0$. Describe los intervalos donde $f$ es creciente, decreciente, concava hacia arriba y concava hacia abajo. Borsqueja la grafica de $f$.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Define $f(x)=L[(1+x)/(1-x)]$, para $x>0$. Si $a,b$ son números dados, con $ab\not=-1$. Encuentra todas las $x$ tales que $f(x)=f(a)+f(b)$.
-
-
-\subsection*{Límites que involucran logaritmos}
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio demuestra el siguiente límite.
-\begin{eqnarray*}
-\lim_{x\to \infty}L(x)&=&\infty
-\end{eqnarray*}
-
-<ol>
-    <li>Sea $M>0$, fija y arbitraria. Demuestra que existe $n$ tal que $nL(2)>M$.</li> 
-    <li>Usando el inciso anterior y la propiedad de que $L$ es estrictamente creciente,
-        demuestra que $L(x)>M$ para todo $x>2^n$.</li> 
-</ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra:
-
-\begin{eqnarray*} 
-\lim_{t \to 0^+} L(t)&=&-\infty
-\end{eqnarray*}
-
-Sugerencia: usa $L(1/t)=-L(t)$, para $t>0$ y el cambio de variable $x=1/t$.
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:RectaSoporteLogEnx=1}  
-<ol>
-
-    <li>
-        Para $x>0$, demuestra:
-$$
- L(x) \leq x-1
-$$
-
-La igualdad se da si y sólo si $x=1$.
-
-Sugerimos  dos posibles formas de probarlo.
-
-Sugerencia 1: considera la función $f(x)=x-1-L(x)$, $x>0$; prueba  que $f$ tiene un mínimo absoluto en $x=1$.
-
-Sugerencia 2: nota que $y=x-1$ es la recta tangente a la gráfica de  $y=L(x)$ en $x=1$ y usa la convexidad de $L$ (ejer \ref{Ejer:RectaSoporteConcavasArriba}).
-    </li> 
+y después prueba que $\frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n-1}(x)dx} \leq 1$.
+</li>
 
 <li>
-    Para $t>0$ demuestra:
+	De los incisos \ref{Ejer:CotaInferiorFraccionWallis} y \ref{Ejer:CotaSuperiorFraccionWallis} obten que
 $$
-1-\frac{1}{t} \leq  L(t) 
+\lim_{n\to \infty} \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}=1
 $$
-La igualdad se da si y sólo si $t=1$.
+y usa \eqref{Eqn:PartialProductWallisFormula} para concluir
 
-Sugerencia : usa la propiedad $L(1/t)=-L(t)$, $t>0$, tomando el cambio de variable $x=1/t$ y aplicando el inciso anterior.
+
+$$
+\frac{\pi}{2}= \lim_{n\to \infty} \prod_{i=1}^n \frac{(2i)(2i)}{(2i-1)(2i+1)}.
+$$
 </li> 
 
-</ol>
-
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra:
-
-$$
-\lim_{x\to 0 }\frac{L(1+x)}{x}=1
-$$
-
-Sugerencia: usa el ejercicio  \ref{Ejer:RectaSoporteLogEnx=1} y la regla del sandwich para límites.
-
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:ComparasionLogFuncPotenciaEnInfinito} Este ejercicio compara las razones de crecimiento de la función logaritmo las funciones potencia en el infinito.
-<ol>
-    <li>
-        Demuestra que, para todo $t \geq 1$ 
-$$
-\frac{L(t)}{t^2} \leq \frac{1}{t}
-$$
-
-Sugerencia: aplica el  el T.V.M a la función logaritmo en el  intervalo $[t,t^2]$.
-
-    </li> 
-<li>
-    Demuestra:
-$$
-\lim_{s\to \infty} \frac{L(s)}{s}=0.
-$$
-
-Sugerencia: usa el inciso anterior, el cambio de variable $t=\sqrt{s}$ y las propiedades del logaritmo.
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra:
-
-$$
-\lim_{s \to \infty}\frac{L(s)}{s^n}=0
-$$
-
-para todo $n \in \mathbb{N}$.
-
-Sugerencia: usa el inciso anterior.
-
-</li> 
-</ol>
-
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> \label{Ejer:CrecimientoLogPoli} Este ejercicio compara la función logaritmo con las funciones potencia cerca del cero.
-
-<ol>
-
-
-    <li>
-        Demuestra: $\lim_{x\to  0^+} xL(x)=0$.
-
-
-Sugerimos dos posibles demostraciones.
-
-
-Sugerencia 1: demuestra que en el intervalo $(0, e^{-1})$, la función $f(x)=xL(x)$ es estrictamente decreciente; después prueba que para valores $x=2^{-n}$,  se tiene que $xL(x)=L(2)\frac{-n}{2^n}$ y concluye  usando el ejercicio \ref{Ejer:Limiten2n}.
-
-
-Sugerencia 2: usa el ejercicio \ref{Ejer:ComparasionLogFuncPotenciaEnInfinito} y el cambio de variable $x=1/s$.
-    </li> 
-
-<li>
-    Demuestra que para todo natural $n \geq 1$,
-$$
-\lim_{x\to  0^+} x^nL(x)=0.
-$$
-
-Sugerencia: usa el inciso anterior.
-</li> 
 
 </ol>
 
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra:
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:LemaWillisCampanaGauss} Demuestra
 $$
-\lim_{x\to 0^+}x^x=1.
-$$
-
-
-Sugerencia: recuerda que, por definición,  $x^x=e^{xL(x)}$, luego usa el ejercicio  \ref{Ejer:CrecimientoLogPoli}.
-
-	
-
-
-
-
-\subsection*{Integrales que involucran logaritmos}
-
-
-<div class="definicion-box">
-El ejercicio  \ref{Ejer:DeepDefinicionLog} muestra que si queremos extender la definición de la función logaritmo natural a un dominio más grande que $(0,\infty)$ la opción más natural de tomar como dominio $\mathbb{R}\setminus \{0\}$ y definir $L(x)=\int_0^{|x|}\frac{1}{t}dt$. Es decir, $L(x)=L(|x|)$ (donde la función del lado derecho de
-la ecuación anterior es la función logaritmo natural y la función de lado izquierdo es su extensión a todo $\mathbb{R}\setminus \{0\}$).
-
-</div>
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:Integralfprimasobref}  Si $f:[a,b]\to \mathbb{R}$ es continua en el cerrado, diferenciable en el abierto con   $f(x)\not=0$, para todo $x$ en $[a,b]$, entonces:  
-
-$$
-\int \frac{f'(x)}{f(x)} dx= L(|f(x)|)+C
+\lim_{n\to \infty} \frac{1}{\sqrt{n}} \frac{2}{1}\frac{4}{3}\cdots \frac{2n}{2n-1}=\sqrt{\pi}.
 $$
 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula: 
-
-<ol>
-    <li>
-        $\int \tan(x)dx$.
- 
- Sugerencia: escribir  $\tan(x)dx=- \frac{-\sen(x)}{\cos(x)}$.
-    </li> 
-
- <li>$\int_0^{\pi/4}\tan(x)dx$. </li>  
-
-</ol>
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio calcula la integral  $\int L(x)dx$.
-
-<ol>
-    <li>Demuestra: $(xLn(x))'= 1 + Ln(x)$.</li> 
-    <li>Usando el inciso anterior  encuentra  $\int L(x)dx$.</li> 
-</ol>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula las siguientes integrales:
-
-<ol>
-    <li>$\int \frac{1}{5+7x}dx$.</li> 
-    <li>$\int \int_0^{e^4-2}\frac{1}{2+x}dx$.</li> 
-    <li>$\int \cot(x)dx$. Sugerencia: escribir: $\cos(x)=\frac{\cos(x)}{\sen(x)}$ y usa el ejercicio \ref{Ejer:Integralfprimasobref}.</li> 
-    <li>$\int \frac{1}{xLn(x)} dx$.</li> 
-    <li>para un natural $n>1$, $\int \frac{Ln(|x|)}{x(1+Ln(|x|))^{1/n} }dx$.</li> 
-</ol>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>  Calcula $\int \frac{x}{1+x^2}dx$. Sugerencia: $u=1+x^2$.
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula: $\int \frac{dx}{1+\sqrt{1+x}}$.
-
-
-Sugerencia: $u=1+\sqrt{x+1}$.
-
-
-\subsection*{Diferenciación logaritmica}
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El logaritmo puede ser útil para calcular derivadas para funciones complicadas, con muchos factores o fracciones complicadas.
-<ol>
-    <li>Sea $f$ una función continua, diferenciable,  tal que nunca se anula. Demuestra que
-        $$
-        f'(x)=g'(x)f(x)
-        $$
-        donde $g(x)=\log(|f(x)|)$.</li> 
-<li>Usando el inciso anterior calcula  $f'(x)$ para las siguientes funciones:</li> 
-<ol>
-    <li>$f(x)=x^3\sen(x)(x^2+x+1)^{-2}$.</li> 
-    <li>$f(x)=\frac{(1+x)^{3}}{(2+x^2)^{5}(x^3+5)}$.</li> 
-    <li>$f(x)=\frac{\sqrt{1+x^2}(1+x)^2}{\sqrt[4]{1+x^4	}(1+x^3)^5}$.</li> 
-    <li>$f(x)=\frac{Ln(x)(x^2+1)^2}{x(1-x^2)}$.</li> 
-</ol>
-
-
-</ol>
+Sugerencia: si elevas ambos lados al cuadrado el límite es equivalente a
+$$
+\lim_{n\to \infty} \frac{1}{n} \prod_{i=1}^n \frac{(2i)(2i)}{(2i-1)(2i-1)}=\pi
+$$
+Para demostrar ésta última  trata de completar la fórmula de Wallis del lado izquierdo y usa el hecho de que
+$$
+ \prod_{i=1}^n \frac{2i+1}{2i-1}=2n+1
+$$
 

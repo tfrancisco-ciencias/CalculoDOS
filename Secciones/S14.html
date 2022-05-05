@@ -1,290 +1,228 @@
 
 
+<!DOCTYPE html PUBLIC >
 
-\section*{Volúmenes}
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-La integral que hemos visto es tan versatil que permite calcular no sólo areas si no también volumenes.
 
-<div class="definicion-box">
-El volumen es una función, denotada $Vol$, que asigna, a ciertos subconjuntos  de $\mathbb{R}^3$, llamados medibles, un número mayor o igual a cero que satisface
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            arcsen: "\\operatorname{arcsen}",
+            arcsec: "\\operatorname{arcsec}"
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 13 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 13 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 14 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox"> Integración por partes </h1>
+
+
+
+Junto con integración por substitución, integración por partes es una de las técnicas más útiles y su origen es la fórmula de la derivada de un producto
+$$
+(fg)'=fg'+f'g
+$$
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sean $f,g:[a,b] \to \mathbb{R}$ funciones continuas en el cerrado y diferenciables en el abierto, con derivadas continuas. Demuestra la fórmula de integración por partes para integrales indefinidas
+$$
+\int_a^b f(x) g'(x)dx=f(b)g(b)-f(a)g(a)-\int_a^b f'(x)g(x)dx.
+$$
+
+</div>
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>  Sean $f,g$ funciones diferenciables con derivadas continuas. Demuestra la fórmula de integración por partes para integrales indefinidas
+$$
+\int f(x)g'(x)dx=f(x)g(x)-\int f'(x) g(x)dx.
+$$
+
+Tomando la notación $u=f, v=g$, $u'=f'dx$ y $v'=g'dx$ la fórmula se convierte
+$$
+\int udv=uv-\int vdu
+$$
+la cual es más fácil de recordar.
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula las siguientes integrales.
+
 <ol>
-    <li>Todos los subconjuntos convexos son medibles
-        (un conjunto es convexo si, dados dos puntos cualesquiera en el conjunto, el segmento de linea que los une cae totalmente dentro del conjunto , por ejemplo las cajas ).
+    <li>$\int x\cos(x)dx$.</li> 
+    <li>$\int x\sen(x)dx$.</li> 
+    <li>$\int x^2 \cos(x)dx$.</li> 
+    <li>$\int x^2 \sen(x)dx$.</li> 
+    <li>$\int xe^x dx$.</li>  
+    <li>$\int t^2e^t dt$. Sugerencia: $u=t^2$, $dv=e^tdt$.</li> 
+</ol>
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula $\int_0^1 \tan^{-1}(x)dx$. 
+
+Sugerencia:  $u=\tan^{-1}(x)$, $dv=dx$.
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula $\int e^{\sqrt{x}}dx$.
+
+Sugerencia: primero toma el cambio de variable $u=\sqrt{x}$ y luego una integración por partes.
+
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>  Usa integrción por partes para demostrar
+$$
+\int \sqrt{a-x^2}dx=x\sqrt{a-x^2}+\int \frac{x^2}{\sqrt{a-x^2}}dx +C.
+$$
+donde $a$ es una constante positiva.
+
+Escribe $x^2=x^2-a+a$ en el integrando del lado derecho de la fórmula anterior para demostrar
+$$
+\int \sqrt{a-x^2}dx=\frac{1}{2}x\sqrt{a-x^2}+\frac{1}{2}\int \frac{1}{\sqrt{a-x^2}}dx+C.
+$$
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Considera el conjunto $V$ de funciones continuas $f:[a,b]\to \mathbb{R}$, diferenciables  $(a,b)$ con derivada continua en $(a,b)$ y tal que $f(a)=f(b)=0$.
+
+<ol>
+    <li>Demuestra que si $f,g \in V$ entonces $f+g, fg \in V$.</li> 
+    <li>Para $f,g \in V$ demuestra que la fórmula de integración por partes se reduce a 
         $$
-        dibujito
-        $$</li> 
-
-<li>Para una caja $C$, con lados de longitud $a,b$ y $c$
-    $$
-    Vol(C)=abc
-    $$
+        \int_a^b f(x)g'(x)dx=-\int_a^b f'(x)g(x)dx
+        $$
     </li> 
-<li>(Aditividad ) Si $S$ y $T$ son conjuntos medibles entonces $S\cup T  $ es medible. Sin son ajenos
-    $$
-    Vol(S\cup T)=Vol(T) + Vol(S)
-    $$</li> 
 
-   <li>Si $S$ y $T$ son medibles y $S\subseteq T$ entonces $T\setminus S$ es medible y
-    $$
-   Vol(T\setminus S)=Vol(T)-Vol(S) 
-    $$
+<li>
+    Da un ejemplo de funciones $f$ y $g$, que no perrtenezcan a $V$ donde la fórmula del inciso anterior no se cumpla.
 </li> 
 </ol>
-</div>
-
-
-\subsection*{Volumenes por discos}
-
-Un disco $D$ (cilindro chaparrito), de ancho $\Delta$ y radio $r$ tiene volumen $Vol(D)= \pi r^2 \Delta$. 
- 
- 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:VolEsfera} En este ejercicio se calcula el volumen deesfera. Vamos a obtener la esfera, de radio $r$,  como una superficie de revolución, rotando la gráfica de $f(x)=\sqrt{r^2-x^2}$, $x\in [-r,r]$, al rededor del eje de las $x$. 
-
-<ol>
-    <li>Sea $P=\{ x_i\}_{i=0}^n$ la partición homogenea de longitud $n$ de $[-r,r]$ y toma $\Delta x =\frac{2r}{n}$
-        la longitud de los subintervalos de la partición. 
-        
-        Denota por $D_i$ la rebanada de la esfera que se obtiene tomando el intervalo $[x_{i-1}, x_i]$, $i=1,\dots, n$; nota que $D_i$ no es un disco, sin embargo, $D_i$ está atrapada entre dos discos : $D_i^+$, disco con ancho $\Delta x$ y radio $f(x_i^*)$ y otro $D_i^-$, disco con ancho $\Delta x$ y radio $f(x_{i*})$, donde los puntos 
-        $x_i^*$ y $x_{i *}$ se toman tales que $f(x_i^*)=\max_{x\in [x_{i-1}, x_i]}\{f(x)\}$, $f(x_{i*})=\min_{x\in [x_{i-1}, x_i]}\{ f(x)\}$. 
-        
-        Demuestra
-        $$
-        \sum_{i=1}^n \pi f(x_{i_*})^2 \Delta x \leq Vol(\textrm{Esfera)}) \leq \sum_{i=1}^n \pi f(x_{i^*})^2\Delta x
-        $$</li> 
-
-<li>Toma límite cuando $n\to \infty$ en el inciso anterior y usa el ejercicio \ref{Ejer:IntegrabilidadFuncionesContinuas}
-    para concluir
-    $$
-    Vol(\textrm{Esfera})= \int_{-r}^r \pi f^2(x)dx.
-    $$</li> 
-
-<li>Finalmente, calcula la integral $\int_{-r}^r \pi f^2(x)dx$ para concluir
-    $$
-    Vol(\textrm{Esfera})=\frac{3}{4}\pi r^2.
-    $$</li> 
-</ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:VolDiscoSuperficiesRevolucion} Este ejercicio generaliza el cálculo del volumen de la esfera.
-
-Sea $f:[a, b ]\to \mathbb{R}$ una función continua, con $f(x)\geq 0 $ para todo $x\in [a,b]$. Demuestra que el volumen del sólido de revolución que se obtiene al girar la gráfica de $f$ alrededor del eje de las $x$ es 
-$$
-\int_a^b \pi f(x)^2 dx. 
-$$
-
-Sugerencia: aplica el mismo método que en el ejercicio \ref{Ejer:VolEsfera}.
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentra el volumen del sólido que se obtiene al rotar la 
-gáfica de $y=\sqrt{x}$, con $0\leq x \leq 1$. 
-
-Sugerencia: aplica directamente el ejercicio \ref{Ejer:VolDiscoSuperficiesRevolucion}.
 
 
 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> En cada uno de los siguientes ejercicios, encuentra el volumen que se obtiene al girar la gráfica alrededor del eje $x$.
-<ol>
-    <li>$f(x)=\sqrt{x}, 0\leq x \leq 1$.</li> 
-    <li>$f(x)=x^2, -1\leq x \leq 2$	,</li> 
-    <li>$f(x)=\cos(x), 0\leq x \leq \pi/2$.</li> 
-    <li>$f(x)=\sen(x)+\cos(x)$, $0\leq x \leq \pi$.</li> 
-</ol>
-
-
-\subsubsection*{El principio de Cavalieri}
-
-El ejemplo del cálculo de volúmenes por discos, es un caso particular de un principio más general, que se conoce como el principio de Cavalieri.
-
-
-<div class="definicion-box">
-Un subconjunto de $\mathbb{R}^3$ se llama acotado si existe una bola, $B_r(p)=\{x\in \mathbb{R}^3: \| x-p\| \leq r \}$, que lo contiene.
-</div>
-
-<div class="definicion-box">
-Un solido $S$, se llama de Cavalieri si existe una linea $L$, de tal forma que las secciones obtenidas al cortar $S$, con planos perpendulares a $L$,  son siempre medibles.
-
-
-
-</div>
-    
-Los sólidos de Cavalieri satisfacen la siguiente propiedad:
-
-Para dos sólidos de Cavalieri, $S$ y $T$, si las areas seccionales (con respecto a un mismo eje) de $S$ son menores o iguales a las de $T$, entonces el volumen de $S$ es menor o igual al de $T$.
-
-
-    
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio da una demostración del Teorema de Cavalieri.
-
-<div class="teorema-box">[El principio de Cavalieri]
-Sea $S$ on sólido de Cavalieri, acotado.  Denotemos por $A(t)$ el area seccional de $S$ a altura $t$ (con respecto a una línea  $L$).
-
-Note que, al ser $S$ acotado,  existe un intervalo $[a,b]$ tal que $A(t)=0$ para
-$t< a$ o $t> a$. 
-
-
-Si $A$ es una función integrable entonces
-$$
-Vol(\textrm{S})=\int_a^b A(t)dt
-$$
-</div>
-<ol>
-
-    <li>Fija $\varepsilon >0$. Demuestra que existen funciones simples $s,t : [a,b] \to \mathbb{R}$, con $0 \leq s(x) \leq A(x) \leq t(x)$, para todo $x\in [a,b]$ y con
-        $$
-        \int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon.
-        $$</li> 
-
-<li>Demuestra que 
-    $$\int_a^ b s(x)dx \leq \int_a^b A(x)dx \leq \int_a^b t(x)dx .$$
-    </li>  
-<li>Demuestra que 
-    $$
-    \int_a^b s(x)dx \leq Vol(S) \leq \int_a^b t(x)dx
-    $$
-    Sugerencia: aplica la propiedad que cumplen los sólidos de Cavalieri mencionada justo después de la definición.
-    </li> 
-<li>Concluye que
-    $$
-    \left|  Vol(S) - \int_a^b A(x)dx \right| <\varepsilon
-    $$ 
-    por lo que $Vol(S)=\int_a^b A(x)dx$.</li> 
-</ol>    
- 
- 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El Principio de Arquímides dice que:
-
-
-$$
-\textrm{Fuerza de empuje}=\textrm{Peso del líquido desplazado}
-$$
-
-Considera un objeto flotando en un líquido como se muestra en la siguiente figura, junto  con su sistema de referencia. Por $A(y)$ denotamos al area de la región que se obtiene al cortar al objeto con planos a altura $y$.
-\begin{center}
-\includegraphics[scale=0.5]{PrinArquiFig.pdf}
-\end{center}
-Supongamos que $\rho_0$ es la densidad (constante) del objeto y que $\rho_f$ es la densidad (constante) del líquido.
-
-
-
-
-
-<ol>
-
-    <li>Prueba que el peso del objeto es:
-        $$
-        W= \rho_0  g\int_{-h}^{L-h}A(y)dy.
-        $$</li> 
-
-<li>Usando el principio de Arquímides, demuestra que  la fuerza de empuje  es:
-    $$
-    F=\rho_f g  \int_{-h}^{0}A(y)dy.
-    $$
-    </li> 
-
-<li>Prueba que el porcentaje del volumen del objeto arriba de la superficie es
-    $$
-    \frac{\rho_f-\rho_0}{\rho_f}
-    $$ 
-    es decir, prueba
-    $$
-    \frac{\int_{0}^{L-h} A(y)dy }{\int_{-h}^{L-h}A(y)dy}=\frac{\rho_f-\rho_0}{\rho_f}
-    $$
-    Sugerencia: Como el objeto esta a flote, debemos de tener $W=F$; luego escribe la identidad anterior en términos de las integrales de los incisos 
-    anteriores.</li> 
-
-
-
-<li>La densidad del hielo es $917 kg/m^3$ y la densidad del agua de mar es $1030 kg/m^3$. Qué porcentaje de un ice-berg esta por arriba de la superficie ?</li> 
-
-</ol>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentra el volumen de un sólido, cuyas areas seccionales cortadas por planos perpendiculares al eje $x$, son $ax^2+bx+c$, para cada $x$ en el intervalo $[0,h]$. Expresa el resultado en terminos de $M_0, M_{1/2}$ y $M_1$, que son las areas de las secciones a alturas $x=0, x=h/2$ y $x=h$.
-
- 
- 
-
-\subsection*{Volumenes por capas cilíndricas}
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando la fórmula para el volumen de  un cilindro, y las propiedades del volumen, demuestra que  el volumen de una capa cilíndrica, $C$, con radio interior $r_2$, radio exterior $r_1$  y altura $h$, esta dado por
-$$
-Vol(C)=2\pi \overline{r} h (r_1-r_2)
-$$
-con $\overline{r}=\frac{r_1+r_2}{2}$ (recordar $r_2 < r_1$). 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio muestra otra forma de encontrar volúmenes, usando capas cilíndricas.
-
-
-Sea  $a>0$ y $f:[a,b] \to \mathbb{R}$ una función continua con $f(x) \geq 0$, para toda $x\in [a,b]$. Sea
-$C$ el sólido que se obtiene al rotar la región bajo la gráfica de $f$, con respecto al eje $y$. Demuestra
-$$
-Vol(C)=\int_a^b  2\pi xf(x)dx.
-$$
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula las siguientes integrales.
 
 <ol>
     <li>
-        Sea $P=\{x_i\}_{i=0}^n$ la partición homogenea de $[a,b]$, de longitud $n$ y sea $\Delta x= \frac{b-a}{n}$ su longitud. 
-
-Sea $C_i$ el sólido  que se obtiene al rotar, alrededor el eje $y$, la región debajo de la gráfica de 
-$f$ en  el intervalo $[x_{i-1}, x_i]$. Sea $C_i^+$ la capa cilíndrica que de obtiene con base $[x_{i-1}, x_i]$ y altura $f(x_i^*)$ y $C_i^-$ la capa cilíndrica que se obtiene con base $[x_{i-1}, x_i]$ y altura $f(x_{i*})$, donde los puntos $x_{i*}$ y $x_i^*$ se toman tal que
-$$
-f(x_{i*})=\min_{x\in [x_{i-1}, x_i]}\{ f(x)\}, f(x_i^*)=\max_{x\in [x_{i-1},x_i]}\{ f(x)\}.
-$$
-
-
-Demuestra que
-$$
-2\pi \overline{x}_i f(x_{i*}) \leq  Vol(C_i) \leq  2\pi \overline{x}_i f(x_i^*)
-$$
-donde $\overline{x}_i=\frac{x_{i-1}+x_i}{2}$, es el punto medio del intervalo $[x_{i-1},x_i ]$.
-    </li> 
-
-<li>
-    Usando el inciso anterior prueba
-$$
-\sum_{i=1}^n 2\pi \overline{x}_i f(x_{i*}) \leq Vol(C) \leq \sum_{i=1}^n 2\pi \overline{x}_i f(x_{i}^*) 
-$$
-</li> 
-
-<li>
-    Tomando límite, cuando $n\to \infty$, y usando el ejercicio \ref{Ejer:IntegrabilidadFuncionesContinuas} concluye
-que
-$$
-Vol(C)=\int_a^b 2\pi xf(x)dx.
-$$
-</li> 
-
+        \label{Ejer:IntegralxLogx} $\int x\log(x)dx$.
+    </li>
+    <li>Para un natural $n>1$ y un real $a>0$, $\int x^n\log(ax)dx$.</li> 
+    <li>$\int x\log^2(x)dx$. Usa una integración por partes y el inciso \ref{Ejer:IntegralxLogx}.</li> 
 </ol>
 
 
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula el volumen  del sólido que se obtiene al rotar la región por debajo de la  gráfica de $y=\sen(x^2)$, $0 \leq x \leq \pi$, altededor del eje de las $y$.
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra la fórmula de recursión
+$$
+\int x^m \log^n(x)dx=\frac{x^{m+1}\log^n(x)}{m+1}-\frac{n}{m+1}\int x^m \log^{n-1}(x)dx.
+$$
 
 
 
+%<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> 
+%<ol>
+%<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $\phi: [a,b]\to \mathbb{R}$  una función que satisface:  su segunda derivada  es continua y no se anula en $[a,b]$; existe $m>0$ tal que su primera derivada satisface $\phi'(t)>m$ para todo $t\in [a,b]$. Usar el segundo teorema del valor medio para integrales para probar
+%$$
+%\left|  \int_a^b \sen(\phi(t)) dt \right| \leq \frac{4}{m}
+%$$
 
+%Hint: multiplicar y dividir el integrando por $\phi'(t)$.
+%<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $a>0$  fijo y arbitrario. Demostrar que $\left|  \int_a^b \sen(t^2)dt\right| \leq \frac{2}{a}$ para todo $x>a$.
+%</ol>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula  el volumen del sólido de revolución que se obtiene al girar la 
-gráfica de $f(x)=x^2$, alrededor del eje $y$ y acotada por los planos $y=0$ y $y=a$ ( con $a> 0$ fija) usando: (1) el  método de discos y  (2) el método de capas cilíndricas.
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra el siguiente teorema.
 
+<div class="teorema-box">[1er Teorema del valor medio para integrales]
+Si $G,f:[a,b]\to \mathbb{R}$ son continuas en $[a,b]$ y $f$ nunca cambia de signo en $[a,b]$, entonces  exsite $c$ tal que
+$$
+\int_a^b f(x)G(x)dx=G(c)\int_a^b f(x)dx.
+$$
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentra el volumen del sólido de revolución que se obtiene rotando la región dada por las curvas, con respecto al eje especificado.
+Sugerencia: considera
+$$
+\min_{x\in [a,b]}\{ G(x)\} f(x) \leq f(x)G(x) \leq \max_{x\in [a,b]}\{ G(x)\} f(x)
+$$
+ integra y usa el teorema del valor intermedio para funciones continuas.
 
-<ol>
-    <li>$y=x^3, y=x, x\geq 0$, alrededor del eje de las $x$;</li> 
-    <li>$y=x^2, y=4$, alrededor del eje dado por $y=1$.</li> 
-</ol>
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra el siguiente teorema.
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Encuentra el volumen de la parte superior de la esfera mostrada en la figura.
+<div class="teorema-box">[Segundo teorema del valor  medio para integrales]
+Sean $g,\alpha: [a,b]\to \mathbb{R}$ funciones continuas en $[a,b]$.
 
-\begin{center}
-\includegraphics[scale=0.5]{Esfera.jpeg}
-\end{center}
+Supon que $\alpha$ es diferenciable en $(a,b)$, $\alpha'$ es continua  y $\alpha '$ nunca cambia de signo en $[a,b]$. Entonces exsite
+un $c$ en $(a,b)$ tal que 
+$$
+\int_a^b g(x)\alpha(x)dx=\alpha(a)\int_a^c g(x)dx+ \alpha(b)\int_c^b g(x)dx
+$$
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Un sólido tiene una base circular de radio 2. Cada corte seccional, con planos perpendiculares a un diámetro fijo, es un triángulo equiláero. Calcula el volumen del sólido.
+Sugerencia: aplica el primer teorema del valor medio para integrales con
+$f=\alpha'$ y $G(x):=\int_a^xg(t)dt$ .
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula el volumen de una pirámide, de altura $h$, cuya base es un triángulo equilatero de lado $a$.
+</body>

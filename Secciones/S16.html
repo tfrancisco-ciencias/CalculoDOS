@@ -1,142 +1,295 @@
 
 
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            arcsen: "\\operatorname{arcsen}",
+            arcsec: "\\operatorname{arcsec}"
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 15 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 15 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 16 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox"> Funciones Hiperbólicas </h1>
 
 
 
 
-\section*{Integración por partes}
+<div class="definicion-box">
+Las funciones coseno  hiperbólico y seno hiperbólico se pueden ver como la parte par e impar, respectivamente de la función exponencial.
 
-Junto con integración por substitución, integración por partes es una de las técnicas más útiles y su origen es la fórmula de la derivada de un producto
+Recordemos  (ejercicio \ref{Ejer:DescomposicionFuncionesParesImpares}) que la parte par e impar de una función arbitraria $f$, estan dadas respespectivamente por
 $$
-(fg)'=fg'+f'g
+f_{\textrm{par}}(x):= \frac{f(x)+ f(-x) }{2}
 $$
+$$
+f_{\textrm{impar}}(x):= 
+\frac{f(x)-f(-x)}{2}
+$$
+asi pues definimos las funciones coseno y seno hiperbólicos como:
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sean $f,g:[a,b] \to \mathbb{R}$ funciones continuas en el cerrado y diferenciables en el abierto, con derivadas continuas. Demuestra la fórmula de integración por partes para integrales indefinidas
-$$
-\int_a^b f(x) g'(x)dx=f(b)g(b)-f(a)g(a)-\int_a^b f'(x)g(x)dx.
-$$
+\begin{eqnarray*}
+\cosh(x)&=& \frac{e^x+ e^{-x}}{2}, \quad x\in \mathbb{R}, \\
+\senh(x) &=& \frac{ e^x - e^{-x}}{2}, \quad x\in \mathbb{R}.
+\end{eqnarray*}
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>  Sean $f,g$ funciones diferenciables con derivadas continuas. Demuestra la fórmula de integración por partes para integrales indefinidas
-$$
-\int f(x)g'(x)dx=f(x)g(x)-\int f'(x) g(x)dx.
-$$
+Es decir, el coseno hiperbólico es la parte par de la exponencial y el seno hiperbólico es la parte impar de la exponencial.
 
-Tomando la notación $u=f, v=g$, $u'=f'dx$ y $v'=g'dx$ la fórmula se convierte
-$$
-\int udv=uv-\int vdu
-$$
-la cual es más fácil de recordar.
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula las siguientes integrales.
+Tomando como modelo las funciones trigonométricas también definimos
+
+\begin{eqnarray*}
+\tanh(t) &=& \frac{ \senh(t) }{ \cosh(t) }= \frac{ e^x - e^{-x}}{ e^x + e^{-x }} \\
+\csch(t)&=&\frac{1}{\senh(t)} \\
+\sech(t)&=&\frac{1}{\cosh(t)} \\
+\coth(t)&=&\frac{1}{\tanh(t)}
+\end{eqnarray*}
+
+</div>
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando la definición de las funciones hiperbólicas y las propiedades de la exponencial demuestra las siguientes propiedades.
 
 <ol>
-    <li>$\int x\cos(x)dx$.</li> 
-    <li>$\int x\sen(x)dx$.</li> 
-    <li>$\int x^2 \cos(x)dx$.</li> 
-    <li>$\int x^2 \sen(x)dx$.</li> 
-    <li>$\int xe^x dx$.</li>  
-    <li>$\int t^2e^t dt$. Sugerencia: $u=t^2$, $dv=e^tdt$.</li> 
+    <li>$\cosh(t)>0$ para todo $t\in \mathbb{R}$.</li> 
+    <li>$\senh(t)=0$ si y sólo si $t=0$. </li> 
+    <li>$\senh(t)>0$ si y sólo si $t>0$ y $\senh(t)< 0$ si y sólo si $t < 0$.</li> 
+ </ol>
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Asi como la s funciones coseno y seno estan  atadas al 
+círculo unitario, $x^2 + y^2 = 1$, las funciones coseno hiperbólico y seno  hiperbólico estan relacionadas con la hiperbola $x^2 - y^2 = 1 $.  Demuestra que,  para toda $t\in \mathbb{R}$ 
+$$
+\cosh^2(t) - \senh^2(t)= 1.
+$$
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Las funciones hiperbólicas tienen muchas similitudes con las trigonométricas, como lo muestra este ejercicio.
+
+<ol>
+    <li>
+        \label{Ejer:FormulasSumaHiper} Demuetra las leyes para $\cosh$ y $\senh$ de una suma:
+\begin{eqnarray*}
+\senh(a+b)&=&\senh(a)\cosh(b)+\senh(b)\cosh(a), \\
+\cosh(a+b)&=& \cosh(a)\cosh(b)+\senh(a)\senh(b), \\
+\tanh(a+b)&=&\frac{\tanh(a)+\tanh(b)}{1+\tanh(a)\tanh(b)}.
+\end{eqnarray*}
+    </li>
+<li>
+    Demuestra:
+$$
+\coth^2(a)-1=\csch^2(a). 
+$$
+</li> 
+<li>
+    Demuestra que, para cualquier real $n$, 
+$$(\cosh(a)+\senh(a))^n=\cosh(na)+\senh(na).$$
+
+</li> 
+<li>
+    \label{Ejer:FormulasDerivadasHiper} Demuetra las fórmulas para las derivadas:
+\begin{eqnarray*}
+\frac{d}{dx}(\senh(x))&=&\cosh(x), \\
+\frac{d}{dx}(\cosh(x))&=&\senh(x),\\
+\frac{d}{dx}(\tanh(x))&=&\sech^2(x).\\
+\end{eqnarray*}
+</li>
 </ol>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula $\int_0^1 \tan^{-1}(x)dx$. 
-
-Sugerencia:  $u=\tan^{-1}(x)$, $dv=dx$.
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula $\int e^{\sqrt{x}}dx$.
-
-Sugerencia: primero toma el cambio de variable $u=\sqrt{x}$ y luego una integración por partes.
 
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>  Usa integrción por partes para demostrar
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que $\senh$ es una función estrictamente creciente.
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:FormulaInversaSenh} Ya que $\senh$ es estrictamente creciente, existe su función inversa (ver ejercicio \ref{Ejer:InversaContinuaMonotona}), denotada $\senh^{-1}:\mathbb{R} \to \mathbb{R}$. Demuestra que, para toda $y\in \mathbb{R}$
 $$
-\int \sqrt{a-x^2}dx=x\sqrt{a-x^2}+\int \frac{x^2}{\sqrt{a-x^2}}dx +C.
-$$
-donde $a$ es una constante positiva.
-
-Escribe $x^2=x^2-a+a$ en el integrando del lado derecho de la fórmula anterior para demostrar
-$$
-\int \sqrt{a-x^2}dx=\frac{1}{2}x\sqrt{a-x^2}+\frac{1}{2}\int \frac{1}{\sqrt{a-x^2}}dx+C.
+\senh^{-1}(y)=\ln(y+\sqrt{y^2+1}).
 $$
 
+Sugerencia: primero, usando la definición de $\senh$,  nota que  la identidad $y=\senh(x)$ es equivalente a  $e^{2x}-2ye^{x}-1=0$; después
+toma $X=e^x$, escribe $e^{2x}-2ye^{x}-1=0$ como una cuadrática en $X$ y resuélvela.
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Considera el conjunto $V$ de funciones continuas $f:[a,b]\to \mathbb{R}$, diferenciables  $(a,b)$ con derivada continua en $(a,b)$ y tal que $f(a)=f(b)=0$.
 
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:FormulaInversaCosh} La función $\cosh$ no es inyectiva, pero si se restringe el dominio $\cosh(x)$, $x\in [0,\infty)$ la función es inyectiva y suprayectiva al intervalo $[1,\infty)$. Por lo tanto la inversa está definida $\cosh^{-1}:[1, \infty) \to [0, \infty)$. Demuestra que, para toda
+$y\in [1,\infty)$,
+$$
+\cosh^{-1}(y)=\ln(y+\sqrt{y^2-1})
+$$
+
+Sugerencia: sigue el mismo procedimiento al ejercicio \ref{Ejer:FormulaInversaSenh}.
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que la función $\tanh$ es estrictamente creciente.
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:LimitesTanh} Demuestra que
+\begin{eqnarray*}
+\lim_{x\to \infty}\tanh(x)&=&1 \\
+\lim_{x\to -\infty}\tanh(x)&=&-1
+\end{eqnarray*}
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:FormulaInversaTanh} Ya que $\tanh$ es estrictamente creciente, existe su función inversa (ver ejercicio \ref{Ejer:InversaContinuaMonotona}) y el ejercicio  \ref{Ejer:LimitesTanh}  dice que su dominio es el intervalo $(-1,1)$. Denotada $\tanh^{-1}:(-1,1) \to \mathbb{R}$ la función inversa de $\tanh$. Demuestra que
+$$
+\tanh^{-1}(y)=\frac{1}{2}\ln \left( \frac{1+y}{1-y} \right)
+$$ 	
+
+Sugerencia: sigue el mismo procedimiento al ejercicio \ref{Ejer:FormulaInversaSenh}.
+
+
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando diferenciación implícita y el ejercicio \ref{Ejer:FormulasDerivadasHiper}, demuestra las fórmulas de las derivadas de las funciones hiperbólicas inversas.
+
+\begin{eqnarray*}
+\frac{d}{dy}(\senh^{-1}(y))&=&\frac{1}{\sqrt{1+y^2}} \\
+\frac{d}{dy}(\cosh^{-1}(y))&=&\frac{1}{\sqrt{y^2-1}} \\
+\frac{d}{dy}(\tanh^{-1}(y))&=& \frac{1}{1-y^2}
+\end{eqnarray*}
+
+Sugerencia: recuerda que $\cosh^2(t)-\senh^2(t)=1$.
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra: 
+
+\begin{eqnarray*}
+\int \frac{1}{\sqrt{1+y^2}} dy &=&  \senh^{-1}(y),\\
+\int \frac{1}{\sqrt{y^2-1}}dy &=&  \cosh^{-1}(y), \\
+\int \frac{1}{1-y^2}dy  &=& \tanh^{-1}(y).
+\end{eqnarray*}
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calculas las siguientes integrales 
 <ol>
-    <li>Demuestra que si $f,g \in V$ entonces $f+g, fg \in V$.</li> 
-    <li>Para $f,g \in V$ demuestra que la fórmula de integración por partes se reduce a 
-        $$
-        \int_a^b f(x)g'(x)dx=-\int_a^b f'(x)g(x)dx
-        $$
-    </li> 
+    <li>$\int \senh(1+4x)dx$</li> 
+    <li>$\int \frac{\senh(\sqrt{x})}{\sqrt{x}}dx$</li> 
+    <li>$\int_4^6 \frac{1}{\sqrt{t^2-9	}}dt$</li> 
+    <li>$\int_0^1 \frac{1}{\sqrt{16t^2 +1}}dt$</li> 
+    <li>$\int \frac{e^x}{1-e^{2x}}dx$</li> 
+</ol>
 
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Evalua $\lim_{x\to \infty} \frac{\senh(x)}{e^x}$
+
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que si $a\ne 0$ y $b\ne 0$, entonces existen números $\alpha$ y $\beta$ tal que $ae^x+be^{-x}$ es igual a alguna de las siguientes funciones: $\alpha \cosh(x+\beta)$ ó $\alpha \senh(x+\beta)$.
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> <ol>
+    <li>
+        Demuestra que toda función de la forma 
+$$
+y=A\cosh(mx)+B\senh(mx)
+$$
+satisface la ecuación diferencial $y''=m^2y$.
+    </li> 
 <li>
-    Da un ejemplo de funciones $f$ y $g$, que no perrtenezcan a $V$ donde la fórmula del inciso anterior no se cumpla.
+    Encuentra $y$ tal que $y''=9y$, $y(0)=-4, y'(0)=6$.
 </li> 
 </ol>
 
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula las siguientes integrales.
+<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> En el circulo unitario, el area 
+$$
+dibujito
+$$
+es igual a $t/2$, si $t$ es medido en radianes. Algo análogo para para las funciones hiperbólicas. Tomar $(a,b)=(\cosh(t_0), \senh(t_0))$
+y considera el area
+$$
+dibujito
+$$
+
+Demuestra que el area es igual a $t_0/2$.
+
+Vamos a tomar dos areas. $A$ es el area que vamos a calcular y $B$ es el area bajo la curva $y=\sqrt{x^2-1}$, es decir
+$B=\int_1^a\sqrt{x^2-1	}dx$. 
 
 <ol>
     <li>
-        \label{Ejer:IntegralxLogx} $\int x\log(x)dx$.
-    </li>
-    <li>Para un natural $n>1$ y un real $a>0$, $\int x^n\log(ax)dx$.</li> 
-    <li>$\int x\log^2(x)dx$. Usa una integración por partes y el inciso \ref{Ejer:IntegralxLogx}.</li> 
+        Prueba que 
+$$B=\frac{1}{4}\senh(2t_0)-\frac{1}{2}t_0$$.
+
+Sugerencia: en la integral $\int_1^a\sqrt{x^2-1	}dx$ toma el cambio de variable $x=\cosh(t)$.
+    </li> 
+
+<li>
+    Demuestra que:
+$$
+A+B=\frac{1}{4}\senh(2t_0)
+$$
+Sugerencia: considera el area del triángulo formado por las areas $A$ y $B$.
+</li> 
+
+<li>
+    Concluye que $A=t_0/2$.
+</li> 
 </ol>
-
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra la fórmula de recursión
-$$
-\int x^m \log^n(x)dx=\frac{x^{m+1}\log^n(x)}{m+1}-\frac{n}{m+1}\int x^m \log^{n-1}(x)dx.
-$$
-
-
-
-%<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> 
-%<ol>
-%<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $\phi: [a,b]\to \mathbb{R}$  una función que satisface:  su segunda derivada  es continua y no se anula en $[a,b]$; existe $m>0$ tal que su primera derivada satisface $\phi'(t)>m$ para todo $t\in [a,b]$. Usar el segundo teorema del valor medio para integrales para probar
-%$$
-%\left|  \int_a^b \sen(\phi(t)) dt \right| \leq \frac{4}{m}
-%$$
-
-%Hint: multiplicar y dividir el integrando por $\phi'(t)$.
-%<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $a>0$  fijo y arbitrario. Demostrar que $\left|  \int_a^b \sen(t^2)dt\right| \leq \frac{2}{a}$ para todo $x>a$.
-%</ol>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra el siguiente teorema.
-
-<div class="teorema-box">[1er Teorema del valor medio para integrales]
-Si $G,f:[a,b]\to \mathbb{R}$ son continuas en $[a,b]$ y $f$ nunca cambia de signo en $[a,b]$, entonces  exsite $c$ tal que
-$$
-\int_a^b f(x)G(x)dx=G(c)\int_a^b f(x)dx.
-$$
-</div>
-
-Sugerencia: considera
-$$
-\min_{x\in [a,b]}\{ G(x)\} f(x) \leq f(x)G(x) \leq \max_{x\in [a,b]}\{ G(x)\} f(x)
-$$
- integra y usa el teorema del valor intermedio para funciones continuas.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra el siguiente teorema.
-
-<div class="teorema-box">[Segundo teorema del valor  medio para integrales]
-Sean $g,\alpha: [a,b]\to \mathbb{R}$ funciones continuas en $[a,b]$.
-
-Supon que $\alpha$ es diferenciable en $(a,b)$, $\alpha'$ es continua  y $\alpha '$ nunca cambia de signo en $[a,b]$. Entonces exsite
-un $c$ en $(a,b)$ tal que 
-$$
-\int_a^b g(x)\alpha(x)dx=\alpha(a)\int_a^c g(x)dx+ \alpha(b)\int_c^b g(x)dx
-$$
-</div>
-
-
-Sugerencia: aplica el primer teorema del valor medio para integrales con
-$f=\alpha'$ y $G(x):=\int_a^xg(t)dt$ .

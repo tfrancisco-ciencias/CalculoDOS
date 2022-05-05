@@ -1,233 +1,492 @@
 
 
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
-\section*{Trabajo}
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-<div class="definicion-box">[Trabajo, fuerza constante]
-El trabajo (denotado por $W$) realizado al mover un objeto (a lo largo de una linea recta) una distancia $d$, aplicando una fuerza constante $F$ esta dado por
-$$
-W=F\times d
-$$
-Una nota sobre las unidades. Substituyendo directamente tenemos 
-$$
-W=(m/s^2)(kg)(m)=kg (m/s)^2= J
-$$
-que se denomina Jouls y es la unidad de trabajo en el sistema internacional.
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
 
 
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            arcsen: "\\operatorname{arcsen}",
+            arcsec: "\\operatorname{arcsec}"
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 11 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 11 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title> § 12 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox"> Volúmenes </h1>
+
+<div class="info-box">
+    <h2 class="number-title"> Introducción </h2>
+    <p>
+        La integral que hemos visto es tan versatil que permite calcular no sólo areas si no también volumenes. En 
+        esta sección se encuentran fórmulas para calcular volúmenes de superficies de revolución y se prueba el 
+        principio de Cavalieri.
+    </p>
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcular el trabajo realizado por una persona que pesa 60kg para subir una escalera de 4 metros.
 
-
-
-Sugerencia: para calcular  $F$ usa
-$$
-F=ma
-$$
-donde  la aceleración es $a=g=9.8m/s^2$.
-
-
-
-
-<div class="definicion-box">[Trabajo, fuerza variable]
-
-Como estamos tratando cálculo uno-dimensional,  siempre vamos a pensar a la fuerza aplicada a lo largo de  una direcci'on fija (una linea recta), como un eje de desplazamiento o el eje de las $x$.
-
-Si la fuerza no es constante, pero esta dada por una función continua, $F(x)$, durante el desplazamiento de $x_{i-1}$ a $x_i$, el trabajo realizado es aproximadamente
-$$
-W_i\sim F(x_i)\Delta x_i
-$$
-
-donde  $\Delta x_i=x_i-x_{i-1}$ es la distancia recorrida.
-
-Tomando una partición homogenea de longitud $n$,  $P=\{x_i\}_{i=0}^n$, y suponiendo la continuidad de la función ferza,  el trabajo ejercido para mover una particula, que se mueve a lo largo del  eje $x$, del punto $a$ al $b$,  ejerciendo una fuerza $F(x)$ en el punto $x$, como: 
-$$
-W=\lim_{n\to \infty } W_i = \int_a^b F(x)dx.
-$$
-</div>
-
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> La pirámide del faraon Kufh fue  construida en un periodo de 20 a\~nos, utulizando piedra caliza, tiene  una altura de $h=146 m$  y  una base cuadrada de $L=230 m$.  La densidad de la piedra  caliza  es $\rho=2560 kg/m^3$.   Este ejercicio estima el trabajo necesario para construirla.
-
-Vamos a simplificar el problema. Imagina la piramide con el eje central sobre el eje $x$ y la base en $x=0$. Ahora, vamos a discretizar el problema; divide el intervalo $[0,h]$ en $n$-invervalos homogeneos (con la partición $P=\{x_i\}_{i=0}^n$) y aproxima el volumen por la suma de los volumenes de rectángulos  $V_i$, con
-$$
-V_i=  l^2(x_i^*)\Delta x_i
-$$
-donde $l(x^*)$ denota la longitud del lado del cuadrado que se obtiene al  cortar al pirámide con un plano perpedicular al eje $x$ a la altura $x^*$. 
-
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        El volumen es una función, denotada $Vol$, que asigna, a ciertos subconjuntos  de $\mathbb{R}^3$, 
+        llamados medibles, un número mayor o igual a cero que satisface
+    </p>
 
 <ol>
-    <li>Usando triángulos semejantes encuentra $l(x)$.</li>  
+    <li>
+        Todos los subconjuntos convexos son medibles
+        (un conjunto es convexo si, dados dos puntos cualesquiera en el conjunto, el segmento de linea que los une cae totalmente dentro del conjunto , por ejemplo las cajas ).
+        $$
+        dibujito
+        $$
+    </li> 
 
-    <li>Denota por  $W_i$ a el trabajo necesario para subir la $i$-ésima rebanada de piedra caliza. Suponiendo que 
-        $F_i$, la fuerza que se necesita para subir la $i$-ésima rebanada a una altura $x_i$, se tiene que $W_i=F_i x_i$. Usando
-        $F=ma$ y el inciso anterior encuantra una expresión para $W_i$.
-           </li>  
-<li>Usando la integrabilidad de las funciones continuas calcula
-    $$
-   W=\lim_{n\to \infty} W_i
-    $$  
-   mediante una integral.</li> 
+    <li>
+        Para una caja $C$, con lados de longitud $a,b$ y $c$
+        $$
+        Vol(C)=abc
+        $$
+    </li> 
+    <li>
+        (Aditividad ) Si $S$ y $T$ son conjuntos medibles entonces $S\cup T  $ es medible. Sin son ajenos
+        $$
+        Vol(S\cup T)=Vol(T) + Vol(S)
+        $$
+    </li> 
 
-<li>Si cada trabajador laboraba 10 horas diarias,  340 días por 20 a\~nos, haciendo $9576 J/h$ de trabajo, levantando piedra caliza, aproximadamente \textquestiondown cuantos trabajadores se necesitarón para construir la pirámide ?  Sólo para tener un punto de comparación, para correr 4 kilómetros se gastan 134,400 J.</li> 
+    <li>
+        Si $S$ y $T$ son medibles y $S\subseteq T$ entonces $T\setminus S$ es medible y
+        $$
+            Vol(T\setminus S)=Vol(T)-Vol(S) 
+        $$
+    </li> 
+</ol>
+</div>
+
+<div class="info-box">
+    <h2 class="number-title"> Nota </h2>
+    <h3>Volumenes por discos  </h3>
+    <p>
+        Iniciamos con el método de volúmenes por discos.
+    </p>
+    <p>
+        Un disco $D$ (cilindro chaparrito), de ancho $\Delta$ y radio $r$ tiene volumen $Vol(D)= \pi r^2 \Delta$. 
+        El método por discos consiste en descomponer un volumen dado como una unión de discos con la propiedad de 
+        que entre más discos usemos la aproximación del volumen va mejorando.
+    </p>
+</div>
 
  
- </ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> 
-<ol>
-    <li>La ley gravedad de Newton establece que, dados dos cuerpos con masas $m_1.m_2$, éstos se atraen entre ellos con una fuerza
-        $$
-        F=G\frac{m_1m_2}{r}
-        $$
-        donde $r$ es la distancia entre los cuerpos y $G$ es la constante de gravitación. Si uno de los cuerpos está fijo, encuentra el trabajo necesario para mover el otro desde $r=a$ hasta $r=b$.</li> 
-<li>Calcula el trabajo requerido para lanzar un satélite de 1000kg, de manera vertical, a una altura de 1000km. Asume que la masa de la tierra es $5.98(10^{24})kg$ y que dicha masa está concentrada en el centro. Toma el radio de la tierra como $6.37(10^6)m$ y $G=6.67(10^{-11})Nm^2/kg^2$.</li> 
-</ol>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El tanque que se muestra en la figura está lleno de agua. Calcula el trabajo requerido para bombear afuera todoa el agua, a través del tubo. Usar que el agua pesa $62.5lb/ft^3$.
-
-\begin{center}
-\includegraphics[scale=0.5]{Tanque.jpeg}
-\end{center}
-
-
-\section*{Area en coordenadas polares}
-
-
-<div class="definicion-box">
-
-De polares a cartesianas. $r\geq 0$, $\theta \in \mathbb{R}$
-\begin{eqnarray*}
-x&=&r\cos(\theta)\\
-y&=&r\sen(\theta)
-\end{eqnarray*}
-
-Nota: el cero puede tener cualquier $\theta$.
-
-De cartesianas a polares. El ángulo se mide con respecto al eje $x$ en sentido contrario 
-a las manecillas del reloj.
-\begin{eqnarray*}
-r&=&\sqrt{x^2+y^2}\\
-\theta &=& \left\{
-\begin{array}{cc}
-\arctan(x/y) &  y\not=0 \\
-0 & y=0
-\end{array}
-\right. 
-\end{eqnarray*}
-</div>
-
-
-<div class="definicion-box">
-Definimos $\pi$ como el cociente de la longitd de una circunferencia de un círculo entre su diámetro.
-</div>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El area de un círculo de radio $R$ es $\pi R^2$. En particular, la longitud de una circunferencia de radio
-$R$ es $2\pi R$.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El area del un círculo de radio $R$ es $\pi R^2$. 
-
-<div class="definicion-box">
-Considera un círculo de radio $R$ y un ángulo $\measuredangle AOB$ mide $a$ radianes si 
-$$
-a=\frac{L}{R}
-$$
-donde $L$ es la longitud del arco que subtiende $\measuredangle AOB$ .
-</div>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio  relaciona radianes con area.
+ 
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:VolEsfera"> Ejercicio</h2>
+    <p>
+        En este ejercicio se calcula el volumen de la esfera. Vamos a obtener la esfera, de radio $r$,  
+        como una superficie de revolución, rotando la gráfica de $f(x)=\sqrt{r^2-x^2}$, $x\in [-r,r]$, al 
+        rededor del eje de las $x$. 
+    </p>
 
 <ol>
-    <li>Divide el criculo de radio $R$ en $n$ partes iguales. Demuestra que el área de cada parte es
+    <li>
+        Sea $P=\{ x_i\}_{i=0}^n$ la partición homogenea de longitud $n$ de $[-r,r]$ y toma $\Delta x =\frac{2r}{n}$
+        la longitud de los subintervalos de la partición. 
+        
+        Denota por $D_i$ la rebanada de la esfera que se obtiene tomando el intervalo $[x_{i-1}, x_i]$, $i=1,\dots, n$; nota que $D_i$ no es un disco, sin embargo, $D_i$ está atrapada entre dos discos : $D_i^+$, disco con ancho $\Delta x$ y radio $f(x_i^*)$ y otro $D_i^-$, disco con ancho $\Delta x$ y radio $f(x_{i*})$, donde los puntos 
+        $x_i^*$ y $x_{i *}$ se toman tales que $f(x_i^*)=\max_{x\in [x_{i-1}, x_i]}\{f(x)\}$, $f(x_{i*})=\min_{x\in [x_{i-1}, x_i]}\{ f(x)\}$. 
+        
+        Demuestra
         $$
-        A=\frac{a}{2}R^2
+        \sum_{i=1}^n \pi f(x_{i_*})^2 \Delta x \leq Vol(\textrm{Esfera)}) \leq \sum_{i=1}^n \pi f(x_{i^*})^2\Delta x
         $$
-        donde $a$ es la medida del ángulo, en radianes,  de cada parte. </li> 
+    </li> 
 
-<li>Considera un segmento circular, con ángulo $a$, medido en radianes y supon que $a=\frac{p}{q}2\pi$, donde $p$ y $q$ son enteros positivos con $p/q < 1$.  Demuestra que el área del segmento es
-    $$
-    A=\frac{a}{2}R^2
-    $$
-    
-    Sugerencia: denota por $A$ a el area del segmento y por $\tilde{A}$ el area de un segmento
-     circular con angulo  $\frac{2pi}{q}$. Nota que  $A=p\tilde{A}$ y usa el inciso anterior.</li> 
+    <li>
+        Toma límite cuando $n\to \infty$ en el inciso anterior y usa el ejercicio 
+        <a href="./S5.html#Ejer:IntegrabilidadFuncionesContinuas">Ejercicio 5.10</a>
+        para concluir
+        $$
+        Vol(\textrm{Esfera})= \int_{-r}^r \pi f^2(x)dx.
+        $$
+    </li> 
 
- <li>Usando la densidad de los racionales  y la continuidad de la función area se puede argumentar que el area de un segmento circular, con ángulo $a$ (en radianes) y radio $R$ es
-    $$
-    \frac{a}{2}R^2
-    $$
+    <li>
+        Finalmente, calcula la integral $\int_{-r}^r \pi f^2(x)dx$ para concluir
+        $$
+        Vol(\textrm{Esfera})=\frac{3}{4}\pi r^2.
+        $$
     </li> 
 </ol>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:VolDiscoSuperficiesRevolucion"> Ejercicio</h2> 
+    <p>
+        Este ejercicio generaliza el cálculo del volumen de la esfera.
+    </p>
+    <p>
+        Sea $f:[a, b ]\to \mathbb{R}$ una función continua, con $f(x)\geq 0 $ para todo $x\in [a,b]$. Demuestra que el volumen del sólido de revolución que se obtiene al girar la gráfica de $f$ alrededor del eje de las $x$ es 
+        $$
+        \int_a^b \pi f(x)^2 dx. 
+        $$
+        
+    </p>
+    <p>
+        Sugerencia: aplica el mismo método que en el <a href="#Ejer:VolEsfera">Ejercicio 12.4</a>.
+    </p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio demuestra el siguiente teorema.
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p> 
+        Encuentra el volumen del sólido que se obtiene al rotar la 
+        gáfica de $y=\sqrt{x}$, con $0\leq x \leq 1$. 
+        
+    </p>
+    <p>
+        Sugerencia: aplica directamente el <a href="#Ejer:VolDiscoSuperficiesRevolucion">Ejercicio 12.5.</a>
+    </p>
+
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        En cada uno de los siguientes ejercicios, encuentra el volumen que se obtiene al 
+        girar la gráfica alrededor del eje $x$.
+    </p>
+<ol>
+    <li>$f(x)=\sqrt{x}, 0\leq x \leq 1$.</li> 
+    <li>$f(x)=x^2, -1\leq x \leq 2$	,</li> 
+    <li>$f(x)=\cos(x), 0\leq x \leq \pi/2$.</li> 
+    <li>$f(x)=\sen(x)+\cos(x)$, $0\leq x \leq \pi$.</li> 
+</ol>
+</div>
+
+<div class="info-box">
+    <h2 class="number-title"> Nota</h2>
+    <h3> El principio de Cavalieri</h3>
+    <p>
+        El ejemplo del cálculo de volúmenes por discos, es un caso particular de un principio más general, 
+        que se conoce como el principio de Cavalieri.
+    </p>
+
+</div>
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        Un subconjunto de $\mathbb{R}^3$ se llama acotado si existe una bola, 
+        $B_r(p)=\{x\in \mathbb{R}^3: \| x-p\| \leq r \}$, que lo contiene.
+    </p>
+    <p>
+        Un solido $S$, se llama de Cavalieri si existe una linea $L$, de tal forma que las secciones 
+        obtenidas al cortar $S$, con planos perpendulares a $L$,  son siempre medibles.
+    </p>
+    <p>
+        Los sólidos de Cavalieri satisfacen la siguiente propiedad:
+
+        <p>
+            Para dos sólidos de Cavalieri, $S$ y $T$, si las areas seccionales (con respecto a un 
+            mismo eje) de $S$ son menores o iguales a las de $T$, entonces el volumen de $S$ es menor o 
+            igual al de $T$.
+            
+        </p>
+    </p>
+</div>
+    
+
 
 <div class="teorema-box">
-Sea $f:[a,b]\to \mathbb{R}$ una función no negativa, con $b-a< 2\pi$ y supongamos
-que $f^2$ es integrable. Sea $D$ la región descrita en coordenadas polares por $r(\theta)\leq f(\theta)$.
+    <h2 class="number-title"> Teorema </h2>
+    <h3> El principio de Cavalieri </h3>
+    <p>
+        Sea $S$ on sólido de Cavalieri, acotado.  Denotemos por $A(t)$ el area seccional de $S$ a 
+        altura $t$ (con respecto a una línea  $L$).
+    </p>
+    <p>
+        Note que, al ser $S$ acotado,  existe un intervalo $[a,b]$ tal que $A(t)=0$ para
+        $t< a$ o $t> a$.         
+    </p>
+    <p>
+        Si $A$ es una función integrable entonces
+        $$
+        Vol(\textrm{S})=\int_a^b A(t)dt
+        $$
+    </p>
 
-Entonces el área de $D$ esta dada por
-$$
-\frac{1}{2}\int_a^b f^2(\theta)d\theta.
-$$ 
-</div>
 <ol>
 
-    <li>Fijemos $\varepsilon >0$. Demuestra que existen funciones escalonadas, $\tilde{s}$ y $\tilde{t}$ tal que:
+    <li>Fija $\varepsilon >0$. Demuestra que existen funciones simples $s,t : [a,b] \to \mathbb{R}$, con $0 \leq s(x) \leq A(x) \leq t(x)$, para todo $x\in [a,b]$ y con
         $$
-        \tilde{s} \leq f^2 \leq \tilde{t}
-        $$
-        y
-        $$
-        \int_a^b (\tilde{s}-\tilde{t})<  \varepsilon
+        \int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon.
         $$</li> 
 
-
-<li>Define $s:=\sqrt{\tilde{s}}$ y $t:=\sqrt{\tilde{t}}$. Demuestra que:
-
+<li>Demuestra que 
+    $$\int_a^ b s(x)dx \leq \int_a^b A(x)dx \leq \int_a^b t(x)dx .$$
+    </li>  
+<li>Demuestra que 
     $$
-    \frac{1}{2}\int_a^b s^2(\theta)d\theta
+    \int_a^b s(x)dx \leq Vol(S) \leq \int_a^b t(x)dx
     $$
-    representa al area de una región formada por segmentos circulares, contenida en $D$ y 
-    $$
-    \frac{1}{2}\int_a^b t^2(\theta)d\theta
-    $$ 
-    representa el área de una región formada por segmentos circulares, que contiene a $D$.</li> 
-
-<li>Demuestra que:
-    $$
-    \frac{1}{2}\int_a^b s^2 \leq  \textrm{Area}(D) \leq \frac{1}{2}\int_a^b t^2
-    $$
-    
-    y
-    
-    $$
-    \frac{1}{2}\int_a^b\tilde{s}\leq  \frac{1}{2} \int_a^b f^2 \leq \frac{1}{2}\int_a^b \tilde{t}
-    $$</li> 
-
-<li>De los incisos anteriores concluye que:
-
-    $$
-    \left| \int_a^b f^2 - \textrm{Area}(D)   \right| <\frac{\varepsilon}{2}
-    $$
-    Como $\varepsilon >0$ es arbitraria, acabamos.
+    Sugerencia: aplica la propiedad que cumplen los sólidos de Cavalieri mencionada justo después de la definición.
     </li> 
+<li>Concluye que
+    $$
+    \left|  Vol(S) - \int_a^b A(x)dx \right| <\varepsilon
+    $$ 
+    por lo que $Vol(S)=\int_a^b A(x)dx$.</li> 
+</ol>    
+</div>
+ 
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        El Principio de Arquímides dice que:
+    </p>
+    <p class="flexbox">
+            Fuerza de empuje = Peso del líquido desplazado
+    </p>
+    <p>
+        Considera un objeto flotando en un líquido como se muestra en la siguiente figura, junto  con su sistema de referencia. Por $A(y)$ denotamos al area de la región que se obtiene al cortar al objeto con planos a altura $y$.
+        \begin{center}
+        \includegraphics[scale=0.5]{PrinArquiFig.pdf}
+        \end{center}
+        Supongamos que $\rho_0$ es la densidad (constante) del objeto y que $\rho_f$ es la densidad (constante) del líquido.
+        
+        
+    </p>
+<ol>
+
+    <li>Prueba que el peso del objeto es:
+        $$
+        W= \rho_0  g\int_{-h}^{L-h}A(y)dy.
+        $$</li> 
+
+<li>Usando el principio de Arquímides, demuestra que  la fuerza de empuje  es:
+    $$
+    F=\rho_f g  \int_{-h}^{0}A(y)dy.
+    $$
+    </li> 
+
+<li>Prueba que el porcentaje del volumen del objeto arriba de la superficie es
+    $$
+    \frac{\rho_f-\rho_0}{\rho_f}
+    $$ 
+    es decir, prueba
+    $$
+    \frac{\int_{0}^{L-h} A(y)dy }{\int_{-h}^{L-h}A(y)dy}=\frac{\rho_f-\rho_0}{\rho_f}
+    $$
+    Sugerencia: Como el objeto esta a flote, debemos de tener $W=F$; luego escribe la identidad anterior en términos de las integrales de los incisos 
+    anteriores.</li> 
+
+
+
+<li>La densidad del hielo es $917 kg/m^3$ y la densidad del agua de mar es $1030 kg/m^3$. Qué porcentaje de un ice-berg esta por arriba de la superficie ?</li> 
+
 </ol>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> En cada una de las siguientes funciones, haz un bosquejo (con ayudad de una computadora o celular) y calcula el area dada en coordenadas polares.
-    <ol>
-        <li>La espiral de Arquímides: $r(\theta)=\theta$, $0\leq \theta \leq 2\pi$.</li> 
-        <li>Dos circulos tangentes en el eje $y$: $r(\theta)=2|\cos(\theta)|$, $0\leq \theta \leq 2\pi$.</li> 
-        <li>Rosa de cuatro hojas: $r(\theta)=|\sen(2\theta)|$, $0\leq \theta \leq 2\pi$.</li> 
-        <li>Cardioide: $r(\theta)=1+\cos(\theta)$, $0\leq \theta \leq 2\pi$.</li> 
-    
-    </ol>
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encuentra el volumen de un sólido, cuyas areas seccionales cortadas por planos 
+    perpendiculares al eje $x$, son $ax^2+bx+c$, para cada $x$ en el intervalo $[0,h]$. 
+    Expresa el resultado en terminos de $M_0, M_{1/2}$ y $M_1$, que son las areas de las secciones 
+    a alturas $x=0, x=h/2$ y $x=h$.
+</div>
+
+ 
+ 
+
+<h2 class="flexbox"> Volumenes por capas cilíndricas </h2>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Usando la fórmula para el volumen de  un cilindro, y las propiedades del volumen, 
+    demuestra que  el volumen de una capa cilíndrica, $C$, con radio interior $r_2$, radio exterior $r_1$  
+    y altura $h$, esta dado por
+    $$
+    Vol(C)=2\pi \overline{r} h (r_1-r_2)
+    $$
+    con $\overline{r}=\frac{r_1+r_2}{2}$ (recordar $r_2 < r_1$). 
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Este ejercicio muestra otra forma de encontrar volúmenes, usando capas cilíndricas.
+
+
+    Sea  $a>0$ y $f:[a,b] \to \mathbb{R}$ una función continua con $f(x) \geq 0$, para toda $x\in [a,b]$. Sea
+    $C$ el sólido que se obtiene al rotar la región bajo la gráfica de $f$, con respecto al eje $y$. Demuestra
+    $$
+    Vol(C)=\int_a^b  2\pi xf(x)dx.
+    $$
+
+<ol>
+    <li>
+        Sea $P=\{x_i\}_{i=0}^n$ la partición homogenea de $[a,b]$, de longitud $n$ y sea $\Delta x= \frac{b-a}{n}$ su longitud. 
+
+Sea $C_i$ el sólido  que se obtiene al rotar, alrededor el eje $y$, la región debajo de la gráfica de 
+$f$ en  el intervalo $[x_{i-1}, x_i]$. Sea $C_i^+$ la capa cilíndrica que de obtiene con base $[x_{i-1}, x_i]$ y altura $f(x_i^*)$ y $C_i^-$ la capa cilíndrica que se obtiene con base $[x_{i-1}, x_i]$ y altura $f(x_{i*})$, donde los puntos $x_{i*}$ y $x_i^*$ se toman tal que
+$$
+f(x_{i*})=\min_{x\in [x_{i-1}, x_i]}\{ f(x)\}, f(x_i^*)=\max_{x\in [x_{i-1},x_i]}\{ f(x)\}.
+$$
+
+
+Demuestra que
+$$
+2\pi \overline{x}_i f(x_{i*}) \leq  Vol(C_i) \leq  2\pi \overline{x}_i f(x_i^*)
+$$
+donde $\overline{x}_i=\frac{x_{i-1}+x_i}{2}$, es el punto medio del intervalo $[x_{i-1},x_i ]$.
+    </li> 
+
+<li>
+    Usando el inciso anterior prueba
+$$
+\sum_{i=1}^n 2\pi \overline{x}_i f(x_{i*}) \leq Vol(C) \leq \sum_{i=1}^n 2\pi \overline{x}_i f(x_{i}^*) 
+$$
+</li> 
+
+<li>
+    Tomando límite, cuando $n\to \infty$, y usando el ejercicio \ref{Ejer:IntegrabilidadFuncionesContinuas} concluye
+que
+$$
+Vol(C)=\int_a^b 2\pi xf(x)dx.
+$$
+</li> 
+
+</ol>
+</div>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Calcula el volumen  del sólido que se obtiene al rotar la región por debajo de la  
+    gráfica de $y=\sen(x^2)$, $0 \leq x \leq \pi$, altededor del eje de las $y$.
+</div>
+
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Calcula  el volumen del sólido de revolución que se obtiene al girar la 
+    gráfica de $f(x)=x^2$, alrededor del eje $y$ y acotada por los planos $y=0$ y $y=a$ 
+    (con $a> 0$ fija) usando: (1) el  método de discos y  (2) el método de capas cilíndricas.
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encuentra el volumen del sólido de revolución que se obtiene rotando la región dada por 
+    las curvas, con respecto al eje especificado.
+
+<ol>
+    <li>$y=x^3, y=x, x\geq 0$, alrededor del eje de las $x$;</li> 
+    <li>$y=x^2, y=4$, alrededor del eje dado por $y=1$.</li> 
+</ol>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encuentra el volumen de la parte superior de la esfera mostrada en la figura.
+
+\begin{center}
+\includegraphics[scale=0.5]{Esfera.jpeg}
+\end{center}
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> U
+    n sólido tiene una base circular de radio 2. Cada corte seccional, con planos 
+    perpendiculares a un diámetro fijo, es un triángulo equiláero. Calcula el volumen del sólido.
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Calcula el volumen de una pirámide, de altura $h$, cuya base es un triángulo equilatero de lado $a$.
+</div>
+</body>
