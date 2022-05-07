@@ -673,9 +673,63 @@
 			El tanque que se muestra en la figura está lleno de agua. Calcula el trabajo requerido 
 			para bombear afuera todoa el agua, a través del tubo. 
 		</p>
-		<div class="flexbox">
-            <img src="./Images/S10-Image1.png" alt="Tanque" width="50%" height="auto">
-          </div>
+		<div class="flexbox" style="padding: 20px;">
+            <img src="./Images/S11-Image1.png" alt="Tanque" width="50%" height="auto" >
+        </div>
+		
+		  <button class="respButton hvr-grow "> Solución  inciso 1</button>
+		  <div class="resp-box flexbox">
+		  <p>
+
+			Primero tratemos de encontrar la fuerza que se necesita para subir el agua en función 
+			de la altura que nos encontremos. Tenemos que la altura del tanque es de 3m. 
+			Entonces dividamos al intervalo \([0,3]\) en \(n\)-subintervalos homogeneos 
+			con extremos \(x_0, x_1, . . .,x_n\). A partir de esta partición podemos encontrar los 
+			volumenes de las \(i\)-ésimas secciones que se obtinen de cortar el tanque de manera 
+			perpendicular al eje \(x\), estos volumenes los denotaremos como 
+			\(V_i\). Por lo tanto \[V_i = 10y(x_i^{*})\vartriangle x\]
+
+			donde \(y(x)\) es la longitud del rectángulo que se obtiene al cortar al tanque de 
+			manera perpendicular al eje \(x)\). Por triángulos semejantes tenemos que 
+			
+			<div class="flexbox">
+				<img src="./Images/S11-Image2.png" alt="Tanque" width="60%" height="auto">
+			  </div>
+	
+
+		</p>
+		<p>
+			Entonces \[ \frac{y}{x_i^*} = \frac{\sqrt{7}}{3} \] 
+			
+			Es decir, \(y =  \frac{\sqrt{7}}{3}x_i^*\) por lo tanto \(V_i \thickapprox \frac{10\sqrt{7}}{3}x_i^*\vartriangle x\). Por lo tanto su masa es 
+			\begin{eqnarray*}
+			m_i & = & densidad \times volumen \\
+			 & \thickapprox & 1000\cdot \frac{10\sqrt{7}}{3}x_i^*\vartriangle x = \frac{10,000\sqrt{7}}{3}x_i^*\vartriangle x
+			\end{eqnarray*}
+		</p>
+		<p>
+			Suponiendo que la densidad del agua es 1000kg/m. Por lo tanto la fuerza necesaria para subir esta capa debe superar a la fuerza de gravedad, \(g = 9.8m/s^2\), y de este modo 
+			\begin{eqnarray*}
+			F_i = m_ig \thickapprox \frac{98,000\sqrt{7}}{3}x_i^*\vartriangle x
+			\end{eqnarray*}
+		</p>
+		<p>
+			Por lo tanto el trabajo que se realiza al subir esta capa de agua hacia lo más alto es el producto de la fuerza \(F_i\) por la distancia \(x_i^*\), es decir: \[ W_i \thickapprox F_ix_i^* \thickapprox \frac{98,000\sqrt{7}}{3}(x_i^*)^2\vartriangle x \]
+			
+			Por lo tanto  el trabajo requerido para bombear afuera toda el agua es : 
+			\begin{eqnarray*}
+			W = \lim_{n \rightarrow \infty}\sum_{i=1}^n\frac{98,000\sqrt{7}}{3}(x_i^*)^2\vartriangle x & = & \int_0^3 \frac{98,000\sqrt{7}}{3}x^2dx \\
+			 & = & \frac{98,000\sqrt{7}}{3}\int_0^3x^2 dx \\
+			 & = & \frac{98,000\sqrt{7}}{3}\cdot \frac{3^3}{3} \\
+			 & = & 777,850 \text{Joules}
+			\end{eqnarray*}
+			
+			
+		  </p>
+
+		  </div>
+
+
 	</div>
 		
 	
