@@ -107,7 +107,8 @@
 <ol>
     <li>
         Todos los subconjuntos convexos son medibles
-        (un conjunto es convexo si, dados dos puntos cualesquiera en el conjunto, el segmento de linea que los une cae totalmente dentro del conjunto , por ejemplo las cajas ).
+        (un conjunto es convexo si, dados dos puntos cualesquiera en el conjunto, el segmento de 
+        linea que los une cae totalmente dentro del conjunto , por ejemplo las cajas ).
         $$
         dibujito
         $$
@@ -142,7 +143,10 @@
         Iniciamos con el método de volúmenes por discos.
     </p>
     <p>
-        Un disco $D$ (cilindro chaparrito), de ancho $\Delta$ y radio $r$ tiene volumen $Vol(D)= \pi r^2 \Delta$. 
+        Un disco $D$ (cilindro chaparrito), de ancho $\Delta$ y radio $r$ tiene volumen 
+        \[
+        Vol(D)= \pi r^2 \Delta
+        \]
         El método por discos consiste en descomponer un volumen dado como una unión de discos con la propiedad de 
         que entre más discos usemos la aproximación del volumen va mejorando.
     </p>
@@ -152,8 +156,12 @@
  
 <div class="ejercicio-box">
     <h2 class="number-title" id="Ejer:VolEsfera"> Ejercicio</h2>
+    
     <p>
-        En este ejercicio se calcula el volumen de la esfera. Vamos a obtener la esfera, de radio $r$,  
+        En este ejercicio se calcula el volumen de la esfera. 
+    </p>
+    <p>
+        Vamos a obtener la esfera, de radio $r$,  
         como una superficie de revolución, rotando la gráfica de $f(x)=\sqrt{r^2-x^2}$, $x\in [-r,r]$, al 
         rededor del eje de las $x$. 
     </p>
@@ -163,8 +171,12 @@
         Sea $P=\{ x_i\}_{i=0}^n$ la partición homogenea de longitud $n$ de $[-r,r]$ y toma $\Delta x =\frac{2r}{n}$
         la longitud de los subintervalos de la partición. 
         
-        Denota por $D_i$ la rebanada de la esfera que se obtiene tomando el intervalo $[x_{i-1}, x_i]$, $i=1,\dots, n$; nota que $D_i$ no es un disco, sin embargo, $D_i$ está atrapada entre dos discos : $D_i^+$, disco con ancho $\Delta x$ y radio $f(x_i^*)$ y otro $D_i^-$, disco con ancho $\Delta x$ y radio $f(x_{i*})$, donde los puntos 
-        $x_i^*$ y $x_{i *}$ se toman tales que $f(x_i^*)=\max_{x\in [x_{i-1}, x_i]}\{f(x)\}$, $f(x_{i*})=\min_{x\in [x_{i-1}, x_i]}\{ f(x)\}$. 
+        Denota por $D_i$ la rebanada de la esfera que se obtiene tomando el 
+        intervalo $[x_{i-1}, x_i]$, $i=1,\dots, n$; nota que $D_i$ no es un disco, sin embargo,
+         $D_i$ está atrapada entre dos discos : $D_i^+$, disco con ancho $\Delta x$ y radio $f(x_i^*)$ y 
+         otro $D_i^-$, disco con ancho $\Delta x$ y radio $f(x_{i*})$, donde los puntos 
+        $x_i^*$ y $x_{i *}$ se toman tales que $f(x_i^*)=\max_{x\in [x_{i-1}, x_i]}\{f(x)\}$, 
+        $f(x_{i*})=\min_{x\in [x_{i-1}, x_i]}\{ f(x)\}$. 
         
         Demuestra
         $$
