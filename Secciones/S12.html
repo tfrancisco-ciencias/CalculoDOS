@@ -172,40 +172,47 @@
         rededor del eje de las $x$. 
     </p>
 
-<ol>
-    <li>
+    <p>
+        Por \(S\) denotamos a la esfera
+        $$
+        S=\{(x,y,z)\in \mathbb{R}^3: \| (x,y,z)\|\leq r \}
+        $$
+    </p>
+    <p>
         Sea $P=\{ x_i\}_{i=0}^n$ la partición homogenea de longitud $n$ de $[-r,r]$ y toma $\Delta x =\frac{2r}{n}$
         la longitud de los subintervalos de la partición. 
         
-        Denota por $D_i$ la rebanada de la esfera que se obtiene tomando el 
-        intervalo $[x_{i-1}, x_i]$, $i=1,\dots, n$; nota que $D_i$ no es un disco, sin embargo,
+        Denotamos por $D_i$ la rebanada de la esfera que se obtiene tomando el 
+        intervalo $[x_{i-1}, x_i]$, $i=1,\dots, n$. Notamos  que $D_i$ no es un disco, sin embargo,
          $D_i$ está atrapada entre dos discos : $D_i^+$, disco con ancho $\Delta x$ y radio $f(x_i^*)$ y 
          otro $D_i^-$, disco con ancho $\Delta x$ y radio $f(x_{i*})$, donde los puntos 
         $x_i^*$ y $x_{i *}$ se toman tales que $f(x_i^*)=\max_{x\in [x_{i-1}, x_i]}\{f(x)\}$, 
         $f(x_{i*})=\min_{x\in [x_{i-1}, x_i]}\{ f(x)\}$. 
-        
-        Demuestra
-        $$
-        \sum_{i=1}^n \pi f(x_{i_*})^2 \Delta x \leq Vol(\textrm{Esfera)}) \leq \sum_{i=1}^n \pi f(x_{i^*})^2\Delta x
-        $$
-    </li> 
+    </p>
+    <p>
+        Ya que \(D_i^- \subseteq D_i \subset D_i^+ \) tenemos que 
+        \(Vol(D_i^-) \leq  Vol(D_i) \leq  Vol(D_i^+) \), asi que al sumar el volumen de cada rebanada tenemos 
+        \[
+            \sum_{i=1}^n \pi f(x_{i_*})^2\Delta x \leq Vol(S)\leq \sum_{i=1}^n \pi f(x_{i}^*)^2\Delta x 
+        \]
+    </p> 
 
-    <li>
+    <p>
         Toma límite cuando $n\to \infty$ en el inciso anterior y usa el ejercicio 
         <a href="./S5.html#Ejer:IntegrabilidadFuncionesContinuas">Ejercicio 5.10</a>
         para concluir
         $$
-        Vol(\textrm{Esfera})= \int_{-r}^r \pi f^2(x)dx.
+        Vol(S)= \int_{-r}^r \pi f^2(x)dx.
         $$
-    </li> 
+    </p> 
 
-    <li>
+    <p>
         Finalmente, calcula la integral $\int_{-r}^r \pi f^2(x)dx$ para concluir
         $$
-        Vol(\textrm{Esfera})=\frac{3}{4}\pi r^2.
+        Vol(S)=\frac{3}{4}\pi r^2.
         $$
-    </li> 
-</ol>
+    </p> 
+
 </div>
 
 <div class="ejercicio-box">
@@ -303,32 +310,72 @@
     <p>
         Si $A$ es una función integrable entonces
         $$
-        Vol(\textrm{S})=\int_a^b A(t)dt
+        Vol(\textrm{S})=\int_a^b A(x)dx
         $$
     </p>
 
-<ol>
+    <p>
+        Ya que el volumen se preserva bajo traslaciones y rotaciones sin pérdida de generalidad 
+        podemos suponer que \(L\) es el eje de las \(x\).
+    </p>
 
-    <li>Fija $\varepsilon >0$. Demuestra que existen funciones simples $s,t : [a,b] \to \mathbb{R}$, con $0 \leq s(x) \leq A(x) \leq t(x)$, para todo $x\in [a,b]$ y con
+    <p>
+        Fija $\varepsilon >0$. Al ser \(A\) integrable, por el criterio 
+        de Cauchy existen funciones escalonadas $s,t : [a,b] \to \mathbb{R}$, con 
+        $0 \leq s(x) \leq A(x) \leq t(x)$, para todo $x\in [a,b]$ y con
         $$
         \int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon.
-        $$</li> 
+        $$
+        Nota: en general el principio de Cauhcy no asegura que podemos tomar \(0\leq s \) pero 
+        ésto se puede hacer usando que \(A \geq 0\).
+    </p> 
 
-<li>Demuestra que 
-    $$\int_a^ b s(x)dx \leq \int_a^b A(x)dx \leq \int_a^b t(x)dx .$$
-    </li>  
-<li>Demuestra que 
+<p>
+    Integrando  las desigualdades anteriores obtenemos 
+    \begin{equation}\label{Eqn:Aux1Cavalieri}
+    \int_a^ b s(x)dx \leq \int_a^b A(x)dx \leq \int_a^b t(x)dx.
+    \end{equation}
+</p>  
+<p>
+    Por otro lado vamos a construir dos sólidos \(S^-\) y \(S^+\) a partir de las 
+    funciones escalonadas \(s\) y \(t\) de la siguiente forma: primero 
+    escribimos 
+    \[
+    s=\sum_{i=1}^n s_i\chi_{[x_{i-1},x_i)}, t=\sum_{i=1}^n t_i\chi_{[x_{i-1},x_i)} 
+    \]
+    y luedo construimos 
+    \[
+    S^-=\cup_{i=1}^n S_i^- , \quad S_i^+=\cup_{i=1}^n 
+    \]  
+    donde para cada \(i\), \(S_i^-\) es un sólido con volumen \(s_i(x_i-x_{i-1})\)
+    y \(S_i^+\) es un sólido con volumen \(t_i(x_i-x_{i-1})\). 
+</p>
+<p>
+    Si \(S_i\) denota la rebanada de \(S_i\) determinada al cortar \(S\) con los 
+    planos \(x=x_{i-1}\) y \(x=x_i\), por la propiedad de los sólidos de Cavalieri mencionada justo después de la definición 
+    tenemos 
+    \(Vol(S_i^-)\leq Vol(S_i)\leq Vol(S_i^+)\), por lo tanto 
     $$
-    \int_a^b s(x)dx \leq Vol(S) \leq \int_a^b t(x)dx
+    \sum_{i=1}^n Vol(S_i^-) \leq Vol(S) \leq \sum_{i=1}^n Vol(S_i^+)
     $$
-    Sugerencia: aplica la propiedad que cumplen los sólidos de Cavalieri mencionada justo después de la definición.
-    </li> 
-<li>Concluye que
+    pero construimos \(S_i^-\) y \(S_i^+\) de tal forma que 
+    \begin{eqnarray*}
+    \sum_{i=1}^n Vol(S_i^-)=\sum_{i=1}^n s_i(x_i-x_{i-1})=\int_a^b s(x)dx \\
+    \sum_{i=1}^n Vol(S_i^+)=\sum_{i=1}^n t_i(x_i-x_{i-1})=\int_a^b t(x)dx 
+    \end{eqnarray*}
+    por lo tanto llegamos a que 
+    \begin{equation}\label{Eqn:Aux2Cavalieri}
+    \int_a^b s(x)dx \leq Vol(S) \leq \int_a^b t(x)dx. 
+    \end{equation}
+</p> 
+<p>
+    De las ecuaciones \eqref{Eqn:Aux1Cavalieri} y \eqref{Eqn:Aux2Cavalieri} concluimos 
     $$
     \left|  Vol(S) - \int_a^b A(x)dx \right| <\varepsilon
     $$ 
-    por lo que $Vol(S)=\int_a^b A(x)dx$.</li> 
-</ol>    
+    por lo que $Vol(S)=\int_a^b A(x)dx$.
+</p> 
+    
 </div>
  
 
