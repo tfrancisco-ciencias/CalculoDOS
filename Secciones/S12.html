@@ -108,7 +108,7 @@
     <li>
         Todos los subconjuntos convexos son medibles
         (un conjunto es convexo si, dados dos puntos cualesquiera en el conjunto, el segmento de 
-        linea que los une cae totalmente dentro del conjunto , por ejemplo las cajas ).
+        linea que los une cae totalmente dentro del conjunto , por ejemplo las esferas, cajas ).
         <div class="flexbox" style="padding: 20px;">
             <img src="./Images/S12-Image1.png" alt="Convexos" width="50%" height="auto" >
         </div>
@@ -135,12 +135,17 @@
     </li> 
 </ol>
 <p>
-    Algunos ejemplos de medibles son:
+    Por ejemplo, cualquier toro (dona) es medible:
 </p>
-<div class="flexbox" style="padding: 20px;">
+<!--<div class="flexbox" style="padding: 20px;">
     <img src="./Images/S12-Image2.png" alt="EjemplosMediblesNoConvexos" width="50%" height="auto" >
+</div>-->
+
+<div class="flexbox" style="padding: 20px;">
+    <iframe src="https://www.wolframcloud.com/obj/3cb8b6ab-721e-4e21-b86c-bbd74673f128?_embed=iframe" width="600" height="400"></iframe>
 </div>
 </div>
+
 
 <div class="info-box">
     <h2 class="number-title"> Nota </h2>
@@ -177,7 +182,13 @@
         $$
         S=\{(x,y,z)\in \mathbb{R}^3: \| (x,y,z)\|\leq r \}
         $$
+        Demuestra que 
+        \[
+        Vol(S)=\frac{3\pi}{4}r^3
+        \]
     </p>
+    <button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
     <p>
         Sea $P=\{ x_i\}_{i=0}^n$ la partición homogenea de longitud $n$ de $[-r,r]$ y toma $\Delta x =\frac{2r}{n}$
         la longitud de los subintervalos de la partición. 
@@ -209,9 +220,10 @@
     <p>
         Finalmente, calcula la integral $\int_{-r}^r \pi f^2(x)dx$ para concluir
         $$
-        Vol(S)=\frac{3}{4}\pi r^2.
+        Vol(S)=\frac{3}{4}\pi r^3.
         $$
     </p> 
+    </div>
 
 </div>
 
@@ -298,9 +310,9 @@
 
 <div class="teorema-box">
     <h2 class="number-title"> Teorema </h2>
-    <h3> El principio de Cavalieri </h3>
+    <h3> El Teorema de Cavalieri </h3>
     <p>
-        Sea $S$ on sólido de Cavalieri, acotado.  Denotemos por $A(t)$ el area seccional de $S$ a 
+        Sea $S$ on sólido de Cavalieri.  Denotemos por $A(t)$ el area seccional de $S$ a 
         altura $t$ (con respecto a una línea  $L$).
     </p>
     <p>
@@ -314,6 +326,8 @@
         $$
     </p>
 
+    <button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
     <p>
         Ya que el volumen se preserva bajo traslaciones y rotaciones sin pérdida de generalidad 
         podemos suponer que \(L\) es el eje de las \(x\).
@@ -375,7 +389,7 @@
     $$ 
     por lo que $Vol(S)=\int_a^b A(x)dx$.
 </p> 
-    
+</div>
 </div>
  
 
@@ -389,9 +403,10 @@
     </p>
     <p>
         Considera un objeto flotando en un líquido como se muestra en la siguiente figura, junto  con su sistema de referencia. Por $A(y)$ denotamos al area de la región que se obtiene al cortar al objeto con planos a altura $y$.
-        \begin{center}
-        \includegraphics[scale=0.5]{PrinArquiFig.pdf}
-        \end{center}
+
+        <div class="flexbox" style="padding: 20px;">
+            <img src="./Images/S12-Image3.png" alt="Iceberg" width="50%" height="auto" >
+        </div>
         Supongamos que $\rho_0$ es la densidad (constante) del objeto y que $\rho_f$ es la densidad (constante) del líquido.
         
         
@@ -538,9 +553,10 @@ $$
     <h2 class="number-title"> Ejercicio</h2> 
     Encuentra el volumen de la parte superior de la esfera mostrada en la figura.
 
-\begin{center}
-\includegraphics[scale=0.5]{Esfera.jpeg}
-\end{center}
+
+    <div class="flexbox" style="padding: 20px;">
+        <img src="./Images/S12-Image4.png" alt="EsperaCap" width="50%" height="auto" >
+    </div>
 </div>
 
 <div class="ejercicio-box">
