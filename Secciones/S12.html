@@ -309,7 +309,7 @@
 
 
 <div class="teorema-box">
-    <h2 class="number-title"> Teorema </h2>
+    <h2 class="number-title" id="Teo:Cavalieri"> Teorema </h2>
     <h3> El Teorema de Cavalieri </h3>
     <p>
         Sea $S$ on sólido de Cavalieri.  Denotemos por $A(t)$ el area seccional de $S$ a 
@@ -408,38 +408,85 @@
             <img src="./Images/S12-Image3.png" alt="Iceberg" width="50%" height="auto" >
         </div>
         Supongamos que $\rho_0$ es la densidad (constante) del objeto y que $\rho_f$ es la densidad (constante) del líquido.
-        
-        
+    
     </p>
-<ol>
+    <ol>
+        <li>
+            Prueba que el porcentaje del objeto que está por arriba del líquido es 
+            \[
+            \frac{\rho_f-\rho_0}{\rho_f}.
+            \]
+        </li>
+        <li>
+            La densidad del hielo es $917 kg/m^3$ y la densidad del agua de mar es $1030 kg/m^3$. 
+            ¿Qué porcentaje de un ice-berg esta por arriba de la superficie ?
+        </li> 
+    </ol>
+    <button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
 
-    <li>Prueba que el peso del objeto es:
+    <p>
+        El peso de objeto es \(W=\rho_0 g V\), donde \(V\) es el volumen total del objeto. 
+        Usando el <a href="#Teo:Cavalieri">Teorema de Cavalieri</a> obtenemos que 
+        \(
+        V=\int_{-h}^{L-h}A(y)dy.
+        \)
+        Por lo tanto, el peso es igual a
         $$
         W= \rho_0  g\int_{-h}^{L-h}A(y)dy.
-        $$</li> 
+        $$
+    </p> 
 
-<li>Usando el principio de Arquímides, demuestra que  la fuerza de empuje  es:
-    $$
-    F=\rho_f g  \int_{-h}^{0}A(y)dy.
-    $$
-    </li> 
+    <p>
+        Por otro lado el peso del agua desplazada es \(\rho_f g V'\) 
+        donde \(V'\) es el volumen del líquido desplazado. Nuevamente usando el Teorema de 
+        Cavalieri tenemos que
+        \(
+        V'=\int_{-h}^{0}A(y)dy.
+        \) 
+        El principio de Arquímides nos permite concluir que   la fuerza de empuje, denotada \(F\),  es:
+        $$
+        F=\rho_f g  \int_{-h}^{0}A(y)dy.
+        $$
+    </p> 
 
-<li>Prueba que el porcentaje del volumen del objeto arriba de la superficie es
-    $$
-    \frac{\rho_f-\rho_0}{\rho_f}
-    $$ 
-    es decir, prueba
-    $$
-    \frac{\int_{0}^{L-h} A(y)dy }{\int_{-h}^{L-h}A(y)dy}=\frac{\rho_f-\rho_0}{\rho_f}
-    $$
-    Sugerencia: Como el objeto esta a flote, debemos de tener $W=F$; luego escribe la identidad anterior en términos de las integrales de los incisos 
-    anteriores.</li> 
+    <p>
+        Afirmamos  que el porcentaje del volumen del objeto arriba de la superficie es
+        $$
+        \frac{\rho_f-\rho_0}{\rho_f}
+        $$ 
+        Para probar esto primero notamos que el porcentaje del objeto que está por arriba del nivel 
+        del líquido es el voluem por arriba dividido entre el volumen total. Por lo tanto debemos de 
+        probar 
+        $$
+        \frac{\int_{0}^{L-h} A(y)dy }{\int_{-h}^{L-h}A(y)dy}=\frac{\rho_f-\rho_0}{\rho_f}
+        $$
 
-
-
-<li>La densidad del hielo es $917 kg/m^3$ y la densidad del agua de mar es $1030 kg/m^3$. Qué porcentaje de un ice-berg esta por arriba de la superficie ?</li> 
-
-</ol>
+        Para iniciar la prueba primero notamos que \(W=F\), pues el objeto está a flote. 
+        Reemplazando \(W\) y \(F\) por sus expresiones integrales que obtuvimos previamente
+        llegamos a 
+        \[
+        \rho_0  g\int_{-h}^{L-h}A(y)dy=\rho_f g  \int_{-h}^{0}A(y)dy.
+        \]
+        Cancelando \(g\) y utilizando que  \(\int_{-h}^0A(y)dy=\int_{-h}^{L-h} A(y)dy-\int_{0}^{L-h}A(y)dy\)
+        obtenemos 
+        \begin{eqnarray*} 
+        \rho_0  g\int_{-h}^{L-h}A(y)dy&=&  \rho_f \int_{-h}^{L-h} A(y)dy-\rho_f \int_{0}^{L-h}A(y)dy \\
+         \Rightarrow \rho_f \int_{0}^{L-h}A(y)dy&=&(\rho_f-\rho_0)\int_{-h}^{L-h}A(y)dy \\
+        \Rightarrow \frac{\int_{0}^{L-h}A(y)dy}{\int_{-h}^{L-h}A(y)dy}&=&\frac{\rho_f-\rho_0}{\rho_f}
+        \end{eqnarray*}
+        que es precisamente lo que queríamos probar.
+    
+    </p> 
+    <p>
+        Para el último inciso, substituyendo los valores \(\rho_0=917\) y \(\rho_f=1030\) obtenemos que el 
+        porcentaje del ice-berg por arriba del nivel del mar es 
+        \[
+        \frac{\rho_f-\rho_0}{\rho_f}=0.109
+        \]
+        Es decir sólo el 1% está por arriba del nivel del mar.
+    </p>
+    </div>
 </div>
 
 
