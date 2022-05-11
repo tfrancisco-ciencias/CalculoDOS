@@ -89,7 +89,7 @@
 <div class="info-box">
     <h2 class="number-title"> Introducción </h2>
     <p>
-        La integral que hemos visto es tan versatil que permite calcular no sólo areas si no también volumenes. En 
+        La integral que hemos visto es tan versatil que permite calcular no sólo area si no también volumene. En 
         esta sección se encuentran fórmulas para calcular volúmenes de superficies de revolución y se prueba el 
         principio de Cavalieri.
     </p>
@@ -147,9 +147,9 @@
 </div>
 
 
-<div class="info-box">
+<div class="nota-box">
     <h2 class="number-title"> Nota </h2>
-    <h3>Volumenes por discos  </h3>
+    <h3>Volumen por discos  </h3>
     <p>
         Iniciamos con el método de volúmenes por discos.
     </p>
@@ -210,11 +210,12 @@
 
     <p>
         Toma límite cuando $n\to \infty$ en el inciso anterior y usa el ejercicio 
-        <a href="./S5.html#Ejer:IntegrabilidadFuncionesContinuas">Ejercicio 5.10</a>
+        <a href="./S5.html#Ejer:AproximacionSumasRiemann">Ejercicio 5.11</a>
         para concluir
         $$
         Vol(S)= \int_{-r}^r \pi f^2(x)dx.
         $$
+        
     </p> 
 
     <p>
@@ -501,19 +502,28 @@
  
  
 
-<h2 class="flexbox"> Volumenes por capas cilíndricas </h2>
 
 
 
-<div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    Usando la fórmula para el volumen de  un cilindro, y las propiedades del volumen, 
-    demuestra que  el volumen de una capa cilíndrica, $C$, con radio interior $r_2$, radio exterior $r_1$  
-    y altura $h$, esta dado por
-    $$
-    Vol(C)=2\pi \overline{r} h (r_1-r_2)
-    $$
-    con $\overline{r}=\frac{r_1+r_2}{2}$ (recordar $r_2 < r_1$). 
+
+<div class="nota-box">
+    <h2 class="number-title"> Nota </h2> 
+    <h3 > Volumen por capas cilíndricas </h2>
+    <p>
+        El volumen de un cilindro de radio \(r\) y altura \(h\) es \(\pi r^2 h\). Por una capa 
+        cilíndrica vamos a entender un cilindro sólido al cual le quitamos un cilindro más pequeño 
+        centrado en el centro del primero y de la misma altura. Sea \(C_1\) el cilindro más grande, con radio \(r_1\)
+        y \(C_2\) el más pequeño con radio \(r_2\). Ya que \(C_2\subseteq C_1\) las propiedades del volumen 
+        tenemos
+        \[
+        Vol(C_1\setminus C_2)=\pi r_1^2 h-\pi r_2^2h.
+        \]
+        Usando diferencia de cuadrados podemos expresar la expresión anterior como 
+        \[
+        Vol(C_1\setminus C_2)=\pi (r_1+r_2)(r_1-r_2)h=2\pi \overline{r}h(r_1-r_2)
+        \]
+        donde \(\overline{r}=\frac{r_1+r_2}{2}\).
+    </p>
 </div>
 
 
@@ -528,40 +538,88 @@
     Vol(C)=\int_a^b  2\pi xf(x)dx.
     $$
 
-<ol>
-    <li>
-        Sea $P=\{x_i\}_{i=0}^n$ la partición homogenea de $[a,b]$, de longitud $n$ y sea $\Delta x= \frac{b-a}{n}$ su longitud. 
+    <button class="respButton hvr-grow "> Solución  </button>
+    <div class="resp-box flexbox">
+    <p>
+        Sea $P=\{x_i\}_{i=0}^n$ la partición homogenea de $[a,b]$, de longitud $n$.
+    </p>    
+    <p>
+        Sea $C_i$ el sólido  que se obtiene al rotar, alrededor el eje $y$, la región debajo de la gráfica de 
+        $f$ en  el intervalo $[x_{i-1}, x_i]$. Sea $C_i^+$ la capa cilíndrica que de obtiene con base $[x_{i-1}, x_i]$ y 
+        altura $f(x_i^*)$ y $C_i^-$ la capa cilíndrica que se obtiene con base $[x_{i-1}, x_i]$ y 
+        altura $f(x_{i*})$, donde los puntos $x_{i*}$ y $x_i^*$ se toman tal que
+        $$
+        f(x_{i*})=\min_{x\in [x_{i-1}, x_i]}\{ f(x)\}, f(x_i^*)=\max_{x\in [x_{i-1},x_i]}\{ f(x)\}.
+        $$
+    </p>
+    <p>
+        Ya que \(C_i^-\subseteq C_i \subseteq C_i^+\) obtenemos que 
+        \begin{eqnarray*}
+        2\pi \overline{x}_i f(x_{i*})(x_i-x_{i-1})=Vol(C_i^-)  
+        \leq  Vol(C_i) \\
+        Vol(C_i)\leq  Vol(C_i^+)=2\pi \overline{x}_i f(x_i^*)(x_i-x_{i-1})
+        \end{eqnarray*}
+        donde $\overline{x}_i=\frac{x_{i-1}+x_i}{2}$, es el punto medio del intervalo $[x_{i-1},x_i ]$.
+    </p>
+    <p>
 
-Sea $C_i$ el sólido  que se obtiene al rotar, alrededor el eje $y$, la región debajo de la gráfica de 
-$f$ en  el intervalo $[x_{i-1}, x_i]$. Sea $C_i^+$ la capa cilíndrica que de obtiene con base $[x_{i-1}, x_i]$ y altura $f(x_i^*)$ y $C_i^-$ la capa cilíndrica que se obtiene con base $[x_{i-1}, x_i]$ y altura $f(x_{i*})$, donde los puntos $x_{i*}$ y $x_i^*$ se toman tal que
-$$
-f(x_{i*})=\min_{x\in [x_{i-1}, x_i]}\{ f(x)\}, f(x_i^*)=\max_{x\in [x_{i-1},x_i]}\{ f(x)\}.
-$$
+        Por otro lado tenemos que 
+        \[
+        C=\cup_{i=1}^n C_i
+        \]
+        y además las intersecciones de los \(C_i\) o bien son ajenas o tienen intersección un conjunto 
+        de dimensión 2, el cual tiene area cero. Por lo tanto 
+        \[
+        Vol(C)=\sum_{i=1}^n Vol(C_i).
+        \]
+        Por las estimaciones anteriores llegamos a que 
+        \[
+            \sum_{i=1}^n 2\pi \overline{x}_i f(x_{i*})(x_i-x_{i-1}) 
+            \leq  Vol(C) 
+            \leq \sum_{i=1}^n 2\pi \overline{x}_i f(x_i^*)(x_i-x_{i-1})
+        \]
+    </p>
 
 
-Demuestra que
-$$
-2\pi \overline{x}_i f(x_{i*}) \leq  Vol(C_i) \leq  2\pi \overline{x}_i f(x_i^*)
-$$
-donde $\overline{x}_i=\frac{x_{i-1}+x_i}{2}$, es el punto medio del intervalo $[x_{i-1},x_i ]$.
-    </li> 
+    <p>
+    En éste punto nos gustaría aprovechar el hecho de que \(f\) es continua y 
+    aplicar el <a href="./S5.html#Ejer:AproximacionSumasRiemann">Ejercicio 5.11</a> 
+    tomando límite cuando \(n\to \infty\) y obtener 
+    \begin{eqnarray*}
+    \lim_{n\to \infty } \sum_{i=1}^n 2\pi \overline{x}_i f(x_{i*})(x_i-x_{i-1}) =\int_a^b 2\pi xf(x)dx \\
+    \lim_{n\to \infty } \sum_{i=1}^n 2\pi \overline{x}_i f(x_{i*})(x_i-x_{i-1}) =\int_a^b 2\pi xf(x)dx 
+    \end{eqnarray*}  
+    para concluir
+    \[
+    Vol(C)=\int_a^b 2\pi xf(x)dx.
+    \]
+    Sin embargo no podemos hacerlo pues para aplicar el <a href="./S5.html#Ejer:AproximacionSumasRiemann">Ejercicio 5.11</a> 
+     debemos de tener que  \(\overline{x_i}=x_{i*}\) en el primer límite y 
+     \(\overline{x_i}=x_i^*\) en el segundo. Tenemos que hacer un arreglo. El arreglo  consiste en 
+     la siguiente estimación:
+     \begin{eqnarray*}
+     & \left| \sum_{i=1}^n 2\pi \overline{x}_i f(x_{i*})(x_i-x_{i-1}) - 
+     \sum_{i=1}^n 2\pi \overline{x}_i f(\overline{x_i})(x_i-x_{i-1}) \right| \\
+     & \leq \sum_{i=1}^n 2\pi |f(x_{i*})-f(\overline{x_i})||\overline{x_i}|(x_i-x_{i-1}) \\
+     & \leq 2\pi \sum_{i=1}^n \omega_f([x_{i-1},x_i])|\overline{x_i}|(x_i-x_{i-1}) \\
+     & \leq 2\pi(|a|+|b|) \sum_{i=1}^n \omega_f([x_{i-1},x_i])(x_i-x_{i-1}) 
+     \end{eqnarray*}
+     donde utilizamos que \(|f(x_{i*})-f(\overline{x_i})|\leq \omega_f([x_{i-1},x_i])\), siendo éste último 
+     la <a href="./S5.html#Def:Oscilacion">oscilación de f</a> en el intervalo \([x_{i-1},x_i]\) y 
+     \(|\overline{x_i}|\leq |a|+|b|\). Ahora, al ser \(f\) uniformemente continua en \([a,b]\) 
+     por el <a href="./S5.html#Ejer:LimiteSumasOscilaciones">Ejercicio 5.24</a>se cumple que 
+     \[
+     \lim_{n\to \infty} \sum_{i=1}^n \omega_f([x_{i-1},x_i])(x_i-x_{i-1})  =0
+     \]
+        Por lo tanto se debe de tener que 
+        \[
+        \lim_{n\to \infty} \sum_{i=1}^n 2\pi \overline{x}_i f(x_{i*})(x_i-x_{i-1})= 
+        \lim_{n\to \infty} \sum_{i=1}^n 2\pi \overline{x}_i f(\overline{x_i})(x_i-x_{i-1})
+        \]
+        lo cual termina el arreglo.
+    </p> 
+    </div>
 
-<li>
-    Usando el inciso anterior prueba
-$$
-\sum_{i=1}^n 2\pi \overline{x}_i f(x_{i*}) \leq Vol(C) \leq \sum_{i=1}^n 2\pi \overline{x}_i f(x_{i}^*) 
-$$
-</li> 
-
-<li>
-    Tomando límite, cuando $n\to \infty$, y usando el ejercicio \ref{Ejer:IntegrabilidadFuncionesContinuas} concluye
-que
-$$
-Vol(C)=\int_a^b 2\pi xf(x)dx.
-$$
-</li> 
-
-</ol>
 </div>
 
 
