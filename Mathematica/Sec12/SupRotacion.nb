@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    590731,       9934]
-NotebookOptionsPosition[    588991,       9900]
-NotebookOutlinePosition[    589386,       9916]
-CellTagsIndexPosition[    589343,       9913]
+NotebookDataLength[    591858,       9954]
+NotebookOptionsPosition[    590019,       9919]
+NotebookOutlinePosition[    590414,       9935]
+CellTagsIndexPosition[    590371,       9932]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -6623,8 +6623,8 @@ Cell[BoxData[
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`t$$], 0, 2 Pi}}, Typeset`size$$ = {
-    360., {178., 182.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True}, 
+    492.3, {24.548934936523438`, 12.791915893554688`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
       "ControllerVariables" :> {}, 
@@ -6640,7 +6640,7 @@ Cell[BoxData[
         AxesLabel -> {$CellContext`X, $CellContext`Y, $CellContext`Z}], 
       "Specifications" :> {{$CellContext`t$$, 0, 2 Pi}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{404., {223., 228.}},
+     ImageSizeCache->{688., {62., 67.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -6657,7 +6657,26 @@ Cell[BoxData[
    3.8612294460265493`*^9}, 3.861229534847104*^9, {3.861265314146214*^9, 
    3.861265318834147*^9}},
  CellLabel->
-  "Out[148]=",ExpressionUUID->"0921ca54-ccd4-43e8-8b44-041107606c19"]
+  "Out[148]=",ExpressionUUID->"0921ca54-ccd4-43e8-8b44-041107606c19"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"P2x\\\", \\\",\\\", \
+\\\"P2y\\\", \\\",\\\", \\\"P2z\\\", \\\",\\\", RowBox[{\\\"Pyr\\\", \
+\\\"[\\\", \\\"1.6964600329384885`\\\", \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"L1yr\\\", \\\"[\\\", \\\"1.6964600329384885`\\\", \\\"]\\\"}], \\\
+\",\\\", RowBox[{\\\"L2yr\\\", \\\"[\\\", \\\"1.6964600329384885`\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"Boxed\\\", \\\"\[Rule]\\\", \
+\\\"False\\\"}], \\\",\\\", RowBox[{\\\"Axes\\\", \\\"\[Rule]\\\", \
+\\\"False\\\"}], \\\",\\\", RowBox[{\\\"AxesLabel\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"X\\\", \\\",\\\", \\\"Y\\\", \\\",\\\", \
+\\\"Z\\\"}], \\\"}\\\"}]}]}], \\\"]\\\"}]\\).\"", 2, 46, 14, 
+   33859179144026318648, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.861296111047515*^9},
+ CellLabel->"",ExpressionUUID->"89599c96-3d83-406f-a55d-79b6db83fe62"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -9930,11 +9949,12 @@ Cell[382824, 6413, 2513, 76, 220, "Input",ExpressionUUID->"8c706c4d-8715-464e-83
 Cell[385340, 6491, 3610, 95, 136, "Input",ExpressionUUID->"a9b4b23f-fe1d-4bc0-9e94-b11f175a3a65"],
 Cell[CellGroupData[{
 Cell[388975, 6590, 1210, 25, 52, "Input",ExpressionUUID->"89cfc116-7e75-4376-951f-68cc235014cd"],
-Cell[390188, 6617, 2075, 42, 470, "Output",ExpressionUUID->"0921ca54-ccd4-43e8-8b44-041107606c19"]
+Cell[390188, 6617, 2104, 42, 148, "Output",ExpressionUUID->"0921ca54-ccd4-43e8-8b44-041107606c19"],
+Cell[392295, 6661, 996, 17, 46, "Message",ExpressionUUID->"89599c96-3d83-406f-a55d-79b6db83fe62"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[392300, 6664, 1417, 32, 52, "Input",ExpressionUUID->"b05e36a6-11d2-4040-84a4-e90e496193ab"],
-Cell[393720, 6698, 195255, 3199, 452, 116376, 1906, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"3dd527e6-4b3e-4aeb-86a6-1d11b81b0218"]
+Cell[393328, 6683, 1417, 32, 52, "Input",ExpressionUUID->"b05e36a6-11d2-4040-84a4-e90e496193ab"],
+Cell[394748, 6717, 195255, 3199, 429, 116376, 1906, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"3dd527e6-4b3e-4aeb-86a6-1d11b81b0218"]
 }, Open  ]]
 }
 ]
