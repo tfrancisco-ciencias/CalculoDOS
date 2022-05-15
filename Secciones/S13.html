@@ -87,227 +87,312 @@
 <h1 class="number-title flexbox"> Logaritmos </h1>
 
  
+<div class="info-box">
+    <h2 class="number-title"> Introducción </h2>
+    <p>
 
-
-
-
-<div class="definicion-box">
-
-Definimos la función logaritmo natural (o logaritmo base $e$) como:
-$$
-L(x):=\int_1^x\frac{dt}{t}, \quad x> 0
-$$
-
-Por el Primer Teorema Fundamental, el logaritmo natural es la única solución
-al problema de ecuaciones diferenciales con valor inicial
-
-\begin{eqnarray*}\label{Eqn:SistemaEcuDifLog}
-y'&=&\frac{1}{x}, \quad  x>0 \\
-y(1)&=&0
-\end{eqnarray*}
+    </p>
 
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Usando la  definición, demuestra las siguientes características del logaritmo natural:
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Definimos la función logaritmo natural (o logaritmo base $e$) como:
+        $$
+        L(x):=\int_1^x\frac{dt}{t}, \quad x> 0
+        $$
+        
+        Por el Primer Teorema Fundamental, el logaritmo natural es la única solución
+        al problema de ecuaciones diferenciales con valor inicial
+        
+        \begin{eqnarray*}\label{Eqn:SistemaEcuDifLog}
+        y'&=&\frac{1}{x}, \quad  x>0 \\
+        y(1)&=&0
+        \end{eqnarray*}
+        
+    </p>
+
+
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Usando la  definición, demuestra las siguientes características del logaritmo natural:
+    </p>
 <ol>
     <li>$L(1)=0$.</li> 
     <li>$L(x)>0$ para $x>1$, $L(x) < 0$ para $0< x < 1$.</li> 
     <li>$L'(x)=\frac{1}{x} > 0$, por lo que $L$ es estrictamente creciente.</li> 
     <li>$L''(x)=\frac{-1}{x^2} < 0$, por lo que $L$ es concava hacia abajo.</li> 
 </ol> 
+<p>
+    Asi que la función debe verse mas o menos así
+
+    $$
+    dibujito
+    $$
+</p>
 
 
-Asi que la función debe verse mas o menos así
-
-$$
-dibujito
-$$
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> 
-    Este ejercicio demuestra que la función exponencial y logaritmo son funciones inversas una de la otra.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio demuestra que la función exponencial y logaritmo son funciones inversas una de la otra.
+    </p>
 
-Demuestra que:
+<p>
+    Demuestra que:
+</p>
 <ol>
-    <li>Para todo $x>0$:
+    <li>
+        Para todo $x>0$:
         $$
         e^{L(x)}=x.
         $$
-        
         Sugerencia: diferencia la función $\frac{e^{L(x)}}{x}$.
     </li> 
 
-<li>
-    Para todo $x\in \mathbb{R}$:
+    <li>
+        Para todo $x\in \mathbb{R}$:
+        $$
+        L(e^x)=x
+        $$
 
-$$
-L(e^x)=x
-$$
-
-Sugerencia: diferencia la función $L(e^x) -x$.
-</li> 
+        Sugerencia: diferencia la función $L(e^x) -x$.
+    </li> 
 </ol>
 
 </div>
 
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2>  
-    Este ejercicio provee dos demostraciones de lo  que puede ser la principal propiedad del logaritmo, la cual se llama la ecuación funcional del logaritmo. 
-
-Para cualesquiera $a,b>0$:
-\begin{equation}\label{Eqn:EcuFuncionalLog}
-L(ab)=L(a)+L(b)
-\end{equation}
-
-
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>  
+    <p>
+        Este ejercicio provee dos demostraciones de lo  que puede ser 
+        la principal propiedad del logaritmo, la cual se llama la ecuación 
+        funcional del logaritmo. 
+    </p>
+    <p>
+        Para cualesquiera $a,b>0$:
+        \begin{equation}\label{Eqn:EcuFuncionalLog}
+        L(ab)=L(a)+L(b)
+        \end{equation}
+    </p>   
 
 <ol>
 
     <li>
         Fijemos $b>0$ y definamos
-$$
-F(x)=L(xb), G(x)=L(x)+L(b), \quad x >0
-$$
+        $$
+        F(x)=L(xb), G(x)=L(x)+L(b), \quad x >0
+        $$
 
-Diferenciando $F$ y $G$ demuestra que $F(x)=G(x)$, para todo $x>0$.
+        Diferenciando $F$ y $G$ demuestra que $F(x)=G(x)$, para todo $x>0$.
     </li> 
 
-<li>
-    Usando \ref{Ejer:LinealidadIntervalos} demuestra que:
+    <li>
+        Usando la 
+        <a href="./S3.html#Ejer:LinealidadIntervalos">linealidad con respecto a intervalos</a> 
+        demuestra que:
+        $$
+        \int_1^{ab}\frac{1}{t}dt=\int_1^a \frac{1}{t}dt+\int_{a}^{ab}\frac{1}{t}dt
+        $$
 
-$$
-\int_1^{ab}\frac{1}{t}dt=\int_1^a \frac{1}{t}dt+\int_{a}^{ab}\frac{1}{t}dt
-$$
+        despúes usa un cambio de variable para  obtener
+        $$
+        \int_a^{ab}\frac{1}{t}dt=\int_1^b \frac{1}{u}du
+        $$
+        y concluir $L(ab)=L(a)+L(b)$.
 
-despúes usa un cambio de variable para  obtener
-$$
-\int_a^{ab}\frac{1}{t}dt=\int_1^b \frac{1}{u}du
-$$
-y concluir $L(ab)=L(a)+L(b)$.
-
-</li> 
+    </li> 
 </ol>
 </div>
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Para $a,b > 0$ y $p/q >0$ racional con $p,q\in \mathbb{N}$, demuestra:
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Para $a,b > 0$ y $p/q >0$ racional con $p,q\in \mathbb{N}$, demuestra:
 <ol>
-    <li>$L(a/b)=L(a)-L(b)$. Sugerencia: usa \ref{Eqn:EcuFuncionalLog}.    </li> 
+    <li>
+        $L(a/b)=L(a)-L(b)$. 
+        <p>
+            Sugerencia: usa la ecuación funcional del logaritmo, \eqref{Eqn:EcuFuncionalLog}.    
+        </p>
+    </li> 
     
     <li>
-        $L(a^{p/q})=\frac{p}{q} L(a)$. Sugerencia: comienza con $p=n \in \mathbb{N}$ y $q=1$; para el caso general
-    considera $qL(a^{p/q})=L(a^p)$.
+        $L(a^{p/q})=\frac{p}{q} L(a)$. 
+        <p>
+            Sugerencia: comienza con $p=n \in \mathbb{N}$ y $q=1$; para el caso general
+            considera $qL(a^{p/q})=L(a^p)$.
+        </p>
     </li> 
 </ol>
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2>\label{Ejer:DeepDefinicionLog} Vamos a ver con más detalle la ecuación \eqref{Eqn:EcuFuncionalLog}.
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:DeepDefinicionLog"> Ejercicio</h2> 
+    <p>
+        Vamos a ver con más detalle la ecuación \eqref{Eqn:EcuFuncionalLog}, 
+        la ecuación funcional del logaritmo.
+    </p>
 
 <ol>
     <li>
-        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLog}, $cf$ es solución, para cualquier constante $c$.
+        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLog}, entonces 
+        para toda constante \(c\), $cf$ también es solución de \eqref{Eqn:EcuFuncionalLog}.
     </li> 
 
     <li>
-        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLog},  $f(1)=0$.
+        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLog} entonces  $f(1)=0$.
     </li> 
 
     <li>
-        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLog} y $0$ esta en el dominio de $f$ enotnces $f(x)=0$ para toda
-$x$.
+        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLog} y $0$ esta en el dominio 
+        de $f$ entonces $f(x)=0$ para toda $x$.
     </li> 
 
-<li>
-    Si $f$ es una solución de \eqref{Eqn:EcuFuncionalLog} y  $\mathbb{R}\setminus\{0\}$ es el dominio de $f$, entonces $f$ es par.
+    <li>
+        Si $f$ es una solución de \eqref{Eqn:EcuFuncionalLog} y  
+        $\mathbb{R}\setminus\{0\}$ es el dominio de $f$, entonces $f$ es par.
+        <p>
+            Nota: como consecuencia nos podemos restringir  a soluciones  
+            de \eqref{Eqn:EcuFuncionalLog} con dominio $(0,\infty)$.
+        </p>
+    
+    </li> 
 
-Este ejercicio demuestra que nos podemos restringir  a soluciones  de \eqref{Eqn:EcuFuncionalLog} con dominio $(0,\infty)$.
-</li> 
+    <li>
+        Si $f$ es diferenciable en todo $(0,\infty)$, entonces
+        $$
+        f'(x)=\frac{f'(1)}{x}
+        $$
+        <p>
+            Sugerencia: considera la ecuación funcional $f(xa)=f(x)+f(a)$ y deriva con respecto de $x$.
+        </p>
+         
+    </li> 
 
-<li>
-    Si $f$ es diferenciable en todo $(0,\infty)$, entonces
-$$
-f'(x)=\frac{f'(1)}{x}
-$$
+    <li>
+        Si $f$ es solución  \eqref{Eqn:EcuFuncionalLog}  y es diferenciable en $(0,\infty)$ entonces
+        $$
+        f(x)=f'(1)L(x)
+        $$
 
-Considera la ecuación funcional $f(xa)=f(x)+f(a)$ y deriva con respecto de $x$.
-</li> 
-
-<li>
-    Si $f$ es solución  \eqref{Eqn:EcuFuncionalLog}  y es diferenciable en $(0,\infty)$ entonces
-$$
-f(x)=f'(1)L(x)
-$$
-
-</li> 
+    </li> 
 
 </ol>
 </div>
+
+
+<div class="nota-box">
+  <h2 class="number-title"> Nota </h2>  
+    <p>
+        Tomando en cuenta 	el <a href="#Ejer:DeepDefinicionLog">Ejercicio 13.7</a> inciso (c), 
+        el dominio más grande que uno puede considerar para extender la ecuación funcional 
+        del logaritmo es $\mathbb{R}\setminus\{0\}$ y por el inciso (d)  dicha extensión 
+        debe de ser par, por lo tanto es natural definir,  para $t\ne 0$
+    </p>
+    <p>
+        $$
+        \log(t)=\int_1^{|t|}\frac{dx}{x}
+        $$
+        También se sule denotar $\ln(t)$.	
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demustra que $\frac{d \log(t)}{dt}=\frac{1}{t}$, para todo $t\neq 0$. 
+    </p>
+    <p>
+        En términos de integrales indefinidas lo anterior se puede resumir como
+        $$
+        \int \frac{dt}{t}=\log(t)
+        $$
+    </p>
+
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $f:(0,\infty) \to \mathbb{R}$ una función continua,  con la propiedad de que
+        $$
+        b\int_{1}^{xy}f(t)dt=a y\int_1^xf(t)dt+ b x \int_{1}^y f(t)dt
+        $$
+        para todas $x,y>0$, donde $a,b>0$ son constantes. Si $f(1)=2$, calcula $f(x)$ para toda $x$.
+        
+    </p>
+    <p>
+        Sugerencia: deriva y usa el teorema fundamental.
+    </p>
+</div>
+
+
 
 
 <div class="definicion-box">
-
-Tomando en cuenta 	el ejercicio \ref{Ejer:DeepDefinicionLog} inciso (c), el dominio más grande que uno puede considerar para extender la ecuación funcional del logaritmo es $\mathbb{R}\setminus\{0\}$ y por el inciso (d)  dicha extensión debe de ser par, por lo tanto es natural definir,  para $t\ne 0$
-
-$$
-\log(t)=\int_1^{|t|}\frac{dx}{x}
-$$
-También se sule denotar $\ln(t)$.	
+    <h2 class="number-title"> Definición </h2>
+    <h3> Funciones typo exponencial </h3>
+    <p>
+        Fijemos una base $b > 0 $. Pra cualquier número real $t$ se define la potencia $b^t$ como
+        $$
+        b^t := e^{t L (b) }
+        $$
+    </p>
 
 </div>
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Demustra que $\frac{d \log(t)}{dt}=\frac{1}{t}$, para todo $t\neq 0$. 
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Fija una base $b>0$ y considera la función $f(x)=b^x$, $x>0$. Demuestra que si 
+        $0< b < 1 $ entonces $f$ es estrictamente decreciente, 
+        si  $b=1$ entonces $f$ es la función constante uno y si 
+        $b>1$ entonces $f$ es estrictamente creciente.
+    </p>
 
-En términos de integrales indefinidas lo anterior se puede resumir como
-$$
-\int \frac{dt}{t}=\log(t)
-$$
-</div>
-
-
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Sea $f:(0,\infty) \to \mathbb{R}$ una función continua,  con la propiedad de que
-$$
-b\int_{1}^{xy}f(t)dt=a y\int_1^xf(t)dt+ b x \int_{1}^y f(t)dt
-$$
-para todas $x,y>0$, donde $a,b>0$ son constantes. Si $f(1)=2$, calcula $f(x)$ para toda $x$.
-
-Sugerencia: deriva y usa el teorema fundamental.
-</div>
-
-\subsection*{La función logaritmo y las funciones exponenciales}
-
-
-<div class="definicion-box">
-Fijemos una base $b > 0 $. Pra cualquier número real $t$ se define la potencia $b^t$ como
-$$
-b^t := e^{t L (b) }
-$$
-</div>
-
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Fija una base $b>0$ y considera la función $f(x)=b^x$, $x>0$. Demuestra que si 
-$0<b<1$ entonces $f$ es estrictamente decreciente , si  $b=1$ entonces $f$ es la función constante uno y si 
-$b>1$ entonces $f$ es estrictamente creciente.
 </div>
 
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> 
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio se verifica que 
+        la definición de \(b^t\) satisface las leyes de los exponentes y que cuando 
+        \(t\in \mathbb{Q}\) \(b^t\) se interpreta de manera usual. 
+        En lo incisos que siguen, $b>0$ es fija y arbitraria.
+    </p>
     
-    Este ejercicio justifica la definición anterior. En lo incisos que siguen, $b>0$ es fija y arbitraria.
 
 <ol> 
 
     <li>
-        Demuestra que si $t=n \in \mathbb{N}$ entonces $e^{nL(b)}=b^n$, donde $b^n$ se interpreta como $b$ multiplicado con sigo mismo $n$-veces.
+        Demuestra que si $t=n \in \mathbb{N}$ entonces $e^{nL(b)}=b^n$, 
+        donde $b^n$ se interpreta como $b$ multiplicado con sigo mismo $n$-veces.
     </li> 
     <li>
         Demuestra que si $t=p \in \mathbb{Z}$, entonces $e^{pL(b)}=b^p$, donde $b^p$ se interpreta
-    como en el inciso anterior si $p > 0$ y como $(\frac{1}{b})^{|p|}$ si $p < 0$.
+        como en el inciso anterior si $p > 0$ y como $(\frac{1}{b})^{|p|}$ si $p < 0$.
     </li> 
     <li>
-        Demuestra que si $t=p/q \in \mathbb{Q}$  ($q>0$) entonces $e^{(p/q)L(b)}=b^{p/q}$, donde $b^{p/q}$ se interpreta como raíz $q$-ésima de $b^p$ y $b^p$ se interpreta como en el inciso anterior.
+        Demuestra que si $t=p/q \in \mathbb{Q}$  
+        ($q>0$) entonces $e^{(p/q)L(b)}=b^{p/q}$, 
+        donde $b^{p/q}$ se interpreta como raíz $q$-ésima de 
+        $b^p$ y $b^p$ se interpreta como en el inciso anterior.
     </li> 
 
     <li>
@@ -315,7 +400,8 @@ $b>1$ entonces $f$ es estrictamente creciente.
     </li> 
  
     <li>
-        Usando las propiedades  del logaritmo y la exponencial, junto con la definición de $a^t$,  prueba  que la exponencial y el logaritmo son inversas.
+        Usando las propiedades  del logaritmo y la exponencial, 
+        junto con la definición de $a^t$,  prueba  que la exponencial y el logaritmo son inversas.
     </li> 
  
 </ol>
@@ -324,23 +410,31 @@ $b>1$ entonces $f$ es estrictamente creciente.
 
 
 
-<div class="definicion-box">[Definición algebráica de logaritmo] 
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio define logaritmos con otras bases distintas a $e$.
+    </p>
+    <p>
+        Define para $b>0$  se define  el logaritmo de 
+        \(x>0\), base \(b\), como 
+        $L_b(x)=\frac{L(x)}{L(b)}$. 
+    </p>
+    <p>
+        La definición algebráica del logaritmo dice que un número 
+        \(y\) es el logaritmo de \(x\) base \(b\) si \(b^y=x\). Denotamos 
+        \(y=\log_b(x)\). Por ejemplo
+        $$
+        \log_{10}(0.1)=-1, \log_{10}(100)=2.
+        $$
+    </p>
+    <p>
+        Con la definición de \(L_b(x)\) Demuestra que $b^{L_b(x)}=x$. Es decir,
+        \(L_b(x)\) es el logaritmo base \(b\) de \(x\), en el sentido algebráico.
+    </p>
 
 
-Para una base $b>0$ escribimos  $y=\log_b(x)$ si y sólo si $b^y=x$, es decir $b^{\log_b(x)}=x$.
-
-Ejemplo
-$$
-\log_{10}(0.1)=-1, \log_{10}(100)=2.
-$$
-</div>
-
-
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> 
-    
-    Este ejercicio define logaritmos con otras bases distintas a $e$.
-
-Define para $b>0$ define $L_b(x)=\frac{L(x)}{L(b)}$, $x>0$. Demuestra que $b^{L_b(x)}=x$.
 </div>
 
 
@@ -363,14 +457,15 @@ Define para $b>0$ define $L_b(x)=\frac{L(x)}{L(b)}$, $x>0$. Demuestra que $b^{L_
 </div>
 
 
-\subsection*{Límites que involucran logaritmos}
+
 
 <div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> 
-    Este ejercicio demuestra el siguiente límite.
-\begin{eqnarray*}
-\lim_{x\to \infty}L(x)&=&\infty
-\end{eqnarray*}
-
+    <p>
+        Este ejercicio demuestra el siguiente límite.
+        \begin{eqnarray*}
+        \lim_{x\to \infty}L(x)&=&\infty
+        \end{eqnarray*}        
+    </p>
 <ol>
     <li>Sea $M>0$, fija y arbitraria. Demuestra que existe $n$ tal que $nL(2)>M$.</li> 
     <li>Usando el inciso anterior y la propiedad de que $L$ es estrictamente creciente,
@@ -380,43 +475,63 @@ Define para $b>0$ define $L_b(x)=\frac{L(x)}{L(b)}$, $x>0$. Demuestra que $b^{L_
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Demuestra:
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra:
 
-\begin{eqnarray*} 
-\lim_{t \to 0^+} L(t)&=&-\infty
-\end{eqnarray*}
+        \begin{eqnarray*} 
+        \lim_{t \to 0^+} L(t)&=&-\infty
+        \end{eqnarray*}
+        
+    </p>
+    <p>
+        Sugerencia: usa $L(1/t)=-L(t)$, para $t>0$ y el cambio de variable $x=1/t$.
+    </p>
 
-Sugerencia: usa $L(1/t)=-L(t)$, para $t>0$ y el cambio de variable $x=1/t$.
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2>\label{Ejer:RectaSoporteLogEnx=1}  
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:RectaSoporteLogEnx=1"> Ejercicio</h2>  
 <ol>
 
     <li>
         Para $x>0$, demuestra:
-$$
- L(x) \leq x-1
-$$
+        $$
+        L(x) \leq x-1
+        $$
 
-La igualdad se da si y sólo si $x=1$.
+        La igualdad se da si y sólo si $x=1$.
 
-Sugerimos  dos posibles formas de probarlo.
-
-Sugerencia 1: considera la función $f(x)=x-1-L(x)$, $x>0$; prueba  que $f$ tiene un mínimo absoluto en $x=1$.
-
-Sugerencia 2: nota que $y=x-1$ es la recta tangente a la gráfica de  $y=L(x)$ en $x=1$ y usa la convexidad de $L$ (ejer \ref{Ejer:RectaSoporteConcavasArriba}).
+        <p>
+            Sugerimos  dos posibles formas de probarlo.
+            <p>
+                Sugerencia 1: considera la función $f(x)=x-1-L(x)$, $x>0$; prueba  
+                que $f$ tiene un mínimo absoluto en $x=1$.
+            </p>
+            <p>
+                Sugerencia 2: nota que $y=x-1$ es la recta tangente a la gráfica de  
+                $y=L(x)$ en $x=1$ y usa la convexidad de $L$ 
+                (<a href="#Ejer:RectaSoporteConcavasArriba">Ejercicio</a>).
+            </p>
+            
+            
+        </p>
     </li> 
 
-<li>
-    Para $t>0$ demuestra:
-$$
-1-\frac{1}{t} \leq  L(t) 
-$$
-La igualdad se da si y sólo si $t=1$.
-
-Sugerencia : usa la propiedad $L(1/t)=-L(t)$, $t>0$, tomando el cambio de variable $x=1/t$ y aplicando el inciso anterior.
-</li> 
+    <li>
+        Para $t>0$ demuestra:
+        $$
+        1-\frac{1}{t} \leq  L(t) 
+        $$
+        La igualdad se da si y sólo si $t=1$.
+        <p>
+            Sugerencia : usa la propiedad $L(1/t)=-L(t)$, $t>0$, 
+            tomando el cambio de variable $x=1/t$ y aplicando el inciso anterior.
+        </p>
+    
+    </li> 
 
 </ol>
 
@@ -424,138 +539,195 @@ Sugerencia : usa la propiedad $L(1/t)=-L(t)$, $t>0$, tomando el cambio de variab
 
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Demuestra:
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra:
+        $$
+        \lim_{x\to 0 }\frac{L(1+x)}{x}=1
+        $$
+    </p>
 
-$$
-\lim_{x\to 0 }\frac{L(1+x)}{x}=1
-$$
+    <p>
+        Sugerencia: usa el <a href="#Ejer:RectaSoporteLogEnx=1">Ejercicio 13.20</a>  
+        y la regla del sandwich para límites.
+    </p>
 
-Sugerencia: usa el ejercicio  \ref{Ejer:RectaSoporteLogEnx=1} y la regla del sandwich para límites.
 
 </div>
 
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2>\label{Ejer:ComparasionLogFuncPotenciaEnInfinito} 
-    Este ejercicio compara las razones de crecimiento de la función logaritmo las funciones potencia en el infinito.
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:ComparasionLogFuncPotenciaEnInfinito"> Ejercicio</h2> 
+    <p>
+        Este ejercicio compara las razones de crecimiento de la función logaritmo las 
+        funciones potencia en el infinito.
+    </p>
+    
 <ol>
     <li>
         Demuestra que, para todo $t \geq 1$ 
-$$
-\frac{L(t)}{t^2} \leq \frac{1}{t}
-$$
-
-Sugerencia: aplica el  el T.V.M a la función logaritmo en el  intervalo $[t,t^2]$.
-
+        $$
+        \frac{L(t)}{t^2} \leq \frac{1}{t}
+        $$
+        <p>
+            Sugerencia: aplica el  el T.V.M a la función logaritmo en el  intervalo $[t,t^2]$.
+        </p>
     </li> 
-<li>
-    Demuestra:
-$$
-\lim_{s\to \infty} \frac{L(s)}{s}=0.
-$$
+    <li>
+        Demuestra:
+        $$
+        \lim_{s\to \infty} \frac{L(s)}{s}=0.
+        $$
+        <p>
+            Sugerencia: usa el inciso anterior, el cambio de variable $t=\sqrt{s}$ y las propiedades del logaritmo.
+        </p>
+    </li>
+ </ol>
+ </div>
 
-Sugerencia: usa el inciso anterior, el cambio de variable $t=\sqrt{s}$ y las propiedades del logaritmo.
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Demuestra:
-
-$$
-\lim_{s \to \infty}\frac{L(s)}{s^n}=0
-$$
-
-para todo $n \in \mathbb{N}$.
-
-Sugerencia: usa el inciso anterior.
-
-</li> 
-</ol>
-
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra:
+        $$
+        \lim_{s \to \infty}\frac{L(s)}{s^n}=0
+        $$
+        para todo $n \in \mathbb{N}$.
+        
+    </p>
+    <p>
+        Sugerencia: usa el inciso anterior.
+    </p>
 </div>
 
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> \label{Ejer:CrecimientoLogPoli} 
-    Este ejercicio compara la función logaritmo con las funciones potencia cerca del cero.
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:CrecimientoLogPoli"> Ejercicio</h2>  
+    <p>
+        Este ejercicio compara la función logaritmo con las funciones potencia cerca del cero.
+    </p>
 
 <ol>
 
-
     <li>
         Demuestra: $\lim_{x\to  0^+} xL(x)=0$.
+        <p>
+            Sugerimos dos posibles demostraciones.
 
-
-Sugerimos dos posibles demostraciones.
-
-
-Sugerencia 1: demuestra que en el intervalo $(0, e^{-1})$, la función $f(x)=xL(x)$ es estrictamente decreciente; después prueba que para valores $x=2^{-n}$,  se tiene que $xL(x)=L(2)\frac{-n}{2^n}$ y concluye  usando el ejercicio \ref{Ejer:Limiten2n}.
-
-
-Sugerencia 2: usa el ejercicio \ref{Ejer:ComparasionLogFuncPotenciaEnInfinito} y el cambio de variable $x=1/s$.
+            <p>
+                Sugerencia 1: demuestra que en el intervalo $(0, e^{-1})$, 
+                la función $f(x)=xL(x)$ es estrictamente decreciente; después prueba 
+                que para valores $x=2^{-n}$,  se tiene que $xL(x)=L(2)\frac{-n}{2^n}$ y concluye  
+                usando el \(\lim_{n\to \infty}\frac{n}{2^n}=0\).
+                
+            </p>
+            <p>
+                Sugerencia 2: usa el <a href="#Ejer:ComparasionLogFuncPotenciaEnInfinito">Ejercicio 13.22</a> 
+                y el cambio de variable $x=1/s$.
+            </p>
+            
+            
+        </p>
     </li> 
 
-<li>
-    Demuestra que para todo natural $n \geq 1$,
-$$
-\lim_{x\to  0^+} x^nL(x)=0.
-$$
-
-Sugerencia: usa el inciso anterior.
-</li> 
+    <li>
+        Demuestra que para todo natural $n \geq 1$,
+        $$
+        \lim_{x\to  0^+} x^nL(x)=0.
+        $$
+        <p>
+            Sugerencia: usa el inciso anterior.
+        </p>
+    
+    </li> 
 
 </ol>
 </div>
 
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Demuestra:
-$$
-\lim_{x\to 0^+}x^x=1.
-$$
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra:
 
-
-Sugerencia: recuerda que, por definición,  $x^x=e^{xL(x)}$, luego usa el ejercicio  \ref{Ejer:CrecimientoLogPoli}.
-
-	
+        $$
+        \lim_{x\to 0^+}x^x=1.
+        $$
+        
+    </p>
+    <p>
+        Sugerencia: recuerda que, por definición,  $x^x=e^{xL(x)}$, luego usa el 
+        <a href="#Ejer:CrecimientoLogPoli">Ejercicio 13.24</a>.
+    </p>
 </div>
 
 
-
-
-\subsection*{Integrales que involucran logaritmos}
 
 
 <div class="definicion-box">
-El ejercicio  \ref{Ejer:DeepDefinicionLog} muestra que si queremos extender la definición de la función logaritmo natural a un dominio más grande que $(0,\infty)$ la opción más natural de tomar como dominio $\mathbb{R}\setminus \{0\}$ y definir $L(x)=\int_0^{|x|}\frac{1}{t}dt$. Es decir, $L(x)=L(|x|)$ (donde la función del lado derecho de
-la ecuación anterior es la función logaritmo natural y la función de lado izquierdo es su extensión a todo $\mathbb{R}\setminus \{0\}$).
-
+    <h2 class="number-title"> Definición</h2>
+    <p>
+        El <a href="#Ejer:DeepDefinicionLog">Ejercicio 13.7</a>   
+        muestra que si queremos extender la definición de 
+        la función logaritmo natural a un dominio más grande que $(0,\infty)$ la opción más natural de 
+        tomar como dominio $\mathbb{R}\setminus \{0\}$ y definir $L(x)=\int_0^{|x|}\frac{1}{t}dt$. 
+        Es decir, $L(x)=L(|x|)$ (donde la función del lado derecho de
+        la ecuación anterior es la función logaritmo natural y la función de lado 
+        izquierdo es su extensión a todo $\mathbb{R}\setminus \{0\}$).
+        
+    </p>
 </div>
 
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2>\label{Ejer:Integralfprimasobref}  Si $f:[a,b]\to \mathbb{R}$ es continua en el cerrado, diferenciable en el abierto con   $f(x)\not=0$, para todo $x$ en $[a,b]$, entonces:  
-
-$$
-\int \frac{f'(x)}{f(x)} dx= L(|f(x)|)+C
-$$
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:Integralfprimasobref"> Ejercicio</h2>
+    <p>
+        Si $f:[a,b]\to \mathbb{R}$ es continua en el cerrado, diferenciable en el abierto con   
+        $f(x)\not=0$, para todo $x$ en $[a,b]$, entonces:  
+    </p>
+    <p>
+        $$
+        \int \frac{f'(x)}{f(x)} dx= L(|f(x)|)+C
+        $$
+        
+    </p>
 
 </div>
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Calcula: 
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Calcula: 
+    </p>
 
 <ol>
     <li>
         $\int \tan(x)dx$.
  
- Sugerencia: escribir  $\tan(x)dx=- \frac{-\sen(x)}{\cos(x)}$.
+        <p>
+            Sugerencia: escribir  $\tan(x)dx=- \frac{-\sen(x)}{\cos(x)}$.
+        </p>
     </li> 
 
- <li>$\int_0^{\pi/4}\tan(x)dx$. </li>  
+    <li>
+        $\int_0^{\pi/4}\tan(x)dx$. 
+    </li>  
 
 </ol>
 
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> 
-    Este ejercicio calcula la integral  $\int L(x)dx$.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio calcula la integral  $\int L(x)dx$.
+    </p>
 
 <ol>
     <li>Demuestra: $(xLn(x))'= 1 + Ln(x)$.</li> 
@@ -564,12 +736,21 @@ $$
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Calcula las siguientes integrales:
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Calcula las siguientes integrales:
+    </p>
 
 <ol>
     <li>$\int \frac{1}{5+7x}dx$.</li> 
     <li>$\int \int_0^{e^4-2}\frac{1}{2+x}dx$.</li> 
-    <li>$\int \cot(x)dx$. Sugerencia: escribir: $\cos(x)=\frac{\cos(x)}{\sen(x)}$ y usa el ejercicio \ref{Ejer:Integralfprimasobref}.</li> 
+    <li>$\int \cot(x)dx$. 
+        <p>
+            Sugerencia: escribir: 
+            $\cos(x)=\frac{\cos(x)}{\sen(x)}$ y usa el <a href="#Ejer:Integralfprimasobref">Ejercicio 13.27</a> .
+        </p>
+    </li> 
     <li>$\int \frac{1}{xLn(x)} dx$.</li> 
     <li>para un natural $n>1$, $\int \frac{Ln(|x|)}{x(1+Ln(|x|))^{1/n} }dx$.</li> 
 </ol>
@@ -577,35 +758,54 @@ $$
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2>  Calcula $\int \frac{x}{1+x^2}dx$. Sugerencia: $u=1+x^2$.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>  
+    <p>
+        Calcula $\int \frac{x}{1+x^2}dx$. 
+    </p>
+    <p>
+        Sugerencia: $u=1+x^2$.
+    </p>
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Calcula: $\int \frac{dx}{1+\sqrt{1+x}}$.
-
-
-Sugerencia: $u=1+\sqrt{x+1}$.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Calcula: $\int \frac{dx}{1+\sqrt{1+x}}$.
+    </p>
+    <p>
+        Sugerencia: $u=1+\sqrt{x+1}$.
+    </p>
 </div>
 
 
-\subsection*{Diferenciación logaritmica}
-
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> El logaritmo puede ser útil para calcular derivadas para funciones complicadas, con muchos factores o fracciones complicadas.
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:DifLogaritmica"> Ejercicio</h2> 
+    <h3> Diferenciación logaritmica</h3>
+    <p>
+        El logaritmo puede ser útil para calcular derivadas para funciones complicadas, 
+        con muchos factores o fracciones complicadas.
+    </p>
+    
 <ol>
-    <li>Sea $f$ una función continua, diferenciable,  tal que nunca se anula. Demuestra que
+    <li>
+        Sea $f$ una función continua, diferenciable,  tal que nunca se anula. Demuestra que
         $$
         f'(x)=g'(x)f(x)
         $$
-        donde $g(x)=\log(|f(x)|)$.</li> 
-<li>Usando el inciso anterior calcula  $f'(x)$ para las siguientes funciones:</li> 
-<ol>
-    <li>$f(x)=x^3\sen(x)(x^2+x+1)^{-2}$.</li> 
-    <li>$f(x)=\frac{(1+x)^{3}}{(2+x^2)^{5}(x^3+5)}$.</li> 
-    <li>$f(x)=\frac{\sqrt{1+x^2}(1+x)^2}{\sqrt[4]{1+x^4	}(1+x^3)^5}$.</li> 
-    <li>$f(x)=\frac{Ln(x)(x^2+1)^2}{x(1-x^2)}$.</li> 
-</ol>
+        donde $g(x)=\log(|f(x)|)$.
+    </li> 
+    <li>
+        Usando el inciso anterior calcula  $f'(x)$ para las siguientes funciones:
+    </li> 
+        <ol>
+            <li>$f(x)=x^3\sen(x)(x^2+x+1)^{-2}$.</li> 
+            <li>$f(x)=\frac{(1+x)^{3}}{(2+x^2)^{5}(x^3+5)}$.</li> 
+            <li>$f(x)=\frac{\sqrt{1+x^2}(1+x)^2}{\sqrt[4]{1+x^4	}(1+x^3)^5}$.</li> 
+            <li>$f(x)=\frac{Ln(x)(x^2+1)^2}{x(1-x^2)}$.</li> 
+        </ol>
 </ol>
 
 
-</ol>
-
+</body>
