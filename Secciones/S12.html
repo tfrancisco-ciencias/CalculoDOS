@@ -273,7 +273,15 @@
     <p>
         Sugerencia: aplica directamente el <a href="#Ejer:VolDiscoSuperficiesRevolucion">Ejercicio 12.5.</a>
     </p>
-
+    <button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
+    <p>
+        Tenemos que \(y= \sqrt{x}\) con \(0\leq x \leq 1\), es continua y \(y(x) \geq 0 \) 
+        para toda \(x \in [0,1]\). Entonces por el Ejercicio 12.5 tenemos que el volumen es 
+        \[ \int_0^1\pi y^2(x) dx = \pi \int_0^1 xdx = \frac{\pi}{2} . \] 
+        
+    </p>
+    </div>
 </div>
 
 
@@ -652,9 +660,56 @@
 
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
-    Calcula  el volumen del sólido de revolución que se obtiene al girar la 
-    gráfica de $f(x)=x^2$, alrededor del eje $y$ y acotada por los planos $y=0$ y $y=a$ 
-    (con $a> 0$ fija) usando: (1) el  método de discos y  (2) el método de capas cilíndricas.
+    <p>
+        Calcula  el volumen del sólido de revolución que se obtiene al girar la 
+        gráfica de $f(x)=x^2$, alrededor del eje $y$ y acotada por los planos $y=0$ y $y=a$ 
+        (con $a> 0$ fija) usando: (1) el  método de discos y  (2) el método de capas cilíndricas.
+    </p>
+    <button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
+    <h3> Por el método de discos. </h3>    
+    <p>
+        Entonces para calcular el volumen de revolución, llamemosle \(S\),  que se obtiene de 
+        girar \(y = x^2\) alrededor del eje \(y\) y acotada por los planos  \(y=0\) y \(y = a\), 
+        primero ilustremos como sería la región y el sólido.
+        <div class="flexbox" style="padding: 20px;">
+            <img src="./Images/S12-ImageG.png" alt="Tanque" width="50%" height="auto" >
+        </div>
+        
+    </p>
+    <p>
+        Entonces notemos que cuando se rebana el sólido de manera perpendicular al eje \(y\), 
+        se obtiene un disco de radio \(x\), donde \(x = \sqrt{y}\). De tal menera que el área 
+        seccional \(A(y)\) del sólido \(S\) que se encuentra a una altura \(y\) es \[ A(y) = \pi x^2 = \pi y. \]
+
+        Como el volumen del sólido \(S\) está delimitado por \(y=0\) y \(y = a\) (con \(a >0\) fija) entonces : 
+        \[ Vol(S) = \int_0^a \pi ydy = \frac{\pi a^2}{2} .\] 
+    </p>
+    <h3>Por el método de capas cilíndricas. </h3>    
+    <p>
+        Consideremos \(y = x^2\) con \(0 \leq x\) el cual 
+        está delimitado por \(y=0\) y \(y= a\), entonces cuando \(x = 0\) se sigue que \(y  = 0\) y 
+        cuando \(x= \sqrt{a}\) entonces \(y  = a\). Por lo que \(y = x^2\) va a estar también delimitada 
+        por \(x= 0\) y \(x= \sqrt{a}\). 
+    </p>
+    <p>
+        Si consideramos el sólido \(T\) que se obtiene al emplear el método 
+        de capas cilíndricas con respecto a la función \(f : [0,\sqrt{a}] \rightarrow \mathbb{R}\) definida 
+        como \(f(x) = x^2\), es decir el sólido \(T\) se obtiene al rotar la región bajo la gráfica de \(f\) 
+        con respecto de \(y\). Entonces se tiene que \(S \neq T\) y \(Vol (S \cap T) = 0\), más aún 
+        \(S\cup T\) es un cilindro con radio \(\sqrt{a}\) y altura \(a\), es decir \(Vol(S \cup T) = \pi a^2\). 
+        Por lo que \(Vol(S \cup T) = Vol(S) + Vol(T)\).  Por lo tanto 
+        \[ Vol(S) = Vol(S \cup T) -Vol(T) = \pi a^2 
+        -Vol(T) .\]
+
+        Por el método de las capas cilíndricas tenemos que el 
+        \(Vol(T) = \int_0^{\sqrt{a}}2\pi xf(x) dx = 2\pi\int_0^{\sqrt{a}}x^3 dx 
+        = \frac{a^2\pi}{2}. \) Por lo tanto 
+        \[  Vol(S) = \pi a^2 -Vol(T) = \pi a^2 -\frac{a^2\pi}{2} 
+        = \frac{a^2\pi}{2}. \]
+
+    </p>
+    </div>
 </div>
 
 
@@ -678,6 +733,34 @@
     <div class="flexbox" style="padding: 20px;">
         <img src="./Images/S12-Image4.png" alt="EsperaCap" width="50%" height="auto" >
     </div>
+
+    <button class="respButton hvr-grow ">Solución  </button>
+     <div class="resp-box flexbox">
+    <p>
+
+        Vamos a usar el método de discos para calcular su volumen. 
+        Consideremos \(x = \sqrt{r^2 -y^2}\) tal que \(y \in [r-h, r]\), 
+        entonces la región comprendida entre \(x = \sqrt{r^2 -y^2}\), \(x= 0\) 
+        y \(y = r-h\) al rotar con respecto del eje \(y\) es el sólido al cual le 
+        vamos a calcular su volumen. 
+        
+        <div class="flexbox" style="padding: 20px;">
+            <img src="./Images/S12-ImageF.png" alt="Esfera" width="50%" height="auto" >
+        </div>
+
+        Notemos que al rebanar este sólido de manera perpendicular al eje \(y\), se obtiene un disco de radio \(x\), donde \(x = \sqrt{r^2 -y^2}\). De tal menera que el área seccional \(A(y)\) de este sólido que se encuentra a una altura \(y\) es \[ A(y) = \pi x^2 = \pi (r^2 -y^2). \]
+        
+        Como el volumen del sólido está delimitado por \(y=r\) y \(y = r-h\) entonces su volumen es : 
+        \begin{eqnarray*}
+        \int_{r-h}^r A(y) dy & = &  \pi \int_{r-h}^r(r^2-y^2) dy = \pi\left(\int_{r-h}^r r^2dy -\int_{r-h}^ry^2dy\right) \\
+         & = & \pi\left(r^2(r -(r-h)) - \frac{r^3-(r-h)^3}{3}\right) \\
+         & = & \pi h^2\left( r -\frac{h}{3}\right)  
+        \end{eqnarray*} 
+        
+        Por lo tanto el volumen del sólido es \(\pi h^2\left( r -\frac{h}{3}\right)\).
+        
+    </p>
+    </div>
 </div>
 
 <div class="ejercicio-box">
@@ -689,6 +772,44 @@
 
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
-    Calcula el volumen de una pirámide, de altura $h$, cuya base es un triángulo equilatero de lado $a$.
+    <p>
+        Calcula el volumen de una pirámide, de altura $h$, cuya base es un triángulo equilatero de lado $a$.
+    </p>
+    <button class="respButton hvr-grow "> Solución  </button>
+     <div class="resp-box flexbox">
+
+    <p>
+        Entonces calculemos las áreas seccionales de este sólido, empecemos por 
+        colocar el origen \(O\) en el vértice de la piramide y el eje \(x\) a lo largo de su eje central, 
+        como se muestra en la figura. Tenemos que el área seccional de esta figura es un triángulo 
+        equilatero ya que esta en proyección con respecto al triángulo equilatero de lado \(a\). 
+        Supongamos que dicho triángulo tiene lado \(l\) y altura \(h\) por lo que el área de esta 
+        sección es \(\frac{hl}{2}\).
+        <div class="flexbox" style="padding: 20px;">
+            <img src="./Images/S12-ImageD.png" alt="Piramide" width="50%" height="auto" >
+        </div>
+     </p>   
+    <p>
+        Lo siguiente es expresar \(l\) y \(h \) en términos de \(x\), 
+        para esto hacemos uso de la semenjaza de triángulos  como se muestra en la figuras. 
+        <div class="flexbox" style="padding: 20px;">
+            <img src="./Images/S12-ImageE.png" alt="PiramideVistaLateral" width="50%" height="auto" >
+        </div>
+        
+        Por lo que, \[\frac{l}{x} = \frac{a}{h}\]
+        
+        Es decir, \(l= \frac{a}{h}x\). Y para encontrar la altura \(h\) completamos el triángulo 
+        usando pitagoras. Por lo tanto, \(h= \frac{\sqrt{3}}{2}l = \frac{\sqrt{3}a}{2h}x\) 
+        ya que \(l= \frac{a}{h}x\). Entonces el área seccional es 
+        \(A(x) = \frac{1}{2}lh = \frac{\sqrt{3}a^2}{4h^2}x^2\). 
+     </p>
+     <p>
+        Por lo tanto su volumen es: 
+        \[ \int_0^h A(x) dx = \frac{\sqrt{3}a^2}{4h^2}\int_0^h x^2 dx 
+        = \frac{\sqrt{3}a^2}{4h^2}\cdot \frac{h^3}{3} = \frac{\sqrt{3}a^2h}{12} . \]
+        
+    </p>
+    </div>
+
 </div>
 </body>
