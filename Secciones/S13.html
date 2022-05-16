@@ -89,7 +89,7 @@
  
 <div class="info-box">
     <h2 class="number-title"> Introducción </h2>
-    <p>
+    <p> 
 
     </p>
 
@@ -127,17 +127,44 @@
 <ol>
     <li>$\ln(1)=0$.</li> 
     <li>$\ln(x)>0$ para $x>1$, $\ln(x) < 0$ para $0< x < 1$.</li> 
-    <li>$\ln'(x)=\frac{1}{x} > 0$, por lo que $L$ es estrictamente creciente.</li> 
-    <li>$\ln''(x)=\frac{-1}{x^2} < 0$, por lo que $L$ es concava hacia abajo.</li> 
+    <li>$\ln'(x)=\frac{1}{x} > 0$, por lo que $\ln$ es estrictamente creciente.</li> 
+    <li>$\ln''(x)=\frac{-1}{x^2} < 0$, por lo que $\ln$ es concava hacia abajo.</li> 
 </ol> 
 <p>
-    Asi que la función debe verse mas o menos así
+    Asi que la función debe verse así:
 
-    $$
-    dibujito
-    $$
+    <div class="flexbox" style="padding: 20px;">
+        <img src="./Images/S13-Image1.png" alt="Logaritmo" width="50%" height="auto" >
+    </div>
 </p>
+<p>
+    Directamente de la definición de \(\ln(x)\):
+    \[
+    \ln(1)=\int_1^1\frac{1}{t}dt=0
+    \]
+    Si \(x>1\), \(\ln(x)>0\) pues representa el área bajo la 
+    gráfica de \(y=1/t\), desde \(t=1\) a \(t=x\). Por otro lado
+    \(\ln(x)< 0\)  si \(0< x < 1\) pues 
+    \[
+    \int_1^x\frac{1}{t}dt= - \int_{x}^1 \frac{1}{t}dt 
+    \]
+    y \(\int_{x}^1 \frac{1}{t}dt >0 \) pues se ésta integral se puede interpretar 
+    como una área bajo la gráfica de \(y=1/t\).
 
+</p>
+<p>
+    Usando el  Segundo Teorema Fundamental del Cálculo tenemos 
+    \[
+    \frac{d}{dx}\left( \int_1^x \frac{1}{t}dt \right)=\frac{1}{x}
+    \]
+    por lo tanto \(\ln'(x)=\frac{1}{x} >0\).
+</p>
+<p>
+    Directamente del párrafo anterior tenemos 
+    \[
+    \ln''(x)=\frac{d}{dx}\left( \frac{1}{x} \right)=-\frac{1}{x^2}.
+    \]
+</p>
 
 </div>
 
@@ -170,6 +197,40 @@
     </li> 
 </ol>
 
+<p>
+    Demostración inciso 1.
+</p>
+<p>
+    Definimos \(f(x)=\frac{e^{\ln(x)}}{x}\), para \(x>0\). Derivando directamente obtenemos 
+    \begin{eqnarray*} 
+    f'(x)&=&\frac{x (e^{\ln(x)})'-(e^{\ln(x)})(x)' }{x^2} \\
+    &=&\frac{x(e^{\ln(x)}\ln'(x))-e^{\ln(x)} }{x^2} \\
+    &=& \frac{x(e^{\ln(x)}\frac{1}{x})-e^{\ln(x)} }{x^2} \\
+    &=& 0
+    \end{eqnarray*}
+    Por lo tanto \(f\) es constante. Si evaluamos \(f(1)\) obtenemos 
+    \[
+    f(1)=\frac{e^{\ln(1)}}{1}=\frac{e^0}{1}=1
+    \]
+    Por lo tanto \(f\) es la función constante igual a \(1\) lo cual implica que 
+    \(e^{\ln(x)}=x\) para todo \(x>0\).
+</p>
+<p>
+    Demostración inciso 2.
+</p>
+<p>
+    Definimos \(g(x)=\ln(e^x )- x\), para \(x\in \mathbb{R}\). Usando la regla de la cadena 
+    derivamos \(g\) para obtener:
+    \begin{eqnarray*} 
+    g'(x)=\frac{1}{e^x} \frac{d}{dx}(e^x )- 1= \frac{1}{e^x} e^x= 1-1 =0
+    \end{eqnarray*}
+    Por lo tanto \(g\) es constante. Valuando en \(x=0\) llegamos a 
+    \[
+    g(0)=\ln(e^0)-0=\ln(1)=0
+    \]
+    Por lo tanto \(g\) es la función constante \(0\) lo cual implica que 
+    \(\ln(e^x)=x\), para todo \(x\in \mathbb{R}\).
+</p>
 </div>
 
 
@@ -190,30 +251,44 @@
 
 <ol>
 
-    <li>
+    <p>
         Fijemos $b>0$ y definamos
         $$
         F(x)=\ln(xb), G(x)=\ln(x)+\ln(b), \quad x >0
         $$
 
-        Diferenciando $F$ y $G$ demuestra que $F(x)=G(x)$, para todo $x>0$.
-    </li> 
+        Diferenciando $F$ y $G$ llegamos a 
+        \begin{eqnarray*} 
+        F'(x)&=&\frac{d}{dx} (\ln(xb))=\frac{1}{xb} \frac{d}{dx}(xb)=\frac{1}{xb}b = \frac{1}{x} \\
+        G'(x)&=& \ln'(x)= \frac{1}{x}
+        \end{eqnarray*}
+        Por lo tanto \(F\) y \(G\) difieren por una constante, pero 
+        \[
+        F(1)=\ln(1b)=\ln(b), \quad G(1)=\ln(1)+\ln(b)=\ln(b)
+        \]
+        lo cual implica que \(F\) y \(G\) son iguales, por lo tanto 
+        \[
+        \ln(xb)=\ln(x)+\ln(b)
+        \]
+        para todo \(x> 0\).
+     </p> 
 
-    <li>
+    <p>
         Usando la 
         <a href="./S3.html#Ejer:LinealidadIntervalos">linealidad con respecto a intervalos</a> 
-        demuestra que:
+        obtenemos que 
         $$
         \int_1^{ab}\frac{1}{t}dt=\int_1^a \frac{1}{t}dt+\int_{a}^{ab}\frac{1}{t}dt
         $$
 
-        despúes usa un cambio de variable para  obtener
+        Para la segunda integral usamos el cambio de variable \(u=at\), \(du=adt\) para 
+        obtener 
         $$
-        \int_a^{ab}\frac{1}{t}dt=\int_1^b \frac{1}{u}du
+        \int_a^{ab}\frac{1}{t}dt=\int_1^b \frac{1}{u/a}\frac{1}{a}du=\int_1^b \frac{1}{u}du=\ln(b) 
         $$
-        y concluir $\ln(ab)=\ln(a)+\ln(b)$.
+        Por lo tanto podemos  concluir $\ln(ab)=\ln(a)+\ln(b)$.
 
-    </li> 
+    </p> 
 </ol>
 </div>
 
@@ -236,33 +311,91 @@
         </p>
     </li> 
 </ol>
+
+<p>
+    Demostración inciso 1.
+</p>
+<p>
+    La ecuación \(\ln(a/b)=\ln(a)-\ln(b)\) es equivalente a 
+    \(\ln(a/b)+\ln(b)=\ln(a)\). Pero usando la ecuación funcional del logaritmo tenemos 
+    \[
+    \ln(a/b)+\ln(b)=\ln((a/b)b)=\ln(a)
+    \]
+    y terminamos.
+</p>
+<p>
+    Demostración inciso 2.
+</p>
+<p>
+    Caso 1: \(q=1\).
+</p>
+<p>
+     En este caso debemos de probar 
+    \[
+    \ln(a^p)=p\ln(a)
+    \]
+    el cual se prueba mediante inducción sobre \(p\). 
+</p>
+<p>
+    El caso \(p=1\) es claro. Suponemos \(\ln(a^{p})=p\ln(a)\). Debemos de probar 
+    \(\ln(a^{p+1})=(p+1)\ln(a)\), pero por la ecuación funcional del logaritmo 
+    y usando la hipótesis de inducción: 
+    \[
+    \ln(a^{p+1})=\ln(a^p a)= \ln(a^p)+\ln(a)= p\ln(a)+\ln(a)=(p+1)\ln(a).
+    \]
+</p>
+<p>
+    Caso 2: \(q \in \mathbb{N}\) general.
+</p>
+<p>
+     En este caso la identidad 
+    \(\ln(a^{p/q})=\frac{p}{q}\ln(a)\) es equivalente a 
+    \(q\ln(a^{p/q})=p\ln(a)\). Pero por el caso anterior 
+    \begin{eqnarray*} 
+    q\ln(a^{p/q})&=&\ln((a^{p/q})^q)=\ln(a^p) \\
+    p\ln(a)&=&\ln(a^p)
+    \end{eqnarray*}
+    con lo cual terminamos.
+</p>
 </div>
 
 
 <div class="ejercicio-box">
     <h2 class="number-title" id="Ejer:DeepDefinicionLog"> Ejercicio</h2> 
     <p>
-        Vamos a ver con más detalle la ecuación \eqref{Eqn:EcuFuncionalLog}, 
-        la ecuación funcional del logaritmo.
+        Vamos a ver con más detalle la ecuación \eqref{Eqn:EcuFuncionalLog}, llamada la 
+        ecuación funcional del logaritmo. Es decir 
+        vamos a estudiar funciones \(f\) que satisfacen  la ecuación 
+        \begin{eqnarray}\label{Eqn:EcuFuncionalLogGeneral}
+        f(ab)=f(a)+f(b)
+        \end{eqnarray}
+        para todos \(a,b\) en el dominio de la función \(f\).
+        
+    </p>
+    <p>
+        Nota: para que \eqref{Eqn:EcuFuncionalLogGeneral} tenga sentido el 
+        dominio de \(f\) debe de satisfacer la siguiente propiedad: si \(a\) y \(b\)
+        están en el dominio de \(f\) entonces \(ab\) también. Este hecho lo vamos a usar.
     </p>
 
 <ol>
     <li>
-        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLog}, entonces 
-        para toda constante \(c\), $cf$ también es solución de \eqref{Eqn:EcuFuncionalLog}.
+        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLogGeneral}, entonces 
+        para toda constante \(c\), $cf$ también es solución de \eqref{Eqn:EcuFuncionalLogGeneral}.
     </li> 
 
     <li>
-        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLog} entonces  $f(1)=0$.
+        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLogGeneral} y \(1\)  está en el 
+        dominio de \(f\) entonces  $f(1)=0$.
     </li> 
 
     <li>
-        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLog} y $0$ esta en el dominio 
+        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLogGeneral} y $0$ esta en el dominio 
         de $f$ entonces $f(x)=0$ para toda $x$.
     </li> 
 
     <li>
-        Si $f$ es una solución de \eqref{Eqn:EcuFuncionalLog} y  
+        Si $f$ es una solución de \eqref{Eqn:EcuFuncionalLogGeneral} y  
         $\mathbb{R}\setminus\{0\}$ es el dominio de $f$, entonces $f$ es par.
         <p>
             Nota: como consecuencia nos podemos restringir  a soluciones  
@@ -290,6 +423,67 @@
 
     </li> 
 
+
+    <p>
+        Demostración inciso 1.
+    </p>
+    <p>
+        Si \(f\) satisface 
+        \[
+        f(ab)= f(a)+f(b)
+        \]
+        multiplicando la ecuación anterior por \(c\) llegamos a 
+        \[
+        cf(ab)=cf(a)+cf(b)
+        \]
+        por lo tanto \(cf\) también satisface \eqref{Eqn:EcuFuncionalLog}.
+    </p>
+    <p>
+        Demostración inciso 2.
+    </p>
+    <p>
+        Si 
+        \[
+        f(ab)=f(a)+f(b)
+        \]
+        para todo \(a,b>0\) evaluando  \(a=b=1\) llegamos 
+        \[
+        f(1)=f(1)+f(1) \Rightarrow f(1)=0.
+        \]
+    </p>
+    <p>
+        Demostración inciso 3.
+    </p>
+    <p>
+        Si \(0\) está en el domino de \(f\) tomando \(a=0\) en  \eqref{Eqn:EcuFuncionalLogGeneral} 
+        \[
+        f(0)=f(0b)=f(0)+f(b)
+        \]
+        por lo tanto \(f(b)=0\) para toda \(b\).
+    </p>
+    <p>
+        Demostración inciso 4.
+    </p>
+    <p>
+        Suponemos que el dominio de \(f\) es \(\mathbb{R}\setminus \{0\}\). Debemos de 
+        probar que \(f(-x)=f(x)\), para todo \(x>0\). 
+        
+    </p>
+    <p>
+        Primero probamos que \(f(-1)=0\). Para esto usando \(f(1)=0\) y \eqref{Eqn:EcuFuncionalLogGeneral} 
+        llegamos a 
+        \[
+        0=f(1)=f((-1)(-1))=f(-1)+f(-1)
+        \]
+        por lo tanto \(f(-1)=0\).
+    </p>
+    <p>
+        Para \(x>0\) usando \eqref{Eqn:EcuFuncionalLogGeneral} tomando \(x=a, b=-1\) llegamos a 
+        \[
+            f(-x)=f((-1)(x))=f(-1)+f(x)= f(x)
+        \]
+     
+    </p>
 </ol>
 </div>
 
