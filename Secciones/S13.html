@@ -109,8 +109,8 @@
         al problema de ecuaciones diferenciales con valor inicial
         
         \begin{eqnarray*}\label{Eqn:SistemaEcuDifLog}
-        y'&=&\frac{1}{x}, \quad  x>0 \\
-        y(1)&=&0
+        \frac{dy}{dx}(x)&=&\frac{1}{x}, \quad  x>0, \\
+        y(1)&=&0 .
         \end{eqnarray*}
         
     </p>
@@ -137,6 +137,9 @@
         <img src="./Images/S13-Image1.png" alt="Logaritmo" width="50%" height="auto" >
     </div>
 </p>
+
+<button class="respButton hvr-grow "> Solución   </button>
+<div class="resp-box flexbox">
 <p>
     Directamente de la definición de \(\ln(x)\):
     \[
@@ -165,7 +168,7 @@
     \ln''(x)=\frac{d}{dx}\left( \frac{1}{x} \right)=-\frac{1}{x^2}.
     \]
 </p>
-
+</div>
 </div>
 
 
@@ -196,6 +199,8 @@
         Sugerencia: diferencia la función $\ln(e^x) -x$.
     </li> 
 </ol>
+<button class="respButton hvr-grow "> Demostración  </button>
+<div class="resp-box flexbox">
 
 <p>
     Demostración inciso 1.
@@ -232,6 +237,7 @@
     \(\ln(e^x)=x\), para todo \(x\in \mathbb{R}\).
 </p>
 </div>
+</div>
 
 
 
@@ -250,7 +256,9 @@
     </p>   
 
 <ol>
-
+    <button class="respButton hvr-grow "> Demostración  </button>
+     <div class="resp-box flexbox">
+    <p> Demostración 1</p>    
     <p>
         Fijemos $b>0$ y definamos
         $$
@@ -272,7 +280,7 @@
         \]
         para todo \(x> 0\).
      </p> 
-
+     <p> Demostración 2</p>    
     <p>
         Usando la 
         <a href="./S3.html#Ejer:LinealidadIntervalos">linealidad con respecto a intervalos</a> 
@@ -311,7 +319,8 @@
         </p>
     </li> 
 </ol>
-
+<button class="respButton hvr-grow "> Demostración  </button>
+     <div class="resp-box flexbox">
 <p>
     Demostración inciso 1.
 </p>
@@ -357,6 +366,7 @@
     \end{eqnarray*}
     con lo cual terminamos.
 </p>
+</div>
 </div>
 
 
@@ -422,7 +432,9 @@
         $$
 
     </li> 
-
+</ol>
+    <button class="respButton hvr-grow "> Demostración  </button>
+     <div class="resp-box flexbox">
 
     <p>
         Demostración inciso 1.
@@ -484,7 +496,38 @@
         \]
      
     </p>
-</ol>
+    <p>
+        Demostración inciso 5.
+    </p>
+    <p>
+        Para \(a>0\) fija y arbitraria definimos \(h(x)=f(ax)\). Derivando obtenemos 
+        \[
+        g'(x)=f'(ax)a
+        \]
+        pero usando que \(f\) es solución de \eqref{Eqn:EcuFuncionalLogGeneral}  también 
+        tenemos que \(g(x)=f(a)+f(x)\) por lo que 
+        \[
+        g'(x)=f'(x)
+        \]
+        Igualando las dos expresiones para \(g'\) obtenemos 
+        \(f'(ax)a=f'(x)\). Al ser \(x\) arbitraria tomando \(x=1\) llegamos a 
+        \(f'(a)a=f'(1)\) y despejando \(f'(a)\) llegamos a 
+        \[
+        f'(a)=\frac{f'(1)}{a}
+        \]
+        para cualquier \(a>0\).
+    </p>
+    <p>
+        Demostración inciso 6.
+    </p>
+    <p>
+        Definos \(F(x)=f'(1)\ln(x)-f(x)\). Derivando directamente y usando el inciso 
+        anterior llegamos a 
+        \(F'(1)=\frac{f'(1)}{x}-\frac{f'(1)}{x}=0\). Por lo tanto \(F(x)\) es constante 
+        pero como \(F(1)=f'(1)\ln(1)-f(1)=0\) debemos tener que \(F\) es la función cero 
+        por lo que \(f(x)=f'(1)\ln(x)\).
+    </p>
+</div>
 </div>
 
 
@@ -613,7 +656,7 @@
     <p>
         Define para $b>0$  se define  el logaritmo de 
         \(x>0\), base \(b\), como 
-        $L_b(x)=\frac{\ln(x)}{\ln(b)}$. 
+        $\log_b(x)=\frac{\ln(x)}{\ln(b)}$. 
     </p>
     <p>
         La definición algebráica del logaritmo dice que un número 
@@ -624,15 +667,20 @@
         $$
     </p>
     <p>
-        Con la definición de \(L_b(x)\) Demuestra que $b^{L_b(x)}=x$. Es decir,
-        \(L_b(x)\) es el logaritmo base \(b\) de \(x\), en el sentido algebráico.
+        Con la definición de \(\log_b(x)\) Demuestra que $b^{\log_b(x)}=x$. Es decir,
+        \(\log_b(x)\) es el logaritmo base \(b\) de \(x\), en el sentido algebráico.
     </p>
 
 
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> En cada caso, encuentra un $x$ que satisfaga la ecuación.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        En cada caso, encuentra un $x$ que satisfaga la ecuación.
+    </p>
+    
 <ol>
     <li>$\ln(1+x)=\ln(1-x)$</li> 
     <li>$\ln(1+x)=1+\ln(1-x)$</li> 
@@ -643,11 +691,21 @@
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Define  $f(x)=\ln(x)/x$, para $x>0$. Describe los intervalos donde $f$ es creciente, decreciente, concava hacia arriba y concava hacia abajo. Borsqueja la grafica de $f$.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Define  $f(x)=\ln(x)/x$, para $x>0$. Describe los intervalos donde $f$ es creciente, 
+        decreciente, concava hacia arriba y concava hacia abajo. Borsqueja la grafica de $f$.
+    </p>
 
     </div>
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> Define $f(x)=\ln[(1+x)/(1-x)]$, para $x>0$. Si $a,b$ son números dados, con $ab\not=-1$. Encuentra todas las $x$ tales que $f(x)=f(a)+f(b)$.
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Define $f(x)=\ln[(1+x)/(1-x)]$, para $x>0$. Si $a,b$ son números dados, 
+        con $ab\not=-1$. Encuentra todas las $x$ tales que $f(x)=f(a)+f(b)$.
+    </p>
 </div>
 
 
@@ -775,7 +833,8 @@
         \lim_{s\to \infty} \frac{\ln(s)}{s}=0.
         $$
         <p>
-            Sugerencia: usa el inciso anterior, el cambio de variable $t=\sqrt{s}$ y las propiedades del logaritmo.
+            Sugerencia: usa el inciso anterior, el cambio de variable $t=\sqrt{s}$ 
+            y las propiedades del logaritmo.
         </p>
     </li>
  </ol>
@@ -792,7 +851,7 @@
         
     </p>
     <p>
-        Sugerencia: usa el inciso anterior.
+        Sugerencia: usa el ejercicio  anterior.
     </p>
 </div>
 
@@ -860,21 +919,6 @@
 </div>
 
 
-
-
-<div class="definicion-box">
-    <h2 class="number-title"> Definición</h2>
-    <p>
-        El <a href="#Ejer:DeepDefinicionLog">Ejercicio 13.7</a>   
-        muestra que si queremos extender la definición de 
-        la función logaritmo natural a un dominio más grande que $(0,\infty)$ la opción más natural de 
-        tomar como dominio $\mathbb{R}\setminus \{0\}$ y definir $\ln(x)=\int_0^{|x|}\frac{1}{t}dt$. 
-        Es decir, $\ln(x)=\ln(|x|)$ (donde la función del lado derecho de
-        la ecuación anterior es la función logaritmo natural y la función de lado 
-        izquierdo es su extensión a todo $\mathbb{R}\setminus \{0\}$).
-        
-    </p>
-</div>
 
 
 
