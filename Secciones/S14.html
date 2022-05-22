@@ -87,33 +87,61 @@
 <h1 class="number-title flexbox"> Integración por partes </h1>
 
 
+<div class="info-box">
+  <h2 class="number-title"> Introducción </h2>
+  <p>
+    Junto con integración por substitución, 
+    integración por partes es una de las técnicas más útiles y su origen es 
+    la fórmula de la derivada de un producto
+      $$
+      (fg)'=fg'+f'g
+      $$
 
-Junto con integración por substitución, integración por partes es una de las técnicas más útiles y su origen es la fórmula de la derivada de un producto
-$$
-(fg)'=fg'+f'g
-$$
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sean $f,g:[a,b] \to \mathbb{R}$ funciones continuas en el cerrado y diferenciables en el abierto, con derivadas continuas. Demuestra la fórmula de integración por partes para integrales indefinidas
-$$
-\int_a^b f(x) g'(x)dx=f(b)g(b)-f(a)g(a)-\int_a^b f'(x)g(x)dx.
-$$
+  </p>
 
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>  Sean $f,g$ funciones diferenciables con derivadas continuas. Demuestra la fórmula de integración por partes para integrales indefinidas
-$$
-\int f(x)g'(x)dx=f(x)g(x)-\int f'(x) g(x)dx.
-$$
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <h3> Integración por partes</h3>
+  <p>
+    Sean $f,g:[a,b] \to \mathbb{R}$ funciones continuas en el cerrado y
+     diferenciables en el abierto, con derivadas continuas. Demuestra la 
+     fórmula de integración por partes para integrales indefinidas
+    $$
+    \int_a^b f(x) g'(x)dx=f(b)g(b)-f(a)g(a)-\int_a^b f'(x)g(x)dx.
+    $$
+  </p> 
 
-Tomando la notación $u=f, v=g$, $u'=f'dx$ y $v'=g'dx$ la fórmula se convierte
-$$
-\int udv=uv-\int vdu
-$$
-la cual es más fácil de recordar.
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula las siguientes integrales.
+
+<div class="nota-box">
+  <h2 class="number-title"> Nota </h2>  
+  <p>
+    Sean $f,g$ funciones diferenciables con derivadas continuas. 
+    Usando el teorema anterior la fórmula de integración por partes para integrales indefinidas
+    es 
+      $$
+      \int f(x)g'(x)dx=f(x)g(x)-\int f'(x) g(x)dx.
+      $$
+  </p>
+  <p>
+    Tomando la notación $u=f, v=g$, $u'=f'dx$ y $v'=g'dx$ la fórmula se convierte
+    $$
+    \int udv=uv-\int vdu
+    $$
+    la cual es más fácil de recordar.
+    
+  </p>
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Calcula las siguientes integrales.
+  </p>
 
 <ol>
     <li>$\int x\cos(x)dx$.</li> 
@@ -123,31 +151,60 @@ la cual es más fácil de recordar.
     <li>$\int xe^x dx$.</li>  
     <li>$\int t^2e^t dt$. Sugerencia: $u=t^2$, $dv=e^tdt$.</li> 
 </ol>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula $\int_0^1 \tan^{-1}(x)dx$. 
-
-Sugerencia:  $u=\tan^{-1}(x)$, $dv=dx$.
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula $\int e^{\sqrt{x}}dx$.
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Calcula $\int_0^1 \tan^{-1}(x)dx$. 
+  </p>
 
-Sugerencia: primero toma el cambio de variable $u=\sqrt{x}$ y luego una integración por partes.
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>  Usa integrción por partes para demostrar
-$$
-\int \sqrt{a-x^2}dx=x\sqrt{a-x^2}+\int \frac{x^2}{\sqrt{a-x^2}}dx +C.
-$$
-donde $a$ es una constante positiva.
-
-Escribe $x^2=x^2-a+a$ en el integrando del lado derecho de la fórmula anterior para demostrar
-$$
-\int \sqrt{a-x^2}dx=\frac{1}{2}x\sqrt{a-x^2}+\frac{1}{2}\int \frac{1}{\sqrt{a-x^2}}dx+C.
-$$
+  <p>
+    Sugerencia:  $u=\tan^{-1}(x)$, $dv=dx$.
+  </p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Considera el conjunto $V$ de funciones continuas $f:[a,b]\to \mathbb{R}$, diferenciables  $(a,b)$ con derivada continua en $(a,b)$ y tal que $f(a)=f(b)=0$.
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Calcula $\int e^{\sqrt{x}}dx$.
+  </p>
+  <p>
+    Sugerencia: primero toma el cambio de variable $u=\sqrt{x}$ y 
+    luego una integración por partes.
+  </p>
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2>  
+  <p> 
+    Usa integrción por partes para demostrar
+    $$
+    \int \sqrt{a-x^2}dx=x\sqrt{a-x^2}+\int \frac{x^2}{\sqrt{a-x^2}}dx +C.
+    $$
+    donde $a$ es una constante positiva.
+    
+  </p>
+  <p>
+    Escribe $x^2=x^2-a+a$ en el integrando del lado derecho de la fórmula anterior para demostrar
+    $$
+    \int \sqrt{a-x^2}dx=\frac{1}{2}x\sqrt{a-x^2}+\frac{1}{2}\int \frac{1}{\sqrt{a-x^2}}dx+C.
+    $$
+    
+  </p>
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Considera el conjunto $V$ de funciones continuas $f:[a,b]\to \mathbb{R}$, diferenciables  
+    $(a,b)$ con derivada continua en $(a,b)$ y tal que $f(a)=f(b)=0$.
+  </p>
 
 <ol>
     <li>Demuestra que si $f,g \in V$ entonces $f+g, fg \in V$.</li> 
@@ -158,71 +215,130 @@ $$
     </li> 
 
 <li>
-    Da un ejemplo de funciones $f$ y $g$, que no perrtenezcan a $V$ donde la fórmula del inciso anterior no se cumpla.
+    Da un ejemplo de funciones $f$ y $g$, que no perrtenezcan a $V$ donde 
+    la fórmula del inciso anterior no se cumpla.
 </li> 
 </ol>
 
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calcula las siguientes integrales.
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:IntegralxLogx"> Ejercicio</h2> 
+  <p>
+    Calcula las siguientes integrales.
+  </p>
 
 <ol>
     <li>
-        \label{Ejer:IntegralxLogx} $\int x\log(x)dx$.
+        $\int x\log(x)dx$.
     </li>
     <li>Para un natural $n>1$ y un real $a>0$, $\int x^n\log(ax)dx$.</li> 
-    <li>$\int x\log^2(x)dx$. Usa una integración por partes y el inciso \ref{Ejer:IntegralxLogx}.</li> 
+    <li>
+      $\int x\log^2(x)dx$.
+    </li> 
+    <p>
+      Sugerencia: Usa una integración por partes y el inciso 1.
+    </p>
 </ol>
-
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra la fórmula de recursión
-$$
-\int x^m \log^n(x)dx=\frac{x^{m+1}\log^n(x)}{m+1}-\frac{n}{m+1}\int x^m \log^{n-1}(x)dx.
-$$
-
-
-
-%<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> 
-%<ol>
-%<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $\phi: [a,b]\to \mathbb{R}$  una función que satisface:  su segunda derivada  es continua y no se anula en $[a,b]$; existe $m>0$ tal que su primera derivada satisface $\phi'(t)>m$ para todo $t\in [a,b]$. Usar el segundo teorema del valor medio para integrales para probar
-%$$
-%\left|  \int_a^b \sen(\phi(t)) dt \right| \leq \frac{4}{m}
-%$$
-
-%Hint: multiplicar y dividir el integrando por $\phi'(t)$.
-%<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $a>0$  fijo y arbitrario. Demostrar que $\left|  \int_a^b \sen(t^2)dt\right| \leq \frac{2}{a}$ para todo $x>a$.
-%</ol>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra el siguiente teorema.
-
-<div class="teorema-box">[1er Teorema del valor medio para integrales]
-Si $G,f:[a,b]\to \mathbb{R}$ son continuas en $[a,b]$ y $f$ nunca cambia de signo en $[a,b]$, entonces  exsite $c$ tal que
-$$
-\int_a^b f(x)G(x)dx=G(c)\int_a^b f(x)dx.
-$$
 </div>
 
-Sugerencia: considera
-$$
-\min_{x\in [a,b]}\{ G(x)\} f(x) \leq f(x)G(x) \leq \max_{x\in [a,b]}\{ G(x)\} f(x)
-$$
- integra y usa el teorema del valor intermedio para funciones continuas.
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra el siguiente teorema.
 
-<div class="teorema-box">[Segundo teorema del valor  medio para integrales]
-Sean $g,\alpha: [a,b]\to \mathbb{R}$ funciones continuas en $[a,b]$.
 
-Supon que $\alpha$ es diferenciable en $(a,b)$, $\alpha'$ es continua  y $\alpha '$ nunca cambia de signo en $[a,b]$. Entonces exsite
-un $c$ en $(a,b)$ tal que 
-$$
-\int_a^b g(x)\alpha(x)dx=\alpha(a)\int_a^c g(x)dx+ \alpha(b)\int_c^b g(x)dx
-$$
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Demuestra la fórmula de recursión
+  </p>
+  <p>
+    $$
+    \int x^m \log^n(x)dx=\frac{x^{m+1}\log^n(x)}{m+1}-\frac{n}{m+1}\int x^m \log^{n-1}(x)dx.
+    $$
+    
+  </p>
 
-Sugerencia: aplica el primer teorema del valor medio para integrales con
-$f=\alpha'$ y $G(x):=\int_a^xg(t)dt$ .
 </div>
+
+
+
+
+<div class="teorema-box">
+  <h2 class="number-title" id="Teo:PrimerTVMINtegrales"> Teorema </h2>
+  <h3>Primer Teorema del valor medio para integrales </h3>
+  <p>
+    Si $G,f:[a,b]\to \mathbb{R}$ son continuas en $[a,b]$ y $f$ 
+    nunca cambia de signo en $[a,b]$, entonces  exsite $c$ tal que
+    $$
+    \int_a^b f(x)G(x)dx=G(c)\int_a^b f(x)dx.
+    $$
+    
+  </p>
+
+  <p>
+    Sugerencia: considera
+    $$
+    \min_{x\in [a,b]}\{ G(x)\} f(x) \leq f(x)G(x) \leq \max_{x\in [a,b]}\{ G(x)\} f(x)
+    $$
+   integra y usa el teorema del valor intermedio para funciones continuas.    
+  </p>
+</div>
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <h3> Segundo teorema del valor  medio para integrales </h3>
+  <p>
+    Sean $g,\alpha: [a,b]\to \mathbb{R}$ funciones continuas en $[a,b]$.
+  </p>
+  <p>
+    Supon que $\alpha$ es diferenciable en $(a,b)$, $\alpha'$ es continua  
+    y $\alpha '$ nunca cambia de signo en $[a,b]$. Entonces exsite
+    un $c$ en $(a,b)$ tal que 
+    $$
+    \int_a^b g(x)\alpha(x)dx=\alpha(a)\int_a^c g(x)dx+ \alpha(b)\int_c^b g(x)dx
+    $$
+    
+  </p>
+  <p>
+    Sugerencia: aplica el primer teorema del valor medio para integrales con
+    $f=\alpha'$ y $G(x):=\int_a^xg(t)dt$ .
+    
+  </p>
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Sea $\phi: [a,b]\to \mathbb{R}$  una función que satisface:
+  </p>
+    <ol>
+      <li>
+        su segunda derivada  es continua y no se anula en $[a,b]$.
+      </li>
+      <li>
+        existe $m>0$ tal que su primera derivada satisface $\phi'(t)>m$ para todo $t\in [a,b]$
+      </li>
+    </ol>  
+     <p>
+      Usar el Segundo Teorema del Valor Medio para Integrales para probar
+     </p>
+     <p>
+      $$
+      \left|  \int_a^b \sen(\phi(t)) dt \right| \leq \frac{4}{m}
+      $$
+      
+     </p>
+     <p>
+      Hint: multiplicar y dividir el integrando por $\phi'(t)$.
+     </p>
+
+     <p>
+      Sea $a>0$  fijo y arbitrario. Demostrar que 
+      $\left|  \int_a^b \sen(t^2)dt\right| \leq \frac{2}{a}$ para todo $x>a$.
+     </p>
+</div>
+
+
 
 </body>

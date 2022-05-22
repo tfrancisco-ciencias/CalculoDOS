@@ -90,7 +90,47 @@
 <div class="info-box">
     <h2 class="number-title"> Introducción </h2>
     <p> 
-
+        Las funciones tipo logaritmo son una familia de funciones que sriven de 
+        herramienta en varias áreas dentro y fuera de las matemáticas. 
+    </p>
+    <p>
+        Como herramienta puden usarse para estudiar números "muy grandes" o  "muy 
+        pequeños". Por ejemplo, la definición de la escala  Richter usa logaritmos. 
+    </p>
+    <p>
+        Como objeto matemático tiene dos interpretaciones muy importantes.
+    </p>
+    <p>
+        Por un lado el logaritmo natural es la única solución de la ecuación diferencial con valores iniciales 
+        \begin{eqnarray*}
+        \frac{dy}{dx}(x)&=&\frac{1}{x}, \quad  x>0, \\
+        y(1)&=&0 .
+        \end{eqnarray*}
+        En esta sección daremos, basado en la integral, una definición formal del logaritmo  natural y veremos 
+        gracias al  Primer Teorema Fundamental del Cálculo que satisface la ecuación diferencial anterior.
+    </p>
+    <p>
+        Desde un punto  de vista más algebráico las funciones logaritmicas son funciones 
+        que pasan productos de números a sumas, es decir satisfacen la siguiente ecuación 
+        \[
+        f(ab)= f(a)+f(b).
+        \]
+        Este es una de las formas en las que 
+        <a href="https://en.wikipedia.org/wiki/History_of_logarithms#Napier's_wonderful_invention">Napier</a>
+        estudió los logaritmos y los uso 
+        para encontrar métodos de multiplciar números muy grandes.
+    </p>
+    <p>
+        Dada una base \(b>0\) el logaritmo de \(x\) base \(b\) es el número \(y\) que satisface 
+        \[
+            b^y=x
+        \]
+        y usualmente se denota por \(\log_b(x)\). Por ejemplo 
+        \(\log_{10}(100)=2, \log_{10}(0.1)=-1\).
+    </p>
+    <p>
+        En esta sección también veremos que la definición formal que dimos ayuda a definir 
+        estas funciones tipo logaritmo.
     </p>
 
 </div>
@@ -555,7 +595,7 @@
     <p>
         En términos de integrales indefinidas lo anterior se puede resumir como
         $$
-        \int \frac{dt}{t}=\log(t)
+        \int \frac{dt}{t}=\log(t)+C
         $$
     </p>
 
