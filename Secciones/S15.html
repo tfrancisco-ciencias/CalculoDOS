@@ -86,9 +86,24 @@
 
 <h1 class="number-title flexbox"> Integrales trigonométricas </h1>
 
+<div class="info-box">
+  <h2 class="number-title"> Introducción </h2>
+
+  <p>
+    Esta sección recolecta varias integrales que involucran funciones trigonométricas 
+    y que son útiles más adelante. Uno de los objetivos principales el la demostración 
+    del la fórmula de Wallis para calcular \(\frac{\pi}{2}\) como un producto infinito.
+  </p>
+
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Utilizando las fórmulas para las derivadas de las funciones trigonométricas, calcula las siguientes integrales indefinidas.
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Utilizando las fórmulas para las derivadas de las funciones trigonométricas, 
+    calcula las siguientes integrales indefinidas.
+  </p>
 
 <ol>
 	<li>$\int \sen(x)dx$.</li> 
@@ -98,176 +113,242 @@
 	<li>$\int \sec(x)\tan(x)dx$.</li> 
 	<li>$\int \cot(x)\csc(x)dx$.</li> 
 </ol>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> 
-	Utilizando las identidades  $1+\tan^2(x)=\sec^2(x)$ y $1+\cot^2(x)=\csc^2(x)$ calcula
+<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> 
+	<p>
+    Utilizando las identidades  $1+\tan^2(x)=\sec^2(x)$ y $1+\cot^2(x)=\csc^2(x)$ calcula
+  </p>
+
 
 <ol>
 	<li>$\int \tan^2(x)dx$.</li> 
 	<li>$\int \cot^2(x)dx$.</li> 
 </ol>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando integración por partes probar
-$$
-\int \sen^2(x)dx=-\sen(x)\cos(x)+\int \cos^2(x)dx.
-$$
-Finalmente, usar la identidad $\cos^2(x)+\sen^2(x)=1$ para demostrar:
-$$
-\int \sen^2(x)dx=\frac{1}{2}x-\frac{1}{4}\sen(2x),
-$$
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Usando integración por partes probar:
+  </p>
+  <p>
+    $$
+    \int \sen^2(x)dx=-\sen(x)\cos(x)+\int \cos^2(x)dx.
+    $$
+    Finalmente, usar la identidad $\cos^2(x)+\sen^2(x)=1$ para demostrar:
+    $$
+    \int \sen^2(x)dx=\frac{1}{2}x-\frac{1}{4}\sen(2x),
+    $$
+    
+    $$
+    \int \cos^2(x)dx=\frac{1}{2}x+\frac{1}{4}\sen(2x).
+    $$
+    
+  </p>
+</div>
 
-$$
-\int \cos^2(x)dx=\frac{1}{2}x+\frac{1}{4}\sen(2x).
-$$
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:IntegralCos3}  Tomando la substitución $u=\sen(x)$ demuestra
-$$\int \cos^3(x)dx = \sen^2(x)-\frac{\sen^3(x)}{3}+C$$
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:IntegralCos3"> Ejercicio</h2>  
+  <p>
+    Tomando la substitución $u=\sen(x)$ demuestra
+  </p>
+  <p>
+    $$\int \cos^3(x)dx = \sen^2(x)-\frac{\sen^3(x)}{3}+C$$
+  </p>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:IntegralCosPotenciaImpar} Este ejercicio generaliza el ejercicio \ref{Ejer:IntegralCos3}. 
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:IntegralCosPotenciaImpar"> Ejercicio</h2> 
+  <p>
+    Este ejercicio generaliza el <a href="#Ejer:IntegralCos3"> Ejercicio 15.5</a>.
+  </p>
 <ol>
 
-	<li>Usando el binomio de Newtown, demuestra que
+	<li>
+    Usando el binomio de Newtown, demuestra que
 		$$
 		\int (1-u^2)^k du =\sum_{j=0}^k (-1)^{j}\frac{u^{2j+1}}{2j+1}+C.
-		$$</li> 
-<li>Demuestra que, para todo natural $k\geq 1$,</li> 
+		$$
+  </li> 
+<li>
+  Demuestra que, para todo natural $k\geq 1$,
+  $$
+  \int \cos^{2k+1}(x)dx=\sum_{j=0}^k (-1)^j\frac{\sen^{2j+1}(x)}{2j+1}+C.
+  $$
 
+  Sugerencia: toma el cambio de variable $u=\sen(x)$ y usa la identidad 
+  $\sen^2(x)+\cos^2(x)=1$ junto con
+  el inciso anterior.
+    
+</li> 
 
-
-$$
-\int \cos^{2k+1}(x)dx=\sum_{j=0}^k (-1)^j\frac{\sen^{2j+1}(x)}{2j+1}+C.
-$$
-
-Sugerencia: toma el cambio de variable $u=\sen(x)$ y usa la identidad $\sen^2(x)+\cos^2(x)=1$ junto con
-el inciso anterior.
-
-<li>Demuestra que, para cualquier natural $k \geq 1$ y cualquie real $a$:
+<li>
+  Demuestra que, para cualquier natural $k \geq 1$ y cualquie real $a$:
 	$$
 	\int_{a}^{a+2\pi} \cos^{2k+1}(x)dx=0.
-	$$</li> 
+	$$
+</li> 
 </ol>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:IntegralSenPotenciaImpar} Este ejercicio es el análogo al  \ref{Ejer:IntegralCosPotenciaImpar}, pero para la función seno. 
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:IntegralSenPotenciaImpar"> Ejercicio</h2> 
+  
+  <p> 
+    Este ejercicio es el análogo al  <a href="#Ejer:IntegralCosPotenciaImpar"> Ejercicio 15.6</a>, 
+    pero para la función seno. 
+  </p>
 <ol>
 
-	<li>Usando el binomio de Newtown, demuestra que
+	<li>
+    Usando el binomio de Newtown, demuestra que
 		$$
 		\int (1-u^2)^k du =\sum_{j=0}^k (-1)^{j}\frac{u^{2j+1}}{2j+1}+C.
-		$$</li> 
+		$$
+  </li> 
 
-<li>Demuestra que, para toda $k \geq 1$:
-	$$
-	\int \sen^{2k+1}(x)dx=\sum_{j=0}^k (-1)^{j+1}\frac{\cos^{2j+1}(x)}{2j+1}+C.
-	$$
-	
-	Sugerencia: toma el cambio de variable $u=\cos(x)$ y usa la identidad $\sen^2(x)+\cos^2(x)=1$ junto con el inciso anterior.</li> 
+  <li>
+    Demuestra que, para toda $k \geq 1$:
+    $$
+    \int \sen^{2k+1}(x)dx=\sum_{j=0}^k (-1)^{j+1}\frac{\cos^{2j+1}(x)}{2j+1}+C.
+    $$
+    
+	 Sugerencia: toma el cambio de variable $u=\cos(x)$ y usa la 
+   identidad $\sen^2(x)+\cos^2(x)=1$ junto con el inciso anterior.
+  </li> 
 
 
-<li>Demuestra que, para cualquier natural $k \geq 1$ y cualquie real $a$:
+<li>
+  Demuestra que, para cualquier natural $k \geq 1$ y cualquie real $a$:
 	$$
 	\int_{a}^{a+2\pi} \sen^{2k+1}(x)dx=0.
-	$$</li> 
+	$$
+</li> 
 </ol>
-
-
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando el método de los ejercicios \ref{Ejer:IntegralCosPotenciaImpar} y \ref{Ejer:IntegralSenPotenciaImpar} demuestra que, para cualesquiera naturales $k,m \geq 1$:
-
-
-$$
-\int \cos^{2k+1}(x)\sen^m(x)dx=\sum_{j=0}^k (-1)^{j} \frac{\sen^{2j+m+1}(x)}{2j+m+1}+C,
-$$
-
-
-$$
-\int \sen^{2k+1}(x)\cos^m(x)dx=\sum_{j=0}^k (-1)^{j+1} \frac{\cos^{2j+m+1}(x)}{2j+m+1}+C.
-$$
-
-
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:FormulasReduccionSenoCoseno} Usando integración por partes, demuestra las fórmula de reducción para seno y coseno:
-
-$$
-\int \sen^n(x)dx=-\frac{1}{n}\cos(x)\sen^{n-1}(x) + \frac{n-1}{n}\int \sen^{n-2} (x) dx 
-$$
-
-$$
-\int \cos^n(x)dx=\frac{1}{n}\cos^{n-1}(x)\sen(x)+\frac{n-1}{n}\int \cos^{n-2}(x)dx
-$$
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:FormulaWallis} Este ejercicio demuestra la fórmula de Wallis, que da una forma de calcular $\pi$ mediante un producto infinito.
-
-
-
-<div class="teorema-box">[Producto de Wallis (1655)]
-$$
-\frac{\pi}{2}=\prod_{i=1}^\infty \frac{(2i)(2i)}{(2i-1)(2i+1)},
-$$
-es decir,
-
-$$
-\frac{\pi}{2}= \lim_{n\to \infty} \prod_{i=1}^n \frac{(2i)(2i)}{(2i-1)(2i+1)}.
-$$
-
 </div>
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Usando el método del
+    <a href="#Ejer:IntegralCosPotenciaImpar"> Ejercicio 15.6</a> y 
+    <a href="#Ejer:IntegralSenPotenciaImpar"> Ejercicio 15.7</a> 
+    demuestra que, para cualesquiera naturales $k,m \geq 1$:
+  </p>
+  <p>
+    $$
+    \int \cos^{2k+1}(x)\sen^m(x)dx=\sum_{j=0}^k (-1)^{j} \frac{\sen^{2j+m+1}(x)}{2j+m+1}+C,
+    $$
+    
+    
+    $$
+    \int \sen^{2k+1}(x)\cos^m(x)dx=\sum_{j=0}^k (-1)^{j+1} \frac{\cos^{2j+m+1}(x)}{2j+m+1}+C.
+    $$
+    
+  </p>
+</div>
+
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:FormulasReduccionSenoCoseno"> Ejercicio</h2> 
+  <p>
+    Usando integración por partes, demuestra las fórmula de reducción para seno y coseno:
+  </p>
+  <p>
+    $$
+    \int \sen^n(x)dx=-\frac{1}{n}\cos(x)\sen^{n-1}(x) + \frac{n-1}{n}\int \sen^{n-2} (x) dx 
+    $$
+    
+    $$
+    \int \cos^n(x)dx=\frac{1}{n}\cos^{n-1}(x)\sen(x)+\frac{n-1}{n}\int \cos^{n-2}(x)dx
+    $$
+    
+  </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:FormulaWallis"> Ejercicio</h2> 
+  <p>
+    Este ejercicio demuestra la fórmula de Wallis (1655), 
+    que da una forma de calcular $\pi$ mediante un producto infinito.
+    $$
+    \frac{\pi}{2}=\prod_{i=1}^\infty \frac{(2i)(2i)}{(2i-1)(2i+1)},
+    $$
+    es decir,
+    
+    $$
+    \frac{\pi}{2}= \lim_{n\to \infty} \prod_{i=1}^n \frac{(2i)(2i)}{(2i-1)(2i+1)}.
+    $$
+    
+  </p>
+
 <ol>
 	<li>
-		Usando el ejercicio \ref{Ejer:FormulasReduccionSenoCoseno} demuestra que, para todo natural $n\geq 2$:
+		Usando el <a href="#Ejer:FormulasReduccionSenoCoseno"> Ejercicio 15.9</a>
+    demuestra que, para todo natural $n\geq 2$:
 
-\begin{equation}\label{Eqn:RecursionIntDefSEN}
-\int_0^{\pi/2}\sen^n(x)dx=\frac{n-1}{n}\int_0^{\pi/2}\sen^{n-2}(x)dx
-\end{equation}
+    \begin{equation}\label{Eqn:RecursionIntDefSEN}
+    \int_0^{\pi/2}\sen^n(x)dx=\frac{n-1}{n}\int_0^{\pi/2}\sen^{n-2}(x)dx
+    \end{equation}
 	</li> 
 
 <li>
 	Demuestra por  inducción que, para todo natural $n \geq 1$:
-$$
-\int_0^{\pi/2}\sen^{2n+1}(x)dx=\frac{2}{3}\frac{4}{5}\frac{6}{7}\cdots \frac{2n+1}{2n}=\prod_{i=1}^n\frac{2i}{2i+1},
-$$
+    $$
+    \int_0^{\pi/2}\sen^{2n+1}(x)dx=\frac{2}{3}\frac{4}{5}\frac{6}{7}\cdots \frac{2n+1}{2n}=\prod_{i=1}^n\frac{2i}{2i+1},
+    $$
 
-$$
-\int_0^{\pi/2}\sen^{2n}(x)dx=\frac{\pi}{2}\frac{1}{2}\frac{3}{4}\frac{5}{6}\cdots \frac{2n-1}{2n}=\frac{\pi}{2}\prod_{i=1}^n\frac{2i-1}{2i}.
-$$
+    $$
+    \int_0^{\pi/2}\sen^{2n}(x)dx=\frac{\pi}{2}\frac{1}{2}\frac{3}{4}\frac{5}{6}\cdots \frac{2n-1}{2n}=\frac{\pi}{2}\prod_{i=1}^n\frac{2i-1}{2i}.
+    $$
 
-Sugerencia: usa \eqref{Eqn:RecursionIntDefSEN}.
+    Sugerencia: usa \eqref{Eqn:RecursionIntDefSEN}.
 </li> 
 
 <li>
 	Usa el inciso anterior para demostrar que:
 
-\begin{equation}\label{Eqn:PartialProductWallisFormula}
-\frac{\pi}{2}=\prod_{i=1}^n\frac{(2i)(2i)}{(2i-1)(2i+1)}\frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}
-\end{equation}
+  \begin{equation}\label{Eqn:PartialProductWallisFormula}
+  \frac{\pi}{2}=\prod_{i=1}^n\frac{(2i)(2i)}{(2i-1)(2i+1)}\frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}
+  \end{equation}
 
 </li> 
 
-<li>\label{Ejer:CotaInferiorFraccionWallis} Demuestra que:
-	$$
+<li> 
+  Demuestra que:
+	\begin{equation}\label{Ejer:CotaInferiorFraccionWallis}
 	1\leq \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}.
-	$$
+	\end{equation}
 	Sugerencia: nota que, para $x\in (0,\pi/2)$ y naturales $p < q$, $\sen^q(x)<\sen^p(x)$.
-	</li> 
-<li>
-	\label{Ejer:CotaSuperiorFraccionWallis} Demuestra que:
-$$
-\frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}\leq 1+\frac{1}{2n}
-$$
+</li> 
+<li >
+	Demuestra que:
+  \begin{equation}\label{Ejer:CotaSuperiorFraccionWallis}
+  \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}\leq 1+\frac{1}{2n}
+  \end{equation}
 
-Sugerencia: primero usa \eqref{Eqn:RecursionIntDefSEN} para probar
-$$
-\frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}= \frac{2n+1}{2n} \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n-1}(x)dx}
-$$
-y después prueba que $\frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n-1}(x)dx} \leq 1$.
+  Sugerencia: primero usa \eqref{Eqn:RecursionIntDefSEN} para probar
+  $$
+  \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}= 
+  \frac{2n+1}{2n} \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n-1}(x)dx}
+  $$
+  y después prueba que $\frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n-1}(x)dx} \leq 1$.
 </li>
 
 <li>
-	De los incisos \ref{Ejer:CotaInferiorFraccionWallis} y \ref{Ejer:CotaSuperiorFraccionWallis} obten que
+	De \eqref{Ejer:CotaInferiorFraccionWallis} y \eqref{Ejer:CotaSuperiorFraccionWallis} obten que
 $$
 \lim_{n\to \infty} \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}=1
 $$
@@ -281,20 +362,28 @@ $$
 
 
 </ol>
+</div>
 
 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:LemaWillisCampanaGauss} Demuestra
-$$
-\lim_{n\to \infty} \frac{1}{\sqrt{n}} \frac{2}{1}\frac{4}{3}\cdots \frac{2n}{2n-1}=\sqrt{\pi}.
-$$
-
-Sugerencia: si elevas ambos lados al cuadrado el límite es equivalente a
-$$
-\lim_{n\to \infty} \frac{1}{n} \prod_{i=1}^n \frac{(2i)(2i)}{(2i-1)(2i-1)}=\pi
-$$
-Para demostrar ésta última  trata de completar la fórmula de Wallis del lado izquierdo y usa el hecho de que
-$$
- \prod_{i=1}^n \frac{2i+1}{2i-1}=2n+1
-$$
-
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:LemaWillisCampanaGauss"> Ejercicio</h2>
+  
+  <p>
+    Demuestra
+    $$
+    \lim_{n\to \infty} \frac{1}{\sqrt{n}} \frac{2}{1}\frac{4}{3}\cdots \frac{2n}{2n-1}=\sqrt{\pi}.
+    $$
+  </p>
+  <p>
+    Sugerencia: si elevas ambos lados al cuadrado el límite es equivalente a
+    $$
+    \lim_{n\to \infty} \frac{1}{n} \prod_{i=1}^n \frac{(2i)(2i)}{(2i-1)(2i-1)}=\pi
+    $$
+    Para demostrar ésta última  trata de completar 
+    la fórmula de Wallis del lado izquierdo y usa el hecho de que
+    $$
+     \prod_{i=1}^n \frac{2i+1}{2i-1}=2n+1
+    $$
+    
+  </p>
+</div>
