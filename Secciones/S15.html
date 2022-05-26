@@ -169,15 +169,15 @@
 <ol>
 
 	<li>
-    Usando el binomio de Newtown, demuestra que
+    Usando el binomio de Newton, demuestra que
 		$$
-		\int (1-u^2)^k du =\sum_{j=0}^k (-1)^{j}\frac{u^{2j+1}}{2j+1}+C.
+		\int (1-u^2)^k du =\sum_{j=0}^k (-1)^{j}\binom{k}{j}\frac{u^{2j+1}}{2j+1}+C.
 		$$
   </li> 
 <li>
   Demuestra que, para todo natural $k\geq 1$,
   $$
-  \int \cos^{2k+1}(x)dx=\sum_{j=0}^k (-1)^j\frac{\sen^{2j+1}(x)}{2j+1}+C.
+  \int \cos^{2k+1}(x)dx=\sum_{j=0}^k (-1)^j\binom{k}{j}\frac{\sen^{2j+1}(x)}{2j+1}+C.
   $$
 
   Sugerencia: toma el cambio de variable $u=\sen(x)$ y usa la identidad 
@@ -208,14 +208,14 @@
 	<li>
     Usando el binomio de Newtown, demuestra que
 		$$
-		\int (1-u^2)^k du =\sum_{j=0}^k (-1)^{j}\frac{u^{2j+1}}{2j+1}+C.
+		\int (1-u^2)^k du =\sum_{j=0}^k (-1)^{j}\binom{k}{j}\frac{u^{2j+1}}{2j+1}+C.
 		$$
   </li> 
 
   <li>
     Demuestra que, para toda $k \geq 1$:
     $$
-    \int \sen^{2k+1}(x)dx=\sum_{j=0}^k (-1)^{j+1}\frac{\cos^{2j+1}(x)}{2j+1}+C.
+    \int \sen^{2k+1}(x)dx=\sum_{j=0}^k (-1)^{j+1}\binom{k}{j}\frac{\cos^{2j+1}(x)}{2j+1}+C.
     $$
     
 	 Sugerencia: toma el cambio de variable $u=\cos(x)$ y usa la 
@@ -245,12 +245,12 @@
   </p>
   <p>
     $$
-    \int \cos^{2k+1}(x)\sen^m(x)dx=\sum_{j=0}^k (-1)^{j} \frac{\sen^{2j+m+1}(x)}{2j+m+1}+C,
+    \int \cos^{2k+1}(x)\sen^m(x)dx=\sum_{j=0}^k (-1)^{j} \binom{k}{j}\frac{\sen^{2j+m+1}(x)}{2j+m+1}+C,
     $$
     
     
     $$
-    \int \sen^{2k+1}(x)\cos^m(x)dx=\sum_{j=0}^k (-1)^{j+1} \frac{\cos^{2j+m+1}(x)}{2j+m+1}+C.
+    \int \sen^{2k+1}(x)\cos^m(x)dx=\sum_{j=0}^k (-1)^{j+1} \binom{k}{j}\frac{\cos^{2j+m+1}(x)}{2j+m+1}+C.
     $$
     
   </p>
