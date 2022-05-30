@@ -86,157 +86,256 @@
 
 <h1 class="number-title flexbox"> Series </h1>
 
+<div class="info-box">
+	<h2 class="number-title"> Introducción </h2>
+	<p>
 
+	</p>
 
+</div>
 
-Recordemos que  una sucesión de números reales, $(a_n)_{n=0}^\infty$, se llama  sumable  si el siguiente límite existe
-$$
-\lim_{N\to \infty} \sum_{n=1}^N a_n
-$$
-existe.
+<div class="definicion-box">
+	<h2 class="number-title"> Definición </h2>
+	<p>
 
-También se dice que  la serie $\sum_{n=0}^\infty a_n$ converge y se define
-$$
-\sum_{n=0}^\infty a_n:= \lim_{N\to \infty} \sum_{n=1}^N a_n.
-$$
+		Una sucesión de números reales, $(a_n)_{n=0}^\infty$, 
+		se llama  sumable  si el siguiente límite existe
+		$$
+		\lim_{N\to \infty} \sum_{n=1}^N a_n
+		$$
+		existe.
+		También se dice que  la serie $\sum_{n=0}^\infty a_n$ converge y se define
+		$$
+		\sum_{n=0}^\infty a_n:= \lim_{N\to \infty} \sum_{n=1}^N a_n.
+		$$
+		En caso contrario decimos que la serie diverge. 
 
-En caso contrario decimos que la serie diverge. 
+		Dada una sucesión $(a_k)_{k\geq 0}$, una suma de la forma
+		$$
+		s_n=\sum_{k=0}^n a_k
+		$$
+		se llama una suma parcial. 
+	</p>
 
-Dada una sucesión $(a_k)_{k\geq 0}$, una suma de la forma
-$$
-s_n=\sum_{k=0}^n a_k
-$$
-se llama una suma parcial. 
+</div>
 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:ConvergenciaCeroSeriesConvergentes} Sea $(a_n)_{n=1}^\infty$ una sucesión sumable. 
-
-<ol>
-	<li>
+<div class="ejercicio-box">
+	<h2 class="number-title" id="Ejer:ConvergenciaCeroSeriesConvergentes"> Ejercicio</h2> 
+	<p>
+		Sea $(a_n)_{n=1}^\infty$ una sucesión sumable. 
+	</p>
+	<p>
 		Demuestra que 
-$$
-\lim_{n\to \infty} a_n=0.
-$$
-Sugerencia: sea $L=\sum_{n=1}^\infty a_n$. Primero usa el ejercicio \ref{Ejer:ConvergenciaSerieRecorridaDerecha} para probar
-$$L=\lim_{N\to \infty}\sum_{n=1}^N a_n=\lim_{N\to \infty} \sum_{n=1}^{N+1}a_{n} $$
-y después toma la diferencia de estos dos límites.
-	</li> 
-
-
-</ol>
+		$$
+		\lim_{n\to \infty} a_n=0.
+		$$
+	</p>
+</div>
 
 
 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:SerieArmonicaDiverge} Sea $P=\{a_0 <\cdots a_m\}$ cuaquier partición del intervalo $[1,x]$, donde $x>1$.
+<div class="ejercicio-box">
+	<h2 class="number-title" id="Ejer:SerieArmonicaDiverge"> Ejercicio</h2> 
+	<p>
+		Sea $P=\{a_0 <\cdots a_m\}$ cualquier partición del intervalo $[1,x]$, donde $x>1$.
+	</p>
 <ol>
 	<li>
 		Usando funciones escalonadas se pueden probar las siguientes  desigualdades
-	$$
-	\sum_{k=1}^n \frac{a_k-a_{k-1}}{a_k}< L(x)< \sum_{k=1}^n \frac{a_k-a_{k-1}}{a_{k-1}}
-	$$
+		$$
+		\sum_{k=1}^n \frac{a_k-a_{k-1}}{a_k}< L(x)< \sum_{k=1}^n \frac{a_k-a_{k-1}}{a_{k-1}}
+		$$
 	</li> 
 	<li>
 		Tomar una partición adecuada para demostrar que, para todo natural $n\geq 2$:
-	$$
-	\sum_{k=2}^n \frac{1}{k}< L(n) < \sum_{k=1}^{n-1} \frac{1}{k}
-	$$
+		$$
+		\sum_{k=2}^n \frac{1}{k}< L(n) < \sum_{k=1}^{n-1} \frac{1}{k}
+		$$
 	</li> 
 	<li>
 		Concluir que la serie armónica diverge a infinito, es decir:
-	$$
-	\lim_{n\to \infty} \sum_{k=1}^n \frac{1}{k}=\infty
-	$$
-	</li> 
-	
-	<li>
-		La serie armónica es un ejemplo de una sucesión que satisfaga $\lim_{n\to \infty}a_n=0$ pero que la serie $\sum_{n=1}^\infty a_n$ sea divergente.
-	</li> 
-
+		$$
+		\lim_{n\to \infty} \sum_{k=1}^n \frac{1}{k}=\infty
+		$$
+	</li> 	
+	 
 </ol>
+<p>
+	Nota: la serie armónica es un ejemplo de una sucesión que 
+	satisfaga $\lim_{n\to \infty}a_n=0$ pero que la serie $\sum_{n=1}^\infty a_n$ sea divergente.
+</p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que la  sucesión  $(a_k)_{k\geq 0}$, con $a_k=\frac{3k^3+12k^2-5k+10}{2k^3-8k^2-9k+20}$, no es sumable.  Sugerencia: usa \ref{Ejer:ConvergenciaCeroSeriesConvergentes}.
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Demuestra que la  sucesión  $(a_k)_{k\geq 0}$, 
+		con $a_k=\frac{3k^3+12k^2-5k+10}{2k^3-8k^2-9k+20}$, no es sumable.  
+	</p>
+	<p>
+		Sugerencia: usa  <a href="#Ejer:ConvergenciaCeroSeriesConvergentes"> Ejercicio 17.4</a>.
+	</p>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:SerieGeometrica} Una serie se llama geométrica si es de la forma $\sum_{k=1}^n r^k$, donde $r\in \mathbb{R}$ es un número fijo. Este ejercicio trata sobre la convergencia de series geométricas.
 
-Sea $r\in \mathbb{R}$ un real distinto de cero. Define 
-$$
-s_n=\sum_{k=1}^n r^k.
-$$
+<div class="ejercicio-box">
+	<h2 class="number-title" id="Ejer:SerieGeometrica"> Ejercicio</h2> 
+	<p>
+		Una serie se llama geométrica si es de la forma 
+		$$\sum_{k=0}^\infty r^k$$
+		donde 
+		$r\in \mathbb{R}$ es un número fijo. 
+	</p>
+	<p>
+		Este ejercicio trata sobre la convergencia 
+		de series geométricas.
+	</p>
+	<p>
+		Sea $r\in \mathbb{R}$ un real distinto de cero. Define 
+		$$
+		s_n=\sum_{k=0}^n r^k.
+		$$		
+	</p>
 
 <ol>
 
-	<li>Demuestra que $rs_n-s_n=r^{n+1}-1$.</li> 
-	<li>Demuestra que si $r\ne 1$, $s_n=\frac{r^{n+1}-1}{r-1}$.</li> 
-	<li>Demuestra que si $|r| < 1$ entonces:</li> 
-$$
-\sum_{k=0}^\infty r^k=\frac{1}{1-r}.
-$$
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que si $|r|\geq 1$, la serie $\sum_{k=1}^n r^k$ diverge.
-
+	<li>Demuestra que si $r\ne 1$, $s_n=\frac{1-r^{n+1}}{1-r}$.</li> 
+	<li>Demuestra que si $|r| < 1$ entonces:
+		$$
+		\sum_{k=0}^\infty r^k=\frac{1}{1-r}.
+		$$
+	</li> 
+	<li>
+		Demuestra que si $|r|\geq 1$, la serie $\sum_{k=1}^n r^k$ diverge.
+	</li>
+	
 </ol>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Si $\sum_{k=0}^\infty a_k$ y $\sum_{k=0}^\infty b_k$ convergen y $\alpha\in \mathbb{R}$ es un escalar fijo, demuestra que la serie 
-$\sum_{k=0}^\infty (\alpha a_k+b_k)$ converge y 
-$$
-\sum_{k=0}^\infty (\alpha a_k+b_k)=\alpha\left( \sum_{k=0}^\infty a_k \right)+ \sum_{k=0}^\infty b_k.
-$$
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Si $\sum_{k=0}^\infty a_k$ y $\sum_{k=0}^\infty b_k$ 
+		convergen y $\alpha\in \mathbb{R}$ es un escalar fijo, demuestra que la serie 
+		$\sum_{k=0}^\infty (\alpha a_k+b_k)$ converge y 
+		$$
+		\sum_{k=0}^\infty (\alpha a_k+b_k)=\alpha\left( \sum_{k=0}^\infty a_k \right)+ 
+		\sum_{k=0}^\infty b_k.
+		$$
+	</p>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Si $\sum_{k=0}^\infty a_k$ y $\sum_{k=0}^\infty b_k$ convergen y $a_k \leq b_k$ para toda $k$ demuestra que:
-$$
-\sum_{k=0}^\infty a_k \leq \sum_{k=0}^\infty b_k.
-$$
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Si $\sum_{k=0}^\infty a_k$ y $\sum_{k=0}^\infty b_k$ 
+		convergen y $a_k \leq b_k$ para toda $k$ demuestra que:
+		$$
+		\sum_{k=0}^\infty a_k \leq \sum_{k=0}^\infty b_k.
+		$$
+
+	</p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $M\geq 1$ cualquier entero.  Demuestra que la serie $\sum_{k=0}^\infty a_k$ converge  si y sólo si $\sum_{k=M}^\infty a_k$ converge. Es más, prueba que:
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Sea $M\geq 1$ cualquier entero.  Demuestra que la serie $\sum_{k=0}^\infty a_k$ 
+		converge  si y sólo si $\sum_{k=M}^\infty a_k$ converge. Es más, prueba que:
+		$$
+		\sum_{k=0}^\infty a_k = \sum_{k=0}^{M-1} a_k + \sum_{k=M} ^\infty a_k.
+		$$
+	   
+	</p>
+ </div>
+
  
- $$
- \sum_{k=0}^\infty a_k = \sum_{k=0}^{M-1} a_k + \sum_{k=M} ^\infty a_k.
- $$
-
 <div class="definicion-box">
-Una serie $\sum_{k=0}^\infty a_k$ se llama telescópica si, existe una secesión $(b_k)_{k\geq 0}$ tal que
-$a_k=b_k-b_{k+1}$, $k=0,1,2,\dots$.
+<h2 class="number-title"> Definición </h2>
+	<p>
+		Una serie $\sum_{k=0}^\infty a_k$ se llama telescópica si, existe una secesión 
+		$(b_k)_{k\geq 0}$ tal que
+		$a_k=b_k-b_{k+1}$, $k=0,1,2,\dots$.
+	</p>
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:SeriesTelescopicas} Este ejercicio da una condición para la convergencia de series telescópicas.
-
-Sean $(a_k)_{k\geq 0}, (b_k)_{k\geq 0}$ dos sucesiones tales que
-$$
-a_k=b_k-b_{k+1}
-$$
-Demuestra que la  serie $\sum_{k=0}^\infty a_k$ converge si y sólo si  la sucesión $(b_k)_{k\geq 0}$ converge. Además:
-$$
-\sum_{k=0}^\infty a_k = b_1-L,
-$$
-donde $L=\lim_k b_k$.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que la serie $\sum_{k=1}^\infty \frac{1}{k^2+k}$ converge. Sugerencia: ver la serie como una serie telescópica.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:TeoConvergenciaMonoSeries} Demuestra el siguiente teorema.
-
-<div class="teorema-box">[Teorema de la convergencia monótona para series]
-Para una sucesión $(a_k)_{k=0}^\infty $ donde $a_k \geq 0$  para toda $k$, se tiene que
-la serie  $\sum_{k=0}^\infty a_k $ converge si y sólo si el conjunto de sumas parciales $\{s_n \}_{n=0}^\infty$ esta acotado superior mente.
-
-Es más, en tal caso
-$$
-\sum_{k=0}^\infty a_k= \sup \{ s_n: n=0,1,2,\dots.  \}
-$$
+<div class="ejercicio-box">
+	<h2 class="number-title" id="Ejer:SeriesTelescopicas"> Ejercicio</h2> 
+	<p>
+		Este ejercicio da una condición para la convergencia de series telescópicas.
+	</p>
+	<p>
+		Sean $(a_k)_{k\geq 0}, (b_k)_{k\geq 0}$ dos sucesiones tales que
+		$$
+		a_k=b_k-b_{k+1}
+		$$
+		Demuestra que la  serie $\sum_{k=0}^\infty a_k$ converge si y sólo si  la sucesión $(b_k)_{k\geq 0}$ converge. Además:
+		$$
+		\sum_{k=0}^\infty a_k = b_1-L,
+		$$
+		donde $L=\lim_k b_k$.
+		
+	</p>
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que si  $a_k \geq 0$ para toda $k$ y $\sum_{k=0}^\infty a_k$ converge entonces la serie
-$\sum_{k=0}^\infty \sqrt{a_ka_{k+1}}$ converge y 
-$$
-\sum_{k=0}^\infty \sqrt{a_ka_{k+1}} \leq \sum_{k=0}^\infty a_k.
-$$
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Demuestra que la serie $\sum_{k=1}^\infty \frac{1}{k^2+k}$ converge. 
+	</p>
+	<p>
+		Sugerencia: ver la serie como una serie telescópica.
+	</p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Cada una de las series que siguen, es una serie telescópica, geométrica, o alguna cuyas sumas parciales se simplifican. En cada caso demostrar la convergencia de la serie y que la suma es la indicada.
+
+	
+
+
+<div class="teorema-box">
+	<h2 class="number-title" id="Ejer:TeoConvergenciaMonoSeries"> Teorema </h2> 
+	<h3> Convergencia monótona para series </h3>
+	<p>
+		Para una sucesión $(a_k)_{k=0}^\infty $ donde $a_k \geq 0$  para toda $k$, se tiene que
+		la serie  $\sum_{k=0}^\infty a_k $ converge si y sólo si el conjunto de sumas 
+		parciales $\{s_n \}_{n=0}^\infty$ esta acotado superior mente.
+	</p>
+	<p>	
+		Es más, en tal caso
+		$$
+		\sum_{k=0}^\infty a_k= \sup \{ s_n: n=0,1,2,\dots.  \}
+		$$
+		
+	</p>
+</div>
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Demuestra que si  $a_k \geq 0$ para toda $k$ y $\sum_{k=0}^\infty a_k$ 
+		converge entonces la serie
+		$\sum_{k=0}^\infty \sqrt{a_ka_{k+1}}$ converge y 
+		$$
+		\sum_{k=0}^\infty \sqrt{a_ka_{k+1}} \leq \sum_{k=0}^\infty a_k.
+		$$
+	</p>
+</div>
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Cada una de las series que siguen, es una serie telescópica, 
+		geométrica, o alguna cuyas sumas parciales se simplifican. 
+		En cada caso demostrar la convergencia de la serie y que la suma es la indicada.
+	</p>
 <ol>
 	<li>
 		$\sum_{k=1}^\infty \frac{1}{(2k-1)(2k+1)}=\frac{1}{2}$
@@ -260,9 +359,19 @@ $$
 		$\sum_{k=2}^\infty \frac{\log[(1+1/k)^k(1+k)]}{(\log(k^k))[\log(1+k)^{k+1}]}=\log_2(\sqrt{e})$
 	</li> 
 </ol>
-Nota: $\log$ denota el logaritmo natural y $\log_2$ denota logaritmo base 2.
+<p>
+	Nota: $\log$ denota el logaritmo natural y $\log_2$ denota logaritmo base 2.
+</p>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sabiendo que $\sum_{n=0}^\infty \frac{x^n}{n!}=e^x$, calcular las siguientes series, suponiendo que se pueden operar con series infinitas como si fueran sumas finitas.
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Sabiendo que $\sum_{n=0}^\infty \frac{x^n}{n!}=e^x$, calcular las siguientes series, 
+		suponiendo que 
+		se pueden operar con series infinitas como si fueran sumas finitas.
+	</p>
 
 <ol>
 	<li>
@@ -275,84 +384,148 @@ Nota: $\log$ denota el logaritmo natural y $\log_2$ denota logaritmo base 2.
 		$\sum_{n=2}^\infty \frac{(n-1)(n+1)}{n!}$
 	</li> 
 </ol>
+</div>
 
 
 
 
-\subsection*{Criterios de convergencia por comparación}
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:CriterioComparacionDirecta} Criterio de comparación directa. 
-
-Si dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ satisfacen
-$$
-0 \leq a_k \leq b_k
-$$
-para toda $k$ entonces demuestra:
+<div class="ejercicio-box">
+	<h2 class="number-title" id="Ejer:CriterioComparacionDirecta"> Ejercicio</h2> 
+	<p>
+		Criterio de comparación directa. 
+	</p>
+	<p>
+		Si dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ satisfacen
+		$$
+		0 \leq a_k \leq b_k
+		$$
+		para toda $k$ entonces demuestra:
+		
+	</p>
 <ol>
 	<li>Si $\sum_{k=0}a_k$ diverge entonces $\sum_{k=0}^\infty b_k$ diverge.</li> 
 	<li>
 		Si $\sum_{k=0}b_k$ converge entonces $\sum_{k=0}^\infty b_k$ converge. En este caso
-$$
-\sum_{k=0}^\infty  a_k \leq  \sum_{k=0}^\infty b_k
-$$
+		$$
+		\sum_{k=0}^\infty  a_k \leq  \sum_{k=0}^\infty b_k
+		$$
 	</li> 
 </ol>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $m$ un natural fijo.  Demuestra que la serie
-$$
-\sum_{n=1}^\infty \frac{1}{\sqrt[m]{n}}
-$$
-diverge. Sugerencia: compararla con la armónica.
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Sea $m$ un natural fijo.  Demuestra que la serie
+		$$
+		\sum_{n=1}^\infty \frac{1}{\sqrt[m]{n}}
+		$$
+		diverge.
+	</p> 
+	<p>
+		Sugerencia: compararla con la armónica.
+	</p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que la serie 
-$$
-\sum_{k=0}^\infty \sqrt{\frac{k+5}{k^2+k+1}}
-$$
-es divergente. Sugerencia: comaparla con la armónica.
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Demuestra que la serie 
+		$$
+		\sum_{k=0}^\infty \sqrt{\frac{k+5}{k^2+k+1}}
+		$$
+		es divergente. 
+	</p>
+	<p>
+		Sugerencia: comaparla con la armónica.
+	</p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Supon que las dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ satisfacen $0\leq a_k$, $0< b_k$ para toda $k$ y que el siguiente límite existe y es positivo
-$$
-\lim_{k\to \infty} \frac{a_k}{b_k} =L > 0.
-$$
-Dada $\alpha \in (0,1)$,  demuestra que  exsite una $M$  (que depende de $\alpha$) tal que, para toda $k>M$
-$$
-(1-\alpha )L  b_k \leq  a_k  \leq  (1+\alpha) L b_k
-$$
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Supon que las dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ satisfacen 
+		$0\leq a_k$, $0< b_k$ para toda $k$ y que el siguiente 
+		límite existe y es positivo
+	</p>
+	<p>
+		$$
+		\lim_{k\to \infty} \frac{a_k}{b_k} =L > 0.
+		$$
+		Dada $\alpha \in (0,1)$,  demuestra que  exsite una $M$  (que depende de $\alpha$) tal que, para toda $k>M$
+		$$
+		(1-\alpha )L  b_k \leq  a_k  \leq  (1+\alpha) L b_k
+		$$
+		
+	</p>
+	<p>
+		Sugerencia: aplica la definición de límite usando $\varepsilon$,  al límite $\lim_{k \to \infty } \frac{a_k}{b_k}=L$, con
+		$\varepsilon=\alpha L$.
+		
+	</p>
+</div>
 
-Sugerencia: aplica la definición de límite usando $\varepsilon$,  al límite $\lim_{k \to \infty } \frac{a_k}{b_k}=L$, con
-$\varepsilon=\alpha L$.
+<div class="ejercicio-box">
+	<h2 class="number-title" id="Ejer:CriterioComparacion"> Ejercicio</h2> 
+	<h3>
+		Criterio de comparación.
+	</h3>
+	<p>
+		Supon que dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ satisfacen 
+		$0\leq a_k$, $0< b_k$ para toda $k$ y que el siguiente límite existe y es positivo
+		$$
+		\lim_{k\to \infty} \frac{a_k}{b_k} >0
+		$$
+		Demuestra:  $\sum_{k=0}^\infty a_k $ converge si y sólo si 
+		$\sum_{k=0}^\infty b_k$ converge.
+		
+	</p>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:CriterioComparacion} Criterio de comparación.
 
-Supon que dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ satisfacen $0\leq a_k$, $0< b_k$ para toda $k$ y que el siguiente límite existe y es positivo
-$$
-\lim_{k\to \infty} \frac{a_k}{b_k} >0
-$$
-Demuestra:  $\sum_{k=0}^\infty a_k $ converge si y sólo si $\sum_{k=0}^\infty b_k$ converge.
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que la serie
-$$
-\sum_{k=1}^\infty \frac{1}{k^2}
-$$
-es convergente.
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Demuestra que la serie
+		$$
+		\sum_{k=1}^\infty \frac{1}{k^2}
+		$$
+		es convergente.
+		
+	</p>
+	<p>
+		Sugerencia: aplica el criterio de comparación con la serie 
+		dada y la serie $b_k=\frac{1}{k^2+k}$.
+	</p>
+	<p>
+		Nota: la serie $\sum_{k=1}^\infty \frac{1}{k^2}$ es interesante, 
+		usando series de Fourier se puede probar que
+		$$
+		\sum_{k=1}^\infty \frac{1}{k^2}=\frac{\pi^2}{6}.
+		$$
+		
+	</p>
+</div>
 
-Sugerencia: aplica el criterio de comparación con la serie dada y la serie $b_k=\frac{1}{k^2+k}$.
 
-Nota: la serie $\sum_{k=1}^\infty \frac{1}{k^2}$ es interesante, usando series de Fourier se puede probar que
-$$
-\sum_{k=1}^\infty \frac{1}{k^2}=\frac{\pi^2}{6}.
-$$
+<div class="ejercicio-box">
+	<h2 class="number-title" id="Ejer:CriterioComparacion2"> Ejercicio</h2> 
+	<p>
+		Este ejercicio es una mejora al <a href="#Ejer:CriterioComparacion"> Ejercicio 17.21</a>.
+	</p>
+	<p>
+		Sean dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ que satisfacen 
+		$0\leq a_k$, $0< b_k$ para toda $k$ y tal que el siguiente límite existe 
+		$$
+		\lim_{k\to \infty} \frac{a_k}{b_k} .
+		$$
+		Demuestra:
+	</p>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:CriterioComparacion2}  Este ejercicio es una mejora al ejercicio \ref{Ejer:CriterioComparacion}.
 
-Sean dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ que satisfacen $0\leq a_k$, $0< b_k$ para toda $k$ y tal que el siguiente límite existe 
-$$
-\lim_{k\to \infty} \frac{a_k}{b_k} .
-$$
-Demuestra:
 <ol>
 	<li>
 		Si $\sum_{k=0}a_k$ diverge entonces $\sum_{k=0}^\infty b_k$ diverge.
@@ -361,14 +534,28 @@ Demuestra:
 		Si $\sum_{k=0}b_k$ converge entonces $\sum_{k=0}^\infty b_k$ converge. 
 	</li> 
 </ol>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que la serie $\sum_{k=1}^\infty \sen(1/k)$ diverge.
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Demuestra que la serie $\sum_{k=1}^\infty \sen(1/k)$ diverge.
+	</p>
+	<p>
+		Sugerencia: aplica el <a href="#Ejer:CriterioComparacion2"> Ejercicio 17.23</a>  
+		a la serie dada y la serie armónica.
+	</p>
+</div>
 
-Sugerencia: aplica el ejercicio \ref{Ejer:CriterioComparacion2} a la serie dada y la serie armónica.
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Decir si cada una de las siguientes series, converge o diverge, justificando la respuesta.
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Decir si cada una de las siguientes series, 
+		converge o diverge, justificando la respuesta.
+	</p>
 
 <ol>
 	<li>
@@ -396,83 +583,112 @@ Sugerencia: aplica el ejercicio \ref{Ejer:CriterioComparacion2} a la serie dada 
 		$\sum_{n=1}^\infty \int_0^{1/n}\frac{\sqrt{x}}{1+x^2}dx$
 	</li> 
 </ol>
-
-
-\subsection*{Criterio de la integral}
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra:
-
-<div class="teorema-box">[Criterio de la integral]
-Sea $f:[1,\infty) \to \mathbb{R}$ una función monónota decreciente, positiva. Para todo $n=1,2,\dots$ tomar
-$$
-s_n=\sum_{k=1}^n f(n), \quad t_n=\int_1^n f(x)dx
-$$ 
-Entonces o ambas suceciones  convergen o ambas sucesiones  divergen.
-
 </div>
 
-Sugerencia: usa sumas de Riemann para $f$.
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Fija $p\in (0,\infty)$. Una serie $p$ es una serie de la forma:
-$$
-\sum_{n=1}^\infty \frac{1}{n^p}.
-$$
-Demuestra que una serie $p$ converge converge si y sólo si $p>1$.
-
-Sugerencia: tomar $f(x)=\frac{1}{x^p}$, la cual el monónota decreciente y positiva en $[1,\infty)$.
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $f:[1,\infty) \to \mathbb{R}$ una función, no negativa y monótona creciente. 
+	
+
+<div class="teorema-box">
+	<h2 class="number-title"> Teorema</h2>
+	<h3> Criterio de la integral</h3>
+		<p>
+			Sea $f:[1,\infty) \to \mathbb{R}$ una función monónota decreciente, positiva. Para todo $n=1,2,\dots$ tomar
+			$$
+			s_n=\sum_{k=1}^n f(n), \quad t_n=\int_1^n f(x)dx
+			$$ 
+			Entonces o ambas suceciones  convergen o ambas sucesiones  divergen.
+			
+		</p>
+
+		<p>
+			Sugerencia: usa sumas de Riemann para $f$.
+		</p>
+</div>
+
+
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Fija $p\in (0,\infty)$. Una serie $p$ es una serie de la forma:
+		$$
+		\sum_{n=1}^\infty \frac{1}{n^p}.
+		$$
+		Demuestra que una serie $p$ converge converge si y sólo si $p>1$.
+		
+	</p>
+	<p>
+		Sugerencia: tomar $f(x)=\frac{1}{x^p}$, la cual el monónota 
+		decreciente y positiva en $[1,\infty)$.
+	</p>
+</div>
+
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Sea $f:[1,\infty) \to \mathbb{R}$ una función, no negativa y monótona creciente. 
+	</p>
 
 
 <ol> 
 
 <li>
 	Porbar que
-$$
-\sum_{k=1}^{n-1} f(k) \leq \int_1^n f(x)dx \leq \sum_{k=2}^n f(k)
-$$
+	$$
+	\sum_{k=1}^{n-1} f(k) \leq \int_1^n f(x)dx \leq \sum_{k=2}^n f(k)
+	$$
 
-Sugerencia: tomar sumas de Riemann inferiores y superiores en el intervalo $[0,n]$.
+	Sugerencia: tomar sumas de Riemann inferiores y superiores en el intervalo $[0,n]$.
 
 </li> 
 
 <li>
 	Tomar $f(x)=\log(x)$ (logaritmo natural) en el inciso anterior para deducir
-$$
-en^n e^{-n}< n! < e n^{n+1}e^{-n}.
-$$
+	$$
+	en^n e^{-n}< n! < e n^{n+1}e^{-n}.
+	$$
 </li> 
 
 
 <li>
 	Usando el inciso anterior demuetra:
-$$
-\left( \frac{n}{e} \right)^n e< n! < e^2  \left( \frac{n}{e} \right)^{n+1}
-$$
-que da una estimación para $n!$.
+	$$
+	\left( \frac{n}{e} \right)^n e< n! < e^2  \left( \frac{n}{e} \right)^{n+1}
+	$$
+	que da una estimación para $n!$.
 
 </li> 
 <li>
 	Demuestra:
-$$
-\lim_{n\to \infty} \frac{(n!)^{1/n}}{n} = \frac{1}{e}.
-$$
-lo que da la estimación $n! \approx (n/e)^n$.
+	$$
+	\lim_{n\to \infty} \frac{(n!)^{1/n}}{n} = \frac{1}{e}.
+	$$
+	lo que da la estimación $n! \approx (n/e)^n$.
 </li> 
 </ol>
+</div>
 
-\subsection*{Criterio de la raíz }
+
 
 
 <div class="teorema-box">
-Sea $(a_n)_{n\geq 0}$ una sucesión con $a_n \geq 0$ para toda $n$. Supongamos que el siguiente límite exsite
-$$
-R:=\lim_{n\to \infty} a_n^{1/n}
-$$
-Entonces
+	<h2 class="number-title"> Teorema </h2>
+	<h3> Criterio de la raíz </h3>
+	<p>
+		Sea $(a_n)_{n\geq 0}$ una sucesión con $a_n \geq 0$ para toda $n$. 
+		Supongamos que el siguiente límite exsite
+		$$
+		R:=\lim_{n\to \infty} a_n^{1/n}
+		$$
+		Entonces
+		
+	</p>
 <ol>
 	<li>
 		Si $R< 1$ la sucesión $(a_n)_{n\geq 0}$ es sumable.
@@ -481,75 +697,118 @@ Entonces
 		Si $R>1$ la sucesión $(a_n)_{n\geq 0}$ NO es sumable.
 	</li> 
 </ol>
+	<button class="respButton hvr-grow "> Demostración   </button>
+	<div class="resp-box flexbox">
+	<p>
+		Durante todo el ejercicio suponemos que el límite $R=\lim_{n\to \infty}a_n^{1/n}$ existe.  
+	</p>
+	<ol>
+		<li>
+			Fija $\varepsilon>0$. Demuestra que existe $N\in \mathbb{N}$ tal que, para todo $n\geq N$:
+	$$
+	R-\varepsilon < a_n^{1/n} < R+\varepsilon
+	$$
+		</li> 
+	
+	<li>
+		Si $R< 1$, demuestra que dada $r\in (R,1)$, existe $N\in \mathbb{R}$ tal que, para toda $n \geq N$:
+	$$
+	a_n \leq r^n.
+	$$
+	
+	Concluye, usando el ejercicio \ref{Ejer:CriterioComparacionDirecta} (comparación) y el ejercicio \ref{Ejer:SerieGeometrica}, que
+	la serie $\sum_{n=1}^\infty a_n$ converge.
+	
+	<p>
+		Sugerencia: en el inciso anterior toma $\varepsilon=r-R$.
+	</p>
+	</li> 
+	
+	<li>
+		Si $R>1$, demuestra que existe $N\in \mathbb{N}$ tal que, para toda  $n\geq N$:
+	$$
+	1\leq a_n.
+	$$
+	Concluye, usando el ejercicio \ref{Ejer:ConvergenciaCeroSeriesConvergentes}, que la serie $\sum_{n=1}^\infty a_n$ es divergente.
+	
+	<p>
+		Sugerencia: usa el primer inciso con $\varepsilon=R-1$.
+	</p>
+	
+	
+	</li> 
+	</ol>
+	</div>
+
 </div>
 
-Durante todo el ejercicio suponemos que el límite $R=\lim_{n\to \infty}a_n^{1/n}$ existe.  
 
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Da un ejemplo de  sucesiones $(a_n)_{n\geq 1}$, tales que:
+	</p>
 <ol>
-	<li>
-		Fija $\varepsilon>0$. Demuestra que existe $N\in \mathbb{N}$ tal que, para todo $n\geq N$:
-$$
-R-\varepsilon < a_n^{1/n} < R+\varepsilon
-$$
+	<li>$R=\lim_{n\to \infty}a_n^{1/n}$ existe, $R=1$ y la serie $\sum_{n=1}^\infty a_n$ converge. 
+		<p>
+			Sugerencia: usa una serie $p$.
+		</p>
 	</li> 
-
-<li>
-	Si $R< 1$, demuestra que dada $r\in (R,1)$, existe $N\in \mathbb{R}$ tal que, para toda $n \geq N$:
-$$
-a_n \leq r^n.
-$$
-
-Concluye, usando el ejercicio \ref{Ejer:CriterioComparacionDirecta} (comparación) y el ejercicio \ref{Ejer:SerieGeometrica}, que
-la serie $\sum_{n=1}^\infty a_n$ converge.
-
-Sugerencia: en el inciso anterior toma $\varepsilon=r-R$.
-</li> 
-
-<li>
-	Si $R>1$, demuestra que existe $N\in \mathbb{N}$ tal que, para toda  $n\geq N$:
-$$
-1\leq a_n.
-$$
-Concluye, usando el ejercicio \ref{Ejer:ConvergenciaCeroSeriesConvergentes}, que la serie $\sum_{n=1}^\infty a_n$ es divergente.
-
-Sugerencia: usa el primer inciso con $\varepsilon=R-1$.
-
-</li> 
+	<li>$R=\lim_{n\to \infty}a_n^{1/n}$ existe, $R=1$ y la serie $\sum_{n=1}^\infty a_n$ diverge. 
+		<p>
+			Sugerencia: usa una serie constante.
+		</p>
+	</li> 
 </ol>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Da un ejemplo de  sucesiones $(a_n)_{n\geq 1}$, tales que:
-<ol>
-	<li>$R=\lim_{n\to \infty}a_n^{1/n}$ existe, $R=1$ y la serie $\sum_{n=1}^\infty a_n$ converge. Sugerencia: usa una serie $p$.</li> 
-	<li>$R=\lim_{n\to \infty}a_n^{1/n}$ existe, $R=1$ y la serie $\sum_{n=1}^\infty a_n$ diverge. Sugerencia: usa una serie constante.</li> 
-</ol>
 
-Este ejercicio dice que el criterio de la raíz no se aplica cuando $\lim_{n\to \infty}a_n^{1/n}=1$.
+<p>
+	Not: este ejercicio dice que el criterio de la raíz no se aplica cuando $\lim_{n\to \infty}a_n^{1/n}=1$.
+</p>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que las siguientes series convergen:
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Demuestra que las siguientes series convergen:
+	</p>
 <ol>
 	<li>$\sum_{n=1}^\infty \frac{1}{\log(n)^{1/n}}$.</li> 
 	<li>$\sum_{n=1}^\infty (\frac{1}{n(n+1)})^{n^2}$.</li> 
 </ol>.
+</div>
 
 
-\subsection*{Criterio de la razón}
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Este ejercicio demuestra el criterio de la razón.
 
-<div class="teorema-box">[Criterio de la razón]
-Sea $(a_n)_{n\geq 0}$ una sucesión con $a_n >0$ para toda $n$. Supongamos que el siguiente límite exsite
-$$
-L:=\lim_{n} \frac{a_{n+1}}{a_n}
-$$
 
-Entonces
+<div class="teorema-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<h3> Criterio de la razón </h3>
+	<p>
+		Sea $(a_n)_{n\geq 0}$ una sucesión con $a_n >0$ para toda $n$. 
+		Supongamos que el siguiente límite exsite
+		$$
+		L:=\lim_{n} \frac{a_{n+1}}{a_n}
+		$$
+
+		Entonces
+	</p>
+
+
 <ol>
 	<li>Si $L < 1$ la serie converge.</li> 
 	<li>Si $ L > 1$ la serie diverge.</li> 
 </ol>
-</div>
+	<button class="respButton hvr-grow "> Demostración   </button>
+	<div class="resp-box flexbox">
+	<p>
+		Durante este ejercicio suponemos que $L:=\lim_{n} \frac{a_{n+1}}{a_n}$ existe.
+	</p>
 
-Durante este ejercicio suponemos que $L:=\lim_{n} \frac{a_{n+1}}{a_n}$ existe.
 
 <ol>
 	<li>Demuestra que existe  $N\in \mathbb{R}$ tal que, para toda $n \geq N$:
@@ -565,7 +824,9 @@ $$
 
 Concluye, usando el ejercicio \ref{Ejer:ConvergenciaCeroSeriesConvergentes}, que la serie $\sum_{n=1}^\infty a_n$ diverge.
 
-Sugerencia: toma $\varepsilon=L-1$ en el primer inciso.
+<p>
+	Sugerencia: toma $\varepsilon=L-1$ en el primer inciso.
+</p>
 </li> 
 
 <li>
@@ -574,130 +835,195 @@ $$
 a_{n+1} \leq r a_n
 $$
 
-Sugerencia: toma $\varepsilon=r-L$ en el primer inciso.
+<p>
+	Sugerencia: toma $\varepsilon=r-L$ en el primer inciso.
+</p>
+
 
 </li> 
-<li>Usando el inciso anterior demuestra que $a_{N+m} \leq a_N r^m$, para toda $m\geq 1$.  Concluye, usando el ejercicio \ref{Ejer:CriterioComparacionDirecta} (comparación) y el ejercicio \ref{Ejer:SerieGeometrica}, que la serie $\sum_{n=1}^\infty a_n$ converge.</li> 
+<li>Usando el inciso anterior demuestra que $a_{N+m} \leq a_N r^m$, para toda $m\geq 1$.  
+	Concluye, usando el <a href="#Ejer:CriterioComparacionDirecta"> Ejercicio (comparación)</a>  
+	y el <a href="##Ejer:SerieGeometrica"> Ejercicio</a>, 
+	que la serie $\sum_{n=1}^\infty a_n$ converge.</li> 
 </ol>
 
+	</div>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Da un ejemplo de  sucesiones $(a_n)_{n\geq 1}$, tales que:
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Da un ejemplo de  sucesiones $(a_n)_{n\geq 1}$, tales que:
+	</p>
 <ol>
 	<li>
-		$L=\lim_{n\to \infty}a_{n+1}/a_n$ existe, $L=1$ y la serie $\sum_{n=1}^\infty a_n$ converge. Sugerencia: usa una serie $p$.
+		$L=\lim_{n\to \infty}a_{n+1}/a_n$ existe, $L=1$ y 
+		la serie $\sum_{n=1}^\infty a_n$ converge. 
+		<p>
+			Sugerencia: usa una serie $p$.
+		</p>
 	</li> 
-	<li>$L=\lim_{n\to \infty}a_{n+1}/a_n$ existe, $L=1$ y la serie $\sum_{n=1}^\infty a_n$ diverge. Sugerencia: usa una serie constante.</li> 
+	<li>$L=\lim_{n\to \infty}a_{n+1}/a_n$ existe, $L=1$ y 
+		la serie $\sum_{n=1}^\infty a_n$ diverge. 
+		<p>
+			Sugerencia: usa una serie constante.
+		</p>
+	</li> 
 </ol>
+	<p>
+		Nota: este ejercicio dice que el criterio de la razón no se 
+		aplica cuando $\lim_{n\to \infty}a_{n+1}/a_n=1$.
+	</p>
 
-Este ejercicio dice que el criterio de la razón no se aplica cuando $\lim_{n\to \infty}a_{n+1}/a_n=1$.
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que las series son convergentes.
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Demuestra que las series son convergentes.
+	</p>
 <ol>
 	<li>
 		Sea $x\in \mathbb{R}$ fijo y arbitrario; $\sum_{n=0}^\infty \frac{x^n}{n!}$. 
-
-Nota: usando series de Taylor sabemos que el valor de la serie
-es $e^x$, pero sólo aplicando el criterio de la razón no tenemos el valor exácto de la serie. 
+		<p>
+			Nota: usando series de Taylor sabemos que el valor de la serie
+			es $e^x$, pero sólo aplicando el criterio de la razón no tenemos el 
+			valor exácto de la serie. 
+		</p>
 	</li> 
 <li>$\sum_{n=1}^\infty \frac{n!}{n^n}$. </li> 
 </ol>
+</div>
 
 
-\subsection*{Criterio de la serie alternante de Leibniz}
 
 <div class="definicion-box">
-Una serie se llama altermante si tiene la forma
-$$
-\sum_{n=1}^\infty (-1)^{n-1}a_n
-$$
-donde  $a_n>0$ para toda $n$.
+	<h2 class="number-title"> Definición </h2>
+	<p>
+		Una serie se llama altermante si tiene la forma
+		$$
+		\sum_{n=1}^\infty (-1)^{n-1}a_n
+		$$
+		donde  $a_n>0$ para toda $n$.
+		
+	</p>
 
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:SerieAlternanteReglaLeibniz} Este ejercicio demuestra la regla de Leibniz para series alternantes.
+<div class="teorema-box">
+	<h2 class="number-title" id="#Ejer:SerieAlternanteReglaLeibniz"> Ejercicio</h2> 
+	<h3> Regla de Leibniz</h3>		
+	<p>
+		Sea $(a_n)_{n\geq 1}$ una sucesión tal que: $a_n >0$ para toda n; es monótona 
+		decreciente $a_n> a_{n+1}$; y 
+		$\lim_n a_n=0$. Entoonces la serie $\sum_{n=1}^\infty (-1)^{n-1}a_n$ converge. 
+		Además, para toda $n\in \mathbb{N}$:
+		$$
+		0 < (-1)^n(S-s_n) < a_n, 
+		$$
+		donde $S=\sum_{n=1}^\infty (-1)^{n-1} a_n, s_n=\sum_{k=1}^n (-1)^{k-1}a_k$.
+	</p>
 
-<div class="teorema-box">[Regla de Leibniz]
+	<button class="respButton hvr-grow "> Demostración </button>
+	<div class="resp-box flexbox">
 
-Sea $(a_n)_{n\geq 1}$ una sucesión tal que: $a_n >0$ para toda n; es monótona decreciente $a_n> a_{n+1}$; y 
-$\lim_n a_n=0$. Entoonces la serie $\sum_{n=1}^\infty (-1)^{n-1}a_n$ converge. Además, para toda $n\in \mathbb{N}$:
-$$
-0 < (-1)^n(S-s_n) < a_n, 
-$$
-donde $S=\sum_{n=1}^\infty (-1)^{n-1} a_n, s_n=\sum_{k=1}^n (-1)^{k-1}a_k$.
+		<ol>
+			<li>
+				Considerar la  sucesión $(s_{2n})_{n=1}^\infty$. Demuestra que ésta serie es monótona creciente.
+		
+			<p>
+				Sugerencia: calcula $s_{2n+2}-s_{2n}$.
+			</p>
+			</li> 
+		
+		<li>
+			Considera la sucesión  $(s_{2n-1})_{n=1}^\infty$. Demuestra que ésta serie es monótona decreciente.
+		
+		
+			<p>
+				Sugerencia: calcula $s_{2(n+1)-1}-s_{2n-1}$.
+			</p>
+		</li> 
+		
+		<li>Demuestra que $s_{2n-1}-s_{2n}>0$, para toda $n$.</li> 
+		
+		<li>Demuestra que, para toda $n \geq 3$, $s_2 < s_n < s_1$. 
+		
+			<p>
+				Sugerencia: usa el ejercicio anterior.
+			</p>
+		</li> 
+		
+		<li>
+			Demuestra que los límites
+		$$
+		S'=\lim_{n\to \infty}s_{2n-1}, \quad S''=\lim_{n\to \infty}s_{2n}
+		$$
+		existen.  
+		
+		<p>
+			Sugerencia: usa el Teorema de la convergencia monótona para series
+			(ejercicio \ref{Ejer:TeoConvergenciaMonoSeries}).
+		</p>
+		</li> 
+		
+		<li>Demuestra que $S=S''$. Define $S=S'=S''$.
+		
+			<p>
+				Sugerencia: demuestra $s_{2n}-s_{2n-1}=a_{2n}$.
+			</p>
+		</li>  
+		
+		<li>
+			Finalmente, usa el ejercicio para concluir que $\lim_{n\to \infty}s_n=S$.
+		</li> 
+		
+		<li>
+			Demuestra que $s_{2n} < S < s_{2n-1}$, para toda $n$.
+		
+			<p>
+				Sugerencia: para $s_{2n} < S$ usa que  $S=S''$ y para $S < s_{2n-1}$ usa que $S=S'$.
+			</p>
+		</li> 
+		
+		<li>Demuestra que $S-s_{2n} \leq a_{2n+1}$, $s_{2n-1}-S\leq a_{2n}$.</li> 
+		
+		<li>
+			Concluye, de los dos incisos anteriores, que $0< (-1)^n(S-s_n) < a_n$.
+		</li> 
+		
+		
+		</ol>
+		
+	</div>
+
 </div>
 
 
-<ol>
-	<li>
-		Considerar la  sucesión $(s_{2n})_{n=1}^\infty$. Demuestra que ésta serie es monótona creciente.
-
-Sugerencia: calcula $s_{2n+2}-s_{2n}$.
-	</li> 
-
-<li>
-	Considera la sucesión  $(s_{2n-1})_{n=1}^\infty$. Demuestra que ésta serie es monótona decreciente.
 
 
-Sugerencia: calcula $s_{2(n+1)-1}-s_{2n-1}$.
-</li> 
-
-<li>Demuestra que $s_{2n-1}-s_{2n}>0$, para toda $n$.</li> 
-
-<li>Demuestra que, para toda $n \geq 3$, $s_2 < s_n < s_1$. 
-
-	Sugerencia: usa el ejercicio anterior.</li> 
-
-<li>
-	Demuestra que los límites
-$$
-S'=\lim_{n\to \infty}s_{2n-1}, \quad S''=\lim_{n\to \infty}s_{2n}
-$$
-existen.  
-
-Sugerencia: usa el Teorema de la convergencia monótona para series
-(ejercicio \ref{Ejer:TeoConvergenciaMonoSeries}).
-</li> 
-
-<li>Demuestra que $S=S''$. Define $S=S'=S''$.
-
-	Sugerencia: demuestra $s_{2n}-s_{2n-1}=a_{2n}$.
-	</li>  
-
-<li>
-	Finalmente, usa el ejercicio para concluir que $\lim_{n\to \infty}s_n=S$.
-</li> 
-
-<li>
-	Demuestra que $s_{2n} < S < s_{2n-1}$, para toda $n$.
-
-Sugerencia: para $s_{2n} < S$ usa que  $S=S''$ y para $S < s_{2n-1}$ usa que $S=S'$.
-</li> 
-
-<li>Demuestra que $S-s_{2n} \leq a_{2n+1}$, $s_{2n-1}-S\leq a_{2n}$.</li> 
-
-<li>
-	Concluye, de los dos incisos anteriores, que $0< (-1)^n(S-s_n) < a_n$.
-</li> 
-
-
-</ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:NumeroDeEuler} Este ejercicio demuestra el siguiente resultado:
-
-El siguiente límite existe
-$$
-\lim_{n\to \infty} \left( \sum_{k=1}^n \frac{1}{k}- \log(n) \right).
-$$
-
-Dicho límite se conoce como el número de Euler al cual vamos a denotar por $C$.
-
-Considerar la sucesión $(a_n)_{n\geq 1}$ donde
-$$
-a_{2n-1}=\frac{1}{n}, \quad a_{2n}=\int_{n}^{n+1} \frac{dx}{x}, n=1,2,\cdots
-$$
+<div class="ejercicio-box">
+	<h2 class="number-title" id="Ejer:NumeroDeEuler"> Ejercicio</h2> 
+	<p>
+		En este ejercicio vamos a probar que el siguiente límite existe
+		$$
+		\lim_{n\to \infty} \left( \sum_{k=1}^n \frac{1}{k}- \log(n) \right).
+		$$
+		
+		Dicho límite se conoce como el número de Euler al cual vamos a denotar por $C$.
+		
+	</p>
+	<p>
+		Considerar la sucesión $(a_n)_{n\geq 1}$ donde
+		$$
+		a_{2n-1}=\frac{1}{n}, \quad a_{2n}=\int_{n}^{n+1} \frac{dx}{x}, n=1,2,\cdots
+		$$
+		
+	</p>
 
 
 <ol>
@@ -720,9 +1046,15 @@ C=\lim_{n\to \infty} \left( \sum_{k=1}^n \frac{1}{k}- \log(n) \right).
 $$
 </li> 
 </ol>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Como una aplicación del número de Euler (\ref{Ejer:NumeroDeEuler}) vamos a demostrar la siguiente identidad: 
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Como una aplicación del número de Euler (\ref{Ejer:NumeroDeEuler}) 
+		vamos a demostrar la siguiente identidad: 
+	</p>
 
 $$
 \log(2)=\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}.
@@ -736,7 +1068,9 @@ $$
 		\sum_{k=1}^{2n} \frac{(-1)^{k-1}}{k} &=& \sum_{j=1}^{2n} \frac{1}{j}   - \sum_{m=1}^n \frac{1}{m} 
 		\end{eqnarray*}
 		
-		Sugerencia: separa en las $k$ impares y las $k$ pares.
+		<p>
+			Sugerencia: separa en las $k$ impares y las $k$ pares.
+		</p>
 		
 	</li> 
 <li>
@@ -755,73 +1089,90 @@ $$
 
 </li> 
 </ol>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:SerieArctan} Demuestra que, para toda $x\in [-1,1]$:
-$$
-\arctan(x)=\sum_{n=1}^\infty \frac{(-1)^{n-1}x^{2n-1}}{2n-1}.
-$$
+<div class="ejercicio-box">
+	<h2 class="number-title" id="Ejer:SerieArctan"> Ejercicio</h2> 
+	<p>
+		Demuestra que, para toda $x\in [-1,1]$:
+		$$
+		\arctan(x)=\sum_{n=1}^\infty \frac{(-1)^{n-1}x^{2n-1}}{2n-1}.
+		$$
+	</p>
 
 <ol>
 	<li>
 		Demuestra que
-$$
-\arctan(x)=\int_0^x \frac{1}{1+t^2}dt
-$$
+		$$
+		\arctan(x)=\int_0^x \frac{1}{1+t^2}dt
+		$$
 
-Sugerencia: por las derivadas de las funciones trigonómetricas inversas sabemos que
-$$
-\frac{d}{dx}(\arctan(x))=\frac{1}{1+x^2};
-$$
-por el Primer Teorema Fundamental  fundamental sabemos que
-$$
-\frac{d}{dx}\left( \int_0^x  \frac{1}{1+t^2}dt\right)= \frac{1}{1+x^2}.
-$$
+		Sugerencia: por las derivadas de las funciones trigonómetricas inversas sabemos que
+		$$
+		\frac{d}{dx}(\arctan(x))=\frac{1}{1+x^2};
+		$$
+		por el Primer Teorema Fundamental  fundamental sabemos que
+		$$
+		\frac{d}{dx}\left( \int_0^x  \frac{1}{1+t^2}dt\right)= \frac{1}{1+x^2}.
+		$$
 
-Con estas dos identidades justifica que $\arctan(x)=\int_0^x \frac{1}{1+t^2}dt$.
+		Con estas dos identidades justifica que $\arctan(x)=\int_0^x \frac{1}{1+t^2}dt$.
 
 	</li> 
-<li>
-	Usa la serie geométrica (\ref{Ejer:SerieGeometrica}) para probar que para todo $t\in [-1,1]$:
-$$
-\frac{1}{1+t^2}=\sum_{k=0}^n (-t^2)^{k}+ \frac{(-t^2)^{n+1}}{1+t^2}.
-$$
-</li> 
+		<li>
+			Usa la serie geométrica (\ref{Ejer:SerieGeometrica}) para probar que para todo $t\in [-1,1]$:
+		$$
+		\frac{1}{1+t^2}=\sum_{k=0}^n (-t^2)^{k}+ \frac{(-t^2)^{n+1}}{1+t^2}.
+		$$
+		</li> 
 
-<li>
-	De  la identidad del ejercicio anterior obten que, para todo $x\in[-1,1]$:
+		<li>
+			De  la identidad del ejercicio anterior obten que, para todo $x\in[-1,1]$:
 
-\begin{equation}\label{Eqn:AproxIntegArctan}
-\int_0^x \frac{dt}{1+t^2}= \sum_{k=0}^n (-1)^k \frac{x^{2k+1}}{2k+1} + (-1)^{n+1} \int_0^x \frac{t^{2n+2}}{1+t^2}dt.
-\end{equation}
-</li> 
+		\begin{equation}\label{Eqn:AproxIntegArctan}
+		\int_0^x \frac{dt}{1+t^2}= \sum_{k=0}^n (-1)^k \frac{x^{2k+1}}{2k+1} + (-1)^{n+1} \int_0^x \frac{t^{2n+2}}{1+t^2}dt.
+		\end{equation}
+		</li> 
 
-<li>
-	Demuestra que
-\begin{equation}\label{Eqn:ErrorArctan}
- \left| \int_0^x \frac{t^{2n+2}}{1+t^2}dt \right|   \leq \frac{1}{2n+3}.
-\end{equation}
-</li> 
+		<li>
+			Demuestra que
+		\begin{equation}\label{Eqn:ErrorArctan}
+		\left| \int_0^x \frac{t^{2n+2}}{1+t^2}dt \right|   \leq \frac{1}{2n+3}.
+		\end{equation}
+		</li> 
 
-<li>
-	Toma límite en \eqref{Eqn:AproxIntegArctan} y usa \eqref{Eqn:ErrorArctan} para concluir:
-\begin{eqnarray*}
-\arctan(x) &=& \lim_{n\to \infty} \left(  \sum_{k=0}^n (-1)^k \frac{x^{2k+1}}{2k+1} + (-1)^{n+1} \int_0^x \frac{t^{2n+2}}{1+t^2}dt\right) \\
-&=& \sum_{k=0}^\infty \frac{(-1)^k x^{2k+1}}{2k+1}
-\end{eqnarray*}
-</li> 
-</ol>
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra:
-$$\frac{\pi}{4}=\sum_{n=1}^\infty \frac{(-1)^{n-1}}{2n-1} $$
-
-Sugerencia: usa el ejercicio \ref{Ejer:SerieArctan}.
+		<li>
+			Toma límite en \eqref{Eqn:AproxIntegArctan} y usa \eqref{Eqn:ErrorArctan} para concluir:
+		\begin{eqnarray*}
+		\arctan(x) &=& \lim_{n\to \infty} \left(  \sum_{k=0}^n (-1)^k \frac{x^{2k+1}}{2k+1} + (-1)^{n+1} \int_0^x \frac{t^{2n+2}}{1+t^2}dt\right) \\
+		&=& \sum_{k=0}^\infty \frac{(-1)^k x^{2k+1}}{2k+1}
+		\end{eqnarray*}
+		</li> 
+		</ol>
+</div>
 
 
-\subsection*{Miscelanea}
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Demuestra:
+		$$\frac{\pi}{4}=\sum_{n=1}^\infty \frac{(-1)^{n-1}}{2n-1} $$
+		
+	</p>
+	<p>
+		Sugerencia: usa el <a href="#Ejer:SerieArctan"> Ejercicio.</a>
+	</p>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Decir si las siguientes series son convergentes o divergentes. Justificar respuesta.
+
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Decir si las siguientes series son convergentes o divergentes. Justificar respuesta.
+	</p>
 
 <ol>
 	<li>
@@ -847,43 +1198,73 @@ Sugerencia: usa el ejercicio \ref{Ejer:SerieArctan}.
 	</li> 
 
 </ol>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sean $(a_n)_{n\geq 1}, (b_n)_{n\geq 1}$ dos sucesiones con $a_n>0, b_n >0$ para toda $n \geq N$. Tomar
-$c_n=b_n-(b_{n+1}a_{n+1})/a_n$. Demostrar que
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Sean $(a_n)_{n\geq 1}, (b_n)_{n\geq 1}$ dos sucesiones con $a_n>0, b_n >0$ 
+		para toda $n \geq N$. Tomar
+		$c_n=b_n-(b_{n+1}a_{n+1})/a_n$. Demostrar que
+	</p>
 <ol>
 	<li>
-		Si existe una constante positiva $r$, tal que $c_n \geq r$, para toda $n \geq N$, entonces $\sum_{n=N}^\infty a_n$ converge.
+		Si existe una constante positiva $r$, tal que $c_n \geq r$, para toda $n \geq N$, 
+		entonces $\sum_{n=N}^\infty a_n$ converge.
+		<p>
+			Hint: Probar $\sum_{k=N}^n a_k \leq (a_Nb_N)/r$.
+		</p>
 	</li> 
 
-Hint: Probar $\sum_{k=N}^n a_k \leq (a_Nb_N)/r$.
-
-<li>
-	Si $c_n \leq 0$ para $n \geq N$ y si $\sum_{n=N}^\infty \frac{1}{b_n}$ diverge, también $\sum_{n=N}^\infty a_n$ diverge.
-</li> 
-
-Hint: Probar que $\sum_{n=N}^\infty a_n$ domina a $\sum_{n=N}^\infty \frac{1}{b_n}$.
+	<li>
+		Si $c_n \leq 0$ para $n \geq N$ y si $\sum_{n=N}^\infty \frac{1}{b_n}$ diverge, 
+		también $\sum_{n=N}^\infty a_n$ diverge.
+		<p>
+			Hint: Probar que $\sum_{n=N}^\infty a_n$ domina a $\sum_{n=N}^\infty \frac{1}{b_n}$.
+		</p>
+	</li> 
 </ol>
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $(a_n)_{n\geq 1}$ una sucesión de términos positivos. Probar el siguiente criterio de Raabe: 
-
-Si existe un $r>0$ y un natural $N\geq 1$ tales que
-$$
-\frac{a_{n+1}}{a_n} \leq 1-\frac{1}{n}-\frac{r}{n^2}, \quad \textrm{para todo $n\geq N$}
-$$
-entonces la serie $\sum_{n=1}^\infty a_n$ converge. 
+</div>
 
 
-Si 
-$$
-\frac{a_{n+1}}{a_n} \geq 1 -\frac{1}{n}, \quad \textrm{para todo $n\geq N$}
-$$
-la serie $\sum_{n=1}^\infty$ diverge.
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Sea $(a_n)_{n\geq 1}$ una sucesión de términos positivos. 
+		Probar el siguiente criterio de Raabe: 
+	</p>
+	<p>
+		Si existe un $r>0$ y un natural $N\geq 1$ tales que
+		$$
+		\frac{a_{n+1}}{a_n} \leq 1-\frac{1}{n}-\frac{r}{n^2}, \quad \textrm{para todo $n\geq N$}
+		$$
+		entonces la serie $\sum_{n=1}^\infty a_n$ converge. 
+		
+	</p>
+	<p>
+		Si 
+		$$
+		\frac{a_{n+1}}{a_n} \geq 1 -\frac{1}{n}, \quad \textrm{para todo $n\geq N$}
+		$$
+		la serie $\sum_{n=1}^\infty$ diverge.
+		
+		
+	</p>
+	<p>
+		Hint: aplicar el ejercicio anterior con $b_{n+1}=n$.
+	</p>
+</div>
 
 
-Hint: aplicar el ejercicio anterior con $b_{n+1}=n$.
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Determina la convergencia o divergencia de las series. Justifica la respuesta.
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Determina la convergencia o divergencia de las series. Justifica la respuesta.
+	</p>
 
 <ol>
 	<li>
@@ -902,8 +1283,15 @@ Hint: aplicar el ejercicio anterior con $b_{n+1}=n$.
 		$\sum_{n=1}^\infty (-1)^n \left( e -(1+\frac{1}{n})^n \right)$
 	</li> 
 </ol>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> En cada inciso que sigue, determinar el conjunto de las $x \in \mathbb{R}$ para las cuales la serie converge
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		En cada inciso que sigue, determinar el conjunto de las 
+		$x \in \mathbb{R}$ para las cuales la serie converge
+	</p>
 <ol>
 	<li>
 		$\sum_{n=1}^\infty  \frac{(-1)^n x^{3n}}{n!}$
@@ -916,30 +1304,77 @@ Hint: aplicar el ejercicio anterior con $b_{n+1}=n$.
 	</li> 
 </ol>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Si $(a_n)_{n\geq 1}$ es una sucesión de reales con $a_n>0$ para todo $n$ tal que $\sum_{n=1}^\infty a _n$ converge, demuestra que
-$\sum_{n=1}^\infty \frac{1}{a_n}$ diverge.
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Si $\sum_{n=1}^\infty |a_n|$ converge prueba que $\sum_{n=1}^\infty a_n^2$ converge. Da un ejemplo en el que $\sum_{n=1}^\infty a_n^2$ converge pero $\sum_{n=1}^\infty a_n$ diverge. 
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $(a_n)_{n\geq 1}$ una sucesión tal que $a_n \geq 0$ para toda $n$ y tal que $\sum_{n=1}^\infty a_n$ converge. Prueba que
-$\sum_{n=1}^\infty \sqrt{a_n} n^{-p}$ converge para $p>1/2$. Da un contraejemplo para $p=1/2$.
-
-\subsection*{Criterio de Cauchy}
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> El criterio de Cauchy es una consecuencia directa del Teorema que asegura la convergencia de las suceciones de Cauchy (ejercicio \ref{Ejer:TeoCompletezR}).
-
-Demuestra:
-
-Una sucesión $(a_k)_{k\geq 0}$ es sumable  si y sólo si para todo $\varepsilon>0$ existe $N=N(\varepsilon)\in \mathbb{N}$ tal que, para todo $n, m \geq N$ con $n < m$
-$$
-\left|  \sum_{k=n}^m a_k \right| < \varepsilon
-$$
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Si $(a_n)_{n\geq 1}$ es una sucesión de reales con $a_n>0$ para todo 
+		$n$ tal que $\sum_{n=1}^\infty a _n$ converge, demuestra que
+		$\sum_{n=1}^\infty \frac{1}{a_n}$ diverge.
+		
+	</p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Sea $(a_k)_{k\geq 0}$ una sucesión y definamos, otra sucesión, de la siguiente forma: fijamos $N \in \mathbb{N}$ y definimos
-$b_k=a_k$ para $k \geq N$ y para $1\leq k \leq N_1$ tomamos $b_k$  cualquiera números. Demuestra que
-$$
-(a_k)_{k\geq 0} \quad \textrm{es sumable } \Leftrightarrow (b_k)_{k\geq 0}\quad \textrm{es sumable}.
-$$
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Si $\sum_{n=1}^\infty |a_n|$ converge prueba que $\sum_{n=1}^\infty a_n^2$ converge. 
+		Da un ejemplo en el que $\sum_{n=1}^\infty a_n^2$ converge pero 
+		$\sum_{n=1}^\infty a_n$ diverge. 
+	</p>
+</div>
 
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Sea $(a_n)_{n\geq 1}$ una sucesión tal que $a_n \geq 0$ para toda $n$ 
+		y tal que $\sum_{n=1}^\infty a_n$ converge. Prueba que
+		$\sum_{n=1}^\infty \sqrt{a_n} n^{-p}$ converge para $p>1/2$. 
+	</p>
+	<p>
+		Da un contraejemplo que muestre que el resultado no es válido para $p=1/2$.
+	</p>
+</div>
+
+
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		El criterio de Cauchy es una consecuencia directa del 
+		Teorema que asegura la convergencia de las suceciones de Cauchy 
+		(completez de \(\mathbb{R}\)).
+	</p>
+	<p>
+		Demuestra:
+
+		Una sucesión $(a_k)_{k\geq 0}$ es sumable  si y sólo si para todo $\varepsilon>0$ existe $N=N(\varepsilon)\in \mathbb{N}$ tal que, para todo $n, m \geq N$ con $n < m$
+		$$
+		\left|  \sum_{k=n}^m a_k \right| < \varepsilon
+		$$
+		
+	</p>
+</div>
+
+
+
+
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2> 
+	<p>
+		Sea $(a_k)_{k\geq 0}$ una sucesión y definamos, otra sucesión, 
+		de la siguiente forma: fijamos $N \in \mathbb{N}$ y definimos
+		$b_k=a_k$ para $k \geq N$ y para $1\leq k \leq N_1$ tomamos $b_k$  
+		cualquiera números. Demuestra que
+		$$
+		(a_k)_{k\geq 0} \quad \textrm{es sumable } \Leftrightarrow (b_k)_{k\geq 0}
+		\quad \textrm{es sumable}.
+		$$
+		
+	</p>
+</div>
+</body>
