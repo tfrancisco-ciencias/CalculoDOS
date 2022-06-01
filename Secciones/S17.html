@@ -431,7 +431,7 @@
 
 
 <div class="ejercicio-box">
-	<h2 class="number-title"> Ejercicio</h2> 
+	<h2 class="number-title" id="Ejer:LinealidadIntervalosSeries"> Ejercicio</h2> 
 	<p>
 		Sea $M\geq 1$ cualquier entero.  Demuestra que la serie $\sum_{k=0}^\infty a_k$ 
 		converge  si y sólo si $\sum_{k=M}^\infty a_k$ converge. Es más, prueba que:
@@ -550,6 +550,8 @@
 		$$
 		
 	</p>
+	<button class="respButton hvr-grow "> Solución   </button>
+	<div class="resp-box flexbox">
 	<p>
 		Vamos a usar la propiedad fundamental del supremo:
 		<p>
@@ -598,7 +600,7 @@
 		 \(|\alpha - s_n |< \varepsilon\), para todo \(n\geq n_0\), lo cual 
 		 nos dice \(\lim_{n\to \infty} s_n=\alpha\).
 	 </p>
-
+	</div>
 </div>
 
 
@@ -612,6 +614,8 @@
 		\sum_{k=0}^\infty \sqrt{a_ka_{k+1}} \leq \sum_{k=0}^\infty a_k.
 		$$
 	</p>
+	<button class="respButton hvr-grow "> Solución   </button>
+	<div class="resp-box flexbox">
 	<p>
 		Denotemos \(s_n=\sum_{k=0}^n a_k\) y \(s=\lim_{n\to \infty} s_n\). Por el Teorema 
 		de la convergencia monótona, \(s=\sup_{n=0,1,\dots}\{ s_n\}\).
@@ -648,6 +652,7 @@
 		\lim_{n\to \infty} \sum_{k=0}^n \sqrt{a_{k}a_{k+1}} \leq s =\sum_{k=0}^\infty a_k.
 		\]
 	</p>
+	</div>
 </div>
 
 
@@ -766,7 +771,7 @@
 
 
 <div class="ejercicio-box">
-	<h2 class="number-title"> Ejercicio</h2> 
+	<h2 class="number-title" id="Ejer:LemaCriterioComparacion"> Ejercicio</h2> 
 	<p>
 		Supon que las dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ satisfacen 
 		$0\leq a_k$, $0< b_k$ para toda $k$ y que el siguiente 
@@ -782,14 +787,21 @@
 		$$
 		
 	</p>
+	<button class="respButton hvr-grow "> Demostración    </button>
+	<div class="resp-box flexbox">
 	<p>
-		Sugerencia: aplica la definición de límite usando $\varepsilon$,  al límite $\lim_{k \to \infty } \frac{a_k}{b_k}=L$, con
-		$\varepsilon=\alpha L$.
-		
+		Tomamos \(\varepsilon=\alpha L \) en la definición de 
+		\(\lim_{k\to \infty}\frac{a_k}{b_k}=L\). Nota que \(\varepsilon >0\) pues 
+		\(L,\alpha >0\). Entonces existe \(N\in \mathbb{N}\) tal que, para todo \(k \geq N\)
+		se cumple \(|a_k/b_k - L | < \varepsilon\). Se sigue que 
+		\begin{eqnarray*}
+		\left| \frac{a_k}{b_k}-  L \right| < \alpha L & \Rightarrow & -\alpha L < \frac{a_k}{b_k} -L < \alpha L \\
+		& \Rightarrow & (1-\alpha)L < \frac{a_k}{b_k} < (1+\alpha)L \\
+		& \Rightarrow & (1-\alpha)Lb_k < a_k < (1+\alpha)Lb_k 
+		\end{eqnarray*}
+		donde en la última implicación las desigualdades se mantienen pues \(b_k> 0\).
 	</p>
-	<p>
-		
-	</p>
+	</div>
 </div>
 
 <div class="ejercicio-box">
@@ -807,6 +819,49 @@
 		$\sum_{k=0}^\infty b_k$ converge.
 		
 	</p>
+	<button class="respButton hvr-grow "> Demostración    </button>
+	<div class="resp-box flexbox">
+	<p>
+		Denotemos 
+		\[
+		L=\lim_{k\to \infty}\frac{a_k}{b_k}
+		\]
+		Por suposición \(L > 0\). Si aplicamos el <a href="#Ejer:LemaCriterioComparacion">Ejercicio 17.20</a> 
+		con \(\alpha = 1/2\) obtenemos que existe \(N\in \mathbb{N}\) tal que 
+		\begin{equation}\label{Eqn:AuxCriterioComparacion}
+			\frac{L}{2} b_k < a_k < \frac{3 L}{2}b_k
+		\end{equation}
+		para todo \(k\geq N\).		
+	</p>
+	<p>
+		Ahora definamos lo siguientes conjuntos 
+		\[
+		A=\left\{ \sum_{k=N}^K a_k : K\geq N \right\}, \, B=\left\{ \sum_{k=N}^K b_k : K\geq N \right\}.
+		\]
+	</p>
+	<p>
+		Si suponemos que \(\sum_{k=0}^\infty a_k\) es convergente 
+		se sigue del <a href="#Ejer:TeoConvergenciaMonoSeries">Teorema de convergencia monótona</a> 
+		que el conjunto \(A\) está acotado superiormente, digamos que 
+		\(M\) es una conta superior. De la 
+		ecuación \eqref{Eqn:AuxCriterioComparacion} se sigue que
+		\[
+		\sum_{k=N}^K \frac{L}{2} b_k \leq \sum_{k=N}^K a_k \Rightarrow \sum_{k=N}^K b_K 
+		\leq \frac{2}{L} \sum_{k=N}^K a_k
+		\] 
+		por lo tanto \(\frac{2}{L}M \)
+		es cota superior de \(B\). Nuevamente por el <a href="#Ejer:TeoConvergenciaMonoSeries">Teorema de la convergencia monótona </a>
+		concluimos que \(\sum_{k=N}^\infty b_k\) es convergente lo cual implica 
+		(<a href="#Ejer:LinealidadIntervalosSeries">Ejercicio 17.9</a>) que \(\sum_{k=0}^\infty b_k\) es convergente. 
+	</p>
+	<p>
+		De manera similar, si \(\sum_{k=0}^\infty b_k\) es convergente con conjunto 
+		\(B\) está acotado superiormente. Si \(M'\) es cota superior de \(B\)
+		entoneces de \eqref{Eqn:AuxCriterioComparacion} se sigue que 
+		\(\frac{3L}{2}M'\) es cota superior de \(A\) lo cual implioca que 
+		\(\sum_{k=0}^\infty a_k\) es convergente.
+	</p>
+	</div>
 </div>
 
 
@@ -839,7 +894,7 @@
 <div class="ejercicio-box">
 	<h2 class="number-title" id="Ejer:CriterioComparacion2"> Ejercicio</h2> 
 	<p>
-		Este ejercicio es una mejora al <a href="#Ejer:CriterioComparacion"> Ejercicio 17.21</a>.
+		Este ejercicio es una mejora al <a href="#Ejer:CriterioComparacion">Criterio de comparación</a>.
 	</p>
 	<p>
 		Sean dos  sucesiones $(a_k)_{k\geq 0}$ y $(b_k)_{k \geq 0}$ que satisfacen 
@@ -917,7 +972,7 @@
 	
 
 <div class="teorema-box">
-	<h2 class="number-title"> Teorema</h2>
+	<h2 class="number-title" id="Teo:CriterioIntegral"> Teorema</h2>
 	<h3> Criterio de la integral</h3>
 		<p>
 			Sea $f:[1,\infty) \to \mathbb{R}$ una función monónota decreciente, positiva. Para todo $n=1,2,\dots$ tomar
@@ -927,10 +982,58 @@
 			Entonces o ambas suceciones  convergen o ambas sucesiones  divergen.
 			
 		</p>
-
 		<p>
-			Sugerencia: usa sumas de Riemann para $f$.
+			Es decir
+			\[
+			\lim_{n\to \infty} \sum_{k=1}^n f(n) \quad \textrm{existe} \Leftrightarrow 
+			\lim_{n\to \infty} \int_1^n f(t)dt \quad \textrm{existe}
+			\]
 		</p>
+		<p>
+			Es más 
+			\[
+				\sum_{k=2}^\infty f(k)\leq \lim_{n\to \infty} \int_1^n f(t)dt \leq \sum_{k=1}^\infty f(k)
+			\]
+		</p>
+
+		<button class="respButton hvr-grow "> Solución   </button>
+		<div class="resp-box flexbox">
+		<p>
+			Para un natural \(n>1\) consideramos sumas inferiores y superiores 
+			de \(\int_1^n f(d)dt\), con la partición de 
+			\([1,n]\) dada por \(P=\{x_0=1,x_1=2,\dots,x_k=x+1, \cdots,  x_{N}=N+1=n\}\)
+			\begin{eqnarray*} 
+			\underline{S}(f,P)&=&\sum_{k=1}^N m_k(x_{k}-x_{k-1})=\sum_{k=1}^{n-1} f(k+1), \\
+			\overline{S}(f,P)&=&\sum_{k=1}^N M_k(x_{k}-x_{k-1})=\sum_{k=1}^{n-1} f(k).
+			\end{eqnarray*}
+			Nota: al ser \(f\) monótona decreciente, \(m_k=\inf_{x\in [x_{k-1},x_k]}\{f(x)\}=f(x_k)=f(k+1)\),
+			\(M_k=\sup_{x\in [x_{k-1},x_k]}\{f(x)\}=f(x_{k-1})=f(k)\).
+		</p>
+		<p>
+			Por la definición de la integral tenemos 
+			\begin{equation}\label{Eqn:CriterioIntegral}
+				\sum_{k=1}^{n-1} f(k+1) \leq \int_1^n f(t)dt \leq \sum_{k=1}^{n-1} f(k)
+			\end{equation}
+			Ahora definamos 
+			\[
+				A=\left\{ \sum_{k=1}^n f(k): n\geq 1 \right\}, \,
+				B=\left\{ \int_1^n f(t)dt : n \geq 1 \right\}
+			\]
+			Por la ecuación \eqref{Eqn:CriterioIntegral}  tenemos que 
+			\(A\) está acotado si y sólo si \(B\) está acotado. Por 
+			el <a href="#Ejer:TeoConvergenciaMonoSeries">Teorema de la convergencia monótona</a> tenemos que 
+			\(\lim_{n\to \infty} \sum_{k=1}^n f(k)\) existe 
+			si y sólo si \(\lim_{n\to \infty}\int_1^n f(t)dt\) existe.
+		</p>
+		<p>
+			Finalmente tomando límite cuando \(n\to \infty\) en \eqref{Eqn:CriterioIntegral}
+			obtenemos 
+			\[
+			\sum_{k=2}^\infty f(k)\leq \lim_{k\to \infty} \int_1^n f(t)dt \leq \sum_{k=1}^\infty f(k)
+			\]
+		</p>
+		</div>
+		
 </div>
 
 
