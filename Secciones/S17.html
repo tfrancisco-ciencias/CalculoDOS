@@ -112,11 +112,17 @@
 
 		Dada una sucesión $(a_k)_{k\geq 0}$, una suma de la forma
 		$$
-		s_n=\sum_{k=0}^n a_k
+		s_n=\sum_{k=1}^n a_k
 		$$
 		se llama una suma parcial. 
 	</p>
-
+	<p>
+		Nota: la enumeración de las series pueden empezar desde 1 o desde 0, 
+		\[
+			\sum_{n=0}^\infty a_n, \quad \sum_{n=1}^\infty a_n.
+		\]
+		más adelante veremos que esto no importa.
+	</p>
 </div>
 
 <div class="ejercicio-box">
@@ -130,6 +136,37 @@
 		\lim_{n\to \infty} a_n=0.
 		$$
 	</p>
+	<button class="respButton hvr-grow "> Solución   </button>
+	<div class="resp-box flexbox">
+	<p>
+		Ya que la sucesión es sumable el siguiente límite existe:
+		\[
+		S=\lim_{N\to \infty} \sum_{n=1}^N a_n
+		\]
+	</p>
+	<p>
+		Sea \(\varepsilon > 0\) fijo y arbitrario. Por convergencia 
+		existe \(N_0\in \mathbb{N} \) tal que, para todo 
+		\(N \geq N_0\) se cumple 
+		\[
+		\left| \sum_{n=1}^N a_n - S \right| < \frac{\varepsilon	}{2}
+		\]
+	</p>
+	<p>
+		Entonces notando que 
+		\[
+			\sum_{n=1}^{N+1} a_n -\sum_{n=1}^N a_n=a_{N+1}
+		\]
+		concluimos que para toda \(N \geq N_0\)
+		\begin{eqnarray*}
+		|a_{N+1}| &=&  \left| \sum_{n=1}^{N+1} a_n -\sum_{n=1}^N a_n \right| \\
+		&\leq &  \left| \sum_{n=1}^{N+1} a_n - S\right|
+		+\left| S  -\sum_{n=1}^N a_n \right|  \\
+		& < & \varepsilon. 
+		\end{eqnarray*}
+		
+	</p>
+	</div>
 </div>
 
 
@@ -137,33 +174,97 @@
 <div class="ejercicio-box">
 	<h2 class="number-title" id="Ejer:SerieArmonicaDiverge"> Ejercicio</h2> 
 	<p>
-		Sea $P=\{a_0 <\cdots a_m\}$ cualquier partición del intervalo $[1,x]$, donde $x>1$.
+		Sea $P=\{x_0 <\cdots x_n\}$ cualquier partición del intervalo $[1,x]$, donde $x>1$.
+		Por \(\ln\) denotamos a la función logaritmo natural.
 	</p>
 <ol>
 	<li>
-		Usando funciones escalonadas se pueden probar las siguientes  desigualdades
+		Usando funciones escalonadas prueba las siguientes  desigualdades
 		$$
-		\sum_{k=1}^n \frac{a_k-a_{k-1}}{a_k}< L(x)< \sum_{k=1}^n \frac{a_k-a_{k-1}}{a_{k-1}}
-		$$
-	</li> 
-	<li>
-		Tomar una partición adecuada para demostrar que, para todo natural $n\geq 2$:
-		$$
-		\sum_{k=2}^n \frac{1}{k}< L(n) < \sum_{k=1}^{n-1} \frac{1}{k}
+		\sum_{k=1}^n \frac{x_k-x_{k-1}}{x_k}\leq  \ln(x) \leq \sum_{k=1}^n \frac{x_k-x_{k-1}}{x_{k-1}}
 		$$
 	</li> 
 	<li>
-		Concluir que la serie armónica diverge a infinito, es decir:
+		Tomando una partición adecuada prueba que, para todo natural $N \geq 2$:
 		$$
-		\lim_{n\to \infty} \sum_{k=1}^n \frac{1}{k}=\infty
+		\sum_{k=2}^N \frac{1}{k} \leq \ln(n) \leq \sum_{k=1}^{N-1} \frac{1}{k}
+		$$
+	</li> 
+	<li>
+		Concluye que la serie armónica diverge a infinito, es decir:
+		$$
+		\lim_{N\to \infty} \sum_{k=1}^N \frac{1}{k}=+\infty
 		$$
 	</li> 	
-	 
+
 </ol>
 <p>
 	Nota: la serie armónica es un ejemplo de una sucesión que 
 	satisfaga $\lim_{n\to \infty}a_n=0$ pero que la serie $\sum_{n=1}^\infty a_n$ sea divergente.
 </p>
+	<button class="respButton hvr-grow "> Solución   </button>
+	<div class="resp-box flexbox">
+	<p> Demostración inciso 1.</p>
+	<p>
+		Vamos a considerar las sumas inferiores y superiores de la función 
+		\(f(t)=\frac{1}{t}, t >0\):
+		\begin{eqnarray*} 
+		\overline{S}(f,P)=\sum_{k=1}^n M_k(x_k-x_{k-1}), \\
+		\underline{S}(f,P)=\sum_{k=1}^n m_k(x_k-x_{k-1}), 
+		\end{eqnarray*}
+		donde \(M_k=\sup_{x\in [x_{k-1},x_k]}\{f(x)\}\),
+		\(m_k=\sup_{x\in [x_{k-1},x_k]}\{f(x)\}\).
+	</p>
+	<p>
+		Ya que \(f(t)=\frac{1}{t}\) es estrictamente decreciente tenemos 
+		\(m_k=\frac{1}{x_{k}}, M_k=\frac{1}{x_{k-1}}\) por lo que 
+		\begin{eqnarray*}
+		\overline{S}(f,P)=\sum_{k=1}^n \frac{x_k-x_{k-1}}{x_{k-1}}, \quad 
+		\underline{S}(f,P)=\sum_{k=1}^n \frac{x_k-x_{k-1}}{x_{k}}
+		\end{eqnarray*}
+		Usando que 
+		\[
+		\underline{S}(f,P)\leq \int_1^x f(t)dt \leq \overline{S}(f,P)
+		\]
+		y la definición de logaritmo natural concluimos 
+		\[
+		\sum_{k=1}^n \frac{x_k-x_{k-1}}{x_{k}} \leq \ln(x) \leq 
+		\sum_{k=1}^n \frac{x_k-x_{k-1}}{x_{k-1}}.
+		\]
+	</p>
+	<p>
+		Demostración inciso 2.
+	</p>
+	<p>
+		Tomando la partición de \([1,N]\) dada por 
+		\[
+		x_0=1, x_1=2, \cdots, x_k=k+1, \cdots, x_n=n+1=N
+		\]
+		llegamos a 
+		\begin{eqnarray*}
+		\sum_{k=1}^{n} \frac{x_k-x_{k-1}}{x_{k-1}}&=&\sum_{k=1}^{N-1} \frac{1}{k} \\
+		\sum_{k=1}^{n} \frac{x_k-x_{k-1}}{x_{k}}&=&\sum_{k=1}^{N-1} \frac{1}{k+1} =\sum_{j=2}^N \frac{1}{j}
+		\end{eqnarray*}
+		y por el inciso 1 concluimos 
+		\[
+		\sum_{j=2}^N \frac{1}{j} \leq \ln(N)\leq \sum_{k=1}^{N-1}\frac{1}{k}
+		\]
+	</p>
+	<p>
+		Demostración inciso 3.
+	</p>
+	<p>
+		Finalmente, de la desigualdad 
+		\[
+		\ln(N)\leq \sum_{k=1}^{N-1}\frac{1}{k}
+		\]
+		y del hecho de que \(\lim_{N\to \infty} \ln(N)=+\infty\) 
+		(<a href="./S13.html#Ejer:LimiteLnxInfinito">Ejercicio 3.18</a>) concluimos que 
+		\[
+		\lim_{N\to \infty} \sum_{k=1}^N  \frac{1}{k}=+\infty.
+		\]
+	</p>
+	</div>
 </div>
 
 
@@ -174,7 +275,7 @@
 		con $a_k=\frac{3k^3+12k^2-5k+10}{2k^3-8k^2-9k+20}$, no es sumable.  
 	</p>
 	<p>
-		Sugerencia: usa  <a href="#Ejer:ConvergenciaCeroSeriesConvergentes"> Ejercicio 17.4</a>.
+		Sugerencia: usa  <a href="#Ejer:ConvergenciaCeroSeriesConvergentes"> Ejercicio 17.3</a>.
 	</p>
 </div>
 
@@ -211,6 +312,54 @@
 	</li>
 	
 </ol>
+<button class="respButton hvr-grow "> Solución   </button>
+<div class="resp-box flexbox">
+<p>
+	Demostración inciso 1.
+</p>
+<p>
+	Notamos que al multiplicar \(s_n\) por la razón \(r\) obtenemos 
+	\[
+	rs_n=\sum_{k=0}^n r^{k+1} 
+	\]
+	por lo que al tomar la resta obtenemos 
+	\[
+	s_n-rs_n= (1+r+r^2 +\cdots +r^n) - (r+r^2+ \cdots + r^{n+1})=1-r^{n+1}
+	\]
+	pero por otro lado al factorizar \(s_n\) tenemos 
+	\[
+	s_n-rs_n=(1-r)s_n
+	\]
+	igualando éstas dos ecuaciones y dividiendo por \(r-1\) (recuerda \(r\ne 1\)) llegamos a 
+	\[
+	s_n=\frac{1-r^{n+1}}{1-r}.
+	\]
+</p>
+<p>
+	Demostración inciso 2.
+</p>
+<p>
+	Cuando \(|r|< 1\), \(\lim_{n\to \infty} r^n =0\) por lo que tenemos 
+	\[
+	\lim_{n \to \infty} \sum_{k=0}^n r^k =\lim_{n\to \infty} \frac{1-r^{n+1}}{1-r}=\frac{1}{1-r}
+	\]
+	y la serie geométrica es convergente.
+</p>
+<p>
+	Demostración inciso 3.
+</p>
+<p>
+	Lo haremos por contradicción. Si la serie geométrica fuese convergente 
+	entonces el término n-ésimo tendería a cero 
+	(<a href="#Ejer:ConvergenciaCeroSeriesConvergentes">Ejercicio 17.3</a>), en el caso de la geométrica tendríamos 
+	\[
+		\lim_{k\to \infty} |r^k|=0
+	\]
+	Pero tenemos dos casos: si \(|r|=1\) entonces \(\lim_{k\to \infty} |r|^k=1\);
+	si \(|r|>1 \) entonces \(\lim_{k\to \infty} |r|^k = +\infty\). En cualquier caso 
+	contradiciendo \(\lim_{k\to \infty} |r^k|=0\).
+</p>
+</div>
 </div>
 
 
@@ -225,6 +374,31 @@
 		\sum_{k=0}^\infty b_k.
 		$$
 	</p>
+	<button class="respButton hvr-grow "> Solución   </button>
+	<div class="resp-box flexbox">
+	<p>
+		Denotamos las sumas parciales como 
+		\[
+			S_n=\sum_{k=1}^n a_k, \quad T_n=\sum_{k=1}^n b_k
+		\]
+		Por suposición tenemos que 
+		\begin{eqnarray*}
+		\sum_{k=1}^\infty a_k = \lim_{n\to \infty} S_n,  \\
+		\sum_{k=1}^\infty b_k = \lim_{n\to \infty} T_n. 
+		\end{eqnarray*}
+		Por los propiedades de los límites el límte 
+		\(\lim_{n\to \infty} (S_n+T_n)\) existe y 
+		\[
+		\lim_{n\to \infty} (\alpha S_n+T_n)=\alpha \lim_{n\to \infty} S_n+ \lim_{n\to \infty} T_n=
+		\alpha \sum_{k=1}^\infty a_k + \sum_{k=1}^\infty b_k
+		\]
+		Pero \(\alpha S_n+T_n =\sum_{k=1}^n (\alpha a_k+b_k)\) por lo que concluimos que 
+		\(\sum_{k=1}^\infty (\alpha a_k+b_k)\) es convergente y 
+		\[
+		\sum_{k=1}^\infty (\alpha a_k+b_k )=\alpha \sum_{k=1}^\infty a_k + \sum_{k=1}^\infty b_k
+		\]
+	</p>
+	</div>
 </div>
 
 <div class="ejercicio-box">
@@ -237,6 +411,22 @@
 		$$
 
 	</p>
+	<button class="respButton hvr-grow "> Solución   </button>
+	<div class="resp-box flexbox">
+	<p>
+		Denotamos las sumas parciales como 
+		\[
+			S_n=\sum_{k=1}^n a_k, \quad T_n=\sum_{k=1}^n b_k
+		\]
+		Por suposición tenemos que \(a_k \leq b_k\) para toda \(k\). Por las 
+		propiedades de las sumas se sigue que \(S_n \leq T_n\) para toda 
+		\(n\). Tomando límites en ambos lados de la desigualdad anterior 
+		y usando las propiedades de los límites concluimos 
+		\[
+		\sum_{k=1}^\infty a_k =\lim_{n\to \infty} S_n \leq \lim_{n\to \infty} T_n =\sum_{k=1}^\infty b_k
+		\]
+	</p>
+	</div>
 </div>
 
 
@@ -250,6 +440,53 @@
 		$$
 	   
 	</p>
+	<p>
+		Nota: éste ejercicio muestra que, para cuestiones de convergencia de series,
+		no importa si se toman \(\sum_{k=0}^\infty a_k\) ó \(\sum_{k=1}^\infty a_k\).
+	</p>
+	<button class="respButton hvr-grow "> Solución   </button>
+	<div class="resp-box flexbox">
+	<p>
+		Primero ponemos nombres a las sumas parciales de cada sucesión:
+		\begin{eqnarray*}
+			S_n &=&\sum_{k=1}^n a_k \\
+			S_n'&=&\sum_{k=M}^n a_k, \quad n > M
+		\end{eqnarray*}
+		Debemos de probar \(\lim_{n\to \infty} S_n\) existe si y sólo si 
+		\(\lim_{n\to \infty }S_n'\) existe. Ademas 
+		\[
+		\lim_{n\to \infty} S_n= \sum_{k=1}^{M-1}a_k + \lim_{n\to \infty} S_n'.
+		\]
+		Por comodidad denotamos 
+		\[
+		c=\sum_{k=1}^{M-1}a_k
+		\]
+		la cual es constante con respecto a \(n\).
+
+		Notamos que  para todo \(n > M\)
+		\[
+		S_n=c+ S_n'
+		\]
+		Ahora, si suponemos que \(\lim_{n\to \infty} S_n'\) existe 
+		entonces por las propiedades de los límites 
+		\[ 
+		\lim_{n\to \infty}  (c + S_n' )=c+ \lim_{n\to \infty} S_n'
+		\]
+		y por lo tanto \(\lim_{n\to \infty} S_n=c+\lim_{n\to \infty} S_n'\).
+		</p>
+		<p>
+		Si \(\lim_{n\to \infty} S_n\) existe por las propiedades de los límites 
+		\[
+		(\lim_{n\to \infty} S_n )-c=\lim_{n\to \infty} (S_n-c)
+		=\lim_{n\to \infty} S_n' 
+		\]
+		Nota que en ambos casos se tiene 
+		\[
+		\lim_{n\to \infty} S_n= \sum_{k=1}^{M-1}a_k + \lim_{n\to \infty} S_n'.
+		\]
+	</p>
+	</div>
+
  </div>
 
  
@@ -304,7 +541,7 @@
 	<p>
 		Para una sucesión $(a_k)_{k=0}^\infty $ donde $a_k \geq 0$  para toda $k$, se tiene que
 		la serie  $\sum_{k=0}^\infty a_k $ converge si y sólo si el conjunto de sumas 
-		parciales $\{s_n \}_{n=0}^\infty$ esta acotado superior mente.
+		parciales $\{s_n \}_{n=0}^\infty$ esta acotado superiormente.
 	</p>
 	<p>	
 		Es más, en tal caso
@@ -313,6 +550,55 @@
 		$$
 		
 	</p>
+	<p>
+		Vamos a usar la propiedad fundamental del supremo:
+		<p>
+			\(\alpha\) es el supremo de un conjunto \(A\) sii (1) \(\alpha\)
+			es cotar superior de \(A\) y (2) para toda \(\varepsilon >0\)
+			existe \(a_0 \in A\) tal que \(\alpha - \varepsilon < a_0 \).
+		</p>
+		
+	</p>
+	<p>
+		La observación más importante es que al ser todos los sumandos \(a_k \geq 0\) tenemos 
+		que 
+		\[
+		s_0\leq s_1 \leq s_2 \leq \cdots \leq s_n \cdots 
+		\]
+		es decir, la sucesión \(\{s_n\}_{n=0}^{\infty}\) es monótona creciente. 
+		Denotemos \(A=\{s_n\}_{n=0}^\infty\).
+	</p>
+	
+	<p>
+		\(\Rightarrow ]\) Supongamos que el límite existe y denotemos 
+		\(s=\lim_{n\to \infty} s_n\).
+		
+ 	</p>
+	 <p>
+		Primero tenemos que 
+		\(s\)  es cota superior de \(A\): en caso contrario existe
+		un \(s_{n_0}\) tal que \(s < s_{n_0}\) lo cual implica 
+		\(s< s_{n}\) para toda \(n \geq n_0\) (recordar que la 
+		sucesión \((s_n)_{n=0}^\infty\) es monótona). Pero ésta 
+		última desigualdad contradice que \(s= \lim_{n\to \infty} s_n\).
+	 </p>
+	 <p>
+		Ahora usando la definición de límite, dado \(\varepsilon >0 \)
+		existe \(n_1 \) tal que \(|s_{n_1}-s|< \varepsilon\) lo cual 
+		implica \(s-\varepsilon < s_{n_1}\). Estas dos 
+		condiciones prueban que \(s=\sup(A)\).
+	 </p>
+	 <p>
+		 \(\Leftarrow ]\) Supongamos que el conjunto \(A\) está acotado 
+		 superiormente y sea \(\alpha = \sup(A)\). Dada \(\varepsilon >0\)
+		 por la propiedad fundamental del supremo existe \(n_0\) tal que 
+		 \(\alpha - \varepsilon < s_{n_0}\). Pero al ser 
+		 \((s_n)_{n=0}^\infty\) monótona creciente se sique que para
+		 toda \(n \geq n_0\), \(s-\varepsilon < s_{n}\) lo cual implica
+		 \(|\alpha - s_n |< \varepsilon\), para todo \(n\geq n_0\), lo cual 
+		 nos dice \(\lim_{n\to \infty} s_n=\alpha\).
+	 </p>
+
 </div>
 
 
@@ -325,6 +611,42 @@
 		$$
 		\sum_{k=0}^\infty \sqrt{a_ka_{k+1}} \leq \sum_{k=0}^\infty a_k.
 		$$
+	</p>
+	<p>
+		Denotemos \(s_n=\sum_{k=0}^n a_k\) y \(s=\lim_{n\to \infty} s_n\). Por el Teorema 
+		de la convergencia monótona, \(s=\sup_{n=0,1,\dots}\{ s_n\}\).
+	
+	</p>
+	<p>
+		Por otro lado, usando la desigualdad aritmético-gemoétrica tenemos 
+		\[
+		\sqrt{a_ka_{k+1}}\leq \frac{a_k+a_{k+1}}{2}
+		\]
+		y sumando obtenemos 
+		\[
+			\sum_{k=0}^n \sqrt{a_ka_{k+1}}\leq \sum_{k=0}^n\frac{a_k+a_{k+1}}{2}=\frac{1}{2}
+			\left( \sum_{k=0}^n a_k + \sum_{k=0}^n a_{k+1}\right) 
+		\]
+		Pero 
+		\[
+		\sum_{k=0}^n a_k \leq s, \quad  \sum_{k=0}^n a_{k+1} \leq s
+		\]
+		por lo tanto 
+		\[
+		\sum_{k=0}^n \sqrt{a_ka_{k+1}} \leq s
+		\]
+		para todo \(n\). 
+
+	</p>
+	<p>
+	    Recapitulando: 
+		la serie \(\sum_{k=0}^\infty \sqrt{a_ka_{k+1}}\) está formada por 
+		términos no negativos, el conjunto de sus sumas parciales está acotado superiormente (por \(s\)). 
+		Se sigue del  Teorema de la convergencia monótona que 
+		\(\lim_{n\to \infty} \sqrt{a_ka_{k+1}}\) existe y 
+		\[
+		\lim_{n\to \infty} \sum_{k=0}^n \sqrt{a_{k}a_{k+1}} \leq s =\sum_{k=0}^\infty a_k.
+		\]
 	</p>
 </div>
 
@@ -463,6 +785,9 @@
 	<p>
 		Sugerencia: aplica la definición de límite usando $\varepsilon$,  al límite $\lim_{k \to \infty } \frac{a_k}{b_k}=L$, con
 		$\varepsilon=\alpha L$.
+		
+	</p>
+	<p>
 		
 	</p>
 </div>

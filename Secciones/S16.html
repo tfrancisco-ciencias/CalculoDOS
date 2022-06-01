@@ -24,7 +24,10 @@
             sen: "\\operatorname{sen}",
             seg: ["\\overrightarrow{#1}", 1],
             arcsen: "\\operatorname{arcsen}",
-            arcsec: "\\operatorname{arcsec}"
+            arcsec: "\\operatorname{arcsec}",
+            senh: "\\operatorname{senh}",
+            sech: "\\operatorname{sech}",
+            csch: "\\operatorname{csch}"
           },
           tags: "ams", /* this part is for numbered equations */
           inlineMath: [['$', '$'], ['\\(', '\\)']]
@@ -87,151 +90,234 @@
 <h1 class="number-title flexbox"> Funciones Hiperbólicas </h1>
 
 
-
-
 <div class="definicion-box">
-Las funciones coseno  hiperbólico y seno hiperbólico se pueden ver como la parte par e impar, 
-respectivamente de la función exponencial.
+  <h2 class="number-title"> Definición </h2>
+  <p>
+    Las funciones coseno  hiperbólico y seno hiperbólico se pueden ver como la parte par e impar, 
+    respectivamente de la función exponencial.    
+  </p>
+  <p>
+    Recordemos  (ejercicio 
+    <a href="https://tfrancisco-ciencias.github.io/CalculoUNO/Secciones/S4.html#Ejer:DescomposicionFuncionesParesImpares"> Ejercicio 4.11-Cálculo UNO</a>) que la parte par 
+    e impar de una función arbitraria $f$, estan dadas respespectivamente por
+    $$
+    f_{\textrm{par}}(x):= \frac{f(x)+ f(-x) }{2}
+    $$
+    $$
+    f_{\textrm{impar}}(x):= 
+    \frac{f(x)-f(-x)}{2}
+    $$
+    asi pues definimos las funciones coseno y seno hiperbólicos como:      
+    \begin{eqnarray*}
+    \cosh(x)&=& \frac{e^x+ e^{-x}}{2}, \quad x\in \mathbb{R}, \\
+    \senh(x) &=& \frac{ e^x - e^{-x}}{2}, \quad x\in \mathbb{R}.
+    \end{eqnarray*}
 
-Recordemos  (ejercicio \ref{Ejer:DescomposicionFuncionesParesImpares}) que la parte par e impar de una función arbitraria $f$, estan dadas respespectivamente por
-$$
-f_{\textrm{par}}(x):= \frac{f(x)+ f(-x) }{2}
-$$
-$$
-f_{\textrm{impar}}(x):= 
-\frac{f(x)-f(-x)}{2}
-$$
-asi pues definimos las funciones coseno y seno hiperbólicos como:
+    Es decir, el coseno hiperbólico es la parte par de la exponencial 
+    y el seno hiperbólico es la parte impar de la exponencial.
+  </p>
+  <p>
+    Tomando como modelo las funciones trigonométricas también definimos
 
-
-\begin{eqnarray*}
-\cosh(x)&=& \frac{e^x+ e^{-x}}{2}, \quad x\in \mathbb{R}, \\
-\senh(x) &=& \frac{ e^x - e^{-x}}{2}, \quad x\in \mathbb{R}.
-\end{eqnarray*}
-
-Es decir, el coseno hiperbólico es la parte par de la exponencial y el seno hiperbólico es la parte impar de la exponencial.
-
-
-Tomando como modelo las funciones trigonométricas también definimos
-
-\begin{eqnarray*}
-\tanh(t) &=& \frac{ \senh(t) }{ \cosh(t) }= \frac{ e^x - e^{-x}}{ e^x + e^{-x }} \\
-\csch(t)&=&\frac{1}{\senh(t)} \\
-\sech(t)&=&\frac{1}{\cosh(t)} \\
-\coth(t)&=&\frac{1}{\tanh(t)}
-\end{eqnarray*}
-
+    \begin{eqnarray*}
+    \tanh(t) &=& \frac{ \senh(t) }{ \cosh(t) }= \frac{ e^x - e^{-x}}{ e^x + e^{-x }} \\
+    \csch(t)&=&\frac{1}{\senh(t)} \\
+    \sech(t)&=&\frac{1}{\cosh(t)} \\
+    \coth(t)&=&\frac{1}{\tanh(t)}
+    \end{eqnarray*}
+  
+  </p>  
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando la definición de las funciones hiperbólicas y las propiedades de la exponencial demuestra las siguientes propiedades.
-
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Usando la definición de las funciones hiperbólicas y las propiedades de 
+    la exponencial demuestra las siguientes propiedades.  
+  </p>
 <ol>
     <li>$\cosh(t)>0$ para todo $t\in \mathbb{R}$.</li> 
     <li>$\senh(t)=0$ si y sólo si $t=0$. </li> 
     <li>$\senh(t)>0$ si y sólo si $t>0$ y $\senh(t)< 0$ si y sólo si $t < 0$.</li> 
  </ol>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Asi como la s funciones coseno y seno estan  atadas al 
-círculo unitario, $x^2 + y^2 = 1$, las funciones coseno hiperbólico y seno  hiperbólico estan relacionadas con la hiperbola $x^2 - y^2 = 1 $.  Demuestra que,  para toda $t\in \mathbb{R}$ 
-$$
-\cosh^2(t) - \senh^2(t)= 1.
-$$
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Asi como la s funciones coseno y seno estan  atadas al 
+    círculo unitario, $x^2 + y^2 = 1$, las funciones coseno hiperbólico y seno  hiperbólico estan relacionadas con la hiperbola $x^2 - y^2 = 1 $.  Demuestra que,  para toda $t\in \mathbb{R}$ 
+    $$
+    \cosh^2(t) - \senh^2(t)= 1.
+    $$
+  </p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Las funciones hiperbólicas tienen muchas similitudes con las trigonométricas, como lo muestra este ejercicio.
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Las funciones hiperbólicas tienen muchas similitudes con las trigonométricas, como lo muestra este ejercicio.
+  </p>
 
 <ol>
-    <li>
-        \label{Ejer:FormulasSumaHiper} Demuetra las leyes para $\cosh$ y $\senh$ de una suma:
-\begin{eqnarray*}
-\senh(a+b)&=&\senh(a)\cosh(b)+\senh(b)\cosh(a), \\
-\cosh(a+b)&=& \cosh(a)\cosh(b)+\senh(a)\senh(b), \\
-\tanh(a+b)&=&\frac{\tanh(a)+\tanh(b)}{1+\tanh(a)\tanh(b)}.
-\end{eqnarray*}
+    <li id="Ejer:FormulasSumaHiper">
+         Demuetra las leyes para $\cosh$ y $\senh$ de una suma:
+        \begin{eqnarray*}
+        \senh(a+b)&=&\senh(a)\cosh(b)+\senh(b)\cosh(a), \\
+        \cosh(a+b)&=& \cosh(a)\cosh(b)+\senh(a)\senh(b), \\
+        \tanh(a+b)&=&\frac{\tanh(a)+\tanh(b)}{1+\tanh(a)\tanh(b)}.
+        \end{eqnarray*}
     </li>
 <li>
     Demuestra:
-$$
-\coth^2(a)-1=\csch^2(a). 
-$$
+    $$
+    \coth^2(a)-1=\csch^2(a). 
+    $$
 </li> 
 <li>
     Demuestra que, para cualquier real $n$, 
-$$(\cosh(a)+\senh(a))^n=\cosh(na)+\senh(na).$$
+    $$(\cosh(a)+\senh(a))^n=\cosh(na)+\senh(na).$$
 
 </li> 
-<li>
-    \label{Ejer:FormulasDerivadasHiper} Demuetra las fórmulas para las derivadas:
-\begin{eqnarray*}
-\frac{d}{dx}(\senh(x))&=&\cosh(x), \\
-\frac{d}{dx}(\cosh(x))&=&\senh(x),\\
-\frac{d}{dx}(\tanh(x))&=&\sech^2(x).\\
-\end{eqnarray*}
+<li id="Ejer:FormulasDerivadasHiper">
+    Demuetra las fórmulas para las derivadas:
+    \begin{eqnarray*}
+    \frac{d}{dx}(\senh(x))&=&\cosh(x), \\
+    \frac{d}{dx}(\cosh(x))&=&\senh(x),\\
+    \frac{d}{dx}(\tanh(x))&=&\sech^2(x).\\
+    \end{eqnarray*}
 </li>
 </ol>
+</div>
 
 
 
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que $\senh$ es una función estrictamente creciente.
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Demuestra que $\senh$ es una función estrictamente creciente.
+  </p>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:FormulaInversaSenh} Ya que $\senh$ es estrictamente creciente, existe su función inversa (ver ejercicio \ref{Ejer:InversaContinuaMonotona}), denotada $\senh^{-1}:\mathbb{R} \to \mathbb{R}$. Demuestra que, para toda $y\in \mathbb{R}$
-$$
-\senh^{-1}(y)=\ln(y+\sqrt{y^2+1}).
-$$
-
-Sugerencia: primero, usando la definición de $\senh$,  nota que  la identidad $y=\senh(x)$ es equivalente a  $e^{2x}-2ye^{x}-1=0$; después
-toma $X=e^x$, escribe $e^{2x}-2ye^{x}-1=0$ como una cuadrática en $X$ y resuélvela.
-
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:FormulaInversaCosh} La función $\cosh$ no es inyectiva, pero si se restringe el dominio $\cosh(x)$, $x\in [0,\infty)$ la función es inyectiva y suprayectiva al intervalo $[1,\infty)$. Por lo tanto la inversa está definida $\cosh^{-1}:[1, \infty) \to [0, \infty)$. Demuestra que, para toda
-$y\in [1,\infty)$,
-$$
-\cosh^{-1}(y)=\ln(y+\sqrt{y^2-1})
-$$
-
-Sugerencia: sigue el mismo procedimiento al ejercicio \ref{Ejer:FormulaInversaSenh}.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que la función $\tanh$ es estrictamente creciente.
-
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:LimitesTanh} Demuestra que
-\begin{eqnarray*}
-\lim_{x\to \infty}\tanh(x)&=&1 \\
-\lim_{x\to -\infty}\tanh(x)&=&-1
-\end{eqnarray*}
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:FormulaInversaSenh"> Ejercicio</h2> 
+  <p> 
+    Ya que $\senh$ es estrictamente creciente, existe su función inversa. 
+    Denotada $\senh^{-1}:\mathbb{R} \to \mathbb{R}$. Demuestra que, para toda $y\in \mathbb{R}$
+    $$
+    \senh^{-1}(y)=\ln(y+\sqrt{y^2+1}).
+    $$
+    
+  </p>
+  <p>
+    Sugerencia: primero, usando la definición de $\senh$,  nota que  
+    la identidad $y=\senh(x)$ es equivalente a  $e^{2x}-2ye^{x}-1=0$; después
+    toma $X=e^x$, escribe $e^{2x}-2ye^{x}-1=0$ como una cuadrática en $X$ y resuélvela.
+    
+  </p>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2>\label{Ejer:FormulaInversaTanh} Ya que $\tanh$ es estrictamente creciente, existe su función inversa (ver ejercicio \ref{Ejer:InversaContinuaMonotona}) y el ejercicio  \ref{Ejer:LimitesTanh}  dice que su dominio es el intervalo $(-1,1)$. Denotada $\tanh^{-1}:(-1,1) \to \mathbb{R}$ la función inversa de $\tanh$. Demuestra que
-$$
-\tanh^{-1}(y)=\frac{1}{2}\ln \left( \frac{1+y}{1-y} \right)
-$$ 	
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:FormulaInversaCosh"> Ejercicio</h2> 
+  <p>
+    La función $\cosh$ no es inyectiva, pero si se restringe el dominio 
+    $\cosh(x)$, $x\in [0,\infty)$ la función es inyectiva y suprayectiva 
+    al intervalo $[1,\infty)$. Por lo tanto la inversa está definida 
+    $\cosh^{-1}:[1, \infty) \to [0, \infty)$. Demuestra que, para toda
+    $y\in [1,\infty)$,
+    $$
+    \cosh^{-1}(y)=\ln(y+\sqrt{y^2-1})
+    $$
+  </p>
+  <p>
+    Sugerencia: sigue el mismo procedimiento al <a href="#Ejer:FormulaInversaSenh">Ejercicio 16.6.</a>
+  </p>
+</div>
 
-Sugerencia: sigue el mismo procedimiento al ejercicio \ref{Ejer:FormulaInversaSenh}.
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Demuestra que la función $\tanh$ es estrictamente creciente.
+  </p>
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:LimitesTanh"> Ejercicio</h2>
+   Demuestra que
+    \begin{eqnarray*}
+    \lim_{x\to \infty}\tanh(x)&=&1 \\
+    \lim_{x\to -\infty}\tanh(x)&=&-1
+    \end{eqnarray*}
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:FormulaInversaTanh"> Ejercicio</h2> 
+  <p>
+    Ya que $\tanh$ es estrictamente creciente, existe su función inversa 
+     y el <a href="#Ejer:LimitesTanh"> Ejercicio 16.9</a>    dice que su dominio 
+     es el intervalo $(-1,1)$. Denotada $\tanh^{-1}:(-1,1) \to \mathbb{R}$ 
+     la función inversa de $\tanh$. Demuestra que
+    $$
+    \tanh^{-1}(y)=\frac{1}{2}\ln \left( \frac{1+y}{1-y} \right)
+    $$ 	
+  </p>
+  <p>
+    Sugerencia: sigue el mismo procedimiento al <a href="#Ejer:FormulaInversaSenh"> Ejercicio 16.6.</a>
+  </p>
+</div>
 
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Usando diferenciación implícita y el ejercicio \ref{Ejer:FormulasDerivadasHiper}, demuestra las fórmulas de las derivadas de las funciones hiperbólicas inversas.
 
-\begin{eqnarray*}
-\frac{d}{dy}(\senh^{-1}(y))&=&\frac{1}{\sqrt{1+y^2}} \\
-\frac{d}{dy}(\cosh^{-1}(y))&=&\frac{1}{\sqrt{y^2-1}} \\
-\frac{d}{dy}(\tanh^{-1}(y))&=& \frac{1}{1-y^2}
-\end{eqnarray*}
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Usando diferenciación implícita y el <a href="#Ejer:FormulasDerivadasHiper"> Ejercicio 16.4-4</a>, 
+    demuestra las fórmulas de las derivadas de las funciones hiperbólicas inversas.
+  </p>
+  <p>
+    \begin{eqnarray*}
+    \frac{d}{dy}(\senh^{-1}(y))&=&\frac{1}{\sqrt{1+y^2}} \\
+    \frac{d}{dy}(\cosh^{-1}(y))&=&\frac{1}{\sqrt{y^2-1}} \\
+    \frac{d}{dy}(\tanh^{-1}(y))&=& \frac{1}{1-y^2}
+    \end{eqnarray*}
+    
+  </p>
+  <p>
+    Sugerencia: recuerda que $\cosh^2(t)-\senh^2(t)=1$.
+  </p>
+</div>
 
-Sugerencia: recuerda que $\cosh^2(t)-\senh^2(t)=1$.
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra: 
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  
+  <p>
+    Demuestra: 
 
-\begin{eqnarray*}
-\int \frac{1}{\sqrt{1+y^2}} dy &=&  \senh^{-1}(y),\\
-\int \frac{1}{\sqrt{y^2-1}}dy &=&  \cosh^{-1}(y), \\
-\int \frac{1}{1-y^2}dy  &=& \tanh^{-1}(y).
-\end{eqnarray*}
+    \begin{eqnarray*}
+    \int \frac{1}{\sqrt{1+y^2}} dy &=&  \senh^{-1}(y),\\
+    \int \frac{1}{\sqrt{y^2-1}}dy &=&  \cosh^{-1}(y), \\
+    \int \frac{1}{1-y^2}dy  &=& \tanh^{-1}(y).
+    \end{eqnarray*}
+    
+  </p>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Calculas las siguientes integrales 
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Calculas las siguientes integrales. 
+  </p>
 <ol>
     <li>$\int \senh(1+4x)dx$</li> 
     <li>$\int \frac{\senh(\sqrt{x})}{\sqrt{x}}dx$</li> 
@@ -239,58 +325,94 @@ Sugerencia: recuerda que $\cosh^2(t)-\senh^2(t)=1$.
     <li>$\int_0^1 \frac{1}{\sqrt{16t^2 +1}}dt$</li> 
     <li>$\int \frac{e^x}{1-e^{2x}}dx$</li> 
 </ol>
+</div>
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Evalua $\lim_{x\to \infty} \frac{\senh(x)}{e^x}$
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Evalua $\lim_{x\to \infty} \frac{\senh(x)}{e^x}$
+  </p>
+</div>
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> Demuestra que si $a\ne 0$ y $b\ne 0$, entonces existen números $\alpha$ y $\beta$ tal que $ae^x+be^{-x}$ es igual a alguna de las siguientes funciones: $\alpha \cosh(x+\beta)$ ó $\alpha \senh(x+\beta)$.
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> <ol>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Demuestra que si $a\ne 0$ y $b\ne 0$, entonces existen números $\alpha$ y 
+    $\beta$ tal que $ae^x+be^{-x}$ es igual a alguna de las siguientes funciones: 
+    $\alpha \cosh(x+\beta)$ ó $\alpha \senh(x+\beta)$.
+  </p>
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+<ol>
     <li>
         Demuestra que toda función de la forma 
-$$
-y=A\cosh(mx)+B\senh(mx)
-$$
-satisface la ecuación diferencial $y''=m^2y$.
+        $$
+        y=A\cosh(mx)+B\senh(mx)
+        $$
+        satisface la ecuación diferencial $y''=m^2y$.
     </li> 
-<li>
-    Encuentra $y$ tal que $y''=9y$, $y(0)=-4, y'(0)=6$.
-</li> 
+    <li>
+        Encuentra $y$ tal que $y''=9y$, $y(0)=-4, y'(0)=6$.
+    </li> 
 </ol>
+</div>
 
 
 
-<div class="ejercicio-box"><h2 class="number-title">Ejercicio</h2> En el circulo unitario, el area 
-$$
-dibujito
-$$
-es igual a $t/2$, si $t$ es medido en radianes. Algo análogo para para las funciones hiperbólicas. Tomar $(a,b)=(\cosh(t_0), \senh(t_0))$
-y considera el area
-$$
-dibujito
-$$
-
-Demuestra que el area es igual a $t_0/2$.
-
-Vamos a tomar dos areas. $A$ es el area que vamos a calcular y $B$ es el area bajo la curva $y=\sqrt{x^2-1}$, es decir
-$B=\int_1^a\sqrt{x^2-1	}dx$. 
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    En el circulo unitario, el area 
+    $$
+    dibujito
+    $$
+    es igual a $t/2$, si $t$ es medido en radianes. 
+    Algo análogo para para las funciones hiperbólicas. Tomar $(a,b)=(\cosh(t_0), \senh(t_0))$
+    y considera el area
+    $$
+    dibujito
+    $$
+    
+  </p>
+  <p>
+    Demuestra que el area es igual a $t_0/2$.
+  </p>
+  <p>
+    Vamos a tomar dos areas. $A$ es el area que vamos a calcular y 
+    $B$ es el area bajo la curva $y=\sqrt{x^2-1}$, es decir
+    $B=\int_1^a\sqrt{x^2-1	}dx$. 
+    
+  </p>
 
 <ol>
     <li>
         Prueba que 
-$$B=\frac{1}{4}\senh(2t_0)-\frac{1}{2}t_0$$.
+        $$B=\frac{1}{4}\senh(2t_0)-\frac{1}{2}t_0$$.
 
-Sugerencia: en la integral $\int_1^a\sqrt{x^2-1	}dx$ toma el cambio de variable $x=\cosh(t)$.
+        <p>
+          Sugerencia: en la integral $\int_1^a\sqrt{x^2-1	}dx$ toma el cambio de variable $x=\cosh(t)$.
+        </p>
     </li> 
 
-<li>
-    Demuestra que:
-$$
-A+B=\frac{1}{4}\senh(2t_0)
-$$
-Sugerencia: considera el area del triángulo formado por las areas $A$ y $B$.
-</li> 
+    <li>
+        Demuestra que:
+        $$
+        A+B=\frac{1}{4}\senh(2t_0)
+        $$
+        <p>
+          Sugerencia: considera el area del triángulo formado por las areas $A$ y $B$.
+        </p>
+    </li> 
 
-<li>
-    Concluye que $A=t_0/2$.
-</li> 
+    <li>
+        Concluye que $A=t_0/2$.
+    </li> 
 </ol>
+</div>
+
+</body>
