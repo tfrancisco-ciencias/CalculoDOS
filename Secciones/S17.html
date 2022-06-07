@@ -1301,7 +1301,7 @@
 
 
 <div class="teorema-box">
-	<h2 class="number-title"> Ejercicio</h2> 
+	<h2 class="number-title"> Teorema</h2> 
 	<h3> Criterio de la razón </h3>
 	<p>
 		Sea $(a_n)_{n\geq 0}$ una sucesión con $a_n >0$ para toda $n$. 
@@ -1449,92 +1449,125 @@
 
 
 <div class="teorema-box">
-	<h2 class="number-title" id="#Ejer:SerieAlternanteReglaLeibniz"> Ejercicio</h2> 
+	<h2 class="number-title" id="Ejer:SerieAlternanteReglaLeibniz"> Teorema</h2> 
 	<h3> Regla de Leibniz</h3>		
 	<p>
-		Sea $(a_n)_{n\geq 1}$ una sucesión tal que: $a_n >0$ para toda n; es monótona 
-		decreciente $a_n> a_{n+1}$; y 
-		$\lim_n a_n=0$. Entoonces la serie $\sum_{n=1}^\infty (-1)^{n-1}a_n$ converge. 
-		Además, para toda $n\in \mathbb{N}$:
+		Sea $(a_n)_{n\geq 1}$ una sucesión tal que: 
+		<ol>
+			<li>
+				$a_n >0$ para toda n; 
+			</li>
+			<li>
+				es monótona decreciente: $a_n> a_{n+1}$ para toda \(n\).	
+			</li>
+			<li>
+				$\lim_n a_n=0$.
+			</li>
+		</ol>
+		Entonces la serie $\sum_{n=1}^\infty (-1)^{n-1}a_n$ converge. 
+	</p>
+	<p>
+		Además, si denotamos \(S=\sum_{n=1}^\infty (-1)^{n-1} a_n\), se cumple que para toda $n\in \mathbb{N}$:
 		$$
 		0 < (-1)^n(S-s_n) < a_n, 
 		$$
-		donde $S=\sum_{n=1}^\infty (-1)^{n-1} a_n, s_n=\sum_{k=1}^n (-1)^{k-1}a_k$.
+		
 	</p>
 
 	<button class="respButton hvr-grow "> Demostración </button>
 	<div class="resp-box flexbox">
 
-		<ol>
-			<li>
-				Considerar la  sucesión $(s_{2n})_{n=1}^\infty$. Demuestra que ésta serie es monótona creciente.
-		
 			<p>
-				Sugerencia: calcula $s_{2n+2}-s_{2n}$.
+				Como siempre, denotamos 
+				\[
+					s_n=\sum_{k=1}^n (-1)^{k-1}a_k.
+				\]
+				La idea de la demostración es analizar las sumas parciales pares e impares: 
+				\[(s_{2n})_{n=1}^\infty, \quad (s_{2n-1})_{n=1}^\infty .\]
 			</p>
-			</li> 
-		
-		<li>
-			Considera la sucesión  $(s_{2n-1})_{n=1}^\infty$. Demuestra que ésta serie es monótona decreciente.
-		
-		
 			<p>
-				Sugerencia: calcula $s_{2(n+1)-1}-s_{2n-1}$.
-			</p>
-		</li> 
-		
-		<li>Demuestra que $s_{2n-1}-s_{2n}>0$, para toda $n$.</li> 
-		
-		<li>Demuestra que, para toda $n \geq 3$, $s_2 < s_n < s_1$. 
-		
-			<p>
-				Sugerencia: usa el ejercicio anterior.
-			</p>
-		</li> 
-		
-		<li>
-			Demuestra que los límites
-		$$
-		S'=\lim_{n\to \infty}s_{2n-1}, \quad S''=\lim_{n\to \infty}s_{2n}
-		$$
-		existen.  
+				Primero veremos que \((s_{2n})_{n=1}^\infty\) es monótona creciente. Para lo anterior 
+				notamos que 
+				\begin{eqnarray*}
+				s_{2n+2}-s_{2n}&=& \sum_{k=1}^{2n+2} (-1)^{k-1}a_k-\sum_{k=1}^{2n}(-1)^{k-1}a_k \\
+				&=& (-1)^{2n+1}a_{2n+1}+ (-1)^{2n+2}a_{2n+2} \\
+				&=& a_{2n+2}-a_{2n+1} >0
+				\end{eqnarray*}
+				donde en la última desigualdad usamos que \((a_n)_{n=1}^\infty\) es 
+				monótona decreciente.
+			</p> 
 		
 		<p>
-			Sugerencia: usa el Teorema de la convergencia monótona para series
-			(ejercicio \ref{Ejer:TeoConvergenciaMonoSeries}).
+			Ahora veremos que  $(s_{2n-1})_{n=1}^\infty$ es monótona decreciente, para lo cual calculamos 
+			\begin{eqnarray*}
+			s_{2(n+1)-1}-s_{2n-1}&=& \sum_{k=1}^{2n+1}(-1)^{k-1}a_k-\sum_{k=1}^{2n-1}(-1)^k a_{k} \\
+			&=& (-1)^{2n}a_{2n+1}+(-1)^{2n-1}a_{2n} \\
+			&=& a_{2n+1}-a_{2n} < 0
+			\end{eqnarray*}
+			donde en la última desigualdad usamos que \((a_n)_{n=1}^\infty\) es 
+			monótona decreciente.
+		</p> 
+		<p>
+			Ahora queremos probar que los límites 
+			\[
+				\lim_{n\to \infty} s_{2n}, \quad \lim_{n\to \infty} s_{2n-1}
+			\]
+			exsiten y son iguales. 
 		</p>
-		</li> 
-		
-		<li>Demuestra que $S=S''$. Define $S=S'=S''$.
-		
-			<p>
-				Sugerencia: demuestra $s_{2n}-s_{2n-1}=a_{2n}$.
-			</p>
-		</li>  
-		
-		<li>
-			Finalmente, usa el ejercicio para concluir que $\lim_{n\to \infty}s_n=S$.
-		</li> 
-		
-		<li>
-			Demuestra que $s_{2n} < S < s_{2n-1}$, para toda $n$.
-		
-			<p>
-				Sugerencia: para $s_{2n} < S$ usa que  $S=S''$ y para $S < s_{2n-1}$ usa que $S=S'$.
-			</p>
-		</li> 
-		
-		<li>Demuestra que $S-s_{2n} \leq a_{2n+1}$, $s_{2n-1}-S\leq a_{2n}$.</li> 
-		
-		<li>
-			Concluye, de los dos incisos anteriores, que $0< (-1)^n(S-s_n) < a_n$.
-		</li> 
-		
-		
-		</ol>
-		
+		<p>
+			Primero notamos que, para todo \(n \geq 1\)
+			\begin{equation}\label{Eqn:Aux1LeibnizRule}
+			s_{2n} < s_{2n-1}
+			\end{equation}
+			la cual se prueba notando que 
+			\[
+			s_{2n-1}-s_{2n} =\sum_{k=1}^{2n-1} (-1)^{k-1} a_k -\sum_{k=1}^{2n}(-1)^{k-1}=a_{2n-1}-a_{2n} > 0
+			\]
+		</p>
+		<p>
+			Utilizando \eqref{Eqn:Aux1LeibnizRule}, que \((s_{2n})_{n=1}^\infty\) es creciente y 
+			\((s_{2n-1})_{n=1}^\infty\) decreciente tenemos la siguiente situación 
+			\begin{eqnarray*} 
+				s_ 2 &<& s_1 \\
+				s_2< s_4 &<& s_ 3 < s_1 \\
+				s_{2} < \cdots < s_{2n} &<&  s_{2n-1} < \cdots < s_1  
+			\end{eqnarray*}
+			Por lo tanto \((s_{2n})_{n=1}^\infty\) está acotada superiormente por \(s_1\) y por lo tanto 
+			\(\lim_{n\to \infty}s_{2n}\) existe. Además \((s_{2n-1})_{n=1}^\infty\) está acotada 
+			inferiormente por \(s_2\) y por lo tanto \(\lim_{n\to \infty}s_{2n-1}\) existe. Finalmente 
+			si observamos la distancia entre \(s_{2n-1}\) y \(s_{2n}\) tenemos 
+			\[
+			\lim_{n\to \infty} |s_{2n-1}-s_{2n}|=\lim_{n\to \infty}(a_{2n-1}-a_{2n})=0
+			\]
+			donde aquí usamos la suposición \(\lim_{n\to \infty}a_n=0\). Por lo tanto 
+			\[
+			\lim_{n\to \infty} s_{2n}=\lim_{n\to \infty}s_{2n-1}
+			\]
+			Además, si denotamos \(S=\lim_{n\to \infty} s_{2n}\), utilizando que las sumas pares e impares 
+			convergen a \(S\) se concluye que \(\lim_{n\to \infty}s_n=S\) por lo que la serie 
+			\(\sum_{n=1}^\infty (-1)^{n-1}a_n\) converge.
+		</p>
+		<p>
+			Para terminar nos resta probar 
+			\[
+			0< (-1)^n(S-s_n) < a_n
+			\]
+			Si \(n=2m\) lo anterior equivale a \(0< S-s_{2m}< a_{2m}\). La desigualdad \(0< S-s_{2m}\)
+			se sigue de \(s_{2m}< S \) la cual es cierta pues \(S=\lim_{m\to \infty} s_{2m}\) y \((s_{2m})\) es monótona creciente. 
+			La desigualdad \(S-s_{2m}< a_{2m}\) es equivalente a 
+			\[
+			S < a_{2m}+s_{2m}=a_{2m}+\sum_{k=1}^{2m} (-1)^{k-1}a_{k}=\sum_{k=1}^{2m-1}(-1)^ka_k=s_{2m-1}
+			\]
+			la cual es válida pues \(S=\lim_{m\to \infty}s_{2m-1}\) y \((s_{2m-1})_{m=1}^\infty\) es monótona 
+			decreciente.
+		</p>
+		<p>
+			Si \(n=2m-1\) debemos de probar \(0< s_{2m-1}-S < a_{2m-1}\) o equivalentemente,
+			\(S< s_{2m-1}\) y \(s_{2m-1}-a_{2m-1}=a_{2m-2}< S\) las cuales se prueban de manera similar.
+		</p>			
+	</p>
 	</div>
-
+</div>
 </div>
 
 
@@ -1561,23 +1594,23 @@
 
 
 <ol>
-	<li>Demuestra que $a_{2(n+1)-1}\leq a_{2n} \leq a_{2n}$.</li> 
+	<li>Demuestra que $(a_n)_{n=1}^\infty$ es monótona decreciente.</li> 
 	<li>Demuestra que $\lim_n a_n=0$.</li> 
 	<li>
 		Usa la regla de Leibniz para demostrar que la serie $\sum_{n=1}^\infty (-1)^{n-1}a_{n}$ converge. Define
-$C:=\sum_{n=1}^\infty (-1)^{n-1}a_{n}$.
+		$C:=\sum_{n=1}^\infty (-1)^{n-1}a_{n}$.
 	</li> 
 
 <li>
 	Define $s_n:=\sum_{k=1}^n (-1)^{k-1}a_k$. Demuestra que
-$$
-s_{2n-1}=\left( \sum_{k=1}^n \frac{1}{k} \right)- \log(n).
-$$
+	$$
+	s_{2n-1}=\left( \sum_{k=1}^n \frac{1}{k} \right)- \log(n).
+	$$
 
-Concluye que 
-$$
-C=\lim_{n\to \infty} \left( \sum_{k=1}^n \frac{1}{k}- \log(n) \right).
-$$
+	Concluye que 
+	$$
+	C=\lim_{n\to \infty} \left( \sum_{k=1}^n \frac{1}{k}- \log(n) \right).
+	$$
 </li> 
 </ol>
 </div>
@@ -1586,53 +1619,74 @@ $$
 <div class="ejercicio-box">
 	<h2 class="number-title"> Ejercicio</h2> 
 	<p>
-		Como una aplicación del número de Euler (\ref{Ejer:NumeroDeEuler}) 
+		Como una aplicación del <a href="#Ejer:NumeroDeEuler">número de Euler</a>  
 		vamos a demostrar la siguiente identidad: 
+		$$
+		\log(2)=\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}.
+		$$
+
 	</p>
 
-$$
-\log(2)=\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}.
-$$
+	<button class="respButton hvr-grow "> Solución   </button>
+	<div class="resp-box flexbox">
 
-<ol>
-	<li>Usando la regla de Leibnitz (\ref{Ejer:SerieAlternanteReglaLeibniz}) demuestra que la serie $\sum_{n=1}^\infty \frac{(-1)^n }{n}$ converge.</li> 
-	<li>
-		Demuestra:
+	<p> Una aplicación directa de la <a href="#Ejer:SerieAlternanteReglaLeibniz">regla de Leibnitz</a> 
+		prueba que la serie $\sum_{n=1}^\infty \frac{(-1)^n }{n}$ converge.
+	</p> 
+	<p>
+		Afirmamos que:
 		\begin{eqnarray*}
-		\sum_{k=1}^{2n} \frac{(-1)^{k-1}}{k} &=& \sum_{j=1}^{2n} \frac{1}{j}   - \sum_{m=1}^n \frac{1}{m} 
+		\sum_{k=1}^{2n} \frac{(-1)^{k-1}}{k} &=& \sum_{j=1}^{2n} \frac{1}{j}  - \sum_{m=1}^n \frac{1}{m} 
 		\end{eqnarray*}
 		
 		<p>
-			Sugerencia: separa en las $k$ impares y las $k$ pares.
+			Para probar lo anterior separamos las \(k\) pares e impares.
+			\begin{eqnarray*} 
+			\sum_{k=1}^{2n} \frac{(-1)^{k-1}}{k}&=& \sum_{p=1}^{n} \frac{(-1)^{2p-1}}{2p}+
+			\sum_{p=1}^{n} \frac{(-1)^{(2p-1)-1}}{2p-1} \\
+			&=& -\sum_{p=1}^n \frac{1}{2p}+\sum_{p=1}^n \frac{1}{2p-1} \\
+			&=& -\sum_{p=1}^n \frac{1}{2p}+\sum_{p=1}^n \frac{1}{2p-1} +\sum_{p=1}^n \frac{1}{2p}-\sum_{p=1}^n \frac{1}{2p}\\
+			&=& \sum_{j=1}^{2n}\frac{1}{j}-\sum_{m=1}^n \frac{1}{m}
+			\end{eqnarray*}
 		</p>
 		
-	</li> 
-<li>
-	Usando las propiedades del logaritmo y el inciso anterior demuestra que:
+	</p> 
+	<p>
+		De la identidad anterior llegamos a 
 
-\begin{eqnarray*}
-\sum_{k=1}^{2n} \frac{(-1)^{k-1}}{k}=\left( \sum_{j=1}^{2n} \frac{1}{j}-\log(2n) \right) - \left( \sum_{m=1}^n \frac{1}{m}- \log(n) \right) +\log(2)
-\end{eqnarray*}
-</li> 
+		\begin{eqnarray*}
+		\sum_{k=1}^{2n} \frac{(-1)^{k-1}}{k}&=&\left( \sum_{j=1}^{2n} \frac{1}{j}-\log(2n) \right) - \left( \sum_{m=1}^n \frac{1}{m}- \log(2n) \right) \\ 
+		&=& \left( \sum_{j=1}^{2n} \frac{1}{j}-\log(2n) \right) - \left( \sum_{m=1}^n \frac{1}{m}- \log(n) \right) +\log(2)
+		\end{eqnarray*}
+	</p> 
+	<p>
+		Pero por el <a href="#Ejer:NumeroDeEuler">Ejercicio 17.32</a>
+		\begin{eqnarray*}
+		\lim_{n\to \infty} \left( \sum_{j=1}^{2n} \frac{1}{j}-\log(2n)\right)= C \\
+		\lim_{n\to \infty} \left(\sum_{m=1}^n \frac{1}{m}- \log(n) \right) = C
+		\end{eqnarray*}
+		por lo tanto 
+	</p>
 
-<li>
-	Toma límite, cuando $n\to \infty$, en el inciso anterior y usa el ejercicio \ref{Ejer:NumeroDeEuler} para concluir:
-$$
- \lim_{n\to \infty} \sum_{k=1}^n \frac{(-1)^{k-1}}{k}= C-C+\log(2)=\log(2).
-$$
+	<p>
+		
+	$$
+	\lim_{n\to \infty} \sum_{k=1}^n \frac{(-1)^{k-1}}{k}= C-C+\log(2)=\log(2).
+	$$
 
-</li> 
-</ol>
+	</p> 
+	</div>
 </div>
 
 
 <div class="ejercicio-box">
 	<h2 class="number-title" id="Ejer:SerieArctan"> Ejercicio</h2> 
 	<p>
-		Demuestra que, para toda $x\in [-1,1]$:
+		En éste ejercicio se prueba la identidad 
 		$$
 		\arctan(x)=\sum_{n=1}^\infty \frac{(-1)^{n-1}x^{2n-1}}{2n-1}.
 		$$
+		válida para toda $x\in [-1,1]$.
 	</p>
 
 <ol>
@@ -1642,20 +1696,12 @@ $$
 		\arctan(x)=\int_0^x \frac{1}{1+t^2}dt
 		$$
 
-		Sugerencia: por las derivadas de las funciones trigonómetricas inversas sabemos que
-		$$
-		\frac{d}{dx}(\arctan(x))=\frac{1}{1+x^2};
-		$$
-		por el Primer Teorema Fundamental  fundamental sabemos que
-		$$
-		\frac{d}{dx}\left( \int_0^x  \frac{1}{1+t^2}dt\right)= \frac{1}{1+x^2}.
-		$$
+		Sugerencia: usa derivadas de  funciones trigonómetricas inversas.
 
-		Con estas dos identidades justifica que $\arctan(x)=\int_0^x \frac{1}{1+t^2}dt$.
 
 	</li> 
 		<li>
-			Usa la serie geométrica (\ref{Ejer:SerieGeometrica}) para probar que para todo $t\in [-1,1]$:
+			Usa la  <a href="#Ejer:SerieGeometrica">serie geométrica</a> para probar que para todo $t\in [-1,1]$:
 		$$
 		\frac{1}{1+t^2}=\sum_{k=0}^n (-t^2)^{k}+ \frac{(-t^2)^{n+1}}{1+t^2}.
 		$$
@@ -1664,9 +1710,9 @@ $$
 		<li>
 			De  la identidad del ejercicio anterior obten que, para todo $x\in[-1,1]$:
 
-		\begin{equation}\label{Eqn:AproxIntegArctan}
-		\int_0^x \frac{dt}{1+t^2}= \sum_{k=0}^n (-1)^k \frac{x^{2k+1}}{2k+1} + (-1)^{n+1} \int_0^x \frac{t^{2n+2}}{1+t^2}dt.
-		\end{equation}
+			\begin{equation}\label{Eqn:AproxIntegArctan}
+			\int_0^x \frac{dt}{1+t^2}= \sum_{k=0}^n (-1)^k \frac{x^{2k+1}}{2k+1} + (-1)^{n+1} \int_0^x \frac{t^{2n+2}}{1+t^2}dt.
+			\end{equation}
 		</li> 
 
 		<li>
