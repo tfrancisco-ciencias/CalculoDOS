@@ -1926,7 +1926,8 @@
 
 
 <div class="ejercicio-box">
-	<h2 class="number-title"> Ejercicio</h2> 
+	<h2 class="number-title" id="Ejer:CriterioCauchySeries"> Ejercicio</h2> 
+	<h3> Criterio de Cauchy</h3>
 	<p>
 		El criterio de Cauchy es una consecuencia directa del 
 		Teorema que asegura la convergencia de las suceciones de Cauchy 
@@ -1943,8 +1944,72 @@
 	</p>
 </div>
 
+<div class="definicion-box">
+	<h2 class="number-title"> Definición </h2>
+	<p>
+		Una sucesión \((a_n))_{n=0}^\infty\) se llama absolutamente sumable si la sucesión 
+		de valores absolutos \((|a_n|_{n=0}^\infty)\) es sumable. 
+	</p>
+	<p>
+		Por ejemplo, la serie geométrica muestra que para todo \(r\in (-1,1)\), la sucesión 
+		\((r^n)_{n=0}^\infty\) es absolutamente sumable.  	
+	</p>
+	<p>
+		Otra nomenclatura que se usa es la siguiente: \(\sum_{n=0}^\infty a_n\) es absolutamente 
+		convergente si la serie \(\sum_{n=0}^\infty |a_n|\) es convergente. Por ejemplo, 
+		en <a>Ejercicio 17.38</a> se vió que la siguiente serie converge 
+		\[
+			\sum_{n=1}^\infty\frac{(-1)^{n-1}}{n}=\log(2)
+		\]
+		sin embargo al tomar la serie con valores absolutos obtenemos la serie armónica 
+		\[
+		\sum_{n=1}^\infty \left| \frac{(-1)^{n-1}}{n}\right| =\sum_{n=1}^\infty \frac{1}{n}
+		\]
+		la cual es divergente. Así \(\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}\) es 
+		convergente pero no absolutamente convergente.
+	</p>
+	<p>
+		La intuición es que las series absolutamente convergentes "se comportan" mejor 
+		que las series convergentes usuales.
+	</p>
 
+</div>
 
+<div class="ejercicio-box">
+	<h2 class="number-title"> Ejercicio</h2>
+	<p>
+		Prueba que si la sucesión \((a_n)_{n=0}^\infty\) es absolutamente sumable 
+		entonces también es sumable. Es decir 
+		\[
+		\sum_{n=0}^\infty |a_n| \quad \textrm{convergente} 
+		\Rightarrow \sum_{n=0}^\infty a_n \quad \textrm{convergente}
+		\] 
+	</p>
+	<button class="respButton hvr-grow "> Solución   </button>
+	<div class="resp-box flexbox">
+	<p>
+		Vamos a usar el <a href="#Ejer:CriterioCauchySeries">Criterio de Cauchy</a>. Fijemos 
+		\(\varepsilon >0\). Debemos de probar que existe un natural \(N\) con la propiedad 
+		de que para todos  \(n, m\geq N\), con \(n <  m\), se cumple 
+		\begin{equation}\label{Eqn:AuxSeriresAbsConvergentes}
+		\left| \sum_{k=n}^m  a_k \right| < \varepsilon.
+		\end{equation}
+		Pero al ser \(\sum_{n=0}^\infty |a_n|\) convergente el Criterio de Cauchy sí nos asegura 
+		que existe un natural \(N\) con 
+		\[
+		\left| \sum_{k=n}^m |a_n| \right| < \varepsilon
+		\]
+		para todos \(n,m\geq N\) con \(n< m\).
+	</p>
+	<p>
+		Para finalizar notamos que \eqref{Eqn:AuxSeriresAbsConvergentes} se sigue de 
+		\[
+		\left| \sum_{k=n}^m  a_n \right| \leq \sum_{k=n}^m |a_n|=\left| \sum_{k=n}^m |a_n| \right| < \varepsilon.
+		\]
+
+	</p>
+	</div>
+</div>
 
 <div class="ejercicio-box">
 	<h2 class="number-title"> Ejercicio</h2> 
