@@ -11,7 +11,7 @@
 
 
     <!-- This part is to load main.js -->
-    <script type="text/javascript" src="../main.js"></script>
+    <script type="text/javascript" src="../main2.js"></script>
 
 
     <!-- Next part is for new coomands -->
@@ -42,7 +42,7 @@
 
     <!-- CSS -->
 
-    <link rel="stylesheet" , href="../style.css" />
+    <link rel="stylesheet" , href="../style2.css" />
 
     <!-- This part restart counter of cards to start at n+1 -->
     <style>
@@ -75,13 +75,17 @@
         </header>
 
       <!-- This part is for title in tab-->
-      <title> § 2 </title>
+      <title id="Sec"> § 2 </title>
     
   </head>
 
   <body class="fondo-body" >
 
 <h1 class="number-title flexbox">La integral de funciones escalonadas</h1>
+
+   <!-- this part is for next and prev sections -->
+   <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
+   <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
 
 <div class="info-box">
@@ -129,21 +133,21 @@
 </p>
 </div>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:AditividadDeEscalonadas"> Ejercicio</h2> 
+<div class="prop-box"> 
+    <h2 class="number-title" id="Ejer:AditividadDeEscalonadas"> Proposición </h2> 
     <p>
         Sea $s:[a,b] \to \mathbb{R}$ una función escalonada.
     </p>
     <ol>
         <li id="Ejer:IntegralConstantes">
             Supongamos que \(s\) es constante, \(s(x)=k\) 
-            para todo \(k\in (a,b)\). Prueba 
+            para todo \(k\in (a,b)\). Entonces:
             $$
             \int_a^b s(x)dx=k(b-a).
             $$
         </li>
         <li>
-            Sea $P=\{x_i\}_{i=0}^n$ la partición de \(s\). Demuestra que
+            Sea $P=\{x_i\}_{i=0}^n$ la partición de \(s\). Entonces:
             $$
             \int_a^b s(x)dx= \sum_{i=1}^n \int_{x_{i-1}}^{x_i} s(x)dx
             $$
@@ -220,7 +224,7 @@ $$
 $$
 si $n$ es el único entero tal que $n <  x   \leq n+1$.
 
-Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
+Notar que $\lceil x \rceil = \lfloor x \rfloor +1$ para \(x \notin \mathbb{Z}\).
 </p>
 </div>
 
@@ -366,8 +370,8 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
     </div> 
 </div>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:LemaAditividadIntervalosEscalonadas"> Ejercicio</h2> 
+<div class="prop-box"> 
+    <h2 class="number-title" id="Ejer:LemaAditividadIntervalosEscalonadas"> Lema </h2> 
     <p>
         Sea $s:[a,b] \to \mathbb{R}$ una función escalonada y $c\in (a,b)$. Demuestra:
         $$
@@ -375,7 +379,7 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
         $$
     </p>
 
-    <button class="respButton hvr-grow "> Solución  </button>
+    <button class="respButton hvr-grow "> Demostración   </button>
     <div class="resp-box flexbox">
       <div >
         <p>
@@ -424,15 +428,15 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
     
 </div>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title" > Ejercicio</h2> 
+<div class="prop-box"> 
+    <h2 class="number-title" > Proposición </h2> 
     <p>
         Digamos que $s, \tilde{s}:[a,b] \to \mathbb{R}$ son funciones escalonadas 
         y $s=\tilde{s}$, excepto en un número finito de puntos. 
         Demostrar que  $\int_a^bs=\int_a^b\tilde{s}$.
     </p>
     <p>
-        Sugerencia: usar el  <a href="#Ejer:LemaAditividadIntervalosEscalonadas">Ejercicio 2.7</a> 
+        Sugerencia: usar el  <a href="#Ejer:LemaAditividadIntervalosEscalonadas">Proposición 2.7</a> 
         e inducción sobre el número de puntos donde son distintos.
     </p>
     <button class="respButton hvr-grow "> Demostración  </button>
@@ -455,7 +459,7 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
     </p>
      <p>
         Sugerencia: usa inducción sobre la longitud de la partición 
-        y el ejercicio  <a href="#Ejer:LemaAditividadIntervalosEscalonadas">Ejercicio 2.7.</a>
+        y el ejercicio  <a href="#Ejer:LemaAditividadIntervalosEscalonadas">Proposición 2.7.</a>
      </p>
 
     <button class="respButton hvr-grow "> Demostración  </button>
@@ -473,7 +477,7 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
      
      <p>
         Para el caso \(m=3\), consideremos una partición arbitraria con tres elementos 
-        \(Q = \lbrace a < y_1 < b \rbrace\), entonces por el  Ejercicio 2.7 tenemos  
+        \(Q = \lbrace a < y_1 < b \rbrace\), entonces por el  Proposición 2.7 tenemos  
         \[ \int_a^bs(x) dx = \int_a^{y_1}s(x) dx + \int_{y_1}^bs(x) dx . \]
      </p>
      
@@ -565,8 +569,8 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
 </div>
 
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:LemaUnionParticionesEscalonadas"> Ejercicio</h2> 
+<div class="prop-box"> 
+    <h2 class="number-title" id="Ejer:LemaUnionParticionesEscalonadas"> Lema </h2> 
     <p>
         Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas. Por $P_s$ y $P_t$ denotamos 
         las particiones asociadas a  $s$ y $t$, respectivamente. 
@@ -582,8 +586,8 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
 </div>
 
 
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:MonotoniaIntegralEscalonadas"> Ejercicio</h2>   
+<div class="prop-box">
+    <h2 class="number-title" id="Ejer:MonotoniaIntegralEscalonadas"> Proposición </h2>   
    <p>
        Sean $s,t : [a,b]\to \mathbb{R}$ dos funciones escalondas con $s(x)\leq t(x)$
        para todo \(x\in [a,b]\), excepto una cantidad finita de puntos. Demuestra que 
@@ -630,8 +634,8 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
    
 </div>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:EscalonadasEspacioVectorial"> Ejercicio</h2> 
+<div class="prop-box"> 
+    <h2 class="number-title" id="Ejer:EscalonadasEspacioVectorial"> Lema </h2> 
         <p>
             Sean $s,t:[a,b]\to \mathbb{R}$ dos funciones escalonadas. Desmuestra:
         </p>
@@ -648,8 +652,8 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
 </div>
 
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title" id="Ejer:LinealidadEscalonadas"> Ejercicio</h2> 
+<div class="prop-box"> 
+    <h2 class="number-title" id="Ejer:LinealidadEscalonadas"> Proposición</h2> 
     <p>
         Sean $s,t:[a,b] \to \mathbb{R}$ dos funciones 
         escalonadas y $\alpha \in \mathbb{R}$  una constante. Prueba:
@@ -714,15 +718,9 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
 
 </div>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2>  
-    <p>
-        Calcula $\int_{-1}^3 \lfloor x \rfloor +  \lfloor x+\frac{1}{2} \rfloor  dx$.
-    </p>
-</div>
 
-<div class="ejercicio-box"> 
-    <h2 class="number-title"> Ejercicio</h2> 
+<div class="prop-box"> 
+    <h2 class="number-title"> Corolario </h2> 
     <p>
         Sean $s_1,\cdots, s_m:[a,b]\to \mathbb{R}$ funciones escalonadas. Demuestra
         $$
@@ -734,6 +732,14 @@ Notar que $\lceil x \rceil = \lfloor x \rfloor +1$.
     </p>
 
 </div>
+
+<div class="ejercicio-box"> 
+    <h2 class="number-title"> Ejercicio</h2>  
+    <p>
+        Calcula $\int_{-1}^3 \lfloor x \rfloor +  \lfloor x+\frac{1}{2} \rfloor  dx$.
+    </p>
+</div>
+
 
 <div class="ejercicio-box"> 
     <h2 class="number-title"> Ejercicio</h2> 
