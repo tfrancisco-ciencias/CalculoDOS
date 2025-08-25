@@ -530,7 +530,7 @@
         $$
     </p>
     
-    <button class="respButton hvr-grow "> Demostración  </button>
+    <!-- <button class="respButton hvr-grow "> Demostración  </button>
     <div class="resp-box flexbox">
     <div >
     <p>
@@ -619,7 +619,7 @@
         \[ m(b-a) \leq \int_a^b f(x) dx \leq M(b-a) .\]
     </p>
     </div>
-    </div>
+    </div>-->
     
  </div>   
 
@@ -749,16 +749,18 @@
 
 
 
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:CriterioCauchyIntegrabilidad"> Ejercicio</h2> 
+<div class="teorema-box">
+    <h2 class="number-title" id="Ejer:CriterioCauchyIntegrabilidad"> Teorema </h2> 
     <h3>Criterio de Cauchy</h3>
     <p>
-        Este ejercicio es el primer criterio que presentamos 
+        Este Teorema es el primer criterio que presentamos 
         para probar que una  función  sea integrable.
     </p>
-
     <p>
-        Sea $f:[a,b]\to \mathbb{R}$ una función acotada. \(f\) es integrable si y sólo si  
+        Sea $f:[a,b]\to \mathbb{R}$ una función acotada.
+    </p>
+    <p>
+        \(f\) es integrable si y sólo si  
         para toda $\varepsilon >0$ 
         existen $s,t:[a,b]\to \mathbb{R}$ funciones escalonadas con: 
         <ol>
@@ -905,8 +907,8 @@
 
 
 
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:IntegralAbreSumas"> Ejercicio</h2> 
+<div class="prop-box">
+    <h2 class="number-title" id="Ejer:IntegralAbreSumas"> Lema </h2> 
 
     <p>
         Sean \(f,g:[a,b]\to \mathbb{R}\) dos funciones integrables. Entonces 
@@ -1016,84 +1018,88 @@
 </div>
 
 
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:SacaEscalares"> Ejercicio</h2> 
+<div class="prop-box">
+    <h2 class="number-title" id="Ejer:SacaEscalares"> Lema </h2> 
 
     <p>
-        Sea $f:[a,b] \to \mathbb{R}$ integrable y $\alpha\in \mathbb{R}$, 
-        $\alpha\ne 0$, un escalar fijo y arbitrario. 
+        Sean $f:[a,b] \to \mathbb{R}$ integrables y $\alpha\in \mathbb{R}$, 
+        un escalar fijo y arbitrario. 
     </p>
     <p>
-        Este ejercicio prueba que la función  \(\alpha f\) es integrable y que 
+        Entonces la función  \(\alpha f\) es integrable y  
         \[
             \int_a^b \alpha f(x)dx=\alpha\int_a^bf(x)dx
         \]
     </p>
 
+<button class="respButton hvr-grow "> Demostración  escrita </button>
+<div class="resp-box flexbox">
+<div>    
+
 <p>
-    Fija $\varepsilon >0$. 
+    Fija $\varepsilon >0$. Sín pérdida de generalidad podemos suponer \(\alpha \ne 0\).
 </p>
 
-<ol>
-    <li>
-        Demuestra que existen funciones escalonadas $s_f,t_f :[a,b] \to \mathbb{R}$ tales que
+
+    <p>
+        Al ser \(f\) integrable existen funciones escalonadas $s_f,t_f :[a,b] \to \mathbb{R}$ tales que
         $s_f \leq f \leq t_f$ y tal que
         $$
         \int_a^b t_f(x)dx -\int_a^bs_f(x)dx < \frac{\varepsilon}{|\alpha|}.
         $$
-    </li> 
+    </p> 
 
-    <li>
+    <p>
         Si $\alpha >0$ define $s:=\alpha s_f$, $t:=\alpha t_f$; si $\alpha < 0$ define 
         $s=\alpha t_f$, $t=\alpha s_f$. 
-        Demuestra que $s$ y $t$ son funciones escalonadas, que $s\leq \alpha f \leq t$ y que
+        Entonces $s$ y $t$ son funciones escalonadas,  $s\leq \alpha f \leq t$ y:
         \begin{equation}\label{Eqn:SacaEscalares1}
         \int_a^b t(x)dx -\int_a^b s(x)dx  < \varepsilon.
         \end{equation}
-    </li> 
-    <li>
-        Usa el inciso anterior y el criterio de Cauchy 
+    </p> 
+    <p>
+        Del criterio de Cauchy 
         (<a href="#Ejer:CriterioCauchyIntegrabilidad">Ejercicio 3.11</a>)  
-        para concluir que la función 
+        se sigue que la función 
         $\alpha f$ es integrable.
-    </li> 
+    </p> 
 
-    <li>
-        Usando la monotonía de la integral demuestra que:
+    <p>
+        Usando la monotonía de la integral se sigue:
         \begin{equation}\label{Eqn:SacaEscalares2}
         \int_a^b s(x)dx \leq \int_a^b \alpha f(x)dx \leq \int_a^b t(x)dx.
         \end{equation}
-    </li> 
+    </p> 
 
-    <li>
+    <p>
         Recuerda que, por definición de $t_f$ y $s_f$:
         $$
         \int_a^b s_f(x)dx \leq \int_a^b f(x)dx \leq \int_a^b t_f(x)dx.
         $$
-        Multiplica las desigualdades anteriores por $\alpha$  y usa la linealidad de la 
+        Multiplicando las desigualdades anteriores por $\alpha$  y usando la linealidad de la 
         integral de las
-        funciones escalonadas para demostrar que:
+        funciones escalonadas obtenemos que:
 
         \begin{equation}\label{Eqn:SacaEscalares3}
         \int_a^b s(x)dx \leq \alpha \int_a^b f(x)dx \leq \int_a^b t(x)dx
         \end{equation}
 
-    </li> 
-    <li>
+    </p> 
+    <p>
         Usando \eqref{Eqn:SacaEscalares1}, \eqref{Eqn:SacaEscalares2} y 
-        \eqref{Eqn:SacaEscalares3} demuestra que
+        \eqref{Eqn:SacaEscalares3} demuestramos que
         $$
         \left| \alpha \int_a^b f(x)dx -\int_a^b \alpha f(x)dx \right| <\varepsilon.
         $$
-    </li> 
+    </p> 
     <li>
         Ya que $\varepsilon$ es arbitrario, concluye del inciso anterior que
         $$
         \int_a^b \alpha f(x)dx=\alpha\int_a^b f(x)dx.
         $$
     </li> 
-
-</ol>
+</div>
+</div>
 </div>
 
  
@@ -1262,8 +1268,8 @@
     <h2 class="number-title" id="Ejer:LinealidadIntervalos"> Teorema</h2>     
     <h3> Linealidad con respecto a  intervalos</h3>
     <p>
-        Sea $f:[a,b]\to \mathbb{R}$ acotada e integrable en $[a,b]$ y sea  $c\in (a,b)$.       
-        Entonces $f$ es integrable en $[a,c]$, $f$ es integrable en $[c,d]$ y:
+        Sea $f:[a,b]\to \mathbb{R}$ integrable en $[a,b]$ y sea  $c\in (a,b)$.       
+        Entonces $f$ es integrable en $[a,c]$ y en \([c,b]\)$f$  y:
         $$
         \int_a^c f +\int_c^b f =\int_a^b f
         $$
