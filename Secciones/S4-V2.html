@@ -1,0 +1,756 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main2.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style2.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 3 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 3 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title id="Sec"> § 4 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox">Integrabilidad de  funciones monótonas </h1>
+
+   <!-- this part is for next and prev sections -->
+   <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
+   <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+
+
+<div class="info-box">
+    <h2 class="number-title"> Introducción</h2> 
+    <p>
+        En las secciones pasadas definimos la integral de Riemann y vimos muchas de sus propiedades:
+        monotonía, linealidad, linealidad con respecto a intervalos. También vimos un criterio 
+        para ver cuándo una función es integrable y usando éste criterio vimos que la función 
+        \(f(x)=x^2\), \(x\in[0,b]\) es integrable,  sin embargo no tenemos más ejemplos concretos 
+        de funciones integrables. Está sección remedia esto mostrando que toda función monótona es 
+        integrable.
+    </p>
+    <p>
+        Recordamos que una función \(f:[a,b]\to \mathbb{R}\) es: 
+        <ul>
+            <li>
+                monótona creciente en \([a,b]\)
+                si para todos \(x_1,x_2\in [a,b]\) con \(x_1\leq x_2\) se cumple que 
+                \(f(x_1)\leq f(x_2)\); es monótona decreciente en \([a,b]\);
+            </li>
+            <li>
+                monótona decreciente en \([a,b]\) si para todos \(x_1,x_2\in [a,b]\) 
+                con \(x_1\leq x_2\) se cumple que  \(f(x_1)\geq f(x_2)\);       
+            </li>
+            <li>
+                monótona en \([a,b]\) si bien es monótona creciente o bien monótona decreciente.
+            </li>
+
+        </ul>     
+    <p>
+        Notamos que toda función monótona en un intervalo de la forma \([a,b]\) está acotada por sus valores 
+        en los extremos del intervalo. De ésta manera tenemos que las integrales inferiores y superiores 
+        siempre existen. Lo que veremos, gracias al criterio de Cauchy, es que éstas integrales son 
+        siempre iguales para las funciones monótonas.
+    </p>
+
+ </div>  
+
+<div class="teorema-box">
+    <h2 class="number-title" id="Ejer:IntegrabilidadFuncionesMonotonas"> Teorema </h2> 
+    <h3> Toda función  monotona es integrable </h3>
+    <p>
+        Si $f:[a,b]\to \mathbb{R}$ una función monotona creciente o 
+        monótona decreciente  en \([a,b]\) entonces $f$ es integrable.
+    </p>
+    <p>
+        Además se tiene la identidad 
+        \begin{equation}\label{Eqn:TeoIntegraMonotonaIdentidad}
+        \lim_{n \to \infty} \left( \frac{b-a}{n}
+        \sum_{i=1}^n f\left(a+i\frac{b-a}{n}\right) \right)=\int_a^b f(x)dx
+        \end{equation}
+    </p>
+    
+    <p>
+        Sugerencia: primero consider el caso monótono creciente y usa 
+        el <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Ejercicio 3.11</a> 
+        (criterio de Cauchy). 
+    </p>
+
+
+    <button class="respButton hvr-grow "> Demostración  escrita </button>
+    <div class="resp-box flexbox">
+      <div >
+    <p>
+        Para $n\geq 1$ natural define las siguientes funciones escalonadas,
+        \(s_n,t_n:[a,b]\to \mathbb{R}\):
+        \begin{eqnarray*}
+        s_n(x):=\sum_{i=1}^{n} f(x_{i-1})\chi_{[x_{i-1},x_i)}(x), \\
+         t_n(x):=\sum_{i=1}^n f(x_i)\chi_{[x_{i-1},x_i)}(x).
+        \end{eqnarray*}
+        donde \(P_n=\{x_0< x_1<  \cdots < x_{n-1} < x_n\}\) es la partición homogenea 
+        de longitud \(n\).
+    </p>
+    <p>
+        Tomando en consideración que la que función \(f\) es monótona creciente resulta 
+        \[
+        f(x_{i-1}) \leq f(x) \leq f(x_i), \forall x\in [x_{i-1},x_i) 
+        \]
+        de lo que se sigue 
+        \begin{equation}\label{Eqn:MonotonaIntegAux1}
+        s_n(x) \leq f(x)\leq t_n(x), \forall x\in [a,b)
+        \end{equation}
+        
+    </p>
+    <p>
+        Ahora vamos a calcular \(\int_a^b t_ndx-\int_a^bs_ndx\).
+        \begin{eqnarray*}
+        \int_a^bt_n(x)dx - \int_a^b s_n(x)dx &=& \sum_{i=1}^n f(x_i)(x_i-x_{i-1})-\sum_{i=1}^{n}f(x_{i-1})(x_i-x_{i-1})\\
+        &=& \sum_{i=1}^{n} (f(x_i)-f(x_{i-1}))(x_i-x_{i-1})
+        \end{eqnarray*}
+        Al ser \(P_n\) la partición homogenea de \([a,b]\) de longitud \(n\) tenemos 
+        \(x_i-x_{i-1}=\frac{b-a}{n}\) por lo que podemos reescribir la identidad  anterior como 
+        \begin{eqnarray*}
+        \int_a^bt_n(x)dx - \int_a^b s_n(x)dx&=&\sum_{i=1}^n (f(x_i)-f(x_{i-1}))\frac{b-a}{n} \\
+        &=& \frac{b-a}{n} \sum_{i=1}^n (f(x_i)-f(x_{i-1}))\\
+        &=& \frac{b-a}{n} (f(b)-f(a))
+        \end{eqnarray*}
+        donde en la última identidad usamos el hecho de que la suma que aparece es telescópica.
+    </p>
+    <p>
+        Por lo tanto, dado \(\varepsilon > 0\) arbitrario, si tomamos \(n\) suficientemente grande para que 
+        \[
+        \frac{b-a}{n} (f(b)-f(a)) < \varepsilon
+        \]
+        concluimos que 
+        \begin{equation}\label{Eqn:MonotonaIntegAux2}
+        \int_a^bt_n(x)dx - \int_a^b s_n(x)dx< \varepsilon 
+        \end{equation}
+    </p>
+    <p>
+        Por \eqref{Eqn:MonotonaIntegAux1} y \eqref{Eqn:MonotonaIntegAux2} concluimos que \(f\)
+        satisface el criterio de Cauchy y por lo tanto es integrable.
+    </p>
+
+    <p>
+        Para probar \eqref{Eqn:TeoIntegraMonotonaIdentidad} usamos\eqref{Eqn:MonotonaIntegAux1}
+        y la monotonía de la integral para obtener 
+        \begin{eqnarray*} 
+        \int_a^b s_n(x)dx \leq \int_a^b f(x)dx \leq \int_a^b t_n(x)dx 
+        \end{eqnarray*}
+        por lo que en referencia el intervalo \([\int_a^bs_n dx,\int_a^bt_ndx]\) obtenemos 
+        \begin{eqnarray*}
+        \left| \int_a^b t_n(x)dx - \int_a^bf(x)dx \right| &\leq  & 
+        \int_a^b t_n(x)dx- \int_a^b s_n(x)dx  \\
+        &=& \frac{b-a}{n}(f(b)-f(a))
+        \end{eqnarray*}
+    </p>
+    <p>
+        Recordando que \(x_i=a+i\frac{b-a}{n}\) tenemos 
+        \[
+        \int_a^b t_n(x)dx =\frac{b-a}{n} \sum_{i=1}^n f\left(a+ i\frac{b-a}{n} \right)
+        \]
+        por lo que 
+        \begin{eqnarray*}
+       \left| \frac{b-a}{n} \sum_{i=1}^n f\left(a+ i\frac{b-a}{n} \right) - \int_a^bf(x)dx \right| \leq   
+        \frac{b-a}{n}(f(b)-f(a))  
+        \end{eqnarray*}
+        Tomando límite cuando \(n\to \infty\) obtenemos \eqref{Eqn:TeoIntegraMonotonaIdentidad}.
+    </p>
+</div>
+</div>
+
+    <a href="https://youtu.be/jkjc_Fm1KPM?t=680" target="_blank" >
+        <button class="respButton hvr-grow " > Demostración en video </button>     
+    </a>
+    
+</div>
+
+ 
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:CalculoIntegralFuncionesMonotonas"> Ejercicio</h2> 
+    <p>
+        A pesar de que el <a href="Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> 
+        no da el valor exácto de la integral, este ejercicio da una manera de encontrar dicho valor.
+    </p>
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ una función monótona creciente. 
+        Sea $x_i=a+i\frac{b-a}{n}$, con $i=1,\dots, n$. Si $J$ es un número que satisface 
+        $$
+        \left( \frac{b-a}{n} \right)\sum_{i=0}^{n-1}f(x_i)\leq J \leq  
+        \left(\frac{b-a}{n}\right) \sum_{i=1}^n f(x_i)
+        $$
+        para toda $n$, entonces
+        $$
+        J=\int_a^b f(x)dx.
+        $$
+    </p>
+    <button class="respButton hvr-grow "> Solución escrita  </button>
+    <div class="resp-box flexbox">
+    <div >     
+    <p>
+        Seguimos la misma estrategia que en el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a>.
+    </p>
+    
+    <p>
+        Definimos funciones escalonadas \(s_n,t_n:[a,b]\to \mathbb{R}\):
+        \begin{eqnarray*}
+        s_n(x):=\sum_{i=1}^{n} f(x_{i-1})\chi_{[x_{i-1},x_i)}(x), \\
+         t_n:(x)=\sum_{i=1}^n f(x_i)\chi_{[x_{i-1},x_i)}(x).
+        \end{eqnarray*}
+        Al ser \(f\) monótona creciente se cumple que 
+        \[
+        s_n(x) \leq f(x) \leq t_n(x), \quad \forall x\in [a,b)
+        \]
+        Integrando las desigualdades anteriores obtenemos 
+        \[
+        \int_a^bs_n(x)dx \leq \int_a^b f(x)dx \leq \int_a^nt_n(x)dx
+        \]
+        Denotamos 
+        \[
+            S=\frac{b-a}{n}\sum_{i=1}^{n-1}f(x_{i}), \quad  T=\frac{b-a}{n}\sum_{i=1}^n f(x_i)
+        \]
+        Un calculo directo muestra 
+        \begin{eqnarray*}
+        \int_a^bs_n(x)dx &=& \sum_{i=1}^n f(x_{i-1})(x_i-x_{i-1})\\
+        &=&\frac{b-a}{n}\sum_{i=1}^n f(x_{i-1})\\
+        &=& \frac{b-a}{n} \sum_{i=0}^{n-1}f(x_i)\\
+        &=&S\\
+        \int_a^b t_n(x)dx&=& \sum_{i=1}^n f(x_{i})(x_i-x_{i-1})\\
+        &=&\frac{b-a}{n}\sum_{i=1}^n f(x_{i})\\
+        &=&T
+        \end{eqnarray*}
+    </p>
+    <p>
+        Por lo tanto tenemos 
+        \begin{equation}\label{Eqn:EstimacionIntegralMonotonaAux1}
+         S\leq \int_a^b f(x)dx \leq T
+        \end{equation}
+        Por otro lado, por la suposición del ejercicio tenemos 
+        \begin{equation}\label{Eqn:EstimacionIntegralMonotonaAux2} 
+        S\leq J \leq T 
+        \end{equation}
+    </p>
+    <p>
+        Comparando las ecuaciones \eqref{Eqn:EstimacionIntegralMonotonaAux1} y \eqref{Eqn:EstimacionIntegralMonotonaAux2}
+        con respecto a la longitud del intervalo \([S,T]\) obtenemos 
+        \[
+        \left| \int_a^bf(x)dx - J \right| \leq T-S
+        \]
+    </p>
+    <p>
+        Pero al igual que en el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> 
+        un cálculo directo muesta 
+        \[
+        T-S=\sum_{i=1}^n (f(x_i)-f(x_{i-1}))(x_i-x_{i-1})=\frac{b-a}{n}(f(b)-f(a))
+        \]
+        Por lo tanto
+        \[
+        \left| \int_a^bf(x)dx - J \right| \leq \frac{b-a}{n}(f(b)-f(a))
+        \]
+    </p>
+    <p>
+        Tomando el límite cuando \(n\to \infty\) concluimos 
+        \[
+        J= \int_a^b f(x)dx.
+        \]
+    </p>
+    </div>
+    </div>
+
+    <a href="https://youtu.be/jkjc_Fm1KPM?t=3149" target="_blank" >
+        <button class="respButton hvr-grow " > Solución en video </button>     
+    </a>
+    
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"id="Ejer:IntegralesPotencias1"> Ejercicio</h2>
+    <p>
+        Fija $k \in \mathbb{N}$. Este ejercicio ayuda a calcular  
+        la integral de $x\mapsto x^k$ en $[0,b]$. 
+    </p> 
+
+    <ol>
+        <li>
+        Demuestra que para todo  $n\geq 1$ natural:
+        $$
+        \sum_{i=1}^{n-1}i^k \leq \frac{n^{k+1}}{k+1} \leq \sum_{i=1}^n i^k
+        $$
+    </li> 
+
+    <li>
+        Usa el <a href="#Ejer:CalculoIntegralFuncionesMonotonas">Ejercicio 4.3</a>  para concluir:
+        $$
+            \int_0^b x^k dx = \frac{b^{k+1}}{k+1},
+        $$
+        para toda $b>0$.
+    </li> 
+</ol>
+
+<button class="respButton hvr-grow "> Solución   </button>
+    <div class="resp-box flexbox">
+    <div >
+<p>
+    Prueba del inciso 1.
+</p>
+
+<center>
+   La prueba se hara por inducción sobre \(n\).
+</center> 
+
+<p>
+    <b>Base de Inducción.</b> Para \(n =1\) tenemos que 
+    \[ \sum_{i=0}^{n-1}i^k \leq \frac{n^{k+1}}{k+1} \leq \sum_{i=1}^{n}i^k . \]
+    es equivalente a 
+    \begin{equation*}
+    0 \leq \frac{1}{k+1} \leq 1 .
+    \end{equation*} 
+    Lo cual es cierto, ya que \(k \in \mathbb{N}\).
+</p>
+
+<p>
+    <b>Hipótesis de Inducción.</b> Supongamos que existe un natural 
+    \(n \geq 2\) tal que,  
+    \[ \sum_{i=0}^{n-1}i^k \leq \frac{n^{k+1}}{k+1} \leq \sum_{i=1}^{n}i^k . \]
+</p>
+<p>
+    <b>Paso Inductivo. </b>Por demostrar que se cumple para \(n+1\), 
+    es decir demostremos que 
+    \[ \sum_{i=0}^{n}i^k \leq \frac{(n+1)^{k+1}}{k+1} \leq \sum_{i=1}^{n+1}i^k . \]
+</p>
+
+<p>
+    Primero demostremos que \[ \sum_{i=0}^{n}i^k \leq \frac{(n+1)^{k+1}}{k+1} .\]
+</p>
+<p>
+    Tenemos por hipótesis de inducción que 
+    \[ \sum_{i=0}^{n}i^k =  \sum_{i=1}^{n-1}i^k  + n^k \leq \frac{n^{k+1}}{k+1} + n^k  
+    = \frac{n^{k+1} + (k+1)n^k}{k+1} .\]
+
+    Recordemos el teorema del binomio el cual nos dice que para cualesquiera 
+    números reales \(a\) y \(b\) y un número natural \(m\) se tiene que 
+    \[ (a + b)^m = \sum_{i=0}^m\binom{m}{i}a^{m-i}b^i \]
+    
+    donde \(\binom{m}{i} = \frac{m!}{i!(m-i)!}\) y \(m!= m(m-1)\cdot\cdot\cdot2\cdot 1\). 
+    Entonces, 
+    \[(n+1)^{k+1} = \sum_{i=0}^{k+1}\binom{k+1}{i}n^{k+1-i} = 
+    n^{k+1} + (k+1)n^k + \sum_{i=2}^{k+1}\binom{k+1}{i}n^{k+1-i}  \] 
+    y 
+    \( \binom{k+1}{i}n^{k+1-i} \geq 0\) para cada \(i=2, . . .,k+1\), 
+    se sigue  \(n^{k+1} + (k+1)n^k \leq (n+1)^{k+1}\).
+    Por lo tanto \[ \sum_{i=0}^{n}i^k \leq \frac{n^{k+1} + (k+1)n^k}{k+1} \leq\frac{(n+1)^{k+1}}{k+1} .\]
+    
+    Es decir \(\sum_{i=0}^{n}i^k \leq \frac{(n+1)^{k+1}}{k+1}.\)
+    
+</p>
+<p>
+    Por último veamos que \[\frac{(n+1)^{k+1}}{k+1} \leq \sum_{i=1}^{n+1}i^k . \]
+
+    Tenemos que \((n+1)^{k+1} = n^{k+1} + \sum_{i=1}^{k+1}\binom{k+1}{i}n^{k+1-i}\).  
+    Entonces por hipótesis de inducción,
+    \begin{equation*}
+    \begin{split}
+    \frac{(n+1)^{k+1}}{k+1} & = \frac{n^{k+1}}{k+1} + 
+    \frac{1}{k+1}\sum_{i=1}^{k+1}\binom{k+1}{i}n^{k+1-i} \\
+     & \leq \sum_{i=1}^ni^k + \frac{1}{k+1}\sum_{i=1}^{k+1}\binom{k+1}{i}n^{k+1-i} .
+     \end{split}
+     \end{equation*}
+    
+    
+    Haciendo un cambio de variable \(j = i-1 \) tenemos que 
+    \[ \sum_{i=1}^{k+1}\binom{k+1}{i}n^{k+1-i} = \sum_{j=0}^{k}\binom{k+1}{j+1}n^{k-j}\]
+    
+    Recapitulando tenemos,
+    \begin{equation}\label{A}
+    \frac{(n+1)^{k+1}}{k+1}  \leq \sum_{i=1}^ni^k + \frac{1}{k+1}\sum_{j=0}^{k}\binom{k+1}{j+1}n^{k-j}
+    \end{equation}
+    
+    
+    
+</p>
+<p>
+    Afirmamos que \( \frac{1}{k+1}\sum_{j=0}^{k}\binom{k+1}{j+1}n^{k-j} \leq (n+1)^{k}\).
+</p>
+<p>
+    Como \((n+1)^k = \sum_{j=0}^{k}\binom{k}{j}n^{k-j},\) entonces 
+    para demostrar la afirmación basta demostrar que 
+    \(\frac{1}{k+1}\binom{k+1}{j+1} \leq \binom{k}{j}\) 
+    para cada \(j=0, . . . , k\).
+</p>
+<p>
+    Sea \(j\in \lbrace 0,  .. . , k\rbrace\) arbitrario, entonces 
+    \begin{equation*}
+    \begin{split}
+    \frac{1}{k+1}\binom{k+1}{j+1} & = 
+    \frac{1}{k+1}\cdot\frac{(k+1)!}{(j+1)!(k+1-(j+1))!}  
+    = \frac{1}{k+1}\cdot\frac{(k+1)k!}{(j+1)!(k-j)!} \\
+     & = \frac{k!}{(j+1)j!(k-j)!} = \frac{1}{j+1}\binom{k}{j} \leq \binom{k}{j} \\
+     \end{split}
+    \end{equation*}
+    
+    
+    la desigualdad se da ya que \(j+1 \geq 1\) para toda \(j=0,..., k\). 
+    Como \(j\) fue arbitrario tenemos \(\frac{1}{k+1}\binom{k+1}{j+1} \leq \binom{k}{j}\) 
+    para cada \(j=0, . . . , k\). Por lo tanto 
+    \begin{equation}\label{B}
+    \frac{1}{k+1}\sum_{j=0}^{k}\binom{k+1}{j+1}n^{k-j} \leq \sum_{j=0}^{k}\binom{k}{j}n^{k-j} = (n+1)^k .
+    \end{equation} 
+    
+</p>
+<p>
+    Entonces por \(\eqref{A}\) y \(\eqref{B}\) tenemos que 
+    \[\frac{(n+1)^{k+1}}{k+1}  \leq \sum_{i=1}^ni^k + (n+1)^k = \sum_{i=1}^{n+1}i^k . \]
+
+    Por lo tanto se demostró \[ \sum_{i=0}^{n}i^k \leq \frac{(n+1)^{k+1}}{k+1} \leq \sum_{i=1}^{n+1}i^k . \]
+    
+    y esto es válido para toda \(n\geq 1\).
+</p>
+<center>
+    Prueba del inciso 2.
+</center>
+<p>
+    Sea \(b >0\) arbitraria, tenemos que \(f(x) = x^k\) es una función monótona creciente 
+    en \([0, b]\). En nuestro en particular tenemos que \(x_i = i\frac{b}{n}\) y 
+    \[ \frac{b}{n}\sum_{i=0}^{n-1}f(x_i) = \frac{b}{n}\sum_{i=0}^{n-1}\left(i\frac{b}{n}\right)^k 
+    = \frac{b^{k+1}}{n^{k+1}}\sum_{i=0}^{n-1}i^k , \]
+    De la misma manera tenemos 
+    \[  \frac{b}{n}\sum_{i=1}^{n}f(x_i) =\frac{b^{k+1}}{n^{k+1}}\sum_{i=1}^{n}i^k . \]
+    Por lo ya demostrado en el apartado 1, tenemos 
+    \[ \sum_{i=0}^{n-1}i^k \leq \frac{n^{k+1}}{k+1} \leq \sum_{i=1}^{n}i^k . \]
+    Por lo tanto 
+    \[ \frac{b^{k+1}}{n^{k+1}}\sum_{i=0}^{n-1}i^k \leq \frac{b^{k+1}}{k+1} 
+    \leq \frac{b^{k+1}}{n^{k+1}}\sum_{i=1}^{n}i^k . \] 
+    Es decir 
+    \[   \frac{b}{n}\sum_{i=1}^{n}f(x_i) \leq \frac{b^{k+1}}{k+1} 
+    \leq  \frac{b}{n}\sum_{i=1}^{n}f(x_i) . \]
+    y esto es cierto para toda \(n\), entonces por el <a href="#Ejer:CalculoIntegralFuncionesMonotonas">Ejercicio 4.3</a>
+    tenemos \[  \int_0^b x^k dx = \frac{b^{k+1}}{k+1} .\]
+    Como \(b>0\) fue arbitrario, esto implica que es válido para toda \(b>0\).
+</p>
+</div>
+</div>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:IntegralPotenciasNaturales"> Ejercicio</h2> 
+    <p>
+        Usando la linealidad de la integral con respecto a intervalos y 
+        el ejercicio <a href="#Ejer:IntegralesPotencias1">Ejercicio 4.4</a> 
+        prueba que para todos $a,b \in \mathbb{R}$, con $0\leq a < b$ y $k \in \mathbb{N}$:
+        $$
+        \int_a^b x^kdx=\frac{b^{k+1}-a^{k+1}}{k+1}.
+        $$
+    </p>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Eje:FormulaIntegralRaiz"> Ejercicio</h2> 
+    En este ejercicio puedes usar que la integral de una función no negativa  
+    es el áre bajo su gráfica.
+
+    <ol>
+        <li>
+            Hacer un cambio de perspectiva (intercambiar los ejes \(x\) e \(y\)) para probar que:
+            $$
+            b^{3/2}=\int_0^b\sqrt{x}dx+\int_0^{\sqrt{b}}y^2dy.
+            $$ 
+        </li> 
+
+        <li>
+            Concluir que:
+            $$
+            \int_0^b\sqrt{x}dx=\frac{2}{3}b^{3/2}
+            $$
+        </li> 
+    </ol>
+    <button class="respButton hvr-grow "> Demostración  </button>
+    <div class="resp-box flexbox">
+      <div class="flexbox">
+        <a href="https://youtu.be/2hyL1ILJkRY" target="_blank" > Video </a>
+      </div>
+    </div>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Usar la interpretación de la integral como área bajo la curva y las ideas del 
+        <a href="#Eje:FormulaIntegralRaiz">Ejercicio 4.6</a>, 
+        junto con la función $y=\sqrt[n]{x}$ en el rectángulo de lados $[0,b], 
+        [0, \sqrt[n]{b}]$, para demostrar:
+        $$
+        \int_0^b \sqrt[n]{x}dx=\frac{n}{n+1}b^{\frac{n+1}{n}}
+        $$
+    </p>
+</div>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:LimiteSumasRiemannDeMonotonas"> Ejercicio</h2> 
+    <p>
+        La identidad del  <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> se puede generalizar, 
+        cambiando los puntos donde se valuan los valores de la función $f$.
+    </p>
+    <p>
+        Dada una partición \(P=\{a=x_0< x_1<  \cdots < x_{n-1}< x_n=b\}\) de \([a,b]\) la norma 
+        de la partición se define como 
+        \[
+            \|P\|=\max_{i=1,\dots, n}\{ x_i-x_{i-1} \}.
+        \]
+    </p>
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ una función monótona en $[a,b]$. 
+        Para cada natural \(n\geq 1\) sea $P_n=\{ x_i^{(n)}\}_{i=0}^n$ una  partición  de $[a,b]$ 
+        con la propiedad de que 
+        \[
+            \lim_{n\to \infty}\|P_n\|=0.
+        \] 
+        Para cada sub-intervalo $[x_{i-1}^{(n)},x_i^{(n)}]$
+        de $P_n$ fija puntos cualesquiera  $r_i \in [x_{i-1},x_i]$. Demuestra que
+        $$
+        \int_a^b f(x)dx=\lim_{n \to \infty} \sum_{i=1}^n f(r_i)(x_i^{(n)}-x_{i-1}^{(n)})
+        $$
+    </p>
+
+    
+
+    <button class="respButton hvr-grow "> Solución   </button>
+    <div class="resp-box flexbox">
+    <div >     
+    <p>
+        Seguimos la misma estrategia que en el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a>.
+    </p>
+    
+    <p>
+        Definimos funciones escalonadas \(s_n,t_n:[a,b]\to \mathbb{R}\):
+        \begin{eqnarray*}
+        s_n(x)&:=&\sum_{i=1}^{n} f(x_{i-1} )\chi_{[x_{i-1},x_i)}(x), \\
+        t_n(x)&:=&\sum_{i=1}^n f(x_i)\chi_{[x_{i-1},x_i)}(x).
+        \end{eqnarray*}
+        Se sigue que  
+        \begin{eqnarray*} 
+        \int_a^b t_n(x)dx - \int_a^b s_n(x)dx &=& \sum_{i=1}^n f(x_i)(x_i-x_{i-1})-\sum_{i=1}^nf(x_{i-1})(x_i-x_{i-1}) \\
+        &=& \sum_{i=1}^n (f(x_i)-f(x_{i-1}))(x_i-x_{i-1}) 
+        \end{eqnarray*}
+        Ahora, usando que \(f(x_i)-f(x_{i-1})\geq 0\) y \(x_i-x_{i-1}\leq \|P_n\|\) obtenemos  
+        \((f(x_i)-f(x_{i-1}))(x_i-x_{i-1})\leq \|P_n\| (f(x_i)-f(x_{i-1}))\), para toda \(i=1,\dots, n\), por
+        lo que podemos acotar la identidad anterior de la siguiente manera: 
+        \begin{eqnarray}
+        \int_a^b t_n(x)dx - \int_a^b s_n(x)dx & \leq & \|P_n\| \sum_{i=1}^n (f(x_i)-f(x_{i-1})) \nonumber \\
+        &= & \|P_n\|(f(b)-f(a)) \label{Eqn:CotaLimiteIntegralMonotonaAux1}
+        \end{eqnarray}
+        donde en la última igualdad usamos que la suma es telescópica.
+
+    </p>
+    <p>
+        Por otro lado, para \(n\geq 1\) definimos  funciones escalonadas \(\rho_n:[a,b]\to \mathbb{R}\)
+        $$
+        \rho_n(x)=\sum_{i=1}^n f(r_i) \chi_{[x_{i-1}^{(n)},x_i^{(n)})}(x).
+        $$
+    </p>
+    <p>
+        Al ser \(f\) monótona creciente se cumple que 
+        \[
+        s_n(x) \leq f(x) \leq t_n(x), \quad \forall x\in [a,b),
+        \]
+        \[
+        s_n(x) \leq \rho_n(x) \leq t_n(x), \quad \forall x\in [a,b).
+        \]
+        Integrando las desigualdades anteriores obtenemos 
+        \[
+        \int_a^bs_n(x)dx \leq \int_a^b f(x)dx \leq \int_a^nt_n(x)dx,
+        \]
+        \[
+        \int_a^bs_n(x)dx \leq \int_a^b \rho_n(x)dx \leq \int_a^nt_n(x)dx.
+        \]
+        por lo tanto 
+        \begin{eqnarray*} 
+        \left| \int_a^b \rho_n(x)dx - \int_a^b f(x)dx  \right| \leq \int_a^b t_n(x)dx - \int_a^b s_n(x)dx
+        \end{eqnarray*}
+    </p>
+    <p>
+        Pero por \eqref{Eqn:CotaLimiteIntegralMonotonaAux1} podemos acotar la desigualdad anterior como
+        \begin{eqnarray*} 
+        \left| \int_a^b \rho_n(x)dx - \int_a^b f(x)dx  \right| \leq \|P_n\|(f(b)-f(a)).
+        \end{eqnarray*}
+    </p>
+    <p>
+        Un cálculo directo muestra 
+        \[
+        \int_a^b \rho_n(x)dx = \sum_{i=1}^n f(r_i)(x_i^{(n)}-x_{i-1}^{(n)}),
+        \]
+    </p>
+    <p>
+        por lo que podemos escribir 
+        \[ 
+        \left| \sum_{i=1}^n f(r_i)(x_i^{(n)}-x_{i-1}^{(n)}) - \int_a^b f(x)dx  \right| \leq \|P_n\|(f(b)-f(a)).
+        \]
+        Usando que \(\lim_{n\to \infty}\|P_n\|=0\) la desigualdad anterior nos permite concluir:
+        \[
+        \lim_{n\to \infty} \sum_{i=1}^n f(r_i)(x_i^{(n)}-x_{i-1}^{(n)})=\int_a^b f(x)dx.
+        \]
+    </p>
+
+    
+       </div>
+    </div>
+</div>
+</div>
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Fija un natural $k\geq 2$. Calcula los siguientes límites:
+    </p>
+    <ol>
+        <li>
+            $\lim_{n\to \infty} \left( \frac{1}{n^{k+1}} \sum_{i=1}^n i^k\right)$.
+        </li> 
+        <li>
+            $\lim_{n\to \infty} \left( \frac{1}{n^{(k+1)/k}} \sum_{i=1}^n \sqrt[k]{i}\right)$.
+        </li> 
+    </ol>
+    <p>
+        Sugerencia: usa la identidad del  <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a>. 
+    </p>
+
+    <button class="respButton hvr-grow "> Solución inciso 1 </button>
+    <div class="resp-box flexbox">
+      <div >
+    <p>
+        Consideremos \(f:[0,1] \rightarrow \mathbb{R}\) dada por 
+        \(f(x) = x^k\), tenemos que \(f\) es monótona creciente en \([0,1]\). 
+        Entonces por el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> tenemos \(f\) es integrable en \([0,1]\) y 
+        \[\lim_{n \rightarrow \infty}\left(\frac{1}{n}\sum_{i=1}^nf\left(i\frac{1}{n}\right)\right)
+        = \int_0^1 f(x)dx = \frac{1}{k+1}. \]
+    </p>
+    <p>
+        Dado que \[ \frac{1}{n}\sum_{i=1}^nf\left(i\frac{1}{n}\right) 
+        = \frac{1}{n}\sum_{i=1}^n\left(\frac{i}{n}\right)^k =  
+         \frac{1}{n^{k+1}}\sum_{i=1}^ni^{k} \]
+    </p>
+    <p>
+        Concluimos \[ \lim_{n \rightarrow \infty} 
+        \left(\frac{1}{n^{k+1}}\sum_{i=1}^ni^k\right) =  \frac{1}{k+1}. \]
+    </p>
+</div>
+</div>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Calcula los siguiente límites.
+    </p>
+
+    <ol>
+        <li>
+            $\lim_{n\to \infty} \frac{1}{n} \sum_{i=1}^n \sqrt{1+\frac{i}{n}}$.
+        </li> 
+        <li>
+            $\lim_{n\to \infty} \frac{1}{n} \sum_{i=1}^n \left( 1+\frac{i}{n} \right)^2$.
+        </li> 
+        <li>
+            $\lim_{n\to \infty} \frac{1}{n} \sum_{i=1}^n \sqrt{1+\frac{2i}{n}}$.
+        </li> 
+        <li>
+            $\lim_{n\to \infty} \frac{1}{n} \sum_{i=1}^n \left( 1+\frac{2i}{n} \right)^2$.
+        </li> 
+    </ol>
+    <p>
+        Sugerencia: usa el
+        la ecuación del  <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> y recuerda que
+        $$
+        \int_a^b x^2 dx= \frac{b^3-a^3}{3}, \quad \int_a^b \sqrt{x}dx=  \frac{2}{3}(b^{3/2}-a^{3/2})
+        $$        
+    </p>
+    <button class="respButton hvr-grow "> Solución de inciso 1  </button>
+    <div class="resp-box flexbox">
+      <div class="flexbox">
+        <a href="https://youtu.be/ET_CK76kXJM" target="_blank" > Video </a>
+      </div>
+    </div>
+</div>
+
+
+
+
+</body>
