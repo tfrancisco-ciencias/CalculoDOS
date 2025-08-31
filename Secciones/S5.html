@@ -1,0 +1,1255 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main2.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style2.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 4 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 4 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title id="Sec"> § 5 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox"> Cambios de variable lineales </h1>
+
+   <!-- this part is for next and prev sections -->
+   <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
+   <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+   
+
+<div class="info-box">
+    <h2 class="number-title"> Introducción </h2>
+    <p>
+        Un cambio de variable es una transformación de una integral la cual trata de simplificar su cálculo.
+    </p>
+    <p>
+        Para ejemplificar primero veamos transformaciones de figuras en el plano y cómo éstas afectan el área. 
+        Las más sencillas son las translaciones pues éstas preservan el área. Otras transformaciones son 
+        los reescalamientos u homotecias, estas son de la forma \((x,y)\mapsto k(x,y) \) donde \(k\)
+        es una constante distinta de cero. Si \(k>0\) podemos ver que un cuadrado de lado \(l\)
+        se transforma en un cuadrado de lado \(kl\) por lo que el área pasa de \(l^2\) a 
+        \(k^2l^2\), es decir se multiplica por un factor \(k^2\). Si \(k< 0\) el comportamiento es muy 
+        parecido sólo que el signo negativo hace que las figuras se reflejen por el origen pero el área 
+        se sigue multiplicando un el factor \(|k|^2\).
+    </p>
+    <p>
+        Ahora veamos estas transformaciones con respecto a funciones.
+    </p>
+    <p>
+        Para las translaciones tenemos que dada una función \(f(x)\) podemos expresar 
+        una translación horizontal de la gráfica de \(f\) mediante la función \(f(x+\alpha)\). Si 
+        \(\alpha >0\) se translada hacia la izquierda y si \(\alpha < 0 \) se translada hacia 
+        la derecha. Además, si \(f(x)\) está definida para  \(x\in [a,b]\) entonces 
+        \(f(x+\alpha)\) está definida para \(x\in [a-\alpha, b-\alpha]\). Ya que para las traslaciones 
+        no afectan el área debería pasar que 
+        \[
+        \int_{a}^{b} f(x)dx=\int_{a-\alpha}^{b-\alpha}f(u+\alpha)du,
+        \]
+        este es la fórmula del cambio de variable para las translaciones.
+    </p>
+    <p>
+        Veamos ahora los reescalamientos en las funciones. Si \(f(x)\) es una función definida para 
+        \(x\in [a,b]\) un reescalamientos del dominio se ve como \([ka,kb]\) para \(k>0\) o 
+        \([kb,ka]\) para \(k< 0\). Para ilustrar las fórmulas vamos a suponer que 
+        \(k>0 \). Entonces si \(u\in [ka,kb]\) entonces \(u/k\in [a,b]\) por lo que \(x=u/k\)
+        está en el dominio de \(f\) por lo que podemos tomar \(f(u/k)\). En los reescalamientos 
+        la fórmula no es tán clara pero si vemos un ejemplo sencillo como \(f(x)=1\) para todo 
+        \(x\) vemos que 
+        \[
+        \int_{ka}^{kb}f\left(\frac{u}{k}\right)du=k(b-a)=k\int_a^b f(x)dx.
+        \]
+        Así que el factor que parace funcionar es \(k\). De hecho lo que veremos es que 
+
+        \[
+            \int_{ka}^{kb}f\left(\frac{u}{k}\right)du=k\int_a^b f(x)dx.
+        \]
+    </p>
+    <p>
+        Nota: ¿cómo recordar la fórmula anterior? Se toma el cambio de variable 
+        \(x=u/k\). Ahora se toman diferenciales las cuales sólo las vamos a tomar formalmente, es decir 
+        sólo sabiendo que siguen las mismas fórmulas que las derivadas. En el caso 
+        \(x=u/k\) esto implica \(dx=du/k\). Finalmente vemos los límites de integración:
+        si \(x=a\), \(u=ka\), si \(x=b\), \(u=kb\). Substituyendo estos valores directamente tenemos 
+        \[
+        \int_{a}^bf(x)dx = \int_{ka}^{kb} f\left(\frac{u}{k}\right)\frac{1}{k}du \Rightarrow 
+        k\int_a^b f(x)dx=\int_{ka}^{kb}f\left(\frac{u}{k}\right) du.
+        \]
+    </p>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:CambioVariableTranslacionesEscalonadas"> Ejercicio</h2>
+     <p>    
+        Sea $s:\mathbb{R} \to \mathbb{R}$ una función 
+        escalonada y $\alpha$ un escalar. Entonces
+        \begin{eqnarray}
+        \int_{a}^b s(x+\alpha) dx =\int_{a+\alpha}^{b+\alpha} s(u)du \label{Eqn:AuxCambioVarTranslacionesEscalonadas}
+        \end{eqnarray}
+        Haciendo substituciones formales, lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.        
+     </p>
+
+     <button class="respButton hvr-grow "> Demostración  escrita </button>
+     <div class="resp-box flexbox">
+
+    <p>
+        Caso 1: \(s\) es de la forma \(s=\chi_{[x_0,x_1)}\).
+    </p>
+    <p>
+        Primero probamos la siguiente identidad de funciones 
+        \begin{equation}\label{Ejer:Aux1CambioVarTraslacionEscalonada}
+            \chi_{[x_0,x_1)}(x+\alpha)=\chi_{[x_0-\alpha,x_1-\alpha)}(x), 
+        \end{equation}
+        para todo \(x\).
+    </p>
+    <p>
+        Ya que las funciones características sólo toman los valores \(0\) y \(1\) es suficiente probar 
+        \( \chi_{[x_0,x_1)}(x+\alpha)=1\) si y sólo si \( \chi_{[x_0-\alpha,x_1-\alpha)}(x)=1\).  Para 
+        éste último tenemos:
+        \begin{eqnarray*} 
+         \chi_{[x_0,x_1)}(x+\alpha)=1 & \Leftrightarrow &  x+\alpha \in [x_0,x_1)  \\ 
+         & \Leftrightarrow & x\in [x_0-\alpha, x_1-\alpha) \\
+         & \Leftrightarrow & \chi_{[x_0-\alpha,x_1-\alpha)}(x)=1.
+        \end{eqnarray*}
+    </p>
+
+     <p>
+        Integrando \eqref{Ejer:Aux1CambioVarTraslacionEscalonada} obtenemos 
+        \begin{eqnarray*}
+        \int_a^bs(x+\alpha)dx&=&\int_a^b \chi_{[x_0,x_1]}(x+\alpha)dx \\
+        &=& \int_a^b \chi_{[x_0-\alpha, x_1-\alpha)}(x)dx
+        \end{eqnarray*}
+     </p>
+     <p>
+         Por lo tanto para  terminar el primer caso  debemos de probar la identidad
+         \[
+         \int_a^b \chi_{[x_0-\alpha, x_1-\alpha)}(x)dx=\int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(u)du
+         \]
+         la cual se prueba por casos.
+     </p>
+     <p>
+        Subcaso: \(x_1-\alpha \leq a \) ó \(b\leq x_0- \alpha\). Entonces también se tiene 
+        \(x_1\leq a+\alpha\) ó \(b+\alpha \leq x_0\), por lo que 
+        \[
+        \int_a^b \chi_{[x_0-\alpha, x_1-\alpha)}(x)dx = 0 = \int_{a+\alpha }^{b+\alpha}\chi_{[x_0,x_1)}(u)du
+        \]
+     </p>
+     <p>
+        Subcaso: \(x_0-\alpha < a \leq  x_1-\alpha \leq b \). En este caso tenemos 
+        \begin{eqnarray*}
+        \int_{a}^{b}\chi_{[x_0-\alpha,x_1-\alpha)}(x)dx&=&x_1-\alpha-a \\
+        \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(u)du&=&x_1-(a+\alpha)
+        \end{eqnarray*}
+     </p>
+     <p>
+        Subcaso: \(a \leq  x_0-\alpha < b < x_1-\alpha \). En este caso tenemos 
+        \begin{eqnarray*}
+        \int_{a}^{b}\chi_{[x_0-\alpha,x_1-\alpha)}(x)dx&=&b-(x_0-\alpha)\\
+        \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(u)du&=&b+\alpha-x_0
+        \end{eqnarray*}
+     </p>
+     
+     <p>
+         Subcaso: \(a \leq x_0-\alpha <  x_1-\alpha \leq b\). En este caso tenemos 
+         \begin{eqnarray*}
+         \int_{a}^{b}\chi_{[x_0-\alpha,x_1-\alpha)}(x)dx&=&x_1+\alpha - (x_0+\alpha)=x_1-x_0\\
+         \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(u)du&=&x_1-x_0
+         \end{eqnarray*}
+     </p>
+
+     <p>
+        Subcaso: \(x_0-\alpha < a <   b< x_1-\alpha\). En este caso tenemos 
+        \begin{eqnarray*}
+        \int_{a}^{b}\chi_{[x_0-\alpha,x_1-\alpha)}(x)dx&=&b-a\\
+        \int_{a+\alpha}^{b+\alpha}\chi_{[x_0,x_1)}(u)du&=&(b+\alpha)-(a+\alpha)=b-a
+        \end{eqnarray*}
+    </p>
+
+    <p>
+        Caso 2: caso general, \(s\) es de la forma 
+        \[
+        s=\sum_{i=1}^n s_i\chi_{[x_{i-1},x_i)}
+        \]
+        donde \(x_0< x_1< \cdots < x_n\).
+    </p>
+    <p>
+        Para iniciar la prueba de \eqref{Eqn:AuxCambioVarTranslacionesEscalonadas}, usando linealidad tenemos 
+        \begin{equation}\label{Ejer:Aux2CambioVarTraslacionEscalonada}
+        \int_a^b s(x+\alpha)dx=\sum_{i=1}^n s_i \int_a^b \chi_{[x_{i-1},x_i)}(x+\alpha)dx
+        \end{equation}
+        luego por el primer caso tenemos 
+        
+        \begin{eqnarray}
+        \sum_{i=1}^n s_i\int_a^b \chi_{[x_{i-1}, x_i)}(x+\alpha)dx &=& 
+        \sum_{i=1}^n s_i \int_{a+\alpha}^{b+\alpha}\chi_{[x_{i-1},x_i)}(u)du \nonumber \\
+        &=& \int_{a+\alpha}^{b+\alpha}s(u)du \label{Ejer:Aux3CambioVarTraslacionEscalonada}
+        \end{eqnarray}
+        donde la última identidad se debe a la linealidad. Finalmente, por 
+        las ecuaciones \eqref{Ejer:Aux2CambioVarTraslacionEscalonada} y 
+        \eqref{Ejer:Aux3CambioVarTraslacionEscalonada} concluimos \eqref{Eqn:AuxCambioVarTranslacionesEscalonadas}.
+    </p>
+    </div>
+
+    <a href="https://youtu.be/Lu7UDKmoTp4?t=1832" target="_blank" >
+        <button class="respButton hvr-grow " > Demostración en video </button>     
+    </a>
+    
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:CambioVariableTranslaciones"> Ejercicio</h2> 
+    <p>
+    Sea $I \subseteq \mathbb{R}$ un intervaloy supongamos que  $f:I \to \mathbb{R}$ una función 
+    integrable en los subintervalos cerrados de $I$.
+    </p>
+    <p>
+        Sea  $\alpha$ un escalar y supongamos que  $[a+\alpha, b+\alpha] \subseteq I$ (para
+    que $f(x+\alpha)$, $x\in [a,b]$ esté bien definida). 
+
+    Entonces la función $x\mapsto f(x+\alpha)$ es integrable en $[a,b]$ y
+    \begin{equation}\label{Eqn:CambioVariableTranslaciones}
+    \int_{a}^b f(x+\alpha) dx =\int_{a+\alpha}^{b+\alpha} f(u)du.
+    \end{equation}
+    </p>
+    <p>
+        Haciendo substituciones formales lo anterior se puede escribir com  $ u= x+\alpha, \quad du=dx$.
+    </p>
+    <button class="respButton hvr-grow "> Demostración escrita </button>
+    <div class="resp-box flexbox">
+    <p>
+
+        Definimos $g:[a,b]\to \mathbb{R}$ por $g(x)=f(x+\alpha)$, bien definida pues 
+        suponemos que \([a+\alpha, b+\alpha]\subseteq I\). Vamos a probar que 
+        \(g\) es integrable en \([a,b]\) y que 
+        \[
+        \int_a^b g(x)dx =\int_{a+\alpha}^{b+\alpha} f(u)du
+        \]
+    </p>
+    <p>
+        Para probar que \(g\) es integrable en \([a,b]\) vamos a usar el <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Criterio de Cauchy</a>.
+    </p>
+    <p>
+        Usando que $f$ es integrable en $[a+\alpha, b+\alpha]$, dada \(\varepsilon >0\) existen 
+        $s,t : \mathbb{R} \to \mathbb{R}$, funciones escalonadas con:
+        <ul>
+            <li>
+                para toda \(u \in [a+\alpha, b+\alpha]\):
+                \[
+                s(u)\leq f(u) \leq t(u),
+                \]
+            </li>
+            <li> además 
+                \[
+                \int_{a+\alpha}^{b+\alpha} t(u)du -\int_{a+\alpha}^{b+\alpha} s(u)du 
+                < \varepsilon.
+                \]
+            </li>
+        </ul>
+        Consideramos $s',t':\mathbb{R}\to \mathbb{R}$ definidas por $s'(x):=s(x+\alpha)$, 
+        $t'(x):=t(x+\alpha)$. Se sigue que para toda \(x\in [a,b]\):
+        \begin{eqnarray}
+         s'(x) \leq g(x) \leq t'(x). \label{Eqn:Aux1CambioVarTraslaciones}
+        \end{eqnarray}
+        Además por el <a href="#Ejer:CambioVariableTranslacionesEscalonadas">Ejercicio 6.2</a>
+        \begin{eqnarray*}
+        \int_a^b s'(x)dx &=& \int_{a+\alpha}^{b+\alpha}s(u)du,\\ 
+        \int_a^b t'(x)dx &=& \int_{a+\alpha}^{b+\alpha}t(u)du,
+        \end{eqnarray*}
+        por lo que  
+        \begin{equation}
+        \int_{a}^{b} t'(x)dx - \int_{a}^{b}  s'(x)dx = \int_a^b t(u)du-\int_a^b s(u)du  < \varepsilon.  \label{Eqn:Aux2CambioVarTraslaciones}
+        \end{equation}
+    </p>
+    <p>
+        De \eqref{Eqn:Aux1CambioVarTraslaciones}, \eqref{Eqn:Aux2CambioVarTraslaciones} y del 
+        <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Criterio de Cauchy</a> 
+        concluimos que \(g\) es integrable en \([a,b]\).
+    </p>
+    <p>
+        Resta probar \eqref{Eqn:CambioVariableTranslaciones}. Iniciamos integrando 
+        las desigualdades \(s(u)\leq f(u)\leq t(u)\), válida para \(u\in [a+\alpha, b+\alpha]\),
+        \(s'(x)\leq g(x)\leq t'(x)\), válida para \(x\in [a,b]\):
+        \begin{eqnarray*}
+        \int_{a+\alpha}^{b+\alpha} s(u)du \leq & \int_{a+\alpha}^{b+\alpha} f(u)du & \leq \int_{a+\alpha}^{b+\alpha} t(u)du \\
+        \int_{a+\alpha}^{b+\alpha} s(u)du =\int_{a}^{b} s'(x)dx \leq & \int_{a}^{b} g(x)dx & \leq \int_a^b t'(x)dx=\int_{a+\alpha}^{b+\alpha} t(u)du
+        \end{eqnarray*}
+        donde las identidades del segundo renglón se deben al <a href="#Ejer:CambioVariableTranslacionesEscalonadas">Ejercicio 6.2</a>.
+    </p>
+    <p>
+        Comparando las desigualdades anteriores concluimos 
+        \[
+        \left| \int_{a+\alpha}^{b+\alpha} f(u)du - \int_{a}^{b} g(x)dx  \right| \leq 
+        \int_{a+\alpha}^{b+\alpha} t(u)du - \int_{a+\alpha}^{b+\alpha} s(u)du < \varepsilon,
+        \]
+        y al ser \(\varepsilon\) arbitraria concluimos 
+        \[
+        \int_{a+\alpha}^{b+\alpha} f(u)du = \int_{a}^{b} g(x)dx=\int_{a}^b f(x+\alpha)dx.
+        \]
+    </p>
+
+    
+</div>
+<a href="https://youtu.be/Lu7UDKmoTp4?t=3922" target="_blank" >
+    <button class="respButton hvr-grow " > Demostración en video </button>     
+</a>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Calcular las siguientes integrales.
+    </p>
+
+<ol>
+    <li>$\int_{4}^{5} \sqrt{x-3}dx$.</li> 
+    <li>$\int_{-1}^{6}(x+2)^{10}dx$.</li> 
+    <li>$\int_{-8}^{4}(x-4)^{20}dx$.</li> 
+    <li>$\int_{8}^{9}\sqrt[3]{x+7}dx$.</li> 
+    <li>$\int_{0}^{4}(x-1)^{5}xdx$.</li> 
+    <li>$\int_{-2}^{4} \sqrt[4]{x-2}dx$.</li> 
+</ol>
+<button class="respButton hvr-grow ">Solución  de 1. </button>
+<div class="resp-box flexbox">
+  <div class="flexbox">
+    <a href="https://youtu.be/Jxut5OFfn0s" target="_blank" > Video </a>
+  </div>
+</div>
+</div>
+
+
+<div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+<p>
+    Supongamos que la función $v: [t_0, T_0] \to \mathbb{R}$  
+    modela la valocidad, al tiempo \(t\), de una partículo que se mueve sobre una
+    línea recta. La distancia recorrida del instante
+    $t_1 $ al instante $t_2$ se define como
+    $$
+    \int_{t_1}^{t_2} v(t)dt
+    $$
+    siempre y cuando  la integral exista.
+</p>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Supon que la velocidad al tiempor $t$ de una partículo esta dado por 
+        $v(t)=(1+t)^3$, $cm/s$. 
+    </p>
+<ol>
+    <li>
+        Si el objeto se empieza a mover al tiempor $t=0$,  ¿cuál es la distancia  que
+        el objeto recorre  después de $7$ minutos  ?
+    </li> 
+    <li>Toma el cambio de variable  $u=t/60$. Entonces  $u$ da los minutos en 
+        termino los segundos y  $g(u)=(1+60 u)^3$, la velocidad del objeto en 
+        $cm/min$. Calcula 
+        $$
+        \int_0^{7} g(u)du
+        $$
+        ¿Son iguales las integrales de los dos incisos ? ¿Por qué?
+    </li> 
+</ol>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:CambioVariableReescalemientosEscalonadas"> Ejercicio</h2> 
+    <p>
+        Sea $s:\mathbb{R} \to \mathbb{R}$ una función 
+        escalonada y  $k \not= 0$ un escalar. Demuestra:
+    </p>
+
+<ol>
+
+    <li>
+        si $k>0$
+        $$
+        \int_{a }^{b} s(k x)dx=\frac{1}{k} \int_{k a}^{k b} s(u)du.
+        $$
+    </li> 
+    <li>
+        si $k < 0$
+        $$
+        \int_{a }^{b} s(k x)dx=\frac{1}{|k|} \int_{k b}^{k a} s(u)du.
+        $$
+    </li> 
+</ol>
+<button class="respButton hvr-grow "> Demostración  inciso 1 </button>
+    <div class="resp-box flexbox">
+<p>
+    <center> Caso \(k>0\)</center>
+</p>
+
+<p>
+    Caso 1: \(s\) es de la forma \(s=\chi_{[x_0,x_1)}\).
+</p>
+<p>
+    Primero probamos la siguiente identidad de funciones 
+    \begin{equation}\label{Ejer:Aux1CambioVarReescalemientoEscalonada}
+        \chi_{[x_0,x_1)}(kx)=\chi_{[x_0/k,x_1/k)}(x), 
+    \end{equation}
+    para todo \(x\).
+</p>
+<p>
+    Ya que las funciones características sólo toman los valores \(0\) y \(1\) es suficiente probar 
+    \( \chi_{[x_0,x_1)}(kx)=1\) si y sólo si \( \chi_{[x_0/k,x_1/k)}(x)=1\).  Para 
+    éste último tenemos:
+    \begin{eqnarray*} 
+     \chi_{[x_0,x_1)}(kx)=1 & \Leftrightarrow &  kx \in [x_0,x_1)  \\ 
+     & \Leftrightarrow & x\in [x_0/k, x_1/k) \\
+     & \Leftrightarrow & \chi_{[x_0/k,x_1/k)}(x)=1.
+    \end{eqnarray*}
+</p>
+
+ <p>
+    Integrando \eqref{Ejer:Aux1CambioVarReescalemientoEscalonada} obtenemos 
+    \begin{eqnarray*}
+    \int_a^bs(kx)dx&=&\int_a^b \chi_{[x_0,x_1]}(kx)dx \\
+    &=& \int_a^b \chi_{[x_0/k, x_1/k)}(x)dx
+    \end{eqnarray*}
+ </p>
+ <p>
+     Por lo tanto para  terminar el primer caso  debemos de probar la identidad
+     \[
+     \int_a^b \chi_{[x_0/k, x_1/k)}(x)dx=\frac{1}{k}\int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du
+     \]
+     la cual se prueba por casos.
+ </p>
+ <p>
+    Subcaso: \(x_1/k \leq a \) ó \(b\leq x_0/k\). Entonces también se tiene 
+    \(x_1\leq ka \) ó \(kb\leq x_0\), por lo que 
+    \[
+    \int_a^b \chi_{[x_0/k, x_1/k)}(x)dx = 0 = \int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du
+    \]
+ </p>
+ <p>
+    Subcaso: \(x_0/k < a \leq  x_1/k \leq b \). En este caso tenemos 
+    \begin{eqnarray*}
+    \int_{a}^{b}\chi_{[x_0/k,x_1/k)}(x)dx&=&\frac{x_1}{k}-a \\
+    \frac{1}{k}\int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du&=& \frac{1}{k}(x_1-ka)
+    \end{eqnarray*}
+ </p>
+ <p>
+    Subcaso: \(a \leq  x_0/k < b < x_1/k\). En este caso tenemos 
+    \begin{eqnarray*}
+    \int_{a}^{b}\chi_{[x_0/k,x_1/k)}(x)dx&=&b-\frac{x_0}{k}\\
+    \frac{1}{k}\int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du&=& \frac{1}{k}(kb-x_0)
+    \end{eqnarray*}
+ </p>
+ 
+ <p>
+     Subcaso: \(a \leq x_0/k <  x_1/k \leq b\). En este caso tenemos 
+     \begin{eqnarray*}
+     \int_{a}^{b}\chi_{[x_0/k,x_1/k)}(x)dx&=&\frac{x_1}{k}-\frac{x_0}{k}\\
+     \frac{1}{k}\int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du&=&\frac{1}{k}(x_1-x_0)&
+     \end{eqnarray*}
+ </p>
+
+ <p>
+    Subcaso: \(x_0/k < a <   b< x_1/k\). En este caso tenemos 
+    \begin{eqnarray*}
+    \int_{a}^{b}\chi_{[x_0/k,x_1/k)}(x)dx&=&b-a\\
+    \frac{1}{k}\int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du&=&\frac{1}{k}(kb-ka)
+    \end{eqnarray*}
+</p>
+
+<p>
+    Caso 2: caso general, \(s\) es de la forma 
+    \[
+    s=\sum_{i=1}^n s_i\chi_{[x_{i-1},x_i)}
+    \]
+    donde \(x_0< x_1< \cdots < x_n\).
+</p>
+<p>
+    Usando linealidad tenemos 
+    \begin{equation}\label{Ejer:Aux2CambioVarReescalamientoEscalonada}
+    \int_a^b s(kx)dx=\sum_{i=1}^n s_i \int_a^b \chi_{[x_{i-1},x_i)}(kx)dx
+    \end{equation}
+    luego por el primer caso tenemos 
+    
+    \begin{eqnarray}
+    \sum_{i=1}^n s_i\int_a^b \chi_{[x_{i-1}, x_i)}(kx)dx &=& 
+    \frac{1}{k}\sum_{i=1}^n s_i \int_{ka}^{kb}\chi_{[x_{i-1},x_i)}(u)du \nonumber \\
+    &=& \frac{1}{k}\int_{ka}^{kb}s(u)du \label{Ejer:Aux3CambioVarReescalamientoEscalonada}
+    \end{eqnarray}
+    donde la última identidad se debe a la linealidad. Finalmente, por 
+    las ecuaciones \eqref{Ejer:Aux2CambioVarReescalamientoEscalonada} y 
+    \eqref{Ejer:Aux3CambioVarReescalamientoEscalonada} concluimos 
+    \[
+        \int_a^b s(kx)dx = \frac{1}{k}\int_{ka}^{kb}s(u)du.
+    \]
+</p>
+</div>
+
+
+
+<button class="respButton hvr-grow "> Demostración inciso 2 </button>
+    <div class="resp-box flexbox">
+<p>
+    <center> Caso \(k< 0\)</center>
+</p>
+<p>
+    Este caso es muy similar, primero el caso \(s=\chi_{[x_0,x_1)}\)
+    y luego el caso general, \(s=\sum_{i=1}^n s_i\chi_{[x_{i-1},x_i)}\). Sólo se revisa el 
+    caso \(s=\chi_{[x_0,x_1)}\).
+</p>
+<p>
+    Para este caso la identidad que se tiene es:  
+    \begin{equation}\label{Ejer:Aux5CambioVarReescalemientoEscalonada}
+        \chi_{[x_0,x_1)}(kx)=\chi_{[x_1/k,x_0/k)}(x), 
+    \end{equation}
+    para todo \(x\). Notar el cambio de orden entre \(x_0\) y \(x_1\). La prueba es muy similar 
+    a el caso \(k>0\) y se omite.
+</p>
+
+ <p>
+     Por lo tanto para  terminar el caso \(s=\chi_{[x_0,x_1)}\) debemos de probar la identidad
+     \[
+     \int_a^b \chi_{[x_1/k, x_0/k)}(x)dx=\frac{1}{|k|}\int_{kb}^{ka}\chi_{[x_0,x_1)}(u)du
+     \]
+     la cual se prueba por casos.
+ </p>
+ <p>
+    Subcaso: \(x_0/k \leq a \) ó \(b\leq x_1/k\). Entonces también se tiene 
+    \(x_0 \geq  ka \) ó \(kb\geq x_1\), por lo que 
+    \[
+    \int_a^b \chi_{[x_1/k, x_0/k)}(x)dx = 0 = \int_{kb}^{ka}\chi_{[x_0,x_1)}(u)du
+    \]
+ </p>
+ <p>
+    Subcaso: \(x_1/k < a \leq  x_0/k \leq b \). Entonces también tenemos 
+    \(x_1 > ka \geq x_0 \geq kb \), por lo que 
+    \begin{eqnarray*}
+    \int_{a}^{b}\chi_{[x_1/k,x_0/k)}(x)dx&=&\frac{x_0}{k}-a \\
+    \frac{1}{|k|}\int_{kb}^{ka}\chi_{[x_0,x_1)}(u)du&=& \frac{1}{|k|}(ka-x_0)=\frac{1}{k}(x_0-ka)
+    \end{eqnarray*}
+ </p>
+ <p>
+    Subcaso: \(a \leq  x_1/k < b < x_0/k\). Entonces también tenemos \(ka \geq x_1 > kb > x_0\)
+    por lo que
+    \begin{eqnarray*}
+    \int_{a}^{b}\chi_{[x_1/k,x_0/k)}(x)dx&=&b-\frac{x_1}{k}\\
+    \frac{1}{|k|}\int_{kb}^{ka}\chi_{[x_0,x_1)}(u)du&=& \frac{1}{|k|}(x_1-kb)=\frac{1}{k}(kb-x_1)
+    \end{eqnarray*}
+ </p>
+ 
+ <p>
+     Subcaso: \(a \leq x_1/k <  x_0/k \leq b\). Entonces también tenemos \(ka \geq x_1 > x_0 \geq kb \)
+     por lo que 
+     \begin{eqnarray*}
+     \int_{a}^{b}\chi_{[x_1/k,x_0/k)}(x)dx&=&\frac{x_0}{k}-\frac{x_1}{k}\\
+     \frac{1}{|k|}\int_{ka}^{kb}\chi_{[x_0,x_1)}(u)du&=&\frac{1}{|k|}(x_1-x_0)=\frac{1}{k}(x_0-x_1)
+     \end{eqnarray*}
+ </p>
+
+ <p>
+    Subcaso: \(x_1/k < a <   b< x_0/k\). Entonces también tenemos \(x_1 > ka > kb > x_0\) por lo que 
+    \begin{eqnarray*}
+    \int_{a}^{b}\chi_{[x_1/k,x_0/k)}(x)dx&=&b-a\\
+    \frac{1}{|k|}\int_{kb}^{ka}\chi_{[x_0,x_1)}(u)du&=&\frac{1}{|k|}(ka-kb)=\frac{1}{k}(kb-ka)
+    \end{eqnarray*}
+</p>
+</div>
+
+
+<a href="https://youtu.be/h5IRNMgYLgI?t=221" target="_blank" >
+    <button class="respButton hvr-grow " > Demostración en video </button>     
+</a>
+</div>
+
+<div class="info-box">
+    <h2 class="number-title" id="Nota:CambioVarReescalamiento"> Notación </h2>
+
+    <p> 
+        Tomando en cuenta el ejercicio anterior damos la siguiente notación. Dados  $a,b\in \mathbb{R}$ con $a < b$, 
+        definimos
+        $$
+        \int_b^a f(x)dx:= - \int_a^b f(x)dx
+        $$    
+    </p>    
+    <p>
+        Con esta notación el <a href="#Ejer:CambioVariableReescalemientosEscalonadas">Ejercicio 6.7</a> se puede 
+        reescribir como 
+        \[
+        \int_{a}^{b} s(k x) dx = 
+        \frac{1}{k}\int_{k a}^{k b} s(u)du, 
+        \]
+        sín importan el signo de \(k\).
+    </p>
+    <p>
+        Haciendo substituciones formales, lo anterior se puede poner como $u=k x$, $du=k dx$.
+    </p>
+</div>
+
+ 
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:CambioVariableReescalemientos"> Ejercicio</h2>
+        <p>
+            Sea $I\subseteq \mathbb{R}$ un intervalo y supón que la función 
+            $f:I\to \mathbb{R}$ es  integrable sobre todos los subintervalos 
+            cerrados de $I$. 
+        </p>
+        <p>
+            Sea $k \ne 0$ y  supón  que el intervalo determinado 
+        por $k a$ y $k b$ está contenido en
+        $I$. Entonces la función  $x \mapsto f(k x)$ es integrable en $[a,b]$ y 
+        \begin{equation}\label{Eqn:CambioVariableReescalamiento}
+        \int_{a }^{b }f(k x)dx=\frac{1}{k} \int_{k a}^{k b} f(u)du
+        \end{equation}
+        Nota que se  usa la <a href="#Notacion:ReversaIntervalos">Notación 6.8</a> pues 
+        hay que tomar en cuenta el signo de \(k\). 
+        </p>
+        <p>
+            Haciendo substituciones formales esto se puede 
+            abreviar como $\quad u=kx, \quad du =kdx$.
+        </p>
+        <button class="respButton hvr-grow "> Demostración escrita </button>
+        <div class="resp-box flexbox">
+        <p>
+            Primera establecemos notación. Si \(k>0\) denotamos \(a'=ka, b'=kb\), si 
+            \(k< 0\) denotamos \(a'=kb, b'=kb\). Notamos que en cualquier caso \(a'< b'\)
+            y que por suposición \([a',b']\subseteq I\).
+        </p>
+        <p>
+
+            Definimos $g:[a,b]\to \mathbb{R}$ por $g(x)=f(kx)$, bien definida pues 
+            suponemos que \([a', b']\subseteq I\). Vamos a probar que 
+            \(g\) es integrable en \([a,b]\) y que 
+            \[
+            \int_{a}^{b} g(x)dx =\frac{1}{k}\int_{a'}^{b'} f(u)du
+            \]
+        </p>
+        <p>
+            Para probar que \(g\) es integrable en \([a,b]\) vamos a usar el <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Criterio de Cauchy</a>.
+        </p>
+        <p>
+            Usando que $f$ es integrable en $[a', b']$, dada \(\varepsilon >0\) existen 
+            $s,t : \mathbb{R} \to \mathbb{R}$, funciones escalonadas con:
+            <ul>
+                <li>
+                    para toda \(u \in [a', b']\):
+                    \[
+                    s(u)\leq f(u) \leq t(u),
+                    \]
+                </li>
+                <li> además 
+                    \[
+                    \int_{a'}^{b'} t(u)du -\int_{a'}^{b'} s(u)du 
+                    < \varepsilon |k|.
+                    \]
+                </li>
+            </ul>
+            Consideramos $\tilde{s},\tilde{t}:\mathbb{R}\to \mathbb{R}$ definidas por $\tilde{s}(x):=s(kx)$, 
+            $\tilde{t}(x):=t(kx)$. Se sigue que para toda \(x\in [a,b]\):
+            \begin{eqnarray}
+             \tilde{s}(x) \leq g(x) \leq \tilde{t}(x). \label{Eqn:Aux1CambioVarReescalamiento}
+            \end{eqnarray}
+            Además por el <a href="#Ejer:CambioVariableReescalemientosEscalonadas">Ejercicio 6.7</a>
+            
+            \begin{eqnarray*}
+            \int_a^b \tilde{s}(x)dx &=& \frac{1}{|k|}\int_{a'}^{b'}s(u)du,\\ 
+            \int_a^b \tilde{t}(x)dx &=& \frac{1}{|k|}\int_{a'}^{b'}t(u)du,
+            \end{eqnarray*}
+            por lo que  
+            \begin{equation}
+            \int_{a}^{b} \tilde{t}(x)dx - \int_{a}^{b}  \tilde{s}(x)dx = 
+            \frac{1}{|k|}\left( \int_{a'}^{b'} t(u)du-\int_a^b s(u)du \right) < \varepsilon.  
+            \label{Eqn:Aux2CambioVarReescalamiento}
+            \end{equation}
+        </p>
+        <p>
+            De \eqref{Eqn:Aux1CambioVarReescalamiento}, \eqref{Eqn:Aux2CambioVarReescalamiento} y del 
+            <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Criterio de Cauchy</a> 
+            concluimos que \(g\) es integrable en \([a,b]\).
+        </p>
+        <p>
+            Resta probar \eqref{Eqn:CambioVariableReescalamiento}. Iniciamos integrando 
+            las desigualdades \(s(u)\leq f(u)\leq t(u)\), válida para \(u\in [a', b']\),
+            \(\tilde{s}(x)\leq g(x)\leq \tilde{t}(x)\), válida para \(x\in [a,b]\):
+            \begin{eqnarray*}
+            \int_{a'}^{b'} s(u)du \leq & \int_{a'}^{b'} f(u)du & \leq \int_{a'}^{b'} t(u)du \\
+            \frac{1}{|k|}\int_{a'}^{b'} s(u)du =\int_{a}^{b} \tilde{s}(x)dx \leq & \int_{a}^{b} g(x)dx & 
+            \leq \int_a^b \tilde{t}(x)dx=\frac{1}{|k|}\int_{a'}^{b'} t(u)du
+            \end{eqnarray*}
+            donde las identidades del segundo renglón se deben al <a href="#Ejer:CambioVariableTranslacionesEscalonadas">Ejercicio 6.2</a>.
+        </p>
+        <p>
+            Comparando las desigualdades anteriores concluimos 
+            \[
+            \left| \int_{a'}^{b'} f(u)du - |k|\int_{a}^{b} g(x)dx  \right| \leq 
+            \int_{a'}^{b'} t(u)du - \int_{a'}^{b'} s(u)du < \varepsilon,
+            \]
+            y al ser \(\varepsilon\) arbitraria concluimos 
+            \[
+            \int_{a'}^{b'} f(u)du = |k|\int_{a}^{b} g(x)dx=|k|\int_{a}^{b} f(kx)dx
+            \]
+            que se puede reescribir como, tomando los casos \(k>0\) y \(k< 0\) como 
+            
+            \[
+            \frac{1}{k}\int_{ak}^{bk} f(u)du=\int_{a}^b f(kx)dx.
+            \]
+        </p>
+    </div>
+
+    <a href="https://youtu.be/h5IRNMgYLgI?t=221" target="_blank" >
+        <button class="respButton hvr-grow " > Demostración en video </button>     
+    </a>
+    
+</div>
+
+<div class="teorema-box">
+    <h2> Teorema </h2>
+    <h3> Cambios de variable lineales </h3>
+    <p>
+        Sea $I\subseteq \mathbb{R}$ un intervalo y supón que la función 
+        $f:I\to \mathbb{R}$ es  integrable sobre todos los subintervalos 
+        cerrados de $I$. 
+    </p>
+    <p>
+        Sean \(\alpha,k \in \mathbb{R}\) con \(k \ne 0\). Supón que el intervalo 
+        \([a,b]\) satisface que  el intervalo determinado por \(k a +\alpha \), \(k b+\alpha \)
+        está contenido en \(I\). Entonces la función \(x\mapsto f( kx + \alpha )\) es 
+        integrable en \([a,b]\) y 
+        \[
+            \int_a^b f(kx+\alpha )dx = \frac{1}{k}\int_{ka + \alpha}^{k b+\alpha} f(u)du
+        \]
+    </p>
+    <button class="respButton hvr-grow "> Demostración </button>
+    <div class="resp-box flexbox">
+    <p>
+        Definimos \(J=\{x-\alpha: x\in I\}\) y \(h:J\to \mathbb{R}\) por \(h(u)=f(u+\alpha)\). Por 
+        el <a href="#Ejer:CambioVariableTranslaciones">Ejercicio 6.3</a> \(h\) es integrable en \([a'+\alpha,b'+\alpha]\)
+        donde \(a'=ka\), \(b'=kb\) si \(k>0\) y \(a'=kb, b'=ka\) si \(k< 0\).
+    </p>
+    <p>
+        Con la notación anterior tenemos que \(f(kx+\alpha)=h(kx)\), para todo \(x\in [a,b]\), por lo 
+        tanto 
+        \[
+        \int_a^b f(kx + \alpha)dx = \int_a^b h(kx)dx
+        \]
+        Notamos que el intervalo determinado por \(ka\)  y \(kb\) está contenido en 
+        \(J\) (pues el intervalo determinado por \(ka+\alpha\) y \(kb+\alpha\) está contenido en 
+        \(I\)) por lo tanto  el <a href="#Ejer:CambioVariableReescalemientos">Ejercicio 6.9</a> implica 
+        \[
+        \int_a^b h(kx)dx = \frac{1}{k}\int_{ka}^{kb} h(u)du,
+        \]
+        pero por el <a href="#Ejer:CambioVariableTranslaciones">Ejercicio 6.3</a>
+        \[
+        \int_{ka}^{kb} h(u)du=\int_{ka}^{kb}f(u+\alpha)du=\int_{ka+\alpha}^{kb+\alpha} f(x)dx
+        \]
+        por lo que concluimos 
+        \[
+        \int_a^b f(kx + \alpha)dx= \frac{1}{k}\int_{ka+\alpha}^{kb+\alpha} f(x)dx
+        \]
+    </p>
+    </div>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Calcula las siguientes integrales.
+
+<ol>
+    <li>
+        $\int_0^{4}(2x-1)^4dx$.
+    </li> 
+    <li>
+        $\int_{2}^{6}(\frac{1}{2}x-4)^4dx$.
+    </li> 
+    <li>
+        $\int_{0}^{5}(2x-1)^{5}(x+1)dx$.
+    </li> 
+    <li>
+        $\int_0^4 (x-2)(2x-1)dx$.
+    </li> 
+    <li>
+        $\int_0^4 |(x-2)(2x-1)|dx$.
+    </li> 
+    <li>
+        $\int_{-1}^4 |(x+2)(x-1)|$.
+    </li> 
+    <li>
+        $\int_{7}^{25}\sqrt{3x-2}$.
+    </li> 
+    <li>para $a>0$, $\int_0^{1} \sqrt{2x-a}dx.$
+
+    </li> 
+</ol>
+<button class="respButton hvr-grow "> Solución de 1 </button>
+<div class="resp-box flexbox">
+    <p>
+        Sea \(f : \mathbb{R} \rightarrow \mathbb{R}\) dada por \(f(x) = (2x-1)^4\) 
+        tenemos que \(f\) es continua en \(\mathbb{R}\) y por el 
+        <a href="./S5.html#Ejer:IntegrabilidadFuncionesContinuas">Teorema 5.10</a>
+        se sigue que \(f\) es integrable en cualquier intervalo cerrado y acotado, 
+        en particular es integrable en \([0, 4]\). Haciendo 
+        el cambio de variable \(u= 2x-1\), implica  \(du = 2dx\) y \(f(u) = u^4\) 
+        la cual es integrablen el intervalo \([u(0), u(4)] = [-1, 7]\) y   
+        tenemos: 
+        \[\int_0^4f(2x-1)dx = \frac{1}{2}\int_{2\cdot 0 -1}^{2 \cdot 4 -1}f(u) du 
+        =  \frac{1}{2}\int_{-1}^{7}f(u) du \]
+    </p>
+    <p>
+        Es decir: 
+        \[ 
+        \int_0^4(2x-1)^4dx = \frac{1}{2}\int_{-1}^{7}u^4du 
+        = \frac{1}{2}\left(\frac{7^5-(-1)^5}{5}\right) 
+        = \frac{7^5 +1}{10} = \frac{8,404}{5} 
+        \]
+    </p>
+    <p>
+        Por lo tanto, \(\int_0^4(2x-1)^4dx = \frac{8,404}{5} .\)
+    </p>
+</div>
+
+<button class="respButton hvr-grow "> Solución de 3 </button>
+<div class="resp-box flexbox">
+    <p>
+        Tenemos que \(f: \mathbb{R} \rightarrow \mathbb{R}\) dada por 
+        \(f(x)=(2x-1)^5(x+1)\) es una función continua y por lo tanto integrable en cualquier intervalo 
+        cerrado y acotado, en particular en \([0, 5]\). Haciendo un cambio de variable \(u = 2x-1\) 
+        implica \(du= 2dx\) y \(x= \frac{u+1}{2}\). Entonces 
+        \( f(u) = u^5(\frac{u+1}{2}+1) = \frac{u^6 +3u^5}{2}\) la cual es integrable en el 
+        intervalo \([u(0), u(5)] =[2\cdot 0-1, 2\cdot 5-1] =[-1, 9]\) y    
+        \begin{equation*}
+        \begin{split}
+        \int_0^5 f(x) dx & =  \frac{1}{2}\int_{-1}^9f(u) du = \frac{1}{2}\int_{-1}^9 \frac{u^6 +3u^5}{2} du \\
+         & = \frac{1}{4}\int_{-1}^9 (u^6 +3u^5) du \\
+         & = \frac{1}{4}\left(\int_{-1}^9 u^6 +3\int_{-1}^9 u^5du \right) \\
+         & = \frac{1}{4}\left(\frac{9^7-(-1)^7}{7} +3\cdot \frac{9^6 - (-1)^6}{6}\right) \\
+         & = \frac{1}{4}\left(\frac{9^7 +1}{7} +  \frac{9^6 - 1}{2}\right) \\
+         & = \frac{3,321,505}{14}
+        \end{split}
+        \end{equation*}  
+    </p>
+    <p>
+        Por lo tanto, \( \int_0^5(2x-1)^5(x+1)dx = \frac{3,321,505}{14}.\)
+    </p>
+</div>
+
+
+<button class="respButton hvr-grow "> Solución de 5 </button>
+<div class="resp-box flexbox">
+        <p>
+            Primero veamos que valores de \(x\) en \(\mathbb{R}\) hacen positivo o negativo a 
+            \((x-2)(2x-1)\), es decir, encontremos cuando \(x \in \mathbb{R}\) satisface que 
+            \((x-2)(2x-1) \geq 0 \) o \((x-2)(2x-1)\leq 0\).
+        </p>
+        <p>
+            <i>(i)</i> Sea \(x\in \mathbb{R}\) y supongamos que \((x-2)(2x-1) \geq 0\).
+        </p>
+        <p>
+            Lo anterior sucede si y sólo si \((x-2 \geq 0)\) y  \((2x-1 \geq 0)\) o  
+            en su defecto \( (x-2 \leq 0) \) y \( (2x-1 \leq 0). \) 
+        </p>
+        <p>
+            Si \((x-2 \geq 0) \) y \((2x-1 \geq 0)\), entonces 
+            \(x \geq 2\) y \(x \geq \frac{1}{2}\) y esto 
+            implica que \(x \geq 2\).  Es decir, para \(x \geq 2\) tenemos que \((x-2)(2x-1) \geq 0\).
+        </p>
+        <p>
+            Si \( (x-2 \leq 0)\) y \( (2x-1 \leq 0),\) entonces \( x \leq 2\) y 
+            \( x \leq \frac{1}{2}\), por lo que \(x \leq  \frac{1}{2}\). Entonces para 
+            \(x \leq  \frac{1}{2}\) se tiene que \((x-2)(2x-1) \geq 0\).
+        </p>
+        <p>
+            En resumen   \((x-2)(2x-1) \geq 0\) si y sólo si \( x \in (-\infty, \frac{1}{2}] \cup [2, \infty)\).
+        </p>
+
+        <p>
+            <i>(ii)</i> Ahora veamos cuando  \((x-2)(2x-1) \leq 0\). 
+        </p>
+        <p>
+            Sea  \(x\in \mathbb{R}\) y supongamos que \((x-2)(2x-1) \leq 0\), 
+            esto sucede si y sólo si  \((x-2 \geq 0)\)  y \((2x-1 \leq 0)\) o en su defecto  
+            \( (x-2 \leq 0)\) y \((2x-1 \geq 0). \)
+        </p>
+
+        <p>
+            Si \((x-2 \geq 0)\) y \((2x-1 \leq 0)\), 
+            entonces \( x\geq 2\) y \(x \leq \frac{1}{2}\), es decir 
+            \(x \leq \frac{1}{2} < 2 \leq x\), lo que implica \( x < x\) 
+            y esto es una contradicción. Por lo tanto no existe \(x \in \mathbb{R}\) 
+            tal que  \((x-2 \geq 0) \wedge (2x-1 \leq 0)\).
+        </p>
+        <p>
+            Si \( (x-2 \leq 0)\) y  \((2x-1 \geq 0), \) entonces 
+            \( x \leq 2\) y \( x \geq \frac{1}{2}\), es decir \(x \in [\frac{1}{2}, 2]\). 
+            Entonces \((x-2)(2x-1) \leq 0\) si y sólo si \(x \in [\frac{1}{2}, 2]\). 
+        </p> 
+        <p>
+            Por lo tanto, 
+            \begin{equation*}
+            \vert(x-2)(2x-1)\vert =  \left\{
+            \begin{array}{cccc}
+            (x-2)(2x-1)  &  \text{si }   x \in (-\infty, \frac{1}{2}] \cup [2, \infty) \\
+             \\
+            -(x-2)(2x-1) & \text{ si }    x \in [\frac{1}{2}, 2]
+            \end{array} \right.
+            \end{equation*}            
+        </p>
+        <p>
+            Sea \( f: [0, 4] \rightarrow \mathbb{R}\) dada por 
+            \begin{equation*}
+            f(x) = \vert(x-2)(2x-1)\vert =  \left\{
+            \begin{array}{cccc}
+            (x-2)(2x-1)  & \text{ si }   x \in [0, \frac{1}{2}] \cup [2, 4] \\
+            \\
+            -(x-2)(2x-1) & \text{ si }    x \in [\frac{1}{2}, 2]
+            \end{array} \right.
+            \end{equation*}            
+        </p>
+        <p>
+            Entonces por la <a href="./S3.html#Ejer:LinealidadIntervalos">Linealidad con respecto a intervalos</a> tenemos:  
+            \begin{equation}\label{A}
+            \int_0^4f(x) dx = \int_0^{\frac{1}{2}}f(x) dx + \int_{\frac{1}{2}}^2f(x) dx + \int_2^4 f(x) dx . 
+            \end{equation}
+        </p>
+
+        <p>
+            Entonces calculemos \(\int_0^{\frac{1}{2}}f(x) dx, \int_{\frac{1}{2}}^2f(x) dx \text{ y}  
+            \int_2^4 f(x) dx\). Tenemos que : 
+            
+            \begin{eqnarray*}
+            \int_0^{\frac{1}{2}}f(x) dx&=&\int_0^{\frac{1}{2}}(x-2)(2x-1) dx \\
+             &=& \int_0^{\frac{1}{2}}(2x^2-5x+2)dx \\
+             & =& 2\int_0^{\frac{1}{2}}x^2 -5 \int_0^{\frac{1}{2}}x dx + 2 \int_0^{\frac{1}{2}}dx \\
+             & =& 2\left(\frac{(1/2)^{3}}{3}\right) -5\left(\frac{(1/2)^{2}}{2}\right) 
+             +2\left(\frac{1}{2} -0\right) \\
+             & =& \frac{11}{24},
+             \end{eqnarray*}
+            
+        </p>    
+        <p>
+            \begin{eqnarray*}
+            \int_{\frac{1}{2}}^2f(x) dx &=&  \int_{\frac{1}{2}}^2-(x-2)(2x-1) dx\\
+             &=& \int_{\frac{1}{2}}^2(-2x^2 +5x -2)dx \\
+             &=& -2\int_{\frac{1}{2}}^2x^2 dx +5\int_{\frac{1}{2}}^2xdx -2\int_{\frac{1}{2}}^2dx \\
+             &=& -2\left(\frac{2^3 -(1/2)^{3}}{3}\right) +5\left(\frac{2^2-(1/2)^{2}}{2}\right) -2\left(2-\frac{1}{2}  \right) \\
+             &=& \frac{2}{3} + \frac{11}{24}.
+            \end{eqnarray*}
+            
+            Y por último: 
+            \begin{eqnarray*}
+            \int_2^4 f(x) dx &=&  \int_2^4 (x-2)(2x-1) dx \\
+             &=&  \int_2^4 (2x^2-5x+2)dx \\
+             & =& 2\int_2^4x^2 -5 \int_2^4x dx + 2 \int_2^4dx \\
+             & =& 2\left(\frac{4^3 -2^{3}}{3}\right) -5\left(\frac{4^2-2^{2}}{2}\right) +2\left(4-2\right) \\
+             & =& \frac{32}{3} + \frac{2}{3}. 
+            \end{eqnarray*}
+        </p>
+        <p>
+            Por lo tanto \[\int_0^4f(x) dx =  
+            \frac{11}{24}+ \left(\frac{2}{3} + \frac{11}{24}\right) 
+            + \left(\frac{32}{3} + \frac{2}{3} \right) = \frac{35}{2}. \]
+        </p>
+        <p>
+            Es decir, \(\int_0^4f(x) dx = \frac{35}{2}.\) 
+        </p>
+        </div>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:FormulasIntegralesPolinomios"> Ejercicio</h2> 
+    Este ejercicio calcula  las integrales definidas de cualquier  polinomio.
+
+<ol>
+    <li>Demuestra que, para todo $b < 0$, 
+        $$
+        \int_b^0x^kdx=-\frac{b^{k+1}}{k+1}
+        $$
+        Sugerencia:  toma el cambio de variable $u=-x$.
+        </li> 
+<li>Sean $a.b \in \mathbb{R}$ fijos y arbitrarios con $a < b$. Demuestra que
+    $$
+    \int_a^b x^k dx =\frac{b^{k+1}-a^{k+1}}{k+1}
+    $$
+    
+    Sugerencia: toma los casos  $0 \leq a < b$, $a < b \leq 0$ y $a \leq 0 \leq b$.
+
+    </li> 
+<li>Demuestra que, para cualesquiera $a,b \in \mathbb{R}$, con $a < b$, 
+    $$
+    \int_a^b \sum_{k=1}^n a_kx^k dx=
+    \sum_{k=1}^n a_k\left( 
+        \frac{b^{k+1}-a^{k+1}}{k+1}  
+    \right)
+    $$</li> 
+
+</ol>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Encuentra $p$, un polinomio  de grado 2, tal que 
+        $$p(0)=p(1)=0 \quad \textrm{y } \quad   \int_0^2 p(x)dx=1$$
+    </p>
+    <button class="respButton hvr-grow "> Solución </button>
+    <div class="resp-box flexbox">
+    <p>
+        Tenemos que todo polinomio de grado 2 es de la forma, 
+        \(p(x) = ax^2 +bx + c\) con \(a, b ,c\in \mathbb{R}\). 
+        Por el <a href="#Ejer:FormulasIntegralesPolinomios">Ejercicio 6.11.(3)</a> tenemos que :
+        \begin{equation}\label{B}
+        \int_0^2p(x) dx = a\left(\frac{2^3-0^3}{3}\right) 
+        + b\left(\frac{2^2 - 0^2}{2}\right) + c(2-0)= \frac{8}{3}a + 2b + 2c .
+        \end{equation} 
+        
+    </p>
+    <p>
+        Supongamos que existe un polinomio de grado 2, 
+        \(p(x) = ax^2 +bx + c\) con \(a, b ,c\in \mathbb{R}\), 
+        tal que \( p(0) = p(1) = 0 \text{ y } \int_0^2p(x)dx = 1\) 
+        esto implica que: \[ 0 = p(0) = c = p(1) = a + b +c. \]
+    </p>
+    <p>
+        Es decir, \(0=c= a +b + c\), esto implica que \(a+b=0\) y se sigue que  
+        \(b=-a\). Por lo tanto, nuestro polinomio es de la forma 
+        \(p(x) = ax^2 -ax .\) Además como \(\int_0^2p(x)dx = 1\) y 
+        por \(\eqref{B}\) tenemos que: \[  \frac{8}{3}a -2a = 1. \]
+    </p>
+
+    <p>
+        Esto implica que \(a = \frac{3}{2},\) Por lo tanto nuestro 
+        polinomio debe de ser de la forma \(p(x) = \frac{3}{2}x^2 -\frac{3}{2}x\).
+    </p>
+    <p>
+        No es difícil verificar que en efecto, si 
+        \(p(x) = \frac{3}{2}x^2 -\frac{3}{2}x\), entonces \(p(0)= p(1) = 0\) 
+        y 
+        \(\int_0^2p(x) dx = \frac{8}{3}\cdot\frac{3}{2} - 2\cdot\frac{3}{2} = 4-3 = 1. \)
+    </p>
+</div>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Encuentra $p$, un polinomio de grado 3, tal que 
+        $$p(0)=p(-1)=0, p(1)=5 \quad \textrm{y}  \quad 2 \int_0^1 p(x)dx=4$$
+    </p>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Encuentra todos los polinomios de grado 2, $p$, tales que $p(0)=1$ y $\int_{-2}^{2}p(x)dx=0$.
+    </p>
+    <button class="respButton hvr-grow ">Demostración  </button>
+    <div class="resp-box flexbox">
+      <div class="flexbox">
+        <a href="https://youtu.be/5JT2h5Mop8k" target="_blank" > Video </a>
+      </div>
+    </div>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Encuentra todos los reales $a,b$, con $a \leq b$, tales que  
+        $$\int_{a}^{b}(3-2x)^5dx=0.$$
+
+    </p>
+    
+</div>
+
+
+<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Calcular:
+    </p>
+
+<ol>
+
+    <li>$\int_1^8 (x+8)^{10}dx$</li> 
+    <li>$\int_{10}^{11} \sqrt{x-3}dx$</li> 
+    <li>$\int_1^2 x\sqrt{x-1}dx$</li> 
+    <li>$\int_{2}^{3}x^2\sqrt{x-2}dx$</li> 
+    <li>$\int_{5}^{6} x\sqrt[3]{x-4}$</li> 
+</ol>
+<p>
+    Hint: pueden utilizar
+    $$
+    \int_a^b x^p dx=\frac{b^{p+1}-a^{p+1}}{p+1}
+    $$
+    válida para cualesquiera reales $a$ y $b$ y racional $p$.
+    
+</p>
+<button class="respButton hvr-grow "> Solución de 4 </button>
+    <div class="resp-box flexbox">
+<p>
+    Sea \(f:[2, \infty) \rightarrow \mathbb{R}\) dada por 
+    \(f(x) = x^2\sqrt{x-2}\) es una función que esta bien definida en 
+    \([2, \infty)\) y más aún es continua en dicho intervalo. 
+    Entonces \(f\) es integrable en cualquier intervalo cerrado y 
+    acotado de \([2, \infty)\). Procederemos hacer un cambio de variable 
+    \(u= x-2\) implica que \(du = dx\) y \(x = u+2\). Entonces dado que 
+    \(f(u) = (u+2)^2\sqrt{u}\) y es integrable en \([u(2), u(3)] = [0,1]\) se tiene: 
+    \begin{equation*}
+    \begin{split}
+    \int_2^3f(x) dx & = \int_0^1 f(u) du \\
+    & = \int_0^1 (u+2)^2\sqrt{u} du \\
+    & = \int_0^1(u^2 +4u +4)\sqrt{u} du \\
+    & = \int_0^1(u^{5/2} +4u^{3/2} +4u^{1/2}) du \\
+    & = \int_0^1u^{5/2}du +4\int_0^1u^{3/2}du +4\int_0^1u^{1/2} du \\
+    & = \left(\frac{1^{\frac{5}{2} +1}}{\frac{5}{2} +1}\right) + 4\cdot\left(\frac{1^{\frac{3}{2} +1}}{\frac{3}{2} +1}\right) + 4\cdot\left(\frac{1^{\frac{1}{2} + 1}}{\frac{1}{2} + 1}\right) \\
+    & = \frac{2}{7} + 4\cdot\frac{2}{5} + 4\cdot\frac{2}{3} \\
+    & = \frac{478}{105}
+    \end{split}
+    \end{equation*}
+</p>
+    <p>
+        Por lo tanto, \(\int_2^3x^2\sqrt{x-2}dx =  \frac{478}{105}.\)
+    </p>
+</div>
+
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $f:\mathbb{R}\to \mathbb{R}$ una función tal que, para toda $a>0$, 
+        $f$ es integrable en $[-a,a]$. 
+    </p>
+<ol>
+    <li>
+        Si $f$ es una función par (\(f(-x)=f(x)\) para todo \(x\)) probar:
+        $$
+        \int_{-a}^a f(x)dx=2\int_0^af(x)dx
+        $$
+    </li> 
+
+
+    <li>
+        Si $f$ es una función  impar (\(f(-x)=-f(x)\) para todo \(x\)) probar:
+        $$
+        \int_{-a}^af(x)dx=0
+        $$
+    </li> 
+</ol>
+<button class="respButton hvr-grow ">Demostración de 1 </button>
+<div class="resp-box flexbox">
+  <div class="flexbox">
+    <a href="https://youtu.be/I6p6zbBpl90" target="_blank" > Video </a>
+  </div>
+</div>
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <h3>La medida geométrica de un intervalo</h3>
+    <p>
+        
+        Existen otras nociones de longitues. 
+        Dado $(a,b)\subset (0,\infty)$ se define se define su 
+        medida o longitud geométrica como
+        $$
+        \lambda(a,b)=\ln(b)-\ln(a),
+        $$
+        donde $\ln$ denota la función logaritmo. Se puede pensar a la 
+        medida geométrica como un análogo de la longitud ( $b-a$) y  
+        $(0,\infty)$ podemos pensar la multiplicación por reales positivos 
+        como un análogo de la translación.
+    </p>
+<ol>
+    <li>
+        Prueba que  $\lambda(\gamma a,\gamma b)=\lambda(a,b)$, para $\gamma >0$.
+    </li> 
+
+    <li>
+        Para una función escalonada con dominio contenido en \((0,+\infty)\), 
+        $s:(0,+\infty)\to \mathbb{R}$, su integral sobre \([a,b]\), con respecto a la medida 
+        geométrica, se define  como:
+        $$
+        \int_a^b s(x)d\lambda(x):=\sum_{i=1}^n s_i (\ln(x_i)-\ln(x_{i-1}))
+        $$
+        donde \(P=\{x_i\}_{i=1}^n\) es una partición de \([a,b]\) tal que \(s\)
+        es constante en \((x_{i-1},x_i)\) y el valor de dicha constante es \(s_i\).
+    </li> 
+    <li>
+        Si $\gamma >0$ prueba que :
+        $$
+        \int_{a/\gamma}^{b/\gamma} s(\gamma x)d\lambda(x)=\int_a^b s(u)d\lambda(u)
+        $$
+    </li> 
+</ol>
+</div>
+</body>

@@ -1604,7 +1604,7 @@
             <li>
                 monótona creciente en \([a,b]\)
                 si para todos \(x_1,x_2\in [a,b]\) con \(x_1\leq x_2\) se cumple que 
-                \(f(x_1)\leq f(x_2)\); es monótona decreciente en \([a,b]\);
+                \(f(x_1)\leq f(x_2)\); 
             </li>
             <li>
                 monótona decreciente en \([a,b]\) si para todos \(x_1,x_2\in [a,b]\) 
@@ -1642,7 +1642,7 @@
     
     <p>
         Sugerencia: primero consider el caso monótono creciente y usa 
-        el <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Ejercicio 3.11</a> 
+        el <a href="./S3.html#Ejer:CriterioCauchyIntegrabilidad">Teorema 3.11</a> 
         (criterio de Cauchy). 
     </p>
 
@@ -1743,7 +1743,7 @@
 <div class="ejercicio-box">
     <h2 class="number-title" id="Ejer:CalculoIntegralFuncionesMonotonas"> Ejercicio</h2> 
     <p>
-        A pesar de que el <a href="Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> 
+        A pesar de que el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 3.26</a> 
         no da el valor exácto de la integral, este ejercicio da una manera de encontrar dicho valor.
     </p>
     <p>
@@ -1762,7 +1762,7 @@
     <div class="resp-box flexbox">
     <div >     
     <p>
-        Seguimos la misma estrategia que en el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a>.
+        Seguimos la misma estrategia que en el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 3.26</a>.
     </p>
     
     <p>
@@ -1812,7 +1812,7 @@
         \]
     </p>
     <p>
-        Pero al igual que en el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> 
+        Pero al igual que en el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 3.26</a> 
         un cálculo directo muesta 
         \[
         T-S=\sum_{i=1}^n (f(x_i)-f(x_{i-1}))(x_i-x_{i-1})=\frac{b-a}{n}(f(b)-f(a))
@@ -1853,7 +1853,7 @@
     </li> 
 
     <li>
-        Usa el <a href="#Ejer:CalculoIntegralFuncionesMonotonas">Ejercicio 4.3</a>  para concluir:
+        Usa el <a href="#Ejer:CalculoIntegralFuncionesMonotonas">Ejercicio 3.27</a>  para concluir:
         $$
             \int_0^b x^k dx = \frac{b^{k+1}}{k+1},
         $$
@@ -2010,7 +2010,7 @@
     <h2 class="number-title" id="Ejer:IntegralPotenciasNaturales"> Ejercicio</h2> 
     <p>
         Usando la linealidad de la integral con respecto a intervalos y 
-        el ejercicio <a href="#Ejer:IntegralesPotencias1">Ejercicio 4.4</a> 
+        el ejercicio <a href="#Ejer:IntegralesPotencias1">Ejercicio 3.28</a> 
         prueba que para todos $a,b \in \mathbb{R}$, con $0\leq a < b$ y $k \in \mathbb{N}$:
         $$
         \int_a^b x^kdx=\frac{b^{k+1}-a^{k+1}}{k+1}.
@@ -2051,7 +2051,7 @@
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Usar la interpretación de la integral como área bajo la curva y las ideas del 
-        <a href="#Eje:FormulaIntegralRaiz">Ejercicio 4.6</a>, 
+        <a href="#Eje:FormulaIntegralRaiz">Ejercicio 3.30</a>, 
         junto con la función $y=\sqrt[n]{x}$ en el rectángulo de lados $[0,b], 
         [0, \sqrt[n]{b}]$, para demostrar:
         $$
@@ -2065,7 +2065,7 @@
 <div class="ejercicio-box">
     <h2 class="number-title" id="Ejer:LimiteSumasRiemannDeMonotonas"> Ejercicio</h2> 
     <p>
-        La identidad del  <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> se puede generalizar, 
+        La identidad del  <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 3.26</a> se puede generalizar, 
         cambiando los puntos donde se valuan los valores de la función $f$.
     </p>
     <p>
@@ -2095,7 +2095,7 @@
     <div class="resp-box flexbox">
     <div >     
     <p>
-        Seguimos la misma estrategia que en el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a>.
+        Seguimos la misma estrategia que en el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 3.26</a>.
     </p>
     
     <p>
@@ -2188,7 +2188,7 @@
         </li> 
     </ol>
     <p>
-        Sugerencia: usa la identidad del  <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a>. 
+        Sugerencia: usa la identidad del  <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 3.26</a>. 
     </p>
 
     <button class="respButton hvr-grow "> Solución inciso 1 </button>
@@ -2197,7 +2197,7 @@
     <p>
         Consideremos \(f:[0,1] \rightarrow \mathbb{R}\) dada por 
         \(f(x) = x^k\), tenemos que \(f\) es monótona creciente en \([0,1]\). 
-        Entonces por el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> tenemos \(f\) es integrable en \([0,1]\) y 
+        Entonces por el <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 3.26</a> tenemos \(f\) es integrable en \([0,1]\) y 
         \[\lim_{n \rightarrow \infty}\left(\frac{1}{n}\sum_{i=1}^nf\left(i\frac{1}{n}\right)\right)
         = \int_0^1 f(x)dx = \frac{1}{k+1}. \]
     </p>
@@ -2236,7 +2236,7 @@
     </ol>
     <p>
         Sugerencia: usa el
-        la ecuación del  <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> y recuerda que
+        la ecuación del  <a href="#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 3.26</a> y recuerda que
         $$
         \int_a^b x^2 dx= \frac{b^3-a^3}{3}, \quad \int_a^b \sqrt{x}dx=  \frac{2}{3}(b^{3/2}-a^{3/2})
         $$        
