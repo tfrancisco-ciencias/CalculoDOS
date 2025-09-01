@@ -193,7 +193,7 @@
         Define $f:[a,b] \to \mathbb{R}$ por $f(x)=x^2$.
     </p>
     <p>
-        Directamente de la  <a href="#Def:ContinuidadUniforme">Definición 5.2</a>  
+        Directamente de la  <a href="#Def:ContinuidadUniforme">Definición 4.2</a>  
         demuestra que $f$ es uniformemente continua en $[a,b]$.
     </p>
     
@@ -273,7 +273,7 @@
         para toda $n$ natural. 
     </p> 
     <p>
-        Ahora aplicamos el  <a href="https://tfrancisco-ciencias.github.io/CalculoUNO/Secciones/S10.html#Ejer:TeoremaBolzanoWeirestrass ">Teorema de Bolzano</a> 
+        Ahora aplicamos el  <a href="https://tfrancisco-ciencias.github.io/CalculoUNO/Secciones/S11.html#Ejer:TeoremaBolzanoWeirestrass ">Teorema de Bolzano</a> 
         para asegurar la  existencia de dos subsucesiones
         $(x_{n_k})_{k=1}^\infty$, $(y_{n_k})_{k=1}^\infty$ y puntos $x_0,y_0 \in [a,b]$ con
         \begin{eqnarray*}
@@ -402,12 +402,12 @@
 </div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:LemaContinuidadUniformeOscilacion"> Ejercicio</h2> 
+    <h2 class="number-title" id="Ejer:LemaContinuidadUniformeOscilacion"> Lema </h2> 
     <p>
         Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$. 
         Fija $\varepsilon >0$ y sea $\delta >0$, la de 
         la continuidad uniforme de $f$ para $\varepsilon$ (la del 
-        <a href="#Ejer:ContinuidadUniformeEnCompactos"> Teorema 5.5 </a>). 
+        <a href="#Ejer:ContinuidadUniformeEnCompactos"> Teorema 4.5 </a>). 
         
     </p>
     <p>
@@ -479,7 +479,7 @@
          </p>
          <p>
             Si lo anterior les recuerda la prueba del  
-            <a href="./S4.html#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 4.2</a> 
+            <a href="./S3.html#Ejer:IntegrabilidadFuncionesMonotonas">Teorema 3.26</a> 
             sobre funciones monótonas es que 
             están presentando atención. Vamos a proceder de manera muy similar.
         </p>
@@ -547,7 +547,7 @@
         <p>
             Tomamos \(N\in \mathbb{N}\) tal que \(\frac{b-a}{N} < \delta \). Entonces 
             para  todo  \(n\geq N\) los subintervalos de \(P_n=\{x_i\}_{i=0}^n\) tienen longitud menor a \(\delta\) 
-            por  lo que el <a href="#Ejer:IntegrabilidadFuncionesContinuas">Ejercicio 5.9</a> 
+            por  lo que el <a href="#Ejer:LemaContinuidadUniformeOscilacion">Lema 4.9</a> 
             implica que \(\omega_f([x_{i-1},x_i])< \frac{\varepsilon}{b-a}\). Utilizando ésta última 
             cota en \eqref{Eqn:Aux2IntegrabilidadContinuas} llegamos a que, para todo \(n\geq N\):
             \begin{eqnarray}
@@ -634,7 +634,7 @@
     
     <p>
         Este ejercicios generaliza las fórmulas de los límites del 
-        <a href="#Ejer:IntegrabilidadFuncionesContinuas">Teorema 5.10</a>
+        <a href="#Ejer:IntegrabilidadFuncionesContinuas">Teorema 4.10</a>
     </p>
     <p>
         Sea $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$.  
@@ -734,7 +734,7 @@
         $$
         donde  $P=\{x_i\}_{i=0}^n$ es una partición de $[a,b]$ y los puntos $r_i \in [x_{i-1}, x_i]$, $i=1,\dots, n$, son fijos y arbitrarios.
 
-        Nota que por el <a href="#Ejer:AproximacionSumasRiemann">Ejercicio 5.11</a>, 
+        Nota que por el <a href="#Ejer:AproximacionSumasRiemann">Ejercicio 4.11</a>, 
         para funciones continuas, sus sumas de Riemann con  particiones homogeneas
         se aproximan a la integral de la función cuando la longitud de la partición tiende a infinito.
     </p>
@@ -775,7 +775,7 @@
         Fija $a,b \in \mathbb{R}$ con $0< a < b$. Calcula $\int_{a}^{b} x^{-2}dx $. 
     </p>
     <p>
-        Sugerencia: usa el ejercicio  <a href="#Ejer:AproximacionSumasRiemann"> Ejercicio 5.11</a>,
+        Sugerencia: usa el ejercicio  <a href="#Ejer:AproximacionSumasRiemann"> Ejercicio 4.11</a>,
         tomando $P_n=\{x_i\}_{i=0}^n$  la partición homogenea y $r_{i,n}=\sqrt{x_{i-1}x_i}$ 
         y usando la identidad
         $$
@@ -799,7 +799,7 @@
     <p>
         Como \(f\) es continua en \([a,b]\), existen \(m_f\) y \(M_f\), ya que la función \(f\) 
         alcanza su mínimo y su máximo en \([a,b]\) y esto implica, \(m_f \leq f(x) \leq M_f\) para 
-        toda \(x \in [a,b]\). Además por el <a href="#Ejer:IntegrabilidadFuncionesContinuas">Teorema 5.10</a> tenemos que \(f\) es integrable. 
+        toda \(x \in [a,b]\). Además por el <a href="#Ejer:IntegrabilidadFuncionesContinuas">Teorema 4.10</a> tenemos que \(f\) es integrable. 
         Entonces por el <a href="./S3.html#Ejer:CotasFacilesIntegral">Ejercicio 3.7</a>  
         concluimos \[ m_f(b-a) \leq \int_a^b f(x)dx \leq M_f(b-a) .\]
     </p>
@@ -833,7 +833,7 @@
         demuestra que $f(x)=0$ para toda $x\in [a,b]$. 
     </p>
     <p>
-        Sugerencia: usa el <a href="#Ejer:LemaIntegralCeroDePositivas">Ejercicio 5.16</a>.
+        Sugerencia: usa el <a href="#Ejer:LemaIntegralCeroDePositivas">Ejercicio 4.16</a>.
     </p>
 </div>
 
@@ -950,7 +950,7 @@
 
     <p>
         Como \(f:[a,b] \rightarrow \mathbb{R}\) es una función continua, 
-        entonces por el <a href="#Ejer:CotasMaxMinIntegral">Ejercicio 5.15</a>  tenemos que 
+        entonces por el <a href="#Ejer:CotasMaxMinIntegral">Ejercicio 4.15</a>  tenemos que 
         \[m_f(b-a) \leq \int_a^b f(x)dx \leq M_f(b-a) ,\]
         donde \(m_f = \min_{x \in [a,b]}\lbrace f(x) \rbrace\) y 
         \(M_f = \max_{x\in [a,b]}\lbrace f(x) \rbrace.\) Lo cual implica que 
@@ -1020,7 +1020,7 @@
             \(x^m-y^m=(x-y)\left(\sum_{k=0}^{m-1}  y^kx^{m-1-k}  \right)\).
         </li>
         <li>
-            Concluye  usando el <a href="#Ejer:AproximacionSumasRiemann">Ejercicio 5.11</a> que:
+            Concluye  usando el <a href="#Ejer:AproximacionSumasRiemann">Ejercicio 4.11</a> que:
             \[
             \int_a^b x^p dx =\frac{1}{p+1}(b^{p+1}-a^{p+1})
             \]
@@ -1034,7 +1034,7 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio </h2>
     <p>
-        En éste ejercicio generaliza el <a href="#Ejer:Integral1/x^2">Ejercicio 5.14</a>
+        En éste ejercicio generaliza el <a href="#Ejer:Integral1/x^2">Ejercicio 4.14</a>
     </p>
     <p>
         Fija \(p\geq 2\) un número natural y denota \(f(x)=\frac{1}{x^p}\) y sea \(P_n=\{x_i\}_{i=0}^n\) la partición 
@@ -1054,7 +1054,7 @@
             \(x^m-y^m=(x-y)\left(\sum_{k=0}^{m-1}  y^kx^{m-1-k}  \right)\).
         </li>
         <li>
-            Concluye  usando el <a href="#Ejer:AproximacionSumasRiemann">Ejercicio 5.11</a> que:
+            Concluye  usando el <a href="#Ejer:AproximacionSumasRiemann">Ejercicio 4.11</a> que:
             \[
             \int_a^b \frac{1}{x^p} dx =\frac{1}{p-1}\left(\frac{1}{b^{p-1}}-\frac{1}{a^{p-1}}\right)
             \]
