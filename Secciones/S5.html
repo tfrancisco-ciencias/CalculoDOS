@@ -321,7 +321,7 @@
         \begin{eqnarray}
          s'(x) \leq g(x) \leq t'(x). \label{Eqn:Aux1CambioVarTraslaciones}
         \end{eqnarray}
-        Además por el <a href="#Ejer:CambioVariableTranslacionesEscalonadas">Ejercicio 6.2</a>
+        Además por el <a href="#Ejer:CambioVariableTranslacionesEscalonadas">Lema 5.2</a>
         \begin{eqnarray*}
         \int_a^b s'(x)dx &=& \int_{a+\alpha}^{b+\alpha}s(u)du,\\ 
         \int_a^b t'(x)dx &=& \int_{a+\alpha}^{b+\alpha}t(u)du,
@@ -344,7 +344,7 @@
         \int_{a+\alpha}^{b+\alpha} s(u)du \leq & \int_{a+\alpha}^{b+\alpha} f(u)du & \leq \int_{a+\alpha}^{b+\alpha} t(u)du \\
         \int_{a+\alpha}^{b+\alpha} s(u)du =\int_{a}^{b} s'(x)dx \leq & \int_{a}^{b} g(x)dx & \leq \int_a^b t'(x)dx=\int_{a+\alpha}^{b+\alpha} t(u)du
         \end{eqnarray*}
-        donde las identidades del segundo renglón se deben al <a href="#Ejer:CambioVariableTranslacionesEscalonadas">Ejercicio 6.2</a>.
+        donde las identidades del segundo renglón se deben al <a href="#Ejer:CambioVariableTranslacionesEscalonadas">Lema 5.2</a>.
     </p>
     <p>
         Comparando las desigualdades anteriores concluimos 
@@ -642,7 +642,7 @@
         $$    
     </p>    
     <p>
-        Con esta notación el <a href="#Ejer:CambioVariableReescalemientosEscalonadas">Ejercicio 6.7</a> se puede 
+        Con esta notación el <a href="#Ejer:CambioVariableReescalemientosEscalonadas">Lema 5.7</a> se puede 
         reescribir como 
         \[
         \int_{a}^{b} s(k x) dx = 
@@ -670,7 +670,7 @@
         \begin{equation}\label{Eqn:CambioVariableReescalamiento}
         \int_{a }^{b }f(k x)dx=\frac{1}{k} \int_{k a}^{k b} f(u)du
         \end{equation}
-        Nota que se  usa la <a href="#Notacion:ReversaIntervalos">Notación 6.8</a> pues 
+        Nota que se  usa la <a href="#Notacion:ReversaIntervalos">Notación 5.8</a> pues 
         hay que tomar en cuenta el signo de \(k\). 
         </p>
         <p>
@@ -718,7 +718,7 @@
             \begin{eqnarray}
              \tilde{s}(x) \leq g(x) \leq \tilde{t}(x). \label{Eqn:Aux1CambioVarReescalamiento}
             \end{eqnarray}
-            Además por el <a href="#Ejer:CambioVariableReescalemientosEscalonadas">Ejercicio 6.7</a>
+            Además por el <a href="#Ejer:CambioVariableReescalemientosEscalonadas">Lema 5.7</a>
             
             \begin{eqnarray*}
             \int_a^b \tilde{s}(x)dx &=& \frac{1}{|k|}\int_{a'}^{b'}s(u)du,\\ 
@@ -745,7 +745,7 @@
             \frac{1}{|k|}\int_{a'}^{b'} s(u)du =\int_{a}^{b} \tilde{s}(x)dx \leq & \int_{a}^{b} g(x)dx & 
             \leq \int_a^b \tilde{t}(x)dx=\frac{1}{|k|}\int_{a'}^{b'} t(u)du
             \end{eqnarray*}
-            donde las identidades del segundo renglón se deben al <a href="#Ejer:CambioVariableTranslacionesEscalonadas">Ejercicio 6.2</a>.
+            donde las identidades del segundo renglón se deben al <a href="#Ejer:CambioVariableTranslacionesEscalonadas">Lema 5.2</a>.
         </p>
         <p>
             Comparando las desigualdades anteriores concluimos 
@@ -792,7 +792,7 @@
     <div class="resp-box flexbox">
     <p>
         Definimos \(J=\{x-\alpha: x\in I\}\) y \(h:J\to \mathbb{R}\) por \(h(u)=f(u+\alpha)\). Por 
-        el <a href="#Ejer:CambioVariableTranslaciones">Ejercicio 6.3</a> \(h\) es integrable en \([a'+\alpha,b'+\alpha]\)
+        el <a href="#Ejer:CambioVariableTranslaciones">Corolario 5.3</a> \(h\) es integrable en \([a'+\alpha,b'+\alpha]\)
         donde \(a'=ka\), \(b'=kb\) si \(k>0\) y \(a'=kb, b'=ka\) si \(k< 0\).
     </p>
     <p>
@@ -803,11 +803,11 @@
         \]
         Notamos que el intervalo determinado por \(ka\)  y \(kb\) está contenido en 
         \(J\) (pues el intervalo determinado por \(ka+\alpha\) y \(kb+\alpha\) está contenido en 
-        \(I\)) por lo tanto  el <a href="#Ejer:CambioVariableReescalemientos">Ejercicio 6.9</a> implica 
+        \(I\)) por lo tanto  el <a href="#Ejer:CambioVariableReescalemientos">Corolario 5.9</a> implica 
         \[
         \int_a^b h(kx)dx = \frac{1}{k}\int_{ka}^{kb} h(u)du,
         \]
-        pero por el <a href="#Ejer:CambioVariableTranslaciones">Ejercicio 6.3</a>
+        pero por el <a href="#Ejer:CambioVariableTranslaciones">Corolario 5.3</a>
         \[
         \int_{ka}^{kb} h(u)du=\int_{ka}^{kb}f(u+\alpha)du=\int_{ka+\alpha}^{kb+\alpha} f(x)dx
         \]
