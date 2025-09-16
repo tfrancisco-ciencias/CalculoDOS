@@ -1074,4 +1074,141 @@
     </p>
 
 </div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $f:[a,b]\to \mathbb{R}$ una función continua. Prueba que
+        $$
+        \left| \int_a^b f(x)dx \right|  \leq \int_a^b |f(x)|dx
+        $$
+        Hint: $-|f|\leq f \leq |f|$.    
+    </p>
+    <p>
+        Nota: el mismo resultado se vale si sólo se pide que las funcion sea integrable.
+    </p>
+    <button class="respButton hvr-grow ">Demostración  </button>
+    <div class="resp-box flexbox">
+      <div class="flexbox">
+        <a href="https://youtu.be/HH13AHpV8oQ" target="_blank" > Video </a>
+      </div>
+    </div>
+    
+</div>
+
+	
+
+
+<div class="ejercicio-box"
+><h2 class="number-title"> Ejercicio</h2> 
+<p>
+    Si $f:[a,b] \to \mathbb{R}$ es una función continua,  tal que 
+    $$
+    \int_a^b f(x)dx = \max_{x\in [a,b]} 
+    \{ f(x)\} (b-a)
+    $$
+    entonces $f$ es constante.
+</p>
+
+<button class="respButton hvr-grow "> Demostración  </button>
+     <div class="resp-box flexbox">
+<p>
+    Como \(f\) es continua en \([a,b]\), entonces 
+    \(\min_{x\in [a,b]}\lbrace f(x)\rbrace \) y 
+    \( \max_{x\in [a,b]}\lbrace f(x) \rbrace\) existen, más aún existen 
+    \(x_0, x_1 \in [a, b]\) tales que 
+    \(f(x_0) = \min_{x\in [a,b]}\lbrace f(x)\rbrace \) y 
+    \( f(x_1) = \max_{x\in [a,b]}\lbrace f(x) \rbrace\). 
+    Basta demostrar que \(f(x_0) = f(x_1)\) para demostrar 
+    que \(f\) es constante, ya que si se demuestra que 
+    \(f(x_0) = f(x_1)\), entonces \(f(x_0) \leq f(x) \leq f(x_1) = f(x_0) \) 
+    para toda \(x \in [a, b]\), es decir \(f(x) = f(x_0)\) 
+    para toda \(x \in [a,b]\) y esto demuestra que \(f\) es constante.
+        
+</p>
+<p>
+    Supongamos que \(f(x_0) \neq f(x_1)\), esto implica que \(f(x_0) < f(x_1)\). 
+    Supongamos sin pérdida de generalidad que \(x_0 < x_1\), sea \(\epsilon >0\) tal que  
+    \(f(x_0) +\epsilon < f(x_1)\) entonces por la continuidad de \(f\) tenemos que existe 
+    \(\delta >0 \) tal que si \(x \in [x_0 -\delta, x_0 +\delta] \cap [a, b]\), entonces 
+    \(\vert f(x) - f(x_0)\vert < \epsilon\). Sea \(A := [x_0 -\delta, x_0 +\delta] \cap [a, b]\), 
+    entonces \(f(x) -f(x_0) < \epsilon\) si \(x\in A\), esto implica que \(f(x) < f(x_0) + \epsilon\) 
+    para toda \(x \in A\).
+</p>
+
+ 
+<p>
+    Caso 1.
+</p>  
+<p>
+    Si \(x_0 -\delta \leq a\), en este caso tenemos que \(f(x) < f(x_0) + \epsilon\) para toda 
+    \(x \in [a, x_0 + \delta ]\). Como \(f\) es continua en \([a,b]\), 
+    se tiene que \(f\) es integrable en  \([a, b]\) y por el 
+    <a href="./S3.html#Ejer:LinealidadIntervalos">Teorema 3.18</a>  \(f\) es integrable \([a, x_0 + \delta]\), 
+    más aún por el 
+    <a href="./S3.html#Ejer:CotasFacilesIntegral">Ejercicio 3.7</a>  tenemos que 
+    \[ \int_a^{x_0 +\delta} f(x) dx \leq (f(x_0) + \epsilon)(x_0 + \delta -a) . \] 
+</p>
+<p>
+    Y por la \textbf{Linealidad con respecto a intervalos } tenemos: 
+    \begin{equation}
+    \begin{split}
+    \int_a^bf(x) dx & = \int_a^{x_0 +\delta} f(x) dx + \int_{x_0 +\delta}^bf(x) dx \\
+     & \leq (f(x_0) + \epsilon)(x_0 + \delta -a) + f(x_1)(b -(x_0 + \delta)) \\
+     & < f(x_1)(x_0 + \delta -a) + f(x_1)(b -(x_0 + \delta)) \\
+     & = f(x_1)(b-a)
+     \end{split}
+    \end{equation}
+    
+    
+    Es decir, \(\int_a^bf(x) dx <  f(x_1)(b-a)\). Lo cual es una contradicción, ya que  
+    \(\int_a^bf(x) dx = f(x_1)(b-a)\). 
+    
+</p>
+<p>
+    Caso 2.
+</p>
+
+<p>
+    Si \(a < x_0 - \delta\), como \(x_1 \notin A\) y \(x_0 < x_1\) se tiene que \(x + \delta < x_1 \leq b\), 
+    es decir \(A = [x_0 -\delta, x_0 + \delta] \subseteq (a, b)\). Dado que \(f\) es integrable en \([a,b]\), 
+    entonces por la \textbf{Linealidad con respecto a intervalos } y por el \textbf{Ejercicio 3.7} tenemos :  
+    \begin{equation}
+    \begin{split}
+    \int_a^bf(x) dx & = \int_a^{x_0 -\delta}f(x) dx + \int_{x_0 -\delta}^{x_0 +\delta}f(x) dx + 
+    \int_{x_0 +\delta}^bf(x) dx \\
+     & \leq f(x_1)(x_0 -\delta -a) + (f(x_0) + \epsilon)(x_0 +\delta -(x_0 -\delta)) \\
+     & + f(x_1)(b -(x_0 +\delta)) \\
+     & <  f(x_1)(x_0 -\delta -a) + f(x_1)(x_0 +\delta -(x_0 -\delta)) \\
+     &+ f(x_1)(b -(x_0 +\delta)) \\
+     & = f(x_1)(b-a)
+     \end{split}
+     \end{equation}
+    
+    
+    Es decir, \(\int_a^bf(x) dx <  f(x_1)(b-a)\). Lo cual es una contradicción en ambos casos. 
+    Por lo tanto \(f(x_0) = f(x_1)\) y esto demuestra que \(f\) es constante.
+    
+</p> 
+</div>
+
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Para $0< b < 1,$ encuentre la integral de
+        $$
+        \int_0^b \frac{1-x^{n+1}}{1-x}dx
+        $$ 
+        Sugerencia: usar
+        $$
+        \sum_{j=1}^n x^j=\frac{1-x^{n+1}}{1-x}
+        $$
+        la cual es válida para \(|x|< 1\).
+    </p>
+</div>
+
 </body>

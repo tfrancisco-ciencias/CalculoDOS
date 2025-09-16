@@ -89,217 +89,30 @@
    
 
 
-
-<div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
+<div class="info-box">
+    <h2 class="number-title"> Introducción </h2>
     <p>
-        Sea $f:[a,b]\to \mathbb{R}$ una función continua. Prueba que
-        $$
-        \left| \int_a^b f(x)dx \right|  \leq \int_a^b |f(x)|dx
-        $$
-        Hint: $-|f|\leq f \leq |f|$.    
+        En esta sección vamos a terminar algunas propiedades importantes de la integral. Principalmente son dos:
+        la primera es que las funciones integrables son cerradas bajo productos y bajo valor absoluto; la segunada son 
+        dos desigualdades importantes, la de Cauchy-Schwartz y la de Jensen. 
     </p>
+
+</div>    
+
+
+
+<div class="prop-box">
+    <h2 class="number-title" id="Ejer:AproxSimplesConCotas"> Lema </h2> 
     <p>
-        Nota: el mismo resultado se vale si sólo se pide que las funcion sea integrable.
-    </p>
-    <button class="respButton hvr-grow ">Demostración  </button>
-    <div class="resp-box flexbox">
-      <div class="flexbox">
-        <a href="https://youtu.be/HH13AHpV8oQ" target="_blank" > Video </a>
-      </div>
-    </div>
-    
-</div>
-
-	
-
-
-<div class="ejercicio-box"
-><h2 class="number-title"> Ejercicio</h2> 
-<p>
-    Si $f:[a,b] \to \mathbb{R}$ es una función continua,  tal que 
-    $$
-    \int_a^b f(x)dx = \max_{x\in [a,b]} 
-    \{ f(x)\} (b-a)
-    $$
-    entonces $f$ es constante.
-</p>
-
-<button class="respButton hvr-grow "> Demostración  </button>
-     <div class="resp-box flexbox">
-<p>
-    Como \(f\) es continua en \([a,b]\), entonces 
-    \(\min_{x\in [a,b]}\lbrace f(x)\rbrace \) y 
-    \( \max_{x\in [a,b]}\lbrace f(x) \rbrace\) existen, más aún existen 
-    \(x_0, x_1 \in [a, b]\) tales que 
-    \(f(x_0) = \min_{x\in [a,b]}\lbrace f(x)\rbrace \) y 
-    \( f(x_1) = \max_{x\in [a,b]}\lbrace f(x) \rbrace\). 
-    Basta demostrar que \(f(x_0) = f(x_1)\) para demostrar 
-    que \(f\) es constante, ya que si se demuestra que 
-    \(f(x_0) = f(x_1)\), entonces \(f(x_0) \leq f(x) \leq f(x_1) = f(x_0) \) 
-    para toda \(x \in [a, b]\), es decir \(f(x) = f(x_0)\) 
-    para toda \(x \in [a,b]\) y esto demuestra que \(f\) es constante.
-        
-</p>
-<p>
-    Supongamos que \(f(x_0) \neq f(x_1)\), esto implica que \(f(x_0) < f(x_1)\). 
-    Supongamos sin pérdida de generalidad que \(x_0 < x_1\), sea \(\epsilon >0\) tal que  
-    \(f(x_0) +\epsilon < f(x_1)\) entonces por la continuidad de \(f\) tenemos que existe 
-    \(\delta >0 \) tal que si \(x \in [x_0 -\delta, x_0 +\delta] \cap [a, b]\), entonces 
-    \(\vert f(x) - f(x_0)\vert < \epsilon\). Sea \(A := [x_0 -\delta, x_0 +\delta] \cap [a, b]\), 
-    entonces \(f(x) -f(x_0) < \epsilon\) si \(x\in A\), esto implica que \(f(x) < f(x_0) + \epsilon\) 
-    para toda \(x \in A\).
-</p>
-
- 
-<p>
-    Caso 1.
-</p>  
-<p>
-    Si \(x_0 -\delta \leq a\), en este caso tenemos que \(f(x) < f(x_0) + \epsilon\) para toda 
-    \(x \in [a, x_0 + \delta ]\). Como \(f\) es continua en \([a,b]\), 
-    se tiene que \(f\) es integrable en  \([a, b]\) y por el 
-    <a href="./S3.html#Ejer:LinealidadIntervalos">Teorema 3.18</a>  \(f\) es integrable \([a, x_0 + \delta]\), 
-    más aún por el 
-    <a href="./S3.html#Ejer:CotasFacilesIntegral">Ejercicio 3.7</a>  tenemos que 
-    \[ \int_a^{x_0 +\delta} f(x) dx \leq (f(x_0) + \epsilon)(x_0 + \delta -a) . \] 
-</p>
-<p>
-    Y por la \textbf{Linealidad con respecto a intervalos } tenemos: 
-    \begin{equation}
-    \begin{split}
-    \int_a^bf(x) dx & = \int_a^{x_0 +\delta} f(x) dx + \int_{x_0 +\delta}^bf(x) dx \\
-     & \leq (f(x_0) + \epsilon)(x_0 + \delta -a) + f(x_1)(b -(x_0 + \delta)) \\
-     & < f(x_1)(x_0 + \delta -a) + f(x_1)(b -(x_0 + \delta)) \\
-     & = f(x_1)(b-a)
-     \end{split}
-    \end{equation}
-    
-    
-    Es decir, \(\int_a^bf(x) dx <  f(x_1)(b-a)\). Lo cual es una contradicción, ya que  
-    \(\int_a^bf(x) dx = f(x_1)(b-a)\). 
-    
-</p>
-<p>
-    Caso 2.
-</p>
-
-<p>
-    Si \(a < x_0 - \delta\), como \(x_1 \notin A\) y \(x_0 < x_1\) se tiene que \(x + \delta < x_1 \leq b\), 
-    es decir \(A = [x_0 -\delta, x_0 + \delta] \subseteq (a, b)\). Dado que \(f\) es integrable en \([a,b]\), 
-    entonces por la \textbf{Linealidad con respecto a intervalos } y por el \textbf{Ejercicio 3.7} tenemos :  
-    \begin{equation}
-    \begin{split}
-    \int_a^bf(x) dx & = \int_a^{x_0 -\delta}f(x) dx + \int_{x_0 -\delta}^{x_0 +\delta}f(x) dx + 
-    \int_{x_0 +\delta}^bf(x) dx \\
-     & \leq f(x_1)(x_0 -\delta -a) + (f(x_0) + \epsilon)(x_0 +\delta -(x_0 -\delta)) \\
-     & + f(x_1)(b -(x_0 +\delta)) \\
-     & <  f(x_1)(x_0 -\delta -a) + f(x_1)(x_0 +\delta -(x_0 -\delta)) \\
-     &+ f(x_1)(b -(x_0 +\delta)) \\
-     & = f(x_1)(b-a)
-     \end{split}
-     \end{equation}
-    
-    
-    Es decir, \(\int_a^bf(x) dx <  f(x_1)(b-a)\). Lo cual es una contradicción en ambos casos. 
-    Por lo tanto \(f(x_0) = f(x_1)\) y esto demuestra que \(f\) es constante.
-    
-</p> 
-</div>
-
-</div>
-
-
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:DesigualdadJensen"> Ejercicio</h2>
-    <h3?>Desigualdad de Jensen </h3>  
-    <p>
-        Una función $\varphi:[a,b]\to \mathbb{R}$ se  llama convexa (o cóncava hacia arriba) si
-        $$
-        \varphi(tx_1+(1-t)x_2)\leq t \varphi(x_1)+(1-t)\varphi(x_2)
-        $$
-        para $x_1,x_2 \in [a.b]$ y $t\in [0,1]$.
-    </p>
-    
-
-<ol>
-
-    <li>
-        Si $x_1,\dots, x_n \in [a,b]$ y $t_i\geq 0$ para $i=1,\dots, n$ satisfacen $\sum_{i=1}^n t_i=1$, entonces
-        $\sum_{i=1}^n t_ix_i$ pertenece a $[a,b]$.
-    </li> 
-
-    <li>
-        Prueba que si $\varphi:[a,b]\to \mathbb{R}$ es convexa entonces
-        $$
-        \varphi\left( \sum_{i=1}^n t_i x_i \right) \leq \sum_{i=1}^n t_i \varphi(x_i)
-        $$
-        para $x_1,\dots, x_n \in [a,b]$ y $t_i\geq 0$ con $\sum_{i=1}^n t_i=1$.
-    </li> 
-
-    <li>
-        Prueba que si $\varphi:\mathbb{R} \to \mathbb{R}$ es una función convexa y $s:[0,1]\to \mathbb{R}$
-        es una función escalonada entonces
-        $$
-        \varphi\left( \int_0^1 s(x)dx \right) \leq \int_0^1 \varphi \circ s(x)dx 
-        $$
-    </li> 
-
-    <li>
-        Prueba que si $\varphi:\mathbb{R} \to \mathbb{R}$ es una función convexa y continua en todo $\mathbb{R}$ y $f:[0,1]\to \mathbb{R}$ es una función continua entonces
-        $$
-        \varphi\left( \int_0^1 f (x)dx \right) \leq \int_0^1 \varphi \circ f(x)dx 
-        $$
-        Sugerencia: usa el inciso anterior y el ejercicio <a href="./S5.html#Ejer:IntegrabilidadFuncionesContinuas">Teorema 5.10</a>.
-    </li>  
-</ol>
-</div>
-
-<div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        Para $0< b < 1,$ encuentre la integral de
-        $$
-        \int_0^b \frac{1-x^{n+1}}{1-x}dx
-        $$ 
-        Sugerencia: usar
-        $$
-        \sum_{j=1}^n x^j=\frac{1-x^{n+1}}{1-x}
-        $$
-        la cual es válida para \(|x|< 1\).
-    </p>
-</div>
-
-
-
-
-
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:CambioVariableReduccionIntervaloUnitario"> Ejercicio</h2>
-    <p>
-        Este ejercicio muestra que en la teoría de integración en intervalos cerrados y 
-        acotados es suficiente estudiar funciones definidas en $[0,1]$.
-        Sea $f:[a,b]\to \mathbb{R}$ integrable. Entonces
-        $$
-        \int_a^bf(x)dx=(b-a)\int_0^1 f(a+(b-a)t)dt
-        $$
-    </p>  
-    
-</div>
-
-
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:AproxSimplesConCotas"> Ejercicio</h2> 
-    <p>
-        Sea $f:[a,b]\to \mathbb{R}$  integrable y  supon que existen constantes  
-    $m$ y $M$  tales que $m\leq f(x) \leq M$, para toda $x\in [a,b]$. Demuestra que, 
+        Sea $f:[a,b]\to \mathbb{R}$  integrable y  sean 
+    $m$, $M$  constantes tales que $m\leq f(x) \leq M$, para toda $x\in [a,b]$. Demuestra que, 
     para toda  $\varepsilon >0$, 
     existen funciones escalonadas $s.t:[a,b]\to \mathbb{R}$ tales que
     </p>
     
 <ol>
-    <li>$m \leq s \leq f \leq t \leq M$</li> 
-    <li>$\int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon$</li> 
+    <li>$m \leq s \leq f \leq t \leq M$,</li> 
+    <li>$\int_a^b t(x)dx - \int_a^b s(x)dx < \varepsilon$.</li> 
 </ol>
     <p>
         Sugerencia: como $f$ es integrable, existen funciones escalonadas $\tilde{s}$ y $\tilde{t}$ con
@@ -347,47 +160,103 @@
         
 </div>
 
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:IntegrabilidadCuadradosCasoPositivo"> Ejercicio</h2> 
+<div class="teorema-box">
+    <h2 class="number-title" id="Ejer:IntegrabilidadCuadradosCasoPositivo"> Teorema </h2> 
     <p>
-        Sea $f:[a,b] \to \mathbb{R}$ una función integrable tal que existe una constante 
-        $M$ con $0 \leq f(x) \leq M$, para toda $x\in [a,b]$. Demuestra que, para toda 
-        $\varepsilon >0$, existen funciones escalonadas $s,t:[a,b] \to \mathbb{R}$ tales que 
+        Si \(f:[a,b]\to \mathbb{R}\) es Riemann integrable en \([a,b]\) entonces 
+        \(f^2\) también es Riemann integrable en \([a,b]\).
     </p>
-<ol>
-    <li>$  s \leq f^2 \leq t $</li>  
-    <li>$\int_a^b t(x)dx- \int_a^b s(x)dx < \varepsilon$.</li>  
-    <li>Concluye que $f^2$ es integrable.</li> 
-</ol>
+    <button class="respButton hvr-grow "> Demostración </button>
+     <div class="resp-box flexbox">
+    
+
+    <p> Caso 1: \(f(x)\geq 0\) para todo  \(x\in [a,b]\).</p>
     <p>
-        Sugerencia: como $f$ es integrable, el ejercicio  <a href="#Ejer:AproxSimplesConCotas">Ejercicio 7.6</a> 
-        asegura que existen funciones escalonadas $\tilde{s}$ y $\tilde{t}$ con
+        La prueba consiste en probar que \(f^2\) satisface el criterio de Cauchy.
+    </p>
+    <p>
+        Ya que toda función Riemann integragle es acotada, en esta caso  existe una constante 
+        $M$ con $0 \leq f(x) \leq M$, para toda $x\in [a,b]$. 
+    </p>
+
+    <p>
+        Ya que $f$ es integrable y \(f\geq 0\), el   <a href="#Ejer:AproxSimplesConCotas">Lema 6.3</a> 
+        asegura que existen funciones escalonadas $s$ y $t$ con
         $$
-         0\leq \tilde{s} \leq f \leq \tilde{t} \leq M
+         0\leq s \leq f \leq t \leq M
         $$
         y
         \begin{equation}\label{Eqn:step2-1stAprox}
-        \int_a^b \tilde{t}(x)dx-\int_a^b\tilde{s}(x)dx < \varepsilon/M.
+        \int_a^b t(x)dx-\int_a^b s(x)dx < \varepsilon/2M.
         \end{equation}
-        Considera
-        $$
-        s:=\tilde{s}^2, t=\tilde{t}^2
-        $$        
+        Entonces \(s^2\) y \(t^2\) son escalonadas y elevando al cuadrado la cadena de desigualdades 
+        \(0\leq s \leq f \leq t \) obtenemos 
+        \[
+        s^2\leq f^2 \leq t^2.
+        \]       
     </p>
+    <p>
+        El último paso es probar que 
+        \[
+        \int_a^b t(x)^2dx-\int_a^b s(x)^2dx < \varepsilon.
+        \]
+        Para probar la desigualdad anterior, empezamos usando la linealidad de la integral y diferencia de cuadrados para obtener:
+        \begin{eqnarray*} 
+        \int_a^b t(x)^2dx-\int_a^b s(x)^2dx &=& \int_a^b (t(x)-s(x))(t(x)+s(x))dx.
+        \end{eqnarray*}
+        Ahora, usando que \(t-s\geq 0\) y que \(t+s\leq 2 f \leq 2M \), podemos 
+        acotar la última integral como 
+        \[
+        \int_a^b (t(x)-s(x))(t(x)+s(x))dx \leq 2M \int_a^b (t(x)-s(x))dx 
+        \]
+        y concluir 
+        \begin{eqnarray*} 
+             \int_a^b t(x)^2dx-\int_a^b s(x)^2dx & \leq & 2M \int_a^b (t(x)-s(x))dx  \\
+             & < & 2M \frac{\varepsilon}{2M}=\varepsilon
+        \end{eqnarray*}
+        dónde en la última desigualdad usamos \eqref{Eqn:step2-1stAprox}. Esto termina el criterio de Cauchy 
+        para el  primer caso. 
+    </p>
+    <p>
+        Caso 2: caso general. 
+    </p>
+    <p>
+        Ya que \(f\) es Riemann integrable sabemos que está acotada. Por lo tanto existen escalares \(m,M\)
+        tal que \(m\leq f  \leq M\). Entonces la función \(g=f-m\) es Riemann integrable y \(g\geq 0\). Por el 
+        caso 1, \(g^2\) es Riemann integrable, pero \(g^2=f^2-2fm+m^2\) por lo que podemos re-escribir 
+        \[
+        f^2=g^2+2mf-m^2,
+        \]
+        es decir, podemos ecribir \(f^2\) como la suma de tres funciones integrables, por lo tanto \(f^2\)
+        es integrable.
+    </p>
+    </div>
 </div>
 
-<div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
+<div class="prop-box">
+    <h2 class="number-title"> Corolario </h2> 
     <p>
-        Sea \(f:[a,b]\to \mathbb{R}\) integrable en \([a,b]\). Prueba que 
-        \(f^2\) también es integrable en \([a,b]\).
+        Sean \(f,g:[a,b]\to \mathbb{R}\) dos funciones Riemann integrables. Entonces la función 
+        producto, \(fg\), también es Riemann integrable. 
     </p>
     <p>
-        Sugerencia: 
-        toma $m$ tal que $m \leq f(x)$ para toda $x\in [a,b]$.  Nota
-        que $g:=f-m$ siempre es mayor o igual a cero y aplica el ejercicio 
-        <a href="#Ejer:IntegrabilidadCuadradosCasoPositivo">Ejercicio 7.7</a> a $g-m$.      
+     En particular, si \(f\) es Riemann integrable en \([a,b]\) entonces, para todo \(n\in \mathbb{N}\), \(f^n\)    
+     también es Riemann integrable en \([a,b]\).
     </p>
+    <button class="respButton hvr-grow "> Demostración </button>
+     <div class="resp-box flexbox">
+    <p>
+        Las funciones Riemann integrables son cerradas bajo  suma, por lo que \(f+g\) es Riemann 
+        integrable. Por el teorema anterior \((f+g)^2\) es Riemann integrable. Pero 
+        \((f+g)^2=f^2+2fg+g^2\)
+        por lo que podemos reescribir:
+        \[
+        fg=\frac{1}{2}((f+g)^2-f^2-g^2 ), 
+        \]
+        por lo que \(fg\) se puede escribir como un múltiplo escalar de una suma de tres funciones integrables, 
+        por lo tanto \(fg\) también es integrable.
+    </p>
+    </div>
 </div>
 
 
@@ -396,15 +265,13 @@
     <p>
         Da un ejemplo de una función $f:[a,b]\to \mathbb{R}$ tal que $f^2$ es integrable pero $f$ no lo es.
     </p>
-<<<<<<< HEAD
-    <button class="respButton hvr-grow ">Demostración  </button>
+    <!-- <button class="respButton hvr-grow ">Demostración  </button>
     <div class="resp-box flexbox">
       <div class="flexbox">
         <a href="https://youtu.be/HH13AHpV8oQ" target="_blank" > Video </a>
       </div>
-    </div>
-=======
->>>>>>> 662384d1381606069ad66d1dd7c7a8056ad8346a
+    </div>-->
+
 </div>
 
 <div class="ejercicio-box">
@@ -416,7 +283,7 @@
         $$
     </p>
     
-    <button class="respButton hvr-grow "> Solución </button>
+    <!-- <button class="respButton hvr-grow "> Solución </button>
     <div class="resp-box flexbox">
 
     <p>
@@ -430,51 +297,174 @@
         Por otra parte, \(\int_0^1f^2(x)dx = \int_0^1x^2dx = \frac{1}{3}. \) Por lo tanto, 
         \[ \int_0^1f^2(x)dx \neq \left(\int_0^1f(x)dx\right)^2 .\]
     </p>
+    </div>-->
+
+
+
+</div>
+
+
+<div class="teorema-box">
+    <h2 class="number-title" id="Teo:IntegrabilidadRaiz"> Teorema </h2>
+    <p>
+        Sea \(f:[a,b]\to \mathbb{R}\) una función Riemann integrable con \(f(x)\geq 0\) para todo \(x\in [a,b]\).
+        Entonces \(\sqrt{f}\) también es Riemann integrable. 
+    </p>
+    <button class="respButton hvr-grow "> Demostración </button>
+     <div class="resp-box flexbox">
+    <p>
+        La idea es probar que \(\sqrt{f}\) satisface el criterio de Cauchy. 
+    </p>
+    <p>
+        Sea \(\varepsilon > 0\), fija y arbitraria.
+    </p>
+    <p>
+        Sea \(M\) una constante tal que \(f(x)\leq M\) para toda \(x\in [a,b]\). Aplicando el 
+        <a href="#Ejer:AproxSimplesConCotas">Lema 6.2</a> a \(f\) podemos encontrar dos funciones escalonadas, \(s,t\), tales que 
+        \(0\leq s\leq f \leq t \leq M\) y \(\int_a^b t-\int_a^b s < \frac{\varepsilon^2}{4l}\), 
+        donde \(l=b-a\).
+    </p>
+    <p>
+        Tomando refinamientos de las particiones de \(s\) y \(t\) podemos escribir 
+        \begin{eqnarray*} 
+        s=\sum_{i=1}^n s_i \chi_{(x_{i-1},x_i)},\\
+        t=\sum_{i=1}^n t_i \chi_{(x_{i-1},x_i)}.
+        \end{eqnarray*}
+    </p>
+    <p>
+        Entonces sacando raíz podemos escribir a \(\sqrt{s}\) y \(\sqrt{t}\) como 
+        \begin{eqnarray*} 
+        \sqrt{s}=\sum_{i=1}^n \sqrt{s_i} \chi_{(x_{i-1},x_i)},\\
+        \sqrt{t}=\sum_{i=1}^n \sqrt{t_i} \chi_{(x_{i-1},x_i)}.
+        \end{eqnarray*}
+        por lo que tanto \(\sqrt{s}\) y \(\sqrt{t}\) son funciones escalonadas. 
+    </p>
+    <p>
+        Además, como \(0\leq s \leq f \leq t \), se sigue que 
+        \(\sqrt{s}\leq \sqrt{f} \leq \sqrt{t}\).
+    </p>
+      <p>
+        Por lo tanto, para terminar el criterio de Cauchy resta probar 
+        \[
+        \int_a^b \sqrt{t(x)}dx-\int_a^b \sqrt{s(x)}dx < \varepsilon.
+        \]
+      </p>
+      <p>
+        Por la definición de la integral tenemos 
+        \begin{eqnarray*} 
+        \int_a^b \sqrt{t(x)}dx-\int_a^b \sqrt{s(x)}dx &=& \sum_{i=1}^n (\sqrt{t_i}-\sqrt{s_i})(x_i-x_{i-1})
+        \end{eqnarray*}
+      </p>
+      <p>
+        Ahora definimos dos conjuntos 
+        \begin{eqnarray*}
+        I&=&\{i\in \{1,\dots, n\}: \sqrt{t_i}-\sqrt{s_i} \leq \frac{\varepsilon}{2l} \},\\
+        J&=&\{i\in \{1,\dots, n\}: \sqrt{t_i}-\sqrt{s_i} > \frac{\varepsilon}{2l} \}
+        \end{eqnarray*}
+        Entonces podemos re=escribir la suma anterior como 
+        \begin{eqnarray*}
+        \sum_{i=1}^n (\sqrt{t_i}-\sqrt{s_i})(x_i-x_{i-1})&=&  \sum_{i\in I} (\sqrt{t_i}-\sqrt{s_i})(x_i-x_{i-1}) \\
+        &+& \sum_{i\in J}(\sqrt{t_i}-\sqrt{s_i})(x_i-x_{i-1})
+        \end{eqnarray*}
+      </p>
+      <p>
+        Ahora analizamos cada suma por separado.
+      </p>
+      <p>
+        Para la primera tenemos 
+        \begin{eqnarray*} 
+        \sum_{i\in I} (\sqrt{t_i}-\sqrt{s_i})(x_i-x_{i-1})  &\leq  &  \sum_{i\in I} \frac{\varepsilon}{2l} (x_i-x_{i-1}) \\
+        &\leq & \sum_{i=1}^n \frac{\varepsilon}{2l} (x_i-x_{i-1})\\
+        &=&\frac{\varepsilon}{2l}(b-a)\\
+        &=&\frac{\varepsilon}{2}.
+        \end{eqnarray*}
+      </p>
+      <p>
+        Para la segunda primero notamos que si \(i\in J\) entonces: \(\frac{\varepsilon}{2l} < \sqrt{t_i}-\sqrt{s_i}\leq \sqrt{t_i}+\sqrt{s_i}\)
+        por lo tanto \(\sqrt{t_i}+\sqrt{s_i}\ne 0\) y podemos escribir :
+        \begin{eqnarray*}
+        \sqrt{t_i}-\sqrt{s_i} &=& \sqrt{t_i}-\sqrt{s_i} \frac{\sqrt{t_i}+\sqrt{s_i}}{\sqrt{t_i}+\sqrt{s_i}} \\
+        &=& \frac{t_i-s_i}{\sqrt{t_i}+\sqrt{s_i}} \\
+        &\leq & \frac{2l}{\varepsilon}(t_i-s_i)
+        \end{eqnarray*}
+        dónde en la última desigualdad usamos \(\frac{1}{\sqrt{t_i} +\sqrt{s_i}}< \frac{2l}{\varepsilon}\).
+      </p>
+      <p>
+        Con la cuenta anterior en mente se sigue que 
+        \begin{eqnarray*} 
+        \sum_{i\in J}(\sqrt{t_i}-\sqrt{s_i})(x_i-x_{i-1}) & \leq & \sum_{i\in J} \frac{2l}{\varepsilon}  (t_i-s_i)(x_i-x_{i-1}) \\
+        &\leq & \frac{2l}{\varepsilon} \sum_{i=1}^n (t_i-s_i)(x_i-x_{i-1}) \\
+        &=& \frac{2l}{\varepsilon}\left(\int_a^b t - \int_a^b s \right) \\
+        &\leq & \frac{2l}{\varepsilon} \frac{\varepsilon^2}{4l} \\
+        &=& \frac{\varepsilon}{2}
+        \end{eqnarray*}
+      </p>
+      <p>
+        Juntando éstas dos acotaciones podemos concluir 
+        \begin{eqnarray*} 
+        \int_a^b \sqrt{t(x)}dx-\int_a^b \sqrt{s(x)}dx &=& \sum_{i\in I} (\sqrt{t_i}-\sqrt{s_i})(x_i-x_{i-1}) \\
+        &+& \sum_{i\in J} (\sqrt{t_i}-\sqrt{s_i})(x_i-x_{i-1})  \\
+        &\leq & \frac{\varepsilon}{2}+ \frac{\varepsilon}{2} =\varepsilon.
+        \end{eqnarray*}
+        Por lo tanto \(\sqrt{f}\) satisface el criterio de Cauchy.
+      </p>
+
     </div>
+</div>
 
 
+<div class="prop-box">
+    <h2 class="number-title"> Corolario </h2>
+    <p>
+        Si \(f:[a,b]\to \mathbb{R}\) es Riemann integrable entonces \(|f|\) también es Riemann integrable 
+        en \([a,b]\)
+    </p>
+    <button class="respButton hvr-grow "> Demostración </button>
+     <div class="resp-box flexbox">
+    <p>
+        Como \(f\) es integrable el <a href="#Ejer:IntegrabilidadCuadradosCasoPositivo">Teorema 6.3</a> implica que \(f^2\) también es Riemann integrable. Pero 
+        entonces por el <a href="#Teo:IntegrabilidadRaiz">Teorema 6.7</a> \(\sqrt{f^2}\) es Riemann integrable, pero \(|f|=\sqrt{f^2}\). Por lo 
+        tanto \(|f|\) es Riemann integrable.
+    </p>
+    </div>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Sea \(f:[a,b]\to \mathbb{R}\) una función Riemann integrable. 
+        <ol>
+            <li>
+                Prueba que 
+                \[
+                \left| \int_a^b f(x)dx \right| \leq \int_a^b|f(x)|dx
+                \] 
+            </li>
+            <li>
+                Da un ejemplo donde se de la desigualdad estricta.
+            </li>
+        </ol>
+        
+    </p>
+    <p>
+        Sugerencia para inciso 1: \(-|f(x)|\leq f(x) \leq |f(x)|\), para toda \(x\in [a,b]\).
+    </p>
 
 </div>
 
-<div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-        El ejercicio  <a href="#Ejer:IntegralCuadradaNoIntegraldelCuadrado">Ejercicio 7.10</a>  
-        muestra que la relación entre  $\int_a^b f^2$ y $(\int_a^bf)^2$ no es sencilla. 
-        Este ejercicio da una desigualdad que involucra estas integrales. 
-    </p>
-<ol>
-        <li>
-            Demuestra que para toda función continua $f:[a,b]\to \mathbb{R}$,
-            $$
-            \left( \int_a^b f(x)dx \right)^2 \leq (b-a)\int_a^b f^2(x)dx.
-            $$
-        </li> 
-        <li>
-            Da un ejemplo donde se muestre que la desigualdad anterior puede ser estricta.
-        </li> 
-</ol>
-    <p>
-        Sugerencia: para la primera parte, primero demuestra  el caso $a=0, b=1$ 
-        usando la <a href="#Ejer:DesigualdadJensen">desigualdad de Jensen </a>; 
-        para el caso general usa el cambio de variable y el ejercicio 
-        <a href="#Ejer:CambioVariableReduccionIntervaloUnitario">Ejercicio 7.5</a>.
-    </p>
-</div>
 
 <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
+    <h2 class="number-title"> Ejercicio </h2>
     <p>
-        Sean $f,g:[a,b] \to \mathbb{R}$ dos funciones integrables. 
-        Demuestra que la función producto $fg$ es integrable.
+        Da un ejmplo de una función \(f:[0,1]\to \mathbb{R}]\) tal que 
+        \(|f|\) sea Riemann integrable en \([0,1]\) pero \(f\) no lo es.
     </p>
-    <p>
-        Sugerencia: despeja $fg$ en $(f+g)^2=f^2+2fg+g^2$.
-    </p>
+
 </div>
 
-<div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
+<div class="teorema-box">
+    <h2 class="number-title" id="Teo:Cauchy"> Teorema </h2> 
     <h3>La desigualdad de Cauchy-Schwartz para integrales </h3> 
     <p>
         Prueba
@@ -493,9 +483,33 @@
     </p>
 </div>
 
+
+
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        El ejercicio  <a href="#Ejer:IntegralCuadradaNoIntegraldelCuadrado">Ejercicio 6.6</a>  
+        muestra que la relación entre  $\int_a^b f^2$ y $(\int_a^bf)^2$ no es sencilla. 
+        Este ejercicio da una desigualdad que involucra estas integrales. 
+    </p>
+<ol>
+        <li>
+            Demuestra que para toda función integrable $f:[a,b]\to \mathbb{R}$,
+            $$
+            \left( \int_a^b f(x)dx \right)^2 \leq (b-a)\int_a^b f^2(x)dx.
+            $$
+        </li> 
+        <li>
+            Da un ejemplo donde se muestre que la desigualdad anterior puede ser estricta.
+        </li> 
+</ol>
+    <p>
+        Sugerencia: para la primera parte utiliza la <a href="#Teo:Cauchy"> desigualdad de Cauchy</a>. 
+    </p>
+</div>
 
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
 <ol> 
 
     <li>
@@ -523,10 +537,70 @@
         $$
         Sugerencia: usa la desigualdad de Cauchy-Schwartz para integrales.
     </p>
-    <p>
-        Nota: en general , si $f$ es integrable con $f\geq 0$ entonces $\sqrt{f}$ 
-        también es integrable. Este hecho se puede usar
-        en este ejercicio.        
-    </p>
 </div>
+
+
+<div class="teorema-box">
+    <h2 class="number-title" id="Ejer:DesigualdadJensen"> Teorema </h2>
+    <h3?>Desigualdad de Jensen </h3>  
+    <p>
+        Una función $\varphi:[a,b]\to \mathbb{R}$ se  llama convexa (o cóncava hacia arriba) si
+        $$
+        \varphi(tx_1+(1-t)x_2)\leq t \varphi(x_1)+(1-t)\varphi(x_2)
+        $$
+        para $x_1,x_2 \in [a.b]$ y $t\in [0,1]$.
+    </p>
+    
+
+<ol>
+
+    <li>
+        Si $x_1,\dots, x_n \in [a,b]$ y $t_i\geq 0$ para $i=1,\dots, n$ satisfacen $\sum_{i=1}^n t_i=1$, entonces
+        $\sum_{i=1}^n t_ix_i$ pertenece a $[a,b]$.
+    </li> 
+
+    <li>
+        Prueba que si $\varphi:[a,b]\to \mathbb{R}$ es convexa entonces
+        $$
+        \varphi\left( \sum_{i=1}^n t_i x_i \right) \leq \sum_{i=1}^n t_i \varphi(x_i)
+        $$
+        para $x_1,\dots, x_n \in [a,b]$ y $t_i\geq 0$ con $\sum_{i=1}^n t_i=1$.
+    </li> 
+
+    <li>
+        Prueba que si $\varphi:\mathbb{R} \to \mathbb{R}$ es una función convexa y $s:[0,1]\to \mathbb{R}$
+        es una función escalonada entonces
+        $$
+        \varphi\left( \int_0^1 s(x)dx \right) \leq \int_0^1 \varphi \circ s(x)dx 
+        $$
+    </li> 
+
+    <li>
+        Prueba que si $\varphi:\mathbb{R} \to \mathbb{R}$ es una función convexa y continua en todo $\mathbb{R}$ y $f:[0,1]\to \mathbb{R}$ es una función continua entonces
+        $$
+        \varphi\left( \int_0^1 f (x)dx \right) \leq \int_0^1 \varphi \circ f(x)dx 
+        $$
+        Sugerencia: usa el inciso anterior y el ejercicio <a href="./S5.html#Ejer:IntegrabilidadFuncionesContinuas">Teorema 5.10</a>.
+    </li>  
+</ol>
+</div>
+
+
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:CambioVariableReduccionIntervaloUnitario"> Ejercicio</h2>
+    <p>
+        Este ejercicio muestra que en la teoría de integración en intervalos cerrados y 
+        acotados es suficiente estudiar funciones definidas en $[0,1]$.
+        Sea $f:[a,b]\to \mathbb{R}$ integrable. Entonces
+        $$
+        \int_a^bf(x)dx=(b-a)\int_0^1 f(a+(b-a)t)dt
+        $$
+    </p>  
+    
+</div>
+
 </body>
