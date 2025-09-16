@@ -544,6 +544,17 @@
     <h2 class="number-title" id="Ejer:DesigualdadJensen"> Teorema </h2>
     <h3?>Desigualdad de Jensen </h3>  
     <p>
+        La desigualdad de Jensen dice que si \(\varphi:\mathbb{R}\to \mathbb{R}\) es convexa y 
+        \(f:[a,b]\to \mathbb{R}\) es Riemann integrable entonces 
+        \[
+        \varphi\left( \int_a^b f(x)dx \right)\leq \int_a^b (\varphi \circ f )(x)dx.
+        \]
+    </p>
+    <p>
+        Los siguientes incisos dan los pasos para dar una prueba agregando la 
+        condición de que  \(\varphi\) y \(f\) son funciones continuas.
+    </p>
+    <p>
         Una función $\varphi:[a,b]\to \mathbb{R}$ se  llama convexa (o cóncava hacia arriba) si
         $$
         \varphi(tx_1+(1-t)x_2)\leq t \varphi(x_1)+(1-t)\varphi(x_2)
@@ -580,7 +591,7 @@
         $$
         \varphi\left( \int_0^1 f (x)dx \right) \leq \int_0^1 \varphi \circ f(x)dx 
         $$
-        Sugerencia: usa el inciso anterior y el ejercicio <a href="./S5.html#Ejer:IntegrabilidadFuncionesContinuas">Teorema 5.10</a>.
+        Sugerencia: usa el inciso anterior y el ejercicio <a href="./S4.html#Ejer:IntegrabilidadFuncionesContinuas">Teorema 4.10</a>.
     </li>  
 </ol>
 </div>
@@ -601,6 +612,21 @@
         $$
     </p>  
     
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+        Si \(\varphi:\mathbb{R} \to \mathbb{R}\) es continua y 
+        \(f:[a,b]\to \mathbb{R}\) es continua prueba que 
+        \[
+        \varphi\left( \frac{1}{b-a} \int_a^b f(x)dx\right) \leq \frac{1}{b-a}\int_a^b (\varphi \circ f)(u)du.
+        \]
+    </p>
+    <p>
+        Sugerencia: una el ejercicio anterior y un cambio de variable.
+    </p>
+
 </div>
 
 </body>
