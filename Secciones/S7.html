@@ -134,8 +134,8 @@
 </ol>
 </div>
 
-<div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
+<div class="prop-box">
+    <h2 class="number-title"> Proposición </h2> 
     <p>
         Si $F_1$ y $F_2$ son primitivas de $f$ en $(a,b)$, demuestra que existe una constante $c$ tal que
         $F_1(x)=F_2(x)+c$, para todo $x\in (a,b)$.
@@ -152,28 +152,110 @@
     </div>
 </div>
 
+<div class="prop-box">
+    <h2 class="number-title"> Lema </h2>
+    <p>
+        Sea \(F:(a,b)\to \mathbb{R}\) una función tal que \(F'(x)\) existe 
+        para toda \(x\in (a,b)\).
+    </p>
+ <ol> 
+        <li>
+            Si existe \(M>0\) tal que \(|F'(x)|< M \) para toda \(x\in (a,b)\), entonces 
+            lo siguientes límites existen: 
+            \[ 
+            \lim_{x\to a^+} F(x), \, \lim_{x\to b^-}F(x).
+            \]
+            Por lo tanto si definimos \(F(a):=\lim_{x\to a^+} F(x)\) y 
+            \(F(b):=\lim_{x\to b^-} F(x)\) entonces \(F\) es continua en \([a,b]\).
+        </li>
+        <li>
+            Da un ejemplo donde no se puede quitar la hipótesis del inciso anterior.
+        </li>
+ </ol>
+
+</div>
+
 <div class="teorema-box"> 
     <h2 class="number-title"  id="Teo:TF-2"> Teorema </h2>
     <h3> Segundo Teorema Fundamental</h3>
     <p>
-        Sea $f:[a,b] \to \mathbb{R}$ una función  continua en todo punto de  $[a,b]$.
+        Sea $f:[a,b] \to \mathbb{R}$ una función  Riemann integrable en  $[a,b]$.
     </p>
     <p>
-        Supongamos que 
-        $F:[a,b]\to \mathbb{R}$ es  una antiderivada de \(f\) continua en $[a,b]$ y diferenciable en $(a,b)$.
-        Entonces
+        Supongamos que \(F\) es una antiderivada de \(f\) en \((a,b)\). Entonces
         $$
         \int_a^bf(x)dx=F(b)-F(a).
         $$        
+        Nota: por el lema anterior podemos suponer que \(F(a)\) y \(F(b)\) están bien definidos.
     </p>
 
         <button class="respButton hvr-grow "> Demostración  </button>
         <div class="resp-box flexbox">
+            
+            <p>
+                Por hipótesis \(F\) es diferenciable en \((a,b)\). Como \(F'=f\) en \((a,b)\) 
+                y \(f\) es acotada (al ser integrable)  podemos aplicar  el lema anterior 
+                y suponer que \(F\) es continua en  \([a,b]\). Por lo tanto podemos aplicar el 
+                Teorema del valor medio a \(F\).
+            </p>
         <p>
-            Para \(n\in \mathbb{N}\) denotamos por \(P_n=\{x_i\}_{i=0}^n\) la partición homogenea de \([a,b]\)
-            de longitud \(n\).
+            Ahora sean \(s,t:[a,b]\to \mathbb{R}\) funciones escalondas con \(s\leq f \leq t\) en 
+            \([a,b]\).
         </p>
         <p>
+            Sea \(P=\{x_i\}_{i=0}^n\) la partición asociada a \(t\) y escribimos \(t\) como 
+            \[
+            t=\sum_{i=1}^n t_i\chi_{(x_{i-1},x_i)}.
+            \]
+            Aplicando el Teorema del 
+            valor medio a \(F\) en cada intervalo \([x_{i-1},x_i]\) existen \(c_i\in (x_{i-1},x_i)\)
+            tal que \(F(x_i)-F(x_{i-1})=F'(c_i)(x_i-x_{i-1})\).
+        </p>
+        <p>
+            Por otro lado como \(f(x)\leq t(x)\) para todo \(x\in [a,b]\) se sigue que 
+            \(f(c_i)\leq t_i\). Multiplicando ambos lados por \(x_i-x_{i-1}\) y usando que 
+            \(f(c_i)=F'(c_i)\) llegamos a 
+            \begin{eqnarray*} 
+            F(x_i)-F(x_{i-1})=F'(c_i)(x_i-x_{i-1})=f(c_i)(x_i-x_{i-1})\leq t_i(x_i-x_{i-1})
+            \end{eqnarray*}
+            Sumando las ecuaciones anteriores sobre \(i=1,\dots, n\) obtenemos 
+            \begin{eqnarray*} 
+            F(b)-F(a)=\sum_{i=1}^n F(x_i)-F(x_{i-1})\leq \sum_{i=1}^n t_i(x_i-x_{i-1})=\int_a^b t,
+            \end{eqnarray*}
+            dónde en la primera igualdad usamos que tenemos una suma telescópica y en la última 
+            la definición de la integral de la función escalondada \(t\).
+        </p>
+        <p>
+            Al ser \(t\) una función escalondad arbitraria con \(f\leq t\) al tomar infimos en la 
+            desigualdad anterior llegamos a 
+            \[
+            F(b)-F(a)\leq \inf \left\{
+                \int_a^b t: f\leq t, \, \textrm{\(t\) escalonada}\right\} 
+                =\overline{\int_a^b} f.
+            \]
+        </p>
+        <p>
+            De manera similar se puede probar que 
+            \[
+            \underline{\int_a^b} f= \sup\left\{
+                \int_a^b s: s\leq f, \, \textrm{\(s\) escalonada}\right\} 
+             \leq F(b)-F(a).   
+            \]
+        </p>
+        <p>
+            Juntando las dos últimas desigualdades lleamos a que: 
+            
+            \[
+            \underline{\int_a^b} f \leq F(b)-F(a) \leq \overline{\int_a^b} f.
+            \]
+            Pero \(f\) es Riemann integrable por lo que \(\overline{\int_a^b} f=\underline{\int_a^b} f=\int_a^b f\)
+            por lo que concluimos 
+            \[
+            \int_a^b f=F(b)-F(a).
+            \]
+        </p>
+
+        <!-- <p>
             Ahora aplicamos el Teorema del Valor medio para las derivadas a la función \(F\) en 
             los intervalos \([x_{i-1},x_i]\) para obtener puntos \(c_i\in [x_{i-1},x_i]\)
             que cumplan 
@@ -198,7 +280,7 @@
             \[
             \int_a^b f(x)dx=F(b)-F(a).
             \]
-        </p>
+        </p>-->
         
         </div>
     
@@ -305,7 +387,7 @@ $$
    <p>
     Por el 
     <a href="https://tfrancisco-ciencias.github.io/CalculoUNO/Secciones/S16.html#Ejer:RectaSoporteExpEnCero">
-        C1:Ejercicio 16.5</a> sabemos que, para todo $x\in \mathbb{R}$:
+        C1:Ejercicio 16.8</a> sabemos que, para todo $x\in \mathbb{R}$:
     $$
     e^x \geq 1+x.
     $$
@@ -414,24 +496,24 @@ $$
 
 <div class="ejercicio-box">
     <h2 class="number-title" id="Ejer:IntegralPotenciasRacionales"> Ejercicio</h2>   
-    
-    <p>
-        Vimos en el ejercicio  <a href="./S4.html#Ejer:IntegralPotenciasNaturales"> Ejercicio 4.5</a> que para todo 
-        $k\in \mathbb{N}$ y $0\leq a < b$:
+    <ol>
+    <li>
+        Vimos en el ejercicio  <a href="./S4.html#Ejer:IntegralPotenciasNaturales"> Ejercicio 4.22</a> que para todo 
+        $k\in \mathbb{N}$ y $a < b$ se vale:
         $$
         \int_a^b x^k dx=\frac{b^{k+1}-a^{k+1}}{k+1}.
         $$
-    </p>
-    <p>
+        Da otra prueba usando el segundo T.F.C.
+    </li>
+    <li>
         Este ejercicio generaliza está fórmula para cuando $k$ es racional. 
-    </p>
-    <p>
         Toma $p=\frac{n}{m}$, $m,n \in \mathbb{N}$, $m\ne 0$, un potencia racional. 
         Usa el segundo Teorema Fundamental para demostrar que, para $0 \leq a < b$:
         $$
         \int_a^b x^pdx=\frac{b^{p+1}-a^{p+1}}{p+1}.
         $$
-    </p>
+    </li>
+    </ol>
     <button class="respButton hvr-grow "> Demostración  </button>
 <div class="resp-box flexbox">
 <p>
@@ -568,7 +650,7 @@ $$
         <p>Solución inciso 3</p> 
          <p>Para calcuar la integral $\displaystyle{\int_{0}^2 x\sqrt{x+1}dx}$ realicemos el siguiente cambio de variable lineal. 
          Haciendo $u=x+1$, del  Teorema  de cambio de variable lineal, la linealidad de la integral 
-         y el <a href="#Ejer:IntegralPotenciasRacionales"> Ejercicio 8.10</a> resulta que 
+         y el <a href="#Ejer:IntegralPotenciasRacionales"> Ejercicio 7.11</a> resulta que 
          \begin{align*}
          \int_{0}^2 x\sqrt{x+1}dx &= \int_{1}^3 (u-1)\sqrt{u}du\\
          &= \int_{1}^3 (u-1)u^{1/2}du\\
@@ -767,27 +849,6 @@ $$
 </div>
 
 
-<div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:Demo2TFCparaMononotas"> Ejercicio</h2> 
-    <p>
-        En el Segundo Teorema Fundamental  
-        se pide en las hipótesis  que la $f$ sea continua en $[a,b]$, 
-        pero se puede cambiar ésta hipótesis pidiendo ahora que $f$ sea monónotan en $[a,b]$. Es decir:
-    </p>
-    <p>
-        Supon que $f:[a,b] \to \mathbb{R}$ es monótona en  $[a,b]$; que $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ y $F$ es una antiderivada de $f$ en $(a,b)$. Entonces
-        $$
-        \int_a^bf(x)dx=F(b)-F(a).
-        $$
-    </p>
-    <p>
-        Usa ahora el <a href="./S4.html#Ejer:LimiteSumasRiemannDeMonotonas"> Ejercicio 4.8</a>  
-        y las mismas ideas que en el <a href="#Teo:TF-2">Segundo Teorema Fundamental</a>  
-        para demostrar esta versión del segundo T.F.C.
-    </p>
-</div>
-
-
 
 
 
@@ -866,15 +927,12 @@ $$
 
  </div>
 
- <div class="ejercicio-box">
-     <h2 class="number-title" id="Ejer:Demo2TFCparaMononotas"> Ejercicio</h2> 
+ <div class="teorema-box">
+     <h2 class="number-title" id="Ejer:Demo2TFCparaMononotas"> Teorema </h2> 
+     
      <p>
-        Usa el <a href="#Ejer:Demo2TFCparaMononotas">Ejercicio</a>  
-        para probar la siguiente versión del segundo T.F.C.
-     </p>
-     <p>
-        Supon que $f:[a,b] \to \mathbb{R}$ es monótona en  $[a,b]$. Supon  
-        que $F:[a,b]\to \mathbb{R}$ es continua en $[a,b]$, diferenciable en $(a,b)$ 
+        Supon que $f:[a,b] \to \mathbb{R}$ es integrable en  $[a,b]$. Supon  
+        que $F$ es diferenciable en $(a,b)$ 
         excepto en $E \subset (a,b)$, un conjunto finito de $(a,b)$ y que  $F'(x)=f(x)$ para 
         todo $x\in (a,b)\setminus E$. Entonces
         $$
