@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html PUBLIC >
 
 <html lang="es">
@@ -50,10 +51,10 @@
     <!-- This part restart counter of cards to start at n+1 -->
     <style>
         body.number-title{
-          counter-reset: sectionCounter 9 cardCounter ;
+          counter-reset: sectionCounter 10 cardCounter ;
         }
         h1.number-title{
-          counter-reset: sectionCounter 9 cardCounter ;
+          counter-reset: sectionCounter 10 cardCounter ;
         }
       </style>
   
@@ -77,666 +78,432 @@
         </header>
 
       <!-- This part is for title in tab-->
-      <title id="Sec"> § 10 </title>
+      <title id="Sec"> § 11 </title>
     
   </head>
 
 <body class="fondo-body" >
 
-<h1 class="number-title flexbox"> Valor Promedio  </h1>
-<h1 class="flexbox"> Trabajo </h1>
+<h1 class="number-title flexbox"> Areas </h1>
 
    <!-- this part is for next and prev sections -->
    <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
    <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+
    
+<div class="info-box">
+  <h2 class="number-title"> Introducción </h2>
+  <p>
+    En ésta sección revisamos varias aplicaciones de la integral para calcular áreas. Primero 
+    se revisa el área en coordenadas polares, después el área entre curvas y se termina con 
+    la aplicación del índice de Gini y la introducción de una distancia entre funciones continuas.
+  </p>
 
+</div>
+	
+	
+<div class="info-box">
+  <h2 class="number-title"> Nota </h2>
+  <h3> Cambios de coordenadas</h3>
+  <h4>
+    De polares a cartesianas
+  </h4>
+  <p>
+    $r\geq 0$, $\theta \in \mathbb{R}$
+    \begin{eqnarray*}
+    x&=&r\cos(\theta)\\
+    y&=&r\sen(\theta)
+    \end{eqnarray*}
 
+    Nota: el cero puede tener cualquier $\theta$.
+  </p>
+  <h4>
+    De cartesianas a polares
+  </h4>
 
-<!--<div class="info-box">
-	<h2 class="number-title"> Introducción</h2>
-	<p>
-		En esta sección vemos dos sencillas aplicaciones de la integral: valor promedio y trabajo.
-	</p>
+  <p>
+    El ángulo se mide con respecto al eje $x$ en sentido contrario 
+    a las manecillas del reloj.
+    \begin{eqnarray*}
+    r&=&\sqrt{x^2+y^2}\\
+    \theta &=& \left\{
+    \begin{array}{cc}
+    \arctan(x/y) &  y\not=0 \\
+    0 & y=0
+    \end{array}
+    \right. 
+    \end{eqnarray*}
+  </p>
+</div>
 
-</div>-->
 
 
 
 <div class="definicion-box">
-	<h2 class="number-title"> Definición</h2>
+  <h2 class="number-title"> Definición</h2>
+  <p>
+    Definimos $\pi$ como el cociente de la longitd de una circunferencia de un círculo entre su diámetro.
+    
+  </p>
+  <p>
+    Más en general, éste método ayuda a introducir la medida de ángulos en en radianes.
+  </p>
 <p>
-	Recordamos que el  promedio de  los números $a_1,\dots, a_n$ está dado por:
- 
-	$$
-	\frac{1}{n} \sum_{i=1}^n a_i
-	$$
-	
-	Recordando el  <a href="./S5.html#Ejer:IntegrabilidadFuncionesContinuas"> Ejercicio 5.10</a> tenemos
-	
-	$$
-	\int_a^b f(x)dx=\lim_{n} \frac{b-a}{n}\sum_{i=1}^n f(x_i)
-	$$
-	donde el promedio de los valores de la función sobre los puntos de la 
-	partición homogenea de longitud \(n\) aparece a la derecha de la igualdad. Tomando en cuenta esto se define
-	el promedio de una función $f$ integrable,  sobre el subintervalo $[a,b]$, como
-	$$
-	V_a^b(f)=\frac{1}{b-a}\int_a^b f(x)dx
-	$$
+  Considera un círculo de radio $R$ y un ángulo $\measuredangle AOB$ mide $a$ radianes si 
+  $$
+  a=\frac{L}{R}
+  $$
+  donde $L$ es la longitud del arco que subtiende $\measuredangle AOB$ .
 </p>
-
 </div>
 
-
 <div class="ejercicio-box">
-	<h2 class="number-title"> Ejercicio</h2> 
-	<p>
-		Para las siguientes funciones, prueba la fórmula dada para $V_a^b(f)$.
-	</p>
+  <h2 class="number-title"> Ejercicio</h2> 
+  <p>
+    Este ejercicio  relaciona radianes con area.
+  </p>
+
 <ol>
-    <li>para $f$ una función constante con valor $k$,  $V_a^b(f)=k$.</li> 
-    <li>para $f(x)=mx+b$, $x\in \mathbb{R}$, $V_a^b(f)=m \frac{a+b}{2}+b$.</li> 
-    <li>para $f(x)=x^2$, $x\in \mathbb{R}$, $V_a^b(f)=\frac{a^2+ab+b^2}{3}$.</li> 
+    <li>
+        Divide el criculo de radio $R$ en $n$ partes iguales. Demuestra que el área de cada parte es
+        $$
+        A=\frac{a}{2}R^2
+        $$
+        donde $a$ es la medida del ángulo, en radianes,  de cada parte. 
+      </li> 
+
+    <li>
+      Considera un segmento circular, con ángulo $a$, medido en radianes y supon que $a=\frac{p}{q}2\pi$, 
+      donde $p$ y $q$ son enteros positivos con $p/q < 1$.  Demuestra que el área del segmento es
+      $$
+      A=\frac{a}{2}R^2
+      $$
+      
+      <p>
+        Sugerencia: denota por $A$ a el area del segmento y por $\tilde{A}$ el area de un segmento
+        circular con angulo  $\frac{2pi}{q}$. Nota que  $A=p\tilde{A}$ y usa el inciso anterior.
+      </p>
+  </li> 
+
+ <li>
+    Usando la densidad de los racionales  y la continuidad de la función area se puede argumentar 
+    que el area de un segmento circular, con ángulo $a$ (en radianes) y radio $R$ es
+    $$
+    \frac{a}{2}R^2
+    $$
+  </li> 
 </ol>
-
-<button class="respButton hvr-grow "> Solución  </button>
-     <div class="resp-box flexbox">
-<p>
-	Calculando de manera directa tenemos 
-	<ul>	
-		<li> Inciso 1:
-			\begin{eqnarray*} 
-			V_a^b(f)=\frac{1}{b-a}\int_a^b k dx= \frac{1}{b-a}k(b-a)=k
-			\end{eqnarray*}
-
-		</li>
-
-		<li>
-			Inciso 2:
-			\begin{eqnarray*} 
-			V_a^b(f)= \frac{1}{b-a}\int_a^b mx+ c &=& \frac{1}{b-a}\left(m \frac{b^2-a^2}{2}+ c (b-a) \right) \\ 
-			&=& \frac{1}{b-a}\left( m\frac{(b-a)(b+a)}{2}+ c (b-a) \right) \\
-			&=& m\frac{b+a}{2}+c
-			\end{eqnarray*}
-			donde en la segudna igualdad usamos diferencia de cuadrados.
-		</li>
-		<li>
-			Inciso 3:
-			\begin{eqnarray*} 
-			V_a^b(f)=\frac{1}{b-a}\int_a^b x^2 dx &=& \frac{1}{b-a}\frac{b^3-a^3}{3} \\
-			&=& \frac{1}{b-a}\frac{(b-a)(a^2+ab+b^2)}{3} \\
-			&=& \frac{a^2+ab+b^2}{3}
-			\end{eqnarray*}
-			donde en la segunda igualdad usamos diferencia de cubos.
-		</li>
-	</ul>
-</p>
-</div>
-</div>
-
-<div class="ejercicio-box">
-	<h2 class="number-title"> Ejercicio</h2> 
-	<p>
-		Usando la identidad 
-		\[
-		b^n-a^n =(b-a)\sum_{k=0}^{n-1} a^kb^{n-k-1}
-		\]
-		
-		encuentra una fórmula general para el promedio de
-		las funciones potencia, $V_a^b(x^n)$, $n \in \mathbb{N}$.
-	</p>
 </div>
 
 
-    <div class="ejercicio-box">
-		<h2 class="number-title"> Ejercicio</h2> 
-		<p>
-			Prueba las siguientes propiedades  del valor promedio. Las funciones, $f,g:[a,b]\to \mathbb{R}$ son dos 
-			funciones integrables.
-		</p>
+
+  
+
+<div class="teorema-box">
+  <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Sea $f:[a,b]\to \mathbb{R}$ una función no negativa, con $b-a< 2\pi$ y supongamos
+      que $f^2$ es integrable. Sea $D$ la región descrita en coordenadas polares por $r(\theta)\leq f(\theta)$.
+  
+      Entonces el área de $D$ esta dada por
+      $$
+      \frac{1}{2}\int_a^b f^2(\theta)d\theta.
+      $$ 
+  
+    </p>
+
+  <p>
+    Este ejercicio demuestra el siguiente teorema.
+  </p>
+
+<ol>
+
+    <li>
+        Fijemos $\varepsilon >0$. Demuestra que existen funciones escalonadas, $\tilde{s}$ y $\tilde{t}$ tal que:
+        $$
+        \tilde{s} \leq f^2 \leq \tilde{t}
+        $$
+        y
+        $$
+        \int_a^b (\tilde{s}-\tilde{t})<  \varepsilon
+        $$
+    </li> 
+
+
+    <li>
+        Define $s:=\sqrt{\tilde{s}}$ y $t:=\sqrt{\tilde{t}}$. Demuestra que:
+
+        $$
+        \frac{1}{2}\int_a^b s^2(\theta)d\theta
+        $$
+        representa al area de una región formada por segmentos circulares, contenida en $D$ y 
+        $$
+        \frac{1}{2}\int_a^b t^2(\theta)d\theta
+        $$ 
+        representa el área de una región formada por segmentos circulares, que contiene a $D$.
+    </li> 
+
+    <li>
+        Demuestra que:
+        $$
+        \frac{1}{2}\int_a^b s^2 \leq  \textrm{Area}(D) \leq \frac{1}{2}\int_a^b t^2
+        $$
+        
+        y
+        
+        $$
+        \frac{1}{2}\int_a^b\tilde{s}\leq  \frac{1}{2} \int_a^b f^2 \leq \frac{1}{2}\int_a^b \tilde{t}
+        $$
+      </li> 
+
+    <li>
+        De los incisos anteriores concluye que:
+
+        $$
+        \left| \int_a^b f^2 - \textrm{Area}(D)   \right| <\frac{\varepsilon}{2}
+        $$
+        Como $\varepsilon >0$ es arbitraria, acabamos.
+    </li> 
+</ol>
+</div>
+
+
+<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> En cada una de las siguientes funciones, haz un bosquejo (con ayudad de una computadora o celular) y calcula el area dada en coordenadas polares.
     <ol>
-        <li>$V_a^b(f+g)=V_a^b(f)+V_a^b(g)$.</li> 
-        <li>$V_a^b(\alpha f)=\alpha V_a^b(f)$ donde $\alpha \in \mathbb{R}$ es un escalar fijo.</li> 
-        <li>Si $f(x)\leq g(x)$, para todo $x\in[a,b]$, entonces $V_a^b(f)\leq V_a^b(g)$.</li> 
+        <li>La espiral de Arquímides: $r(\theta)=\theta$, $0\leq \theta \leq 2\pi$.</li> 
+        <li>Dos circulos tangentes en el eje $y$: $r(\theta)=2|\cos(\theta)|$, $0\leq \theta \leq 2\pi$.</li> 
+        <li>Rosa de cuatro hojas: $r(\theta)=|\sen(2\theta)|$, $0\leq \theta \leq 2\pi$.</li> 
+        <li>Cardioide: $r(\theta)=1+\cos(\theta)$, $0\leq \theta \leq 2\pi$.</li> 
+    
     </ol>
 
 </div>
 
 
-<div class="ejercicio-box">
-	<h2 class="number-title"> Ejercicio</h2>  
-	Sea $f:[a,b] \to \mathbb{R}$ una función integrable. Probar que si 
-	$m \leq f(x) \leq M $, para todo $x\in [a,b]$ entonces
-    $$
-    m\leq V_a^b(f) \leq M.
-    $$
-
-	<button class="respButton hvr-grow "> Solución  </button>
-     <div class="resp-box flexbox">
-	<p>
-		Por el <a href="./S3.html#Ejer:MonotoniaIntegral">Teorema 3.6</a> tenemos que 
-		\[m(b-a) \leq \int_a^bf(x) dx \leq M(b-a). \]
-
-		Por lo tanto dividiendo por \(b-a\) en las respectivas desigualdades tenemos que  
-		\[ m \leq \frac{1}{b-a} \int_a^bf(x) dx  \leq M . \]
-		
-		Pero \( V_a^b (f)  = \frac{1}{b-a} \int_a^bf(x) dx\), es decir \[ m \leq V_a^b (f) \leq M.\]
-		
-	</p>
-	</div>
-</div>
-
-<div class="ejercicio-box"
-><h2 class="number-title"> Ejercicio</h2> 
-<p>
-	Sea $f:[a,b]\to \mathbb{R}$ una función continua. Demuestra que para todo subintervalo 
-	$[c,d] \subseteq [a,b]$, existe un
-	punto $x_0$  (que depende de $c$ y $d$) tal que  
-	de
-	$$
-	V_c^d(f)=f(x_0).
-	$$
-	
-</p>
-<p>
-	Sugerencia: utiliza el Teorema del Valor Intermedio.
-</p>
-<button class="respButton hvr-grow "> Solución  </button>
-     <div class="resp-box flexbox">
-<p>
-	Ya que la función \(f\) es continua en el intervalo cerrado y acotado 
-	\([a,b]\) ésta alcanza su máximo \(M=\max_{t\in [a,b]}{f(t)}\) y
-	mínimo \(m=\min_{t\in [a,b]}\{f(t)\}\). Por lo tanto, para todo punto \(t\in [a,b]\) 
-	\[
-	m \leq f(t) \leq M.
-	\]
-	Integrando las desigualdades anteriores y dividiendo entre \(b-a\) llegamos 
-	\begin{eqnarray*}
-	& m(b-a)= \int_a^b m dt \leq \int_a^b f(t)dt \leq \int_a^bM dt = M(b-a) \\
-	& \Rightarrow m \leq V_a^b(f)\leq M.
-	\end{eqnarray*}
-	Ahora, ya que la función es continua por el Teorema del Valor intermedio existe al menos un
-	\(x_0\in [a,b]\)  tal que \( f(x_0)= V_a^b(f)\). 
-	
-</p>
-</div>
-</div>
-
-
-<div class="ejercicio-box">
-	<h2 class="number-title"> Ejercicio</h2> 
-	<p>
-		Da un ejemplo de una función $f:[a,b]\to \mathbb{R}$ integrable tal que
-		el valor promedio nunca se alcanza. Es decir
-		$$
-		V_a^b(f)\not= f(x)
-		$$
-		para todo $x\in [a,b]$.
-	
-	</p>
-</div>
-
-<div class="ejercicio-box">
-	<h2 class="number-title"> Ejercicio</h2> 
-	<p>
-		Sea $f:[a,b] \to \mathbb{R}$ una función  integrable  en $[a,b]$. Demuestra que
-		$$
-		V_a^b(f)=\frac{c-a	}{b-a}V_a^c(f)+ \frac{b-c}{b-a}V_c^b(f).
-		$$
-	</p>
-	<button class="respButton hvr-grow "> Solución  </button>
-     <div class="resp-box flexbox">
-	<p>
-		Sea \(c \in (a,b)\), como \(f\) es integrable entonces por la 
-		linealidad con respecto de intervalos (<a href="./S3.html#Ejer:LinealidadIntervalos">Teorema 3.18</a>) tenemos que 
-		\[ \int_a^b f(x) dx = \int_a^c f(x) dx + \int_c^b f(x) dx . \]
-
-		Dividiendo por \(b-a\) tenemos que 
-		\begin{eqnarray*}
-		V_a^b (f)  = \frac{1}{b-a} \int_a^bf(x) dx & = & \frac{1}{b-a} \int_a^cf(x) dx + \frac{1}{b-a} \int_c^bf(x) dx \\
- 		& = & \frac{1}{b-a}\cdot\frac{c-a}{c-a} \int_a^cf(x) dx + \frac{1}{b-a}\cdot \frac{b-c}{b-c} \int_c^bf(x) dx \\
- 		& = & \frac{c-a}{b-a}\cdot\frac{1}{c-a} \int_a^cf(x) dx + \frac{b-c}{b-a}\cdot \frac{1}{b-c} \int_c^bf(x) dx \\
- 		& = & \frac{c-a}{b-a}V_a^c (f) + \frac{b-c}{b-a}V_c^b (f) 
-		\end{eqnarray*} 
-
-		Por lo tanto \[ V_a^b (f) = \frac{c-a}{b-a}V_a^c (f) + \frac{b-c}{b-a}V_c^b (f) . \] 
-	</p>
-	</div>
-</div>
-
-
-<div class="ejercicio-box">
-	<h2 class="number-title"> Ejercicio</h2> 
-	<p>
-		Sea $f:\mathbb{R} \to \mathbb{R}$ una función tal que es integrable para cualquier intervalo de la forma
-		$[-a,a]$, con $a>0$.
-		
-	</p>
-<ol>
-    <li>Si $f$ es una función par demuestra:
-        $$
-        V_{-a}^{a}(f)=V_0^a(f)
-        $$</li> 
-
-<li>Si $f$ es una función  impar demuestra:
-    $$
-    V_{-a}^a(f)=0
-    $$</li> 
-
-</ol>
-</div>
-
-
-
-<div class="ejercicio-box">
-	<h2 class="number-title" id="Ejer:ConcavidadYValorPromedio"> Ejercicio</h2> 
-	<p>
-		Sea  $f:[a,b]\to \mathbb{R}$ continua en $[a,b]$ y  diferenciable en $(a,b)$.
-	</p>
-
-<ol>
-
-    <li>Si  $f'$ es  monótona creciente  en $(a,b)$ demuestra que :
-        $$
-        V_a^b(f)\geq f\bigg( \frac{a+b}{2}\bigg).
-        $$</li> 
-    <li>Si $f'$ es monótona decreciente en $(a,b)$ demuestra que:
-        $$
-        V_a^b(f)\leq f\bigg( \frac{a+b}{2}\bigg).
-        $$
-        </li> 
-</ol>
-
-<button class="respButton hvr-grow "> Solución  </button>
-     <div class="resp-box flexbox">
-<p>
-	Primero afirmamos que si $f'$ es monótona creciente entonces 
-	para cualquier $x_0 \in (a,b)$ se cunple 
-	\begin{equation}\label{Eqn:Aux1ConcavidadValorPromedio}
-	f(x) \geq f(x_0)+ f'(x_0)(x-x_0)
-	\end{equation}
-	para todo \(x\in (a,b)\)
-</p>
-<p>
-	Por el Teorema del Valor Media para las derivadas tenemos que 
-	para \(x\ne x_0\) existe un número \(c\) entre \(x\) y \(x_0\) tal que 
-	\[
-	\frac{f(x)-f(x_0)}{x-x_0} = f'(c).
-	\]
-	Para probar \eqref{Eqn:Aux1ConcavidadValorPromedio} veamos dos casos.
-	<ul>
-		<li>
-			Caso 1: \(x_0 < x \). En este caso tenemos que \(x_0 \leq c \leq x\)
-			por lo que al usar \(f'\) monótona creciente obtenemos \(f'(x_0)\leq f'(c)\). Por lo tanto 
-			de la ecuación anterior se sigue
-			\begin{eqnarray*}
-			& \frac{f(x)-f(x_0)}{x-x_0} = f'(c) \geq f'(x_0) \\
-			& \Rightarrow  f(x)-f(x_0) \geq f'(x_0)(x-x_0) \\
-			& \Rightarrow  f(x) \geq f'(x_0)(x-x_0) + f(x_0)
-			\end{eqnarray*}
-			donde en la segunda implicación usamos que \(x-x_0 >0 \).
-		</li>
-		<li>
-			Caso 2: \(x< x_0\). En este caso tenemos \(x \leq c \leq x_0\). Por la monotonía de 
-			\(f'\) se tiene \(f'(c)\leq f'(x_0)\). Por lo tanto 
-			
-			\begin{eqnarray*}
-			& \frac{f(x)-f(x_0)}{x-x_0} = f'(c) \leq  f'(x_0) \\
-			& \Rightarrow  f(x)-f(x_0) \geq f'(x_0)(x-x_0) \\
-			& \Rightarrow  f(x) \geq f'(x_0)(x-x_0) + f(x_0)
-			\end{eqnarray*}
-			donde en la segunda implicación la desigualdad se revierte pues \(x-x_0 < 0\). 
-		</li>
-	</ul>
-	Una vez probada \eqref{Eqn:Aux1ConcavidadValorPromedio} tomando el punto medio 
-	del intervalo \([a,b]\), \(x_0=\frac{a+b}{2}\) obtenemos 
-	\[
-	f(x)\geq  g(x)
-	\]
-	donde \(g\) es la función lineal \(g(x)=f'(x_0)(x-x_0)+f(x_0)=f'(x_0)x + (f(x_0)-f'(x_0)x_0)\). Por los 
-	propiedades del valor promedio se sigue 
-	\begin{eqnarray*} 
-	V_a^b(f)\geq V_a^b(g)&=& f'(x_0)\frac{a+b}{2}+ (f(x_0)-f'(x_0)x_0)\\
-	&=&  f'(x_0)x_0+ (f(x_0)-f'(x_0)x_0)\\
-	&=& f(x_0).
-	\end{eqnarray*}
-</p>
-</div>
-</div>
-
-<div class="ejercicio-box">
-	<h2 class="number-title" id="Ejer:TeoremaValorMedioMejorado"> Ejercicio</h2> 
-	<p>
-		Este ejercicio es una nueva mirada el Teorema del Valor Medio.
-	</p>
-	<p>
-		
-
-		Sea $F:[a,b] \to \mathbb{R}$ continua en $[a,b]$ y diferenciable en $(a,b)$. Demuestra que
-		$$
-		\frac{F(b)-F(a)}{b-a}=V_a^b(F').
-		$$
-	</p>
-	<p>
-		Nota que la ventaja de este sobre el Teorema del Valor Medio, es que podemos 
-		calcular numéricamente $V_a^b(F')$.
-	</p>
-	<button class="respButton hvr-grow "> Solución  </button>
-     <div class="resp-box flexbox">
-	<p>
-		Por definición del valor promedio 
-		\[
-		V_a^b(F')=\frac{1}{b-a}\int_a^b F'(x)dx.
-		\]
-		Pero por el segundo T.F.C. 
-		\[
-		\int_a^b F'(x)dx=F(b)-F(a).
-		\]
-		Por lo tanto 
-		\[
-		V_a^b(F')=\frac{1}{b-a}\int_a^b F'(x)dx= \frac{F(b)-F(a)}{b-a}.
-		\]
-	</p>
-	</div>
-</div>
-
-
-<div class="ejercicio-box">
-	<h2 class="number-title"> Ejercicio</h2> 
-	<p>
-		Usando el Teorema del Valor Medio para derivadas se puede probar 
-		\(|\sen(2x)-\sen(x) | \leq x\) para todo \(x\). El siguiente ejercicio mejora 
-		la cota en el intervalo \((0,\pi/4)\).
-	</p>
-	<p>
-		Demuestra que para todo $x\in (0,\pi/4)$
-		$$
-		|\sen(2x) -\sen(x)| \leq x\cos(3x/2)
-		$$
-	</p>
-	<p>
-		Sugerencia: usa el <a href="#Ejer:TeoremaValorMedioMejorado"> Ejercicio 10.11</a> junto con el 
-		<a href="#Ejer:ConcavidadYValorPromedio"> Ejercicio 10.10</a>.
-	</p>
-</div>
-
-
-
-
-
-<div class="ejercicio-box">
-	<h2 class="number-title" id="Ejer:CentroMasa"> Ejercicio</h2>  
-	<p>
-		Imagina una  varilla, de longitud $L$, colocada a lo largo del eje $x$. Por 
-		$\rho:[0,L] \to \mathbb{R}$ vamos a modelar la densidad de la varilla, 
-		es decir $\rho(x)$ es la densidad de una rebanada muy pequena de la varilla, 
-		cortada en el punto $x$. Lo que se pide a $\rho$ es que $\rho(x) \geq 0$ para toda $x\in [0,L]$, 
-		que $\rho$ sea integrable y $\int_0^L \rho(x)dx >0$. Con estas suposiciones de de define el  
-		centro de masa de la varilla como
-		$$
-		\overline{x}:=\frac{\int_0^L x\rho(x)dx}{\int_0^L\rho(x)dx }.
-		$$
-	</p>
-
-<ol>
-    <li>
-        Demuestra que si $\rho(x)=\rho_0$, para todo $x\in [0,L]$  
-		(densidad constante) entonces $\overline{x}=\frac{L}{2}$.
-    </li> 
-    <li>
-        Supon que la función densidad satisface $\rho(x)=\rho(L-x)$, para $x\in [0,L]$. 
-		Demuestra que $\overline{x}=\frac{L}{2}$.  Sugerencia,
-		usa un cambio de variable lineal para probar primero que 
-		$$ \frac{ \int_0^L x\rho(x)dx}{\int_0^L \rho(x)dx}=
-		\frac{\int_0^{L}(L-x)\rho(L-x)dx}{\int_0^L \rho(L-x)dx} .
-		$$
-    </li>  
-	<li>
-		Determina una densidad de masa $\rho$, de tal forma que el centro de densidad de una varilla 
-		de longitud $L$ esté a una distancia $L/4$ de uno de sus extremos.
-	</li> 
-    
-</ol>
-</div>
 
 
 <div class="definicion-box">
-	<h2 class="number-title"> Definición</h2>
-	<h3>Trabajo, fuerza constante </h3>
-	<p>
-		El trabajo (denotado por $W$) realizado al mover un objeto (a lo largo de una linea recta) 
-		una distancia $d$, aplicando una fuerza constante $F$ esta dado por
-		$$
-		W=F\times d
-		$$
-		Una nota sobre las unidades. Substituyendo directamente tenemos 
-		$$
-		W=(m/s^2)(kg)(m)=kg (m/s)^2= J
-		$$
-		que se denomina Jouls y es la unidad de trabajo en el sistema internacional.		
-	</p>
+  <h2 class="number-title"> Definición </h2>
+  <p>
+    Para funciones continuas, $f,g:[a,b]\to \mathbb{R}$, con $g\leq f$, el area entre las curvas se define como:
+    $$
+    \int_a^b f(x)-g(x)dx
+    $$
+  </p>
+  </div>
+  
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encuentra el area  de la región acotada entre las curvas $y=x^2$ y $y=\frac{x}{4}$.
+  </div>
+  
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encuentra el area de la región entre las gráficas de $f(x)=x$ y $g(x)=\frac{x^3}{4}$ en $[0,2]$
+  </div>
+  
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encuentra $b$, de tal forma que el área de la región acotada entre las curvas $y=x^2$ y $y=4$, 
+    queda partida a la mitad
+    por la recta $y=b$.
+  </div>
+
+  
+  
+  
+  
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encuentra el area máxima debajo de la curva $y=4x-x^3$, desde $x=a$ hasta $x=a+1$, 
+    para toda $0 < a$.
+  </div>
+  
+  
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Encuentra $c$, de tal forma que el área  de la región acotada entre las curvas 
+    $y=x^2-c^2$ y $y=c^2-x^2$ es 576.
+  </div>
+  
+
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      A veces, para calcular el area entre curvas, es úitl hace un cambio de perspectiva e integrar con respecto 
+      a $y$, en ves de integrar con respecto a $x$.  
+    </p>
+  <ol>
+      <li>Grafica la recta  $y=x-3$ y la parábola $y^2=4x+8$.</li> 
+      <li> Encuentra los puntos de intersección de $y=x-3$ y $y^2=4x+8$.</li> 
+      <li>Integra con respecto a $y$ y encuentra el area de la región acotada  
+        entre la recta $y=x-3$ y la parábola $y^2=4x+8$.</li> 
+  </ol>
+  </div>
+
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Bosqueja las regiones encerradas por las curvas dadas. Después encuentra el area encerrada por las curvas. 
+      Decide si integrar con respecto a $x$ o $y$.
+    </p>
+  <ol>
+      <li>$y=x+1, y=16-x^2$	;</li> 
+      <li>$y=\sen(x), y=x, x=0, x=\pi/2$;</li> 
+      <li>$y=(x-a)^2, y=x$, donde $a>0$ es una constante fija;</li> 
+      <li>$x=2-y^2, x=y^2-2$;</li> 
+      <li>$x+y^2=12, x=2y$.</li> 
+  </ol>
+  </div>
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Bosqueja la región del plano delimitada por la desigualdades $x-2y^2 \geq 0$ y  $1-x-|y| \geq 0$. 
+      Además  encuentra su area.
+    </p>
+  </div>
+
+    <div class="info-box">
+      <h2 class="number-title"> Nota</h2>
+      <h3> El Indice de Gini </h3>
+      <p>
+        El indice de GINI es una medida de la distribución del ingreso total entre los habitantes de un país. 
+        Fue propuesto
+        por el economista italiano Corrado Gini (en 1912).
+        
+      </p>
+      <p>
+        Primero, se ranquean los hogares de acuerdo a su ingreso y después se calcula la cantidad de hogares cuyo ingreso es a lo más 
+        un porcentaje del ingreso total del país. Con estos datos se genera la curva de Lorenz, que es una curva definida 
+        en el intervalo $[0,1]$, que es concava hacia arriba y donde un punto $(a/100,b/100)$ esta en la curva si el $a \%$ porciento de los hogares más pobres recibe el $b \%$ del ingreso total. Note que los puntos de la curva de Lorenz estan por abajo de la recta identidad y la curva siempre pasa por $(0,0)$ y $(1,1)$.
+        
+      </p>
+      
+
+      <div class="flexbox">
+        <img src="./Images/S11-Image1-GINI-MX.jpeg" alt="Tanque" width="50%" height="auto">
+      </div>
+      
+
+      
+      <p>
+        De la gráfica se tiene, por ejemplo, que en 1998 y 2004, el 60$\%$ de los hogares más pobres recibieron
+        poco más del 20$\%$ del ingreso total.
+        
+      </p>
+      
+      <p>
+        Si por $L(x)$ denotamos la coordenada $y$ de la curva de Lorenz, el índice de GINI se define como
+        $$
+        G=2\int_0^1 x-L(x)dx
+        $$
+      </p>
+      
+      
+      <p>
+        Nota que, salvo el factor 2, el índice de Gini es una area entre curvas, 
+        concretamente entre la curva de Lorenz y la recta identidad.
+      </p>
+      <p>
+        El índice de Gini de México: 
+      </p>
+    
+      <p class="flexbox">
+        <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=OUw7&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+      </p>
+      
+    </div>
+  
+  
+  
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio</h2> 
+      <ol>
+          <li>Demuetra que $ 0\leq G \leq 1$.</li> 
+          <li>¿ Cómo se ve la curva de Lorenz en una dictadura perfecta? ¿ Cúal es el índice de Gini en este caso?</li> 
+          <li>¿ Cómo se ve la cuvra de Lorenz en una sociedad donde el ingreso se distribuye de manera absolutamente homogenea ? ¿ Cuál es el índice de Gini en este caso ?</li> 
+      </ol>
+    </div>
+
+  
+  <div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+  <p>
+    Parte de la importancia del  índice de Gini es que introduce la idea de medir la distancia entre dos funciones, ya no entre puntos del espacio.
+    Dadas dos funciones integrables $f,g:[a,b] \to \mathbb{R}$, el número
+    $$
+    d_1(f,g)=\int_a^b|f(x)-g(x)|dx
+    $$
+    se puede pensar como una distancia entre las funciones.
+  
+  </p>  
 </div>
-	
-	
-	<div class="ejercicio-box">
-		<h2 class="number-title"> Ejercicio</h2> 
-		<p>
-			Calcular el trabajo realizado por una persona que pesa 60kg para subir una escalera de 4 metros.
-		</p>
-		<p>
-			Sugerencia: para calcular  $F$ usa
-			$$
-			F=ma
-			$$
-			donde  la aceleración es $a=g=9.8m/s^2$.
-			
-		</p>
-	</div>	
-	
-	
-	
-	
-	
-	<div class="definicion-box">
-		<h2 class="number-title"> Definición</h2>
-		<h3> Trabajo, fuerza variable</h3>
-		<p>
-			Como estamos tratando cálculo uno-dimensional,  siempre vamos a pensar a la fuerza aplicada a lo 
-			largo de  una direcci'on fija (una linea recta), como un eje de desplazamiento o el eje de las $x$.
-	
-			Si la fuerza no es constante, pero esta dada por una función continua, $F(x)$, 
-			durante el desplazamiento de $x_{i-1}$ a $x_i$, el trabajo realizado es aproximadamente
-			$$
-			W_i\sim F(x_i)\Delta x_i
-			$$
-			
-			donde  $\Delta x_i=x_i-x_{i-1}$ es la distancia recorrida.
-			
-			Tomando una partición homogenea de longitud $n$,  $P=\{x_i\}_{i=0}^n$, y 
-			suponiendo la continuidad de la función fuerza,  el trabajo ejercido para mover una particula, 
-			que se mueve a lo largo del  eje $x$, del punto $a$ al $b$,  ejerciendo una fuerza $F(x)$ en el 
-			punto $x$, como: 
-			$$
-			W=\lim_{n\to \infty } \sum_{i=0}^n W_i = \int_a^b F(x)dx.
-			$$
-		</p>
-	</div>
-	
-	
-	
-	
-	<div class="ejercicio-box">
-		<h2 class="number-title"> Ejercicio</h2> 
-		<p>
-			La pirámide del faraon Kufh fue  construida en un periodo de 20 años, utulizando 
-			piedra caliza, tiene  una altura de $h=146 m$  y  una base cuadrada de $L=230 m$.  
-			La densidad de la piedra  caliza  es $\rho=2560 kg/m^3$.   Este ejercicio estima el 
-			trabajo necesario para construirla.		
-		</p>
-		<p>
-			Vamos a simplificar el problema. Imagina la piramide con el eje central sobre el eje $x$ y 
-			la base en $x=0$. Ahora, vamos a discretizar el problema; divide el intervalo $[0,h]$ en 
-			$n$-invervalos homogeneos (con la partición $P=\{x_i\}_{i=0}^n$) y aproxima el volumen por 
-			la suma de los volumenes de rectángulos  $V_i$, con
-			$$
-			V_i=  l^2(x_i^*)\Delta x_i
-			$$
-			donde $l(x^*)$ denota la longitud del lado del cuadrado que se obtiene al  cortar al 
-			pirámide con un plano perpedicular al eje $x$ a la altura $x^*$. 
-		</p>
-	<ol>
-	<li>
-		Usando triángulos semejantes encuentra $l(x)$.
-	</li>  
-	
-	<li>
-		Denota por  $W_i$ a el trabajo necesario para subir la $i$-ésima rebanada de piedra caliza. Suponiendo que 
-		$F_i$, la fuerza que se necesita para subir la $i$-ésima rebanada a una altura $x_i$, se tiene 
-		que $W_i=F_i x_i$. Usando
-		$F=ma$ y el inciso anterior encuantra una expresión para $W_i$.
-			   
-	</li>  
-	<li>
-		Usando la integrabilidad de las funciones continuas calcula
-		$$
-	   W=\lim_{n\to \infty} W_i
-		$$  
-	   mediante una integral.
-	</li> 
-	
-	<li>
-		Si cada trabajador laboraba 10 horas diarias,  340 días por 20 años, haciendo $9576 J/h$ de trabajo, 
-		levantando piedra caliza, aproximadamente ¿cuántos trabajadores se necesitarón para 
-		construir la pirámide ?  Sólo para tener un punto de comparación, para correr 4 kilómetros se gastan 
-		134,400 J.
-	</li> 
-	 </ol>
-</div>	
-	
-	<div class="ejercicio-box">
-		<h2 class="number-title"> Ejercicio</h2> 
-	<ol>
-		<li>
-			La ley gravedad de Newton establece que, dados dos cuerpos con masas $m_1.m_2$, éstos se atraen 
-			entre ellos con una fuerza
-			$$
-			F=G\frac{m_1m_2}{r^2}
-			$$
-			donde $r$ es la distancia entre los cuerpos y $G$ es la constante de gravitación. Si uno de 
-			los cuerpos está fijo, encuentra el trabajo necesario para mover el otro desde $r=a$ hasta $r=b$.
-		</li> 
-		<li>
-			Calcula el trabajo requerido para lanzar un satélite de 1000kg, de manera vertical, 
-			a una altura de 1000km. Asume que la masa de la tierra es $5.98(10^{24})kg$ y que dicha masa 
-			está concentrada en el centro. Toma el radio de la tierra como $6.37(10^6)m$ y 
-			$G=6.67(10^{-11})Nm^2/kg^2$.
-		</li> 
+  
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    Calcula:
+    $$
+    \int_0^{\pi/2}|\cos(x)-\sen(x)|dx
+    $$
+  </div>
 
-	</ol>
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Demuestra las siguientes propiedades. Se asume que $f,g,h :[a,b] \to \mathbb{R}$ son funciones continuas.
+    </p>
+  
+  <ol>
+      <li>$d_1(f,g) \leq d_1(f,h)+d_1(h,g)$.</li> 
+      <li>$d(f,g)=0$ si y sólo si $f(x)=g(x)$ para todo $x\in [a,b]$. Sugerencia: usa el ejercicio \ref{Ejer:IntegralCeroDePositivas}.</li> 
+  </ol>
+  </div>
 
 
-	<button class="respButton hvr-grow "> Solución  inciso 1</button>
-	<div class="resp-box flexbox">
-	   <p>
-		   A partir de la ley de la Gravedad de Newton podemos ver a la fuerza como una función que 
-		   depende de la distancia \(r\), es decir \( F(r) = G\frac{m_1m_2}{r^2}\). 
-		   Entonces el trabajo que se necesita para mover un objeto desde \(r= a\)  
-		   hasta \(r = b\), está dado por :
-		   \[ W= \int_a^bF(r) dr = \int_a^bG\frac{m_1m_2}{r^2} dr 
-		   = Gm_1m_2\int_a^b\frac{1}{r^2}dr 
-		   = Gm_1m_2\left(-\frac{1}{b} + \frac{1}{a}\right) .
-		   \]
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>  
+    <p>
+      Considera la familia de funciones 
+      $f_\alpha:[0,1] \to \mathbb{R}$ dadas por
+      $$
+      f_\alpha(x)=1+\alpha x
+      $$
+      donde $\alpha$ es un parámetro en $[0,1]$.
+      
+      Sea $f:[0,1]\to \mathbb{R}$ dada por $f(x)=1+x^2$.
+          
+    </p>
+    <p>
+      Encuentra $\alpha$ tal que 
+      $$d_1(f,f_\alpha)=\int_0^1 |f_\alpha(x) -f(x)|dx  $$ sea mínima.
+    </p>
+  </div>
 
-		   Es decir \[  W = Gm_1m_2\left(\frac{1}{a} - \frac{1}{b}\right) . \]
-	   </p>
-	</div>   
-
-	   <button class="respButton hvr-grow "> Solución  inciso 2</button>
-	   <div class="resp-box flexbox">
-	   <p>
-		Antes de empezar recordemos que\(1km = 1000m\) por lo que \(1000km = 1,000,000 m\). 
-		Sea \(m_T = \text{masa de la tierra} = 5.98(10^{24})kg\) y sea \( m_S = \text{ masa del satélite } 
-		= 1000kg\). Entonces tomando como punto fijo el centro de la tierra, tenemos que el satélite al principio se encuentra a  \(6.37(10^6)m\) con respecto del centro de la Tierra ( que esto es el radio de la tierra), entonces se quiere calcular el trabajo que realiza el satélite partiendo de \(a= 6.37(10^6)m \) hasta \( b= (1,000,000 + a) m=  7.37(10^6) m\). Entonces usando la formula que sacamos del problema anterior tenemos : 
-		\begin{eqnarray*}
-		W & = & Gm_Tm_S\left(\frac{1}{6.37(10^6)} - \frac{1}{6.37(10^6)}\right) \\
-		 & = & [6.67(10^{-11})][ 5.98(10^{24})][1000] \left(\frac{1}{6.37(10^6)} - \frac{1}{6.37(10^6)}\right) \\
-		 & \approx & 8.50(10^9)
-		\end{eqnarray*}  
-		Es decir, \(W = 8.50(10^9)\) Joules.
-	   </p>
-	   </div>
-	
-		
-	
-		
-	</div>
-
-	
-	<div class="ejercicio-box">
-		<h2 class="number-title"> Ejercicio</h2> 
-		<p>
-			El tanque que se muestra en la figura está lleno de agua. Calcula el trabajo requerido 
-			para bombear afuera todoa el agua, a través del tubo. 
-		</p>
-		<div class="flexbox" style="padding: 20px;">
-            <img src="./Images/S10-Image1.png" alt="Tanque" width="50%" height="auto" >
-        </div>
-		
-		  <button class="respButton hvr-grow "> Solución  inciso 1</button>
-		  <div class="resp-box flexbox">
-		  <p>
-
-			Primero tratemos de encontrar la fuerza que se necesita para subir el agua en función 
-			de la altura que nos encontremos. Tenemos que la altura del tanque es de 3m. 
-			Entonces dividamos al intervalo \([0,3]\) en \(n\)-subintervalos homogeneos 
-			con extremos \(x_0, x_1, . . .,x_n\). A partir de esta partición podemos encontrar los 
-			volumenes de las \(i\)-ésimas secciones que se obtinen de cortar el tanque de manera 
-			perpendicular al eje \(x\), estos volumenes los denotaremos como 
-			\(V_i\). Por lo tanto \[V_i = 10y(x_i^{*})\vartriangle x\]
-
-			donde \(y(x)\) es la longitud del rectángulo que se obtiene al cortar al tanque de 
-			manera perpendicular al eje \(x)\). Por triángulos semejantes tenemos que 
-			
-			<div class="flexbox">
-				<img src="./Images/S10-Image2.png" alt="Tanque" width="60%" height="auto">
-			  </div>
-	
-
-		</p>
-		<p>
-			Entonces \[ \frac{y}{x_i^*} = \frac{\sqrt{7}}{3} \] 
-			
-			Es decir, \(y =  \frac{\sqrt{7}}{3}x_i^*\) por lo tanto \(V_i \thickapprox \frac{10\sqrt{7}}{3}x_i^*\vartriangle x\). Por lo tanto su masa es 
-			\begin{eqnarray*}
-			m_i & = & densidad \times volumen \\
-			 & \thickapprox & 1000\cdot \frac{10\sqrt{7}}{3}x_i^*\vartriangle x = \frac{10,000\sqrt{7}}{3}x_i^*\vartriangle x
-			\end{eqnarray*}
-		</p>
-		<p>
-			Suponiendo que la densidad del agua es 1000kg/m. Por lo tanto la fuerza necesaria para subir esta capa debe superar a la fuerza de gravedad, \(g = 9.8m/s^2\), y de este modo 
-			\begin{eqnarray*}
-			F_i = m_ig \thickapprox \frac{98,000\sqrt{7}}{3}x_i^*\vartriangle x
-			\end{eqnarray*}
-		</p>
-		<p>
-			Por lo tanto el trabajo que se realiza al subir esta capa de agua hacia lo más alto es el producto de la fuerza \(F_i\) por la distancia \(x_i^*\), es decir: \[ W_i \thickapprox F_ix_i^* \thickapprox \frac{98,000\sqrt{7}}{3}(x_i^*)^2\vartriangle x \]
-			
-			Por lo tanto  el trabajo requerido para bombear afuera toda el agua es : 
-			\begin{eqnarray*}
-			W = \lim_{n \rightarrow \infty}\sum_{i=1}^n\frac{98,000\sqrt{7}}{3}(x_i^*)^2\vartriangle x & = & \int_0^3 \frac{98,000\sqrt{7}}{3}x^2dx \\
-			 & = & \frac{98,000\sqrt{7}}{3}\int_0^3x^2 dx \\
-			 & = & \frac{98,000\sqrt{7}}{3}\cdot \frac{3^3}{3} \\
-			 & = & 777,850 \text{Joules}
-			\end{eqnarray*}
-			
-			
-		  </p>
-
-		  </div>
-
-
-	</div>
-		
-	
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+      Las noción de distancia $d_1$, entre funciones, es muy distinta a la distancia ecuclideana. 
+      Por ejemplo, si uno considera la esfera unitaria
+      (los puntos cuya distancia al cero es igual a uno), ésta tiene la propiedad de que para 
+      cualesquiera dos puntos distintos, el punto medio cae afuera de la esfera unitaria. Este ejercicio 
+      muestra que esto no pasa para la distancia $d_1$.
+      
+    </p>
+      <p>
+        Define 
+        $$
+        S=\{ f: [a,b ] \to \mathbb{R}: \textrm{$f$ es conitnua y $d_1(0,f)=1$} \}
+        $$
+        
+        Encuentra funciones $f,g \in S$ tal que $\frac{f+g}{2} \in S$.
+        
+      </p>
+      <p>
+        Sugerencia: considera funciones lineales a trozos.
+      </p>
+  </div>
 
 </body>
