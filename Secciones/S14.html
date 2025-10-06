@@ -81,275 +81,365 @@
       <title id="Sec"> § 14 </title>
     
   </head>
+  <body class="fondo-body" >
 
-<body class="fondo-body" >
-
-<h1 class="number-title flexbox"> Integración por partes </h1>
-
-   <!-- this part is for next and prev sections -->
+    <h1 class="number-title flexbox"> Polinomios de Taylor </h1> 
+     <!-- this part is for next and prev sections -->
    <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
    <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
-
-   
-
-<div class="info-box">
-  <h2 class="number-title"> Introducción </h2>
-  <p>
-    Junto con integración por substitución, 
-    integración por partes es una de las técnicas más útiles y su origen es 
-    la fórmula de la derivada de un producto
-      $$
-      (fg)'=fg'+f'g
-      $$
-
-  </p>
-
-</div>
-
-
-<div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
-  <h3> Integración por partes</h3>
-  <p>
-    Sean $f,g:[a,b] \to \mathbb{R}$ funciones continuas en el cerrado y
-     diferenciables en el abierto, con derivadas continuas. Demuestra la 
-     fórmula de integración por partes para integrales indefinidas
-    $$
-    \int_a^b f(x) g'(x)dx=f(b)g(b)-f(a)g(a)-\int_a^b f'(x)g(x)dx.
-    $$
-  </p> 
-
-</div>
-
+     
+      <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+      </div>
 
 <div class="nota-box">
-  <h2 class="number-title"> Nota </h2>  
-  <p>
-    Sean $f,g$ funciones diferenciables con derivadas continuas. 
-    Usando el teorema anterior (o la fórmula de la derivada de 
-    un producto) la fórmula de integración por partes para integrales indefinidas
-    es 
-      $$
-      \int f(x)g'(x)dx=f(x)g(x)-\int f'(x) g(x)dx.
-      $$
-  </p>
-  <p>
-    Tomando la notación $u=f, v=g$, $u'=f'dx$ y $v'=g'dx$ la fórmula se convierte
-    $$
-    \int udv=uv-\int vdu
-    $$
-    la cual es más fácil de recordar (Una Vaca Vestida de Uniforme).
-    
-  </p>
+  <h2 class="number-title"> Notación </h2>
+Para una función \(f\) y un natural \(k \geq 1\), \(f^{(k)}(a)\)
+denota la \(k\)-ésima derivada de la función en \(a\) (si es que existe).
+Por convención tenenmos \(f^{(0)}(a)=f(a)\).
 </div>
 
 <div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Calcula las siguientes integrales.
-  </p>
+  <h2 class="number-title"> Ejercicio </h2>
+  Sabemos que la aproximación lineal
+de \(\cos(x)\) en \(x=0\) es simplemente la recta a altura 1, la cual no
+aproxima muy bien. Este ejercicio muestra que se puede mejorar la aproximación
+si tomamos un polinomio de grado 2 en vez de una recta (que es un
+polinomio de grado 1).
 
+Para \(f(x)=\cos(x)\) y el polinomio de grado 2, \(p(x)=A+Bx+Cx^2\),
+encutra \(A,B\) y \(C\) tales que
+\begin{eqnarray*}
+f^{(0)}(0)=p^{(0)}(0), \quad f^{(1)}(0)=p^{(1)}(0), \quad f^{(2)}(0)=p^{(2)}(0).
+\end{eqnarray*}
+
+Bosqueja la fráfica de \(\cos\) y el polinomio encontrado,
+cerca de una vecindad de cero.
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  En este ejercicio se encuentra una aproximación, mediante
+  un polinomio de grdo 2,  a la  función \(f(x)=\sqrt{3+x}\),
+  pero cerca del punto \(x=1\). Encuentra \(p\), un polinomio
+  de grado \(2\), tal que
+
+\begin{eqnarray*}
+f^{(0)}(1)=p^{(0)}(1), \quad f^{(1)}(1)=p^{(1)}(1), \quad f^{(2)}(1)=p^{(2)}(1).
+\end{eqnarray*}
+
+Nota que las funciones y derivadas ahora están evaluadas en \(x=1\).
+
+Nota: es mejor proponer \(p\) de la forma \(p(x)=A+B(x-1)+C(x-1)^2\)
+y encontrar \(A,B\) y \(C\).
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:TaylorDef"> Ejercicio </h2>
+
+  Supon que  \(f\) es una función definida en una vecindad de \(a\)
+  y tal que admite \(n\)-derivadas en \(a\). Demuestra que el polinomio
+\[
+\sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k
+\]
+satisface
+\begin{eqnarray*}
+f^{(k)}(a)=p^{(k)}(a), \quad k=0,1,\dots, n
+\end{eqnarray*}
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+El polinomio del <a href="#Ejer:TaylorDef">Ejercicio 18.5</a>  se conoce
+como el \(n\)-ésimo polinomio de Taylor de f alrededor de \(a\) y se denota
+\[
+T_nf(x;a)= \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k
+\]
+Nota: si es claro alrededor de cual punto se está tomando el
+polinomio de Taylor se omite la \(a\) y se denota
+\[
+T_nf(x)= \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k
+\]
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  Demuestra que el polinomio \(n\)ésimo de Taylot de la exponencial,
+  alrededor de \(0\) es
+\[
+\sum_{k=0}^n\frac{1}{k!}x^k
+\]
+mientras que alrededor del \(1\) es
+\[
+\sum_{k=0}^n \frac{e}{k!}(x-1)^k
+\]
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  Da un ejemplo de una función \(f\), tal que \(T_nf \) es un
+  polinomio de grado menor estricto que \(n\). ¿ Qué condición
+hay que pedir para que \(T_nf\) tenga grado \(n\) ?
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:TaylorSenoCoseno"> Ejercicio </h2>
+
+  Demuestra las siguientes fórmulas para los polinomios de Taylor
+  alrededor del \(0\) de las funciones seno y coseno \((n=0,1,\dots\)).
 <ol>
-    <li>$\int x\cos(x)dx$.</li> 
-    <li>$\int x\sen(x)dx$.</li> 
-    <li>$\int x^2 \cos(x)dx$.</li> 
-    <li>$\int x^2 \sen(x)dx$.</li> 
-    <li>$\int xe^x dx$.</li>  
-    <li>$\int t^2e^t dt$. 
-      <p>
-        Sugerencia: $u=t^2$, $dv=e^tdt$.
-      </p>
-    </li> 
+<li>
+  \(T_{2n+1}\sen(x)=\sum_{k=0}^n \frac{(-1)^k}{(2k+1)!}x^{2k}\).
+</li>
+<li>
+  \(T_{2n}\cos(x)=\sum_{k=0}^n\frac{(-1)^k}{(2k)!}x^{2k}\).
+</li>
 </ol>
 </div>
 
 
 <div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Calcula $\int_0^1 \tan^{-1}(x)dx$. 
-  </p>
+  <h2 class="number-title"> Ejercicio </h2>
+  Es interesante notar que seno es una función impar y que cualquier
+  polonomio de Taylor de seno es un polinomio impar.  Similarmente,
+  coseno es una función par y  cualquier polinomio de Taylor de
+  coseno es par también. Este ejercicio  muestra que esto no es coincidencia.
 
-  <p>
-    Sugerencia:  $u=\tan^{-1}(x)$, $dv=dx$.
-  </p>
-</div>
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Calcula $\int e^{\sqrt{x}}dx$.
-  </p>
-  <p>
-    Sugerencia: primero toma el cambio de variable $u=\sqrt{x}$ y 
-    luego una integración por partes.
-  </p>
-</div>
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio</h2>  
-  <p> 
-    Usa integrción por partes para demostrar
-    $$
-    \int \sqrt{a-x^2}dx=x\sqrt{a-x^2}+\int \frac{x^2}{\sqrt{a-x^2}}dx +C.
-    $$
-    donde $a$ es una constante positiva.
-    
-  </p>
-  <p>
-    Escribe $x^2=x^2-a+a$ en el integrando del lado derecho de la fórmula anterior para demostrar
-    $$
-    \int \sqrt{a-x^2}dx=\frac{1}{2}x\sqrt{a-x^2}+\frac{1}{2}\int \frac{1}{\sqrt{a-x^2}}dx+C.
-    $$
-    
-  </p>
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Considera el conjunto $V$ de funciones continuas $f:[a,b]\to \mathbb{R}$, diferenciables  
-    $(a,b)$ con derivada continua en $(a,b)$ y tal que $f(a)=f(b)=0$.
-  </p>
-
+Sea \(f\) una función definida en una vecindad de \(0\) y tal que
+admite \(n\) derivadas en \(0\).
 <ol>
-    <li>Demuestra que si $f,g \in V$ entonces $f+g, fg \in V$.</li> 
-    <li>Para $f,g \in V$ demuestra que la fórmula de integración por partes se reduce a 
-        $$
-        \int_a^b f(x)g'(x)dx=-\int_a^b f'(x)g(x)dx
-        $$
-    </li> 
+<li>
+  Demuestra que si \(f\) es una función impar entonces todas las
+  potencias de \(T_nf\) son impares (por lo tanto \(T_nf\) es una
+  función impar).
+</li>
 
 <li>
-    Da un ejemplo de funciones $f$ y $g$, que no perrtenezcan a $V$ donde 
-    la fórmula del inciso anterior no se cumpla.
-</li> 
+  Demuestra que si \(f\) es una función par entonces todas las
+  potencias de \(T_nf\) son pares (por lo tanto \(T_nf\) es una función par).
+</li>
 </ol>
 
 </div>
 
 
 <div class="ejercicio-box">
-  <h2 class="number-title" id="Ejer:IntegralxLogx"> Ejercicio</h2> 
-  <p>
-    Calcula las siguientes integrales.
-  </p>
+  <h2 class="number-title"> Ejercicio </h2>
+  Sea \(f\) una función definida en una vecinda de \(a\) tal
+  que admite \(n\) derivadas en \(a\).  Define \(g(x)=f(x+a)\),
+  para \(x\) en una vecindad de \(0\). Demuestra que \(T_n f(x;a)=T_ng(x-a;0)\).
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  Demuestra las siguientes propiedades del polinomio de Taylor.
+  Se supone que tanto  \(f\) como \(g\) son funciones definidas en
+  una vecindad de \(a\), ambas admiten \(n\) derivadas en \(a\) y se toman
+  los polinomios de Taylor alrededor de \(a\).
 
 <ol>
-    <li>
-        $\int x\log(x)dx$.
-    </li>
-    <li>Para un natural $n>1$ y un real $a>0$, $\int x^n\log(ax)dx$.</li> 
-    <li>
-      $\int x\log^2(x)dx$.
-    </li> 
-    <p>
-      Sugerencia: Usa una integración por partes y el inciso 1.
-    </p>
+<li>
+  \(T_n(\alpha f + g)= \alpha T_nf + T_n g\).
+</li>
+<li>
+  \((T_n f)'= T_{n-1}f'\).
+</li>
+<li>
+  Si \(g(x)=f(cx)\), para una constante \(c\),  entonces \(T_ng(x)=T_nf(cx)\).
+</li>
 </ol>
 </div>
 
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  Calculas los polinomios de Taylor, alrededor del \(0\) de las funciones:
+<ol>
+<li>
+  \(f(x)=e^{2x+1}\).
+</li>
+<li>
+  \(f(x)=\sen(3x)\).
+</li>
+<li>
+  \(f(x)=\sen(x) + \cos(x)\).
+</li>
+<li>
+  \(f(x)=\sen(x) \cos(x)\).
+</li>
+<li>
+  \(f(x)=\cosh(x)\).
+</li>
+<li>
+  \(f(x)=\operatorname{senh}(x)\).
+</li>
+</ol>
+</div>
 
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:TaylorIndirect"> Ejercicio </h2>
+ Este ejercicio provee una manera indirecta de encontrar polinomios de Taylor.
+
+Sea \(f\) una función definida en \(I\), una  vecindad de \(0\)
+y tal que admite \(n\) derivadas en \(I\).
+
+
+Supon que \(p\) es un polinomio  de grado menor o igual a \(n\),
+\(g\) una función definida en \(I\) que admite \(n\) derivadas en \(I\)
+y tal que:
+\[
+f(x)=p(x)+x^n g(x) \quad \textrm{y} \quad \lim_{x\to 0}g(x)=0 .
+\]
+Demuestra que \(T_nf=p\).
+
+Sugerencia: Inicia con \(n=2\). Define \(h(x):=f(x)-p(x)\) y prueba que
+\(h^{(k)}(0)=0\), \(k=0,1,2\). Luego generaliza para cualquier  \(n\).
+</div>
 
 
 <div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Demuestra la fórmula de recursión
-  </p>
-  <p>
-    $$
-    \int x^m \log^n(x)dx=\frac{x^{m+1}\log^n(x)}{m+1}-\frac{n}{m+1}\int x^m \log^{n-1}(x)dx.
-    $$
-    
-  </p>
+  <h2 class="number-title"> Ejercicio </h2>
+<ol>
+<li>
+  Demuestra la identidad
+\[
+\frac{1}{1-x}= 1+x+\cdots + x^n - \frac{x^{n+1}}{1-x}
+\]
+válida para \(|x|< 1\).
 
+</li>
+<li>
+ Usa el inciso (1) y el <a href="#Ejer:TaylorIndirect">Ejercicio 18.14</a>
+ para demostrar
+\[
+T_n \left( \frac{1}{1-x} \right)= 1+x+\cdots + x^n
+\]
+</li>
+<li>
+  Usa el inciso (a) y el <a href="#Ejer:TaylorIndirect">Ejercicio 18.14</a>
+  para demostrar
+
+\[
+T_{2n}\left( \frac{1}{1+x^2} \right)=\sum_{k=0}^n  \frac{(-1)^k}{2k+1}x^{2k+1}
+\]
+</li>
+</ol>
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:TeoTaylor"> Ejercicio </h2>
+   [Teorema de Taylor]
+  Sea \(f\) una función definida en \(I\), una vecindad de \(a\)
+  y tal que admite \(n+1\) derivadas en \(I\). Entonces para todo \(x\) en \(I\)
+
+\[
+f(x)=T_nf(x;a) + E_n(x-a)
+\]
+donde
+\begin{eqnarray*}
+\lim_{x\to a}\frac{E_n(x-a)}{(x-a)^n}=0.
+\end{eqnarray*}
+
+Además, existe \(c\) entre \(x\) y \(a\) tal que
+\(E_n(x-a)=\frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}\).
+
+Sugerencia: Inicia con \(n=2\).
+
+Para la primera parte define \(h(x):=f(x)-T_nf(x;a)\) y
+\(g(x)=(x-a)^{n}\); nota que \(h^{(k)}(a)=g^{(k)}(a)=0\), \(k=1,2\);
+usa el Teorema del T.V.M. de Cauchy para probar
+\[
+\frac{h(x)}{g(x)}=\frac{h^{(1)}(c_1)}{g^{(1)}(c_1)}
+=\frac{h^{(2)}(c)}{g^{(2)}(c_2)}
+\]
+después demuestra \(\lim_{x\to a}\frac{E_2(x-a)}{(x-a)^2}
+=\lim_{x\to a}\frac{h^{(2)}(c_2)}{g(c_2)}=0\).
+
+Para la segunda parte define \(h(x):=f(x)-T_nf(x;a)\)
+y \(g(x)=(x-a)^{n+1}\) y vuleve a usar el T.M.V para probar
+\[
+\frac{h(x)}{g(x)}=\frac{h^{(n+1)}(c)}{(n+1)!}
+\]
 </div>
 
 
-
-
-<div class="teorema-box">
-  <h2 class="number-title" id="Teo:PrimerTVMINtegrales"> Teorema </h2>
-  <h3>Primer Teorema del valor medio para integrales </h3>
-  <p>
-    Si $G,f:[a,b]\to \mathbb{R}$ son continuas en $[a,b]$ y $f$ 
-    nunca cambia de signo en $[a,b]$, entonces  exsite $c$ tal que
-    $$
-    \int_a^b f(x)G(x)dx=G(c)\int_a^b f(x)dx.
-    $$
-    
-  </p>
-
-  <p>
-    Sugerencia: considera
-    $$
-    \min_{x\in [a,b]}\{ G(x)\} f(x) \leq f(x)G(x) \leq \max_{x\in [a,b]}\{ G(x)\} f(x)
-    $$
-   integra y usa el teorema del valor intermedio para funciones continuas.    
-  </p>
-</div>
-
-<div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
-  <h3> Segundo teorema del valor  medio para integrales </h3>
-  <p>
-    Sean $g,\alpha: [a,b]\to \mathbb{R}$ funciones continuas en $[a,b]$.
-  </p>
-  <p>
-    Supon que $\alpha$ es diferenciable en $(a,b)$, $\alpha'$ es continua  
-    y $\alpha '$ nunca cambia de signo en $[a,b]$. Entonces exsite
-    un $c$ en $(a,b)$ tal que 
-    $$
-    \int_a^b g(x)\alpha(x)dx=\alpha(a)\int_a^c g(x)dx+ \alpha(b)\int_c^b g(x)dx
-    $$
-    
-  </p>
-  <p>
-    Sugerencia: considera la función \(F:[a,b]\to \mathbb{R}\) dada por  
-    \[
-      F(c)=\alpha(a)\int_a^c g(t)dt+ \alpha(b)\int_c^b g(t)dt
-    \]
-  </p>
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  Sea \(f\) una función definida en \(I\), un intervalo alrededor de
+  \(a\) tal que existen \(n+1\) derivadas en \(I\). Si la derivada
+  \(n+1\) de \(f\) satisface \(|f^{(n+1)}(x)| \leq M\) para todo \(x\)
+  en \(I\) entonce el error en el Teorema de Taylor satisface
+\[
+|E_n(x-a)| \leq  M \frac{(x-a)^{n+1}}{(n+1)!}
+\]
 
 </div>
 
-<!--<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Sea $\phi: [a,b]\to \mathbb{R}$  una función que satisface:
-  </p>
-    <ol>
-      <li>
-        su segunda derivada  es continua y no se anula en $[a,b]$.
-      </li>
-      <li>
-        existe $m>0$ tal que su primera derivada satisface $\phi'(t)>m$ para todo $t\in [a,b]$
-      </li>
-    </ol>  
-     <p>
-      Usar el Segundo Teorema del Valor Medio para Integrales para probar
-     </p>
-     <p>
-      $$
-      \left|  \int_a^b \sen(\phi(t)) dt \right| \leq \frac{4}{m}
-      $$
-      
-     </p>
-     <p>
-      Hint: multiplicar y dividir el integrando por $\phi'(t)$.
-     </p>
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:TaylorErrorSenoCosenoExp"> Ejercicio </h2>
 
-     <p>
-      Sea $a>0$  fijo y arbitrario. Demostrar que 
-      $\left|  \int_a^b \sen(t^2)dt\right| \leq \frac{2}{a}$ para todo $x>a$.
-     </p>
-</div>-->
+  Demuestras las sigueintes cotas para los errores para
+  los polinomios de Taylor, alrededor del \(0\), de las funciones exponencial,
+  seno y coseno. Para \(x\in \mathbb{R}\):
 
+\begin{eqnarray*}
+e^x&=&\sum_{k=0}^n \frac{1}{k!}x^k+E(x), \quad |E(x)|
+\leq e^x \frac{|x|^n}{n!}, \\
+\sen(x)&=&\sum_{k=0}^n \frac{(-1)^k}{(2k+1)!}x^{2k+1}+E(x), \quad |E(x)|
+\leq \frac{|x|^{2n+1}}{(2n+1)!},\\
+\cos(x)&=&\sum_{k=0}^n \frac{(-1)^k}{(2k)!}x^{2k}+E(x), \quad |E(x)|
+\leq \frac{|x|^{2n+2}}{(2n+2)!},
+\end{eqnarray*}
+</div>
 
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:SeriesTaylorExpSenoCoseno"> Ejercicio </h2>
+
+  Usa el <a href="./S10.html#Ejer:LimitePotenciaCocienteFactorial">Ejercicio 10.16</a>  y  el
+  <a href="#Ejer:TaylorErrorSenoCosenoExp">Ejercicio 18.18</a> para demostrar
+\begin{eqnarray*}
+e^x&=& \lim_{n\to \infty } \sum_{k=0}^n \frac{1}{k!}x^k ,  \\
+\sen(x)&=& \lim_{n\to \infty } \sum_{k=0}^n \frac{(-1)^k}{(2k+1)!}x^{2k+1},\\
+\cos(x)&=&\lim_{n\to \infty} \sum_{k=0}^n \frac{(-1)^k}{(2k)!}x^{2k}.
+\end{eqnarray*}
+</div>
+
+<div class="nota-box">
+<h2 class="number-title"> Series de Taylor </h2>
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+Dada \((a_n)_{n=0}^\infty\),una sucesión en \(\mathbb{R}\), decimos
+que la sucesión es sumable si el siguiente límite existe
+\[
+\lim_{N\to \infty} \sum_{n=0}^N a_n
+\]
+Si \(S\) denota tal límite escribimos
+\[
+S=\sum_{n=0}^\infty a_n
+\]
+o decimos que la serie \(\sum_{n=0}^\infty a_n\) es convergente.
+
+Con esta nomenclatura, el <a href="#Ejer:SeriesTaylorExpSenoCoseno">Ejercicio 18.19</a>
+nos da las series de Taylor de seno, conseno y exponencial,
+es decir, para \(x\in \mathbb{R}\):
+\begin{eqnarray*}
+e^x&=&  \sum_{k=0}^\infty\frac{1}{k!}x^k ,  \\
+\sen(x)&=&   \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)!}x^{2k+1},\\
+\cos(x)&=& \sum_{k=0}^\infty \frac{(-1)^k}{(2k)!}x^{2k}.
+\end{eqnarray*}
+</div>
+
+</div>
 
 </body>
+
+  </html>
+
+  <!--     //////////////////////////          --->

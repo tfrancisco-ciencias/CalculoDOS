@@ -51,10 +51,10 @@
     <!-- This part restart counter of cards to start at n+1 -->
     <style>
         body.number-title{
-          counter-reset: sectionCounter 10 cardCounter ;
+          counter-reset: sectionCounter 9 cardCounter ;
         }
         h1.number-title{
-          counter-reset: sectionCounter 10 cardCounter ;
+          counter-reset: sectionCounter 9 cardCounter ;
         }
       </style>
   
@@ -78,432 +78,1018 @@
         </header>
 
       <!-- This part is for title in tab-->
-      <title id="Sec"> § 11 </title>
+      <title id="Sec"> § 10 </title>
     
   </head>
 
 <body class="fondo-body" >
 
-<h1 class="number-title flexbox"> Areas </h1>
+<h1 class="number-title flexbox"> Logaritmos </h1>
 
    <!-- this part is for next and prev sections -->
    <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
    <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
    
+ 
 <div class="info-box">
-  <h2 class="number-title"> Introducción </h2>
-  <p>
-    En ésta sección revisamos varias aplicaciones de la integral para calcular áreas. Primero 
-    se revisa el área en coordenadas polares, después el área entre curvas y se termina con 
-    la aplicación del índice de Gini y la introducción de una distancia entre funciones continuas.
-  </p>
+    <h2 class="number-title"> Introducción </h2>
+    <p> 
+        Las funciones tipo logaritmo son una familia de funciones que sriven de 
+        herramienta en varias áreas dentro y fuera de las matemáticas. 
+    </p>
+    <p>
+        Como herramienta puden usarse para estudiar números "muy grandes" o  "muy 
+        pequeños". Por ejemplo, la definición de la escala  Richter usa logaritmos. 
+    </p>
+    <p>
+        Como objeto matemático tiene dos interpretaciones muy importantes.
+    </p>
+    <p>
+        Por un lado el logaritmo natural es la única solución de la ecuación diferencial con valores iniciales 
+        \begin{eqnarray*}
+        \frac{dy}{dx}(x)&=&\frac{1}{x}, \quad  x>0, \\
+        y(1)&=&0 .
+        \end{eqnarray*}
+        En esta sección daremos, basado en la integral, una definición formal del logaritmo  natural y veremos 
+        gracias al  Primer Teorema Fundamental del Cálculo que satisface la ecuación diferencial anterior.
+    </p>
+    <p>
+        Desde un punto  de vista más algebráico las funciones logaritmicas son funciones 
+        que pasan productos de números a sumas, es decir satisfacen la siguiente ecuación 
+        \[
+        f(ab)= f(a)+f(b).
+        \]
+        Este es una de las formas en las que 
+        <a href="https://en.wikipedia.org/wiki/History_of_logarithms#Napier's_wonderful_invention">Napier</a>
+        estudió los logaritmos y los uso 
+        para encontrar métodos de multiplciar números muy grandes.
+    </p>
+    <p>
+        Dada una base \(b>0\) el logaritmo de \(x\) base \(b\) es el número \(y\) que satisface 
+        \[
+            b^y=x
+        \]
+        y usualmente se denota por \(\log_b(x)\). Por ejemplo 
+        \(\log_{10}(100)=2, \log_{10}(0.1)=-1\).
+    </p>
+    <p>
+        En esta sección también veremos que la definición formal que dimos ayuda a definir 
+        estas funciones tipo logaritmo.
+    </p>
 
 </div>
-	
-	
-<div class="info-box">
-  <h2 class="number-title"> Nota </h2>
-  <h3> Cambios de coordenadas</h3>
-  <h4>
-    De polares a cartesianas
-  </h4>
-  <p>
-    $r\geq 0$, $\theta \in \mathbb{R}$
-    \begin{eqnarray*}
-    x&=&r\cos(\theta)\\
-    y&=&r\sen(\theta)
-    \end{eqnarray*}
-
-    Nota: el cero puede tener cualquier $\theta$.
-  </p>
-  <h4>
-    De cartesianas a polares
-  </h4>
-
-  <p>
-    El ángulo se mide con respecto al eje $x$ en sentido contrario 
-    a las manecillas del reloj.
-    \begin{eqnarray*}
-    r&=&\sqrt{x^2+y^2}\\
-    \theta &=& \left\{
-    \begin{array}{cc}
-    \arctan(x/y) &  y\not=0 \\
-    0 & y=0
-    \end{array}
-    \right. 
-    \end{eqnarray*}
-  </p>
-</div>
-
 
 
 
 <div class="definicion-box">
-  <h2 class="number-title"> Definición</h2>
-  <p>
-    Definimos $\pi$ como el cociente de la longitd de una circunferencia de un círculo entre su diámetro.
-    
-  </p>
-  <p>
-    Más en general, éste método ayuda a introducir la medida de ángulos en en radianes.
-  </p>
+    <h2 class="number-title"> Definición </h2>
+    <p>
+        Definimos la función logaritmo natural (o logaritmo base $e$) como:
+        $$
+        \ln(x):=\int_1^x\frac{dt}{t}, \quad x> 0
+        $$
+        
+        Por el Primer Teorema Fundamental, el logaritmo natural es la única solución
+        al problema de ecuaciones diferenciales con valor inicial
+        
+        \begin{eqnarray*}\label{Eqn:SistemaEcuDifLog}
+        \frac{dy}{dx}(x)&=&\frac{1}{x}, \quad  x>0, \\
+        y(1)&=&0 .
+        \end{eqnarray*}
+        
+    </p>
+
+
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Usando la  definición, demuestra las siguientes características del logaritmo natural:
+    </p>
+<ol>
+    <li>$\ln(1)=0$.</li> 
+    <li>$\ln(x)>0$ para $x>1$, $\ln(x) < 0$ para $0< x < 1$.</li> 
+    <li>$\ln'(x)=\frac{1}{x} > 0$, por lo que $\ln$ es estrictamente creciente.</li> 
+    <li>$\ln''(x)=\frac{-1}{x^2} < 0$, por lo que $\ln$ es concava hacia abajo.</li> 
+</ol> 
 <p>
-  Considera un círculo de radio $R$ y un ángulo $\measuredangle AOB$ mide $a$ radianes si 
-  $$
-  a=\frac{L}{R}
-  $$
-  donde $L$ es la longitud del arco que subtiende $\measuredangle AOB$ .
+    Asi que la función debe verse así:
+
+    <div class="flexbox" style="padding: 20px;">
+        <img src="./Images/S13-Image1.png" alt="Logaritmo" width="50%" height="auto" >
+    </div>
 </p>
+
+<button class="respButton hvr-grow "> Solución   </button>
+<div class="resp-box flexbox">
+<p>
+    Directamente de la definición de \(\ln(x)\):
+    \[
+    \ln(1)=\int_1^1\frac{1}{t}dt=0
+    \]
+    Si \(x>1\), \(\ln(x)>0\) pues representa el área bajo la 
+    gráfica de \(y=1/t\), desde \(t=1\) a \(t=x\). Por otro lado
+    \(\ln(x)< 0\)  si \(0< x < 1\) pues 
+    \[
+    \int_1^x\frac{1}{t}dt= - \int_{x}^1 \frac{1}{t}dt 
+    \]
+    y \(\int_{x}^1 \frac{1}{t}dt >0 \) pues se ésta integral se puede interpretar 
+    como una área bajo la gráfica de \(y=1/t\).
+
+</p>
+<p>
+    Usando el  Segundo Teorema Fundamental del Cálculo tenemos 
+    \[
+    \frac{d}{dx}\left( \int_1^x \frac{1}{t}dt \right)=\frac{1}{x}
+    \]
+    por lo tanto \(\ln'(x)=\frac{1}{x} >0\).
+</p>
+<p>
+    Directamente del párrafo anterior tenemos 
+    \[
+    \ln''(x)=\frac{d}{dx}\left( \frac{1}{x} \right)=-\frac{1}{x^2}.
+    \]
+</p>
+</div>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio demuestra que la función exponencial y logaritmo son funciones inversas una de la otra.
+    </p>
+
+<p>
+    Demuestra que:
+</p>
+<ol>
+    <li>
+        Para todo $x>0$:
+        $$
+        e^{\ln(x)}=x.
+        $$
+        Sugerencia: diferencia la función $\frac{e^{\ln(x)}}{x}$.
+    </li> 
+
+    <li>
+        Para todo $x\in \mathbb{R}$:
+        $$
+        \ln(e^x)=x
+        $$
+
+        Sugerencia: diferencia la función $\ln(e^x) -x$.
+    </li> 
+</ol>
+<button class="respButton hvr-grow "> Demostración  </button>
+<div class="resp-box flexbox">
+
+<p>
+    Demostración inciso 1.
+</p>
+<p>
+    Definimos \(f(x)=\frac{e^{\ln(x)}}{x}\), para \(x>0\). Derivando directamente obtenemos 
+    \begin{eqnarray*} 
+    f'(x)&=&\frac{x (e^{\ln(x)})'-(e^{\ln(x)})(x)' }{x^2} \\
+    &=&\frac{x(e^{\ln(x)}\ln'(x))-e^{\ln(x)} }{x^2} \\
+    &=& \frac{x(e^{\ln(x)}\frac{1}{x})-e^{\ln(x)} }{x^2} \\
+    &=& 0
+    \end{eqnarray*}
+    Por lo tanto \(f\) es constante. Si evaluamos \(f(1)\) obtenemos 
+    \[
+    f(1)=\frac{e^{\ln(1)}}{1}=\frac{e^0}{1}=1
+    \]
+    Por lo tanto \(f\) es la función constante igual a \(1\) lo cual implica que 
+    \(e^{\ln(x)}=x\) para todo \(x>0\).
+</p>
+<p>
+    Demostración inciso 2.
+</p>
+<p>
+    Definimos \(g(x)=\ln(e^x )- x\), para \(x\in \mathbb{R}\). Usando la regla de la cadena 
+    derivamos \(g\) para obtener:
+    \begin{eqnarray*} 
+    g'(x)=\frac{1}{e^x} \frac{d}{dx}(e^x )- 1= \frac{1}{e^x} e^x= 1-1 =0
+    \end{eqnarray*}
+    Por lo tanto \(g\) es constante. Valuando en \(x=0\) llegamos a 
+    \[
+    g(0)=\ln(e^0)-0=\ln(1)=0
+    \]
+    Por lo tanto \(g\) es la función constante \(0\) lo cual implica que 
+    \(\ln(e^x)=x\), para todo \(x\in \mathbb{R}\).
+</p>
+</div>
+</div>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2>  
+    <p>
+        Este ejercicio provee dos demostraciones de lo  que puede ser 
+        la principal propiedad del logaritmo, la cual se llama la ecuación 
+        funcional del logaritmo. 
+    </p>
+    <p>
+        Para cualesquiera $a,b>0$:
+        \begin{equation}\label{Eqn:EcuFuncionalLog}
+        \ln(ab)=\ln(a)+\ln(b)
+        \end{equation}
+    </p>   
+
+<ol>
+    <button class="respButton hvr-grow "> Demostración  </button>
+     <div class="resp-box flexbox">
+    <p> Demostración 1</p>    
+    <p>
+        Fijemos $b>0$ y definamos
+        $$
+        F(x)=\ln(xb), G(x)=\ln(x)+\ln(b), \quad x >0
+        $$
+
+        Diferenciando $F$ y $G$ llegamos a 
+        \begin{eqnarray*} 
+        F'(x)&=&\frac{d}{dx} (\ln(xb))=\frac{1}{xb} \frac{d}{dx}(xb)=\frac{1}{xb}b = \frac{1}{x} \\
+        G'(x)&=& \ln'(x)= \frac{1}{x}
+        \end{eqnarray*}
+        Por lo tanto \(F\) y \(G\) difieren por una constante, pero 
+        \[
+        F(1)=\ln(1b)=\ln(b), \quad G(1)=\ln(1)+\ln(b)=\ln(b)
+        \]
+        lo cual implica que \(F\) y \(G\) son iguales, por lo tanto 
+        \[
+        \ln(xb)=\ln(x)+\ln(b)
+        \]
+        para todo \(x> 0\).
+     </p> 
+     <p> Demostración 2</p>    
+    <p>
+        Usando la 
+        <a href="./S3.html#Ejer:LinealidadIntervalos">linealidad con respecto a intervalos</a> 
+        obtenemos que 
+        $$
+        \int_1^{ab}\frac{1}{t}dt=\int_1^a \frac{1}{t}dt+\int_{a}^{ab}\frac{1}{t}dt
+        $$
+
+        Para la segunda integral usamos el cambio de variable \(u=at\), \(du=adt\) para 
+        obtener 
+        $$
+        \int_a^{ab}\frac{1}{t}dt=\int_1^b \frac{1}{u/a}\frac{1}{a}du=\int_1^b \frac{1}{u}du=\ln(b) 
+        $$
+        Por lo tanto podemos  concluir $\ln(ab)=\ln(a)+\ln(b)$.
+
+    </p> 
+</ol>
 </div>
 
 <div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Este ejercicio  relaciona radianes con area.
-  </p>
-
+    <h2 class="number-title"> Ejercicio</h2> 
+    Para $a,b > 0$ y $p/q >0$ racional con $p,q\in \mathbb{N}$, demuestra:
 <ol>
     <li>
-        Divide el criculo de radio $R$ en $n$ partes iguales. Demuestra que el área de cada parte es
-        $$
-        A=\frac{a}{2}R^2
-        $$
-        donde $a$ es la medida del ángulo, en radianes,  de cada parte. 
-      </li> 
-
+        $\ln(a/b)=\ln(a)-\ln(b)$. 
+        <p>
+            Sugerencia: usa la ecuación funcional del logaritmo, \eqref{Eqn:EcuFuncionalLog}.    
+        </p>
+    </li> 
+    
     <li>
-      Considera un segmento circular, con ángulo $a$, medido en radianes y supon que $a=\frac{p}{q}2\pi$, 
-      donde $p$ y $q$ son enteros positivos con $p/q < 1$.  Demuestra que el área del segmento es
-      $$
-      A=\frac{a}{2}R^2
-      $$
-      
-      <p>
-        Sugerencia: denota por $A$ a el area del segmento y por $\tilde{A}$ el area de un segmento
-        circular con angulo  $\frac{2pi}{q}$. Nota que  $A=p\tilde{A}$ y usa el inciso anterior.
-      </p>
-  </li> 
-
- <li>
-    Usando la densidad de los racionales  y la continuidad de la función area se puede argumentar 
-    que el area de un segmento circular, con ángulo $a$ (en radianes) y radio $R$ es
-    $$
-    \frac{a}{2}R^2
-    $$
-  </li> 
+        $\ln(a^{p/q})=\frac{p}{q} \ln(a)$. 
+        <p>
+            Sugerencia: comienza con $p=n \in \mathbb{N}$ y $q=1$; para el caso general
+            considera $q\ln(a^{p/q})=\ln(a^p)$.
+        </p>
+    </li> 
 </ol>
+<button class="respButton hvr-grow "> Demostración  </button>
+     <div class="resp-box flexbox">
+<p>
+    Demostración inciso 1.
+</p>
+<p>
+    La ecuación \(\ln(a/b)=\ln(a)-\ln(b)\) es equivalente a 
+    \(\ln(a/b)+\ln(b)=\ln(a)\). Pero usando la ecuación funcional del logaritmo tenemos 
+    \[
+    \ln(a/b)+\ln(b)=\ln((a/b)b)=\ln(a)
+    \]
+    y terminamos.
+</p>
+<p>
+    Demostración inciso 2.
+</p>
+<p>
+    Caso 1: \(q=1\).
+</p>
+<p>
+     En este caso debemos de probar 
+    \[
+    \ln(a^p)=p\ln(a)
+    \]
+    el cual se prueba mediante inducción sobre \(p\). 
+</p>
+<p>
+    El caso \(p=1\) es claro. Suponemos \(\ln(a^{p})=p\ln(a)\). Debemos de probar 
+    \(\ln(a^{p+1})=(p+1)\ln(a)\), pero por la ecuación funcional del logaritmo 
+    y usando la hipótesis de inducción: 
+    \[
+    \ln(a^{p+1})=\ln(a^p a)= \ln(a^p)+\ln(a)= p\ln(a)+\ln(a)=(p+1)\ln(a).
+    \]
+</p>
+<p>
+    Caso 2: \(q \in \mathbb{N}\) general.
+</p>
+<p>
+     En este caso la identidad 
+    \(\ln(a^{p/q})=\frac{p}{q}\ln(a)\) es equivalente a 
+    \(q\ln(a^{p/q})=p\ln(a)\). Pero por el caso anterior 
+    \begin{eqnarray*} 
+    q\ln(a^{p/q})&=&\ln((a^{p/q})^q)=\ln(a^p) \\
+    p\ln(a)&=&\ln(a^p)
+    \end{eqnarray*}
+    con lo cual terminamos.
+</p>
+</div>
 </div>
 
 
-
-  
-
-<div class="teorema-box">
-  <h2 class="number-title"> Ejercicio</h2> 
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:DeepDefinicionLog"> Ejercicio</h2> 
     <p>
-      Sea $f:[a,b]\to \mathbb{R}$ una función no negativa, con $b-a< 2\pi$ y supongamos
-      que $f^2$ es integrable. Sea $D$ la región descrita en coordenadas polares por $r(\theta)\leq f(\theta)$.
-  
-      Entonces el área de $D$ esta dada por
-      $$
-      \frac{1}{2}\int_a^b f^2(\theta)d\theta.
-      $$ 
-  
+        Vamos a ver con más detalle la ecuación \eqref{Eqn:EcuFuncionalLog}, llamada la 
+        ecuación funcional del logaritmo. Es decir 
+        vamos a estudiar funciones \(f\) que satisfacen  la ecuación 
+        \begin{eqnarray}\label{Eqn:EcuFuncionalLogGeneral}
+        f(ab)=f(a)+f(b)
+        \end{eqnarray}
+        para todos \(a,b\) en el dominio de la función \(f\).
+        
+    </p>
+    <p>
+        Nota: para que \eqref{Eqn:EcuFuncionalLogGeneral} tenga sentido el 
+        dominio de \(f\) debe de satisfacer la siguiente propiedad: si \(a\) y \(b\)
+        están en el dominio de \(f\) entonces \(ab\) también. Este hecho lo vamos a usar.
     </p>
 
-  <p>
-    Este ejercicio demuestra el siguiente teorema.
-  </p>
-
 <ol>
-
     <li>
-        Fijemos $\varepsilon >0$. Demuestra que existen funciones escalonadas, $\tilde{s}$ y $\tilde{t}$ tal que:
-        $$
-        \tilde{s} \leq f^2 \leq \tilde{t}
-        $$
-        y
-        $$
-        \int_a^b (\tilde{s}-\tilde{t})<  \varepsilon
-        $$
-    </li> 
-
-
-    <li>
-        Define $s:=\sqrt{\tilde{s}}$ y $t:=\sqrt{\tilde{t}}$. Demuestra que:
-
-        $$
-        \frac{1}{2}\int_a^b s^2(\theta)d\theta
-        $$
-        representa al area de una región formada por segmentos circulares, contenida en $D$ y 
-        $$
-        \frac{1}{2}\int_a^b t^2(\theta)d\theta
-        $$ 
-        representa el área de una región formada por segmentos circulares, que contiene a $D$.
+        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLogGeneral}, entonces 
+        para toda constante \(c\), $cf$ también es solución de \eqref{Eqn:EcuFuncionalLogGeneral}.
     </li> 
 
     <li>
-        Demuestra que:
-        $$
-        \frac{1}{2}\int_a^b s^2 \leq  \textrm{Area}(D) \leq \frac{1}{2}\int_a^b t^2
-        $$
-        
-        y
-        
-        $$
-        \frac{1}{2}\int_a^b\tilde{s}\leq  \frac{1}{2} \int_a^b f^2 \leq \frac{1}{2}\int_a^b \tilde{t}
-        $$
-      </li> 
+        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLogGeneral} y \(1\)  está en el 
+        dominio de \(f\) entonces  $f(1)=0$.
+    </li> 
 
     <li>
-        De los incisos anteriores concluye que:
+        Si $f$ es solución de \eqref{Eqn:EcuFuncionalLogGeneral} y $0$ esta en el dominio 
+        de $f$ entonces $f(x)=0$ para toda $x$.
+    </li> 
 
+    <li>
+        Si $f$ es una solución de \eqref{Eqn:EcuFuncionalLogGeneral} y  
+        $\mathbb{R}\setminus\{0\}$ es el dominio de $f$, entonces $f$ es par.
+        <p>
+            Nota: como consecuencia nos podemos restringir  a soluciones  
+            de \eqref{Eqn:EcuFuncionalLog} con dominio $(0,\infty)$.
+        </p>
+    
+    </li> 
+
+    <li>
+        Si $f$ es diferenciable en todo $(0,\infty)$, entonces
         $$
-        \left| \int_a^b f^2 - \textrm{Area}(D)   \right| <\frac{\varepsilon}{2}
+        f'(x)=\frac{f'(1)}{x}
         $$
-        Como $\varepsilon >0$ es arbitraria, acabamos.
+        <p>
+            Sugerencia: considera la ecuación funcional $f(xa)=f(x)+f(a)$ y deriva con respecto de $x$.
+        </p>
+         
+    </li> 
+
+    <li>
+        Si $f$ es solución  \eqref{Eqn:EcuFuncionalLog}  y es diferenciable en $(0,\infty)$ entonces
+        $$
+        f(x)=f'(1)\ln(x)
+        $$
+
     </li> 
 </ol>
+    <button class="respButton hvr-grow "> Demostración  </button>
+     <div class="resp-box flexbox">
+
+    <p>
+        Demostración inciso 1.
+    </p>
+    <p>
+        Si \(f\) satisface 
+        \[
+        f(ab)= f(a)+f(b)
+        \]
+        multiplicando la ecuación anterior por \(c\) llegamos a 
+        \[
+        cf(ab)=cf(a)+cf(b)
+        \]
+        por lo tanto \(cf\) también satisface \eqref{Eqn:EcuFuncionalLog}.
+    </p>
+    <p>
+        Demostración inciso 2.
+    </p>
+    <p>
+        Si 
+        \[
+        f(ab)=f(a)+f(b)
+        \]
+        para todo \(a,b>0\) evaluando  \(a=b=1\) llegamos 
+        \[
+        f(1)=f(1)+f(1) \Rightarrow f(1)=0.
+        \]
+    </p>
+    <p>
+        Demostración inciso 3.
+    </p>
+    <p>
+        Si \(0\) está en el domino de \(f\) tomando \(a=0\) en  \eqref{Eqn:EcuFuncionalLogGeneral} 
+        \[
+        f(0)=f(0b)=f(0)+f(b)
+        \]
+        por lo tanto \(f(b)=0\) para toda \(b\).
+    </p>
+    <p>
+        Demostración inciso 4.
+    </p>
+    <p>
+        Suponemos que el dominio de \(f\) es \(\mathbb{R}\setminus \{0\}\). Debemos de 
+        probar que \(f(-x)=f(x)\), para todo \(x>0\). 
+        
+    </p>
+    <p>
+        Primero probamos que \(f(-1)=0\). Para esto usando \(f(1)=0\) y \eqref{Eqn:EcuFuncionalLogGeneral} 
+        llegamos a 
+        \[
+        0=f(1)=f((-1)(-1))=f(-1)+f(-1)
+        \]
+        por lo tanto \(f(-1)=0\).
+    </p>
+    <p>
+        Para \(x>0\) usando \eqref{Eqn:EcuFuncionalLogGeneral} tomando \(x=a, b=-1\) llegamos a 
+        \[
+            f(-x)=f((-1)(x))=f(-1)+f(x)= f(x)
+        \]
+     
+    </p>
+    <p>
+        Demostración inciso 5.
+    </p>
+    <p>
+        Para \(a>0\) fija y arbitraria definimos \(h(x)=f(ax)\). Derivando obtenemos 
+        \[
+        g'(x)=f'(ax)a
+        \]
+        pero usando que \(f\) es solución de \eqref{Eqn:EcuFuncionalLogGeneral}  también 
+        tenemos que \(g(x)=f(a)+f(x)\) por lo que 
+        \[
+        g'(x)=f'(x)
+        \]
+        Igualando las dos expresiones para \(g'\) obtenemos 
+        \(f'(ax)a=f'(x)\). Al ser \(x\) arbitraria tomando \(x=1\) llegamos a 
+        \(f'(a)a=f'(1)\) y despejando \(f'(a)\) llegamos a 
+        \[
+        f'(a)=\frac{f'(1)}{a}
+        \]
+        para cualquier \(a>0\).
+    </p>
+    <p>
+        Demostración inciso 6.
+    </p>
+    <p>
+        Definos \(F(x)=f'(1)\ln(x)-f(x)\). Derivando directamente y usando el inciso 
+        anterior llegamos a 
+        \(F'(1)=\frac{f'(1)}{x}-\frac{f'(1)}{x}=0\). Por lo tanto \(F(x)\) es constante 
+        pero como \(F(1)=f'(1)\ln(1)-f(1)=0\) debemos tener que \(F\) es la función cero 
+        por lo que \(f(x)=f'(1)\ln(x)\).
+    </p>
+</div>
 </div>
 
 
-<div class="ejercicio-box"><h2 class="number-title"> Ejercicio</h2> En cada una de las siguientes funciones, haz un bosquejo (con ayudad de una computadora o celular) y calcula el area dada en coordenadas polares.
-    <ol>
-        <li>La espiral de Arquímides: $r(\theta)=\theta$, $0\leq \theta \leq 2\pi$.</li> 
-        <li>Dos circulos tangentes en el eje $y$: $r(\theta)=2|\cos(\theta)|$, $0\leq \theta \leq 2\pi$.</li> 
-        <li>Rosa de cuatro hojas: $r(\theta)=|\sen(2\theta)|$, $0\leq \theta \leq 2\pi$.</li> 
-        <li>Cardioide: $r(\theta)=1+\cos(\theta)$, $0\leq \theta \leq 2\pi$.</li> 
-    
-    </ol>
+<div class="nota-box">
+  <h2 class="number-title"> Nota </h2>  
+    <p>
+        Tomando en cuenta 	el <a href="#Ejer:DeepDefinicionLog">Ejercicio 13.7</a> inciso (c), 
+        el dominio más grande que uno puede considerar para extender la ecuación funcional 
+        del logaritmo es $\mathbb{R}\setminus\{0\}$ y por el inciso (d)  dicha extensión 
+        debe de ser par, por lo tanto es natural definir,  para $t\ne 0$
+    </p>
+    <p>
+        $$
+        \ln(t)=\int_1^{|t|}\frac{dx}{x}
+        $$
+        También se sule denotar $\log(t)$.	
+    </p>
+</div>
 
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demustra que $\frac{d \log(t)}{dt}=\frac{1}{t}$, para todo $t\neq 0$. 
+    </p>
+    <p>
+        En términos de integrales indefinidas lo anterior se puede resumir como
+        $$
+        \int \frac{dt}{t}=\log(t)+C
+        $$
+    </p>
+
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Sea $f:(0,\infty) \to \mathbb{R}$ una función continua,  con la propiedad de que
+        $$
+        b\int_{1}^{xy}f(t)dt=a y\int_1^xf(t)dt+ b x \int_{1}^y f(t)dt
+        $$
+        para todas $x,y>0$, donde $a,b>0$ son constantes. Si $f(1)=2$, calcula $f(x)$ para toda $x$.
+        
+    </p>
+    <p>
+        Sugerencia: deriva y usa el teorema fundamental.
+    </p>
 </div>
 
 
 
 
 <div class="definicion-box">
-  <h2 class="number-title"> Definición </h2>
-  <p>
-    Para funciones continuas, $f,g:[a,b]\to \mathbb{R}$, con $g\leq f$, el area entre las curvas se define como:
-    $$
-    \int_a^b f(x)-g(x)dx
-    $$
-  </p>
-  </div>
-  
-  <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    Encuentra el area  de la región acotada entre las curvas $y=x^2$ y $y=\frac{x}{4}$.
-  </div>
-  
-  <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    Encuentra el area de la región entre las gráficas de $f(x)=x$ y $g(x)=\frac{x^3}{4}$ en $[0,2]$
-  </div>
-  
-  <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    Encuentra $b$, de tal forma que el área de la región acotada entre las curvas $y=x^2$ y $y=4$, 
-    queda partida a la mitad
-    por la recta $y=b$.
-  </div>
-
-  
-  
-  
-  
-  <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    Encuentra el area máxima debajo de la curva $y=4x-x^3$, desde $x=a$ hasta $x=a+1$, 
-    para toda $0 < a$.
-  </div>
-  
-  
-  <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    Encuentra $c$, de tal forma que el área  de la región acotada entre las curvas 
-    $y=x^2-c^2$ y $y=c^2-x^2$ es 576.
-  </div>
-  
-
-
-  <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      A veces, para calcular el area entre curvas, es úitl hace un cambio de perspectiva e integrar con respecto 
-      a $y$, en ves de integrar con respecto a $x$.  
-    </p>
-  <ol>
-      <li>Grafica la recta  $y=x-3$ y la parábola $y^2=4x+8$.</li> 
-      <li> Encuentra los puntos de intersección de $y=x-3$ y $y^2=4x+8$.</li> 
-      <li>Integra con respecto a $y$ y encuentra el area de la región acotada  
-        entre la recta $y=x-3$ y la parábola $y^2=4x+8$.</li> 
-  </ol>
-  </div>
-
-
-  <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Bosqueja las regiones encerradas por las curvas dadas. Después encuentra el area encerrada por las curvas. 
-      Decide si integrar con respecto a $x$ o $y$.
-    </p>
-  <ol>
-      <li>$y=x+1, y=16-x^2$	;</li> 
-      <li>$y=\sen(x), y=x, x=0, x=\pi/2$;</li> 
-      <li>$y=(x-a)^2, y=x$, donde $a>0$ es una constante fija;</li> 
-      <li>$x=2-y^2, x=y^2-2$;</li> 
-      <li>$x+y^2=12, x=2y$.</li> 
-  </ol>
-  </div>
-
-  <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    <p>
-      Bosqueja la región del plano delimitada por la desigualdades $x-2y^2 \geq 0$ y  $1-x-|y| \geq 0$. 
-      Además  encuentra su area.
-    </p>
-  </div>
-
-    <div class="info-box">
-      <h2 class="number-title"> Nota</h2>
-      <h3> El Indice de Gini </h3>
-      <p>
-        El indice de GINI es una medida de la distribución del ingreso total entre los habitantes de un país. 
-        Fue propuesto
-        por el economista italiano Corrado Gini (en 1912).
-        
-      </p>
-      <p>
-        Primero, se ranquean los hogares de acuerdo a su ingreso y después se calcula la cantidad de hogares cuyo ingreso es a lo más 
-        un porcentaje del ingreso total del país. Con estos datos se genera la curva de Lorenz, que es una curva definida 
-        en el intervalo $[0,1]$, que es concava hacia arriba y donde un punto $(a/100,b/100)$ esta en la curva si el $a \%$ porciento de los hogares más pobres recibe el $b \%$ del ingreso total. Note que los puntos de la curva de Lorenz estan por abajo de la recta identidad y la curva siempre pasa por $(0,0)$ y $(1,1)$.
-        
-      </p>
-      
-
-      <div class="flexbox">
-        <img src="./Images/S11-Image1-GINI-MX.jpeg" alt="Tanque" width="50%" height="auto">
-      </div>
-      
-
-      
-      <p>
-        De la gráfica se tiene, por ejemplo, que en 1998 y 2004, el 60$\%$ de los hogares más pobres recibieron
-        poco más del 20$\%$ del ingreso total.
-        
-      </p>
-      
-      <p>
-        Si por $L(x)$ denotamos la coordenada $y$ de la curva de Lorenz, el índice de GINI se define como
-        $$
-        G=2\int_0^1 x-L(x)dx
-        $$
-      </p>
-      
-      
-      <p>
-        Nota que, salvo el factor 2, el índice de Gini es una area entre curvas, 
-        concretamente entre la curva de Lorenz y la recta identidad.
-      </p>
-      <p>
-        El índice de Gini de México: 
-      </p>
-    
-      <p class="flexbox">
-        <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=OUw7&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
-      </p>
-      
-    </div>
-  
-  
-  
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio</h2> 
-      <ol>
-          <li>Demuetra que $ 0\leq G \leq 1$.</li> 
-          <li>¿ Cómo se ve la curva de Lorenz en una dictadura perfecta? ¿ Cúal es el índice de Gini en este caso?</li> 
-          <li>¿ Cómo se ve la cuvra de Lorenz en una sociedad donde el ingreso se distribuye de manera absolutamente homogenea ? ¿ Cuál es el índice de Gini en este caso ?</li> 
-      </ol>
-    </div>
-
-  
-  <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
-  <p>
-    Parte de la importancia del  índice de Gini es que introduce la idea de medir la distancia entre dos funciones, ya no entre puntos del espacio.
-    Dadas dos funciones integrables $f,g:[a,b] \to \mathbb{R}$, el número
-    $$
-    d_1(f,g)=\int_a^b|f(x)-g(x)|dx
-    $$
-    se puede pensar como una distancia entre las funciones.
-  
-  </p>  
-</div>
-  
-  <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio</h2> 
-    Calcula:
-    $$
-    \int_0^{\pi/2}|\cos(x)-\sen(x)|dx
-    $$
-  </div>
+    <h3> Funciones typo exponencial </h3>
+    <p>
+        Fijemos una base $b > 0 $. Pra cualquier número real $t$ se define la potencia $b^t$ como
+        $$
+        b^t := e^{t \ln(b) }
+        $$
+    </p>
 
-  <div class="ejercicio-box">
+</div>
+
+<div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-      Demuestra las siguientes propiedades. Se asume que $f,g,h :[a,b] \to \mathbb{R}$ son funciones continuas.
+        Fija una base $b>0$ y considera la función $f(x)=b^x$, $x>0$. Demuestra que si 
+        $0< b < 1 $ entonces $f$ es estrictamente decreciente, 
+        si  $b=1$ entonces $f$ es la función constante uno y si 
+        $b>1$ entonces $f$ es estrictamente creciente.
     </p>
-  
-  <ol>
-      <li>$d_1(f,g) \leq d_1(f,h)+d_1(h,g)$.</li> 
-      <li>$d(f,g)=0$ si y sólo si $f(x)=g(x)$ para todo $x\in [a,b]$. Sugerencia: usa el ejercicio \ref{Ejer:IntegralCeroDePositivas}.</li> 
-  </ol>
-  </div>
+
+</div>
 
 
-  <div class="ejercicio-box">
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio se verifica que 
+        la definición de \(b^t\) satisface las leyes de los exponentes y que cuando 
+        \(t\in \mathbb{Q}\) \(b^t\) se interpreta de manera usual. 
+        En lo incisos que siguen, $b>0$ es fija y arbitraria.
+    </p>
+    
+
+<ol> 
+
+    <li>
+        Demuestra que si $t=n \in \mathbb{N}$ entonces $e^{n\ln(b)}=b^n$, 
+        donde $b^n$ se interpreta como $b$ multiplicado con sigo mismo $n$-veces.
+    </li> 
+    <li>
+        Demuestra que si $t=p \in \mathbb{Z}$, entonces $e^{p\ln(b)}=b^p$, donde $b^p$ se interpreta
+        como en el inciso anterior si $p > 0$ y como $(\frac{1}{b})^{|p|}$ si $p < 0$.
+    </li> 
+    <li>
+        Demuestra que si $t=p/q \in \mathbb{Q}$  
+        ($q>0$) entonces $e^{(p/q)\ln(b)}=b^{p/q}$, 
+        donde $b^{p/q}$ se interpreta como raíz $q$-ésima de 
+        $b^p$ y $b^p$ se interpreta como en el inciso anterior.
+    </li> 
+
+    <li>
+        Usando $e^xe^y=e^{x+y}$ demuestra que $b^xb^y=b^{x+y}$, para cualquier base $b$.
+    </li> 
+ 
+    <li>
+        Usando las propiedades  del logaritmo y la exponencial, 
+        junto con la definición de $a^t$,  prueba  que la exponencial y el logaritmo son inversas.
+    </li> 
+ 
+</ol>
+</div>
+
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio define logaritmos con otras bases distintas a $e$.
+    </p>
+    <p>
+        Define para $b>0$  se define  el logaritmo de 
+        \(x>0\), base \(b\), como 
+        $\log_b(x)=\frac{\ln(x)}{\ln(b)}$. 
+    </p>
+    <p>
+        La definición algebráica del logaritmo dice que un número 
+        \(y\) es el logaritmo de \(x\) base \(b\) si \(b^y=x\). Denotamos 
+        \(y=\log_b(x)\). Por ejemplo
+        $$
+        \log_{10}(0.1)=-1, \log_{10}(100)=2.
+        $$
+    </p>
+    <p>
+        Con la definición de \(\log_b(x)\) Demuestra que $b^{\log_b(x)}=x$. Es decir,
+        \(\log_b(x)\) es el logaritmo base \(b\) de \(x\), en el sentido algebráico.
+    </p>
+
+
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        En cada caso, encuentra un $x$ que satisfaga la ecuación.
+    </p>
+    
+<ol>
+    <li>$\ln(1+x)=\ln(1-x)$</li> 
+    <li>$\ln(1+x)=1+\ln(1-x)$</li> 
+    <li>$2\ln(x)=x\ln(2)$, $x\not=2$.</li> 
+    <li>$\ln(\sqrt{x}+\sqrt{1+x})=1$</li> 
+
+</ol>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Define  $f(x)=\ln(x)/x$, para $x>0$. Describe los intervalos donde $f$ es creciente, 
+        decreciente, concava hacia arriba y concava hacia abajo. Borsqueja la grafica de $f$.
+    </p>
+
+    </div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Define $f(x)=\ln[(1+x)/(1-x)]$, para $x>0$. Si $a,b$ son números dados, 
+        con $ab\not=-1$. Encuentra todas las $x$ tales que $f(x)=f(a)+f(b)$.
+    </p>
+</div>
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:LimiteLnxInfinito"> Ejercicio</h2> 
+    <p>
+        Este ejercicio demuestra el siguiente límite.
+        \begin{eqnarray*}
+        \lim_{x\to \infty}\ln(x)&=&\infty
+        \end{eqnarray*}        
+    </p>
+<ol>
+    <li>Sea $M>0$, fija y arbitraria. Demuestra que existe $n$ tal que $n\ln(2)>M$.</li> 
+    <li>Usando el inciso anterior y la propiedad de que $L$ es estrictamente creciente,
+        demuestra que $\ln(x)>M$ para todo $x>2^n$.</li> 
+</ol>
+
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra:
+
+        \begin{eqnarray*} 
+        \lim_{t \to 0^+} \ln(t)&=&-\infty
+        \end{eqnarray*}
+        
+    </p>
+    <p>
+        Sugerencia: usa $\ln(1/t)=-\ln(t)$, para $t>0$ y el cambio de variable $x=1/t$.
+    </p>
+
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:RectaSoporteLogEnx=1"> Ejercicio</h2>  
+<ol>
+
+    <li>
+        Para $x>0$, demuestra:
+        $$
+        \ln(x) \leq x-1
+        $$
+
+        La igualdad se da si y sólo si $x=1$.
+
+        <p>
+            Sugerimos  dos posibles formas de probarlo.
+            <p>
+                Sugerencia 1: considera la función $f(x)=x-1-\ln(x)$, $x>0$; prueba  
+                que $f$ tiene un mínimo absoluto en $x=1$.
+            </p>
+            <p>
+                Sugerencia 2: nota que $y=x-1$ es la recta tangente a la gráfica de  
+                $y=\ln(x)$ en $x=1$ y usa la convexidad de $L$ 
+                (<a href="#Ejer:RectaSoporteConcavasArriba">Ejercicio</a>).
+            </p>
+            
+            
+        </p>
+    </li> 
+
+    <li>
+        Para $t>0$ demuestra:
+        $$
+        1-\frac{1}{t} \leq  \ln(t) 
+        $$
+        La igualdad se da si y sólo si $t=1$.
+        <p>
+            Sugerencia : usa la propiedad $\ln(1/t)=-\ln(t)$, $t>0$, 
+            tomando el cambio de variable $x=1/t$ y aplicando el inciso anterior.
+        </p>
+    
+    </li> 
+
+</ol>
+
+</div>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra:
+        $$
+        \lim_{x\to 0 }\frac{\ln(1+x)}{x}=1
+        $$
+    </p>
+
+    <p>
+        Sugerencia: usa el <a href="#Ejer:RectaSoporteLogEnx=1">Ejercicio 13.20</a>  
+        y la regla del sandwich para límites.
+    </p>
+
+
+</div>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:ComparasionLogFuncPotenciaEnInfinito"> Ejercicio</h2> 
+    <p>
+        Este ejercicio compara las razones de crecimiento de la función logaritmo las 
+        funciones potencia en el infinito.
+    </p>
+    
+<ol>
+    <li>
+        Demuestra que, para todo $t \geq 1$ 
+        $$
+        \frac{\ln(t)}{t^2} \leq \frac{1}{t}
+        $$
+        <p>
+            Sugerencia: aplica el  el T.V.M a la función logaritmo en el  intervalo $[t,t^2]$.
+        </p>
+    </li> 
+    <li>
+        Demuestra:
+        $$
+        \lim_{s\to \infty} \frac{\ln(s)}{s}=0.
+        $$
+        <p>
+            Sugerencia: usa el inciso anterior, el cambio de variable $t=\sqrt{s}$ 
+            y las propiedades del logaritmo.
+        </p>
+    </li>
+ </ol>
+ </div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra:
+        $$
+        \lim_{s \to \infty}\frac{\ln(s)}{s^n}=0
+        $$
+        para todo $n \in \mathbb{N}$.
+        
+    </p>
+    <p>
+        Sugerencia: usa el ejercicio  anterior.
+    </p>
+</div>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:CrecimientoLogPoli"> Ejercicio</h2>  
+    <p>
+        Este ejercicio compara la función logaritmo con las funciones potencia cerca del cero.
+    </p>
+
+<ol>
+
+    <li>
+        Demuestra: $\lim_{x\to  0^+} x\ln(x)=0$.
+        <p>
+            Sugerimos dos posibles demostraciones.
+
+            <p>
+                Sugerencia 1: demuestra que en el intervalo $(0, e^{-1})$, 
+                la función $f(x)=x\ln(x)$ es estrictamente decreciente; después prueba 
+                que para valores $x=2^{-n}$,  se tiene que $x\ln(x)=\ln(2)\frac{-n}{2^n}$ y concluye  
+                usando el \(\lim_{n\to \infty}\frac{n}{2^n}=0\).
+                
+            </p>
+            <p>
+                Sugerencia 2: usa el <a href="#Ejer:ComparasionLogFuncPotenciaEnInfinito">Ejercicio 13.22</a> 
+                y el cambio de variable $x=1/s$.
+            </p>
+            
+            
+        </p>
+    </li> 
+
+    <li>
+        Demuestra que para todo natural $n \geq 1$,
+        $$
+        \lim_{x\to  0^+} x^n\ln(x)=0.
+        $$
+        <p>
+            Sugerencia: usa el inciso anterior.
+        </p>
+    
+    </li> 
+
+</ol>
+</div>
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Demuestra:
+
+        $$
+        \lim_{x\to 0^+}x^x=1.
+        $$
+        
+    </p>
+    <p>
+        Sugerencia: recuerda que, por definición,  $x^x=e^{x\ln(x)}$, luego usa el 
+        <a href="#Ejer:CrecimientoLogPoli">Ejercicio 13.24</a>.
+    </p>
+</div>
+
+
+
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:Integralfprimasobref"> Ejercicio</h2>
+    <p>
+        Si $f:[a,b]\to \mathbb{R}$ es continua en el cerrado, diferenciable en el abierto con   
+        $f(x)\not=0$, para todo $x$ en $[a,b]$, entonces:  
+    </p>
+    <p>
+        $$
+        \int \frac{f'(x)}{f(x)} dx= \ln(|f(x)|)+C
+        $$
+        
+    </p>
+
+</div>
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Calcula: 
+    </p>
+
+<ol>
+    <li>
+        $\int \tan(x)dx$.
+ 
+        <p>
+            Sugerencia: escribir  $\tan(x)dx=- \frac{-\sen(x)}{\cos(x)}$.
+        </p>
+    </li> 
+
+    <li>
+        $\int_0^{\pi/4}\tan(x)dx$. 
+    </li>  
+
+</ol>
+
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Este ejercicio calcula la integral  $\int \ln(x)dx$.
+    </p>
+
+<ol>
+    <li>Demuestra: $(x\ln(x))'= 1 + \ln(x)$.</li> 
+    <li>Usando el inciso anterior  encuentra  $\int \ln(x)dx$.</li> 
+</ol>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio</h2> 
+    <p>
+        Calcula las siguientes integrales:
+    </p>
+
+<ol>
+    <li>$\int \frac{1}{5+7x}dx$.</li> 
+    <li>$\int \int_0^{e^4-2}\frac{1}{2+x}dx$.</li> 
+    <li>$\int \cot(x)dx$. 
+        <p>
+            Sugerencia: escribir: 
+            $\cos(x)=\frac{\cos(x)}{\sen(x)}$ y usa el <a href="#Ejer:Integralfprimasobref">Ejercicio 13.27</a> .
+        </p>
+    </li> 
+    <li>$\int \frac{1}{x\ln(x)} dx$.</li> 
+    <li>para un natural $n>1$, $\int \frac{\ln(|x|)}{x(1+\ln(|x|))^{1/n} }dx$.</li> 
+</ol>
+
+</div>
+
+
+<div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2>  
     <p>
-      Considera la familia de funciones 
-      $f_\alpha:[0,1] \to \mathbb{R}$ dadas por
-      $$
-      f_\alpha(x)=1+\alpha x
-      $$
-      donde $\alpha$ es un parámetro en $[0,1]$.
-      
-      Sea $f:[0,1]\to \mathbb{R}$ dada por $f(x)=1+x^2$.
-          
+        Calcula $\int \frac{x}{1+x^2}dx$. 
     </p>
     <p>
-      Encuentra $\alpha$ tal que 
-      $$d_1(f,f_\alpha)=\int_0^1 |f_\alpha(x) -f(x)|dx  $$ sea mínima.
+        Sugerencia: $u=1+x^2$.
     </p>
-  </div>
+</div>
 
-  <div class="ejercicio-box">
+
+<div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-      Las noción de distancia $d_1$, entre funciones, es muy distinta a la distancia ecuclideana. 
-      Por ejemplo, si uno considera la esfera unitaria
-      (los puntos cuya distancia al cero es igual a uno), ésta tiene la propiedad de que para 
-      cualesquiera dos puntos distintos, el punto medio cae afuera de la esfera unitaria. Este ejercicio 
-      muestra que esto no pasa para la distancia $d_1$.
-      
+        Calcula: $\int \frac{dx}{1+\sqrt{1+x}}$.
     </p>
-      <p>
-        Define 
+    <p>
+        Sugerencia: $u=1+\sqrt{x+1}$.
+    </p>
+</div>
+
+
+<div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:DifLogaritmica"> Ejercicio</h2> 
+    <h3> Diferenciación logaritmica</h3>
+    <p>
+        El logaritmo puede ser útil para calcular derivadas para funciones complicadas, 
+        con muchos factores o fracciones complicadas.
+    </p>
+    
+<ol>
+    <li>
+        Sea $f$ una función continua, diferenciable,  tal que nunca se anula. Demuestra que
         $$
-        S=\{ f: [a,b ] \to \mathbb{R}: \textrm{$f$ es conitnua y $d_1(0,f)=1$} \}
+        f'(x)=g'(x)f(x)
         $$
-        
-        Encuentra funciones $f,g \in S$ tal que $\frac{f+g}{2} \in S$.
-        
-      </p>
-      <p>
-        Sugerencia: considera funciones lineales a trozos.
-      </p>
-  </div>
+        donde $g(x)=\ln(|f(x)|)$.
+    </li> 
+    <li>
+        Usando el inciso anterior calcula  $f'(x)$ para las siguientes funciones:
+    </li> 
+        <ol>
+            <li>$f(x)=x^3\sen(x)(x^2+x+1)^{-2}$.</li> 
+            <li>$f(x)=\frac{(1+x)^{3}}{(2+x^2)^{5}(x^3+5)}$.</li> 
+            <li>$f(x)=\frac{\sqrt{1+x^2}(1+x)^2}{\sqrt[4]{1+x^4	}(1+x^3)^5}$.</li> 
+            <li>$f(x)=\frac{\ln(x)(x^2+1)^2}{x(1-x^2)}$.</li> 
+        </ol>
+</ol>
+
 
 </body>
