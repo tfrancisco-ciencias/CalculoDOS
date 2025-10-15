@@ -567,20 +567,20 @@
 	<div class="ejercicio-box">
 		<h2 class="number-title"> Ejercicio</h2> 
 		<p>
-			La pirámide del faraon Kufh fue  construida en un periodo de 20 años, utulizando 
+			La pirámide del faraon Khufu fue  construida en un periodo de 20 años, utulizando 
 			piedra caliza, tiene  una altura de $h=146 m$  y  una base cuadrada de $L=230 m$.  
 			La densidad de la piedra  caliza  es $\rho=2560 kg/m^3$.   Este ejercicio estima el 
 			trabajo necesario para construirla.		
 		</p>
 		<p>
-			Vamos a simplificar el problema. Imagina la piramide con el eje central sobre el eje $x$ y 
+			Vamos a simplificar el problema. Imagina la pirámide con el eje central sobre el eje $x$ y 
 			la base en $x=0$. Ahora, vamos a discretizar el problema; divide el intervalo $[0,h]$ en 
 			$n$-invervalos homogeneos (con la partición $P=\{x_i\}_{i=0}^n$) y aproxima el volumen por 
 			la suma de los volumenes de rectángulos  $V_i$, con
 			$$
 			V_i=  l^2(x_i^*)\Delta x_i
 			$$
-			donde $l(x^*)$ denota la longitud del lado del cuadrado que se obtiene al  cortar al 
+			donde $l(x^*)$ denota la longitud del lado del cuadrado que se obtiene al  cortar la 
 			pirámide con un plano perpedicular al eje $x$ a la altura $x^*$. 
 		</p>
 	<ol>
@@ -590,7 +590,7 @@
 	
 	<li>
 		Denota por  $W_i$ a el trabajo necesario para subir la $i$-ésima rebanada de piedra caliza. Suponiendo que 
-		$F_i$, la fuerza que se necesita para subir la $i$-ésima rebanada a una altura $x_i$, se tiene 
+		$F_i$, la fuerza que se necesita para subir la $i$-ésima rebanada a una altura $x_i$, es constante, se tiene 
 		que $W_i=F_i x_i$. Usando
 		$F=ma$ y el inciso anterior encuantra una expresión para $W_i$.
 			   
@@ -598,9 +598,10 @@
 	<li>
 		Usando la integrabilidad de las funciones continuas calcula
 		$$
-	   W=\lim_{n\to \infty} W_i
+	   W=\lim_{n\to \infty} \sum_{i=1}^n W_i
 		$$  
-	   mediante una integral.
+	   mediante una integral. \(W\) se puede interpretar como el trabajo total para suber todas las capas 
+     de la pirámide. 
 	</li> 
 	
 	<li>
