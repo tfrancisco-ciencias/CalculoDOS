@@ -98,16 +98,16 @@
         Las fórmulas para la integrales con traslacion, <a href="./S5.html#Ejer:CambioVariableTranslaciones">Corolario 5.3</a> y con reescalamientos, 
             <a href="./S5.html#Ejer:CambioVariableReescalemientos">Corolario 5.9</a>, son casos particulares de una técnica de integración llamada integración por substitución.
 
-        De manera informal, dado el cambio de variable  $u(x)$, $x\in [c,d]$, se escribe $u'(x)dx=du$, se sustituye esto en
-        $\int_a^b g(u(x))u'(x)dx$ y se calcula  $\int_{u(a)}^{u(b)} g(u)du$. El teorema del cambio de variable
+        De manera informal, dado el cambio de variable  \(u(x)\), \(x\in [c,d]\), se escribe \(u'(x)dx=du\), se sustituye esto en
+        \(\int_a^b g(u(x))u'(x)dx\) y se calcula  \(\int_{u(a)}^{u(b)} g(u)du\). El teorema del cambio de variable
         relaciona estas dos integrales como:
         
-        $$
+        \[
         \int_{u(a)}^{u(b)}f(u)du=\int_a^b f(u(x))u'(x)dx.
-        $$
+        \]
         
-        El Teorema de Cambio de Variable es úitl pues escencialemente es puramente algebráico; es decir, dado $u$, encontrar
-        $du$ y substituir para obtener una integral más sencilla a la original.
+        El Teorema de Cambio de Variable es úitl pues escencialemente es puramente algebráico; es decir, dado \(u\), encontrar
+        \(du\) y substituir para obtener una integral más sencilla a la original.
         
     </p>
 
@@ -119,14 +119,14 @@
     <h2 class="number-title" id="Teo:CambioDeVariable"> Teorema </h2>
      <h3> Teorema de cambio de variable</h3>
     <p>
-        Supongamos que $I$ es un intervalo y  que $g: I \to \mathbb{R}$ es 
-        continua en todo punto de $I$. 
-        Sea $u:[a,b]\to \mathbb{R}$ una función, 
-        continua en $[a,b]$, derivable en $(a,b)$ y 
-        con derivada integrable  en $[a,b]$.  Entonces
-        $$
+        Supongamos que \(I\) es un intervalo y  que \(g: I \to \mathbb{R}\) es 
+        continua en todo punto de \(I\). 
+        Sea \(u:[a,b]\to \mathbb{R}\) una función, 
+        continua en \([a,b]\), derivable en \((a,b)\) y 
+        con derivada integrable  en \([a,b]\).  Entonces
+        \[
         \int_{a}^{b} g(u(x))u'(x)dx = \int_{u(a)}^{u(b)}g(t)dt 
-        $$
+        \]
         
     </p>
     
@@ -140,7 +140,7 @@
     
 
     <p>
-        Definimos   $G(v)=\int_{u(a)}^v g(t)dt$, para $v\in I$. Ya que \(g\)
+        Definimos   \(G(v)=\int_{u(a)}^v g(t)dt\), para \(v\in I\). Ya que \(g\)
         es continua en \(I\) por el primer T.F.C. tenemos que 
             \begin{equation}\label{Eqn:Aux1TeoCambioVariable}
             G'(v)=g(v)
@@ -150,19 +150,19 @@
     
     
     <p>
-        Ahora definimos  $F(x):=G(u(x))$, $x\in [a,b]$. Ya que tanto  \(u\)
+        Ahora definimos  \(F(x):=G(u(x))\), \(x\in [a,b]\). Ya que tanto  \(u\)
         como \(G\) son diferenciables y la imagen de \(u\) cae dentro del dominio de 
         \(G\) la regla de la cadena implica que 
-        $$
+        \[
         F'(x)=G'(u(x))u'(x)=g(u(x))u'(x)
-        $$
+        \]
         para todo \(x\in (a,b)\), donde en la segunda identidad usamos 
         \eqref{Eqn:Aux1TeoCambioVariable}. Se sigue que 
         \(F(x)\) es una anti-derivada de \(g(u(x))u'(x) \) en \((a,b)\). Por  el 
         segundo T.F.C. obtenemos 
-        $$
+        \[
         \int_a^b g(u(x))u'(x)dx=F(b)-F(a).
-        $$
+        \]
         
     </p> 
     <p>
@@ -227,9 +227,9 @@
     <h2 class="number-title" id="Ejer:Aplicacion1TeoCV"> Ejercicio </h2> 
     <p>
         Calcular 
-        $$
+        \[
         \int_0^{1/2} x\sqrt{1-x^2}dx
-        $$
+        \]
         
     </p>
     <button class="respButton hvr-grow "> Solución  </button>
@@ -238,7 +238,7 @@
 
 	<p>
         Consideramos la función (la que se llama cambio de variable) 
-        $u=1-x^2$. Notamos que $u$ como función de \(x\)  es diferenciable y con derivada integrable. Ahora 
+        \(u=1-x^2\). Notamos que \(u\) como función de \(x\)  es diferenciable y con derivada integrable. Ahora 
         definimos \(g(t)=\sqrt{t}\). Entonces \(g(u(x))u'(x) = \sqrt{1-x^2}(-2x)\) así que por el 
         <a href="#Teo:CambioDeVariable"> Teorema de cambio de variable</a>
         \[
@@ -282,15 +282,15 @@
     Encontrando un cambio de variable adecuado, calcula las siguientes integrales.
 
 <ol>
-	<li>$\int_0^1 \sqrt[4]{1+5x}dx$.</li> 
-	<li>$\int_0^5 (x+7)\sqrt{x+4}dx$</li> 
-	<li>$\int_0^{1/5} \frac{1}{\sqrt[3]{(5x-2)^4}}dx$.</li> 
-	<li>$\int_1^4 x\sqrt{x-1}dx$.</li> 
-	<li>$\int_0^{16}\frac{x}{(1+2x)^3}dx$.</li> 
-	<li>$\int_0^{\pi } \sec^2(5x)dx$.</li> 
-	<li>$\int_0^{\sqrt{\pi} }x\sen(x^2)dx$.</li> 
-	<li>$\int_1^2 \frac{\cos(x^{-2})}{x^3}dx$.</li> 
-	<li>$\int_0^1 \frac{1}{(1+\sqrt{x})^4}dx$.</li> 
+	<li>\(\int_0^1 \sqrt[4]{1+5x}dx\).</li> 
+	<li>\(\int_0^5 (x+7)\sqrt{x+4}dx\)</li> 
+	<li>\(\int_0^{1/5} \frac{1}{\sqrt[3]{(5x-2)^4}}dx\).</li> 
+	<li>\(\int_1^4 x\sqrt{x-1}dx\).</li> 
+	<li>\(\int_0^{16}\frac{x}{(1+2x)^3}dx\).</li> 
+	<li>\(\int_0^{\pi } \sec^2(5x)dx\).</li> 
+	<li>\(\int_0^{\sqrt{\pi} }x\sen(x^2)dx\).</li> 
+	<li>\(\int_1^2 \frac{\cos(x^{-2})}{x^3}dx\).</li> 
+	<li>\(\int_0^1 \frac{1}{(1+\sqrt{x})^4}dx\).</li> 
 </ol>
 
 <button class="respButton hvr-grow "> Solución inciso 1 </button>
@@ -361,11 +361,11 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Sea $f:(0,\infty) \to \mathbb{R}$ una función continua y $0< a < b$ fijos y arbitrarios. 
+        Sea \(f:(0,\infty) \to \mathbb{R}\) una función continua y \(0< a < b\) fijos y arbitrarios. 
         Demuestra
-        $$
+        \[
         \int_a^b \frac{f(\sqrt{x})}{\sqrt{x}}dx=2 \int_{\sqrt{a}}^{\sqrt{b}}f(u)du.
-        $$
+        \]
     </p>
 </div>
 
@@ -375,7 +375,7 @@
         El Teorema de Cambio de Variable también se usa para integrales indefinidas.
       </p>
       <p>
-        Calcula $\int x^3\cos(x^4)dx$. 
+        Calcula \(\int x^3\cos(x^4)dx\). 
       </p>
       <button class="respButton hvr-grow "> Solución  </button>
      <div class="resp-box flexbox">
@@ -395,8 +395,8 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p> 
-        Calcula $\int \frac{\sen(\sqrt{x})}{\sqrt{x}}dx$ y 
-        $\int_{\pi^2}^{4\pi^2} \frac{\sen(\sqrt{x})}{\sqrt{x}}dx$.  
+        Calcula \(\int \frac{\sen(\sqrt{x})}{\sqrt{x}}dx\) y 
+        \(\int_{\pi^2}^{4\pi^2} \frac{\sen(\sqrt{x})}{\sqrt{x}}dx\).  
     </p>
 </div>
 
@@ -404,17 +404,19 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>     
-        Supon que  $f:[0,\pi]\to \mathbb{R}$ es continua en $[0, \pi]$. 
+        Supon que  \(f:[0,\pi]\to \mathbb{R}\) es continua en \([0, \pi]\). 
     </p>        
 <ol>
-	<li>Usa el cambio de variable $u=\pi-x$ para probar
-		$$
+	<li>Usa el cambio de variable \(u=\pi-x\) para probar
+		\[
 		\int_0^{\pi}xf(\sen(x))dx=\frac{\pi}{2}\int_0^{\pi}f(\sen(x))dx.
-		$$</li> 
+		\]
+    </li> 
 <li>Usa el inciso anterior para evaluar
-	$$
+	\[
 	\int_0^{\pi} \frac{x\sen(x)}{1+\cos^2(x)}dx.
-	$$</li> 
+	\]
+</li> 
 </ol>
 </div>
 
@@ -422,18 +424,18 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Para enteros positivos $p$ y $q$ define:
-        $$
+        Para enteros positivos \(p\) y \(q\) define:
+        \[
         F(x,a)=\int_0^x \frac{t^p}{(t^2+a^2)^q}dt.
-        $$
+        \]
         Demuestra que:
-        $$
+        \[
         F(x,a)=a^{p+1-2q}F(x/a,1).
-        $$
+        \]
     </p>
 
     <p>
-        Sugerencia: tomar el cambio de variable $u=at$.
+        Sugerencia: tomar el cambio de variable \(u=at\).
     </p>
 </div>
 
@@ -447,27 +449,28 @@
 
         <ol>
 
-            <li>$\int \frac{\cos(x)}{\sen^2(x)}dx$.</li> 
+            <li>\(\int \frac{\cos(x)}{\sen^2(x)}dx\).</li> 
 
-            <li>$\int \cos^4(t)\sen(t)dt$.</li> 
+            <li>\(\int \cos^4(t)\sen(t)dt\).</li> 
 
-            <li>$\int \sec^2(t)\tan^3(t)dt$.</li> 
+            <li>\(\int \sec^2(t)\tan^3(t)dt\).</li> 
 
-            <li>$\int \sec^3(t)\tan(t)dt$.</li> 
+            <li>\(\int \sec^3(t)\tan(t)dt\).</li> 
 
-            <li>$\int \frac{\tan(t)}{\cos^2(t)}dt$.</li> 
+            <li>\(\int \frac{\tan(t)}{\cos^2(t)}dt\).</li> 
 
-            <li> $\int\sin(\cos(x))\sin(x) dx$ </li>
+            <li> \(\int\sin(\cos(x))\sin(x) dx\) </li>
 
-            <li> $\int x (1+x^2)^{\frac{1}{2}} dx$</li>
+            <li> \(\int x (1+x^2)^{\frac{1}{2}} dx\)</li>
 
-            <li> $ \int \cos^3(x)\ dx$ </li>
+            <li> \( \int \cos^3(x)\ dx\) </li>
 
-            <li> $\int  (2t+1)(t^2+t+1)^3  dt$ </li>
+            <li> \(\int  (2t+1)(t^2+t+1)^3  dt\) </li>
 
-            <li>  Sean $a \neq 0$, $b \in \mathbb{R}$ y $n\in \mathbb{Z} \setminus \{-1\}$, calcula $\int (ax+b)^n dx$ </li>
+            <li>  Sean \(a \neq 0\), \(b \in \mathbb{R}\) y \(n\in \mathbb{Z} \setminus \{-1\}\), calcula 
+                \(\int (ax+b)^n dx\) </li>
 
-            <li> $\int 2t(1-t^2)^5 \ dt$ </li>
+            <li> \(\int 2t(1-t^2)^5 \ dt\) </li>
 
 
 
@@ -501,23 +504,23 @@
 <ol>
 	
 	<li>
-        Para todo $x\in [0,\pi/2]$ se cumple $\sen(x)=\cos(\pi/2 -x)$. Usando la identidad anterior y un cambio de variable lineal concluye que, para todo natural $m \geq 1$:
-		$$
+        Para todo \(x\in [0,\pi/2]\) se cumple \(\sen(x)=\cos(\pi/2 -x)\). Usando la identidad anterior y un cambio de variable lineal concluye que, para todo natural \(m \geq 1\):
+		\[
 		\int_0^{\pi/2} \sen^m(x)dx=\int_0^{\pi/2}\cos^m(x)dx.
-		$$
+		\]
     </li> 
 
 	<li>
         Demuestra:
-		$$
+		\[
 		\int_0^{\pi/2} \cos^m(x)\sen^m(x)dx=
 		2^{-m}\int_0^{\pi/2}\sen^m(x)dx=
 		2^{-m}\int_0^{\pi/2}\cos^m(x)dx
-		$$
-		para todo entero positivo $m$.
+		\]
+		para todo entero positivo \(m\).
 		
-		Sugerencia: para la primera identidad usa $\sen(2\alpha)=2\sen(\alpha)\cos(\alpha)$ 
-        y después haz  un cambio de variable tomando en cuenta de que $\sen^m(x)$ es una 
+		Sugerencia: para la primera identidad usa \(\sen(2\alpha)=2\sen(\alpha)\cos(\alpha)\)
+        y después haz  un cambio de variable tomando en cuenta de que \(\sen^m(x)\) es una 
         función par.
 	</li> 
 
@@ -610,7 +613,8 @@
     <h2 class="number-title"> Nota </h2>
     <h3> Tabla para substitución trigonométrica</h3>
     <p>
-        Las identidades $1=\sen^2(\theta)+\cos^2(\theta)$ y  $1+\tan^2(\theta)=\sec^2(\theta)$ son útilies en la substitución trigonométrica.
+        Las identidades \(1=\sen^2(\theta)+\cos^2(\theta)\) y  \(1+\tan^2(\theta)=\sec^2(\theta)\) 
+        son útilies en la substitución trigonométrica.
         Además la siguiente tabla es útil.
         
     </p>
@@ -623,22 +627,22 @@
             <th >Diferencial </th> 
         </tr> 
         <tr>
-            <th  >$\sqrt{a^2-x^2}$</th>
-            <th >  $x=a\sen(\theta)$</th>  
-            <th > $-\pi/2 \leq \theta \leq \pi/2$</th> 
-            <th >$dx=a\cos(\theta)d\theta $</th>
+            <th  >\(\sqrt{a^2-x^2}\)</th>
+            <th >  \(x=a\sen(\theta)\)</th>  
+            <th > \(-\pi/2 \leq \theta \leq \pi/2\)</th> 
+            <th >\(dx=a\cos(\theta)d\theta \)</th>
         </tr>
         <tr>
-            <th > $\sqrt{a^2+x^2}$</th> 
-            <th >$x=a\tan(\theta)$ </th> 
-            <th > $-\pi/2 < \theta < \pi/2$ </th>
-            <th > $dx=a\sec^2(x)d\theta $  </th>  
+            <th > \(\sqrt{a^2+x^2}\)</th> 
+            <th >\(x=a\tan(\theta)\) </th> 
+            <th > \(-\pi/2 < \theta < \pi/2\) </th>
+            <th > \(dx=a\sec^2(x)d\theta \)  </th>  
         </tr>
          <tr>
-            <th > $\sqrt{x^2-a^2}$</th> 
-            <th >$x=\sec(\theta)$  </th> 
-            <th > $0 \leq \theta < \pi/2, \pi\leq \theta < 3\pi/2$ </th>
-            <th >$dx=\sec(\theta)\tan(\theta)d\theta $</th>  
+            <th > \(\sqrt{x^2-a^2}\)</th> 
+            <th >\(x=\sec(\theta)\)  </th> 
+            <th > \(0 \leq \theta < \pi/2, \pi\leq \theta < 3\pi/2\) </th>
+            <th >\(dx=\sec(\theta)\tan(\theta)d\theta \)</th>  
          </tr>
         
         </table>
@@ -650,10 +654,10 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Calcular $\int \frac{\sqrt{16-x^2}}{x^2}dx$.
+        Calcular \(\int \frac{\sqrt{16-x^2}}{x^2}dx\).
     </p>
     <p>
-        Sugerencia: $ \tan^2(\theta)  =\sec^2(\theta) -1$.        
+        Sugerencia: \( \tan^2(\theta)  =\sec^2(\theta) -1\).        
     </p>
     <button class="respButton hvr-grow "> Solución  </button>
      <div class="resp-box flexbox">
@@ -722,10 +726,10 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Calcular $\int \frac{1}{x^2\sqrt{x^2+9}}dx$.
+        Calcular \(\int \frac{1}{x^2\sqrt{x^2+9}}dx\).
     </p>
     <p>
-        Sugerencia: $\frac{\sec^2(\theta)}{\tan^2(\theta)\sec(\theta)}=\frac{\cos(\theta)}{\sen^2(\theta)}$.
+        Sugerencia: \(\frac{\sec^2(\theta)}{\tan^2(\theta)\sec(\theta)}=\frac{\cos(\theta)}{\sen^2(\theta)}\).
     </p>
 
 </div>
@@ -734,10 +738,10 @@
 <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
-        Calcular $\int \frac{x}{\sqrt{2-4x-x^2}}$.
+        Calcular \(\int \frac{x}{\sqrt{2-4x-x^2}}\).
     </p>
     <p>
-        Sugerencia: completa el cuadrado en $2-4x-x^2$.
+        Sugerencia: completa el cuadrado en \(2-4x-x^2\).
     </p>
 
 </div>
@@ -747,9 +751,9 @@
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Encuentra el area encerrada por la elipse
-        $$
+        \[
         \frac{x^2}{a^2}+\frac{y^2}{b^2}=1.
-        $$
+        \]
     </p>
     
 </div>
@@ -759,9 +763,9 @@
     Calcula las siguientes integrales.
 
 <ol>
-	<li>$\int_{\sqrt{3}}^3 \frac{1}{t^3\sqrt{t^2-1}}$</li> 
-	<li>$\int_0^2 \frac{x}{\sqrt{25-x^2}}dx$</li> 
-	<li>$\int \frac{2x}{\sqrt{x^2+x+1}}$.</li> 
+	<li>\(\int_{\sqrt{3}}^3 \frac{1}{t^3\sqrt{t^2-1}}\).</li> 
+	<li>\(\int_0^2 \frac{x}{\sqrt{25-x^2}}dx\).</li> 
+	<li>\(\int \frac{2x}{\sqrt{x^2+x+1}}\).</li> 
 </ol>
 </div>
 
@@ -771,9 +775,9 @@
     <h2 class="number-title"> Ejercicio</h2> 
     <p>
         Usa una substitución trigonométrica para probar
-        $$
+        \[
         \int_0^x \sqrt{a^2-t^2}dt=\frac{1}{2}a^2\arcsen(x/a)+\frac{1}{2}x\sqrt{a^2-x^2}
-        $$ 
+        \] 
     </p>
 
     <button class="respButton hvr-grow "> Solución  </button>
@@ -854,7 +858,7 @@
         \[
          \int_0^\frac{\pi}{4} \tan(x) \ dx = \int_{\frac{\sqrt{2}}{2}}^1 \frac{du}{u}.
          \] 
-         Sugerencia: hágase $u=\cos(x)$.
+         Sugerencia: hágase \(u=\cos(x)\).
     </li>
     <li>
         Demuestra que
