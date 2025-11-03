@@ -143,6 +143,278 @@
   </p>
 </div>
 
+
+
+<div class="ejemplo-box">
+  <h2 class="number-title"> Ejemplo</h2> 
+  <p>
+    Calcula $\int_0^1 \tan^{-1}(x)dx$. 
+  </p>
+
+  <p>
+    Sugerencia:  $u=\tan^{-1}(x)$, $dv=dx$.
+  </p>
+</div>
+
+
+
+<div class="ejemplo-box">
+  <h2 class="number-title"> Ejemplo</h2> 
+  <p>
+    Calcula $\int e^{\sqrt{x}}dx$.
+  </p>
+  <p>
+    Sugerencia: primero toma el cambio de variable $u=\sqrt{x}$ y 
+    luego una integración por partes.
+  </p>
+</div>
+
+
+
+<div class="teorema-box">
+  <h2 class="number-title" id="Teo:PrimerTVMINtegrales"> Teorema </h2>
+  <h3>Primer Teorema del valor medio para integrales </h3>
+  <p>
+    Si $G,f:[a,b]\to \mathbb{R}$ son continuas en $[a,b]$ y $f$ 
+    nunca cambia de signo en $[a,b]$, entonces  exsite $c$ tal que
+    $$
+    \int_a^b f(x)G(x)dx=G(c)\int_a^b f(x)dx.
+    $$
+    
+  </p>
+
+  <p>
+    Sugerencia: considera
+    $$
+    \min_{x\in [a,b]}\{ G(x)\} f(x) \leq f(x)G(x) \leq \max_{x\in [a,b]}\{ G(x)\} f(x)
+    $$
+   integra y usa el teorema del valor intermedio para funciones continuas.    
+  </p>
+</div>
+
+
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <h3> Segundo teorema del valor  medio para integrales </h3>
+  <p>
+    Sean $g,\alpha: [a,b]\to \mathbb{R}$ funciones continuas en $[a,b]$.
+  </p>
+  <p>
+    Supon que $\alpha$ es diferenciable en $(a,b)$, monótona en \([s,b]\) y $\alpha'$ es continua  
+    en $(a,b)$. Entonces exsite
+    un $c$ en $(a,b)$ tal que 
+    $$
+    \int_a^b g(x)\alpha(x)dx=\alpha(a)\int_a^c g(x)dx+ \alpha(b)\int_c^b g(x)dx
+    $$
+    
+  </p>
+  <p>
+    Sugerencia: considera la función \(F:[a,b]\to \mathbb{R}\) dada por  
+    \[
+      F(c)=\alpha(a)\int_a^c g(t)dt+ \alpha(b)\int_c^b g(t)dt
+    \]
+  </p>
+
+</div>
+
+<div class="prop-box">
+  <h2 class="number-title" id="Ejer:FormulasReduccionSenoCoseno"> Proposición </h2> 
+  <p>
+    Usando integración por partes, se puede demostrar las fórmula de reducción para seno y coseno:
+  </p>
+  <p>
+    $$
+    \int \sen^n(x)dx=-\frac{1}{n}\cos(x)\sen^{n-1}(x) + \frac{n-1}{n}\int \sen^{n-2} (x) dx 
+    $$
+    
+    $$
+    \int \cos^n(x)dx=\frac{1}{n}\cos^{n-1}(x)\sen(x)+\frac{n-1}{n}\int \cos^{n-2}(x)dx
+    $$
+    
+  </p>
+</div>
+
+
+<div class="teorema-box">
+  <h2 class="number-title" id="Ejer:FormulaWallis"> Teorema </h2> 
+  <h3> Fórmula de Wallis (1655)</h3>
+  <p>
+    Este ejercicio demuestra la fórmula de Wallis (1655), 
+    que da una forma de calcular $\pi$ mediante un producto infinito.
+    $$
+    \frac{\pi}{2}=\prod_{i=1}^\infty \frac{(2i)(2i)}{(2i-1)(2i+1)},
+    $$
+    es decir,
+    
+    $$
+    \frac{\pi}{2}= \lim_{n\to \infty} \prod_{i=1}^n \frac{(2i)(2i)}{(2i-1)(2i+1)}.
+    $$
+    
+  </p>
+
+<ol>
+	<li>
+		Usando el <a href="#Ejer:FormulasReduccionSenoCoseno"> Ejercicio 15.9</a>
+    demuestra que, para todo natural $n\geq 2$:
+
+    \begin{equation}\label{Eqn:RecursionIntDefSEN}
+    \int_0^{\pi/2}\sen^n(x)dx=\frac{n-1}{n}\int_0^{\pi/2}\sen^{n-2}(x)dx
+    \end{equation}
+	</li> 
+
+<li>
+	Demuestra por  inducción que, para todo natural $n \geq 1$:
+    $$
+    \int_0^{\pi/2}\sen^{2n+1}(x)dx=\frac{2}{3}\frac{4}{5}\frac{6}{7}\cdots \frac{2n+1}{2n}=\prod_{i=1}^n\frac{2i}{2i+1},
+    $$
+
+    $$
+    \int_0^{\pi/2}\sen^{2n}(x)dx=\frac{\pi}{2}\frac{1}{2}\frac{3}{4}\frac{5}{6}\cdots \frac{2n-1}{2n}=\frac{\pi}{2}\prod_{i=1}^n\frac{2i-1}{2i}.
+    $$
+
+    Sugerencia: usa \eqref{Eqn:RecursionIntDefSEN}.
+</li> 
+
+<li>
+	Usa el inciso anterior para demostrar que:
+
+  \begin{equation}\label{Eqn:PartialProductWallisFormula}
+  \frac{\pi}{2}=\prod_{i=1}^n\frac{(2i)(2i)}{(2i-1)(2i+1)}\frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}
+  \end{equation}
+
+</li> 
+
+<li> 
+  Demuestra que:
+	\begin{equation}\label{Ejer:CotaInferiorFraccionWallis}
+	1\leq \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}.
+	\end{equation}
+	Sugerencia: nota que, para $x\in (0,\pi/2)$ y naturales $p < q$, $\sen^q(x)<\sen^p(x)$.
+</li> 
+<li >
+	Demuestra que:
+  \begin{equation}\label{Ejer:CotaSuperiorFraccionWallis}
+  \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}\leq 1+\frac{1}{2n}
+  \end{equation}
+
+  Sugerencia: primero usa \eqref{Eqn:RecursionIntDefSEN} para probar
+  $$
+  \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}= 
+  \frac{2n+1}{2n} \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n-1}(x)dx}
+  $$
+  y después prueba que $\frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n-1}(x)dx} \leq 1$.
+</li>
+
+<li>
+	De \eqref{Ejer:CotaInferiorFraccionWallis} y \eqref{Ejer:CotaSuperiorFraccionWallis} obten que
+$$
+\lim_{n\to \infty} \frac{\int_0^{\pi/2}\sen^{2n}(x)dx}{\int_0^{\pi/2}\sen^{2n+1}(x)dx}=1
+$$
+y usa \eqref{Eqn:PartialProductWallisFormula} para concluir
+
+
+$$
+\frac{\pi}{2}= \lim_{n\to \infty} \prod_{i=1}^n \frac{(2i)(2i)}{(2i-1)(2i+1)}.
+$$
+</li> 
+
+
+</ol>
+</div>
+
+
+
+<div class="definicion-box">
+  <h2 class="number-title"> Definición </h2>
+  <p>
+    Denotamos \(I=(\alpha, \beta)\). 
+  </p>
+  <p>
+    Una función \(\varphi:I\to \mathbb{R}\) se llama 
+    clase \(C^1\) en \(I\) si \(\varphi'\) existe  y es continua en todo punto de \(I\). Por 
+    \(C^1(I)\) denotamos al conjunto de funciones clase \(C^1\) en \(I\).
+  </p>
+  <p>
+    Decimos que una función \(\varphi:I\to \mathbb{R}\) tiene soporte compacto en \(I\)  si existe 
+    un intervalo cerrado y acotado, \([a,b] \subseteq I\), tal que \(\varphi(x)=0\)
+    para todo \(x\in I \cap [a,b]^c\). Por \(C^1_c(I)\) denotamos al conjunto  de 
+    funciones de clase \(C^1\) en \(I\) con soporte compacto en \(I\). 
+  </p>
+  <p>
+    Observación: si \(\varphi \in C^1_c(I)\) y \(\varphi(x)=0\) para todo 
+    \(x\in I\cap [a,b]^c\) entonces \(\varphi(a)=\varphi(b)=0\).
+  </p>
+  <p>
+    Nota: a las funciones en \(C^1_c(I)\) también se les llama funciones de prueba en \(I\).
+  </p>
+
+</div>
+
+
+<div class="definicion-box">
+  <h2 class="number-title"> Definición  </h2>
+  <p>
+   Sea \(I=(\alpha, \beta)\). Por \(\overline{I}\) denotamos 
+   al intervalo cerrado \([\alpha, \beta]\). Una función \(u:\overline{I}\to \mathbb{R}\) tiene derivada débil 
+   en \(I\) si:
+   <ol>
+    <li>
+      \(u\) es integrable en \(\overline{I}\).
+    </li>
+    <li>
+      Existe \(g:I\to \mathbb{R}\) tal que para toda \(\varphi \in C^1_c(I)\):
+      \[
+      \int_a^b u(x)\varphi'(x)dx=-\int_a^b g(x)\varphi(x)dx,
+      \]
+      donde \(\varphi(x)=0\), para todo \(x\in I\cap [a,b]^c\). Nota: estamos suponiendo que 
+      \(g\) es integrable.
+    </li>
+   </ol>
+  </p>
+
+  <p>
+    Llamamos a \(g\) una derivada débil de \(u\) y la denotamos de manera usual como  \(u'\).
+  </p>
+  <p>
+    Nota: a diferencia de la derivadda usual, la derivada débil no es única en el sentido usual. Ya que 
+    la derivada débil se define por integrales si modificamos la función \(g\) en la definición de arriba
+    en una cantidad finita de puntos seguimos obteniendo una derivada débil.
+  </p>
+</div>
+
+
+
+<div class="prop-box">
+  <h2 class="number-title"> Proposición </h2>
+  <p>
+    Sea \(u:[\alpha,\beta]\to \mathbb{R}\) una función continua en el cerrado y 
+    difereciable en el abierto. Entonces \(u\) tiene derivada débil en \((\alpha, \beta)\)
+    y ésta coincide con la derivada usual.
+  </p>
+
+</div>
+
+
+<div class="ejemplo-box">
+  <h2 class="number-title"> Ejemplo </h2>
+  <p>
+    Considera la función valor absoluto, \(u:(-L,L)\to \mathbb{R}\), \(u(x)=|x|\), (donde \(L>0\) es fijo, arbitrario).
+    Entonces \(g:(-L,L)\to \mathbb{R}\) dada por 
+    \[
+    g(x)=\left\{ 
+      \begin{array}{cc}
+      -1, &  -L < x< 0, \\
+      1, & 0< x < L ,
+      \end{array}
+      \right.
+    \]
+    es una derivada débil de \(u\) en \((-L,L)\).
+  </p>
+
+</div>
+
+
 <div class="ejercicio-box">
   <h2 class="number-title"> Ejercicio</h2> 
   <p>
@@ -162,32 +434,6 @@
     </li> 
 </ol>
 </div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Calcula $\int_0^1 \tan^{-1}(x)dx$. 
-  </p>
-
-  <p>
-    Sugerencia:  $u=\tan^{-1}(x)$, $dv=dx$.
-  </p>
-</div>
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio</h2> 
-  <p>
-    Calcula $\int e^{\sqrt{x}}dx$.
-  </p>
-  <p>
-    Sugerencia: primero toma el cambio de variable $u=\sqrt{x}$ y 
-    luego una integración por partes.
-  </p>
-</div>
-
 
 
 <div class="ejercicio-box">
@@ -271,52 +517,157 @@
 </div>
 
 
-
-
-<div class="teorema-box">
-  <h2 class="number-title" id="Teo:PrimerTVMINtegrales"> Teorema </h2>
-  <h3>Primer Teorema del valor medio para integrales </h3>
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
   <p>
-    Si $G,f:[a,b]\to \mathbb{R}$ son continuas en $[a,b]$ y $f$ 
-    nunca cambia de signo en $[a,b]$, entonces  exsite $c$ tal que
-    $$
-    \int_a^b f(x)G(x)dx=G(c)\int_a^b f(x)dx.
-    $$
-    
-  </p>
-
-  <p>
-    Sugerencia: considera
-    $$
-    \min_{x\in [a,b]}\{ G(x)\} f(x) \leq f(x)G(x) \leq \max_{x\in [a,b]}\{ G(x)\} f(x)
-    $$
-   integra y usa el teorema del valor intermedio para funciones continuas.    
-  </p>
-</div>
-
-<div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
-  <h3> Segundo teorema del valor  medio para integrales </h3>
-  <p>
-    Sean $g,\alpha: [a,b]\to \mathbb{R}$ funciones continuas en $[a,b]$.
-  </p>
-  <p>
-    Supon que $\alpha$ es diferenciable en $(a,b)$, $\alpha'$ es continua  
-    y $\alpha '$ nunca cambia de signo en $[a,b]$. Entonces exsite
-    un $c$ en $(a,b)$ tal que 
-    $$
-    \int_a^b g(x)\alpha(x)dx=\alpha(a)\int_a^c g(x)dx+ \alpha(b)\int_c^b g(x)dx
-    $$
-    
-  </p>
-  <p>
-    Sugerencia: considera la función \(F:[a,b]\to \mathbb{R}\) dada por  
-    \[
-      F(c)=\alpha(a)\int_a^c g(t)dt+ \alpha(b)\int_c^b g(t)dt
+    Demuestra que para cualquier \(0 < a < b\), se cumple la siguiente desigualdad:
+    \[ 
+    \left| \int_{a}^{b} \frac{\sin(x)}{x} \,dx \right| \le \frac{4}{a}
     \]
   </p>
+  <p>
+    Hint: segundo teorema del valor medio para integrales.
+  </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+   Por \(I\) denotamos la integral 
+   \(I = \int_{\pi}^{2\pi} \frac{\cos(x)}{x^2} \,dx\).
+  </p>
+  <p>
+    Usando el Segundo Teorema del Valor Medio para Integrales, 
+    demuestra que existe un \(c \in [\pi, 2\pi]\) tal que:
+    \[
+    I = \frac{3\sin(c)}{4\pi^2}
+    \]
+    A partir de este resultado, demuestra que \(\frac{-3}{4\pi^2} \le I \le 0\).
+  </p>
+  <p>
+    Hint: segundo teorema del valor medio para integrales.
+  </p>
+</div>
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(g(x)\) una función monótona y continua en \([a, b]\). 
+  </p>
+
+  <p>
+    Demuestra que:
+    \[
+    \lim_{\lambda \to \infty} \int_{a}^{b} g(x) \sin(\lambda x) dx = 0
+    \]
+  </p>
+  <p>
+    Hint: segundo teorema del valor medio para integrales.
+  </p>
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+<p>
+  Considera la función \(u:[-2,2]\to \mathbb{R}\) dada por 
+  \[
+  u(x)=\left\{ 
+    \begin{array}{cc} 
+      -x & -2 < x \leq 0 \\
+      x^2, & 0 < x  < 2 
+    \end{array}
+  \right.
+  \]
+  Prueba que las funciones \(g,h:(-2,2)\to \mathbb{R}\), dadas por 
+   \[
+  g(x)=\left\{ 
+    \begin{array}{cc} 
+      -1, & -2 < x < 0, \\
+      0, &  x =0, \\
+      2x, & 0 < x  < 2, 
+    \end{array}
+  \right.
+  \]
+  y
+  \[
+  h(x)=\left\{ 
+    \begin{array}{cc} 
+      -1, & -2 < x  < 0, \\
+      10, & x=0, \\ 
+      2x, & 0 < x  < 1, \\
+       0, & x=1, \\
+      2x , & 1< x < 2,  
+    \end{array}
+  \right.
+  \]
+  son derivadas débiles de \(u\) en \((-2,2)\).
+</p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio  </h2>
+  <p>
+    Considera la función \(f:[-1,1]\to \mathbb{R}\) dada por 
+    \[
+    f(x)=\left\{ 
+      \begin{array}{cc}
+      -1, & -1< x< 0, \\
+      0, & x=0, \\
+      1, & 0 < x < 1, 
+      \end{array}
+    \right.
+    \]
+      no tiene derivada débil en \((-1,1)\).
+  </p>
 
 </div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2>
+  <p>
+    Una función \(u:[a,b]\to \mathbb{R}\) se llama diferenciable a trozos 
+    si existe \(P=\{x_i\}_{i=0}^n\), una partición de \([a,b]\), tal que 
+    \(u\) restriguida a \((x_{i-1},x_i)\) es diferenciable. Por ejemplo la 
+    función valor absoluto es diferenciable a trozos en \([-1,1]\).
+  </p>
+  <p>
+    Prueba que si \(u\) es diferenciable a trozos en \([a,b]\) entonces 
+    \(u\) tiene derivada débil y la función dada por 
+    \(g(x)=u'(x)\), para \(x\in (x_{i-1},x_i)\), \(g(x_i)=0\), \(i=1,\dots, n\), 
+    es una derivada débil de \(u\) en \((a,b)\).
+  </p>
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:LemaWillisCampanaGauss"> Ejercicio</h2>
+  
+  <p>
+    Demuestra
+    $$
+    \lim_{n\to \infty} \frac{1}{\sqrt{n}} \frac{2}{1}\frac{4}{3}\cdots \frac{2n}{2n-1}=\sqrt{\pi}.
+    $$
+  </p>
+  <p>
+    Sugerencia: si elevas ambos lados al cuadrado el límite es equivalente a
+    $$
+    \lim_{n\to \infty} \frac{1}{n} \prod_{i=1}^n \frac{(2i)(2i)}{(2i-1)(2i-1)}=\pi
+    $$
+    Para demostrar ésta última  trata de completar 
+    la fórmula de Wallis del lado izquierdo y usa el hecho de que
+    $$
+     \prod_{i=1}^n \frac{2i+1}{2i-1}=2n+1
+    $$
+    
+  </p>
+</div>
+
+
 
 <!--<div class="ejercicio-box">
   <h2 class="number-title"> Ejercicio</h2> 
