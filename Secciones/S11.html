@@ -96,12 +96,24 @@
   <h2 class="number-title"> Introducción </h2>
   <p>
     Junto con integración por substitución, 
-    integración por partes es una de las técnicas más útiles y su origen es 
+    integración por partes es una de las técnicas de integración más útiles y su origen es 
     la fórmula de la derivada de un producto
       $$
       (fg)'=fg'+f'g
       $$
 
+  </p>
+  <p>
+    La idea es pasar una integral difíicil de la forma \(\int fg'\) a una más fácil "saltando"
+    la derivada de una función a otra para ahora resolver \(\int f'g\) que, si todo sale bien, es más fácil
+    que la original. 
+  </p>
+  <p>
+    Pero integración por partes va más allá de sólo una técnica de integración. Para ilustrar éste 
+    punto vamos a ver dos aplicaciones: la fórmula de Wallis que permite ver a \(\pi\) como un 
+    producto infinito de numeros racionales; la segunda aplicación es más profunda y tiene que ver con 
+    extender el concepto de derivada para incluir a más funciones, lo que se llama derivada débil y 
+    es la manera "profesional" de estudiar la teoría de ecuaciones diferenciales (parciales). 
   </p>
 
 </div>
@@ -255,7 +267,7 @@
 
 <ol>
 	<li>
-		Usando el <a href="#Ejer:FormulasReduccionSenoCoseno"> Ejercicio 15.9</a>
+		Usando el <a href="#Ejer:FormulasReduccionSenoCoseno"> Ejercicio 11.8</a>
     demuestra que, para todo natural $n\geq 2$:
 
     \begin{equation}\label{Eqn:RecursionIntDefSEN}
@@ -266,7 +278,7 @@
 <li>
 	Demuestra por  inducción que, para todo natural $n \geq 1$:
     $$
-    \int_0^{\pi/2}\sen^{2n+1}(x)dx=\frac{2}{3}\frac{4}{5}\frac{6}{7}\cdots \frac{2n+1}{2n}=\prod_{i=1}^n\frac{2i}{2i+1},
+    \int_0^{\pi/2}\sen^{2n+1}(x)dx=\frac{2}{3}\frac{4}{5}\frac{6}{7}\cdots \frac{2n}{2n+1}=\prod_{i=1}^n\frac{2i}{2i+1},
     $$
 
     $$
@@ -349,6 +361,14 @@ $$
     Nota: a las funciones en \(C^1_c(I)\) también se les llama funciones de prueba en \(I\).
   </p>
 
+  <p>
+    Ejemplo. Un ejemplo estandar de una función clase \(C^1\) de soporte compacto se ve como: 
+
+    <div class="flexbox" style="padding: 20px;">
+        <img src="./Images/S11-TestFunction.png" alt="Convexos" width="50%" height="auto" >
+    </div>
+    la función en ésta imegen es \(f(x)=e^{\frac{-1}{x(1-x)}}\) si \(0 < x < 1 \) y cero en en otro lado. 
+  </p>
 </div>
 
 
