@@ -182,8 +182,30 @@
 		con $a_k=\frac{3k^3+12k^2-5k+10}{2k^3-8k^2-9k+20}$, no es sumable.  
 	</p>
 	<p>
-		Sugerencia: usa  <a href="#Ejer:ConvergenciaCeroSeriesConvergentes"> Ejercicio 17.3</a>.
+		Sugerencia: usa  <a href="#Ejer:ConvergenciaCeroSeriesConvergentes"> la proposición anterior </a>.
 	</p>
+
+	<button class="respButton hvr-grow "> Solución   </button>
+	<div class="resp-box flexbox">
+	<p>
+		Primero probamos que \(\lim_{k\to \infty}a_k=\frac{3}{2}\). Para esto dividimos por 
+		la potencia más grande de los polinomios que aparecen para obtener
+		\begin{eqnarray*}
+		a_k&=&\frac{(3k^3+12k^2-5k+10)/k^3}{(2k^3-8k^2-9k+20)/k^3} \\
+		&=& \frac{3+12\frac{1}{k}-\frac{5}{k^2}+\frac{10}{k^3}}{2-\frac{8}{k}-\frac{9}{k^2}+\frac{20}{k^3}}
+		\end{eqnarray*}		
+		entonces 
+		\begin{eqnarray*} 
+		\lim_{k\to \infty}a_k&=&\frac{\lim_{k\to \infty}\left(3+12\frac{1}{k}-\frac{5}{k^2}+\frac{10}{k^3}\right)}{\lim_{k\to \infty}\left(2-\frac{8}{k}-\frac{9}{k^2}+\frac{20}{k^3}\right)}\\
+		&=& \frac{3}{2}.
+		\end{eqnarray*}
+	</p>
+	<p>
+		Finalmente, si la serie \((a_k)_{k=1}^\infty\) fuese sumable entonces 
+		por la <a href="#Ejer:ConvergenciaCeroSeriesConvergentes">Proposición 13.3</a>, \(\lim_{k\to \infty}a_k=0\). Como \(\lim_{k\to \infty}a_k=3/2\), 
+		concluimos que la sucesión no es sumable.
+	</p>
+	</div>
 </div>
 
 
@@ -489,11 +511,59 @@
 		$$
 		Demuestra que la  serie $\sum_{k=0}^\infty a_k$ converge si y sólo si  la sucesión $(b_k)_{k\geq 0}$ converge. Además:
 		$$
-		\sum_{k=0}^\infty a_k = b_1-L,
+		\sum_{k=0}^\infty a_k = b_0-L,
 		$$
 		donde $L=\lim_k b_k$.
 		
 	</p>
+	<button class="respButton hvr-grow "> Demostración   </button>
+	<div class="resp-box flexbox">
+	<p>
+		Por \(s_n\) denotamos a la suma parcial \(\sum_{k=0}^n a_k\).
+	</p>
+	<p>
+		Primero probamos por inducción que para todo \(n\geq 1\):
+		\begin{equation}\label{Eqn:SeriesTelescopica}
+		s_n=b_0-b_{n+1}.
+		\end{equation}
+		Para \(n=1\):
+		\[
+		s_1=a_0+a_1=b_0-b_1+b_1-b_2=b_0-b_2.
+		\]
+		Ahora suponemos la hipótesis de inducción para \(n\) y probamos para \(n+1\).
+	</p>
+	<p>
+		Supongamos que \(s_n=b_0-b_{n+1}\). Entonces, usando que 
+		\(a_{n+1}=b_{n+1}-b_{n+2}\) obtenemos  
+		\[
+		s_{n+1}=s_n+a_{n+1}=b_0-b_{n+1}+b_{n+1}-b_{n+2}=b_0-b_{n+2}.
+		\]
+	</p>
+	<p>
+		\(\Rightarrow]\) Supongamos que la series \(\sum_{k=0}^\infty a_k\) es 
+		convergente. Entonces \(\lim_{n\to \infty}a_n\) existe pero por \eqref{Eqn:SeriesTelescopica}
+		\[
+		b_{n+2}=b_0-s_n
+		\]
+		y entonces por las propiedades de los límites 
+		\[
+		\lim_{n\to \infty} b_{n+2}=b_0-\lim_{n\to \infty}s_n
+		\]
+		y por lo tanto \(\lim_{n\to \infty} b_{n+1}\) existe, de lo 
+		cual se sigue que \(\lim_{n\to \infty}b_n\) existe.
+	</p>
+	<p>
+		\(\Leftarrow ]\) Supongamos que \(\lim_{n\to \infty}b_n=L\) existe. Entonces por 
+		\eqref{Eqn:SeriesTelescopica} y las leyes de los límites 
+		\[
+		\lim_{n\to \infty}s_n=b_0-\lim_{n\to \infty} b_n=b_0-L
+		\]
+		por lo tanto la serie \(\sum_{k=0}^\infty a_k\) converge y además 
+		\[
+		\sum_{k=0}^\infty a_k=b_0-L.
+		\]
+	</p>
+	</div>
 </div>
 
 
@@ -505,6 +575,26 @@
 	<p>
 		Sugerencia: ver la serie como una serie telescópica.
 	</p>
+	<button class="respButton hvr-grow "> Solución   </button>
+	<div class="resp-box flexbox">
+	<p>
+		Factorizamdo la \(k\) en el denominador tenemos 
+		\[
+		\frac{1}{k^2+k}=\frac{1}{k(k+1)}
+		\]
+		Ahora, tratando de escribir \(\frac{1}{k(k+1)}=b_{k}-b_{k+1}\) vemos que 
+		\[
+		\frac{1}{k}-\frac{1}{k+1}=\frac{k+1-k}{k(k+1)}=\frac{1}{k(k+1)}
+		\]
+		Por lo tanto, tomando \(b_k=\frac{1}{k}\), \(k=1,2,\dots\), llegamos a que 
+		\(\frac{1}{k^2+k}=b_{k}-b_{k+1}\). Por lo tanto la serie \(\sum_{k=1}^\infty \frac{1}{k^2+k}\)
+		es telescópica. Además como \(\lim_{k\to \infty}b_k=\lim_{k\to \infty}\frac{1}{k}=0\), 
+		por la <a href="#Ejer:SeriesTelescopicas">Proposición 13.10</a> la serie converge y 
+		\[
+		\sum_{k=1}^\infty \frac{1}{k^2+k}=b_1-\lim_{k\to \infty}b_k=1.
+		\]
+	</p>
+	</div>
 </div>
 
 
@@ -604,6 +694,42 @@
 		$$
 	</li> 
 </ol>
+<button class="respButton hvr-grow "> Demostración   </button>
+	<div class="resp-box flexbox">
+<p>
+	Denotamos \(s_n=\sum_{k=0}^n a_k\) y \(t_n=\sum_{k=0}^n b_k\), \(n\in \mathbb{N}\). La 
+	hipótesis nos dice que \(a_k\leq b_k\) para toda \(k\) lo que implica \(s_n\leq t_n\) 
+	para toda \(n\).  
+	
+</p>
+<p>
+	Ahora definimos 
+	\[
+	A=\{s_n: n\in \mathbb{N}\}, \quad B=\{t_n: n\in \mathbb{N}\}.
+	\]
+	Nota que toda cota superior de \(B\) también es cota superior de \(A\). 
+</p>
+<p>
+	Inciso 1.
+</p>
+<p>
+	Supongamos que \(\sum_{k=0}^\infty a_k\) es divergente. Como \(a_k\geq 0\)
+	para toda \(k\), el 
+	<a href="#Ejer:TeoConvergenciaMonoSeries">Teorema de la Convervengia Monótona  para series (abreviado TCM)</a>  implica que  \(A\) no está acotado 
+	superiormente. Pero entonces \(B\) tampoco está acotado superiormente y de nuevo, 
+	por el <a href="#Ejer:TeoConvergenciaMonoSeries"> TCM para series </a>  se tiene que \(\sum_{k=0}^\infty b_k\) es divergente. 
+</p>
+<p>
+	Inciso 2.
+</p>
+<p>
+	Supongamos que \(\sum_{k=0}^\infty b_k\) es convergente. Como \(b_k\geq 0\) para toda \(k\), 
+	el <a href="#Ejer:TeoConvergenciaMonoSeries"> TCM para series </a> implica que \(B\) está acotado 
+	superiormente lo cual implica que \(A\) también está acotado superiormente. Entonces, de nuevo por 
+	el <a href="#Ejer:TeoConvergenciaMonoSeries"> TCM para series </a> concluimos que 
+	\(\sum_{k=0}^\infty a_k\) es convergente.
+</p>
+</div>
 </div>
 
 <div class="ejemplo-box">
