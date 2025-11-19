@@ -191,7 +191,7 @@ mientras que alrededor del \(1\) es
   \((T_n f)'= T_{n-1}f'\).
 </li>
 <li>
-  Si \(g(x)=f(cx)\), para una constante \(c\),  entonces \(T_ng(x)=T_nf(cx)\).
+  Si \(g(x)=f(cx)\), para una constante \(c\),  entonces \(T_ng(x;a)=T_nf(cx;ca)\).
 </li>
 </ol>
 </div>
@@ -280,17 +280,15 @@ y \(g(x)=(x-a)^{n+1}\) y vuleve a usar el T.M.V para probar
 <div class="ejemplo-box">
   <h2 class="number-title" id="Ejer:TaylorErrorSenoCosenoExp"> Ejemplo </h2>
 
-  Demuestras las sigueintes cotas para los errores para
-  los polinomios de Taylor, alrededor del \(0\), de las funciones exponencial,
-  seno y coseno. Para \(x\in \mathbb{R}\):
+  <p>
+  Demuestra la siguiente cota para los errores de
+  los polinomios de Taylor, alrededor del \(0\), de las función exponencial:
+  </p>
+  
 
 \begin{eqnarray*}
-e^x&=&\sum_{k=0}^n \frac{1}{k!}x^k+E(x), \quad |E(x)|
-\leq e^x \frac{|x|^n}{n!}, \\
-\sen(x)&=&\sum_{k=0}^n \frac{(-1)^k}{(2k+1)!}x^{2k+1}+E(x), \quad |E(x)|
-\leq \frac{|x|^{2n+1}}{(2n+1)!},\\
-\cos(x)&=&\sum_{k=0}^n \frac{(-1)^k}{(2k)!}x^{2k}+E(x), \quad |E(x)|
-\leq \frac{|x|^{2n+2}}{(2n+2)!},
+e^x&=&\sum_{k=0}^n \frac{1}{k!}x^k+E(x), \quad |E_n(x)|
+\leq e^x \frac{|x|^n}{n!}.
 \end{eqnarray*}
 </div>
 
@@ -438,6 +436,24 @@ T_{2n}\left( \frac{1}{1+x^2} \right)=\sum_{k=0}^n  \frac{(-1)^k}{2k+1}x^{2k+1}
 </ol>
 </div>
 
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:TaylorErrorSenoCosenoExp"> Ejercicio  </h2>
+
+  <p>
+  Demuestra las siguiente cotas para los errores de
+  los polinomios de Taylor, alrededor del \(0\), de las funciones seno y coseno:
+  </p>
+  
+    \begin{eqnarray*}
+    \sen(x)&=&\sum_{k=0}^n \frac{(-1)^k}{(2k+1)!}x^{2k+1}+E(x), \quad |E_{2n+1}(x)|
+    \leq \frac{|x|^{2n+1}}{(2n+1)!},\\
+    \cos(x)&=&\sum_{k=0}^n \frac{(-1)^k}{(2k)!}x^{2k}+E(x), \quad |E_{2n}(x)|
+    \leq \frac{|x|^{2n+2}}{(2n+2)!}.
+    \end{eqnarray*}
+
+
+</div>
 
 
 
