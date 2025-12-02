@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main2.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            arcsen: "\\operatorname{arcsen}",
+            arcsec: "\\operatorname{arcsec}"
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style2.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 15 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 15 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo DOS </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              <li> <a href="../ExternalLinks.html"> Links </a> </li>
+              
+            </ul>
+          </nav>
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title id="Sec"> § 16 </title>
+    
+  </head>
+
+<body class="fondo-body" >
+
+<h1 class="number-title flexbox"> Integral de Riemann-Stieltjes </h1>
+  <!-- this part is for next and prev sections -->
+   
+   <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § <br>previa</br> </button>
+
+
+
+        <div class="info-box">
+            <h2 class="number-title"> Introducción </h2>
+            <p>
+
+            </p>
+        </div>
+
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Si \(P=\{a=x_0< \cdots < x_n=b \}\) es una partición del intervalo \([a,b]\)
+          y \(\alpha:[a,b]\to \mathbb{R}\) es una función monótona creciente, 
+          denotamos \(\Delta_i\alpha=\alpha(x_i)-\alpha(x_{i-1})\),
+          para \(i=1,\dots. n\).
+        </p>
+
+        <p>
+          Si \(P\) es una partición de \([a,b]\) y \(t_i\) son puntos en el intervalo \([x_{i-1},x_i]\), 
+          una suma de la forma 
+          \[
+          S(f,P,\alpha,\{t_i\}_{i=1}^n)=\sum_{i=1}^n f(t_i)\Delta_i \alpha
+          \]
+          se llama una suma de Riemann-Stieltjes de \(f\) con respecto a \(\alpha\).
+        </p>
+        <p>
+            La idea es similar a la de Arquímides: aproximar 
+            areas complicadas con sumas de "areas de rectángulos", sólo que las "areas de rectángulos"
+            ya no son precisamente áreas. Las "alturas" son las \(f(t_i)\) pero ahora la 
+            forma de medir la bases cambia.  Las longitudes de los intervalos 
+            \([x_{i-1},x_i]\) están dadas 
+            por \(\alpha(x_i)-\alpha(x_{i-1})\), en vez de sólo \(x_i-x_{i-1}\) (la cual 
+            se obtiene justo cuando \(\alpha(x)=x\)).
+        </p>
+        
+      </div>
+      
+      <div class="ejemplo-box">
+        <h2 class="number-title"> Ejemplo </h2>
+        <p>
+           La integral de Riemann-Stieltjes trata el problema de saber si las sumas de la forma 
+           \[
+           S(f,P,\alpha,\{t_i\}_{i=1}^n)
+           \] 
+           se aproximan, en cierto sentido, a un número cuando las particiones se hacen cada vez más finas.
+        </p>
+        <p>
+            El primer ejemplo que vamos a ver es cuando \(\alpha(x)=\ln(x)\), con \(x>0\) (la cual 
+            es estrictamente creciente). 
+            <div class="flexbox" style="padding: 20px;">
+                <img src="./Images/S16-AlphaIguLog.png" alt="Integrando-logaritmico" width="40%" height="auto" >
+            </div>
+        </p>
+        <p>
+            Fijamos \([a,b]\subset (0,\infty)\) y \(f:[a,b]\to \mathbb{R}\)
+            una función continua. Afirmamos que las sumas de Riemann-Stieltjes
+            \[
+            S(f,P,\alpha,\{t_i\}_{i=1}^n)
+            \]
+            se aproximan, en cierto sentido, al número:
+            \[
+            \int_a^b \frac{f(x)}{x}dx.
+            \]
+        </p>
+        <p>
+            Una observación importante en este ejemplo es que: \(\frac{d\alpha(x)}{dx}=\frac{1}{x}\). 
+        </p>
+
+      </div>
+
+
+      <div class="ejemplo-box">
+        <h2 class="number-title"> Ejemplo </h2>
+      <p>
+        El segundo ejemplo es cuando \(\alpha\) tiene una discontinuidad de salto. Fijamos 
+        \(a\in (0,1)\) y vamos a 
+        tomar \(\alpha:[0,1]\to \mathbb{R}\) dada por 
+        \[
+        \alpha(x)=\left\{
+            \begin{array}{cc}
+            0 & 0 \leq x < a \\
+            1 & a\leq x \leq 1
+            \end{array}
+            \right.
+        \]
+        <div class="flexbox" style="padding: 20px;">
+                <img src="./Images/S16-AlphaSalto.png" alt="Integrando-salto" width="30%" height="auto" >
+            </div>
+      </p>
+      <p>
+        Consideramos una función \(f:[0,1]\to \mathbb{R}\). En este caso el 
+        comportamiento de las sumas de Riemann-Stieltjes
+        \[
+        S(P,f,\alpha,\{t_i\}_{i=1}^n)
+        \]
+        depende de la función \(f\).
+      </p>
+      <p>
+        Caso 1: si \(\lim_{x\to a^-}f(x)=f(x)\) entonces las sumas \(S(f,P,\alpha,\{t_i\}_{i=1}^n)\)
+        se aproximan, en cierto sentido, al número: 
+        \[
+        f(a).
+        \]
+      </p>
+      <p>
+        Caso 2: si \(\lim_{x\to a^-}f(x)\ne f(x)\) entonces las sumas \(S(f,P,\alpha,\{t_i\}_{i=1}^n)\)
+        no convergen. 
+      </p>
+      <p>
+
+      </p>
+     </div>
+
+<div class="definicion-box">
+        <h2 class="number-title"> Definición</h2>
+        <p>
+          Dada una partición de \([a,b]\), \(P=\{x_0 < \cdots < x_n \}\) 
+          y una función acotada \(f:[a,b]\to \mathbb{R}\) definimos 
+          \[
+          m_i(f)=\inf_{x\in [x_{i-1},x_i]}\{ f(x)\}, \, M_i(f)=\sup_{x\in [x_{i-1},x_i]}\{ f(x)\}.
+          \]
+            Dada una función acotada \(\alpha:[a,b]\to \mathbb{R}\), las sumas 
+            \[
+            \overline{S}(f,P,\alpha)=\sum_{i=1}^n M_i(f)\Delta_i\alpha,
+            \]
+            \[
+            \underline{S}(f,P,\alpha)=\sum_{i=1}^n m_i(f)\Delta_i\alpha
+            \]
+            se llaman sumas inferiores y superiores de Riemann-Stieltjes con respecto a \(\alpha\).
+        </p>
+        
+        <p>
+          Nota que \(m_i(f)\leq M_i(f)\). Entonces si \(\alpha:[a,b]\to \mathbb{R}\) es monótona 
+          creciente,  \(\Delta_i\alpha= \alpha(x_i)-\alpha(x_{i-1}) \geq 0\) para toda \(i\) y por 
+          lo tanto 
+          \[ m_i(f)\Delta_i\alpha \leq f(t_i)\Delta_i \alpha \leq M_i(f)\Delta_i\alpha \]
+          para toda elección de puntos \(t_i\in [x_{i-1},x_i]\) de lo que se sigue que 
+          \[
+          \underline{S}(f,P,\alpha) \leq S(f,P,\alpha,\{t_i\}_{i=1}^n)\leq \overline{S}(f,P,\alpha)
+          \]
+        </p>
+       </div>
+
+
+       <div class="definicion-box">
+        <h2 class="number-title"> Definición</h2>
+
+        <p>
+            Sea \(\alpha:[a,b]\to \mathbb{R}\) monótona creciete y \(f:[a,b]\to \mathbb{R}\)
+            acotada.
+        </p>
+        <p>
+            Definimos la integral inferior de Riemann-Stieltjes como: 
+            \[
+            \underline{\int}_a^b fd\alpha=\sup_{P,\{t_i\}}\{ \underline{S}(f,P,\alpha, \{t_i\})\}.
+            \]
+            Definimos la integral superior de Riemann-Stieltjes como: 
+            \[
+            \overline{\int}_a^b fd\alpha=\inf_{P,\{t_i\}}\{ \overline{S}(f,P,\alpha, \{t_i\})\}.
+            \]
+        </p>
+        <p>
+            Decimos que \(f\) es Riemann-Stieltjes integrable, con respecto a \(\alpha\) si 
+            \(\underline{\int}_a^b fd\alpha=\overline{\int}_a^b fd\alpha\)
+        </p>
+       </div>
+
+
+       <div class="teorema-box">
+            <h2 class="number-title"> Teorema  </h2>
+            
+            <p>
+             Sean \(f,\alpha:[a,b]\to \mathbb{R}\) funciones 
+             acotadas con \(\alpha\) monótona creciente. Las 
+             siguientes condiciones son equivalentes.
+            </p>
+            <ol>
+              <li>
+                \(f\in R_\alpha[a,b]\).
+              </li>
+              <li>
+              (Condición de Riemann) 
+              <p> 
+                  Para toda \(\varepsilon >0\), existe una partición 
+             \(P_\varepsilon\) de \([a,b]\) tal que 
+             \[
+             \overline{S}(f,P,\alpha)-\underline{S}(f,P,\alpha) < \varepsilon 
+             \]
+             para toda partición \(P\) de \([a,b]\) que refina a \(P_\varepsilon\).
+              </p>
+              </li>
+              <li>
+                \[
+                \underline{\int_a^b}fd\alpha =
+          \overline{\int_a^b}fd\alpha  
+                \]
+              </li>
+            </ol>
+          </div>
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <h3> Linealidad (en el integrando)</h3>
+        <p>
+          Si \(f,g\in R_\alpha[a,b]\) y \(c\) es un escalar, entonces \(f+cg\in R_\alpha[a,b]\) y además 
+          \[
+          \int_a^b (f+cg)d\alpha= \int_a^b f d\alpha+ c\int_a^b g d\alpha
+          \]
+        </p>
+
+      </div>
+
+
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <h3> Linealidad (en el integrador)</h3>
+        <p>
+          Si \(f\in R_\alpha[a,b]\) y \(f\in R_\beta[a,b]\) entonces para todo 
+          escalar \(c\), \(f\in R_{\alpha+c\beta}[a,b]\) y 
+          \[
+          \int_a^b fd(\alpha+ c \beta)=\int_a^b fd\alpha + c \int_a^b f d\beta
+          \] 
+        </p>
+
+       </div>
+
+
+       <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Sea \(c\in (a,b)\). Si \(f\in R_\alpha[a,c]\) y \(f\in R_\alpha[c,b]\) entonces 
+          \(f\in R_\alpha[a,b]\) y 
+          \[
+          \int_a^b fd\alpha = \int_a^c f d\alpha + \int_c^b f d\alpha
+          \]
+        </p>
+       </div>
+
+
+
+       <div class="teorema-box"> 
+        <h2 class="number-title"> Teorema </h2>
+        <h3> Integración por partes </h3>
+        <p>
+          Si \(f\in R_\alpha[a,b]\) entonces \(\alpha \in R_f[a,b]\) y además 
+          \[
+          \int_a^b f(x)d\alpha(x)+\int_a^b \alpha(x)df(x)=f(b)\alpha(b)-f(a)\alpha(a)
+          \]
+        </p>
+       </div>
+
+
+
+
+
+       <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Supón que \(f\in R_\alpha[a,b]\) y que \(\alpha:[a,b]\to \mathbb{R}\)
+          es diferenciable con derivada continua en \([a,b]\). Entonces la integral 
+          usual de Riemann, \(\int_a^b f(x)\alpha'(x)dx\) existe y 
+          \[
+          \int_a^b f(x)d\alpha(x)=\int_a^b f(x)\alpha'(x)dx.
+          \]
+        </p>
+
+       </div>
+
+</div>
+</body>
+
