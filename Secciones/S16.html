@@ -236,6 +236,34 @@
        </div>
 
 
+
+
+       <div class="prop-box">
+        <h2 class="number-title"> Proposición </h2>
+        <p>
+          Sean \(f,\alpha:[a,b]\to \mathbb{R}\) funciones acotadas con 
+          \(\alpha\) monótona creciete. 
+        </p>
+        <ol>
+          <li>
+            Si \(Q\) refina a \(P\) entonces 
+            \[
+            \overline{S}(f,Q,\alpha)\leq \overline{S}(f,P,\alpha)
+            \]
+            \[
+            \underline{S}(f,Q,\alpha)\geq  \underline{S}(f,P,\alpha)
+            \]
+          </li>
+          <li>
+            Para cualesquiera particiones \(P,P'\) de \([a,b]\),
+            \[
+            \underline{S}(f,P',\alpha) \leq \overline{S}(f,P,\alpha).
+            \]
+          </li>
+        </ol>
+       </div>
+
+
        <div class="definicion-box">
         <h2 class="number-title"> Definición</h2>
 
@@ -255,7 +283,17 @@
         </p>
         <p>
             Decimos que \(f\) es Riemann-Stieltjes integrable, con respecto a \(\alpha\) si 
-            \(\underline{\int}_a^b fd\alpha=\overline{\int}_a^b fd\alpha\)
+            \(\underline{\int}_a^b fd\alpha=\overline{\int}_a^b fd\alpha\) y definimos 
+            la integral como este número y la denotamos como 
+            \[
+            \int_a^b f d\alpha = \underline{\int}_a^b fd\alpha=\overline{\int}_a^b fd\alpha
+            \]
+
+        </p>
+        <p>
+            Por \(\mathcal{R}_\alpha[a,b]\) denotamos al conjunto de funciones 
+            acotadas \(f:[a,b]\to \mathbb{R}\) que son Riemann-Stieltjes integrables 
+            con respecto a \(\alpha\).
         </p>
        </div>
 
@@ -273,6 +311,16 @@
                 \(f\in R_\alpha[a,b]\).
               </li>
               <li>
+                Existe un número \(I\) tal que, para toda 
+                \(\varepsilon >0\) existe una partición \(P_\varepsilon\) tal que, 
+                para toda partición \(P\) de \([a,b]\) con \(P_\varepsilon \subset P\)
+                se cumple 
+                \[
+                |S(f,P,\alpha, \{t_i\}) - I| < \varepsilon
+                \]
+                para toda elección de puntos \(\{t_i\}\) con \(t_i\in [x_{i-1},x_i]\).
+              </li>
+              <li>
               (Condición de Riemann) 
               <p> 
                   Para toda \(\varepsilon >0\), existe una partición 
@@ -280,17 +328,23 @@
              \[
              \overline{S}(f,P,\alpha)-\underline{S}(f,P,\alpha) < \varepsilon 
              \]
-             para toda partición \(P\) de \([a,b]\) que refina a \(P_\varepsilon\).
+             para toda partición \(P\) de \([a,b]\) con \(P_\varepsilon \subset P\).
               </p>
-              </li>
-              <li>
-                \[
-                \underline{\int_a^b}fd\alpha =
-          \overline{\int_a^b}fd\alpha  
-                \]
               </li>
             </ol>
           </div>
+
+
+
+         <div class="prop-box">
+          <h2 class="number-title"> Proposición </h2>
+          <p>
+            Sea  \(\alpha:[a,b]\to \mathbb{R}\) una función  monótona 
+            creciente. Entonces \(C[a,b]\subseteq \mathcal{R}_\alpha[a,b]\).
+          </p>
+
+         </div>
+
 
       <div class="teorema-box">
         <h2 class="number-title"> Teorema </h2>
@@ -333,6 +387,44 @@
 
 
 
+
+
+
+
+
+       <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Supón que \(f:[a,b]\to \mathbb{R}\) es continua, que \(\alpha:[a,b]\to \mathbb{R}\)
+          es monótona creciente, diferenciable con derivada continua en \([a,b]\). Entonces la integral 
+          usual de Riemann, \(\int_a^b f(x)\alpha'(x)dx\) existe y 
+          \[
+          \int_a^b f(x)d\alpha(x)=\int_a^b f(x)\alpha'(x)dx.
+          \]
+        </p>
+
+       </div>
+
+       <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+            Sea \(\alpha:[a,b]\to \mathbb{R}\) monótona creciente, continua por la derecha 
+            con una cantidad finita de discontinuidades de salto. Supongamos que 
+            \(\{a_i\}_{i=1}^m\) son los puntos de discontinuidad de \(\alpha\).
+        </p>
+        <p>
+            Entonces \(f\in \mathcal{R}_\alpha[a,b]\) si y sólo si 
+            \(f\) es continua por la izquierda en los puntos \(\{a_i\}_{i=1}^m\). Además 
+            en dicho caso 
+            \[
+            \int_a^b f d\alpha =\sum_{i=1}^m f(a_i)(\alpha(a_i)-\alpha(a_i^-))
+            \]
+            donde \(\alpha(a_i^-):=\lim_{x\to a_i^-}\alpha(x)\).
+        </p>
+
+       </div>
+
+
        <div class="teorema-box"> 
         <h2 class="number-title"> Teorema </h2>
         <h3> Integración por partes </h3>
@@ -346,21 +438,113 @@
 
 
 
-
-
-       <div class="teorema-box">
-        <h2 class="number-title"> Teorema </h2>
+       <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
         <p>
-          Supón que \(f\in R_\alpha[a,b]\) y que \(\alpha:[a,b]\to \mathbb{R}\)
-          es diferenciable con derivada continua en \([a,b]\). Entonces la integral 
-          usual de Riemann, \(\int_a^b f(x)\alpha'(x)dx\) existe y 
-          \[
-          \int_a^b f(x)d\alpha(x)=\int_a^b f(x)\alpha'(x)dx.
-          \]
+          Calcula las siguientes integrales. Siempre puedes suponer que 
+          para las funciones dadas, 
+          \(f\in R_\alpha[a,b]\).
+        </p>
+        <ol>
+          <li>
+            \( \int_0^3 x^2 d\lfloor x \rfloor\).
+          </li>
+          <li>
+            \(\int_0^1 x(1-x)dx^3\)
+          </li>
+          <li>
+            \(\int_{-1}^2 (3x-2)d(\lfloor x\rfloor +2x^2)  \).
+          </li>
+          <li>
+            \(\int_{-\pi}^{\pi}\cos(x)d\sen(x)\).
+          </li>
+        </ol>
+        <p>
+          Nota: \(\lfloor x \rfloor\) denota el mayor entero menor o igual a \(x\).
         </p>
 
        </div>
+       
 
+
+       <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(f:[a,b]\to \mathbb{R}\) tal que \(f(a)=0=f(b)\). Supón que 
+          \(f'\) existe y es continua en \([a,b]\) y que \(\int_a^b f^2(x)dx=1\). Prueba:
+          \[
+            \int_a^b xf(x)f'(x)dx=-\frac{1}{2}.
+          \]
+        </p>
+       </div>
+
+
+             <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Evalua:
+        </p>
+        <ol type="i">
+          <li>
+            \(\int_0^1f(x)d\lfloor nx \rfloor\), \(n=1,2,\dots, \) para 
+            \(f:[0,1]\to \mathbb{R}\) continua. Ahora calcula 
+            \[
+            \lim_{n\to \infty}\frac{1}{n}\int_0^1 f(x)dx \lfloor nx \rfloor
+            \]
+            donde \(\lfloor x \rfloor\) denota el mayor entero menor o igual a \(x\).
+          </li>
+          <li>
+            \(\lim_{n\to \infty} \int_0^b e^{-nx}de^{-x}\).
+          </li>
+        </ol>
+
+      </div>
+
+
+
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Si \(f:[a,b]\to \mathbb{R}\) es continua y no negativa y \(\alpha:[a,b]\to \mathbb{R}\) 
+        y es estrictamente creciente y \(\int_a^b fd\alpha =0\) entonces \(f=0\).
+      </p>
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio</h2>
+      <p>
+        Si \(f:[a,b]\to \mathbb{R}\) es continua y \(\int_a^b f(x)g(x)dx=0\) para toda 
+        función continua \(g:[a,b]\to \mathbb{R}\) con \(g(a)=0=g(b)\) entonces 
+        \(f=0\).
+      </p>
+
+    </div>
+
+
+
+       <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <h3> Fórmula de la sumatoria de Euler</h3>
+        <p>
+          Si la función \(f(x)\) tiene una derivada continua en \((a,b)\) entonces 
+          \begin{eqnarray*}
+          \sum_{a< n \leq b}f(n)&=& \int_a^b f(x)dx+\int_a^b f'(x)((x))dx\\
+          &+& f(a)((a))-f(b)((b))
+          \end{eqnarray*}
+          donde \(((x)):=x-\lfloor x \rfloor \).
+        </p>
+        <p>
+          Cuando \(a\) y \(b\) son enteros lo anterior se vuelve
+          \[
+          \sum_{n=a+1}^b f(n)=\int_a^bf(x)dx+ \int_a^b f'(x)(x-\lfloor x \rfloor)dx
+          \]
+        </p>
+        <p>
+          Sugerencia: usa integración por partes.
+        </p>
+       </div>
 </div>
 </body>
 
